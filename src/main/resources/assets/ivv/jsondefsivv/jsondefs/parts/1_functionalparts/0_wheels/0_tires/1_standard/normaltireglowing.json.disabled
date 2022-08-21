@@ -1,0 +1,453 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "mass": 60
+  },
+  "ground": {
+    "isWheel": true,
+    "width": 0.25,
+    "height": 0.875,
+    "motiveFriction": 0.875,
+    "lateralFriction": 0.875,
+    "frictionModifiers": {
+      "snow": -0.275,
+      "ice": -0.475,
+      "dirt": -0.175,
+      "dirt_wet": -0.275,
+      "sand": -0.275,
+      "sand_wet": -0.375,
+      "normal_wet": -0.075,
+      "normal": 0.0
+    }
+  },
+  "parts": [
+    {
+      "isSubPart": true,
+      "pos": [0.005,0.0,0.0],
+      "minValue": 0.4,
+      "maxValue": 0.6,
+      "types": ["generic_ivvrim"]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Standard Wheel",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_whitewall",
+      "name": "Standard Wheel [Whitewall]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_whitewallthin",
+      "name": "Standard Wheel [Thin Whitewall]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_rainbow",
+      "name": "Standard Wheel [Rainbow]",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "tire",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          }
+        ]
+      },
+      {
+        "objectName": "rim",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "mts:wheel_blowout",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "mts:wheel_striking",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_contacted",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:tirescraping",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 32767.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.06,0.0],
+            "offset": 0.2,
+            "clampMax": 0.75
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.01,0.0],
+            "offset": 0.8,
+            "clampMax": 3.5
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:tirerolling",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat",
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 32767.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.04,0.0],
+            "offset": -0.01,
+            "clampMax": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.03,0.0],
+            "offset": 0.2,
+            "clampMax": 3.5
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:tirerollingrain",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat",
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 32767.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.04,0.0],
+            "offset": -0.01,
+            "clampMax": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.03,0.0],
+            "offset": 0.2,
+            "clampMax": 3.5
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "mts:wheel_skidding",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat",
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,0.03,0.0],
+            "offset": 0.3,
+            "absolute": true
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "rain_strength",
+            "axis": [0.0,0.35,0.0],
+            "clampMax": 0.45
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.036,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,-0.004,0.0],
+            "offset": 0.1,
+            "absolute": true
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:tireskidding",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat",
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_skidding",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "rain_strength",
+            "axis": [0.0,0.35,0.0],
+            "clampMax": 0.45
+          },
+          {
+            "animationType": "translation",
+            "variable": "ground_rotation",
+            "axis": [0.0,1.5,0.0],
+            "offset": -0.35,
+            "clampMin": 0.95,
+            "clampMax": 1.65
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_contacted",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "color": "#FFFFFF",
+        "initialVelocity": [0.0,0.15,0.0],
+        "quantity": 4
+      },
+      {
+        "type": "smoke",//drift smoke
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": -0.5,
+            "clampMax": 0.5
+          }
+        ],
+        "color": "#999999",
+        "spawnEveryTick": true,
+        "transparency": 0.3,
+        "toTransparency": 0.0000001,
+        "scale": 2.0,
+        "toScale": 40.0,
+        "pos": [0.0,-0.4375,0.0],
+        "initialVelocity": [0.0,0.15,0.0],
+        "quantity": 4,
+        "duration": 40
+      },
+      {
+        "type": "smoke",//burnout smoke
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_skidding",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": -0.5,
+            "clampMax": 0.5
+          }
+        ],
+        "color": "#999999",
+        "spawnEveryTick": true,
+        "transparency": 0.3,
+        "toTransparency": 0.0000001,
+        "scale": 2.0,
+        "toScale": 40.0,
+        "pos": [0.0,-0.4375,0.0],
+        "initialVelocity": [0.0,1,-2.5],
+        "quantity": 4,
+        "duration": 40
+      },
+      {
+        "type": "break",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_skidding",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": -0.5,
+            "clampMax": 0.5
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#999999",
+        "scale": 0.3,
+        "pos": [0.0,-0.4375,0.0],
+        "initialVelocity": [0.0,1.5,-1.5],
+        "quantity": 4
+      },
+      {
+        "type": "break",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": -0.5,
+            "clampMax": 0.5
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#999999",
+        "scale": 0.3,
+        "pos": [0.0,-0.4375,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "quantity": 4
+      }
+    ]
+  },
+  "prefixFolders": "2_functionalparts/0_wheels/0_tires/1_standard/",
+  "packID": "ivv",
+  "systemName": "normaltire",
+  "classification": "part",
+  "general": {
+    "name": "Standard Wheel",
+    "description": "An average sized tire, with IVLabs Approved grip.",
+    "stackSize": 4,
+    "materials": ["minecraft:wool:15:8","minecraft:iron_ingot:-1:6"]
+  }
+}

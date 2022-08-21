@@ -1,0 +1,74 @@
+{
+  "components": [
+    {
+      "scale": 2.0,
+      "textureXCenter": 32,
+      "textureYCenter": 480,
+      "textureWidth": 58,
+      "textureHeight": 26,
+      "lightUpTexture": true
+    },
+    {
+      "xCenter": 13,
+      "yCenter": 5,
+      "scale": 2.0,
+      "textureXCenter": 1,
+      "textureYCenter": 509,
+      "textureWidth": 2,
+      "textureHeight": 6,
+      "moveComponent": true,
+      "lightUpTexture": true,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [-47.0,0.0,0.0],
+          "clampMin": -47.0,
+          "duration": 3,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeinoutcubic"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "reverseDelay": 3
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gear_1",
+          "axis": [19.55,0.0,0.0],
+          "clampMax": 19.55,
+          "duration": 3,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeinoutcubic"
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-18.475,0.0,0.0],
+          "clampMin": -18.475,
+          "duration": 3,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeinoutcubic"
+        }
+      ]
+    },
+    {
+      "scale": 2.0,
+      "textureXCenter": 480,
+      "textureYCenter": 480,
+      "textureWidth": 64,
+      "textureHeight": 64,
+      "lightUpTexture": true,
+      "overlayTexture": true
+    }
+  ],
+  "general": {
+    "name": "Transmission Indicator [Automatic]",
+    "description": "Displays current gear in R/N/D format.",
+    "stackSize": 64,
+    "materials": ["mts:ivv.gaugebase:0:1","minecraft:redstone:0:1","mts:ivv.needletiny:0:1"]
+  }
+}

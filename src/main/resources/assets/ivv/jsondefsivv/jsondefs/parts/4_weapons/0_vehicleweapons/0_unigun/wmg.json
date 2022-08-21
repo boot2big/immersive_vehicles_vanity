@@ -1,0 +1,163 @@
+{
+  "generic": {
+    "type": "generic_licenseplate_us",
+    "width": 0.175,
+    "height": 0.175
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.0,2.5E-5],
+      "minValue": 0.2,
+      "maxValue": 1.0,
+      "types": ["generic_licenseplate_us","generic_licenseplate_euro"]
+    },
+    {
+      "pos": [-0.625,0.0,0.0],
+      "rot": [0.0,0.0,0.0],
+      "minValue": 1.0,
+      "maxValue": 100.0,
+      "types": ["gun_unigun_rl"]
+    },
+    {
+      "pos": [0.625,0.0,0.0],
+      "rot": [0.0,0.0,0.0],
+      "minValue": 1.0,
+      "maxValue": 100.0,
+      "types": ["gun_unigun_mg"]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "wmg",
+      "textureName": "wmg",
+      "name": "Weapon Mounting Gear",
+      "description": "Standard",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_flat",
+      "modelName": "wmg_flat",
+      "textureName": "wmg",
+      "name": "Weapon Mounting Gear",
+      "description": "Solid Bar",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_invis",
+      "modelName": "wmg_invis",
+      "textureName": "wmg",
+      "name": "Weapon Mounting Gear",
+      "description": "Concealed",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_short",
+      "modelName": "wmg_short",
+      "textureName": "wmg",
+      "name": "Weapon Mounting Gear",
+      "description": "Miniature",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_short",
+      "modelName": "wmg_short",
+      "textureName": "wmg",
+      "name": "Weapon Mounting Gear",
+      "description": "Miniature",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_supershort",
+      "modelName": "wmg_supershort",
+      "textureName": "wmg",
+      "name": "Weapon Mounting Gear",
+      "description": "Miniature x2",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "mg",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_3",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "rocketlauncher",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_2",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "rocket1",
+        "applyAfter": "rocketlauncher",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count_1",
+            "clampMin": 1,
+            "clampMax": 20
+          }
+        ]
+      },
+      {
+        "objectName": "rocket2",
+        "applyAfter": "rocketlauncher",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count_1",
+            "clampMin": 2,
+            "clampMax": 20
+          }
+        ]
+      },
+      {
+        "objectName": "rocket3",
+        "applyAfter": "rocketlauncher",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count_1",
+            "clampMin": 3,
+            "clampMax": 20
+          }
+        ]
+      },
+      {
+        "objectName": "rocket4",
+        "applyAfter": "rocketlauncher",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count_1",
+            "clampMin": 4,
+            "clampMax": 20
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Weaponized Mounting Gear",
+    "description": "Why complicate things by having a seperate gun and car, when you could make the car a gun?",
+    "stackSize": 64,
+    "health": 100,
+    "materials": ["mts:ivv.tcalloy:0:3"]
+  }
+}

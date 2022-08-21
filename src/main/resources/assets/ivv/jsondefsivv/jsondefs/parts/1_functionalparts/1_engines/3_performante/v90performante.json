@@ -1,0 +1,408 @@
+{
+  "generic": {
+    "type": "engine_car",
+    "mass": 240
+  },
+  "engine": {
+    "isAutomatic": true,
+    "engineWearFactor": 0.875,
+    "engineWinddownRate": 100,
+    "starterPower": 25,
+    "shiftSpeed": 5,
+    "clutchTime": 3,
+    "revResistance": 8,
+    "maxRPM": 8900,
+    "maxSafeRPM": 8300,
+    "revlimitRPM": 8250,
+    "revlimitBounce": 7,
+    "idleRPM": 900,
+    "startRPM": 600,
+    "stallRPM": 585,
+    "fuelConsumption": 0.75,
+    "heatingCoefficient": 0.6,
+    "coolingCoefficient": 2.0,
+    "gearRatios": [-3.25,0.0,3.75,2.5,1.25,0.85,0.6],
+    "upShiftRPM": [0,0,6450,6600,6450,6300,6150],
+    "downShiftRPM": [0,0,3400,3500,3600,3700,3800],
+    "fuelType": "gasoline",
+    "superchargerFuelConsumption": 1.5,
+    "superchargerEfficiency": 1.0,
+    "isCrankingNotPitched": true
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Performante V10 Engine [§9Automatic§r]",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "sounds": [
+      {
+        "name": "ivv:v90performante_starting",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:v90performante_stopping",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running"
+          }
+        ]
+      },
+      {
+        "name": "ivv:v90performante_sputter",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionautogrinding",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionautoselectup",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_gear",
+            "clampMin": 1.0,
+            "clampMax": 60.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionautoselectdown",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_reversed",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionautoshiftup",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutch_upshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 2
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionautoshiftdown",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutch_downshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 2
+          }
+        ]
+      },
+      {
+        "name": "ivv:enginehourrattle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_hours",
+            "clampMin": 150.0,
+            "clampMax": 999999.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_hours",
+            "axis": [0.0,0.0045,0.0],
+            "offset": -0.675,
+            "clampMax": 0.675
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,-0.4,0.0],
+            "duration": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.1
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,0.8,0.0],
+            "offset": 0.45
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:crankperformante5start",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_starter",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:crankperformante5",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_starter",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 11
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.25,0.0],
+            "offset": 1.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.0,0.0],
+            "offset": 1.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:crankperformante5stop",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_starter"
+          }
+        ]
+      },
+      {
+        "name": "ivv:enginecoolingfan",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 69.0,
+            "clampMax": 1000.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_temp",
+            "axis": [0.0,0.375,0.0],
+            "offset": -25.875,
+            "clampMin": 0.0,
+            "clampMax": 0.375
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_temp",
+            "axis": [0.0,1,0.0],
+            "offset": -69,
+            "clampMin": 0.0,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:v10performanteidling",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,-0.5250000357627869,0.0],
+            "offset": 0.725
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,1.7000000476837158,0.0],
+            "offset": 0.7
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:v10performanteload",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.7,0.0],
+            "offset": -0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,2.200000047683716,0.0],
+            "offset": -0.2
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.1,0.0],
+            "offset": -0.1
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,2.0999999046325684,0.0],
+            "offset": 1.75
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 115.556,
+            "clampMax": 999.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "scale": 2.5,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 121.111,
+            "clampMax": 999.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_oilleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "color": "FF0000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_fuelleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "prefixFolders": "1_functionalparts/1_engines/3_performante/",
+  "packID": "ivv",
+  "systemName": "v90performante",
+  "classification": "part",
+  "general": {
+    "name": "Performante V10 Engine §9(Automatic)",
+    "repairMaterials": ["mts:ivv.tape:0:1"],
+    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:10","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxauto:0:1"]
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "components": [
+    {
+      "scale": 2.0,
+      "textureXCenter": 24,
+      "textureYCenter": 1000,
+      "textureWidth": 16,
+      "textureHeight": 16,
+      "lightUpTexture": true
+    },
+    {
+      "scale": 2.0,
+      "textureXCenter": 24,
+      "textureYCenter": 1000,
+      "textureWidth": 16,
+      "textureHeight": 16,
+      "lightUpTexture": true,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_isautomatic_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [0.0,-32.0,0.0],
+          "duration": 3,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeinoutcubic"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gear_1",
+          "axis": [0.0,-16.0,0.0],
+          "clampMin": -16.0,
+          "duration": 3,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeinoutcubic"
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [0.0,16.0,0.0],
+          "clampMax": 16.0,
+          "duration": 3,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeinoutcubic"
+        }
+      ]
+    },
+    {
+      "scale": 2.0,
+      "textureXCenter": 8,
+      "textureYCenter": 984,
+      "textureWidth": 16,
+      "textureHeight": 16,
+      "lightUpTexture": true,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_isautomatic_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gear_1",
+          "axis": [0.0,-16.0,0.0],
+          "clampMin": -192.0,
+          "clampMax": 32.0
+        }
+      ]
+    },
+    {
+      "scale": 2.0,
+      "textureXCenter": 80,
+      "textureYCenter": 688,
+      "textureWidth": 32,
+      "textureHeight": 32,
+      "lightUpTexture": true,
+      "overlayTexture": true
+    }
+  ],
+  "general": {
+    "name": "Transmission Indicator [Sequential]",
+    "description": "Displays current gear depending on the gearbox type.\nAutomatic uses PRND\nManual uses sequential numbers",
+    "stackSize": 64,
+    "materials": ["mts:ivv.gaugebase:0:1","minecraft:redstone:0:3"]
+  }
+}
