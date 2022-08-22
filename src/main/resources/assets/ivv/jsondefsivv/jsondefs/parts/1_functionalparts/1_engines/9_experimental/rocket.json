@@ -4,26 +4,24 @@
     "mass": 135
   },
   "engine": {
-    "starterPower": 70,
+    "type": "rocket",
+    "rocketFuel": 1400,
     "shiftSpeed": 50,
-    "revResistance": 1,
-    "engineWinddownRate": 1000,
-    "engineWearFactor": 0.875,
-    "maxRPM": 32500,
-    "maxSafeRPM": 33000,
-    "idleRPM": 2300,
-    "startRPM": 800,
-    "stallRPM": 1495,
+    "revResistance": 6,
+    "maxRPM": 12500,
+    "maxSafeRPM": 12500,
+    "idleRPM": 12500,
+    "startRPM": 4000,
+    "revlimitRPM": -1,
+    "revlimitBounce": 1,
+    "stallRPM": 2000,
+    "engineWinddownRate": 75,
+    "engineWearFactor": 4,
     "fuelConsumption": 2.0,
-    "heatingCoefficient": 2,
-    "coolingCoefficient": 2,
-    "jetPowerFactor": 16.0,
-    "bypassRatio": 32.0,
-    "propellerRatio": 1.0,
+    "jetPowerFactor": 2.0,
+    "bypassRatio": 2.0,
     "gearRatios": [-1.0,0.0,1.0],
     "fuelType": "avgas",
-    "superchargerFuelConsumption": -4.0,
-    "superchargerEfficiency": -0.65,
     "isCrankingNotPitched": true
   },
   "definitions": [
@@ -34,6 +32,7 @@
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:rocket_starting",
@@ -132,100 +131,134 @@
     "particles": [
       {
         "type": "smoke",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_1_2_cam",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
         "spawnEveryTick": true,
-        "color": "#000000",
+        "quantity": 4,
+        "duration": 40,
         "transparency": 0.7,
         "toTransparency": 1.0E-7,
         "scale": 4.0,
         "toScale": 0.1,
+        "color": "000000",
         "pos": [0.0,0.21875,-0.125],
         "initialVelocity": [0.0,0.0,-3.0],
         "movementVelocity": [0.0,0.0,0.0],
         "terminalVelocity": [9.0,9.0,9.0],
-        "quantity": 4,
-        "duration": 40
-      },
-      {
-        "type": "flame",
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "visibility",
+            "variable": "3_6_3_cycle",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "visibility",
             "variable": "engine_rpm_percent",
-            "clampMin": 0.2,
-            "clampMax": 1.0
+            "clampMin": 0.0,
+            "clampMax": 0.5
           }
-        ],
+        ]
+      },
+      {
+        "type": "flame",
         "spawnEveryTick": true,
+        "quantity": 4,
+        "duration": 40,
         "transparency": 1.0,
         "toTransparency": 1.0E-7,
         "scale": 2.5,
         "toScale": 0.1,
         "pos": [0.0,0.21875,-0.125],
         "initialVelocity": [0.0,0.0,-3.0],
-        "quantity": 4,
-        "duration": 40
-      },
-      {
-        "type": "smoke",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_piston_2_2_cam",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "engine_powered",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "visibility",
+            "variable": "3_6_3_cycle",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_rpm_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.5
           }
-        ],
+        ]
+      },
+      {
+        "type": "smoke",
         "spawnEveryTick": true,
-        "color": "#000000",
+        "quantity": 4,
+        "duration": 40,
         "transparency": 0.7,
         "toTransparency": 1.0E-7,
         "scale": 4.0,
         "toScale": 0.1,
+        "color": "000000",
         "pos": [0.0,0.21875,-0.125],
         "initialVelocity": [0.0,0.0,-3.0],
         "movementVelocity": [0.0,0.0,0.0],
         "terminalVelocity": [9.0,9.0,9.0],
-        "quantity": 4,
-        "duration": 40
-      },
-      {
-        "type": "flame",
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "visibility",
             "variable": "engine_rpm_percent",
-            "clampMin": 0.2,
+            "clampMin": 0.5,
             "clampMax": 1.0
           }
-        ],
+        ]
+      },
+      {
+        "type": "flame",
         "spawnEveryTick": true,
+        "quantity": 4,
+        "duration": 40,
         "transparency": 0.7,
         "toTransparency": 1.0E-7,
         "scale": 2.0,
         "toScale": 0.1,
         "pos": [0.0,0.21875,-0.125],
         "initialVelocity": [0.0,0.2,-4.0],
-        "quantity": 4,
-        "duration": 40
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_rpm_percent",
+            "clampMin": 0.5,
+            "clampMax": 1.0
+          }
+        ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/1_engines/9_experimental/",
-  "packID": "ivv",
-  "systemName": "rocket",
-  "classification": "part",
   "general": {
     "name": "Rocket Engine",
     "description": "IVLabs is not responsible for fires caused by overdriving the rocket engine.\nWe advise using half throttle for any acceleration, as using full throttle risks overheating and explosions.\nAlso, this is a BOOSTER rocket, and does not go in any vehicles normally.\nIt goes on the side, back or top of a vehicle to provide extra power.",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.tcalloy:0:6","mts:ivv.turbo:0:4","minecraft:fire_charge:0:6"]
+    "health": 100,
+    "materials": ["mts:ivv.tcalloy:0:6","mts:ivv.turbo:0:4","minecraft:fire_charge:0:6"],
+    "repairMaterials": ["mts:ivv.tape:0:1"]
   }
 }
