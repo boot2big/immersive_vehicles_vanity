@@ -1,3 +1,4 @@
+
       {
         "name": "ivv:missilealert",
         "activeAnimations": [
@@ -10,25 +11,71 @@
         ]
       },
       {
-        "name": "ivv:missilealertloop",
+        "name": "ivv:missilealertbuzz",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "missile_incoming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:missilealertlooplow",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "missile_incoming",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "forwardsDelay": 16
-          }
-        ],
-        "pitchAnimations": [
+            "forwardsDelay": 10
+          },
           {
-            "animationType": "translation",
+            "animationType": "visibility",
             "variable": "missile_1_distance",
-            "axis": [0,-0.015625,0],
-            "clampMin": 1.0,
-            "clampMax": 1.25,
-            "offset": 1.25
+            "clampMin": 72.0,
+            "clampMax": 120
           }
         ],
         "looping": true
       },
+      {
+        "name": "ivv:missilealertloopmed",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "missile_incoming",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "missile_1_distance",
+            "clampMin": 16.0,
+            "clampMax": 48
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:missilealertloophi",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "missile_incoming",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "missile_1_distance",
+            "clampMin": 2,
+            "clampMax": 24
+          }
+        ],
+        "looping": true
+      }
