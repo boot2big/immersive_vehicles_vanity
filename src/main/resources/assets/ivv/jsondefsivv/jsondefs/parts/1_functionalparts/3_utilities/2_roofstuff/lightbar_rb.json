@@ -2,8 +2,7 @@
   "generic": {
     "type": "generic_lightbar",
     "width": 0.5,
-    "height": 0.25,
-    "hasRunningLights": true
+    "height": 0.25
   },
   "definitions": [
     {
@@ -18,12 +17,12 @@
         "objectName": "white&RunningLight_fefefe_fffff_010",
         "emissive": true,
         "isElectric": true,
-        "color": "#fefefe",
+        "color": "FEFEFE",
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "axis": [0.0,1.0,0.0],
-            "variable": "running_light"
+            "variable": "running_light",
+            "axis": [0.0,1.0,0.0]
           }
         ]
       },
@@ -31,7 +30,7 @@
         "objectName": "blue&EmergencyLight_078adb_1B06C0_010",
         "emissive": true,
         "isElectric": true,
-        "color": "#078adb",
+        "color": "078ADB",
         "brightnessAnimations": [
           {
             "animationType": "visibility",
@@ -41,8 +40,8 @@
           },
           {
             "animationType": "translation",
-            "axis": [0.0,1.0,0.0],
-            "variable": "0_10_10_cycle"
+            "variable": "0_10_10_cycle",
+            "axis": [0.0,1.0,0.0]
           }
         ]
       },
@@ -50,7 +49,7 @@
         "objectName": "red&EmergencyLight_e61502_D81B_010",
         "emissive": true,
         "isElectric": true,
-        "color": "#e61502",
+        "color": "E61502",
         "brightnessAnimations": [
           {
             "animationType": "visibility",
@@ -60,21 +59,76 @@
           },
           {
             "animationType": "translation",
-            "axis": [0.0,1.0,0.0],
-            "variable": "10_10_0_cycle"
+            "variable": "10_10_0_cycle",
+            "axis": [0.0,1.0,0.0]
           }
         ]
       }
     ],
-    "customVariables": ["SIREN", "EMERLTS"],
+    "customVariables": ["SIREN","EMERLTS"],
     "sounds": [
       {
         "name": "ivv:sirenslow",
         "activeAnimations": [
           {
-            "animationType": "inhibitor",
+            "animationType": "visibility",
             "variable": "electric_power",
-            "clampMax": 3.0
+            "clampMin": 3.0,
+            "clampMax": 16.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "EMERLTS",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "SIREN",
+            "clampMin": 0,
+            "clampMax": 0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.025,0.0],
+            "clampMin": -0.2,
+            "clampMax": 1.8
+          },
+          {
+            "animationType": "translation",
+            "variable": "horn",
+            "axis": [0.0,-0.5,0.0],
+            "offset": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.1,0.0],
+            "clampMin": -0.2,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:sirenslow_fire",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "electric_power",
+            "clampMin": 3.0,
+            "clampMax": 16.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "EMERLTS",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -90,6 +144,12 @@
             "axis": [0.0,0.025,0.0],
             "clampMin": -0.2,
             "clampMax": 1.8
+          },
+          {
+            "animationType": "translation",
+            "variable": "horn",
+            "axis": [0.0,-0.5,0.0],
+            "offset": 0.5
           }
         ],
         "pitchAnimations": [
@@ -102,17 +162,49 @@
           }
         ],
         "looping": true
+      },
+      {
+        "name": "ivv:hornemergency",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "electric_power",
+            "clampMin": 3.0,
+            "clampMax": 16.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "EMERLTS",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "horn",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 4
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "horn",
+            "axis": [0.0,1.0,0.0],
+            "duration": 3,
+            "forwardsDelay": -2
+          }
+        ],
+        "looping": true
       }
     ],
-    "particles": []
+    "particles": [],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/2_utilities/2_roofstuff/",
-  "packID": "ivv",
-  "systemName": "lightbar_rb",
-  "classification": "part",
   "general": {
     "name": "Police Lightbar",
     "description": "Comes with a working siren!",
+    "health": 100,
     "materials": ["minecraft:iron_ingot:0:2","minecraft:redstone_lamp:0:1","minecraft:glass:0:1"]
   }
 }

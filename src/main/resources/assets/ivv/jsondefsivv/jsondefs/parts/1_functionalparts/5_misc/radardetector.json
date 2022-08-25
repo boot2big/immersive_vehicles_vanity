@@ -1,7 +1,6 @@
 {
   "generic": {
     "type": "generic_radar",
-    "disableMirroring": true,
     "canBeRemovedByHand": true,
     "width": 0.25,
     "height": 0.25
@@ -14,7 +13,8 @@
     }
   ],
   "rendering": {
-  "sounds":[
+    "lightObjects": [],
+    "sounds": [
       {
         "name": "ivv:missilealert",
         "activeAnimations": [
@@ -24,8 +24,19 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
+        ]
+      },
+      {
+        "name": "ivv:missilealertbuzz",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "missile_incoming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
         ],
-        "pos": [0.02734,2.65625,-0.83203]
+        "looping": true
       },
       {
         "name": "ivv:missilealertlooplow",
@@ -40,12 +51,11 @@
           {
             "animationType": "visibility",
             "variable": "missile_1_distance",
-            "clampMin": 24.0,
-            "clampMax": 9999
+            "clampMin": 72.0,
+            "clampMax": 120
           }
         ],
-        "looping": true,
-        "pos": [0.02734,2.65625,-0.83203]
+        "looping": true
       },
       {
         "name": "ivv:missilealertloopmed",
@@ -60,12 +70,11 @@
           {
             "animationType": "visibility",
             "variable": "missile_1_distance",
-            "clampMin": 16,
-            "clampMax": 24
+            "clampMin": 16.0,
+            "clampMax": 48
           }
         ],
-        "looping": true,
-        "pos": [0.02734,2.65625,-0.83203]
+        "looping": true
       },
       {
         "name": "ivv:missilealertloophi",
@@ -80,19 +89,21 @@
           {
             "animationType": "visibility",
             "variable": "missile_1_distance",
-            "clampMin": 0,
-            "clampMax": 16
+            "clampMin": 2,
+            "clampMax": 24
           }
         ],
-        "looping": true,
-        "pos": [0.02734,2.65625,-0.83203]
+        "looping": true
       }
-    ]
+    ],
+    "particles": [],
+    "modelType": "obj"
   },
   "general": {
     "name": "PTSD Machine",
     "description": "Can be placed in non-weaponized IVV vehicles.",
     "stackSize": 64,
+    "health": 100,
     "materials": ["minecraft:iron_ingot:0:4","minecraft:redstone_dust:0:2"]
   }
 }
