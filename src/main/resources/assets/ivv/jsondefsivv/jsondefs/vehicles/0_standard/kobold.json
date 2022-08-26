@@ -1,5 +1,7 @@
 {
   "motorized": {
+    "hasHeadlights": true,
+    "hasTurnSignals": true,
     "hasOpenTop": true,
     "emptyMass": 400,
     "fuelCapacity": 8000,
@@ -18,33 +20,42 @@
       "turnsWithSteer": true,
       "maxValue": 0.875,
       "defaultPart": "ivv:bikewheel",
-      "applyAfter": "frontforksuspension",
-      "types": ["ground_wheel_motorcycle"]
+      "types": ["ground_wheel_motorcycle"],
+      "applyAfter": "frontforksuspension"
     },
     {
       "pos": [0.0,-0.02344,-0.60156],
       "maxValue": 0.875,
       "defaultPart": "ivv:bikewheel",
-      "applyAfter": "rearfork",
-      "types": ["ground_wheel_motorcycle"]
+      "types": ["ground_wheel_motorcycle"],
+      "applyAfter": "rearfork"
     },
     {
       "pos": [0.0,0.6875,-0.2875],
-      "rot": [20,0.0,0.0],
+      "rot": [20.0,0.0,0.0],
       "isController": true,
       "isPermanent": true,
       "defaultPart": "mts:invisible_seat",
-      "types": ["seat"],
-      "interactableVariables": [
-        ["stand"]
-      ]
+      "types": ["seat"]
     },
     {
-      "pos": [0.0,0.18750,0.03125],
+      "pos": [0.0,0.1875,0.03125],
       "maxValue": 1.0,
       "defaultPart": "ivv:v4smallfry",
       "types": ["engine_car"],
       "linkedParts": [2]
+    },
+    {
+      "pos": [0.0,0.94566,0.45503],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_ivvspoiler_1"]
+    },
+    {
+      "pos": [0.0,0.43363,0.7754],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_ivvbumper_1"]
     }
   ],
   "collisionGroups": [
@@ -82,7 +93,7 @@
   "instruments": [
     {
       "pos": [0.04395,0.90248,0.41429],
-      "rot": [45,0.0,0.0],
+      "rot": [45.0,0.0,0.0],
       "scale": 0.005,
       "hudX": 120,
       "hudY": 15,
@@ -99,23 +110,23 @@
     },
     {
       "pos": [-0.04395,0.90248,0.41429],
-      "rot": [45,0.0,0.0],
+      "rot": [45.0,0.0,0.0],
       "scale": 0.005,
       "hudX": 200,
       "hudY": 15,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:classicmphround",
       "applyAfter": "frontfork",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "test"
-          }
-        ]
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "test"
+        }
+      ]
     },
     {
       "pos": [0.0,0.90248,0.41429],
-      "rot": [45,0.0,0.0],
+      "rot": [45.0,0.0,0.0],
       "scale": 0.005,
       "hudX": 280,
       "hudY": 15,
@@ -281,14 +292,14 @@
           "animationType": "translation",
           "variable": "4_8_4_cycle",
           "axis": [0.0,22.5,0.0],
-          "duration": 8,
-          "offset": -11.25
+          "offset": -11.25,
+          "duration": 8
         },
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.125,0,0.0],
-          "clampMax": 1
+          "axis": [0.125,0.0,0.0],
+          "clampMax": 1.0
         }
       ]
     },
@@ -319,7 +330,7 @@
             "animationType": "rotation",
             "variable": "rearBodyroll",
             "centerPoint": [0.0,0.07031,-0.13281],
-            "axis": [5,0,0],
+            "axis": [5.0,0.0,0.0],
             "duration": 10
           }
         ]
@@ -356,7 +367,7 @@
             "animationType": "rotation",
             "variable": "throttle",
             "centerPoint": [0.0,0.90398,0.37272],
-            "axis": [22.5,0,0]
+            "axis": [22.5,0.0,0.0]
           }
         ]
       },
@@ -368,7 +379,7 @@
             "animationType": "rotation",
             "variable": "engine_gearshift_0",
             "centerPoint": [0.0,0.90398,0.37272],
-            "axis": [22.5,0,0]
+            "axis": [22.5,0.0,0.0]
           }
         ]
       },
@@ -380,7 +391,7 @@
             "animationType": "rotation",
             "variable": "brake",
             "centerPoint": [0.0,0.90398,0.37272],
-            "axis": [22.5,0,0]
+            "axis": [22.5,0.0,0.0]
           }
         ]
       },
@@ -390,7 +401,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "test",
+            "variable": "part_present_6",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -402,14 +413,98 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "test",
+            "variable": "part_present_5",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
         ]
       }
     ],
-    "lightObjects": [],
+    "lightObjects": [
+      {
+        "objectName": "turnsignalright",
+        "emissive": true,
+        "isElectric": true,
+        "color": "D47719",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "right_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 5,
+            "forwardsDelay": -3
+          },
+          {
+            "animationType": "translation",
+            "variable": "3_6_3_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          }
+        ]
+      },
+      {
+        "objectName": "brakelights",
+        "emissive": true,
+        "isElectric": true,
+        "color": "C4290E",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          },
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,0.5,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          }
+        ]
+      },
+      {
+        "objectName": "reverselights",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFF3CF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_reversed_1",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalleft",
+        "emissive": true,
+        "isElectric": true,
+        "color": "D47719",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "left_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 5,
+            "forwardsDelay": -3
+          },
+          {
+            "animationType": "translation",
+            "variable": "3_6_3_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          }
+        ]
+      }
+    ],
     "sounds": [],
     "particles": [
       {
@@ -420,7 +515,7 @@
         "scale": 0.8,
         "color": "D9D9D9",
         "pos": [-0.12109,0.52734,-0.82812],
-        "initialVelocity": [0,0.25,-1],
+        "initialVelocity": [0.0,0.25,-1.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -438,7 +533,7 @@
         "scale": 0.8,
         "color": "D9D9D9",
         "pos": [-0.12109,0.52734,-0.82812],
-        "initialVelocity": [0,0.25,-1],
+        "initialVelocity": [0.0,0.25,-1.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -454,7 +549,7 @@
         "scale": 1.5,
         "color": "000000",
         "pos": [-0.12109,0.52734,-0.82812],
-        "initialVelocity": [0,0.25,-1],
+        "initialVelocity": [0.0,0.25,-1.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
