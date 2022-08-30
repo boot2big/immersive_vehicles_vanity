@@ -13,9 +13,9 @@
     "overSteerAccel": 1.0,
     "overSteerDecel": -2.0,
     "axleRatio": 1.5,
-    "brakingFactor": 4.6,
+    "brakingFactor": 3,
     "maxTiltAngle": -2.0,
-    "dragCoefficient": 0.001,
+    "dragCoefficient": 0.0001,
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
     "panelTexture": "ivv:textures/guis/ivlabspanel.png"
   },
@@ -36,6 +36,7 @@
     },
     {
       "pos": [-1.125,-0.06255,-0.18742],
+      "rot": [0.0,0.0,0.0],
       "isMirrored": true,
       "minValue": 0.75,
       "maxValue": 0.875,
@@ -60,6 +61,7 @@
     },
     {
       "pos": [-1.125,-0.06255,3.56258],
+      "rot": [0.0,0.0,0.0],
       "turnsWithSteer": true,
       "isMirrored": true,
       "minValue": 0.75,
@@ -211,7 +213,25 @@
       "pos": [0.0,0.0275,5.1375],
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
-      "types": ["generic_licenseplate_euro","generic_licenseplate_us","generic_bullbar"]
+      "types": ["generic_licenseplate_euro","generic_licenseplate_us"]
+    },
+    {
+      "pos": [0.25,0.78438,-1.39844],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_ivvspoiler_1"]
+    },
+    {
+      "pos": [-0.25,0.78438,-1.39844],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_ivvspoiler_2"]
+    },
+    {
+      "pos": [0.0,-0.1875,5.05156],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_ivvbumper_1"]
     }
   ],
   "collisionGroups": [
@@ -730,7 +750,7 @@
           "height": 0.25,
           "variableName": "hornalt",
           "variableType": "button",
-          "variableValue": 1
+          "variableValue": 1.0
         }
       ],
       "animations": [
@@ -852,31 +872,43 @@
           "animationType": "translation",
           "variable": "horn",
           "axis": [0.0,0.0,1.0],
-          "reverseDelay": 20
+          "forwardsDelay": 0,
+          "reverseDelay": 10
         },
         {
           "animationType": "translation",
           "variable": "ground_onground_1",
           "axis": [1.0,0.0,0.0],
-          "reverseDelay": 5
+          "forwardsDelay": 100,
+          "reverseDelay": 8
         },
         {
           "animationType": "translation",
           "variable": "ground_onground_2",
           "axis": [1.0,0.0,0.0],
-          "reverseDelay": 5
+          "forwardsDelay": 100,
+          "reverseDelay": 8
         },
         {
           "animationType": "translation",
           "variable": "ground_onground_3",
           "axis": [1.0,0.0,0.0],
-          "reverseDelay": 5
+          "forwardsDelay": 100,
+          "reverseDelay": 8
         },
         {
           "animationType": "translation",
           "variable": "ground_onground_4",
           "axis": [1.0,0.0,0.0],
-          "reverseDelay": 5
+          "forwardsDelay": 100,
+          "reverseDelay": 8
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_running_1",
+          "axis": [1.0,0.0,0.0],
+          "forwardsDelay": 10,
+          "reverseDelay": 10
         }
       ]
     },
@@ -886,7 +918,7 @@
         {
           "animationType": "translation",
           "variable": "jumping",
-          "axis": [0.0,0.0,-50.0]
+          "axis": [0.0,0.0,-50]
         }
       ]
     },
@@ -1353,6 +1385,16 @@
       "variable": "brakingFactor",
       "animations": [
         {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0,0.0075,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "brakingFactor",
+      "animations": [
+        {
           "animationType": "inhibitor",
           "variable": "p_brake",
           "clampMin": 1.0,
@@ -1790,6 +1832,39 @@
         ]
       },
       {
+        "objectName": "spoiler1",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_21",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "spoiler2",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_22",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "frontbumper",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_23",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
         "objectName": "screen_off",
         "animations": [
           {
@@ -1873,6 +1948,10 @@
             "variable": "gun_active_3",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired_3"
           }
         ]
       },
@@ -1894,6 +1973,11 @@
             "variable": "gun_active_2",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired_2",
+            "reverseDelay": 10
           }
         ]
       },
@@ -1914,6 +1998,17 @@
           {
             "animationType": "visibility",
             "variable": "hl3_or_gtavi_released_yet",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "screen3",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "test",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -1963,6 +2058,11 @@
             "reverseEasing": "easeinback",
             "forwardsStartSound": "ivv:dooropen1",
             "reverseEndSound": "ivv:doorclose1"
+          },
+          {
+            "animationType": "translation",
+            "variable": "jumping",
+            "axis": [0.0,1.0,0.0]
           }
         ]
       },
@@ -2086,6 +2186,91 @@
             "variable": "steeringauto",
             "centerPoint": [0.59375,0.44012,2.41195],
             "axis": [0.0,-2.75,15.375]
+          }
+        ]
+      },
+      {
+        "objectName": "slotarm1",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_magneto_1",
+            "axis": [0.0,0,-0.09375],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeinback"
+          }
+        ]
+      },
+      {
+        "objectName": "slotarm2",
+        "applyAfter": "slotarm1",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_magneto_1",
+            "axis": [0.0,0,-0.09375],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeinback"
+          }
+        ]
+      },
+      {
+        "objectName": "slotarm3",
+        "applyAfter": "slotarm2",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_magneto_1",
+            "axis": [0.0,0,-0.09375],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeinback"
+          }
+        ]
+      },
+      {
+        "objectName": "slotlight1",
+        "applyAfter": "slotarm3",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "horn",
+            "axis": [0.0,0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "slotlight2",
+        "applyAfter": "slotarm3",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "horn",
+            "axis": [0.0,0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "slotlight3",
+        "applyAfter": "slotarm3",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "horn",
+            "axis": [0.0,0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "slotbutton2",
+        "applyAfter": "slotarm3",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "horn",
+            "axis": [0.0,0,0.0125]
           }
         ]
       },
@@ -2255,6 +2440,170 @@
         "color": "FFFFFF"
       },
       {
+        "objectName": "slotlight1",
+        "emissive": true,
+        "color": "BA7C35",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "jumping",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "slotlight2",
+        "emissive": true,
+        "color": "BA7C35",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "jumping",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "slotlight3",
+        "emissive": true,
+        "color": "BA7C35",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "jumping",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "healthbar2",
+        "emissive": true,
+        "color": "BA7C35",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.99
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.9
+          },
+          {
+            "animationType": "visibility",
+            "variable": "3_6_3_cycle",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "healthbar3",
+        "emissive": true,
+        "color": "BA7C35",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.8
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.7
+          },
+          {
+            "animationType": "visibility",
+            "variable": "3_6_3_cycle",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "healthbar4",
+        "emissive": true,
+        "color": "BA7C35",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.6
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "3_6_3_cycle",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "healthbar5",
+        "emissive": true,
+        "color": "BA7C35",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.4
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.3
+          },
+          {
+            "animationType": "visibility",
+            "variable": "3_6_3_cycle",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "healthbar6",
+        "emissive": true,
+        "color": "BA7C35",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.2
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.1
+          },
+          {
+            "animationType": "visibility",
+            "variable": "3_6_3_cycle",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
         "objectName": "speaker1",
         "emissive": true,
         "color": "F02805",
@@ -2264,12 +2613,6 @@
             "variable": "engine_running_1",
             "axis": [0.0,1.0,0.0],
             "duration": 5
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
           }
         ]
       },
@@ -2284,12 +2627,6 @@
             "axis": [0.0,1.0,0.0],
             "duration": 5
           }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
         ]
       },
       {
@@ -2302,12 +2639,6 @@
             "variable": "engine_running_1",
             "axis": [0.0,1.0,0.0],
             "duration": 5
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
           }
         ]
       },
@@ -2459,15 +2790,13 @@
             "animationType": "translation",
             "variable": "brake",
             "axis": [0.0,1.0,0.0],
-            "duration": 5,
-            "forwardsDelay": -3
+            "duration": 1
           },
           {
             "animationType": "translation",
             "variable": "running_light",
             "axis": [0.0,0.375,0.0],
-            "duration": 5,
-            "forwardsDelay": -3
+            "duration": 2
           }
         ],
         "blendableComponents": [
@@ -2498,6 +2827,150 @@
         ]
       },
       {
+        "objectName": "turnsignalleft0",
+        "emissive": true,
+        "isElectric": true,
+        "color": "F07305",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "left_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "6_8_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1,
+            "forwardsDelay": 0
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.59375,0.375,-1.5467],
+            "axis": [0.0,0.0,-1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          },
+          {
+            "pos": [0.59375,0.375,-1.5467],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalleft1",
+        "emissive": true,
+        "isElectric": true,
+        "color": "F07305",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "left_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "6_8_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1,
+            "forwardsDelay": 1
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.71875,0.375,-1.5467],
+            "axis": [0.0,0.0,-1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          },
+          {
+            "pos": [0.71875,0.375,-1.5467],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalleft2",
+        "emissive": true,
+        "isElectric": true,
+        "color": "F07305",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "left_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "6_8_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1,
+            "forwardsDelay": 2
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.84375,0.375,-1.5467],
+            "axis": [0.0,0.0,-1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          },
+          {
+            "pos": [0.84375,0.375,-1.5467],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalleft3",
+        "emissive": true,
+        "isElectric": true,
+        "color": "F07305",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "left_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "6_8_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1,
+            "forwardsDelay": 3
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.96094,0.375,-1.5467],
+            "axis": [0.0,0.0,-1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          },
+          {
+            "pos": [0.96094,0.375,-1.5467],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          }
+        ]
+      },
+      {
         "objectName": "turnsignalleft",
         "emissive": true,
         "isElectric": true,
@@ -2508,8 +2981,7 @@
             "variable": "left_turn_signal",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
-            "duration": 5,
-            "forwardsDelay": -3
+            "duration": 1
           },
           {
             "animationType": "translation",
@@ -2521,18 +2993,6 @@
         ],
         "blendableComponents": [
           {
-            "pos": [0.76562,0.375,-1.5467],
-            "axis": [0.0,0.0,-1.0],
-            "flareHeight": 0.25,
-            "flareWidth": 1.0
-          },
-          {
-            "pos": [0.76562,0.375,-1.5467],
-            "axis": [0.0,0.0,1.0],
-            "flareHeight": 0.25,
-            "flareWidth": 1.0
-          },
-          {
             "pos": [1.20529,0.11719,4.43804],
             "axis": [0.88,0.0,0.22],
             "flareHeight": 0.25,
@@ -2541,6 +3001,150 @@
           {
             "pos": [1.20529,0.11719,4.43804],
             "axis": [-0.88,0.0,-0.22],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalright0",
+        "emissive": true,
+        "isElectric": true,
+        "color": "F07305",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "right_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "6_8_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1,
+            "forwardsDelay": 0
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.59375,0.375,-1.5467],
+            "axis": [0.0,0.0,-1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          },
+          {
+            "pos": [-0.59375,0.375,-1.5467],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalright1",
+        "emissive": true,
+        "isElectric": true,
+        "color": "F07305",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "right_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "6_8_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1,
+            "forwardsDelay": 1
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.71875,0.375,-1.5467],
+            "axis": [0.0,0.0,-1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          },
+          {
+            "pos": [-0.71875,0.375,-1.5467],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalright2",
+        "emissive": true,
+        "isElectric": true,
+        "color": "F07305",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "right_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "6_8_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1,
+            "forwardsDelay": 2
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.84375,0.375,-1.5467],
+            "axis": [0.0,0.0,-1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          },
+          {
+            "pos": [-0.84375,0.375,-1.5467],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalright3",
+        "emissive": true,
+        "isElectric": true,
+        "color": "F07305",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "right_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "6_8_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1,
+            "forwardsDelay": 3
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.96094,0.375,-1.5467],
+            "axis": [0.0,0.0,-1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.375
+          },
+          {
+            "pos": [-0.96094,0.375,-1.5467],
+            "axis": [0.0,0.0,1.0],
             "flareHeight": 0.25,
             "flareWidth": 0.375
           }
@@ -2557,30 +3161,16 @@
             "variable": "right_turn_signal",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
-            "duration": 5,
-            "forwardsDelay": -3
+            "duration": 1
           },
           {
             "animationType": "translation",
             "variable": "6_8_2_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 5,
-            "forwardsDelay": -3
+            "duration": 1
           }
         ],
         "blendableComponents": [
-          {
-            "pos": [-0.76562,0.375,-1.5467],
-            "axis": [0.0,0.0,-1.0],
-            "flareHeight": 0.25,
-            "flareWidth": 1.0
-          },
-          {
-            "pos": [-0.76562,0.375,-1.5467],
-            "axis": [0.0,0.0,1.0],
-            "flareHeight": 0.25,
-            "flareWidth": 1.0
-          },
           {
             "pos": [-1.20529,0.11719,4.43804],
             "axis": [0.88,0.0,-0.22],
@@ -2605,8 +3195,7 @@
             "animationType": "translation",
             "variable": "engine_reversed_1",
             "axis": [0.0,1.0,0.0],
-            "duration": 5,
-            "forwardsDelay": -3
+            "duration": 1
           }
         ],
         "blendableComponents": [
@@ -2645,7 +3234,7 @@
             "animationType": "translation",
             "variable": "headlight",
             "axis": [0.0,1.0,0.0],
-            "duration": 5,
+            "duration": 2,
             "forwardsDelay": 7
           },
           {
@@ -2683,7 +3272,7 @@
             "animationType": "translation",
             "variable": "headlight",
             "axis": [0.0,1.0,0.0],
-            "duration": 5,
+            "duration": 2,
             "forwardsDelay": 7
           },
           {
@@ -2713,49 +3302,6 @@
         ]
       },
       {
-        "objectName": "parklights",
-        "isElectric": true,
-        "color": "F07305",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "running_light",
-            "axis": [0.0,0.0,2.0],
-            "offset": -2.0,
-            "duration": 5,
-            "forwardsDelay": 3
-          },
-          {
-            "animationType": "translation",
-            "variable": "p_brake",
-            "axis": [0.0,1.0,0.0],
-            "duration": 5,
-            "forwardsDelay": -2
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_firing_1",
-            "axis": [0.0,1.0,0.0],
-            "duration": 5,
-            "forwardsDelay": -2
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.89844,0.15625,4.84404],
-            "axis": [0.0,0.0,1.0],
-            "flareHeight": 0.125,
-            "flareWidth": 0.25
-          },
-          {
-            "pos": [-0.89844,0.15625,4.84404],
-            "axis": [0.0,0.0,1.0],
-            "flareHeight": 0.125,
-            "flareWidth": 0.25
-          }
-        ]
-      },
-      {
         "objectName": "foglights",
         "isElectric": true,
         "color": "FFF3CF",
@@ -2764,14 +3310,14 @@
             "animationType": "translation",
             "variable": "running_light",
             "axis": [0.0,0.0,1.0],
-            "duration": 5,
+            "duration": 1,
             "forwardsDelay": 3
           },
           {
             "animationType": "translation",
             "variable": "headlight",
             "axis": [0.0,-1.0,0.0],
-            "duration": 5,
+            "duration": 1,
             "forwardsDelay": 7
           }
         ],
@@ -2808,7 +3354,7 @@
     "constants": ["kitt_is_the_coolest_car_in_mts_period"],
     "sounds": [
       {
-        "name": "ivv:aciveconsoleon",
+        "name": "ivv:aciveconsoleneton",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -2821,18 +3367,25 @@
         "pos": [0.0,0.51562,2.57031]
       },
       {
-        "name": "ivv:aciveconsoleoff",
+        "name": "ivv:aciveconsolenetoff",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "console_map"
           }
         ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "CONSOLE",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
         "isInterior": true,
         "pos": [0.0,0.51562,2.57031]
       },
       {
-        "name": "ivv:aciveconsole",
+        "name": "ivv:aciveconsolenet",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -2840,6 +3393,13 @@
             "clampMin": 1.0,
             "clampMax": 1.0,
             "forwardsDelay": 40
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "CONSOLE",
+            "axis": [0.0,1.0,0.0]
           }
         ],
         "looping": true,
@@ -3764,7 +4324,7 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§r§7A shadowy flight into the world of corporate espionage, criminal conspiracy and the twelve million dollar car.\n(In all of 1982's economical glory.)\n§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 122MPH\n0-60: 10.53x\n0-Top Speed: 0:30:49\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Lightbar/Gyrophare x1\n-Roof Device x1",
+    "description": "§r§7A shadowy flight into the world of corporate espionage, criminal conspiracy and the twelve million dollar car.\n(In all of 1982's economical glory.)\n§f§lSTATS:\n§r§7Drivetrain: AWD\nMax. Top Speed: 122MPH\n0-60: 10.53x\n0-Top Speed: 0:30:49\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Lightbar/Gyrophare x1\n-Roof Device x1",
     "health": 6900,
     "materials": ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.normaltire:0:4","mts:ivv.carseat:0:2","mts:ivv.v8newperformante:0:1","mts:ivv.classicfuel:0:1","mts:ivv.classicmph:0:1","mts:ivv.classictemp:0:1"],
     "repairMaterials": ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tape:0:1"]
