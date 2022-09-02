@@ -1,0 +1,90 @@
+{
+  "generic": {
+    "type": "engine_hover",
+    "mass": 350
+  },
+  "engine": {
+    "disableAutomaticStarter": true,
+    "revResistance": 1,
+    "engineWinddownRate": 30,
+    "engineWearFactor": 30,
+    "maxRPM": 3000,
+    "maxSafeRPM": 3000,
+    "idleRPM": 1000,
+    "startRPM": -1,
+    "stallRPM": -1,
+    "fuelConsumption": 1.0,
+    "heatingCoefficient": 0.1,
+    "coolingCoefficient": 0.5,
+    "jetPowerFactor": 5.0,
+    "bypassRatio": 5.0,
+    "propellerRatio": 1.0,
+    "gearRatios": [-1.0,0.0,1.0],
+    "fuelType": "electric",
+    "superchargerFuelConsumption": 0,
+    "superchargerEfficiency": 0,
+    "isCrankingNotPitched": true
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Rocket Engine",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "sounds": [
+      {
+        "name": "ivv:blueboxwhirrlow",
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,1.25,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,0.6,0.0]
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_piston_1_2_cam",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#000000",
+        "transparency": 0.7,
+        "toTransparency": 1.0E-7,
+        "scale": 4.0,
+        "toScale": 0.1,
+        "pos": [0.0,0,-0.125],
+        "initialVelocity": [0.0,0.0,-1],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [0.1,0.1,0.1],
+        "quantity": 4,
+        "duration": 40
+      }]
+  },
+  "prefixFolders": "2_functionalparts/1_engines/9_experimental/",
+  "packID": "ivv",
+  "systemName": "rocket",
+  "classification": "part",
+  "general": {
+    "name": "Hover Device",
+    "description": "",
+    "materials": ["mts:ivv.tcalloy:-1:12","mts:ivv.turbo:-1:4","minecraft:fire_charge:-1:6"]
+  }
+}

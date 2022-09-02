@@ -1,0 +1,86 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "movementAnimations": [
+      {
+        "animationType": "rotation",
+        "variable": "part_ismirrored",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,180.0,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "ground_rotation",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [1.0,0.0,0.0]
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "part_ismirrored"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "ground_rotation",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [-2.0,0.0,0.0]
+      }
+    ]
+  },
+  "ground": {
+    "isWheel": true,
+    "width": 0.45,
+    "height": 1.0,
+    "motiveFriction": 0.75,
+    "lateralFriction": 0.75,
+    "frictionModifiers": {}
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Block Wheel",
+      "extraMaterials": []
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "motiveFriction",
+      "setValue": 1.0E-5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "brake",
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "throttle",
+          "clampMin": 0.625,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Block Wheel",
+    "description": "w o o l",
+    "stackSize": 4,
+    "health": 100,
+    "materials": ["minecraft:wool:15:1","minecraft:stone_button:-1:1"]
+  }
+}
