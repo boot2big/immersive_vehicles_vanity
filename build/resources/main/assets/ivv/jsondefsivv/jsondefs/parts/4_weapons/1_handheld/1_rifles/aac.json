@@ -1,0 +1,120 @@
+{
+  "generic": {
+    "type": "gun_hand_assault"
+  },
+  "gun": {
+    "handHeld": true,
+    "capacity": 20,
+    "reloadTime": 25,
+    "muzzleVelocity": 900,
+    "fireDelay": 2.0,
+    "bulletSpreadFactor": 0.5,
+    "diameter": 9.6,
+    "minCaseLength": 57.0,
+    "maxCaseLength": 57.0,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "handHeldNormalOffset": [-0.05,-0.05,0.5],
+    "handHeldAimedOffset": [0.315,0.05,0.45],
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.0,0.11807,1.11259],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "AAC Honeybadger",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_cooldown",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_active",
+            "axis": [0.0,0.0,-1.0E-6],
+            "duration": -1,
+            "forwardsStartSound": "ivv:gunequip5"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:aac_firing",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:aac_reloading",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 4.0,
+        "color": "555555",
+        "pos": [0.0,0.11807,1.11259],
+        "initialVelocity": [0.0,0.0,2.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "general": {
+    "name": "AAC Honeybadger",
+    "description": "modeled by the breathtaking HashimIsaPotato\nalso i swear it's .300 AAC it just shows it in millimeters",
+    "health": 100,
+    "materials": ["minecraft:iron_ingot:0:16","minecraft:stone_button:0:1"]
+  }
+}

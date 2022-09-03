@@ -1,0 +1,65 @@
+{
+  "bullet": {
+    "types": [
+      "armor_piercing"
+    ],
+    "quantity": 18,
+    "diameter": 15.0,
+    "caseLength": 25.0,
+    "damage": 7,
+    "armorPenetration": 32767
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Staser Ammo",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "&GenericLight_FFFFFF_FFFFF_000",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.1,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "&GenericLight_FFFFFF_FFFFF_000",
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": []
+      }
+    ],
+    "particles": [
+      {
+        "type": "break",
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "general": {
+    "stackSize": 64,
+    "materials": ["minecraft:redstone:0:36"],
+    "type": "bullet"
+  }
+}

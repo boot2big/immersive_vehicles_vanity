@@ -1,0 +1,575 @@
+{
+  "motorized": {
+    "hasOpenTop": true,
+    "hasHeadlights": true,
+    "hasTurnSignals": true,
+    "emptyMass": 400,
+    "fuelCapacity": 8000,
+    "defaultFuelQty": 8000,
+    "downForce": 0.25,
+    "overSteer": 0.25,
+    "underSteer": 0.625,
+    "axleRatio": 3.5,
+    "brakingFactor": 0.75,
+    "maxTiltAngle": 35.0,
+    "dragCoefficient": 0.05
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.0,0.83594],
+      "turnsWithSteer": true,
+      "maxValue": 0.875,
+      "defaultPart": "ivv:bikewheel",
+      "types": ["ground_wheel_motorcycle"],
+      "applyAfter": "frontforksuspension"
+    },
+    {
+      "pos": [0.0,-0.02344,-0.60156],
+      "maxValue": 0.875,
+      "defaultPart": "ivv:bikewheel",
+      "types": ["ground_wheel_motorcycle"],
+      "applyAfter": "rearfork"
+    },
+    {
+      "pos": [0.0,0.6875,-0.2875],
+      "rot": [20.0,0.0,0.0],
+      "isController": true,
+      "isPermanent": true,
+      "defaultPart": "mts:invisible_seat",
+      "types": ["seat"]
+    },
+    {
+      "pos": [0.0,0.1875,0.03125],
+      "maxValue": 1.0,
+      "defaultPart": "ivv:v4smallfry",
+      "types": ["engine_car"],
+      "linkedParts": [2]
+    },
+    {
+      "pos": [0.0,0.94566,0.45503],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_ivvspoiler_1"]
+    },
+    {
+      "pos": [0.0,0.43363,0.7754],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_ivvbumper_1"]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.5,0.4],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.5,-0.35],
+          "width": 0.25,
+          "height": 0.125
+        },
+        {
+          "pos": [0.0,0.5,-0.6],
+          "width": 0.25,
+          "height": 0.125
+        }
+      ]
+    },
+    {
+      "collisions": [
+        {
+          "pos": [0.0,0.5,0.15],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.5,-0.1],
+          "width": 0.25,
+          "height": 0.25
+        }
+      ]
+    }
+  ],
+  "connectionGroups": [],
+  "instruments": [
+    {
+      "pos": [0.04395,0.90248,0.41429],
+      "rot": [45.0,0.0,0.0],
+      "scale": 0.005,
+      "hudX": 120,
+      "hudY": 15,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:classicfuel",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [0.0,0.58157,0.13485],
+          "axis": [0.0,-0.56,0.28]
+        }
+      ]
+    },
+    {
+      "pos": [-0.04395,0.90248,0.41429],
+      "rot": [45.0,0.0,0.0],
+      "scale": 0.005,
+      "hudX": 200,
+      "hudY": 15,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:classicmphround",
+      "applyAfter": "frontfork",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "test"
+        }
+      ]
+    },
+    {
+      "pos": [0.0,0.90248,0.41429],
+      "rot": [45.0,0.0,0.0],
+      "scale": 0.005,
+      "hudX": 280,
+      "hudY": 15,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:classicgear",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [0.0,-0.32091,0.13486],
+          "axis": [0.0,0.56,-0.28]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_black",
+      "name": "Kobold [Black]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_blue",
+      "name": "Kobold [Blue]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_green",
+      "name": "Kobold [Green]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_pink",
+      "name": "Kobold [Pink]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_red",
+      "name": "Kobold [Red]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_white",
+      "name": "Kobold [White]",
+      "extraMaterials": []
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "rearBodyroll",
+      "setValue": -1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "rrBodyroll",
+          "clampMin": -2.14748365E9,
+          "clampMax": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "rearBodyroll",
+      "setValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "rrBodyroll",
+          "clampMin": 1.0,
+          "clampMax": 2.14748365E9
+        }
+      ]
+    },
+    {
+      "variable": "rearBodyroll",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_2",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMin": -2.0,
+          "clampMax": -0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,40.0,0.0],
+          "clampMin": -50.0,
+          "clampMax": 20.0
+        }
+      ]
+    },
+    {
+      "variable": "frontBodyroll",
+      "setValue": -1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "flBodyroll",
+          "clampMin": -2.14748365E9,
+          "clampMax": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "frontBodyroll",
+      "setValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "flBodyroll",
+          "clampMin": 1.0,
+          "clampMax": 2.14748365E9
+        }
+      ]
+    },
+    {
+      "variable": "frontBodyroll",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_2",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMin": -2.0,
+          "clampMax": -0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,-40.0,0.0],
+          "clampMin": -20.0,
+          "clampMax": 50.0
+        }
+      ]
+    },
+    {
+      "variable": "dragCoefficient",
+      "setValue": 0.05,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_1"
+        }
+      ]
+    },
+    {
+      "variable": "rudder",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "seat_occupied_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "4_8_4_cycle",
+          "axis": [0.0,22.5,0.0],
+          "offset": -11.25,
+          "duration": 8
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.125,0.0,0.0],
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "brakingFactor",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [],
+    "animatedObjects": [
+      {
+        "objectName": "rearfork",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rearBodyroll",
+            "centerPoint": [0.0,0.07031,-0.13281],
+            "axis": [5.0,0.0,0.0],
+            "duration": 10
+          }
+        ]
+      },
+      {
+        "objectName": "frontfork",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [0.0,0.58157,0.54914],
+            "axis": [0.0,-0.56,0.28]
+          }
+        ]
+      },
+      {
+        "objectName": "frontforksuspension",
+        "applyAfter": "frontfork",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "frontBodyroll",
+            "centerPoint": [0.0,0.58157,0.54914],
+            "axis": [0.0,0.03875,-0.0175],
+            "duration": 10
+          }
+        ]
+      },
+      {
+        "objectName": "gas",
+        "applyAfter": "frontfork",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "throttle",
+            "centerPoint": [0.0,0.90398,0.37272],
+            "axis": [22.5,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "shifter",
+        "applyAfter": "frontfork",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "engine_gearshift_0",
+            "centerPoint": [0.0,0.90398,0.37272],
+            "axis": [22.5,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "brakes",
+        "applyAfter": "frontfork",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "brake",
+            "centerPoint": [0.0,0.90398,0.37272],
+            "axis": [22.5,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "frontmudguard",
+        "applyAfter": "frontfork",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_6",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "mirrors",
+        "applyAfter": "frontfork",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_5",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "turnsignalright",
+        "emissive": true,
+        "isElectric": true,
+        "color": "D47719",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "right_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 5,
+            "forwardsDelay": -3
+          },
+          {
+            "animationType": "translation",
+            "variable": "3_6_3_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          }
+        ]
+      },
+      {
+        "objectName": "brakelights",
+        "emissive": true,
+        "isElectric": true,
+        "color": "C4290E",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          },
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,0.5,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          }
+        ]
+      },
+      {
+        "objectName": "reverselights",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFF3CF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_reversed_1",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalleft",
+        "emissive": true,
+        "isElectric": true,
+        "color": "D47719",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "left_turn_signal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 5,
+            "forwardsDelay": -3
+          },
+          {
+            "animationType": "translation",
+            "variable": "3_6_3_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5,
+            "forwardsDelay": -3
+          }
+        ]
+      }
+    ],
+    "sounds": [],
+    "particles": [
+      {
+        "type": "smoke",
+        "quantity": 1,
+        "transparency": 0.25,
+        "toTransparency": 0.25,
+        "scale": 0.8,
+        "color": "D9D9D9",
+        "pos": [-0.12109,0.52734,-0.82812],
+        "initialVelocity": [0.0,0.25,-1.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_piston_2_4_cam_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 1,
+        "transparency": 0.25,
+        "toTransparency": 0.25,
+        "scale": 0.8,
+        "color": "D9D9D9",
+        "pos": [-0.12109,0.52734,-0.82812],
+        "initialVelocity": [0.0,0.25,-1.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_piston_4_4_cam_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 5,
+        "scale": 1.5,
+        "color": "000000",
+        "pos": [-0.12109,0.52734,-0.82812],
+        "initialVelocity": [0.0,0.25,-1.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "§r§7Placeholder\n§r§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 12MPH\n0-60: N/A\n0-Top Speed: 0:06.04\n§f§lACCESSORIES:\n§r§7-Trin Electric Motor x1\n-Rocket Thruster x1",
+    "health": 800,
+    "materials": ["oredict:ingotIron:4","minecraft:iron_bars:0:6","minecraft:glass_pane:0:6"]
+  }
+}

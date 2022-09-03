@@ -1,0 +1,220 @@
+{
+  "generic": {
+    "type": "engine_car",
+    "mass": 270
+  },
+  "engine": {
+    "isAutomatic": true,
+    "disableAutomaticStarter": true,
+    "shiftSpeed": 1,
+    "engineWinddownRate": 100,
+    "engineWearFactor": 0.375,
+    "revResistance": 4,
+    "revlimitBounce": 12,
+    "revlimitRPM": 8000,
+    "idleRPM": -1,
+    "startRPM": -1,
+    "stallRPM": -1,
+    "maxRPM": 10000,
+    "maxSafeRPM": 10000,
+    "fuelConsumption": 0.9,
+    "heatingCoefficient": 0.5,
+    "coolingCoefficient": 1.25,
+    "gearRatios": [
+      -2,
+      0,
+      2
+    ],
+    "fuelType": "electric",
+    "superchargerFuelConsumption": -0.45,
+    "superchargerEfficiency": -1.25
+  },
+    "variableModifiers": [
+      {
+        "variable": "axleRatio",
+        "setValue": 0.00625,
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "throttle",
+            "clampMax": 0.0625
+          }
+        ]
+      },
+      {
+        "variable": "revlimitRPM",
+        "setValue": "2000",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_reversed",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+      ]
+      },
+      {
+        "variable": "revlimitRPM",
+        "addValue": "2000",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_reversed",
+            "clampMin": 0,
+            "clampMax": 0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "BOOST",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+      ]
+      },
+      {
+        "variable": "fuelConsumption",
+        "addValue": "0.45",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_reversed",
+            "clampMin": 0,
+            "clampMax": 0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "BOOST",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "visibility",
+            "variable": "throttle",
+            "clampMin": 0.0125,
+            "clampMax": 2
+          }
+      ]
+      },
+      {
+        "variable": "fuelConsumption",
+        "setValue": "0.00625",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "throttle",
+            "clampMin": -1,
+            "clampMax": 0.0125
+          }
+      ]
+      }
+    ],
+  "subParts": [
+        {
+            "pos" : [0.0, 0.86187, 0.89325],
+            "rot" : [0, -90, 0],
+            "types" : ["generic_ecu_electric"],
+            "minValue" : 0,
+            "maxValue" : 12
+        }
+  ],
+  "definitions": [
+  	{
+  		"subName": "",
+  		"extraMaterials": []
+  	}
+  ],
+  "rendering": {
+    "customVariables": ["BOOST"],
+    "sounds": [
+      {
+        "name": "ivv:industrial_electricmotor_sputter",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissioncvtgrinding",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:electriccharging",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "fueling",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,0.1,0.0],
+            "offset": 1,
+            "clampMax": 1.2
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:electricwhirrheavy",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,1.25,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.3,0.0],
+            "offset": -0.3
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.800000011920929,0.0],
+            "offset": 0.3
+          }
+        ],
+        "looping": true
+      }
+    ]
+  },
+  "general": {
+    "name": "Magnitrox Electric Motor §5[Industrial]",
+    "repairMaterials": ["mts:ivv.tape:0:1"],
+    "materials": ["mts:ivv.motorcase:0:1","mts:ivv.motorshaft:0:1","mts:ivv.motorbattery:0:2","mts:ivv.capacitor:0:12","mts:ivv.gearboxcvt:0:1"]
+  }
+}

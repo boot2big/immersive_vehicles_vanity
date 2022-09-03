@@ -1,0 +1,57 @@
+{
+  "bullet": {
+    "types": [],
+    "quantity": 6,
+    "diameter": 9.0,
+    "damage": 12,
+    "caseLength": 40.0,
+    "armorPenetration": 3.0
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Revolver Ammo",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "pew",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [2.0,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [
+      {
+        "type": "break",
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "general": {
+    "description": "it's .357 magnum i swear",
+    "stackSize": 64,
+    "materials": ["minecraft:iron_nugget:0:12","minecraft:gunpowder:0:6"],
+    "type": "bullet"
+  }
+}
