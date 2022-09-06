@@ -1,13 +1,13 @@
 {
   "generic": {
     "type": "engine_car",
-    "mass": 220
+    "mass": 265
   },
   "engine": {
-    "isAutomatic": true,
+    "type": "normal",
     "starterPower": 25,
     "shiftSpeed": 5,
-    "clutchTime": 3,
+    "clutchTime": 10,
     "revResistance": 6,
     "maxRPM": 7200,
     "maxSafeRPM": 6800,
@@ -21,11 +21,9 @@
     "coolingCoefficient": 2.0,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.6,
-    "gearRatios": [-2.5,0.0,2.5,1.25,0.75],
-    "upShiftRPM": [0,0,6500,6150,6100],
-    "downShiftRPM": [0,0,3000,3000,3000],
+    "gearRatios": [-3.0,0.0,3.0,2.0,1.0,0.75],
     "fuelType": "gasoline",
-    "superchargerFuelConsumption": 2.0,
+    "superchargerFuelConsumption": 1.8,
     "superchargerEfficiency": 0.8,
     "isCrankingNotPitched": true
   },
@@ -39,7 +37,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Classic Performante V8 Engine [§9Automatic§r]",
+      "name": "Classic Performante V8 Engine [§2Manual§r]",
       "extraMaterials": []
     }
   ],
@@ -67,7 +65,7 @@
         ]
       },
       {
-        "name": "ivv:v8performante_starting",
+        "name": "ivv:v8performantemanual_starting",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -83,7 +81,7 @@
         ]
       },
       {
-        "name": "ivv:v8performante_stopping",
+        "name": "ivv:v8performantemanual_stopping",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -92,23 +90,11 @@
         ]
       },
       {
-        "name": "ivv:v8performante_sputter",
+        "name": "ivv:v8performantemanual_sputter",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_backfired",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "forceSound": true
-      },
-      {
-        "name": "ivv:transmissionautogrinding",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_badshift",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -162,6 +148,18 @@
         ]
       },
       {
+        "name": "ivv:transmissionautogrinding",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
         "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
@@ -173,37 +171,33 @@
           {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 150.0,
+            "clampMin": 250.0,
             "clampMax": 999999.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "engine_hours",
-            "axis": [0.0,0.0045,0.0],
-            "offset": -0.675,
-            "clampMax": 0.675
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,-0.4,0.0],
-            "duration": 10
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,1.0,0.0],
-            "offset": -0.1
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,-1.5,0.0],
+            "offset": 1.0,
+            "duration": 10
+          },
+          {
+            "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,0.8,0.0],
-            "offset": 0.45
+            "axis": [0.0,1.75,0.0],
+            "offset": -1.25,
+            "clampMax": 1.5
           }
         ],
         "looping": true
@@ -333,6 +327,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -360,6 +355,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -378,6 +374,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -394,12 +391,13 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
   "general": {
-    "name": "Performante V8 Engine §9(Automatic)",
+    "name": "Performante V8 Engine §2(Manual)",
     "health": 100,
-    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelcarb:0:4","mts:ivv.gearboxauto:0:1"],
+    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelcarb:0:4","mts:ivv.gearboxmanual:0:1"],
     "repairMaterials": ["mts:ivv.tape:0:1"]
   }
 }

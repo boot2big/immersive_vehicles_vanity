@@ -1,9 +1,10 @@
 {
   "generic": {
     "type": "engine_car",
-    "mass": 250
+    "mass": 230
   },
   "engine": {
+    "type": "normal",
     "starterPower": 45,
     "shiftSpeed": 5,
     "clutchTime": 10,
@@ -22,8 +23,8 @@
     "fuelConsumption": 0.6,
     "gearRatios": [-3.5,0.0,4.0,3.0,2.0,1.0,0.75,0.5],
     "fuelType": "gasoline",
-    "superchargerFuelConsumption": 1.0,
-    "superchargerEfficiency": 1.5,
+    "superchargerFuelConsumption": 1.2,
+    "superchargerEfficiency": 1.0,
     "isCrankingNotPitched": true
   },
   "parts": [
@@ -171,8 +172,8 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       }
@@ -259,37 +260,33 @@
           {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 150.0,
+            "clampMin": 250.0,
             "clampMax": 999999.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "engine_hours",
-            "axis": [0.0,0.0045,0.0],
-            "offset": -0.675,
-            "clampMax": 0.675
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,-0.4,0.0],
-            "duration": 10
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,1.0,0.0],
-            "offset": -0.1
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,-1.5,0.0],
+            "offset": 1.0,
+            "duration": 10
+          },
+          {
+            "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,0.8,0.0],
-            "offset": 0.45
+            "axis": [0.0,1.75,0.0],
+            "offset": -1.25,
+            "clampMax": 1.5
           }
         ],
         "looping": true
@@ -533,6 +530,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -560,6 +558,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -578,6 +577,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -599,7 +599,8 @@
   },
   "general": {
     "name": "Performante V8 Engine §2(Manual)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxmanual:0:1","mts:ivv.ecu:0:1"]
+    "health": 100,
+    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxmanual:0:1","mts:ivv.ecu:0:1"],
+    "repairMaterials": ["mts:ivv.tape:0:1"]
   }
 }
