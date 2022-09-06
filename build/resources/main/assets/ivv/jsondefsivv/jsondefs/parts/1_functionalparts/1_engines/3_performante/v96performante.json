@@ -1,42 +1,187 @@
 {
   "generic": {
     "type": "engine_car",
-    "mass": 300
+    "mass": 310
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
-    "engineWearFactor": 0.875,
-    "engineWinddownRate": 100,
     "starterPower": 22,
-    "shiftSpeed": 10,
-    "clutchTime": 3,
+    "shiftSpeed": 1,
+    "clutchTime": 10,
     "revResistance": 10,
     "maxRPM": 8600,
     "maxSafeRPM": 8000,
-    "revlimitRPM": 7950,
-    "revlimitBounce": 7,
     "idleRPM": 800,
     "startRPM": 600,
+    "revlimitRPM": 7950,
+    "revlimitBounce": 10,
     "stallRPM": 520,
-    "fuelConsumption": 1.15,
+    "engineWinddownRate": 100,
     "heatingCoefficient": 0.6,
     "coolingCoefficient": 2.0,
-    "gearRatios": [-3.25,0.0,3.75,2.5,1.25,0.85,0.6],
-    "upShiftRPM": [0,0,5850,6050,5800,5650,5400],
-    "downShiftRPM": [0,0,3400,3500,3600,3700,3800],
+    "engineWearFactor": 0.875,
+    "fuelConsumption": 1.15,
+    "gearRatios": [-3.75,0,4,3.5,3,2.5,2.0,1.5,1,0.5],
+    "upShiftRPM": [0,0,4750,5250,5000,4750,4500,4250,4000,4000],
+    "downShiftRPM": [0,0,2000,2100,2200,2200,2300,2400,2400,2500],
     "fuelType": "gasoline",
-    "superchargerFuelConsumption": 1.5,
+    "superchargerFuelConsumption": 2.3,
     "superchargerEfficiency": 1.0,
     "isCrankingNotPitched": true
   },
+  "parts": [
+    {
+      "pos": [-0.53093,0.125102,0.6375],
+      "maxValue": 1.0,
+      "types": ["generic_turbo"]
+    }
+  ],
   "definitions": [
     {
       "subName": "",
-      "name": "Performante V16 Engine [§9Automatic§r]",
+      "name": "Performante V16 Engine [§2Manual§r]",
       "extraMaterials": []
     }
   ],
+  "variableModifiers": [
+    {
+      "variable": "heatingCoefficient",
+      "addValue": -0.25,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": 70.0,
+          "clampMax": 1000.0
+        }
+      ]
+    },
+    {
+      "variable": "coolingCoefficient",
+      "addValue": 1.25,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": 70.0,
+          "clampMax": 1000.0
+        }
+      ]
+    },
+    {
+      "variable": "superchargerFuelConsumption",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,1.25,0.0],
+          "offset": -0.125,
+          "clampMin": 0.0625,
+          "duration": 50
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625
+        }
+      ]
+    },
+    {
+      "variable": "revlimitRPM",
+      "setValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": 110.0,
+          "clampMax": 1000.0
+        }
+      ]
+    },
+    {
+      "variable": "revlimitRPM",
+      "setValue": 6000.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": -10.0,
+          "clampMax": 110.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear"
+        }
+      ]
+    },
+    {
+      "variable": "idleRPM",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_gear"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "throttle",
+          "clampMin": 0.0625,
+          "clampMax": 2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "5_10_0_cycle",
+          "axis": [0.0,100.0,0.0],
+          "forwardsEasing": "easeinoutbounce",
+          "reverseEasing": "easeinoutbounce"
+        }
+      ]
+    },
+    {
+      "variable": "idleRPM",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_gear"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_powered",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 60
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,1800.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,-1800.0,0.0],
+          "duration": 60
+        }
+      ]
+    }
+  ],
   "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "turbo",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v96performante_starting",
@@ -50,7 +195,7 @@
         ]
       },
       {
-        "name": "ivv:v96performante_stopping",
+        "name": "ivv:enginestopping2",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -59,23 +204,11 @@
         ]
       },
       {
-        "name": "ivv:v96performante_sputter",
+        "name": "ivv:enginesputter3",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_backfired",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "forceSound": true
-      },
-      {
-        "name": "ivv:transmissionautogrinding",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_badshift",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -129,6 +262,18 @@
         ]
       },
       {
+        "name": "ivv:transmissionautogrinding",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
         "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
@@ -140,37 +285,33 @@
           {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 150.0,
+            "clampMin": 250.0,
             "clampMax": 999999.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "engine_hours",
-            "axis": [0.0,0.0045,0.0],
-            "offset": -0.675,
-            "clampMax": 0.675
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,-0.4,0.0],
-            "duration": 10
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,1.0,0.0],
-            "offset": -0.1
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,-1.5,0.0],
+            "offset": 1.0,
+            "duration": 10
+          },
+          {
+            "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,0.8,0.0],
-            "offset": 0.45
+            "axis": [0.0,1.75,0.0],
+            "offset": -1.25,
+            "clampMax": 1.5
           }
         ],
         "looping": true
@@ -227,38 +368,6 @@
             "variable": "engine_starter"
           }
         ]
-      },
-      {
-        "name": "ivv:enginecoolingfan",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_temp",
-            "clampMin": 69.0,
-            "clampMax": 1000.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "engine_temp",
-            "axis": [0.0,0.375,0.0],
-            "offset": -25.875,
-            "clampMin": 0.0,
-            "clampMax": 0.375
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "engine_temp",
-            "axis": [0.0,1,0.0],
-            "offset": -69,
-            "clampMin": 0.0,
-            "clampMax": 1.0
-          }
-        ],
-        "looping": true
       },
       {
         "name": "ivv:v16performanteidling",
@@ -327,12 +436,99 @@
           }
         ],
         "looping": true
+      },
+      {
+        "name": "ivv:turbo2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,2.0,0.0],
+            "offset": -1.0,
+            "duration": 50
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,2.0,0.0],
+            "offset": -0.5,
+            "clampMax": 1.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,2.5,0.0],
+            "offset": -1.75,
+            "clampMax": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.175,0.0],
+            "offset": 1.0,
+            "duration": 50
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,0.5,0.0],
+            "offset": -0.125
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:turboworble2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_rpm_percent",
+            "clampMax": 0.425
+          },
+          {
+            "animationType": "visibility",
+            "variable": "throttle",
+            "clampMax": 0.4,
+            "forwardsDelay": 25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "p_brake",
+            "axis": [0.0,0.0,0.0],
+            "offset": 0.875
+          }
+        ]
       }
     ],
     "particles": [
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -360,6 +556,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -378,6 +575,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -394,15 +592,13 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/3_performante/",
-  "packID": "ivv",
-  "systemName": "v96performante",
-  "classification": "part",
   "general": {
-    "name": "Performante V16 Engine §9(Automatic)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:16","mts:ivv.fuelfihyper:0:2","mts:ivv.gearboxauto:0:1"]
+    "name": "Performante V16 Engine §2(Manual)",
+    "health": 100,
+    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:16","mts:ivv.fuelfihyper:0:2","mts:ivv.gearboxmanual:0:1"],
+    "repairMaterials": ["mts:ivv.tape:0:1"]
   }
 }
