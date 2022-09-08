@@ -4,8 +4,8 @@
     "mass": 60
   },
   "engine": {
-    "isAutomatic": true,
     "type": "normal",
+    "isAutomatic": true,
     "starterPower": 30,
     "shiftSpeed": 8,
     "clutchTime": 3,
@@ -22,7 +22,9 @@
     "coolingCoefficient": 1.125,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.25,
-    "gearRatios": [-2.0,0.0,2.0,1.2,0.6],
+    "gearRatios": [-2,0,2,1],
+    "upShiftRPM": [0,0,6500,6500],
+    "downShiftRPM": [0,0,2700,2700],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.25,
     "superchargerEfficiency": 0.875,
@@ -32,10 +34,13 @@
     {
       "subName": "",
       "name": "Smallfry V4 Engine [§9Automatic§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v4smallfry_starting",
@@ -193,7 +198,7 @@
             "variable": "engine_starter",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "forwardsDelay": 4
+            "forwardsDelay": 4
           }
         ],
         "volumeAnimations": [
@@ -223,9 +228,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_starter",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "engine_starter"
           }
         ]
       },
@@ -258,7 +261,7 @@
             "animationType": "translation",
             "variable": "engine_rpm_percent",
             "axis": [0.0,2.0,0.0],
-            "offset": 1
+            "offset": 1.0
           }
         ],
         "looping": true
@@ -307,6 +310,9 @@
     "particles": [
       {
         "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "color": "000000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -314,12 +320,14 @@
             "clampMin": 115.556,
             "clampMax": 999.0
           }
-        ],
-        "spawnEveryTick": true,
-        "color": "#000000"
+        ]
       },
       {
         "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "scale": 2.5,
+        "color": "000000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -327,14 +335,12 @@
             "clampMin": 121.111,
             "clampMax": 999.0
           }
-        ],
-        "spawnEveryTick": true,
-        "color": "#000000",
-        "scale": 2.5,
-        "quantity": 1
+        ]
       },
       {
         "type": "drip",
+        "quantity": 1,
+        "color": "000000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -348,11 +354,12 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ],
-        "color": "#000000"
+        ]
       },
       {
         "type": "drip",
+        "quantity": 1,
+        "color": "FF0000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -366,18 +373,19 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ],
-        "color": "#FF0000"
+        ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/1_engines/8_misc/",
-  "packID": "ivv",
-  "systemName": "v2",
-  "classification": "part",
   "general": {
     "name": "Smallfry V4 Engine §9(Automatic)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["minecraft:iron_ingot:0:12","mts:ivv.enginepiston:0:4","mts:ivv.fuelcarb:0:1","mts:ivv.gearboxmanual:0:1"]
+    "health": 100,
+    "materialLists": [
+      ["minecraft:iron_ingot:0:12","mts:ivv.enginepiston:0:4","mts:ivv.fuelcarb:0:1","mts:ivv.gearboxmanual:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }
