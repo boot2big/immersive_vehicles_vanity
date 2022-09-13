@@ -1,7 +1,5 @@
 {
   "motorized": {
-    "isFrontWheelDrive": true,
-    "isRearWheelDrive": true,
     "hasRunningLights": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
@@ -22,7 +20,7 @@
   },
   "parts": [
     {
-      "pos": [1.1875,0.0,-0.375],
+      "pos": [1.1875,-0.25,-0.375],
       "minValue": 0.4,
       "maxValue": 1.15,
       "defaultPart": "ivv:bigtire",
@@ -30,7 +28,9 @@
       "customTypes": ["budd",""]
     },
     {
-      "pos": [-1.1875,0.0,-0.375],
+      "pos": [-1.1875,-0.25,-0.375],
+      "rot": [0.0,180.0,0.0],
+      "isMirrored": true,
       "minValue": 0.4,
       "maxValue": 1.15,
       "defaultPart": "ivv:bigtire",
@@ -38,7 +38,7 @@
       "customTypes": ["budd",""]
     },
     {
-      "pos": [1.1875,0.0,4.0],
+      "pos": [1.1875,-0.25,4.0],
       "turnsWithSteer": true,
       "minValue": 0.4,
       "maxValue": 1.15,
@@ -67,8 +67,10 @@
       ]
     },
     {
-      "pos": [-1.1875,0.0,4.0],
+      "pos": [-1.1875,-0.25,4.0],
+      "rot": [0.0,180.0,0.0],
       "turnsWithSteer": true,
+      "isMirrored": true,
       "minValue": 0.4,
       "maxValue": 1.15,
       "defaultPart": "ivv:bigtire",
@@ -100,7 +102,8 @@
       "isPermanent": true,
       "maxValue": 42069.0,
       "defaultPart": "ivv:handbrake",
-      "types": ["gun_handbrake"]
+      "types": ["gun_handbrake"],
+      "linkedParts": [14]
     },
     {
       "pos": [0.72733,-0.22927,1.36719],
@@ -115,77 +118,98 @@
       "types": ["ground_jackstand"]
     },
     {
-      "pos": [-0.6625,0.29978,1],
+      "pos": [-0.6625,0.29978,1.0],
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [-0.6625,0.33978,1],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_rearright"]
-        }
-      ],
-      "linkedVariables": ["door_rearright"]
+      "interactableVariables": [
+        ["door_rearright"]
+      ]
     },
     {
-      "pos": [0.6625,0.29978,1],
+      "pos": [-0.6625,0.33978,1.0],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_rearright"],
+        ["part_present_8"],
+        ["door_rearright"]
+      ]
+    },
+    {
+      "pos": [0.6625,0.29978,1.0],
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [0.6625,0.33978,1],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_rearright"]
-        }
-      ],
-      "linkedVariables": ["door_rearleft"]
+      "interactableVariables": [
+        ["door_rearleft"]
+      ]
+    },
+    {
+      "pos": [0.6625,0.33978,1.0],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_rearright"],
+        ["part_present_10"],
+        ["door_rearleft"]
+      ]
     },
     {
       "pos": [-0.5625,0.29978,2.1],
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [-0.5625,0.33978,2.1],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_frontright"]
-        }
-      ],
-      "linkedVariables": ["door_frontright"]
+      "interactableVariables": [
+        ["door_frontright"]
+      ]
+    },
+    {
+      "pos": [-0.5625,0.33978,2.1],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_frontright"],
+        ["part_present_12"],
+        ["door_frontright"]
+      ]
     },
     {
       "pos": [0.5625,0.29978,2.1],
       "isController": true,
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "linkedVariables": ["door_frontleft"]
+      "interactableVariables": [
+        ["door_frontleft"]
+      ]
     },
     {
       "pos": [0.0,0.2,3.4],
       "maxValue": 1.15,
       "defaultPart": "ivv:v9",
       "types": ["engine_car"],
-      "linkedVariables": ["door_hood"]
+      "interactableVariables": [
+        ["door_hood"]
+      ],
+      "linkedParts": [1,2,3,4,6,7,15,16,17,18]
     },
     {
       "pos": [0.4,0.52522,-0.97959],
       "rot": [0.0,180.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
-      "linkedVariables": ["door_trunk"]
+      "interactableVariables": [
+        ["door_trunk"]
+      ]
     },
     {
       "pos": [-0.4,0.52522,-0.97959],
       "rot": [0.0,180.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
-      "linkedVariables": ["door_trunk"]
+      "interactableVariables": [
+        ["door_trunk"]
+      ]
     },
     {
       "pos": [0.0,1.7525,1.425],
@@ -224,7 +248,7 @@
         {
           "pos": [1.3,0.4,0.85],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_rearleft",
           "variableType": "toggle"
         },
@@ -238,7 +262,7 @@
         {
           "pos": [1.3,0.4,1.1],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_rearleft",
           "variableType": "toggle"
         },
@@ -252,7 +276,7 @@
         {
           "pos": [1.3,0.4,1.35],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_rearleft",
           "variableType": "toggle"
         },
@@ -266,7 +290,7 @@
         {
           "pos": [1.3,0.4,1.6],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_rearleft",
           "variableType": "toggle"
         }
@@ -275,7 +299,7 @@
         {
           "animationType": "rotation",
           "variable": "door_rearleft",
-            "centerPoint": [1.3125,0.4375,1.6875],
+          "centerPoint": [1.3125,0.4375,1.6875],
           "axis": [0.0,-55.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
@@ -296,7 +320,7 @@
         {
           "pos": [1.3,0.4,1.95],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_frontleft",
           "variableType": "toggle"
         },
@@ -310,7 +334,7 @@
         {
           "pos": [1.3,0.4,2.2],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_frontleft",
           "variableType": "toggle"
         },
@@ -324,7 +348,7 @@
         {
           "pos": [1.3,0.4,2.45],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_frontleft",
           "variableType": "toggle"
         },
@@ -338,7 +362,7 @@
         {
           "pos": [1.3,0.4,2.7],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_frontleft",
           "variableType": "toggle"
         }
@@ -347,7 +371,7 @@
         {
           "animationType": "rotation",
           "variable": "door_frontleft",
-            "centerPoint": [1.3125,0.4375,2.875],
+          "centerPoint": [1.3125,0.4375,2.875],
           "axis": [0.0,-55.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
@@ -368,7 +392,7 @@
         {
           "pos": [-1.3,0.4,0.85],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_rearright",
           "variableType": "toggle"
         },
@@ -382,7 +406,7 @@
         {
           "pos": [-1.3,0.4,1.1],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_rearright",
           "variableType": "toggle"
         },
@@ -396,7 +420,7 @@
         {
           "pos": [-1.3,0.4,1.35],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_rearright",
           "variableType": "toggle"
         },
@@ -410,7 +434,7 @@
         {
           "pos": [-1.3,0.4,1.6],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_rearright",
           "variableType": "toggle"
         }
@@ -419,7 +443,7 @@
         {
           "animationType": "rotation",
           "variable": "door_rearright",
-            "centerPoint": [-1.3125,0.4375,1.6875],
+          "centerPoint": [-1.3125,0.4375,1.6875],
           "axis": [0.0,55.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
@@ -440,7 +464,7 @@
         {
           "pos": [-1.3,0.4,1.95],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_frontright",
           "variableType": "toggle"
         },
@@ -454,7 +478,7 @@
         {
           "pos": [-1.3,0.4,2.2],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_frontright",
           "variableType": "toggle"
         },
@@ -468,7 +492,7 @@
         {
           "pos": [-1.3,0.4,2.45],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_frontright",
           "variableType": "toggle"
         },
@@ -482,7 +506,7 @@
         {
           "pos": [-1.3,0.4,2.7],
           "width": 0.25,
-          "height": 1,
+          "height": 1.0,
           "variableName": "door_frontright",
           "variableType": "toggle"
         }
@@ -491,7 +515,7 @@
         {
           "animationType": "rotation",
           "variable": "door_frontright",
-            "centerPoint": [-1.3125,0.4375,2.875],
+          "centerPoint": [-1.3125,0.4375,2.875],
           "axis": [0.0,55.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
@@ -625,42 +649,58 @@
     {
       "subName": "_red",
       "name": "IVLabs Warthog [Red]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_white",
       "name": "IVLabs Warthog [White]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_blue",
       "name": "IVLabs Warthog [Blue]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_green",
       "name": "IVLabs Warthog [Green]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_orange",
       "name": "IVLabs Warthog [Orange]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_pink",
       "name": "IVLabs Warthog [Pink]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_black",
       "name": "IVLabs Warthog [Black]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_yellow",
       "name": "IVLabs Warthog [Yellow]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -1761,7 +1801,11 @@
   "general": {
     "description": "§r§7coompensating\n§r§f§lSTATS:\n§r§7Drivetrain: 4WD\nMax. Top Speed:  MPH\n0-60:  \n0-Top Speed:  \n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
     "health": 3800,
-    "materials": ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.smalltire:0:4","mts:ivv.carseat_gray:0:4","mts:ivv.v4:0:1","mts:ivv.fuel:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1","mts:ivv.2gear:0:1"],
-    "repairMaterials": ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.smalltire:0:4","mts:ivv.carseat_gray:0:4","mts:ivv.v4:0:1","mts:ivv.fuel:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1","mts:ivv.2gear:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tape:0:1"]
+    ]
   }
 }

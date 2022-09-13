@@ -4,23 +4,24 @@
     "mass": 240
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
     "starterPower": 25,
-    "engineWinddownRate": 100,
-    "engineWearFactor": 0.875,
     "shiftSpeed": 5,
     "clutchTime": 3,
     "revResistance": 6,
     "maxRPM": 6500,
     "maxSafeRPM": 6300,
-    "revlimitRPM": 6000,
-    "revlimitBounce": 9,
     "idleRPM": 750,
     "startRPM": 500,
+    "revlimitRPM": 6000,
+    "revlimitBounce": 9,
     "stallRPM": 400,
-    "fuelConsumption": 0.75,
+    "engineWinddownRate": 100,
     "heatingCoefficient": 0.825,
     "coolingCoefficient": 1.75,
+    "engineWearFactor": 0.875,
+    "fuelConsumption": 0.75,
     "gearRatios": [-3.0,0.0,3.25,2.5,1.5,1.0,0.75],
     "upShiftRPM": [0,0,3600,4000,3800,5000,5000],
     "downShiftRPM": [0,0,2200,2300,2400,2400,2400],
@@ -36,31 +37,38 @@
       "types": ["generic_turbo"]
     }
   ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Median V10 Engine [§9Automatic§r]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "superchargerFuelConsumption",
       "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625,
-            "duration": 15
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625,
+          "duration": 15
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625
+        }
       ]
     },
     {
@@ -77,7 +85,7 @@
     },
     {
       "variable": "coolingCoefficient",
-      "addValue": 1,
+      "addValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -161,14 +169,8 @@
       ]
     }
   ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Median V10 Engine [§9Automatic§r]",
-      "extraMaterials": []
-    }
-  ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v9_starting",
@@ -443,7 +445,7 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,1.2000000476837158,0.0],
+            "axis": [0.0,2,0.0],
             "offset": -0.1
           }
         ],
@@ -457,8 +459,8 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,0.8000000715255737,0.0],
-            "offset": 0.9
+            "axis": [0.0,1.5,0.0],
+            "offset": 0.3
           }
         ],
         "looping": true
@@ -469,8 +471,8 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -524,9 +526,7 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0,
-            "clampMax": 0
+            "variable": "part_present_1"
           },
           {
             "animationType": "inhibitor",
@@ -546,6 +546,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -573,6 +574,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -591,6 +593,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -607,15 +610,17 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/2_median/",
-  "packID": "ivv",
-  "systemName": "v9",
-  "classification": "part",
   "general": {
     "name": "Median V10 Engine §9(Automatic)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:10","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"]
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:10","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }
