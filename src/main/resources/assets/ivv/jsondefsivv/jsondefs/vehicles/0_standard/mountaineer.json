@@ -1,7 +1,5 @@
 {
   "motorized": {
-    "isFrontWheelDrive": true,
-    "isRearWheelDrive": true,
     "hasAutopilot": true,
     "hasRunningLights": true,
     "hasHeadlights": true,
@@ -24,6 +22,8 @@
   "parts": [
     {
       "pos": [-1.09422,-0.17188,-0.09375],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "minValue": 0.825,
       "maxValue": 1.0625,
       "defaultPart": "ivv:normaltire",
@@ -50,7 +50,9 @@
     },
     {
       "pos": [-1.09422,-0.17188,3.125],
+      "rot": [0.0,0.0,0.0],
       "turnsWithSteer": true,
+      "isMirrored": true,
       "minValue": 0.825,
       "maxValue": 1.0625,
       "defaultPart": "ivv:normaltire",
@@ -97,7 +99,8 @@
       "isPermanent": true,
       "maxValue": 42069.0,
       "defaultPart": "ivv:handbrake",
-      "types": ["gun_handbrake"]
+      "types": ["gun_handbrake"],
+      "linkedParts": [14]
     },
     {
       "pos": [0.8414,-0.55087,1.51562],
@@ -115,53 +118,67 @@
       "pos": [-0.5625,0.12118,0.73482],
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [-0.5625,0.13736,0.749],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_rearright"]
-        }
-      ],
-      "linkedVariables": ["door_rearright"]
+      "interactableVariables": [
+        ["door_rearright"]
+      ]
+    },
+    {
+      "pos": [-0.5625,0.13736,0.749],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_rearright"],
+        ["part_present_8"],
+        ["door_rearright"]
+      ]
     },
     {
       "pos": [0.5625,0.12118,0.73482],
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [0.5625,0.27478,0.749],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_rearright"]
-        }
-      ],
-      "linkedVariables": ["door_rearleft"]
+      "interactableVariables": [
+        ["door_rearleft"]
+      ]
+    },
+    {
+      "pos": [0.5625,0.27478,0.749],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_rearright"],
+        ["part_present_10"],
+        ["door_rearleft"]
+      ]
     },
     {
       "pos": [-0.5625,0.12118,1.62493],
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [-0.5625,0.13736,1.62493],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_frontright"]
-        }
-      ],
-      "linkedVariables": ["door_frontright"]
+      "interactableVariables": [
+        ["door_frontright"]
+      ]
+    },
+    {
+      "pos": [-0.5625,0.13736,1.62493],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_frontright"],
+        ["part_present_12"],
+        ["door_frontright"]
+      ]
     },
     {
       "pos": [0.5625,0.12118,1.62493],
       "isController": true,
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "linkedVariables": ["door_frontleft"]
+      "interactableVariables": [
+        ["door_frontleft"]
+      ]
     },
     {
       "pos": [0.0,0.00549,2.60516],
@@ -169,21 +186,28 @@
       "intakeOffset": 0.75,
       "defaultPart": "ivv:v8",
       "types": ["engine_car"],
-      "linkedVariables": ["door_hood"]
+      "interactableVariables": [
+        ["door_hood"]
+      ],
+      "linkedParts": [1,2,3,4,6,7,15,16,17,18,19]
     },
     {
       "pos": [0.425,0.40958,-0.51714],
       "rot": [-25.0,0.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
-      "linkedVariables": ["door_gate"]
+      "interactableVariables": [
+        ["door_gate"]
+      ]
     },
     {
       "pos": [-0.425,0.40958,-0.51714],
       "rot": [-25.0,0.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
-      "linkedVariables": ["door_gate"]
+      "interactableVariables": [
+        ["door_gate"]
+      ]
     },
     {
       "pos": [-0.6525,0.25,-1.50785],
@@ -1290,51 +1314,6 @@
       "isInterior": true,
       "collisions": [
         {
-          "pos": [0.0,1.5,-0.2],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,1.5,-0.2],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.5,1.5,-0.2],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.5,1.5,-0.2],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,1.5,-0.2],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.25,1.5,-0.45],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.75,1.5,-0.45],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.75,1.5,-0.45],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.25,1.5,-0.45],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
           "pos": [-0.25,0.25,3.9],
           "width": 0.25,
           "height": 0.25
@@ -1403,11 +1382,76 @@
           "pos": [1.0,0.5,3.8],
           "width": 0.25,
           "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.6,3.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.6,3.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.7,2.8],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.7,2.8],
+          "width": 0.25,
+          "height": 0.25
         }
       ]
     },
     {
       "collisions": [
+        {
+          "pos": [0.0,1.5,-0.2],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,1.5,-0.2],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,1.5,-0.2],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,1.5,-0.2],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,1.5,-0.2],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.25,1.5,-0.45],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.75,1.5,-0.45],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.75,1.5,-0.45],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.25,1.5,-0.45],
+          "width": 0.25,
+          "height": 0.25
+        },
         {
           "pos": [0.0,1.5,0.8],
           "width": 0.25,
@@ -1529,24 +1573,24 @@
           "height": 0.25
         },
         {
-          "pos": [-1.0,0.6,3.3],
-          "width": 0.25,
-          "height": 0.25
+          "pos": [1.09422,0.70312,-0.09375],
+          "width": 0.125,
+          "height": 0.125
         },
         {
-          "pos": [1.0,0.6,3.3],
-          "width": 0.25,
-          "height": 0.25
+          "pos": [-1.09422,0.70312,-0.09375],
+          "width": 0.125,
+          "height": 0.125
         },
         {
-          "pos": [-1.0,0.7,2.8],
-          "width": 0.25,
-          "height": 0.25
+          "pos": [1.09422,0.70312,3.125],
+          "width": 0.125,
+          "height": 0.125
         },
         {
-          "pos": [1.0,0.7,2.8],
-          "width": 0.25,
-          "height": 0.25
+          "pos": [-1.09422,0.70312,3.125],
+          "width": 0.125,
+          "height": 0.125
         }
       ]
     }
@@ -1614,6 +1658,50 @@
       "hudY": -5,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:oilpower"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_red",
+      "name": "IVLabs Mountaineer [Red]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_silver",
+      "name": "IVLabs Mountaineer [Silver]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_blue",
+      "name": "IVLabs Mountaineer [Blue]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_white",
+      "name": "IVLabs Mountaineer [White]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_gray",
+      "name": "IVLabs Mountaineer [Gray]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_black",
+      "name": "IVLabs Mountaineer [Black]",
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -1752,38 +1840,6 @@
           "axis": [1.0,0.0,0.0]
         }
       ]
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "_red",
-      "name": "IVLabs Mountaineer [Red]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_silver",
-      "name": "IVLabs Mountaineer [Silver]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_blue",
-      "name": "IVLabs Mountaineer [Blue]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_white",
-      "name": "IVLabs Mountaineer [White]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_gray",
-      "name": "IVLabs Mountaineer [Gray]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_black",
-      "name": "IVLabs Mountaineer [Black]",
-      "extraMaterials": []
     }
   ],
   "rendering": {
@@ -2555,7 +2611,11 @@
   "general": {
     "description": "§r§7Placeholder\n§f§lSTATS:\n§r§7Drivetrain: AWD\nMax. Top Speed: 108MPH\n0-60: 09.18\n0-Top Speed: 0:40.28\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
     "health": 3400,
-    "materials": ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:6","mts:ivv.normaltire:0:4","mts:ivv.carseat_gray:0:4","mts:ivv.v8:0:1","mts:ivv.fueltemp:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1","mts:ivv.oilpower:0:1"],
-    "repairMaterials": ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:6","mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:6","mts:ivv.normaltire:0:4","mts:ivv.carseat_gray:0:4","mts:ivv.v8:0:1","mts:ivv.fueltemp:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1","mts:ivv.oilpower:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:6","mts:ivv.tape:0:1"]
+    ]
   }
 }

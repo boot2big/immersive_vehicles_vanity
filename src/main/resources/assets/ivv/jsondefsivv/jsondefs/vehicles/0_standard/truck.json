@@ -1,6 +1,5 @@
 {
   "motorized": {
-    "isRearWheelDrive": true,
     "hasAutopilot": true,
     "hasRunningLights": true,
     "hasHeadlights": true,
@@ -26,10 +25,13 @@
       "maxValue": 1.57,
       "intakeOffset": 2.125,
       "defaultPart": "ivv:v4inlinetorquelinemanual",
-      "types": ["engine_car"]
+      "types": ["engine_car"],
+      "linkedParts": [2,3,10,13]
     },
     {
       "pos": [-1.2785,-0.54687,-0.8125],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "minValue": 0.4,
       "maxValue": 1.15,
       "defaultPart": "ivv:bigtire",
@@ -58,7 +60,9 @@
     },
     {
       "pos": [-1.2785,-0.54688,3.6875],
+      "rot": [0.0,0.0,0.0],
       "turnsWithSteer": true,
+      "isMirrored": true,
       "minValue": 0.8,
       "maxValue": 1.15,
       "defaultPart": "ivv:bigtire",
@@ -95,20 +99,25 @@
       "isPermanent": true,
       "maxValue": 42069.0,
       "defaultPart": "ivv:handbrake",
-      "types": ["gun_handbrake"]
+      "types": ["gun_handbrake"],
+      "linkedParts": [8]
     },
     {
       "pos": [-0.625,0.46542,3.76706],
       "defaultPart": "ivv:truckseat",
       "types": ["seat"],
-      "linkedVariables": ["door_right"]
+      "interactableVariables": [
+        ["door_right"]
+      ]
     },
     {
       "pos": [0.625,0.46542,3.76706],
       "isController": true,
       "defaultPart": "ivv:truckseat",
       "types": ["seat"],
-      "linkedVariables": ["door_left"]
+      "interactableVariables": [
+        ["door_left"]
+      ]
     },
     {
       "pos": [0.0,0.0945,3.0],
@@ -184,92 +193,28 @@
           "height": 1.4,
           "variableName": "door_left",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_left",
-          "centerPoint": [1.4375,0.57812,4.70312],
-          "axis": [0.0,-50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [1.4,0.985,3.8725],
           "width": 0.25,
           "height": 1.4,
           "variableName": "door_left",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_left",
-          "centerPoint": [1.4375,0.57812,4.70312],
-          "axis": [0.0,-50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [1.4,0.985,4.125],
           "width": 0.25,
           "height": 1.4,
           "variableName": "door_left",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_left",
-          "centerPoint": [1.4375,0.57812,4.70312],
-          "axis": [0.0,-50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [1.4,0.985,4.3725],
           "width": 0.25,
           "height": 1.4,
           "variableName": "door_left",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_left",
-          "centerPoint": [1.4375,0.57812,4.70312],
-          "axis": [0.0,-50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [1.4,0.985,4.625],
           "width": 0.25,
@@ -299,92 +244,28 @@
           "height": 1.4,
           "variableName": "door_right",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_right",
-          "centerPoint": [-1.4375,0.57812,4.70312],
-          "axis": [0.0,50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [-1.4,0.985,3.8725],
           "width": 0.25,
           "height": 1.4,
           "variableName": "door_right",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_right",
-          "centerPoint": [-1.4375,0.57812,4.70312],
-          "axis": [0.0,50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [-1.4,0.985,4.125],
           "width": 0.25,
           "height": 1.4,
           "variableName": "door_right",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_right",
-          "centerPoint": [-1.4375,0.57812,4.70312],
-          "axis": [0.0,50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [-1.4,0.985,4.3725],
           "width": 0.25,
           "height": 1.4,
           "variableName": "door_right",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_right",
-          "centerPoint": [-1.4375,0.57812,4.70312],
-          "axis": [0.0,50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [-1.4,0.985,4.625],
           "width": 0.25,
@@ -437,11 +318,7 @@
           "pos": [-1.35,-0.3,-3.15],
           "width": 0.25,
           "height": 0.25
-        }
-      ]
-    },
-    {
-      "collisions": [
+        },
         {
           "pos": [1.4,0.0,-0.0],
           "width": 0.25,
@@ -1193,186 +1070,6 @@
           "height": 0.25
         },
         {
-          "pos": [1.15,1.8,4.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.4,1.8,4.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.15,1.8,4.05],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.4,1.8,3.8],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.15,1.8,3.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.4,1.8,3.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.65,1.8,4.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.9,1.8,4.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.65,1.8,4.05],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.9,1.8,3.8],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.65,1.8,3.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.9,1.8,3.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.15,1.8,4.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.4,1.8,4.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.15,1.8,4.05],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.4,1.8,3.8],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.15,1.8,3.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.4,1.8,3.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.35,1.8,4.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.1,1.8,4.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.35,1.8,4.05],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.1,1.8,3.8],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.35,1.8,3.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.1,1.8,3.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.85,1.8,4.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.6,1.8,4.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.85,1.8,4.05],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.6,1.8,3.8],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.85,1.8,3.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.6,1.8,3.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.35,1.8,4.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.1,1.8,4.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.35,1.8,4.05],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.1,1.8,3.8],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.35,1.8,3.55],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.1,1.8,3.3],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
           "pos": [1.25,-0.4,5.05],
           "width": 0.25,
           "height": 0.25
@@ -1703,6 +1400,200 @@
           "height": 0.25
         }
       ]
+    },
+    {
+      "collisions": [
+        {
+          "pos": [1.15,1.8,4.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.4,1.8,4.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.15,1.8,4.05],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.4,1.8,3.8],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.15,1.8,3.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.4,1.8,3.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.65,1.8,4.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.9,1.8,4.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.65,1.8,4.05],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.9,1.8,3.8],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.65,1.8,3.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.9,1.8,3.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.15,1.8,4.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.4,1.8,4.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.15,1.8,4.05],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.4,1.8,3.8],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.15,1.8,3.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.4,1.8,3.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.35,1.8,4.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.1,1.8,4.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.35,1.8,4.05],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.1,1.8,3.8],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.35,1.8,3.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.1,1.8,3.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.85,1.8,4.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.6,1.8,4.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.85,1.8,4.05],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.6,1.8,3.8],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.85,1.8,3.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.6,1.8,3.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.35,1.8,4.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.1,1.8,4.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.35,1.8,4.05],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.1,1.8,3.8],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.35,1.8,3.55],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.1,1.8,3.3],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.2785,0.1406,-0.8125],
+          "width": 0.125,
+          "height": 0.125
+        },
+        {
+          "pos": [1.2785,0.1406,3.6875],
+          "width": 0.125,
+          "height": 0.125
+        }
+      ]
     }
   ],
   "connectionGroups": [
@@ -1759,6 +1650,64 @@
       "hudY": -5,
       "hudScale": 0.25,
       "defaultInstrument": "ivv:2gear"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_red",
+      "name": "IVLabs Avia [Red]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_white",
+      "name": "IVLabs Avia [White]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_blue",
+      "name": "IVLabs Avia [Blue]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_pink",
+      "name": "IVLabs Avia [Pink]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_orange",
+      "name": "IVLabs Avia [Orange]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_ivlabs",
+      "name": "IVLabs Avia [IVLabs Livery]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_scp",
+      "name": "IVLabs Avia [SCP Foundation Livery]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_yellow",
+      "name": "IVLabs Avia [Yellow]",
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -1897,48 +1846,6 @@
           "axis": [1.0,0.0,0.0]
         }
       ]
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "_red",
-      "name": "IVLabs Avia [Red]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_white",
-      "name": "IVLabs Avia [White]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_blue",
-      "name": "IVLabs Avia [Blue]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_pink",
-      "name": "IVLabs Avia [Pink]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_orange",
-      "name": "IVLabs Avia [Orange]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_ivlabs",
-      "name": "IVLabs Avia [IVLabs Livery]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_scp",
-      "name": "IVLabs Avia [SCP Foundation Livery]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_yellow",
-      "name": "IVLabs Avia [Yellow]",
-      "extraMaterials": []
     }
   ],
   "rendering": {
@@ -2709,7 +2616,11 @@
   "general": {
     "description": "§r§7Placeholder\n§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 108MPH\n0-60: 9.12\n0-Top Speed: 28.31\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Gyrophare x4\n-Lightbar x1\n-Roof Device x1",
     "health": 4400,
-    "materials": ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:8","mts:ivv.tach:0:1","mts:ivv.2gear:0:1","mts:ivv.mph:0:1","mts:ivv.fueltemp:0:1","mts:ivv.plate_default:0:2","mts:ivv.bigtire:0:4","mts:ivv.v4inlinetorquelinemanual:0:1","mts:ivv.truckseat:0:2"],
-    "repairMaterials": ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:8","mts:ivv.tape:0:2"]
+    "materialLists": [
+      ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:8","mts:ivv.tach:0:1","mts:ivv.2gear:0:1","mts:ivv.mph:0:1","mts:ivv.fueltemp:0:1","mts:ivv.plate_default:0:2","mts:ivv.bigtire:0:4","mts:ivv.v4inlinetorquelinemanual:0:1","mts:ivv.truckseat:0:2"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:8","mts:ivv.tape:0:2"]
+    ]
   }
 }

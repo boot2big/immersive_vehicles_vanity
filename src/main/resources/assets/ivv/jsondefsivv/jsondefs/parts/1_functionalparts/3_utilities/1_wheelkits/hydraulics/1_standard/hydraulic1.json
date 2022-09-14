@@ -1,60 +1,121 @@
-{  
+{
+  "generic": {
+    "type": "ground_wheel"
+  },
   "ground": {
-    "isWheel": false,
-    "isTread": false,
-    "canFloat": false,
-    "canGoFlat": false,
     "width": 0.45,
     "height": 0.865,
-    "motiveFriction": 0.0,
-    "lateralFriction": 0.0,
-    "rainFrictionLoss": 0.0
+    "frictionModifiers": {
+      "snow": -0.2,
+      "ice": -0.2,
+      "dirt_wet": -0.1,
+      "sand_wet": -0.1,
+      "normal_wet": -0.1
+    }
   },
-  "subParts": [
+  "parts": [
     {
-      "isSubPart": true,
-      "pos": [0.45138,0.03189,0.0],
-      "types": ["ground_wheel"],
-      "minValue": 0.870,
+      "pos": [0.007825,0.0,0.0],
+      "minValue": 0.87,
       "maxValue": 0.875,
-      "turnsWithSteer": false,
-      
-            "animations": [
-       	{
-		"animationType": "translation",
-		"variable": "HYDRAULIC_ONE",
-		"axis": [0, -0.295, 0],
-		"duration": 3
-		}
+      "types": ["ground_wheel"],
+      "applyAfter": "axle",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "HYDRAULIC_ONE",
+          "axis": [0.0,0.0,0.0]
+        }
       ]
     }
   ],
-  "rendering": {"customVariables" : ["HYDRAULIC_ONE"],
-	"animatedObjects":[
-	{
-	"objectName": "piston",
-	"animations":
-		[
-		{
-		"animationType": "translation",
-		"variable": "HYDRAULIC_ONE",
-		"axis": [0, -0.295, 0],
-		"duration": 3,
-		"forwardsStartSound": "ivv:hydraulicup",
-		"reverseStartSound": "ivv:hydraulicdown"
-		}
-		]
-	}
-	]
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Hydraulic Kit [Standard, Type 1]",
+      "extraMaterialLists": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "piston",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "HYDRAULIC_ONE",
+            "centerPoint": [-0.054688,0.0,0.078125],
+            "axis": [0.0,0.0,-7.5],
+            "offset": 0,
+            "forwardsDelay": 0,
+            "duration": 2,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeoutexpo"
+          },
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_ONE",
+            "axis": [0.0,-0.054875,0.0],
+            "forwardsDelay": 0,
+            "duration": 2,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeoutexpo",
+            "forwardsStartSound": "ivv:hydraulicup",
+            "reverseStartSound": "ivv:hydraulicdown"
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "applyAfter": "piston",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_ONE",
+            "axis": [0.0,-0.148375,0.0],
+            "forwardsDelay": 0,
+            "duration": 2,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeoutexpo"
+          }
+        ]
+      },
+      {
+        "objectName": "axle",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_ONE",
+            "axis": [0.03125,0.0,0.0],
+            "forwardsDelay": 0,
+            "duration": 2,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeoutexpo"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": ["HYDRAULIC_ONE"],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
   },
   "general": {
-    "type": "ground_wheel",
-    "disableMirroring": false,
-    "useVehicleTexture": false,
-    "materials": [
-      "mts:ivv.tcalloy:0:6","minecraft:iron_ingot:0:9", "minecraft:water_bucket:0:1"
-    ],
     "name": "Hydraulic Kit [Standard, Type 1]",
-    "description": "Allows you to dynamically lift or lower your car!\nHas four variants, to allow for up to four different wheel on/off modes."
+    "description": "Allows you to dynamically lift or lower your car!\nHas four variants, to allow for up to four different wheel on/off modes.",
+    "health": 100,
+    "materialLists": [
+      ["minecraft:iron_ingot:0:4","minecraft:redstone:0:2","minecraft:water_bucket:0:1"],
+      ["mts:ivv.hydraulic2:0:1"],
+      ["mts:ivv.hydraulic3:0:1"],
+      ["mts:ivv.hydraulic4:0:1"]
+    ]
   }
 }

@@ -1,6 +1,5 @@
 {
   "motorized": {
-    "isRearWheelDrive": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
     "emptyMass": 850,
@@ -19,6 +18,8 @@
   "parts": [
     {
       "pos": [-1.0857,0.23438,-0.125],
+      "rot": [0.0,180.0,0.0],
+      "isMirrored": true,
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
@@ -63,7 +64,9 @@
     },
     {
       "pos": [-1.0857,0.25,2.75],
+      "rot": [0.0,180.0,0.0],
       "turnsWithSteer": true,
+      "isMirrored": true,
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
@@ -100,7 +103,8 @@
       "isPermanent": true,
       "maxValue": 42069.0,
       "defaultPart": "ivv:handbrake",
-      "types": ["gun_handbrake"]
+      "types": ["gun_handbrake"],
+      "linkedParts": [10]
     },
     {
       "pos": [0.78027,-0.27431,1.11719],
@@ -118,37 +122,48 @@
       "pos": [-0.575,0.475,1.0],
       "defaultPart": "ivv:carseat_tan",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [-0.59375,0.3735,1.62362],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_right"]
-        }
-      ],
-      "linkedVariables": ["door_right"]
+      "interactableVariables": [
+        ["door_right"]
+      ]
+    },
+    {
+      "pos": [-0.59375,0.3735,1.62362],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_right"],
+        ["part_present_8"],
+        ["door_right"]
+      ]
     },
     {
       "pos": [0.575,0.475,1.0],
       "isController": true,
       "defaultPart": "ivv:carseat_tan",
       "types": ["seat"],
-      "linkedVariables": ["door_left"]
+      "interactableVariables": [
+        ["door_left"]
+      ]
     },
     {
       "pos": [0.0,0.22225,2.28125],
       "maxValue": 0.65,
       "defaultPart": "ivv:v5manual",
       "types": ["engine_car"],
-      "linkedVariables": ["door_hood"]
+      "interactableVariables": [
+        ["door_hood"]
+      ],
+      "linkedParts": [1,2,12,13,14,16,17,18,19]
     },
     {
       "pos": [0.0,0.66349,0.17959],
       "rot": [35.0,0.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
-      "linkedVariables": ["door_trunk"]
+      "interactableVariables": [
+        ["door_trunk"]
+      ]
     },
     {
       "pos": [0.75,0.38768,-0.92179],
@@ -704,11 +719,7 @@
           "pos": [-1.0,0.5,3.4],
           "width": 0.25,
           "height": 0.25
-        }
-      ]
-    },
-    {
-      "collisions": [
+        },
         {
           "pos": [1.0,1.1,-0.3],
           "width": 0.25,
@@ -748,6 +759,30 @@
           "pos": [-1.0,1.0,2.1],
           "width": 0.25,
           "height": 0.25
+        }
+      ]
+    },
+    {
+      "collisions": [
+        {
+          "pos": [1.0857,0.98438,-0.125],
+          "width": 0.125,
+          "height": 0.125
+        },
+        {
+          "pos": [-1.0857,0.98438,-0.125],
+          "width": 0.125,
+          "height": 0.125
+        },
+        {
+          "pos": [1.0857,1,2.75],
+          "width": 0.125,
+          "height": 0.125
+        },
+        {
+          "pos": [-1.0857,1,2.75],
+          "width": 0.125,
+          "height": 0.125
         }
       ]
     }
@@ -803,32 +838,44 @@
     {
       "subName": "_white",
       "name": "IVLabs Axolotl [White]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_red",
       "name": "IVLabs Axolotl [Red]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_blue",
       "name": "IVLabs Axolotl [Blue]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_black",
       "name": "IVLabs Axolotl [Black]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_pink",
       "name": "IVLabs Axolotl [Pink]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_purple",
       "name": "IVLabs Axolotl [Purple]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -2755,7 +2802,11 @@
   "general": {
     "description": "§r§7Placeholder.\n§r§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 127MPH\n0-60: 8.58\n0-Top Speed: 58.25\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
     "health": 1700,
-    "materials": ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.smalltire:0:4","mts:ivv.carseat_tan:0:2","mts:ivv.v5manual:0:1","mts:ivv.fueltempbattoil:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1"],
-    "repairMaterials": ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.smalltire:0:4","mts:ivv.carseat_tan:0:2","mts:ivv.v5manual:0:1","mts:ivv.fueltempbattoil:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tape:0:1"]
+    ]
   }
 }

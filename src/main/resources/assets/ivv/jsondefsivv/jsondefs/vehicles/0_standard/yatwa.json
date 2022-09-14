@@ -1,6 +1,5 @@
 {
   "motorized": {
-    "isRearWheelDrive": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
     "emptyMass": 450,
@@ -21,6 +20,8 @@
   "parts": [
     {
       "pos": [-0.55946,-0.03125,-0.17188],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
@@ -66,33 +67,42 @@
       "isPermanent": true,
       "maxValue": 42069.0,
       "defaultPart": "ivv:handbrake",
-      "types": ["gun_handbrake"]
+      "types": ["gun_handbrake"],
+      "linkedParts": [5]
     },
     {
       "pos": [0.0,0.47896,0.99673],
       "isController": true,
       "defaultPart": "ivv:carseat",
       "types": ["seat"],
-      "linkedVariables": ["door_chd"]
+      "interactableVariables": [
+        ["door_chd"]
+      ]
     },
     {
       "pos": [0.0,0.41442,1.96378],
       "maxValue": 0.2,
       "defaultPart": "ivv:v3insolvo",
       "types": ["engine_car"],
-      "linkedVariables": ["door_hood"]
+      "interactableVariables": [
+        ["door_hood"]
+      ],
+      "linkedParts": [1,2,9,10,14]
     },
     {
       "pos": [0.0,1.60062,0.73861],
       "maxValue": 5.0,
-      "types": ["engine_rocket"]
+      "types": ["engine_rocket"],
+      "linkedParts": [1,2,9,10,14]
     },
     {
       "pos": [0.0,0.49775,0.11467],
       "rot": [0.0,180.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
-      "linkedVariables": ["door_gate"]
+      "interactableVariables": [
+        ["door_gate"]
+      ]
     },
     {
       "pos": [-0.6525,0.25,-1.50785],
@@ -142,92 +152,28 @@
           "height": 1.25,
           "variableName": "door_chd",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_chd",
-          "centerPoint": [0.61359,0.51562,1.82812],
-          "axis": [0.0,-50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [0.6,0.8,1.45],
           "width": 0.25,
           "height": 1.25,
           "variableName": "door_chd",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_chd",
-          "centerPoint": [0.61359,0.51562,1.82812],
-          "axis": [0.0,-50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [0.6,0.8,1.2],
           "width": 0.25,
           "height": 1.25,
           "variableName": "door_chd",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_chd",
-          "centerPoint": [0.61359,0.51562,1.82812],
-          "axis": [0.0,-50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [0.6,0.8,0.95],
           "width": 0.25,
           "height": 1.25,
           "variableName": "door_chd",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_chd",
-          "centerPoint": [0.61359,0.51562,1.82812],
-          "axis": [0.0,-50.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [0.6,0.8,0.7],
           "width": 0.25,
@@ -257,92 +203,28 @@
           "height": 0.25,
           "variableName": "door_hood",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_hood",
-          "centerPoint": [0.0,0.93619,2.07528],
-          "axis": [-55.0,0.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [0.25,0.9,2.2],
           "width": 0.25,
           "height": 0.25,
           "variableName": "door_hood",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_hood",
-          "centerPoint": [0.0,0.93619,2.07528],
-          "axis": [-55.0,0.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [0.0,0.8,2.45],
           "width": 0.25,
           "height": 0.25,
           "variableName": "door_hood",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_hood",
-          "centerPoint": [0.0,0.93619,2.07528],
-          "axis": [-55.0,0.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [-0.25,0.8,2.7],
           "width": 0.25,
           "height": 0.25,
           "variableName": "door_hood",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_hood",
-          "centerPoint": [0.0,0.93619,2.07528],
-          "axis": [-55.0,0.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [0.25,0.8,2.7],
           "width": 0.25,
@@ -372,48 +254,20 @@
           "height": 0.25,
           "variableName": "door_gate",
           "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_gate",
-          "centerPoint": [0.0,0.3125,-0.89062],
-          "axis": [-89.0,0.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutbounce",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+        },
         {
           "pos": [-0.25,0.4,-0.95],
           "width": 0.25,
-          "height": 0.25
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "door_gate",
-          "centerPoint": [0.0,0.3125,-0.89062],
-          "axis": [-89.0,0.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutbounce",
-          "reverseEasing": "easeinback"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
+          "height": 0.25,
+          "variableName": "door_gate",
+          "variableType": "toggle"
+        },
         {
           "pos": [0.25,0.4,-0.95],
           "width": 0.25,
-          "height": 0.25
+          "height": 0.25,
+          "variableName": "door_gate",
+          "variableType": "toggle"
         }
       ],
       "animations": [
@@ -530,11 +384,7 @@
           "pos": [-0.5,0.2,3.0],
           "width": 0.25,
           "height": 0.25
-        }
-      ]
-    },
-    {
-      "collisions": [
+        },
         {
           "pos": [0.5,0.9,1.9],
           "width": 0.25,
@@ -548,14 +398,12 @@
         {
           "pos": [0.5,0.7,2.9],
           "width": 0.25,
-          "height": 0.25,
-          "collidesWithLiquids": true
+          "height": 0.25
         },
         {
           "pos": [0.0,0.7,2.9],
           "width": 0.25,
-          "height": 0.25,
-          "collidesWithLiquids": true
+          "height": 0.25
         },
         {
           "pos": [-0.5,0.9,1.9],
@@ -570,9 +418,27 @@
         {
           "pos": [-0.5,0.7,2.9],
           "width": 0.25,
-          "height": 0.25,
-          "collidesWithLiquids": true
+          "height": 0.25
         },
+        {
+          "pos": [0.5,0.15,-1.0],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.15,-1.0],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.15,-1.0],
+          "width": 0.25,
+          "height": 0.25
+        }
+      ]
+    },
+    {
+      "collisions": [
         {
           "pos": [0.5,1.55,1.3],
           "width": 0.25,
@@ -614,22 +480,19 @@
           "height": 0.25
         },
         {
-          "pos": [0.5,0.15,-1.0],
-          "width": 0.25,
-          "height": 0.25,
-          "collidesWithLiquids": true
+          "pos": [0.55946,0.84375,-0.17188],
+          "width": 0.125,
+          "height": 0.125
         },
         {
-          "pos": [-0.5,0.15,-1.0],
-          "width": 0.25,
-          "height": 0.25,
-          "collidesWithLiquids": true
+          "pos": [-0.55946,0.84375,-0.17188],
+          "width": 0.125,
+          "height": 0.125
         },
         {
-          "pos": [0.0,0.15,-1.0],
-          "width": 0.25,
-          "height": 0.25,
-          "collidesWithLiquids": true
+          "pos": [0.02805,0.84375,2.51562],
+          "width": 0.125,
+          "height": 0.125
         }
       ]
     }
@@ -674,6 +537,43 @@
       "hudY": -5,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:classicgear"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_red",
+      "name": "IVLabs Yatwa [Red]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_green",
+      "name": "IVLabs Yatwa [Green]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_blue",
+      "name": "IVLabs Yatwa [Blue]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_white",
+      "name": "IVLabs Yatwa [White]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_pink",
+      "name": "IVLabs Yatwa [Pink]",
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -812,33 +712,6 @@
           "axis": [1.0,0.0,0.0]
         }
       ]
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "_red",
-      "name": "IVLabs Yatwa [Red]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_green",
-      "name": "IVLabs Yatwa [Green]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_blue",
-      "name": "IVLabs Yatwa [Blue]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_white",
-      "name": "IVLabs Yatwa [White]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_pink",
-      "name": "IVLabs Yatwa [Pink]",
-      "extraMaterials": []
     }
   ],
   "rendering": {
@@ -1515,7 +1388,11 @@
   "general": {
     "description": "§r§7They say good things come in threes and this tricycle-truck is proof of that.\n§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 74MPH\n0-60: 26.47\n0-Top Speed: 1:05:03\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Lightbar/Gyrophare/Roof Device x1",
     "health": 900,
-    "materials": ["mts:ivv.frame:0:1","mts:ivv.axle:0:1","mts:ivv.bodypanel:0:2","mts:ivv.smalltire:0:3","mts:ivv.carseat:0:1","mts:ivv.v3insolvo:0:1","mts:ivv.fuel:0:1","mts:ivv.mph:0:1","mts:ivv.2gear:0:1"],
-    "repairMaterials": ["mts:ivv.axle:0:1","mts:ivv.bodypanel:0:2","mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.frame:0:1","mts:ivv.axle:0:1","mts:ivv.bodypanel:0:2","mts:ivv.smalltire:0:3","mts:ivv.carseat:0:1","mts:ivv.v3insolvo:0:1","mts:ivv.fuel:0:1","mts:ivv.mph:0:1","mts:ivv.2gear:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.axle:0:1","mts:ivv.bodypanel:0:2","mts:ivv.tape:0:1"]
+    ]
   }
 }

@@ -1,6 +1,5 @@
 {
   "motorized": {
-    "isFrontWheelDrive": true,
     "hasRunningLights": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
@@ -22,6 +21,8 @@
   "parts": [
     {
       "pos": [-1.0425,-0.03125,-0.375],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
@@ -36,7 +37,9 @@
     },
     {
       "pos": [-1.0425,-0.03125,3.10938],
+      "rot": [0.0,0.0,0.0],
       "turnsWithSteer": true,
+      "isMirrored": true,
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
@@ -83,7 +86,8 @@
       "isPermanent": true,
       "maxValue": 42069.0,
       "defaultPart": "ivv:handbrake",
-      "types": ["gun_handbrake"]
+      "types": ["gun_handbrake"],
+      "linkedParts": [14]
     },
     {
       "pos": [0.72733,-0.22927,1.36719],
@@ -101,74 +105,95 @@
       "pos": [-0.53125,0.4352,0.43179],
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [-0.53125,0.4352,0.43179],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_rearright"]
-        }
-      ],
-      "linkedVariables": ["door_rearright"]
+      "interactableVariables": [
+        ["door_rearright"]
+      ]
+    },
+    {
+      "pos": [-0.53125,0.4352,0.43179],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_rearright"],
+        ["part_present_8"],
+        ["door_rearright"]
+      ]
     },
     {
       "pos": [0.53125,0.4352,0.43179],
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [0.53125,0.4352,0.43179],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_rearright"]
-        }
-      ],
-      "linkedVariables": ["door_rearleft"]
+      "interactableVariables": [
+        ["door_rearleft"]
+      ]
+    },
+    {
+      "pos": [0.53125,0.4352,0.43179],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_rearright"],
+        ["part_present_10"],
+        ["door_rearleft"]
+      ]
     },
     {
       "pos": [-0.53125,0.43986,1.43728],
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "additionalParts": [
-        {
-          "pos": [-0.53125,0.43986,1.43728],
-          "rot": [0.0,90.0,0.0],
-          "maxValue": 2.0,
-          "types": ["interactable_luggage"],
-          "linkedVariables": ["door_frontright"]
-        }
-      ],
-      "linkedVariables": ["door_frontright"]
+      "interactableVariables": [
+        ["door_frontright"]
+      ]
+    },
+    {
+      "pos": [-0.53125,0.43986,1.43728],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 2.0,
+      "types": ["interactable_luggage"],
+      "interactableVariables": [
+        ["door_frontright"],
+        ["part_present_12"],
+        ["door_frontright"]
+      ]
     },
     {
       "pos": [0.53125,0.43986,1.43728],
       "isController": true,
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
-      "linkedVariables": ["door_frontleft"]
+      "interactableVariables": [
+        ["door_frontleft"]
+      ]
     },
     {
       "pos": [0.0,0.21056,2.60882],
       "maxValue": 0.65,
       "defaultPart": "ivv:v4",
       "types": ["engine_car"],
-      "linkedVariables": ["door_hood"]
+      "interactableVariables": [
+        ["door_hood"]
+      ],
+      "linkedParts": [3,4,6,7,15,17,18,19]
     },
     {
       "pos": [0.4,0.52522,-0.97959],
       "rot": [0.0,180.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
-      "linkedVariables": ["door_trunk"]
+      "interactableVariables": [
+        ["door_trunk"]
+      ]
     },
     {
       "pos": [-0.4,0.52522,-0.97959],
       "rot": [0.0,180.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
-      "linkedVariables": ["door_trunk"]
+      "interactableVariables": [
+        ["door_trunk"]
+      ]
     },
     {
       "pos": [0.0,1.7525,1.425],
@@ -1211,6 +1236,101 @@
           "pos": [-1.0,0.7,-1.55],
           "width": 0.25,
           "height": 0.25
+        },
+        {
+          "pos": [0.0,0.7,3.85],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,0.7,3.85],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.7,3.85],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.7,3.85],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.7,3.85],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,1.0,-0.75],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,1.0,-0.75],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,1.0,-0.75],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.8,3.25],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.8,3.25],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.9,2.75],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.9,2.75],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.9,2.65],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,0.9,2.65],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.9,2.65],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,1.0,-0.85],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,1.0,-0.85],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.9,-1.25],
+          "width": 0.25,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.9,-1.25],
+          "width": 0.25,
+          "height": 0.25
         }
       ]
     },
@@ -1422,99 +1542,24 @@
           "height": 0.25
         },
         {
-          "pos": [0.0,0.7,3.85],
-          "width": 0.25,
-          "height": 0.25
+          "pos": [1.0425,0.84375,3.10938],
+          "width": 0.125,
+          "height": 0.125
         },
         {
-          "pos": [0.5,0.7,3.85],
-          "width": 0.25,
-          "height": 0.25
+          "pos": [-1.0425,0.84375,3.10938],
+          "width": 0.125,
+          "height": 0.125
         },
         {
-          "pos": [1.0,0.7,3.85],
-          "width": 0.25,
-          "height": 0.25
+          "pos": [1.0425,0.84375,-0.375],
+          "width": 0.125,
+          "height": 0.125
         },
         {
-          "pos": [-1.0,0.7,3.85],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.5,0.7,3.85],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.0,1.0,-0.75],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.5,1.0,-0.75],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.5,1.0,-0.75],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.8,3.25],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.8,3.25],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.9,2.75],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.9,2.75],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.0,0.9,2.65],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.5,0.9,2.65],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.5,0.9,2.65],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,1.0,-0.85],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,1.0,-0.85],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.9,-1.25],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.9,-1.25],
-          "width": 0.25,
-          "height": 0.25
+          "pos": [-1.0425,0.84375,-0.375],
+          "width": 0.125,
+          "height": 0.125
         }
       ]
     }
@@ -1573,6 +1618,99 @@
       "hudY": -5,
       "hudScale": 0.25,
       "defaultInstrument": "ivv:temp"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_red",
+      "name": "IVLabs Colada [Red]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_white",
+      "name": "IVLabs Colada [White]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_blue",
+      "name": "IVLabs Colada [Blue]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_green",
+      "name": "IVLabs Colada [Green]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_gray",
+      "name": "IVLabs Colada [Gray]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_brown",
+      "name": "IVLabs Colada [Brown]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_black",
+      "name": "IVLabs Colada [Black]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_policeblue",
+      "name": "IVLabs Colada [Police Blue Livery]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_policeblack",
+      "name": "IVLabs Colada [Police Black Livery]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_minimod",
+      "name": "IVLabs Colada [Minimod Mobile]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_ivlabs",
+      "name": "IVLabs Colada [IVLabs Work Livery]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_ivltest",
+      "name": "IVLabs Colada [IVLabs Experimental Livery]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_taxi",
+      "name": "IVLabs Colada [Taxi Livery]",
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -1711,73 +1849,6 @@
           "axis": [1.0,0.0,0.0]
         }
       ]
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "_red",
-      "name": "IVLabs Colada [Red]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_white",
-      "name": "IVLabs Colada [White]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_blue",
-      "name": "IVLabs Colada [Blue]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_green",
-      "name": "IVLabs Colada [Green]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_gray",
-      "name": "IVLabs Colada [Gray]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_brown",
-      "name": "IVLabs Colada [Brown]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_black",
-      "name": "IVLabs Colada [Black]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_policeblue",
-      "name": "IVLabs Colada [Police Blue Livery]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_policeblack",
-      "name": "IVLabs Colada [Police Black Livery]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_minimod",
-      "name": "IVLabs Colada [Minimod Mobile]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_ivlabs",
-      "name": "IVLabs Colada [IVLabs Work Livery]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_ivltest",
-      "name": "IVLabs Colada [IVLabs Experimental Livery]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_taxi",
-      "name": "IVLabs Colada [Taxi Livery]",
-      "extraMaterials": []
     }
   ],
   "rendering": {
@@ -2728,7 +2799,11 @@
   "general": {
     "description": "§r§7Placeholder\n§r§f§lSTATS:\n§r§7Drivetrain: FWD\nMax. Top Speed: 102MPH\n0-60: 9.15\n0-Top Speed: 0:33.48\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Lightbar/Gyrophare/Roof Device x1\n-Bullbar x1\n-Trin Powerful LED x1",
     "health": 2200,
-    "materials": ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.smalltire:0:4","mts:ivv.carseat_gray:0:4","mts:ivv.v4:0:1","mts:ivv.fuel:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1","mts:ivv.2gear:0:1"],
-    "repairMaterials": ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.smalltire:0:4","mts:ivv.carseat_gray:0:4","mts:ivv.v4:0:1","mts:ivv.fuel:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1","mts:ivv.2gear:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tape:0:1"]
+    ]
   }
 }
