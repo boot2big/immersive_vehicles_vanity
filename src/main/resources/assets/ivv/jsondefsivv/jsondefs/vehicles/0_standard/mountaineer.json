@@ -15,14 +15,14 @@
     "axleRatio": 2.75,
     "brakingFactor": 2.6,
     "maxTiltAngle": -3.4,
-    "dragCoefficient": 0.001,
+    "dragCoefficient": 0.125,
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
     "panelTexture": "ivv:textures/guis/ivlabspanel.png"
   },
   "parts": [
     {
       "pos": [-1.09422,-0.17188,-0.09375],
-      "rot": [0.0,0.0,0.0],
+      "rot": [0.0,180.0,0.0],
       "isMirrored": true,
       "minValue": 0.825,
       "maxValue": 1.0625,
@@ -50,7 +50,7 @@
     },
     {
       "pos": [-1.09422,-0.17188,3.125],
-      "rot": [0.0,0.0,0.0],
+      "rot": [0.0,180.0,0.0],
       "turnsWithSteer": true,
       "isMirrored": true,
       "minValue": 0.825,
@@ -1838,6 +1838,17 @@
           "animationType": "translation",
           "variable": "brake",
           "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "dragCoefficient",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.01,0,0.0],
+          "clampMax": 1
         }
       ]
     }

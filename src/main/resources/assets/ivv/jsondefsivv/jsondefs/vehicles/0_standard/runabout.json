@@ -14,7 +14,7 @@
     "axleRatio": 4.0,
     "brakingFactor": 1.8,
     "maxTiltAngle": -5.0,
-    "dragCoefficient": 0.001,
+    "dragCoefficient": 0.0875,
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
     "panelTexture": "ivv:textures/guis/ivlabspanel.png"
   },
@@ -301,7 +301,6 @@
       ]
     },
     {
-      "isInterior": false,
       "collisions": [
         {
           "pos": [0.7,2.2,-0.4],
@@ -767,22 +766,22 @@
     {
       "collisions": [
         {
-          "pos": [1.25,0.8125,-0.187], 
+          "pos": [1.25,0.8125,-0.187],
           "width": 0.125,
           "height": 0.125
         },
         {
-          "pos": [-1.25,0.8125,-0.187], 
+          "pos": [-1.25,0.8125,-0.187],
           "width": 0.125,
           "height": 0.125
         },
         {
-          "pos": [1.0,0.8125,3.25], 
+          "pos": [1.0,0.8125,3.25],
           "width": 0.125,
           "height": 0.125
         },
         {
-          "pos": [-1.0,0.8125,3.25], 
+          "pos": [-1.0,0.8125,3.25],
           "width": 0.125,
           "height": 0.125
         }
@@ -1020,6 +1019,17 @@
           "animationType": "translation",
           "variable": "brake",
           "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "dragCoefficient",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0222,0,0.0],
+          "clampMax": 1
         }
       ]
     }

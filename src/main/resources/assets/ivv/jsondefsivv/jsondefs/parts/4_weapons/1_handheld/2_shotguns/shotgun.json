@@ -5,10 +5,11 @@
   "gun": {
     "handHeld": true,
     "isSemiAuto": true,
+    "autoReload": true,
     "capacity": 2,
     "reloadTime": 10,
     "muzzleVelocity": 675,
-    "fireDelay": 5.0,
+    "fireDelay": 6.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 18.5,
     "minCaseLength": 89.0,
@@ -19,13 +20,6 @@
     "handHeldAimedOffset": [0.315,0.025,0.75],
     "muzzleGroups": [
       {
-        "muzzles": [
-          {
-            "pos": [0.02287,0.0,0.57166],
-            "rot": [0.0,0.0,0.0],
-            "center": [0.0,0.0,0.0]
-          }
-        ],
         "muzzles": [
           {
             "pos": [-0.02287,0.0,0.57166],
@@ -40,40 +34,25 @@
     {
       "subName": "",
       "name": "Double Barrel Shotgun",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
     "animatedObjects": [
       {
         "objectName": "barrel",
+        "applyAfter": "cube",
         "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "gun_reload",
-            "forwardsDelay": 15
-          },
           {
             "animationType": "rotation",
             "variable": "gun_reload",
             "centerPoint": [0.0,-0.05488,0.0],
             "axis": [45.0,0.0,0.0],
-            "clampMin": 45.0,
-            "clampMax": 45.0,
             "absolute": true,
-            "forwardsDelay": 15
+            "forwardsDelay": 5,
+            "reverseDelay": 10
           }
         ]
       },
@@ -103,18 +82,12 @@
       },
       {
         "objectName": "trigger",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "translation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
+            "axis": [0.0,0.0,0]
           }
         ]
       }
@@ -186,11 +159,14 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
   "general": {
     "name": "Double Barrel Shotgun",
     "health": 100,
-    "materials": ["minecraft:iron_ingot:0:13","minecraft:planks:0:2","minecraft:stone_button:0:1"]
+    "materialLists": [
+      ["minecraft:iron_ingot:0:13","minecraft:planks:0:2","minecraft:stone_button:0:1"]
+    ]
   }
 }

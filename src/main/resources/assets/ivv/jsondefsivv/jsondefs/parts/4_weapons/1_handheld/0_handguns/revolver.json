@@ -5,10 +5,11 @@
   "gun": {
     "handHeld": true,
     "isSemiAuto": true,
+    "autoReload": true,
     "capacity": 6,
-    "reloadTime": 56,
+    "reloadTime": 5,
     "muzzleVelocity": 1100,
-    "fireDelay": 1.0,
+    "fireDelay": 6.0,
     "bulletSpreadFactor": 2.0,
     "diameter": 9.0,
     "minCaseLength": 40.0,
@@ -21,7 +22,7 @@
       {
         "muzzles": [
           {
-            "pos": [0.0,0.0,0.42],
+            "pos": [0.0,0.097656,0.459822],
             "rot": [0.0,0.0,0.0],
             "center": [0.0,0.0,0.0]
           }
@@ -33,138 +34,48 @@
     {
       "subName": "",
       "name": "Revolver",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_gold",
       "name": "Revolver [Golden Glory]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
     "animatedObjects": [
       {
-        "objectName": "spindlething",
+        "objectName": "cylinderModel",
+        "applyAfter": "breakActionModel",
         "animations": [
           {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "gun_reload"
-          },
+            "animationType": "rotation",
+            "variable": "gun_ammo_count",
+            "centerPoint": [0.0,0.0625,0.136719],
+            "axis": [0.0,0.0,30]
+          }
+        ]
+      },
+      {
+        "objectName": "breakActionModel",
+        "applyAfter": "gunModel",
+        "animations": [
           {
             "animationType": "rotation",
             "variable": "gun_reload",
-            "centerPoint": [0.0,-0.07508,0.10363],
-            "axis": [0.0,0.0,-32.0],
-            "clampMin": 32.0,
-            "clampMax": 32.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_reload",
-            "axis": [0.01453,-0.00109,0.0],
-            "duration": -1,
-            "forwardsStartSound": "ivv:gunequip4"
+            "centerPoint": [0.0,0.0,0.09375],
+            "axis": [45,0,0.0],
+            "forwardsDelay": 5,
+            "reverseDelay": 10
           }
         ]
       },
       {
-        "objectName": "spinningpart",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "gun_reload"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "gun_reload",
-            "centerPoint": [0.0,-0.07508,0.10363],
-            "axis": [0.0,0.0,-32.0],
-            "clampMin": 32.0,
-            "clampMax": 32.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_reload",
-            "axis": [0.01453,-0.00109,0.0],
-            "duration": -1,
-            "forwardsStartSound": "ivv:gunequip4"
-          }
-        ]
-      },
-      {
-        "objectName": "cube",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_active",
-            "axis": [0.0,0.0,0.0],
-            "duration": -1,
-            "forwardsStartSound": "ivv:gunequip4"
-          }
-        ]
-      },
-      {
-        "objectName": "hammer",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "rotation",
-            "variable": "gun_cooldown",
-            "centerPoint": [0.0,-0.02354,0.03183],
-            "axis": [32.0,0.0,0.0],
-            "duration": 1
-          }
-        ]
-      },
-      {
-        "objectName": "trigger",
+        "objectName": "gunModel",
         "animations": [
           {
             "animationType": "translation",
@@ -193,8 +104,7 @@
             "clampMax": 1.0
           }
         ],
-        "forceSound": true,
-        "canPlayOnPartialTicks": true
+        "forceSound": true
       },
       {
         "name": "ivv:revolver_reloading",
@@ -218,7 +128,7 @@
         "scale": 1.0,
         "toScale": 4.0,
         "color": "555555",
-        "pos": [0.0,0.0,0.42],
+        "pos": [0.0,0.097656,0.459822],
         "initialVelocity": [0.0,0.0,2.0],
         "activeAnimations": [
           {
@@ -229,12 +139,15 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
   "general": {
     "name": "Revolver",
     "description": "it's .357 magnum i swear",
     "health": 100,
-    "materials": ["minecraft:iron_ingot:0:9","minecraft:stone_button:0:1"]
+    "materialLists": [
+      ["minecraft:iron_ingot:0:9","minecraft:stone_button:0:1"]
+    ]
   }
 }

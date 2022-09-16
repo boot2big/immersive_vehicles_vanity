@@ -7,9 +7,9 @@
     "fuelCapacity": 22000,
     "defaultFuelQty": 22000,
     "downForce": 0.7,
-    "overSteer": 1.0,
-    "underSteer": 2.5,
-    "overSteerAccel": -2.0,
+    "overSteer": 3.0,
+    "underSteer": 1,
+    "overSteerAccel": -3.0,
     "overSteerDecel": 1.0,
     "axleRatio": 2.5,
     "brakingFactor": 2.1,
@@ -300,7 +300,7 @@
           "animationType": "rotation",
           "variable": "door_rearleft",
           "centerPoint": [1.3125,0.4375,1.6875],
-          "axis": [0.0,-55.0,0.0],
+          "axis": [0.0,-65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
           "reverseEasing": "easeinback"
@@ -372,7 +372,7 @@
           "animationType": "rotation",
           "variable": "door_frontleft",
           "centerPoint": [1.3125,0.4375,2.875],
-          "axis": [0.0,-55.0,0.0],
+          "axis": [0.0,-65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
           "reverseEasing": "easeinback"
@@ -444,7 +444,7 @@
           "animationType": "rotation",
           "variable": "door_rearright",
           "centerPoint": [-1.3125,0.4375,1.6875],
-          "axis": [0.0,55.0,0.0],
+          "axis": [0.0,65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
           "reverseEasing": "easeinback"
@@ -516,7 +516,7 @@
           "animationType": "rotation",
           "variable": "door_frontright",
           "centerPoint": [-1.3125,0.4375,2.875],
-          "axis": [0.0,55.0,0.0],
+          "axis": [0.0,65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
           "reverseEasing": "easeinback"
@@ -850,6 +850,30 @@
           "axis": [1.0,0.0,0.0]
         }
       ]
+    },
+    {
+      "variable": "overSteer",
+      "addValue": -1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "4X4",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "underSteer",
+      "addValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "4X4",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
     }
   ],
   "rendering": {
@@ -893,7 +917,7 @@
             "animationType": "rotation",
             "variable": "door_frontleft",
             "centerPoint": [1.3125,0.4375,2.875],
-            "axis": [0.0,-55.0,0.0],
+            "axis": [0.0,-65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
             "reverseEasing": "easeinback",
@@ -909,7 +933,7 @@
             "animationType": "rotation",
             "variable": "door_rearleft",
             "centerPoint": [1.3125,0.4375,1.6875],
-            "axis": [0.0,-55.0,0.0],
+            "axis": [0.0,-65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
             "reverseEasing": "easeinback",
@@ -925,7 +949,7 @@
             "animationType": "rotation",
             "variable": "door_frontright",
             "centerPoint": [-1.3125,0.4375,2.875],
-            "axis": [0.0,55.0,0.0],
+            "axis": [0.0,65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
             "reverseEasing": "easeinback",
@@ -941,12 +965,56 @@
             "animationType": "rotation",
             "variable": "door_rearright",
             "centerPoint": [-1.3125,0.4375,1.6875],
-            "axis": [0.0,55.0,0.0],
+            "axis": [0.0,65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
             "reverseEasing": "easeinback",
             "forwardsStartSound": "ivv:dooropen4",
             "reverseEndSound": "ivv:doorclose4"
+          }
+        ]
+      },
+      {
+        "objectName": "glassfrontleft_translucent",
+        "applyAfter": "doorfrontleft",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMax": 0.99
+          }
+        ]
+      },
+      {
+        "objectName": "glassfrontright_translucent",
+        "applyAfter": "doorfrontright",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMax": 0.99
+          }
+        ]
+      },
+      {
+        "objectName": "glassrearleft_translucent",
+        "applyAfter": "doorrearleft",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMax": 0.99
+          }
+        ]
+      },
+      {
+        "objectName": "glassrearright_translucent",
+        "applyAfter": "doorrearright",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMax": 0.99
           }
         ]
       },
