@@ -4,9 +4,9 @@
     "hasRunningLights": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
-    "emptyMass": 1150,
-    "fuelCapacity": 22500,
-    "defaultFuelQty": 22500,
+    "emptyMass": 1300,
+    "fuelCapacity": 40000,
+    "defaultFuelQty": 40000,
     "downForce": 0.8,
     "overSteer": 2.0,
     "underSteer": 1.5,
@@ -15,7 +15,7 @@
     "axleRatio": 1.5,
     "brakingFactor": 3.0,
     "maxTiltAngle": -2.0,
-    "dragCoefficient": 1.0E-4,
+    "dragCoefficient": 0.1,
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
     "panelTexture": "ivv:textures/guis/ivlabspanel.png"
   },
@@ -944,7 +944,7 @@
       "hudX": 98,
       "hudY": -5,
       "hudScale": 0.5,
-      "defaultInstrument": "ivv:fueldigital"
+      "defaultInstrument": "ivv:fueldigital_dark"
     },
     {
       "pos": [0.68945,0.59319,2.58505],
@@ -953,7 +953,7 @@
       "hudX": 168,
       "hudY": -5,
       "hudScale": 0.5,
-      "defaultInstrument": "ivv:tachdigital"
+      "defaultInstrument": "ivv:tachdigital_dark"
     },
     {
       "pos": [0.49805,0.59319,2.58505],
@@ -962,7 +962,7 @@
       "hudX": 240,
       "hudY": -5,
       "hudScale": 0.5,
-      "defaultInstrument": "ivv:mphdigital"
+      "defaultInstrument": "ivv:mphdigital_dark"
     },
     {
       "pos": [0.38477,0.59319,2.58505],
@@ -971,7 +971,17 @@
       "hudX": 310,
       "hudY": -5,
       "hudScale": 0.5,
-      "defaultInstrument": "ivv:hours"
+      "defaultInstrument": "ivv:hours_dark"
+    },
+    {
+      "pos": [0,0,0],
+      "rot": [27.0,0.0,0.0],
+      "scale": 0.0,
+      "hudX": 310,
+      "hudY": 72,
+      "hudScale": 1,
+      "placeOnPanel": true,
+      "defaultInstrument": "ivv:screen_dark"
     }
   ],
   "definitions": [
@@ -1537,6 +1547,17 @@
           "animationType": "translation",
           "variable": "brake",
           "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "dragCoefficient",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.00625,0.0,0.0],
+          "clampMax": 1.0
         }
       ]
     }
@@ -2736,7 +2757,8 @@
             "animationType": "translation",
             "variable": "engine_running_1",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 5,
+            "reverseDelay": 4
           }
         ]
       },
@@ -2754,7 +2776,9 @@
             "animationType": "translation",
             "variable": "engine_running_1",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 5,
+            "forwardsDelay": 2,
+            "reverseDelay": 2
           }
         ]
       },
@@ -2772,7 +2796,9 @@
             "animationType": "translation",
             "variable": "engine_running_1",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 5,
+            "forwardsDelay": 4,
+            "reverseDelay": 0
           }
         ]
       },
@@ -4513,8 +4539,8 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§r§7A shadowy flight into the world of corporate espionage, criminal conspiracy and the twelve-million dollar car.\n§f§lSTATS:\n§r§7Drivetrain: AWD\nMax. Top Speed: 122MPH\n0-60: 10.53x\n0-Top Speed: 0:30:49\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Lightbar/Gyrophare x1\n-Roof Device x1",
-    "health": 6900,
+    "description": "§r§7A shadowy flight into the world of corporate espionage, widespread criminal enterprise and the twelve-million dollar car.\n§f§lSTATS:\n§r§7Drivetrain: Microprocessor controlled twin electriconically driven duoshaft all-time quad-system\nMax. Top Speed: 183MPH (215MPH with hybrid assist)\n0-60: 4.02 (1.92 with hybrid assist and turboboost)\n0-Top Speed: 0:54:23 (0:36:01 with hybrid assist and turboboost)\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Lightbar/Gyrophare x1\n-Roof Device x1\n-Magnitrox Hybrid Motor x2",
+    "health": 7800,
     "materialLists": [
       ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.normaltire:0:4","mts:ivv.carseat:0:2","mts:ivv.v8newperformante:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital:0:1","mts:ivv.tachdigital:0:1","mts:ivv.mphdigital:0:1","mts:ivv.hours:0:1"]
     ],
