@@ -5,34 +5,60 @@
       "incendiary",
       "armor_piercing"
     ],
-    "quantity": 18,
+    "quantity": 1,
     "diameter": 34.621,
-    "damage": 2147483646,
-    "armorPenetration": 2147483646,
-    "proximityFuze": 2,
-    "blastStrength": 2
+    "damage": 2.14748365E9,
+    "blastStrength": 2.0,
+    "armorPenetration": 2.14748365E9,
+    "proximityFuze": 1.0,
+    "pellets": 4,
+    "pelletSpreadFactor": 1
   },
   "definitions": [
     {
       "subName": "",
-      "name": "Metallic Goop Canister",
-      "extraMaterials": []
+      "name": "Metallic Half-Alloy Slug",
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
     "lightObjects": [],
     "particles": [
       {
+        "spawnEveryTick": true,
+        "type": "generic",
+        "texture": "mts:textures/rendering/lensflare.png",
+        "quantity": 1,
+        "duration": 20,
+        "transparency": 1.0,
+        "toTransparency": 0.0625,
+        "scale": 16.0,
+        "toScale": 8,
+        "color": "4BF21B",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "1_2_1_cycle",
+            "clampMin": -1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
         "type": "smoke",
         "quantity": 2,
         "duration": 240,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.0625,
         "scale": 8.0,
         "toScale": 16.0,
-        "color": "8a8a8a",
+        "color": "8A8A8A",
         "pos": [0.0,-0.25,0.0],
-        "initialVelocity": [0.0,-0.125,0],
+        "initialVelocity": [0.0,-0.125,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -50,8 +76,8 @@
         "toTransparency": 0.0625,
         "scale": 2.0,
         "toScale": 4.0,
-        "color": "ffffff",
-        "pos": [0.0,1,0.0],
+        "color": "FFFFFF",
+        "pos": [0.0,1.0,0.0],
         "initialVelocity": [0.0,0.25,0.0],
         "activeAnimations": [
           {
@@ -62,11 +88,14 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
   "general": {
     "stackSize": 64,
-    "materials": ["minecraft:iron_ingot:0:9","ivv:tcalloy:0:9"],
+    "materialLists": [
+      ["minecraft:iron_ingot:0:1","ivv:tcalloy:0:1"]
+    ],
     "type": "bullet"
   }
 }

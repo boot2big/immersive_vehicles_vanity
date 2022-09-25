@@ -4,7 +4,7 @@
     "isBlimp": true,
     "hasRadioNav": true,
     "hasSingleEngineControl": true,
-    "emptyMass": 3500,
+    "emptyMass": 2000,
     "fuelCapacity": 10000,
     "defaultFuelQty": 10000,
     "brakingFactor": 1.0,
@@ -20,14 +20,15 @@
       "rot": [90.0,0.0,0.0],
       "maxValue": 1000.0,
       "types": ["gun_beam"],
+      "linkedParts": [2,3,4,7],
       "activeAnimations": [
         {
           "animationType": "visibility",
           "variable": "in_atmosphere",
-          "clampMin": -1,
-          "clampMax": -1
+          "clampMin": -1.0,
+          "clampMax": 1.0
         }
-     ]
+      ]
     },
     {
       "pos": [-0.9,1.2,0.0],
@@ -50,8 +51,9 @@
     {
       "pos": [1.3125,0.29688,-0.06312],
       "maxValue": 10.0,
-      "types": ["engine_thruster"],
       "defaultPart": "ivv:thruster",
+      "types": ["engine_thruster"],
+      "linkedParts": [],
       "animations": [
         {
           "animationType": "rotation",
@@ -72,8 +74,9 @@
     {
       "pos": [-1.3125,0.29688,-0.06312],
       "maxValue": 10.0,
-      "types": ["engine_thruster"],
       "defaultPart": "ivv:thruster",
+      "types": ["engine_thruster"],
+      "linkedParts": [],
       "animations": [
         {
           "animationType": "rotation",
@@ -104,7 +107,7 @@
           "animationType": "rotation",
           "variable": "seat_occupied_1",
           "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,180,0.0],
+          "axis": [0.0,180.0,0.0],
           "duration": 20,
           "reverseDelay": -20
         }
@@ -121,21 +124,23 @@
         {
           "animationType": "inhibitor",
           "variable": "damage_percent",
-          "clampMin": -1,
+          "clampMin": -1.0,
           "clampMax": 0.99
         },
         {
           "animationType": "translation",
           "variable": "rudder",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     },
     {
       "pos": [-0.5,0.5,0.5],
+      "rot": [0.0,0.0,0.0],
       "isPermanent": true,
+      "isMirrored": true,
       "minValue": 0.1,
       "maxValue": 1.0,
       "defaultPart": "mts:invisible_wheel",
@@ -144,15 +149,15 @@
         {
           "animationType": "inhibitor",
           "variable": "damage_percent",
-          "clampMin": -1,
+          "clampMin": -1.0,
           "clampMax": 0.99
         },
         {
           "animationType": "translation",
           "variable": "rudder",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     },
@@ -167,21 +172,23 @@
         {
           "animationType": "inhibitor",
           "variable": "damage_percent",
-          "clampMin": -1,
+          "clampMin": -1.0,
           "clampMax": 0.99
         },
         {
           "animationType": "translation",
           "variable": "rudder",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     },
     {
       "pos": [-0.5,0.5,-0.5],
+      "rot": [0.0,0.0,0.0],
       "isPermanent": true,
+      "isMirrored": true,
       "minValue": 0.1,
       "maxValue": 1.0,
       "defaultPart": "mts:invisible_wheel",
@@ -190,15 +197,15 @@
         {
           "animationType": "inhibitor",
           "variable": "damage_percent",
-          "clampMin": -1,
+          "clampMin": -1.0,
           "clampMax": 0.99
         },
         {
           "animationType": "translation",
           "variable": "rudder",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     }
@@ -263,6 +270,15 @@
     }
   ],
   "instruments": [],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "IVLabs Miniature Orbital Cannon Satellite",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "ship_running",
@@ -309,43 +325,31 @@
     },
     {
       "variable": "in_atmosphere",
-      "setValue": 1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 1,
-          "clampMax": 1
-        }/*
-        {
-          "animationType": "visibility",
-          "variable": "altitude",
-          "clampMin": -99999.0,
-          "clampMax": 384.0
-        }*/
-      ]
-    },
-    {
-      "variable": "in_atmosphere",
       "setValue": -1.0,
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 0,
-          "clampMax": 0
-        }/*
+          "variable": "altitude",
+          "clampMin": 320.0,
+          "clampMax": 99999.0
+        }
+      ]
+    },
+    {
+      "variable": "in_atmosphere",
+      "setValue": 1.0,
+      "animations": [
         {
           "animationType": "visibility",
           "variable": "altitude",
-          "clampMin": 384.0,
-          "clampMax": 99999.0
-        }*/
+          "clampMin": -1536.0,
+          "clampMax": 320.0
+        }
       ]
     },
     {
       "variable": "ballastVolume",
-      "setValue": 100,
+      "setValue": 100.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -356,8 +360,8 @@
         {
           "animationType": "visibility",
           "variable": "altitude",
-          "clampMin": -1024.0,
-          "clampMax": 1024.0
+          "clampMin": -1536.0,
+          "clampMax": 1536.0
         }
       ]
     },
@@ -382,7 +386,7 @@
         {
           "animationType": "translation",
           "variable": "brake",
-          "axis": [0,2.0,0.0]
+          "axis": [0.0,2.0,0.0]
         }
       ]
     },
@@ -399,8 +403,8 @@
         {
           "animationType": "visibility",
           "variable": "altitude",
-          "clampMin": -1000,
-          "clampMax": 364
+          "clampMin": -1000.0,
+          "clampMax": 364.0
         }
       ]
     },
@@ -417,20 +421,20 @@
         {
           "animationType": "visibility",
           "variable": "altitude",
-          "clampMin": 364,
-          "clampMax": 786
+          "clampMin": 364.0,
+          "clampMax": 786.0
         }
       ]
     },
     {
       "variable": "dragCoefficient",
-      "setValue": 10,
+      "setValue": 10.0,
       "animations": [
         {
           "animationType": "visibility",
           "variable": "altitude",
-          "clampMin": 1025,
-          "clampMax": 99999
+          "clampMin": 1536.0,
+          "clampMax": 99999.0
         }
       ]
     },
@@ -445,13 +449,6 @@
           "clampMax": 1.0
         }
       ]
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "IVLabs Miniature Orbital Cannon Satellite",
-      "extraMaterials": []
     }
   ],
   "rendering": {
@@ -1181,7 +1178,7 @@
           {
             "animationType": "translation",
             "variable": "gun_fired_1",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "duration": 40,
             "forwardsDelay": -35
           }
@@ -1266,7 +1263,7 @@
             "animationType": "visibility",
             "variable": "missile_1_distance",
             "clampMin": 72.0,
-            "clampMax": 120
+            "clampMax": 120.0
           }
         ],
         "looping": true,
@@ -1286,7 +1283,7 @@
             "animationType": "visibility",
             "variable": "missile_1_distance",
             "clampMin": 16.0,
-            "clampMax": 48
+            "clampMax": 48.0
           }
         ],
         "looping": true,
@@ -1305,8 +1302,8 @@
           {
             "animationType": "visibility",
             "variable": "missile_1_distance",
-            "clampMin": 2,
-            "clampMax": 24
+            "clampMin": 2.0,
+            "clampMax": 24.0
           }
         ],
         "looping": true,
@@ -1486,8 +1483,10 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "Have you ever wondered how satellites feel when they orbit around the planet at high speeds? Now you can find out.\n§r§f§lSTATS:\n§r§7Drivetrain: A lack of gravity and a couple vector thrusters\nMax. Top Speed: 11MPH\nMax. Altitude: 1.024km (MC Scale)\n62-Max Alt: 1:01.23\n§f§lACCESSORIES:\n§r§7-Crate/Chest x8\n§r§7-Ion Beam Emitter x1",
-    "health": 7000,
-    "materials": ["mts:ivv.tcalloy:0:14"]
+    "description": "§r\n§r§f§lSTATS:\n§r§7Drivetrain: A lack of gravity and a couple vector thrusters\nMax. Top Speed: 11MPH\nMax. Altitude: 1.536km (MC Scale)\n62-Max Alt: 1:01.23\n§f§lACCESSORIES:\n§r§7-Crate/Chest x8\n§r§7-Ion Beam Emitter x1",
+    "health": 4000,
+    "materialLists": [
+      ["mts:ivv.tcalloy:0:14"]
+    ]
   }
 }
