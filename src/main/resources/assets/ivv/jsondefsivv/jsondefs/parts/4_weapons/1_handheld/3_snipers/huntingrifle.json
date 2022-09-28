@@ -110,6 +110,32 @@
         ]
       },
       {
+        "objectName": "defaultGripModel1",
+        "applyAfter": "defaultGripModel",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_inhand_sneaking",
+            "centerPoint": [0.03125,0.073474,1.275],
+            "axis": [0,-45,0.0],
+            "duration": 2
+          }
+        ]
+      },
+      {
+        "objectName": "defaultGripModel2",
+        "applyAfter": "defaultGripModel",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_inhand_sneaking",
+            "centerPoint": [-0.03125,0.073474,1.275],
+            "axis": [0,45,0.0],
+            "duration": 2
+          }
+        ]
+      },
+      {
         "objectName": "slideModel",
         "animations": [
           {
@@ -177,6 +203,29 @@
       }
     ],
     "particles": [
+      {
+        "type": "generic",
+        "texture": "ivv:textures/bullets/aacammo.png",
+        "duration": 200,
+        "quantity": 1,
+        "transparency": 1,
+        "toTransparency": 0.01,
+        "scale": 0.5,
+        "toScale": 0.5,
+        "color": "cccccc",
+        "pos": [0.0,0.12441,0],
+        "initialVelocity": [-1,0.5,0.0],
+        "movementVelocity": [0,-0.02,0.0],
+        "terminalVelocity": [32,6,32],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
       {
         "type": "smoke",
         "quantity": 5,

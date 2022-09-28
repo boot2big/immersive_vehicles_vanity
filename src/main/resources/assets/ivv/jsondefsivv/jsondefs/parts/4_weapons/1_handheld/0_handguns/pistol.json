@@ -7,9 +7,9 @@
     "isSemiAuto": true,
     "capacity": 12,
     "reloadTime": 25,
-    "muzzleVelocity": 600,
-    "fireDelay": 2.0,
-    "bulletSpreadFactor": 1.0,
+    "muzzleVelocity": 800,
+    "fireDelay": 1.0,
+    "bulletSpreadFactor": 2.0,
     "diameter": 11.43,
     "minCaseLength": 23.0,
     "maxCaseLength": 23.0,
@@ -69,6 +69,30 @@
       },
       {
         "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_cooldown",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_active",
+            "axis": [0.0,0.0,-1.0E-6],
+            "duration": -1,
+            "forwardsStartSound": "ivv:gunequip1"
+          }
+        ]
+      },
+      {
+        "objectName": "safety",
         "animations": [
           {
             "animationType": "translation",
@@ -159,6 +183,29 @@
       }
     ],
     "particles": [
+      {
+        "type": "generic",
+        "texture": "ivv:textures/bullets/aacammo.png",
+        "duration": 200,
+        "quantity": 1,
+        "transparency": 1,
+        "toTransparency": 0.01,
+        "scale": 0.5,
+        "toScale": 0.5,
+        "color": "cccccc",
+        "pos": [0.0,0.07426,0],
+        "initialVelocity": [-1,0.5,0.0],
+        "movementVelocity": [0,-0.02,0.0],
+        "terminalVelocity": [32,6,32],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
       {
         "type": "smoke",
         "quantity": 5,
