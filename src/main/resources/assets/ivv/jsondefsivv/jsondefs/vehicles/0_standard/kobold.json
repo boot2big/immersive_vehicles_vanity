@@ -109,7 +109,7 @@
         {
           "animationType": "translation",
           "variable": "!bruh",
-          "axis": [0,0,0]
+          "axis": [0.0,0.0,0.0]
         }
       ]
     },
@@ -121,14 +121,13 @@
       "hudY": 15,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:classicmphround",
-      //"applyAfter": "frontfork",
       "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "rudder",
-            "centerPoint": [0.0,0.58157,0.54914],
-            "axis": [0.0,-0.56,0.28]
-          }
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [0.0,0.58157,0.54914],
+          "axis": [0.0,-0.56,0.28]
+        }
       ]
     },
     {
@@ -144,7 +143,7 @@
         {
           "animationType": "translation",
           "variable": "!bruh",
-          "axis": [0,0,0]
+          "axis": [0.0,0.0,0.0]
         }
       ]
     }
@@ -194,100 +193,6 @@
     }
   ],
   "variableModifiers": [
-    {
-      "variable": "rearBodyroll",
-      "setValue": -1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "rrBodyroll",
-          "clampMin": -2.14748365E9,
-          "clampMax": -1.0
-        }
-      ]
-    },
-    {
-      "variable": "rearBodyroll",
-      "setValue": 1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "rrBodyroll",
-          "clampMin": 1.0,
-          "clampMax": 2.14748365E9
-        }
-      ]
-    },
-    {
-      "variable": "rearBodyroll",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "!seat_occupied_2",
-          "axis": [0.0,-0.5,0.0]
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMin": -2.0,
-          "clampMax": -0.5
-        },
-        {
-          "animationType": "translation",
-          "variable": "acceleration",
-          "axis": [0.0,40.0,0.0],
-          "clampMin": -50.0,
-          "clampMax": 20.0
-        }
-      ]
-    },
-    {
-      "variable": "frontBodyroll",
-      "setValue": -1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "flBodyroll",
-          "clampMin": -2.14748365E9,
-          "clampMax": -1.0
-        }
-      ]
-    },
-    {
-      "variable": "frontBodyroll",
-      "setValue": 1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "flBodyroll",
-          "clampMin": 1.0,
-          "clampMax": 2.14748365E9
-        }
-      ]
-    },
-    {
-      "variable": "frontBodyroll",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "!seat_occupied_2",
-          "axis": [0.0,-0.5,0.0]
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMin": -2.0,
-          "clampMax": -0.5
-        },
-        {
-          "animationType": "translation",
-          "variable": "acceleration",
-          "axis": [0.0,-40.0,0.0],
-          "clampMin": -20.0,
-          "clampMax": 50.0
-        }
-      ]
-    },
     {
       "variable": "dragCoefficient",
       "animations": [
@@ -352,11 +257,17 @@
         "objectName": "rearfork",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMax": 1.0
+          },
+          {
             "animationType": "rotation",
-            "variable": "rearBodyroll",
+            "variable": "acceleration",
             "centerPoint": [0.0,0.07031,-0.13281],
-            "axis": [5.0,0.0,0.0],
-            "duration": 10
+            "axis": [24.0,0.0,0.0],
+            "clampMin": -32,
+            "clampMax": 32
           }
         ]
       },
@@ -376,11 +287,17 @@
         "applyAfter": "frontfork",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMax": 1.0
+          },
+          {
             "animationType": "translation",
-            "variable": "frontBodyroll",
+            "variable": "acceleration",
             "centerPoint": [0.0,0.58157,0.54914],
-            "axis": [0.0,0.03875,-0.0175],
-            "duration": 10
+            "axis": [0.0,0,0.0],
+            "clampMin": 0,
+            "clampMax": 0
           }
         ]
       },

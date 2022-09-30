@@ -12,7 +12,6 @@
     "overSteerDecel": 2.0,
     "axleRatio": 3.75,
     "brakingFactor": 1.6,
-    "maxTiltAngle": -3.5,
     "dragCoefficient": 0.0875,
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
     "panelTexture": "ivv:textures/guis/ivlabspanel.png"
@@ -25,6 +24,7 @@
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
+      "applyAfter": "rearsuspension",
       "types": ["ground_wheel"]
     },
     {
@@ -32,6 +32,7 @@
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
+      "applyAfter": "rearsuspension",
       "types": ["ground_wheel"]
     },
     {
@@ -42,6 +43,7 @@
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
+      "applyAfter": "steeringfrontright",
       "types": ["ground_wheel"],
       "animations": [
         {
@@ -58,6 +60,7 @@
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
+      "applyAfter": "steeringfrontleft",
       "types": ["ground_wheel"],
       "animations": [
         {
@@ -842,6 +845,52 @@
   ],
   "variableModifiers": [
     {
+      "variable": "rBodyroll",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_1",
+          "axis": [0.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rudder",
+          "axis": [0.0,0.022222222,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.066666667,0.0,0.0],
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "fBodyroll",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_1",
+          "axis": [0.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rudder",
+          "axis": [0.0,0.022222222,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.066666667,0.0,0.0],
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
       "variable": "downForce",
       "addValue": 0.2,
       "animations": [
@@ -983,14 +1032,288 @@
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.01,0,0.0],
-          "clampMax": 1
+          "axis": [0.01,0.0,0.0],
+          "clampMax": 1.0
         }
       ]
     }
   ],
   "rendering": {
     "animatedObjects": [
+      {
+        "objectName": "rearsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [0,0.125,-0.1875],
+            "axis": [0.0,0.0,2.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMax": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "acceleration",
+            "axis": [0.0,0.375,0.0],
+            "clampMin": -1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "rearleftspring",
+        "applyAfter": "rearsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [0.59375,0.125,-0.1875],
+            "axis": [0.0,0.0,-2.0]
+          }
+        ]
+      },
+      {
+        "objectName": "rearleftspringrear",
+        "applyAfter": "rearleftspring",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [0.59375,0.125,-0.34375],
+            "axis": [-3,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "rearleftspringfront",
+        "applyAfter": "rearleftspring",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [0.59375,0.125,-0.03125],
+            "axis": [3,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "rearrightspring",
+        "applyAfter": "rearsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [-0.59375,0.125,-0.1875],
+            "axis": [0.0,0.0,-2.0]
+          }
+        ]
+      },
+      {
+        "objectName": "rearrightspringrear",
+        "applyAfter": "rearrightspring",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [-0.59375,0.125,-0.34375],
+            "axis": [3,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "rearrightspringfront",
+        "applyAfter": "rearrightspring",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [-0.59375,0.125,-0.03125],
+            "axis": [-3,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "axlerearright",
+        "applyAfter": "rearsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_1",
+            "centerPoint": [-1.05,0.125,-0.1875],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "axlerearleft",
+        "applyAfter": "rearsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_2",
+            "centerPoint": [1.05,0.125,-0.1875],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "frontsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [0,0.125,2.3125],
+            "axis": [0.0,0.0,2.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMax": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "acceleration",
+            "axis": [0.0,-0.375,0.0],
+            "clampMin": -1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "frontleftspring",
+        "applyAfter": "frontsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [0.46875,0.125,2.3125],
+            "axis": [0.0,0.0,-2.0]
+          }
+        ]
+      },
+      {
+        "objectName": "frontleftspringrear",
+        "applyAfter": "frontleftspring",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [0.46875,0.125,2.15625],
+            "axis": [-3,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "frontleftspringfront",
+        "applyAfter": "frontleftspring",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [0.46875,0.125,2.46875],
+            "axis": [3,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "frontrightspring",
+        "applyAfter": "frontsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [-0.46875,0.125,2.3125],
+            "axis": [0.0,0.0,-2.0]
+          }
+        ]
+      },
+      {
+        "objectName": "frontrightspringrear",
+        "applyAfter": "frontrightspring",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [-0.46875,0.125,2.15625],
+            "axis": [3,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "frontrightspringfront",
+        "applyAfter": "frontrightspring",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [-0.46875,0.125,2.46875],
+            "axis": [-3,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "steeringfrontright",
+        "applyAfter": "frontsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.703125,0.125,2.3125],
+            "axis": [0.0,-0.5,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "axlefrontright",
+        "applyAfter": "steeringfrontright",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_3",
+            "centerPoint": [-1.05,0.125,2.3125],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "steeringfrontleft",
+        "applyAfter": "frontsuspension",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [0.703125,0.125,2.3125],
+            "axis": [0.0,-0.5,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "axlefrontleft",
+        "applyAfter": "steeringfrontleft",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_4",
+            "centerPoint": [1.05,0.125,2.3125],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "swaybar",
+        "applyAfter": "steeringfrontright",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.703125,0.058593,2],
+            "axis": [0.0,0.5,0.0]
+          }
+        ]
+      },
       {
         "objectName": "hood",
         "animations": [
