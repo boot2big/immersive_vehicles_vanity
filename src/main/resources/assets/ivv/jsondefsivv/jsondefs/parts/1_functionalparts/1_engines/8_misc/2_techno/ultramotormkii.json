@@ -11,15 +11,18 @@
     "revResistance": 2,
     "maxRPM": 26500,
     "maxSafeRPM": 22000,
+    "idleRPM": -1,
+    "startRPM": -1,
     "revlimitRPM": 20000,
     "revlimitBounce": 4,
+    "stallRPM": -1,
     "engineWinddownRate": 100,
     "heatingCoefficient": 0.5,
     "coolingCoefficient": 1.25,
     "engineWearFactor": 0.375,
     "fuelConsumption": 0.6875,
     "gearRatios": [-2.0,0.0,2.0],
-    "fuelType": "electric",
+    "fuelType": "electricity",
     "superchargerFuelConsumption": -0.34375,
     "superchargerEfficiency": -1.25
   },
@@ -189,7 +192,7 @@
           {
             "animationType": "visibility",
             "variable": "engine_powered",
-            "clampMin": 1.0,
+            "clampMin": 0.0,
             "clampMax": 1.0
           }
         ],
@@ -197,7 +200,7 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,1,0.0]
+            "axis": [0.0,0.5,0.0]
           },
           {
             "animationType": "translation",
@@ -208,15 +211,15 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,1,0.0],
-            "offset": 0
-          },
-          {
-            "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
             "axis": [0.0,0.25,0.0],
             "offset": -0.25
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.375,0.0],
+            "offset": 0.625
           }
         ],
         "looping": true
@@ -226,6 +229,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -253,6 +257,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -271,6 +276,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
