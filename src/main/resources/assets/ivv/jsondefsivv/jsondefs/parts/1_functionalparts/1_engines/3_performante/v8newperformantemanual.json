@@ -7,7 +7,7 @@
     "type": "normal",
     "starterPower": 45,
     "shiftSpeed": 5,
-    "clutchTime": 10,
+    "clutchTime": 2,
     "revResistance": 7,
     "maxRPM": 7600,
     "maxSafeRPM": 7400,
@@ -21,7 +21,7 @@
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.6,
-    "gearRatios": [-3.25,0,3.5,3,2.5,2,1.5,1,0.5],
+    "gearRatios": [-3.25,0.0,3.5,3.0,2.5,2.0,1.5,1.0,0.5],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 1.2,
     "superchargerEfficiency": 1.0,
@@ -38,7 +38,9 @@
     {
       "subName": "",
       "name": "Modern Performante V8 Engine [§2Manual§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -162,6 +164,35 @@
           "duration": 60
         }
       ]
+    },
+    {
+      "variable": "engine_clutching",
+      "maxValue": 1,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -213,38 +244,182 @@
         "forceSound": true
       },
       {
-        "name": "ivv:transmissionmanualgrinding",
+        "name": "ivv:transmissionfailshift1",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_badshift",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0,
+            "clampMax": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMin": 0.875,
+            "clampMax": 1.25,
+            "offset": 0.75
           }
         ],
         "forceSound": true
       },
       {
-        "name": "ivv:transmissionmanualshiftup",
+        "name": "ivv:transmissionfailshift2",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_clutch_upshift",
+            "variable": "engine_badshift",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 1
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMin": 0.875,
+            "clampMax": 1.25,
+            "offset": 0.75
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMin": 0.875,
+            "clampMax": 1.25,
+            "offset": 0.75
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMin": 0.875,
+            "clampMax": 1.25,
+            "offset": 0.75
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionmanualshift1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0,
+            "clampMax": 0.25
           }
         ]
       },
       {
-        "name": "ivv:transmissionmanualshiftdown",
+        "name": "ivv:transmissionmanualshift2",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_clutch_downshift",
+            "variable": "engine_clutching",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 1
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionmanualshift3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionmanualshift4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1
           }
         ]
       },
@@ -264,15 +439,6 @@
             "clampMax": 999999.0
           }
         ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.75,
-            "duration": 20
-          }
-        ],
         "volumeAnimations": [
           {
             "animationType": "translation",
@@ -287,6 +453,15 @@
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "looping": true
@@ -600,7 +775,11 @@
   "general": {
     "name": "Performante V8 Engine §2(Manual)",
     "health": 100,
-    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxmanual:0:1","mts:ivv.ecu:0:1"],
-    "repairMaterials": ["mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxmanual:0:1","mts:ivv.ecu:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }

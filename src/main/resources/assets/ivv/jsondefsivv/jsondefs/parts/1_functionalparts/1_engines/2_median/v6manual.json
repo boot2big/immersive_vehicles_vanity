@@ -4,23 +4,24 @@
     "mass": 160
   },
   "engine": {
+    "type": "normal",
     "starterPower": 30,
-    "engineWinddownRate": 100,
-    "engineWearFactor": 0.875,
     "shiftSpeed": 5,
-    "clutchTime": 10,
-    "revResistance": 8,
+    "clutchTime": 5,
+    "revResistance": 6,
     "maxRPM": 6700,
     "maxSafeRPM": 6500,
-    "revlimitRPM": 6000,
-    "revlimitBounce": 8,
     "idleRPM": 800,
     "startRPM": 500,
+    "revlimitRPM": 6000,
+    "revlimitBounce": 6,
     "stallRPM": 400,
-    "fuelConsumption": 0.5,
+    "engineWinddownRate": 100,
     "heatingCoefficient": 0.825,
     "coolingCoefficient": 1.75,
-    "gearRatios": [-3.5,0.0,4.0,3.0,2.0,1.0,0.75],
+    "engineWearFactor": 0.875,
+    "fuelConsumption": 0.5,
+    "gearRatios": [-3.15,0,3.5,2.8,2.1,1.6,0.7],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.5,
     "superchargerEfficiency": 1.0,
@@ -33,31 +34,38 @@
       "types": ["generic_turbo"]
     }
   ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Median V6 Engine [§2Manual§r]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "superchargerFuelConsumption",
       "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625,
-            "duration": 15
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625,
+          "duration": 15
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625
+        }
       ]
     },
     {
@@ -74,7 +82,7 @@
     },
     {
       "variable": "coolingCoefficient",
-      "addValue": 1,
+      "addValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -156,16 +164,39 @@
           "duration": 80
         }
       ]
-    }
-  ],
-  "definitions": [
+    },
     {
-      "subName": "",
-      "name": "Median V6 Engine [§2Manual§r]",
-      "extraMaterials": []
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v6manual_starting",
@@ -205,38 +236,180 @@
         "forceSound": true
       },
       {
-        "name": "ivv:transmissionmanualgrinding",
+        "name": "ivv:transmissionfailshift1",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_badshift",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMax": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
       },
       {
-        "name": "ivv:transmissionmanualshiftup",
+        "name": "ivv:transmissionfailshift2",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_clutch_upshift",
+            "variable": "engine_badshift",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 1
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionmanualshift1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMax": 0.25
           }
         ]
       },
       {
-        "name": "ivv:transmissionmanualshiftdown",
+        "name": "ivv:transmissionmanualshift2",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_clutch_downshift",
+            "variable": "engine_clutching",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 1
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionmanualshift3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionmanualshift4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1.0
           }
         ]
       },
@@ -383,17 +556,29 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,-0.25,0.0],
+            "offset": 0.25
+          },
+          {
+            "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,-0.5,0.0],
-            "offset": 0.6
+            "axis": [0.0,-0.25,0.0],
+            "offset": 0.625
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,-0.05,0.0],
+            "offset": 0.05
+          },
+          {
+            "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,1.500000023841858,0.0],
-            "offset": 0.85
+            "axis": [0.0,2,0.0],
+            "offset": 1
           }
         ],
         "looping": true
@@ -412,8 +597,8 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,1.0,0.0],
-            "offset": -0.5
+            "axis": [0.0,0.625,0.0],
+            "offset": -0.625
           },
           {
             "animationType": "translation",
@@ -431,8 +616,8 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,0.75,0.0],
-            "offset": 0.6
+            "axis": [0.0,2.375,0.0],
+            "offset": 0.625
           }
         ],
         "looping": true
@@ -443,8 +628,8 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -498,9 +683,7 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0,
-            "clampMax": 0
+            "variable": "part_present_1"
           },
           {
             "animationType": "inhibitor",
@@ -520,6 +703,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -547,6 +731,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -565,6 +750,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -581,15 +767,17 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/2_median/",
-  "packID": "ivv",
-  "systemName": "v6manual",
-  "classification": "part",
   "general": {
     "name": "Median V6 Engine §2(Manual)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:6","mts:ivv.fuelfi:0:1","mts:ivv.gearboxmanual:0:1"]
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:6","mts:ivv.fuelfi:0:1","mts:ivv.gearboxmanual:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }
