@@ -4,6 +4,7 @@
     "mass": 160
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
     "starterPower": 17,
     "shiftSpeed": 1,
@@ -11,9 +12,9 @@
     "revResistance": 6,
     "maxRPM": 6750,
     "maxSafeRPM": 6550,
-    "revlimitRPM": 6000,
     "idleRPM": 800,
     "startRPM": 500,
+    "revlimitRPM": 6000,
     "revlimitBounce": 8,
     "stallRPM": 400,
     "engineWinddownRate": 100,
@@ -36,31 +37,38 @@
       "types": ["generic_turbo"]
     }
   ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Median I3 Engine [§dCVT§r]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "superchargerFuelConsumption",
       "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625,
-            "duration": 15
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625,
+          "duration": 15
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625
+        }
       ]
     },
     {
@@ -77,7 +85,7 @@
     },
     {
       "variable": "coolingCoefficient",
-      "addValue": 1,
+      "addValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -162,7 +170,7 @@
     },
     {
       "variable": "engine_clutching",
-      "maxValue": 1,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
@@ -190,14 +198,8 @@
       ]
     }
   ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Median I3 Engine [§dCVT§r]",
-      "extraMaterials": []
-    }
-  ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v3median_starting",
@@ -524,7 +526,6 @@
             "variable": "engine_temp",
             "axis": [0.0,0.375,0.0],
             "offset": -25.875,
-            "clampMin": 0.0,
             "clampMax": 0.375
           }
         ],
@@ -532,9 +533,8 @@
           {
             "animationType": "translation",
             "variable": "engine_temp",
-            "axis": [0.0,1,0.0],
-            "offset": -69,
-            "clampMin": 0.0,
+            "axis": [0.0,1.0,0.0],
+            "offset": -69.0,
             "clampMax": 1.0
           }
         ],
@@ -608,8 +608,8 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -663,9 +663,7 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0,
-            "clampMax": 0
+            "variable": "part_present_1"
           },
           {
             "animationType": "inhibitor",
@@ -685,6 +683,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -712,6 +711,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -730,6 +730,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -746,15 +747,17 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/2_median/",
-  "packID": "ivv",
-  "systemName": "v3mediancvt",
-  "classification": "part",
   "general": {
     "name": "Median I3 Engine §d(CVT)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:3","mts:ivv.fuelfi:0:1","mts:ivv.gearboxcvt:0:1"]
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:3","mts:ivv.fuelfi:0:1","mts:ivv.gearboxcvt:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }

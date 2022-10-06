@@ -4,8 +4,9 @@
     "mass": 160
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
-    "starterPower": 11,
+    "starterPower": 7,
     "shiftSpeed": 30,
     "clutchTime": 3,
     "revResistance": 7,
@@ -21,9 +22,9 @@
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.75,
     "fuelConsumption": 0.3,
-    "gearRatios": [-2.0,0.0,2.0,1.0],
-    "upShiftRPM": [0,0,3800,3800],
-    "downShiftRPM": [0,0,2100,2100],
+    "gearRatios": [-3,0,3,2,1],
+    "upShiftRPM": [0,0,3800,3800,3800],
+    "downShiftRPM": [0,0,2100,2100,2100],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": -0.15,
     "superchargerEfficiency": -0.9,
@@ -54,7 +55,85 @@
     {
       "subName": "",
       "name": "Insolvo H4 Engine [§9Automatic§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "idleRPM",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_gear"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "throttle",
+          "clampMin": 0.0625,
+          "clampMax": 2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "5_10_0_cycle",
+          "axis": [0.0,100.0,0.0],
+          "forwardsEasing": "easeinoutbounce",
+          "reverseEasing": "easeinoutbounce"
+        }
+      ]
+    },
+    {
+      "variable": "idleRPM",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_powered",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 80
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,1200.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,-1200.0,0.0],
+          "duration": 80
+        }
+      ]
+    },
+    {
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -171,14 +250,12 @@
             "animationType": "translation",
             "variable": "throttle",
             "axis": [0.0,-0.5,0.0],
-            "duration": 10,
-            "offset": 0.0
+            "duration": 10
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.0
+            "axis": [0.0,0.5,0.0]
           }
         ],
         "pitchAnimations": [
@@ -316,6 +393,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -343,6 +421,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -361,6 +440,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -377,12 +457,17 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
   "general": {
     "name": "Insolvo H4 Engine §9(Automatic)",
     "health": 100,
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelcarb:0:1","mts:ivv.gearboxauto:0:1"],
-    "repairMaterials": ["mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelcarb:0:1","mts:ivv.gearboxauto:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }

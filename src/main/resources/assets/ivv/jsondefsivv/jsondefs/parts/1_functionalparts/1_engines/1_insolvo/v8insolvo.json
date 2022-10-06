@@ -4,7 +4,8 @@
     "mass": 160
   },
   "engine": {
-    "starterPower": 10,
+    "type": "normal",
+    "starterPower": 6,
     "shiftSpeed": 10,
     "clutchTime": 10,
     "revResistance": 7,
@@ -20,7 +21,7 @@
     "coolingCoefficient": 1.0,
     "engineWearFactor": 0.75,
     "fuelConsumption": 0.6,
-    "gearRatios": [-3.0,0.0,3.0,2.0,1.0,0.75],
+    "gearRatios": [-3,0,3,2.25,1.5,0.75],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": -0.3,
     "superchargerEfficiency": -0.9,
@@ -37,7 +38,85 @@
     {
       "subName": "",
       "name": "Insolvo V8 Engine [§2Manual§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "idleRPM",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_gear"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "throttle",
+          "clampMin": 0.0625,
+          "clampMax": 2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "5_10_0_cycle",
+          "axis": [0.0,100.0,0.0],
+          "forwardsEasing": "easeinoutbounce",
+          "reverseEasing": "easeinoutbounce"
+        }
+      ]
+    },
+    {
+      "variable": "idleRPM",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_powered",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 80
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,1200.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,-1200.0,0.0],
+          "duration": 80
+        }
+      ]
+    },
+    {
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -152,14 +231,12 @@
             "animationType": "translation",
             "variable": "throttle",
             "axis": [0.0,-0.5,0.0],
-            "duration": 10,
-            "offset": 0.0
+            "duration": 10
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.0
+            "axis": [0.0,0.5,0.0]
           }
         ],
         "pitchAnimations": [
@@ -306,6 +383,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -333,6 +411,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -351,6 +430,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -367,12 +447,17 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
   "general": {
     "name": "Insolvo V6 Engine §2(Manual)",
     "health": 100,
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelcarb:0:2","mts:ivv.gearboxmanual:0:1"],
-    "repairMaterials": ["mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelcarb:0:2","mts:ivv.gearboxmanual:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }

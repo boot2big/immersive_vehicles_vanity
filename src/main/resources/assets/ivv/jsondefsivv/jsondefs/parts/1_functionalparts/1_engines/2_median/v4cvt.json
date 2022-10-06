@@ -4,23 +4,24 @@
     "mass": 170
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
     "starterPower": 25,
-    "engineWinddownRate": 100,
-    "engineWearFactor": 0.875,
     "shiftSpeed": 1,
     "clutchTime": 3,
     "revResistance": 7,
     "maxRPM": 6800,
     "maxSafeRPM": 6600,
-    "revlimitRPM": 6000,
-    "revlimitBounce": 8,
     "idleRPM": 900,
     "startRPM": 500,
+    "revlimitRPM": 6000,
+    "revlimitBounce": 8,
     "stallRPM": 400,
-    "fuelConsumption": 0.35,
+    "engineWinddownRate": 100,
     "heatingCoefficient": 0.75,
     "coolingCoefficient": 1.5,
+    "engineWearFactor": 0.875,
+    "fuelConsumption": 0.35,
     "gearRatios": [-3.0,0.0,3.0,2.9,2.8,2.7,2.6,2.5,2.4,2.3,2.2,2.1,2.0,1.9,1.8,1.7,1.6,1.5,1.4,1.3,1.2,1.1,1.0,0.9,0.8,0.7,0.6,0.5],
     "upShiftRPM": [0,0,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250,3250],
     "downShiftRPM": [0,0,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850,2850],
@@ -36,31 +37,38 @@
       "types": ["generic_turbo"]
     }
   ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Median I4 Engine [§dCVT§r]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "superchargerFuelConsumption",
       "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625,
-            "duration": 15
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625,
+          "duration": 15
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625
+        }
       ]
     },
     {
@@ -77,7 +85,7 @@
     },
     {
       "variable": "coolingCoefficient",
-      "addValue": 1,
+      "addValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -162,7 +170,7 @@
     },
     {
       "variable": "engine_clutching",
-      "maxValue": 1,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
@@ -190,13 +198,6 @@
       ]
     }
   ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Median I4 Engine [§dCVT§r]",
-      "extraMaterials": []
-    }
-  ],
   "rendering": {
     "animatedObjects": [
       {
@@ -205,12 +206,13 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v4_starting",
@@ -585,7 +587,7 @@
             "animationType": "translation",
             "variable": "engine_rpm_percent",
             "axis": [0.0,2.25,0.0],
-            "offset": 1
+            "offset": 1.0
           }
         ],
         "looping": true
@@ -636,8 +638,8 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -691,9 +693,7 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0,
-            "clampMax": 0
+            "variable": "part_present_1"
           },
           {
             "animationType": "inhibitor",
@@ -713,6 +713,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -740,6 +741,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -758,6 +760,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -774,15 +777,17 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/2_median/",
-  "packID": "ivv",
-  "systemName": "v4cvt",
-  "classification": "part",
   "general": {
     "name": "Median I4 Engine §d(CVT)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelfi:0:1","mts:ivv.gearboxcvt:0:1"]
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelfi:0:1","mts:ivv.gearboxcvt:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }

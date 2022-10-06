@@ -4,6 +4,7 @@
     "mass": 200
   },
   "engine": {
+    "type": "normal",
     "starterPower": 35,
     "shiftSpeed": 8,
     "clutchTime": 3,
@@ -20,7 +21,7 @@
     "coolingCoefficient": 1.75,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.6,
-    "gearRatios": [-3.25,0.0,3.25,2.5,2.0,1.5,1.0,0.75],
+    "gearRatios": [-3.15,0,3.5,2.8,2.1,1.6,0.7],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.5,
     "superchargerEfficiency": 1.0,
@@ -33,31 +34,38 @@
       "types": ["generic_turbo"]
     }
   ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Median V8 Engine [§2Manual§r]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "superchargerFuelConsumption",
       "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625,
-            "duration": 15
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625,
+          "duration": 15
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625
+        }
       ]
     },
     {
@@ -159,7 +167,7 @@
     },
     {
       "variable": "engine_clutching",
-      "maxValue": 1,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
@@ -187,13 +195,6 @@
       ]
     }
   ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Median V8 Engine [§2Manual§r]",
-      "extraMaterials": []
-    }
-  ],
   "rendering": {
     "animatedObjects": [
       {
@@ -202,12 +203,13 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v8manual_starting",
@@ -258,7 +260,6 @@
           {
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0,
             "clampMax": 0.25
           }
         ],
@@ -267,9 +268,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -295,9 +296,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -323,9 +324,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -343,7 +344,7 @@
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -351,9 +352,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -370,7 +371,6 @@
           {
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0,
             "clampMax": 0.25
           }
         ]
@@ -422,7 +422,7 @@
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ]
       },
@@ -629,8 +629,8 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -684,9 +684,7 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0,
-            "clampMax": 0
+            "variable": "part_present_1"
           },
           {
             "animationType": "inhibitor",
@@ -706,6 +704,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -733,6 +732,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -751,6 +751,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -767,15 +768,17 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/2_median/",
-  "packID": "ivv",
-  "systemName": "v8manual",
-  "classification": "part",
   "general": {
     "name": "Median V8 Engine §2(Manual)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelfi:0:1","mts:ivv.gearboxmanual:0:1"]
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelfi:0:1","mts:ivv.gearboxmanual:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }

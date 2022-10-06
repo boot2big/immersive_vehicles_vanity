@@ -4,6 +4,7 @@
     "mass": 160
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
     "starterPower": 17,
     "shiftSpeed": 5,
@@ -11,9 +12,9 @@
     "revResistance": 6,
     "maxRPM": 6750,
     "maxSafeRPM": 6550,
-    "revlimitRPM": 6000,
     "idleRPM": 800,
     "startRPM": 500,
+    "revlimitRPM": 6000,
     "revlimitBounce": 8,
     "stallRPM": 400,
     "engineWinddownRate": 100,
@@ -21,7 +22,7 @@
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.2,
-    "gearRatios": [-3.0,0.0,3.5,2.5,1.25,0.75],
+    "gearRatios": [-3.0625,0,3.5,2.625,1.75,0.875],
     "upShiftRPM": [0,0,4400,4600,4500,4400],
     "downShiftRPM": [0,0,2200,2400,2600,2800],
     "fuelType": "gasoline",
@@ -36,31 +37,38 @@
       "types": ["generic_turbo"]
     }
   ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Median I3 Engine [§9Automatic§r]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "superchargerFuelConsumption",
       "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625,
-            "duration": 15
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625,
+          "duration": 15
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625
+        }
       ]
     },
     {
@@ -77,7 +85,7 @@
     },
     {
       "variable": "coolingCoefficient",
-      "addValue": 1,
+      "addValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -162,7 +170,7 @@
     },
     {
       "variable": "engine_clutching",
-      "maxValue": 1,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
@@ -188,13 +196,6 @@
           "axis": [0.0,0.0,1.0]
         }
       ]
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Median I3 Engine [§9Automatic§r]",
-      "extraMaterials": []
     }
   ],
   "rendering": {
@@ -249,7 +250,6 @@
           {
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0,
             "clampMax": 0.25
           }
         ],
@@ -258,9 +258,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -286,9 +286,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -314,9 +314,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -334,7 +334,7 @@
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -342,9 +342,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -356,13 +356,13 @@
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": 2.0,
-            "clampMax": 127
+            "clampMax": 127.0
           },
           {
             "animationType": "visibility",
             "variable": "engine_clutch_upshift",
             "clampMin": 1.0,
-            "clampMax": 127
+            "clampMax": 127.0
           }
         ]
       },
@@ -373,13 +373,13 @@
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": 1.0,
-            "clampMax": 127
+            "clampMax": 127.0
           },
           {
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": -127.0,
-            "clampMax": -2
+            "clampMax": -2.0
           },
           {
             "animationType": "visibility",
@@ -529,7 +529,6 @@
             "variable": "engine_temp",
             "axis": [0.0,0.375,0.0],
             "offset": -25.875,
-            "clampMin": 0.0,
             "clampMax": 0.375
           }
         ],
@@ -537,9 +536,8 @@
           {
             "animationType": "translation",
             "variable": "engine_temp",
-            "axis": [0.0,1,0.0],
-            "offset": -69,
-            "clampMin": 0.0,
+            "axis": [0.0,1.0,0.0],
+            "offset": -69.0,
             "clampMax": 1.0
           }
         ],
@@ -613,8 +611,8 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -668,9 +666,7 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0,
-            "clampMax": 0
+            "variable": "part_present_1"
           },
           {
             "animationType": "inhibitor",
@@ -690,6 +686,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -717,6 +714,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -735,6 +733,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -757,7 +756,11 @@
   "general": {
     "name": "Median I3 Engine §9(Automatic)",
     "health": 100,
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:3","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"],
-    "repairMaterials": ["mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:3","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }

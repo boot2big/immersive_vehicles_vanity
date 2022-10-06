@@ -22,7 +22,7 @@
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.35,
-    "gearRatios": [-3.0,0.0,3.5,2.5,1.25,0.75],
+    "gearRatios": [-3.0625,0,3.5,2.625,1.75,0.875],
     "upShiftRPM": [0,0,4000,4600,4100,3850],
     "downShiftRPM": [0,0,2300,2400,2500,2600],
     "fuelType": "gasoline",
@@ -170,7 +170,7 @@
     },
     {
       "variable": "engine_clutching",
-      "maxValue": 1,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
@@ -263,7 +263,6 @@
           {
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0,
             "clampMax": 0.25
           }
         ],
@@ -272,9 +271,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -300,9 +299,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -328,9 +327,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -348,7 +347,7 @@
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -356,9 +355,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -370,13 +369,13 @@
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": 2.0,
-            "clampMax": 127
+            "clampMax": 127.0
           },
           {
             "animationType": "visibility",
             "variable": "engine_clutch_upshift",
             "clampMin": 1.0,
-            "clampMax": 127
+            "clampMax": 127.0
           }
         ]
       },
@@ -387,13 +386,13 @@
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": 1.0,
-            "clampMax": 127
+            "clampMax": 127.0
           },
           {
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": -127.0,
-            "clampMax": -2
+            "clampMax": -2.0
           },
           {
             "animationType": "visibility",
@@ -586,7 +585,7 @@
             "animationType": "translation",
             "variable": "engine_rpm_percent",
             "axis": [0.0,2.25,0.0],
-            "offset": 1
+            "offset": 1.0
           }
         ],
         "looping": true
