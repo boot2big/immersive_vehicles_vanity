@@ -84,7 +84,35 @@
       "types": ["seat_invisible"],
       "interactableVariables": [
         ["door_left"]
-      ]
+      ],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "EJECT",
+            "centerPoint": [0.875,-0.3125,1.4375],
+            "axis": [12.5,0,0.0],
+            "duration": 10,
+            "forwardsDelay": -10,
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "EJECT",
+            "axis": [0,3,0],
+            "duration": 10,
+            "forwardsDelay": 0,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeinoutsine"
+          }
+          ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "EJECT",
+            "reverseDelay": 8
+          }
+          ]
     },
     {
       "pos": [-0.5,0.0,0.5],
@@ -93,7 +121,35 @@
       "types": ["seat_invisible"],
       "interactableVariables": [
         ["door_right"]
-      ]
+      ],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "EJECT",
+            "centerPoint": [-0.875,-0.3125,1.4375],
+            "axis": [12.5,0,0.0],
+            "duration": 10,
+            "forwardsDelay": -10,
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "EJECT",
+            "axis": [0,3,0],
+            "duration": 10,
+            "forwardsDelay": 0,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeinoutsine"
+          }
+          ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "EJECT",
+            "reverseDelay": 8
+          }
+          ]
     },
     {
       "pos": [-0.6,0.0375,1.5],
@@ -101,7 +157,35 @@
       "types": ["seat"],
       "interactableVariables": [
         ["door_right"]
-      ]
+      ],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "EJECT",
+            "centerPoint": [-0.875,-0.3125,1.4375],
+            "axis": [-12.5,-12.5,0.0],
+            "duration": 10,
+            "forwardsDelay": -10,
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "EJECT",
+            "axis": [-0.4875,2.875,-0.25],
+            "duration": 10,
+            "forwardsDelay": 0,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeinoutsine"
+          }
+          ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "EJECT",
+            "reverseDelay": 8
+          }
+          ]
     },
     {
       "pos": [-0.6,0.125,1.5],
@@ -112,7 +196,28 @@
         ["door_right"],
         ["part_present_10"],
         ["door_right"]
-      ]
+      ],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "EJECT",
+            "centerPoint": [-0.875,-0.3125,1.4375],
+            "axis": [-12.5,-12.5,0.0],
+            "duration": 10,
+            "forwardsDelay": -10,
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "EJECT",
+            "axis": [-0.4875,2.875,-0.25],
+            "duration": 10,
+            "forwardsDelay": 0,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeinoutsine"
+          }
+          ]
     },
     {
       "pos": [0.6,0.0375,1.5],
@@ -121,7 +226,35 @@
       "types": ["seat"],
       "interactableVariables": [
         ["door_left"]
-      ]
+      ],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "EJECT",
+            "centerPoint": [0.875,-0.3125,1.4375],
+            "axis": [-12.5,12.5,0.0],
+            "duration": 10,
+            "forwardsDelay": -10,
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "EJECT",
+            "axis": [0.4875,2.875,-0.25],
+            "duration": 10,
+            "forwardsDelay": 0,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeinoutsine"
+          }
+          ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "EJECT",
+            "reverseDelay": 8
+          }
+          ]
     },
     {
       "pos": [0.0,0.1,2.9],
@@ -1028,6 +1161,25 @@
           "clampMax": 3.0
         }
       ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,-0.196733,-0.150568],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "ahegao",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ahegao",
+          "axis": [0.0,0.00625,0.0]
+        }
+      ]
     }
   ],
   "connectionGroups": [
@@ -1140,6 +1292,53 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "running_light",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "disabled",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "visibility",
+          "variable": "time",
+          "clampMin": 13000,
+          "clampMax": 23000
+        },
+        {
+          "animationType": "visibility",
+          "variable": "aciveRunning",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "kitt_is_the_coolest_car_in_mts_period",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "EJECT",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "EJECT",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 20
+        },
+        {
+          "animationType": "translation",
+          "variable": "kitt_is_the_coolest_car_in_mts_period",
+          "axis": [0.0,0.0,1.0],
+          "offset": -1.0
+        }
+      ]
+    },
     {
       "variable": "aciveRunning",
       "maxValue": 1.0,
@@ -1583,6 +1782,58 @@
       }
     ],
     "animatedObjects": [
+      {
+        "objectName": "springleft",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "EJECT",
+            "centerPoint": [0.875,-0.3125,1.4375],
+            "axis": [-12.5,-12.5,0.0],
+            "duration": 10,
+            "forwardsDelay": -10,
+            "reverseDelay": 20
+          },
+          {
+            "animationType": "scaling",
+            "variable": "EJECT",
+            "centerPoint": [0.875,-0.3125,1.4375],
+            "axis": [0.0,0.9925,0],
+            "offset": 0.0025,
+            "duration": 10,
+            "forwardsDelay": 0,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      },
+      {
+        "objectName": "springright",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "EJECT",
+            "centerPoint": [-0.875,-0.3125,1.4375],
+            "axis": [-12.5,12.5,0.0],
+            "duration": 10,
+            "forwardsDelay": -10,
+            "reverseDelay": 20
+          },
+          {
+            "animationType": "scaling",
+            "variable": "EJECT",
+            "centerPoint": [-0.875,-0.3125,1.4375],
+            "axis": [0.0,0.9925,0],
+            "offset": 0.0025,
+            "duration": 10,
+            "forwardsDelay": 0,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      },
       {
         "objectName": "rearleftsuspension",
         "animations": [
@@ -2329,28 +2580,6 @@
         ]
       },
       {
-        "objectName": "screen2ammorpg",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "hl3_or_gtavi_released_yet",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "objectName": "screen2ammomg",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "hl3_or_gtavi_released_yet",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
         "objectName": "screen3",
         "animations": [
           {
@@ -2386,6 +2615,28 @@
         "applyAfter": "leftdoor",
         "animations": [
           {
+            "animationType": "translation",
+            "variable": "EJECT",
+            "axis": [0.178235,-0.544538,0.066074],
+            "offset": 0.0025,
+            "duration": 5,
+            "forwardsDelay": -5,
+            "reverseDelay": 20,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "EJECT",
+            "centerPoint": [0.964844,0.953125,1.26523],
+            "axis": [0,0,-30],
+            "duration": 5,
+            "forwardsDelay": -5,
+            "reverseDelay": 20,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
             "animationType": "visibility",
             "variable": "damage_percent",
             "clampMax": 0.99
@@ -2413,12 +2664,14 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "unused",
+            "variable": "EJECT",
             "centerPoint": [0.171875,1.23437,1.5625],
-            "axis": [0.0,0,85],
-            "duration": 15,
+            "axis": [0.0,0.0,85.0],
+            "duration": 10,
             "forwardsEasing": "easeoutcubic",
-            "reverseEasing": "easeoutcubic"
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": -7,
+            "reverseDelay": 20
           }
         ]
       },
@@ -2454,12 +2707,14 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "unused",
+            "variable": "EJECT",
             "centerPoint": [-0.171875,1.23437,1.5625],
-            "axis": [0.0,0,-85],
-            "duration": 15,
+            "axis": [0.0,0.0,-85.0],
+            "duration": 10,
             "forwardsEasing": "easeoutcubic",
-            "reverseEasing": "easeoutcubic"
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": -7,
+            "reverseDelay": 20
           }
         ]
       },
@@ -3699,7 +3954,7 @@
         ]
       }
     ],
-    "customVariables": ["BOOST"],
+    "customVariables": ["BOOST","EJECT"],
     "initialVariables": ["door_right","door_left"],
     "constants": ["kitt_is_the_coolest_car_in_mts_period","both_technologically_and_by_lore"],
     "sounds": [
@@ -3838,6 +4093,19 @@
         "pos": [0.0,0.39062,4.80469]
       },
       {
+        "name": "ivv:interiorrain",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": 1.0,
+            "clampMax": 2.0
+          }
+        ],
+        "looping": true,
+        "isInterior": true
+      },
+      {
         "name": "ivv:brakesqueal",
         "activeAnimations": [
           {
@@ -3889,6 +4157,17 @@
         "looping": true
       },
       {
+        "name": "ivv:ejector",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "EJECT",
+            "clampMin": 1,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
         "name": "ivv:hydraulicsuperjump",
         "activeAnimations": [
           {
@@ -3900,7 +4179,7 @@
         ]
       },
       {
-        "name": "ivv:niconiconii",
+        "name": "ivv:aciveuwa",
         "activeAnimations": [
           {
             "animationType": "visibility",

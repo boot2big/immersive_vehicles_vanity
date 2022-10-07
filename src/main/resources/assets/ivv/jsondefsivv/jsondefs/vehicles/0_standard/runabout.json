@@ -2123,6 +2123,23 @@
         "pos": [1.05469,1.20312,2.48438]
       },
       {
+        "name": "ivv:interiorrain",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "roof"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": 1,
+            "clampMax": 2
+          }
+        ],
+        "looping": true,
+        "isInterior": true
+      },
+      {
         "name": "ivv:brakesqueal",
         "activeAnimations": [
           {
@@ -2174,7 +2191,7 @@
         "looping": true
       },
       {
-        "name": "ivv:windinterior",
+        "name": "ivv:interiorwind",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -2187,7 +2204,17 @@
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.04,0.0],
+            "axis": [0.0,0.02,0.0],
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "roof"
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0375,0.0],
             "clampMax": 1.0
           }
         ],
