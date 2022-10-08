@@ -1,26 +1,27 @@
 {
   "generic": {
-    "type": "gun_hand_assault"
+    "type": "gun_hand_longarm"
   },
   "gun": {
     "handHeld": true,
-    "capacity": 30,
-    "reloadTime": 42,
-    "muzzleVelocity": 940,
-    "fireDelay": 3.0,
-    "bulletSpreadFactor": 0.75,
-    "diameter": 5.56,
-    "minCaseLength": 45.0,
-    "maxCaseLength": 45.0,
+    "isSemiAuto": true,
+    "capacity": 5,
+    "reloadTime": 40,
+    "muzzleVelocity": 2400,
+    "fireDelay": 20,
+    "bulletSpreadFactor": 0.1,
+    "diameter": 7.62,
+    "minCaseLength": 62.0,
+    "maxCaseLength": 64.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
-    "handHeldNormalOffset": [0.05,-0.1,0.525],
-    "handHeldAimedOffset": [0.315,-0.05,0.45],
+    "handHeldNormalOffset": [-0.1,-0.075,0.6],
+    "handHeldAimedOffset": [0.3125,0.15,0.525],
     "muzzleGroups": [
       {
         "muzzles": [
           {
-            "pos": [0.0,0.1625,0.8375],
+            "pos": [0.0,0.185625,1.8125],
             "rot": [0.0,0.0,0.0],
             "center": [0.0,0.0,0.0]
           }
@@ -31,7 +32,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Tactical Rifle",
+      "name": "Sniper Rifle",
       "extraMaterialLists": [
         []
       ]
@@ -45,7 +46,7 @@
         "scale": 0.25,
         "variableName": "gun_ammo_count",
         "variableFactor": 1.0,
-        "variableFormat": "AMMO: %01.0f/30",
+        "variableFormat": "AMMO: %01.0f/5",
         "fontName": "ivv:digifont",
         "defaultText": "fill me up daddy owo",
         "maxLength": 7,
@@ -124,6 +125,62 @@
         ]
       },
       {
+        "objectName": "legsies",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_inhand_sneaking",
+            "centerPoint": [0.0,-0.037191,0.634254],
+            "axis": [45.0,0.0,0.0],
+            "duration": 2
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_cooldown",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_ammo_count",
+            "centerPoint": [0.00509,-0.02143,0.63425],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "legsies1",
+        "applyAfter": "legsies",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_inhand_sneaking",
+            "centerPoint": [0.036614,-0.037191,0.712855],
+            "axis": [0.0,45.0,0.0],
+            "duration": 2
+          }
+        ]
+      },
+      {
+        "objectName": "legsies2",
+        "applyAfter": "legsies",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_inhand_sneaking",
+            "centerPoint": [-0.036614,-0.037191,0.712855],
+            "axis": [0.0,-45.0,0.0],
+            "duration": 2
+          }
+        ]
+      },
+      {
         "objectName": "gunModel",
         "animations": [
           {
@@ -165,7 +222,7 @@
         ]
       },
       {
-        "objectName": "defaultBarrelModel",
+        "objectName": "defaultStockModel",
         "animations": [
           {
             "animationType": "translation",
@@ -183,6 +240,34 @@
       },
       {
         "objectName": "slideModel",
+        "applyAfter": "gunModel",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1,
+            "forwardsDelay": 10,
+            "reverseDelay": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1,
+            "forwardsDelay": 28,
+            "reverseDelay": -1
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "cameraObjects": [
+      {
+        "pos": [0.046875,0.276562,1.12813],
+        "rot": [0.0,0.0,0.0],
+        "fovOverride": 20,
+        "overlay": "ivv:textures/overlay/overlayscope",
         "animations": [
           {
             "animationType": "translation",
@@ -197,25 +282,30 @@
             "duration": 1
           },
           {
-            "animationType": "translation",
-            "variable": "gun_reload",
-            "axis": [0.0,0.0,-0.05],
-            "duration": 1,
-            "forwardsDelay": 28
-          },
-          {
-            "animationType": "translation",
+            "animationType": "rotation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,0.0],
-            "duration": 1
+            "centerPoint": [0.046875,0.276562,1.12813],
+            "axis": [-3,0.0,0],
+            "duration": 4,
+            "forwardsDelay": -4
           }
         ]
       }
     ],
-    "lightObjects": [],
     "sounds": [
       {
-        "name": "ivv:bullpuprifle_firing",
+        "name": "ivv:gunequip5",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:classicrifle_firing",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -227,13 +317,34 @@
         "forceSound": true
       },
       {
-        "name": "ivv:bullpuprifle_reloading",
+        "name": "ivv:classicrifle_bolt",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:classicrifle_reloading",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:classicrifle_plang",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count"
           }
         ]
       }
@@ -249,7 +360,7 @@
         "toScale": 0.5,
         "texture": "ivv:textures/particles/casing.png",
         "color": "CCCCCC",
-        "pos": [0.0,0.1625,0.0],
+        "pos": [0.0,0.185625,0],
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
@@ -269,11 +380,11 @@
         "duration": 3,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 2.0,
+        "scale": 1.5,
+        "toScale": 2.5,
         "texture": "ivv:textures/particles/muzzleflash.png",
         "color": "FFFFFF",
-        "pos": [0,0.1625,0.8375],
+        "pos": [0.0,0.185625,1.8125],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
@@ -293,7 +404,7 @@
         "scale": 1.0,
         "toScale": 4.0,
         "color": "555555",
-        "pos": [0,0.1625,0.8375],
+        "pos": [0.0,0.185625,1.8125],
         "initialVelocity": [0.0,0.0,2.0],
         "activeAnimations": [
           {
@@ -308,11 +419,11 @@
     "modelType": "obj"
   },
   "general": {
-    "name": "Tactical Rifle",
+    "name": "Sniper Rifle",
     "description": "Model submitted by Laura, although original creator is to be found for crediting",
     "health": 100,
     "materialLists": [
-      ["minecraft:iron_ingot:0:14","minecraft:stone_button:0:1"]
+      ["minecraft:iron_ingot:0:7","minecraft:stone_button:0:1"]
     ]
   }
 }

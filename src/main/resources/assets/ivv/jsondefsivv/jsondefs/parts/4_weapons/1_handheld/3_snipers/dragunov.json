@@ -51,8 +51,8 @@
         "defaultText": "fill me up daddy owo",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudAmmoModel",
+        "lightsUp": true,
         "renderPosition": 2
       },
       {
@@ -66,8 +66,8 @@
         "defaultText": "uwwaaaaa~",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudReloadModel",
+        "lightsUp": true,
         "renderPosition": 2
       }
     ],
@@ -78,8 +78,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_inhand",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -89,8 +89,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -185,8 +185,30 @@
       {
         "pos": [0.0,0.30396,0.82575],
         "rot": [0.0,0.0,0.0],
-        "fovOverride": 15.0,
-        "overlay": "ivv:textures/overlay/overlayscope"
+        "fovOverride": 30,
+        "overlay": "ivv:textures/overlay/overlayscope",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_cooldown",
+            "axis": [0.0,0.0,-0.025],
+            "duration": 1
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.30396,0.82575],
+            "axis": [-3,0.0,0],
+            "duration": 4,
+            "forwardsDelay": -4
+          }
+        ]
       }
     ],
     "sounds": [
@@ -243,12 +265,12 @@
         "isBright": true,
         "quantity": 2,
         "duration": 3,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.01,
         "scale": 1.5,
         "toScale": 2.5,
-        "color": "FFFFFF",
         "texture": "ivv:textures/particles/muzzleflash.png",
+        "color": "FFFFFF",
         "pos": [0.0,0.13521,1.27532],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [

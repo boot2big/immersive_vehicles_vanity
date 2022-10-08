@@ -4,15 +4,14 @@
   },
   "gun": {
     "handHeld": true,
-    "isSemiAuto": true,
-    "capacity": 20,
+    "capacity": 40,
     "reloadTime": 35,
     "muzzleVelocity": 650,
-    "fireDelay": 6.0,
-    "bulletSpreadFactor": 0.125,
+    "fireDelay": 3.0,
+    "bulletSpreadFactor": 2,
     "diameter": 7.62,
-    "minCaseLength": 30.0,
-    "maxCaseLength": 30.0,
+    "minCaseLength": 62.0,
+    "maxCaseLength": 64.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "handHeldNormalOffset": [-0.05,-0.05,0.5],
@@ -32,7 +31,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Hunting Rifle",
+      "name": "Machine Rifle",
       "extraMaterialLists": [
         []
       ]
@@ -46,13 +45,13 @@
         "scale": 0.25,
         "variableName": "gun_ammo_count",
         "variableFactor": 1.0,
-        "variableFormat": "AMMO: %01.0f/20",
+        "variableFormat": "AMMO: %01.0f/40",
         "fontName": "ivv:digifont",
         "defaultText": "fill me up daddy owo",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudAmmoModel",
+        "lightsUp": true,
         "renderPosition": 2
       },
       {
@@ -66,8 +65,8 @@
         "defaultText": "uwwaaaaa~",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudReloadModel",
+        "lightsUp": true,
         "renderPosition": 2
       }
     ],
@@ -78,8 +77,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_inhand",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -89,8 +88,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -233,7 +232,7 @@
     "lightObjects": [],
     "sounds": [
       {
-        "name": "ivv:huntingrifle_firing",
+        "name": "ivv:machinerifle_firing",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -245,22 +244,13 @@
         "forceSound": true
       },
       {
-        "name": "ivv:huntingrifle_reloading",
+        "name": "ivv:machinerifle_reloading",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "name": "ivv:huntingrifle_plang",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "gun_ammo_count"
           }
         ]
       }
@@ -294,12 +284,12 @@
         "isBright": true,
         "quantity": 2,
         "duration": 3,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.01,
         "scale": 1.5,
         "toScale": 2.5,
-        "color": "FFFFFF",
         "texture": "ivv:textures/particles/muzzleflash.png",
+        "color": "FFFFFF",
         "pos": [0.0,0.12441,1.425],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
@@ -335,7 +325,7 @@
     "modelType": "obj"
   },
   "general": {
-    "name": "m1918a1 plaaang",
+    "name": "m1918a1",
     "description": "Model submitted by Laura, originally made by LizardPile",
     "health": 100,
     "materialLists": [
