@@ -40,7 +40,70 @@
     }
   ],
   "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.125,0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "AMMO: %01.0f/10",
+        "fontName": "ivv:digifont",
+        "defaultText": "fill me up daddy owo",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "lightsUp": true,
+        "attachedTo": "hudAmmoModel",
+        "renderPosition": 2
+      },
+      {
+        "pos": [0.125,-0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "RELOADING",
+        "fontName": "ivv:digifont",
+        "defaultText": "uwwaaaaa~",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "lightsUp": true,
+        "attachedTo": "hudReloadModel",
+        "renderPosition": 2
+      }
+    ],
     "animatedObjects": [
+      {
+        "objectName": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "hudReloadModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "hudAmmoModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          }
+        ]
+      },
       {
         "objectName": "ammoModel",
         "animations": [
@@ -178,7 +241,7 @@
         "toTransparency": 0.01,
         "scale": 0.5,
         "toScale": 0.5,
-        "texture": "ivv:textures/particles/casing.png",
+        "texture": "ivv:textures/particles/casingshell.png",
         "color": "CCCCCC",
         "pos": [0.0,0.1875,0.0],
         "initialVelocity": [-1.0,0.5,0.0],
@@ -198,12 +261,12 @@
         "isBright": true,
         "quantity": 2,
         "duration": 3,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.01,
         "scale": 1.5,
         "toScale": 2.5,
-        "color": "FFFFFF",
         "texture": "ivv:textures/particles/muzzleflash.png",
+        "color": "FFFFFF",
         "pos": [0.0,0.11943,0.8665],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [

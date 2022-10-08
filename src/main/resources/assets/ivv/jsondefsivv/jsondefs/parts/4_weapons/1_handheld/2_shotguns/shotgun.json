@@ -9,7 +9,7 @@
     "capacity": 2,
     "reloadTime": 12,
     "muzzleVelocity": 675,
-    "fireDelay": 6.0,
+    "fireDelay": 3.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 18.5,
     "minCaseLength": 89.0,
@@ -39,20 +39,94 @@
       ]
     }
   ],
+  "variableModifiers": [
+    {
+      "variable": "tonsOfAngrySwearWords",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "gun_reload",
+          "axis": [0.0,0,1.0],
+            "forwardsDelay": 5,
+            "reverseDelay": 10
+        }
+      ]
+    }
+  ],
   "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.125,0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "AMMO: %01.0f/2",
+        "fontName": "ivv:digifont",
+        "defaultText": "fill me up daddy owo",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "lightsUp": true,
+        "attachedTo": "hudAmmoModel",
+        "renderPosition": 2
+      },
+      {
+        "pos": [0.125,-0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "RELOADING",
+        "fontName": "ivv:digifont",
+        "defaultText": "uwwaaaaa~",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "lightsUp": true,
+        "attachedTo": "hudReloadModel",
+        "renderPosition": 2
+      }
+    ],
     "animatedObjects": [
+      {
+        "objectName": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "hudReloadModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "hudAmmoModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          }
+        ]
+      },
       {
         "objectName": "barrel",
         "applyAfter": "cube",
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "gun_reload",
+            "variable": "tonsOfAngrySwearWords",
             "centerPoint": [0.0,-0.05488,0.0],
-            "axis": [45.0,0.0,0.0],
-            "absolute": true,
-            "forwardsDelay": 5,
-            "reverseDelay": 10
+            "axis": [45.0,0.0,0.0]
           }
         ]
       },
@@ -120,6 +194,37 @@
     ],
     "particles": [
       {
+        "type": "generic",
+        "quantity": 2,
+        "duration": 200,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 0.5,
+        "toScale": 0.5,
+        "texture": "ivv:textures/particles/casingshell.png",
+        "color": "CCCCCC",
+        "pos": [0,1.79916e-09,-0.04116],
+        "initialVelocity": [-1.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "tonsOfAngrySwearWords",
+            "centerPoint": [0.0,-0.05488,0.0],
+            "axis": [45.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "tonsOfAngrySwearWords",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
         "type": "smoke",
         "quantity": 5,
         "duration": 40,
@@ -130,7 +235,21 @@
         "color": "555555",
         "pos": [0.02287,0.0,0.57166],
         "initialVelocity": [0.0,0.0,2.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "tonsOfAngrySwearWords",
+            "centerPoint": [0.0,-0.05488,0.0],
+            "axis": [45.0,0.0,0.0]
+          }
+        ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          },
           {
             "animationType": "visibility",
             "variable": "gun_fired",
@@ -144,15 +263,29 @@
         "isBright": true,
         "quantity": 2,
         "duration": 3,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.01,
         "scale": 1.5,
         "toScale": 3.0,
-        "color": "FFFFFF",
         "texture": "ivv:textures/particles/muzzleflash.png",
+        "color": "FFFFFF",
         "pos": [0.02287,0.0,0.57166],
         "initialVelocity": [0.0,0.0,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "tonsOfAngrySwearWords",
+            "centerPoint": [0.0,-0.05488,0.0],
+            "axis": [45.0,0.0,0.0]
+          }
+        ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          },
           {
             "animationType": "visibility",
             "variable": "gun_fired",
@@ -172,7 +305,21 @@
         "color": "555555",
         "pos": [-0.02287,0.0,0.57166],
         "initialVelocity": [0.0,0.0,2.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "tonsOfAngrySwearWords",
+            "centerPoint": [0.0,-0.05488,0.0],
+            "axis": [45.0,0.0,0.0]
+          }
+        ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
           {
             "animationType": "visibility",
             "variable": "gun_fired",
@@ -186,15 +333,29 @@
         "isBright": true,
         "quantity": 2,
         "duration": 3,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.01,
         "scale": 1.5,
         "toScale": 3.0,
-        "color": "FFFFFF",
         "texture": "ivv:textures/particles/muzzleflash.png",
+        "color": "FFFFFF",
         "pos": [-0.02287,0.0,0.57166],
         "initialVelocity": [0.0,0.0,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "tonsOfAngrySwearWords",
+            "centerPoint": [0.0,-0.05488,0.0],
+            "axis": [45.0,0.0,0.0]
+          }
+        ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
           {
             "animationType": "visibility",
             "variable": "gun_fired",

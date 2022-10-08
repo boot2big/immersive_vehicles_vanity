@@ -47,7 +47,70 @@
     }
   ],
   "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.125,0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "AMMO: %01.0f/6",
+        "fontName": "ivv:digifont",
+        "defaultText": "fill me up daddy owo",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "lightsUp": true,
+        "attachedTo": "hudAmmoModel",
+        "renderPosition": 2
+      },
+      {
+        "pos": [0.125,-0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "RELOADING",
+        "fontName": "ivv:digifont",
+        "defaultText": "uwwaaaaa~",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "lightsUp": true,
+        "attachedTo": "hudReloadModel",
+        "renderPosition": 2
+      }
+    ],
     "animatedObjects": [
+      {
+        "objectName": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "hudReloadModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "hudAmmoModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          }
+        ]
+      },
       {
         "objectName": "cylinderModel",
         "applyAfter": "breakActionModel",
@@ -121,25 +184,18 @@
     "particles": [
       {
         "type": "generic",
-        "isBright": true,
-        "quantity": 2,
-        "duration": 3,
-        "transparency": 1,
+        "quantity": 1,
+        "duration": 200,
+        "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 2.0,
-        "color": "FFFFFF",
-        "texture": "ivv:textures/particles/muzzleflash.png",
-        "pos": [0.0,0.097656,0.459822],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "gun_fired",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
+        "scale": 0.5,
+        "toScale": 0.5,
+        "texture": "ivv:textures/particles/casing.png",
+        "color": "CCCCCC",
+        "pos": [0,0.0625,0.09375],
+        "initialVelocity": [-1.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -148,6 +204,48 @@
             "axis": [45.0,0.0,0.0],
             "forwardsDelay": 5,
             "reverseDelay": 10
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 5,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "quantity": 2,
+        "duration": 3,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 2.0,
+        "texture": "ivv:textures/particles/muzzleflash.png",
+        "color": "FFFFFF",
+        "pos": [0.0,0.097656,0.459822],
+        "initialVelocity": [0.0,0.0,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.09375],
+            "axis": [45.0,0.0,0.0],
+            "forwardsDelay": 5,
+            "reverseDelay": 10
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -162,14 +260,6 @@
         "color": "555555",
         "pos": [0.0,0.097656,0.459822],
         "initialVelocity": [0.0,0.0,2.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "gun_fired",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -178,6 +268,14 @@
             "axis": [45.0,0.0,0.0],
             "forwardsDelay": 5,
             "reverseDelay": 10
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       }
