@@ -8,9 +8,9 @@
     "capacity": 1,
     "reloadTime": 30,
     "muzzleVelocity": 400,
-    "fireDelay": 5.0,
+    "fireDelay": 1.0,
     "diameter": 20.0,
-    "maxCaseLength": 140.0,
+    "maxCaseLength": 120.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "handHeldNormalOffset": [-0.125,-0.125,0.6],
@@ -19,7 +19,7 @@
       {
         "muzzles": [
           {
-            "pos": [0.25,0.0,0.0],
+            "pos": [0.0,0.162273,0.67964],
             "rot": [0.0,0.0,0.0],
             "center": [0.0,0.0,0.0]
           }
@@ -49,8 +49,8 @@
         "defaultText": "fill me up daddy owo",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudAmmoModel",
+        "lightsUp": true,
         "renderPosition": 2
       },
       {
@@ -64,8 +64,8 @@
         "defaultText": "uwwaaaaa~",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudReloadModel",
+        "lightsUp": true,
         "renderPosition": 2
       }
     ],
@@ -76,8 +76,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_inhand",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -87,8 +87,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "objectName": "ammoModel",
+        "objectName": "rpgammo",
         "animations": [
           {
             "animationType": "translation",
@@ -118,7 +118,9 @@
           },
           {
             "animationType": "visibility",
-            "variable": "gun_reload"
+            "variable": "gun_ammo_count",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -205,11 +207,32 @@
         ]
       }
     ],
-    "particles": [],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 8.0,
+        "color": "989898",
+        "pos": [0.0,0.162273,-0.546171],
+        "initialVelocity": [0.0,0.0,-2.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }],
     "modelType": "obj"
   },
   "general": {
-    "description": "",
+    "description": "Only loads non-locking missiles",
     "health": 100,
     "materialLists": [
       ["minecraft:iron_ingot:0:4","minecraft:gold_ingot:0:4","minecraft:redstone:0:2"]

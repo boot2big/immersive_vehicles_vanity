@@ -14,7 +14,7 @@
     "idleRPM": 650,
     "startRPM": 600,
     "revlimitRPM": -1,
-    "revlimitBounce": 6,
+    "revlimitBounce": 4,
     "stallRPM": 550,
     "engineWinddownRate": 100,
     "heatingCoefficient": 0.6,
@@ -32,6 +32,118 @@
       "pos": [0.0,0.3875,0.765],
       "maxValue": 12.0,
       "types": ["generic_ecu_gas"]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "revlimitRPM",
+      "setValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": 110.0,
+          "clampMax": 1000.0
+        }
+      ]
+    },
+    {
+      "variable": "revlimitRPM",
+      "setValue": 6800.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": -10.0,
+          "clampMax": 110.0
+        }
+      ]
+    },
+    {
+      "variable": "idleRPM",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_gear"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "throttle",
+          "clampMin": 0.0625,
+          "clampMax": 2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "5_10_0_cycle",
+          "axis": [0.0,100.0,0.0],
+          "forwardsEasing": "easeinoutbounce",
+          "reverseEasing": "easeinoutbounce"
+        }
+      ]
+    },
+    {
+      "variable": "idleRPM",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_powered",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 80
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,1200.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,-1200.0,0.0],
+          "duration": 80
+        }
+      ]
+    },
+    {
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "definitions": [

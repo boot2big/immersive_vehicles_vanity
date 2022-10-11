@@ -253,13 +253,113 @@
         "forceSound": true
       },
       {
-        "name": "ivv:transmissionautogrinding",
+        "name": "ivv:transmissionfailshift1",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_badshift",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0,
+            "clampMax": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMin": 0.875,
+            "clampMax": 1.25,
+            "offset": 0.75
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMin": 0.875,
+            "clampMax": 1.25,
+            "offset": 0.75
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMin": 0.875,
+            "clampMax": 1.25,
+            "offset": 0.75
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMin": 0.875,
+            "clampMax": 1.25,
+            "offset": 0.75
           }
         ],
         "forceSound": true
@@ -268,10 +368,16 @@
         "name": "ivv:transmissionautoselectup",
         "activeAnimations": [
           {
-            "animationType": "visibility",
+            "animationType": "inhibitor",
             "variable": "engine_gear",
+            "clampMin": 2.0,
+            "clampMax": 127
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutch_upshift",
             "clampMin": 1.0,
-            "clampMax": 60.0
+            "clampMax": 127
           }
         ]
       },
@@ -279,15 +385,27 @@
         "name": "ivv:transmissionautoselectdown",
         "activeAnimations": [
           {
+            "animationType": "inhibitor",
+            "variable": "engine_gear",
+            "clampMin": 1.0,
+            "clampMax": 127
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_gear",
+            "clampMin": -127.0,
+            "clampMax": -2
+          },
+          {
             "animationType": "visibility",
-            "variable": "engine_reversed",
+            "variable": "engine_clutch_downshift",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
         ]
       },
       {
-        "name": "ivv:transmissionautoshiftup",
+        "name": "ivv:transmissionautooldshiftup",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -299,7 +417,7 @@
         ]
       },
       {
-        "name": "ivv:transmissionautoshiftdown",
+        "name": "ivv:transmissionautooldshiftdown",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -322,29 +440,33 @@
           {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 225.0,
+            "clampMin": 250.0,
             "clampMax": 999999.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,-0.5,0.0],
+            "axis": [0.0,-1.5,0.0],
+            "offset": 1.0,
             "duration": 10
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0]
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.75
+            "axis": [0.0,1.75,0.0],
+            "offset": -1.25,
+            "clampMax": 1.5
           }
         ],
         "looping": true
