@@ -25,47 +25,13 @@
       "dirt_wet": -0.3,
       "sand": -0.3,
       "sand_wet": -0.4,
-      "normal_wet": -0.2,
-      "normal": 0.0
+      "normal_wet": -0.2
     }
   },
-  "variableModifiers": [
-    {
-      "variable": "motiveFriction",
-      "setValue": 0.00001,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_gear",
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "brake",
-          "clampMin": 0.5,
-          "clampMax": 1
-        },
-        {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "clampMin": 0.625,
-          "clampMax": 1
-        },
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMax": 1.0
-        }
-      ]
-    }
-  ],
   "parts": [
     {
-      "isSubPart": true,
       "pos": [0.1,0.0,0.0],
-      "minValue": 0,
-      "maxValue": 1,
+      "maxValue": 1.0,
       "types": ["generic_rim"]
     }
   ],
@@ -73,22 +39,59 @@
     {
       "subName": "",
       "name": "Standard Wheel [Worn]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_whitewall",
       "name": "Standard Wheel [Whitewall, Worn]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_whitewallthin",
       "name": "Standard Wheel [Thin Whitewall, Worn]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_rainbow",
       "name": "Standard Wheel [Worn, Rainbow]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "motiveFriction",
+      "setValue": 1.0E-5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "brake",
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "throttle",
+          "clampMin": 0.625,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 1.0
+        }
+      ]
     }
   ],
   "rendering": {
@@ -112,6 +115,7 @@
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "mts:wheel_blowout",
@@ -605,13 +609,13 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 2,
         "duration": 40,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
         "scale": 2.0,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.4375,0.0],
         "initialVelocity": [0.0,0.0,0.005],
@@ -652,13 +656,13 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 80,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
         "scale": 2.0,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.4375,0.0],
         "initialVelocity": [0.0,0.0,0.0],
@@ -718,15 +722,13 @@
     ],
     "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/0_wheels/0_tires/1_standard/",
-  "packID": "ivv",
-  "systemName": "normaltireworn",
-  "classification": "part",
   "general": {
-    "health": 110,
     "name": "Standard Wheel (Worn)",
     "description": "An average sized tire, with slightly above average grip.\n(Lower grip which is better for drifting.)",
     "stackSize": 4,
-    "materials": ["mts:ivv.normaltire:0:1","minecraft:dirt:0:1"]
+    "health": 110,
+    "materialLists": [
+      ["mts:ivv.normaltire:0:1","minecraft:dirt:0:1"]
+    ]
   }
 }

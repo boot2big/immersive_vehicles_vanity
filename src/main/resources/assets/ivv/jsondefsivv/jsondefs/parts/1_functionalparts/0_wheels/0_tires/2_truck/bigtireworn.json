@@ -25,15 +25,16 @@
       "dirt_wet": -0.35,
       "sand": -0.35,
       "sand_wet": -0.45,
-      "normal_wet": -0.275,
-      "normal": 0.0
+      "normal_wet": -0.275
     }
   },
   "definitions": [
     {
       "subName": "",
       "name": "Big Wheel [Worn]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
@@ -48,6 +49,7 @@
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "mts:wheel_blowout",
@@ -243,14 +245,14 @@
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": -1024,
+            "clampMin": -1024.0,
             "clampMax": -0.5
           },
           {
             "animationType": "inhibitor",
             "variable": "slip",
             "clampMin": 0.5,
-            "clampMax": 1024
+            "clampMax": 1024.0
           },
           {
             "animationType": "visibility",
@@ -286,16 +288,15 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.00375,0.0],
-            "offset": 0,
             "clampMax": 0.625
           },
           {
             "animationType": "translation",
             "variable": "slip",
             "axis": [0.0,-0.0125,0.0],
+            "offset": 1.75,
             "clampMin": 1.25,
             "clampMax": 1.5,
-            "offset": 1.75,
             "absolute": true
           }
         ],
@@ -388,11 +389,11 @@
         "duration": 10,
         "transparency": 0.5,
         "toTransparency": 1.0E-7,
-        "scale": 6,
-        "toScale": 10,
+        "scale": 6.0,
+        "toScale": 10.0,
         "color": "244B89",
         "pos": [0.0,-0.5,0.0],
-        "initialVelocity": [0.0,1.125,-1],
+        "initialVelocity": [0.0,1.125,-1.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -416,7 +417,7 @@
             "animationType": "visibility",
             "variable": "speed",
             "clampMin": 0.25,
-            "clampMax": 65535
+            "clampMax": 65535.0
           },
           {
             "animationType": "visibility",
@@ -427,8 +428,8 @@
           {
             "animationType": "visibility",
             "variable": "rain_strength",
-            "clampMin": 1,
-            "clampMax": 2
+            "clampMin": 1.0,
+            "clampMax": 2.0
           }
         ]
       },
@@ -478,14 +479,14 @@
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": -1024,
-            "clampMax": -32
+            "clampMin": -1024.0,
+            "clampMax": -32.0
           },
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": 32,
-            "clampMax": 1024
+            "clampMin": 32.0,
+            "clampMax": 1024.0
           },
           {
             "animationType": "visibility",
@@ -541,13 +542,14 @@
         ]
       },
       {
-        "type": "break",
+        "type": "generic",
+        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 2,
         "duration": 40,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
-        "scale": 4.0,
+        "scale": 2.5,
         "color": "000000",
         "pos": [0.0,-0.5,0.0],
         "initialVelocity": [0.0,0.0,0.005],
@@ -587,13 +589,14 @@
         ]
       },
       {
-        "type": "break",
+        "type": "generic",
+        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 80,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
-        "scale": 4.0,
+        "scale": 2.5,
         "color": "000000",
         "pos": [0.0,-0.5,0.0],
         "initialVelocity": [0.0,0.0,0.0],
@@ -633,14 +636,14 @@
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": -1024,
-            "clampMax": -20
+            "clampMin": -1024.0,
+            "clampMax": -20.0
           },
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": 20,
-            "clampMax": 1024
+            "clampMin": 20.0,
+            "clampMax": 1024.0
           },
           {
             "animationType": "visibility",
@@ -653,15 +656,13 @@
     ],
     "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/0_wheels/0_tires/2_truck/",
-  "packID": "ivv",
-  "systemName": "bigtireworn",
-  "classification": "part",
   "general": {
-    "health": 230,
     "name": "Big Wheel [Worn]",
     "description": "Slightly larger than a usual wheel, perfect for offroading vehicles.\n(Less grip, drifts more)",
     "stackSize": 4,
-    "materials": ["mts:ivv.bigtire:0:1","minecraft:dirt:0:1"]
+    "health": 230,
+    "materialLists": [
+      ["mts:ivv.bigtire:0:1","minecraft:dirt:0:1"]
+    ]
   }
 }

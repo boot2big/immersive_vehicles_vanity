@@ -24,55 +24,21 @@
       "dirt_wet": -0.5,
       "sand": -0.6,
       "sand_wet": -0.75,
-      "normal_wet": -1.0,
-      "normal": 0.0
+      "normal_wet": -1.0
     }
   },
-  "variableModifiers": [
-    {
-      "variable": "motiveFriction",
-      "setValue": 0.00001,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_gear",
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "brake",
-          "clampMin": 0.5,
-          "clampMax": 1
-        },
-        {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "clampMin": 0.625,
-          "clampMax": 1
-        },
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMax": 1.0
-        }
-      ]
-    }
-  ],
   "parts": [
     {
-      "isSubPart": true,
       "pos": [0.11175,0.0,0.0],
-      "minValue": 0,
-      "maxValue": 1,
+      "maxValue": 1.0,
       "types": ["generic_rim"],
       "animations": [
         {
           "animationType": "scaling",
           "variable": "part_present_1",
-          "centerPoint": [0,0,0],
-          "axis": [0,0,0],
-	  "offset": 0.87
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,0.0],
+          "offset": 0.87
         }
       ]
     }
@@ -81,7 +47,38 @@
     {
       "subName": "",
       "name": "Compact Wheel [Racing Tread]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "motiveFriction",
+      "setValue": 1.0E-5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "brake",
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "throttle",
+          "clampMin": 0.625,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 1.0
+        }
+      ]
     }
   ],
   "rendering": {
@@ -105,6 +102,7 @@
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "mts:wheel_blowout",
@@ -300,14 +298,14 @@
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": -1024,
+            "clampMin": -1024.0,
             "clampMax": -0.5
           },
           {
             "animationType": "inhibitor",
             "variable": "slip",
             "clampMin": 0.5,
-            "clampMax": 1024
+            "clampMax": 1024.0
           },
           {
             "animationType": "visibility",
@@ -343,16 +341,15 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.00375,0.0],
-            "offset": 0,
             "clampMax": 0.625
           },
           {
             "animationType": "translation",
             "variable": "slip",
             "axis": [0.0,-0.0125,0.0],
+            "offset": 1.75,
             "clampMin": 1.25,
             "clampMax": 1.5,
-            "offset": 1.75,
             "absolute": true
           }
         ],
@@ -445,11 +442,11 @@
         "duration": 10,
         "transparency": 0.5,
         "toTransparency": 1.0E-7,
-        "scale": 6,
-        "toScale": 10,
+        "scale": 6.0,
+        "toScale": 10.0,
         "color": "244B89",
         "pos": [0.0,-0.375,0.0],
-        "initialVelocity": [0.0,1.125,-1],
+        "initialVelocity": [0.0,1.125,-1.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -473,7 +470,7 @@
             "animationType": "visibility",
             "variable": "speed",
             "clampMin": 0.25,
-            "clampMax": 65535
+            "clampMax": 65535.0
           },
           {
             "animationType": "visibility",
@@ -484,8 +481,8 @@
           {
             "animationType": "visibility",
             "variable": "rain_strength",
-            "clampMin": 1,
-            "clampMax": 2
+            "clampMin": 1.0,
+            "clampMax": 2.0
           }
         ]
       },
@@ -535,14 +532,14 @@
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": -1024,
-            "clampMax": -32
+            "clampMin": -1024.0,
+            "clampMax": -32.0
           },
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": 32,
-            "clampMax": 1024
+            "clampMin": 32.0,
+            "clampMax": 1024.0
           },
           {
             "animationType": "visibility",
@@ -598,13 +595,14 @@
         ]
       },
       {
-        "type": "break",
+        "type": "generic",
+        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 2,
         "duration": 40,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
-        "scale": 4.0,
+        "scale": 1.5,
         "color": "000000",
         "pos": [0.0,-0.375,0.0],
         "initialVelocity": [0.0,0.0,0.005],
@@ -644,13 +642,14 @@
         ]
       },
       {
-        "type": "break",
+        "type": "generic",
+        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 80,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
-        "scale": 4.0,
+        "scale": 1.5,
         "color": "000000",
         "pos": [0.0,-0.375,0.0],
         "initialVelocity": [0.0,0.0,0.0],
@@ -690,14 +689,14 @@
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": -1024,
-            "clampMax": -20
+            "clampMin": -1024.0,
+            "clampMax": -20.0
           },
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": 20,
-            "clampMax": 1024
+            "clampMin": 20.0,
+            "clampMax": 1024.0
           },
           {
             "animationType": "visibility",
@@ -710,15 +709,13 @@
     ],
     "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/0_wheels/0_tires/0_compact/",
-  "packID": "ivv",
-  "systemName": "smalltire",
-  "classification": "part",
   "general": {
-    "health": 60,
     "name": "Compact Wheel",
     "description": "A smaller tire, for your little wagon miata track cars.",
     "stackSize": 4,
-    "materials": ["minecraft:wool:15:7","minecraft:slime_ball:0:7","minecraft:iron_ingot:0:6"]
+    "health": 60,
+    "materialLists": [
+      ["minecraft:wool:15:7","minecraft:slime_ball:0:7","minecraft:iron_ingot:0:6"]
+    ]
   }
 }

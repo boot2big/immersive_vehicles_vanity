@@ -391,6 +391,28 @@
           "heatArmorThickness": 2.14748365E9
         }
       ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,-1.7812,-2.50487],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "mount",
+          "variableType": "toggle",
+          "armorThickness": 2.14748365E9,
+          "heatArmorThickness": 2.14748365E9
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_12",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
     }
   ],
   "connectionGroups": [
@@ -563,7 +585,7 @@
       ]
     },
     {
-      "variable": "sliderstate",
+      "variable": "hitch",
       "maxValue": 1.0,
       "animations": [
         {
@@ -581,24 +603,98 @@
       ]
     },
     {
+      "variable": "hitch",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_present_12",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "mount",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0
+        }
+      ]
+    },
+    {
       "variable": "tailswing",
       "minValue": -22.5,
       "maxValue": 22.5,
       "animations": [
         {
+          "animationType": "inhibitor",
+          "variable": "speed",
+            "clampMin": 25,
+            "clampMax": 9999
+        },
+        {
           "animationType": "translation",
           "variable": "20_40_20_cycle",
-          "axis": [0.0,0,45],
-            "offset": -22.5,
-            "duration": 30,
-            "forwardsEasing": "easeinoutquart",
-	    "reverseEasing": "easeinoutquart"
+          "axis": [0.0,0.0,22.5],
+          "offset": -11.25,
+          "duration": 40,
+          "forwardsEasing": "easeinoutquart",
+          "reverseEasing": "easeinoutquart"
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [-0.04,0.0,0.0],
+          "offset": 1
         },
         {
           "animationType": "translation",
           "variable": "engine_magneto_1",
           "axis": [1.0,0.0,0.0],
           "duration": 15
+        }
+      ]
+    },
+    {
+      "variable": "tailangle",
+      "minValue": 0.25,
+      "maxValue": 5,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!bleeh",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [-0.05,0.0,0.0],
+          "clampMin": 0.25,
+          "offset": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_magneto_1",
+          "axis": [1.0,0.0,0.0],
+            "duration": 15,
+            "forwardsEasing": "easeinoutquart",
+            "reverseEasing": "easeinoutquart"
+        }
+      ]
+    },
+    {
+      "variable": "antennaangle",
+      "minValue": -1,
+      "maxValue": 1,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "rudder",
+          "axis": [0.0,0.0,0.022222222]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.05,0.0,0.0],
+          "clampMax": 1
         }
       ]
     }
@@ -663,6 +759,17 @@
       }
     ],
     "animatedObjects": [
+      {
+        "objectName": "antenna",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "antennaangle",
+            "centerPoint": [-1.0625,-0.734375,-2.6875],
+            "axis": [0.0,0.0,-11.25]
+          }
+        ]
+      },
       {
         "objectName": "weaponsmount",
         "animations": [
@@ -797,7 +904,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "engine_magneto_1"
+            "variable": "!never"
           }
         ]
       },
@@ -809,32 +916,33 @@
             "animationType": "rotation",
             "variable": "engine_magneto_1",
             "centerPoint": [0.0,-1.46875,-3.04688],
-            "axis": [0,22.5,0],
+            "axis": [0.0,22.5,0.0],
             "offset": -22.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.04688],
-            "axis": [22.5,0,0],
-            "offset": -22.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.04688],
-            "axis": [-22.5,0,0.0],
             "duration": 15,
             "forwardsEasing": "easeinoutquart",
-	    "reverseEasing": "easeinoutquart"
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_magneto_1",
+            "centerPoint": [0.0,-1.46875,-3.04688],
+            "axis": [45,0.0,0.0],
+            "offset": -45,
+            "duration": 15,
+            "forwardsEasing": "easeinoutquart",
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tailangle",
+            "centerPoint": [0.0,-1.46875,-3.04688],
+            "axis": [-22.5,0.0,0.0]
           },
           {
             "animationType": "rotation",
             "variable": "tailswing",
             "centerPoint": [0.0,-1.46875,-3.04688],
-            "axis": [0.0,1,0.0]
+            "axis": [0.0,1.0,0.0]
           }
         ]
       },
@@ -846,32 +954,33 @@
             "animationType": "rotation",
             "variable": "engine_magneto_1",
             "centerPoint": [0.0,-1.46875,-3.25],
-            "axis": [0,22.5,0],
+            "axis": [0.0,22.5,0.0],
             "offset": -22.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.25],
-            "axis": [0,22.5,0],
-            "offset": -22.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.25],
-            "axis": [22.5,0,0.0],
             "duration": 15,
             "forwardsEasing": "easeinoutquart",
-	    "reverseEasing": "easeinoutquart"
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_magneto_1",
+            "centerPoint": [0.0,-1.46875,-3.25],
+            "axis": [22.5,0.0,0.0],
+            "offset": -22.5,
+            "duration": 15,
+            "forwardsEasing": "easeinoutquart",
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tailangle",
+            "centerPoint": [0.0,-1.46875,-3.25],
+            "axis": [22.5,0.0,0.0]
           },
           {
             "animationType": "rotation",
             "variable": "tailswing",
             "centerPoint": [0.0,-1.46875,-3.25],
-            "axis": [0.0,1,0.0]
+            "axis": [0.0,1.0,0.0]
           }
         ]
       },
@@ -883,32 +992,30 @@
             "animationType": "rotation",
             "variable": "engine_magneto_1",
             "centerPoint": [0.0,-1.46875,-3.45312],
-            "axis": [0,22.5,0],
+            "axis": [0.0,22.5,0.0],
             "offset": -22.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.45312],
-            "axis": [22.5,0,0],
-            "offset": -22.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.45312],
-            "axis": [22.5,0,0.0],
             "duration": 15,
             "forwardsEasing": "easeinoutquart",
-	    "reverseEasing": "easeinoutquart"
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_magneto_1",
+            "centerPoint": [0.0,-1.46875,-3.45312],
+            "axis": [22.5,0.0,0.0],
+            "offset": -22.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tailangle",
+            "centerPoint": [0.0,-1.46875,-3.45312],
+            "axis": [22.5,0.0,0.0]
           },
           {
             "animationType": "rotation",
             "variable": "tailswing",
             "centerPoint": [0.0,-1.46875,-3.45312],
-            "axis": [0.0,1,0.0]
+            "axis": [0.0,1.0,0.0]
           }
         ]
       },
@@ -920,32 +1027,33 @@
             "animationType": "rotation",
             "variable": "engine_magneto_1",
             "centerPoint": [0.0,-1.46875,-3.65625],
-            "axis": [0,22.5,0],
+            "axis": [0.0,22.5,0.0],
             "offset": -22.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.65625],
-            "axis": [-22.5,0,0],
-            "offset": -22.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.65625],
-            "axis": [22.5,0,0.0],
             "duration": 15,
             "forwardsEasing": "easeinoutquart",
-	    "reverseEasing": "easeinoutquart"
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_magneto_1",
+            "centerPoint": [0.0,-1.46875,-3.65625],
+            "axis": [-22.5,0.0,0.0],
+            "offset": -22.5,
+            "duration": 15,
+            "forwardsEasing": "easeinoutquart",
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tailangle",
+            "centerPoint": [0.0,-1.46875,-3.65625],
+            "axis": [22.5,0.0,0.0]
           },
           {
             "animationType": "rotation",
             "variable": "tailswing",
             "centerPoint": [0.0,-1.46875,-3.65625],
-            "axis": [0.0,1,0.0]
+            "axis": [0.0,1.0,0.0]
           }
         ]
       },
@@ -957,32 +1065,33 @@
             "animationType": "rotation",
             "variable": "engine_magneto_1",
             "centerPoint": [0.0,-1.46875,-3.85938],
-            "axis": [0,22.5,0],
+            "axis": [0.0,22.5,0.0],
             "offset": -22.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.85938],
-            "axis": [-7.5,0,0],
-            "offset": -7.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-3.85938],
-            "axis": [-11.25,0,0.0],
             "duration": 15,
             "forwardsEasing": "easeinoutquart",
-	    "reverseEasing": "easeinoutquart"
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_magneto_1",
+            "centerPoint": [0.0,-1.46875,-3.85938],
+            "axis": [-7.5,0.0,0.0],
+            "offset": -7.5,
+            "duration": 15,
+            "forwardsEasing": "easeinoutquart",
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tailangle",
+            "centerPoint": [0.0,-1.46875,-3.85938],
+            "axis": [-11.25,0.0,0.0]
           },
           {
             "animationType": "rotation",
             "variable": "tailswing",
             "centerPoint": [0.0,-1.46875,-3.85938],
-            "axis": [0.0,1,0.0]
+            "axis": [0.0,1.0,0.0]
           }
         ]
       },
@@ -994,32 +1103,33 @@
             "animationType": "rotation",
             "variable": "engine_magneto_1",
             "centerPoint": [0.0,-1.46875,-4.0625],
-            "axis": [0,12.5,0],
+            "axis": [0.0,12.5,0.0],
             "offset": -12.5,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-4.0625],
-            "axis": [15,0,0],
-            "offset": -15,
-            "duration": 15
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_magneto_1",
-            "centerPoint": [0.0,-1.46875,-4.0625],
-            "axis": [-11.25,0,0.0],
             "duration": 15,
             "forwardsEasing": "easeinoutquart",
-	    "reverseEasing": "easeinoutquart"
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_magneto_1",
+            "centerPoint": [0.0,-1.46875,-4.0625],
+            "axis": [15.0,0.0,0.0],
+            "offset": -15.0,
+            "duration": 15,
+            "forwardsEasing": "easeinoutquart",
+            "reverseEasing": "easeinoutquart"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tailangle",
+            "centerPoint": [0.0,-1.46875,-4.0625],
+            "axis": [-11.25,0.0,0.0]
           },
           {
             "animationType": "rotation",
             "variable": "tailswing",
             "centerPoint": [0.0,-1.46875,-4.0625],
-            "axis": [0.0,1,0.0]
+            "axis": [0.0,1.0,0.0]
           }
         ]
       },
@@ -1168,6 +1278,41 @@
             "flareWidth": 0.75
           }
         ]
+      },
+      {
+        "objectName": "face",
+        "emissive": true,
+        "color": "FFFFA7",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "headlight"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "running_light",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.75,-1.093753,1.92188],
+            "axis": [0,-0.1875,0.8125],
+            "flareHeight": 0.25,
+            "flareWidth": 0.25,
+            "beamDiameter": 8,
+            "beamLength": 12
+          },
+          {
+            "pos": [0.75,-1.093753,1.92188],
+            "axis": [0,-0.1875,0.8125],
+            "flareHeight": 0.25,
+            "flareWidth": 0.25,
+            "beamDiameter": 8,
+            "beamLength": 12
+          }
+        ]
       }
     ],
     "cameraObjects": [
@@ -1284,7 +1429,171 @@
         ]
       }
     ],
-    "particles": [],
+    "particles": [
+      {
+        "type": "smoke",
+        "quantity": 1,
+        "transparency": 0.25,
+        "toTransparency": 0.25,
+        "scale": 1.0,
+        "color": "D9D9D9",
+        "pos": [-1.25,-1.78125,-1.4375],
+        "initialVelocity": [-1.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_piston_2_6_cam_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 1,
+        "transparency": 0.25,
+        "toTransparency": 0.25,
+        "scale": 1.0,
+        "color": "D9D9D9",
+        "pos": [-1.25,-1.78125,-1.4375],
+        "initialVelocity": [-1.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_piston_4_6_cam_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 1,
+        "transparency": 0.25,
+        "toTransparency": 0.25,
+        "scale": 1.0,
+        "color": "D9D9D9",
+        "pos": [-1.25,-1.78125,-1.4375],
+        "initialVelocity": [-1.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_piston_6_6_cam_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 5,
+        "scale": 2.5,
+        "color": "000000",
+        "pos": [-1.25,-1.78125,-1.4375],
+        "initialVelocity": [-1.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "quantity": 3,
+        "transparency": 0.375,
+        "scale": 3.0,
+        "color": "3F76E4",
+        "pos": [0.0,-1.74967,-2.54033],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "10_20_10_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 1,
+        "transparency": 0.25,
+        "toTransparency": 0.25,
+        "scale": 1.0,
+        "color": "D9D9D9",
+        "pos": [1.25,-1.78125,-1.4375],
+        "initialVelocity": [1.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_piston_1_6_cam_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 1,
+        "transparency": 0.25,
+        "toTransparency": 0.25,
+        "scale": 1.0,
+        "color": "D9D9D9",
+        "pos": [1.25,-1.78125,-1.4375],
+        "initialVelocity": [1.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_piston_3_6_cam_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 1,
+        "transparency": 0.25,
+        "toTransparency": 0.25,
+        "scale": 1.0,
+        "color": "D9D9D9",
+        "pos": [1.25,-1.78125,-1.4375],
+        "initialVelocity": [1.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_piston_5_6_cam_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 5,
+        "scale": 2.5,
+        "color": "000000",
+        "pos": [1.25,-1.78125,-1.4375],
+        "initialVelocity": [1.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+      ],
     "modelType": "obj"
   },
   "general": {

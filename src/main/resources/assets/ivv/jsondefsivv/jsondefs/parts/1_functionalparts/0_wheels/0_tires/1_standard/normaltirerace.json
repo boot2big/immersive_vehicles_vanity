@@ -28,43 +28,10 @@
       "normal": 0.5
     }
   },
-  "variableModifiers": [
-    {
-      "variable": "motiveFriction",
-      "setValue": 0.00001,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_gear",
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "brake",
-          "clampMin": 0.5,
-          "clampMax": 1
-        },
-        {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "clampMin": 0.625,
-          "clampMax": 1
-        },
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMax": 1.0
-        }
-      ]
-    }
-  ],
   "parts": [
     {
-      "isSubPart": true,
       "pos": [0.1,0.0,0.0],
-      "minValue": 0,
-      "maxValue": 1,
+      "maxValue": 1.0,
       "types": ["generic_rim"]
     }
   ],
@@ -72,32 +39,73 @@
     {
       "subName": "",
       "name": "Standard Wheel [Racing Tread]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_whitewall",
       "name": "Standard Wheel [Racing Tread, Whitewall]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_whitewallthin",
       "name": "Standard Wheel [Racing Tread, Thin Whitewall]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_redlinethin",
       "name": "Standard Wheel [Racing Tread, Thin Redwall]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_bluelinethin",
       "name": "Standard Wheel [Racing Tread, Thin Bluewall]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_greenlinethin",
       "name": "Standard Wheel [Racing Tread, Thin Greenwall]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "motiveFriction",
+      "setValue": 1.0E-5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "brake",
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "throttle",
+          "clampMin": 0.625,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 1.0
+        }
+      ]
     }
   ],
   "rendering": {
@@ -121,6 +129,7 @@
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "mts:wheel_blowout",
@@ -614,13 +623,13 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 2,
         "duration": 40,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
         "scale": 2.0,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.4375,0.0],
         "initialVelocity": [0.0,0.0,0.005],
@@ -661,13 +670,13 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 80,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
         "scale": 2.0,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.4375,0.0],
         "initialVelocity": [0.0,0.0,0.0],
@@ -727,15 +736,13 @@
     ],
     "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/0_wheels/0_tires/1_standard/",
-  "packID": "ivv",
-  "systemName": "normaltirerace",
-  "classification": "part",
   "general": {
-    "health": 130,
     "name": "Standard Racing Wheel",
     "description": "An average sized tire, with race quality grip.\n(Higher grip which improves handling and braking.)",
     "stackSize": 4,
-    "materials": ["minecraft:wool:15:8","minecraft:slime_ball:0:8","minecraft:iron_ingot:0:6"]
+    "health": 130,
+    "materialLists": [
+      ["minecraft:wool:15:8","minecraft:slime_ball:0:8","minecraft:iron_ingot:0:6"]
+    ]
   }
 }

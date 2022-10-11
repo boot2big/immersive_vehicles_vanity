@@ -183,7 +183,7 @@
         {
           "animationType": "visibility",
           "variable": "EJECT",
-          "reverseDelay":5
+          "reverseDelay": 5
         }
       ]
     },
@@ -273,6 +273,9 @@
       "intakeOffset": 5000.0,
       "partScale": [0.625,0.625,0.625],
       "types": ["engine_car"],
+      "interactableVariables": [
+        ["door_hood"]
+      ],
       "linkedParts": [1,2]
     },
     {
@@ -282,6 +285,9 @@
       "intakeOffset": 5000.0,
       "partScale": [0.625,0.625,0.625],
       "types": ["engine_car"],
+      "interactableVariables": [
+        ["door_hood"]
+      ],
       "linkedParts": [3,4]
     },
     {
@@ -296,8 +302,8 @@
         {
           "animationType": "visibility",
           "variable": "mood",
-          "clampMin": -25,
-          "clampMax": 50
+          "clampMin": -25.0,
+          "clampMax": 50.0
         }
       ]
     },
@@ -313,8 +319,8 @@
         {
           "animationType": "visibility",
           "variable": "mood",
-          "clampMin": -25,
-          "clampMax": 50
+          "clampMin": -25.0,
+          "clampMax": 50.0
         }
       ]
     },
@@ -1230,7 +1236,7 @@
         },
         {
           "type": "tow_wheel",
-          "pos": [0.0,-0.37495,3.56258],
+          "pos": [0.0,-0.50005,3.56258],
           "distance": 0.5
         }
       ]
@@ -1520,7 +1526,7 @@
         {
           "animationType": "translation",
           "variable": "engine_rpm_percent_safe_1",
-          "axis": [0.0,1,0.0]
+          "axis": [0.0,1.0,0.0]
         }
       ]
     },
@@ -1674,8 +1680,8 @@
         {
           "animationType": "inhibitor",
           "variable": "mood",
-          "clampMin": -50,
-          "clampMax": -25
+          "clampMin": -50.0,
+          "clampMax": -25.0
         },
         {
           "animationType": "translation",
@@ -1716,8 +1722,8 @@
         {
           "animationType": "inhibitor",
           "variable": "mood",
-          "clampMin": 25,
-          "clampMax": 50
+          "clampMin": 25.0,
+          "clampMax": 50.0
         },
         {
           "animationType": "translation",
@@ -1884,19 +1890,19 @@
         {
           "animationType": "translation",
           "variable": "throttle",
-          "axis": [0.0,0.0,1]
+          "axis": [0.0,0.0,1.0]
         },
         {
           "animationType": "visibility",
           "variable": "mood",
-          "clampMin": 25,
-          "clampMax": 50
+          "clampMin": 25.0,
+          "clampMax": 50.0
         },
         {
           "animationType": "visibility",
           "variable": "aciveRunning",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "inhibitor",
@@ -1906,20 +1912,18 @@
           "animationType": "translation",
           "variable": "10_10_10_cycle",
           "axis": [0.0,0.25,0.0],
-          "offset": 0,
           "duration": 5
         },
         {
           "animationType": "inhibitor",
           "variable": "mood",
-          "clampMin": -50,
-          "clampMax": 45
+          "clampMin": -50.0,
+          "clampMax": 45.0
         },
         {
           "animationType": "translation",
           "variable": "10_10_10_cycle",
           "axis": [0.0,0.75,0.0],
-          "offset": 0,
           "duration": 5
         }
       ]
@@ -1931,8 +1935,8 @@
         {
           "animationType": "visibility",
           "variable": "mood",
-          "clampMin": -50,
-          "clampMax": -25
+          "clampMin": -50.0,
+          "clampMax": -25.0
         },
         {
           "animationType": "translation",
@@ -1949,7 +1953,7 @@
           "animationType": "visibility",
           "variable": "mood",
           "clampMin": 25.0,
-          "clampMax": 50
+          "clampMax": 50.0
         },
         {
           "animationType": "visibility",
@@ -1959,15 +1963,12 @@
         },
         {
           "animationType": "visibility",
-          "variable": "BOOST",
-          "clampMin": 0,
-          "clampMax": 0
+          "variable": "BOOST"
         },
         {
           "animationType": "translation",
           "variable": "kitt_is_the_coolest_car_in_mts_period",
-          "axis": [0.0,0.0,1.0],
-          "offset": 0
+          "axis": [0.0,0.0,1.0]
         }
       ]
     },
@@ -2014,8 +2015,8 @@
         {
           "animationType": "visibility",
           "variable": "mood",
-          "clampMin": -50,
-          "clampMax": -45
+          "clampMin": -50.0,
+          "clampMax": -45.0
         },
         {
           "animationType": "visibility",
@@ -2482,6 +2483,27 @@
           "clampMax": 1.0
         }
       ]
+    },
+    {
+      "variable": "dragCoefficient",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "dragCoefficient",
+          "axis": [0.0,0.0,1]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "mood",
+          "clampMin": 25,
+          "clampMax": 50
+        },
+        {
+          "animationType": "translation",
+          "variable": "kitt_is_the_coolest_car_in_mts_period",
+          "axis": [0.5,0.0,0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -2548,7 +2570,7 @@
         "scale": 0.05,
         "variableName": "mood_console",
         "variableFactor": 1.0,
-        "variableFormat": "CPU: %01.2f§",
+        "variableFormat": "CPU: %01.2f`",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
         "color": "BA7C35",
@@ -2576,7 +2598,7 @@
         "scale": 0.05,
         "variableName": "mood_positive_output",
         "variableFactor": 100.0,
-        "variableFormat": "PLSR: %01.2f§",
+        "variableFormat": "PLSR: %01.2f`",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
         "color": "BA7C35",
@@ -2601,7 +2623,7 @@
       {
         "pos": [3.0,2.0,3.0],
         "rot": [0.0,180.0,0.0],
-        "scale": 0.5,
+        "scale": 0.0,
         "variableName": "mood",
         "variableFactor": 1.0,
         "variableFormat": "MOOD: %01.4f",
@@ -2614,7 +2636,7 @@
       {
         "pos": [-3.0,2.0,3.0],
         "rot": [0.0,180.0,0.0],
-        "scale": 0.5,
+        "scale": 0.0,
         "variableName": "mood_positive",
         "variableFactor": 1.0,
         "variableFormat": "UP: %01.4f",
@@ -2627,7 +2649,7 @@
       {
         "pos": [0.0,2.0,3.0],
         "rot": [0.0,180.0,0.0],
-        "scale": 0.5,
+        "scale": 0.0,
         "variableName": "mood_negative",
         "variableFactor": 1.0,
         "variableFormat": "DOWN: %01.4f",
@@ -5624,323 +5646,323 @@
     "particles": [
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/mood_up.png",
         "quantity": 1,
         "duration": 10,
-        "transparency": 1,
-        "scale": 1,
+        "transparency": 1.0,
+        "scale": 1.0,
+        "texture": "ivv:textures/particles/mood_up.png",
         "color": "FFFFFF",
         "pos": [0.84375,0.4875,0.28133],
-        "initialVelocity": [0.0,0.5,0],
-        "movementVelocity": [0.0,-0.003125,0],
-        "terminalVelocity": [1024,1024,1024],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.003125,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "20_40_20_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 25,
-            "clampMax": 50
+            "clampMin": 25.0,
+            "clampMax": 50.0
           },
           {
             "animationType": "visibility",
             "variable": "10_20_10_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 45,
-            "clampMax": 50
+            "clampMin": 45.0,
+            "clampMax": 50.0
           }
         ]
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/mood_up.png",
         "quantity": 1,
         "duration": 10,
-        "transparency": 1,
-        "scale": 1,
+        "transparency": 1.0,
+        "scale": 1.0,
+        "texture": "ivv:textures/particles/mood_up.png",
         "color": "FFFFFF",
         "pos": [0.84375,0.4875,3.09383],
-        "initialVelocity": [0.0,0.5,0],
-        "movementVelocity": [0.0,-0.003125,0],
-        "terminalVelocity": [1024,1024,1024],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.003125,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "20_40_20_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 25,
-            "clampMax": 50
+            "clampMin": 25.0,
+            "clampMax": 50.0
           },
           {
             "animationType": "visibility",
             "variable": "10_20_10_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 45,
-            "clampMax": 50
+            "clampMin": 45.0,
+            "clampMax": 50.0
           }
         ]
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/mood_up.png",
         "quantity": 1,
         "duration": 10,
-        "transparency": 1,
-        "scale": 1,
+        "transparency": 1.0,
+        "scale": 1.0,
+        "texture": "ivv:textures/particles/mood_up.png",
         "color": "FFFFFF",
         "pos": [-0.84375,0.4875,0.28133],
-        "initialVelocity": [0.0,0.5,0],
-        "movementVelocity": [0.0,-0.003125,0],
-        "terminalVelocity": [1024,1024,1024],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.003125,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "20_40_20_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 25,
-            "clampMax": 50
+            "clampMin": 25.0,
+            "clampMax": 50.0
           },
           {
             "animationType": "visibility",
             "variable": "10_20_10_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 45,
-            "clampMax": 50
+            "clampMin": 45.0,
+            "clampMax": 50.0
           }
         ]
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/mood_up.png",
         "quantity": 1,
         "duration": 10,
-        "transparency": 1,
-        "scale": 1,
+        "transparency": 1.0,
+        "scale": 1.0,
+        "texture": "ivv:textures/particles/mood_up.png",
         "color": "FFFFFF",
         "pos": [-0.84375,0.4875,3.09383],
-        "initialVelocity": [0.0,0.5,0],
-        "movementVelocity": [0.0,-0.003125,0],
-        "terminalVelocity": [1024,1024,1024],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.003125,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "20_40_20_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 25,
-            "clampMax": 50
+            "clampMin": 25.0,
+            "clampMax": 50.0
           },
           {
             "animationType": "visibility",
             "variable": "10_20_10_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 45,
-            "clampMax": 50
+            "clampMin": 45.0,
+            "clampMax": 50.0
           }
         ]
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/mood_down.png",
         "quantity": 1,
         "duration": 10,
-        "transparency": 1,
-        "scale": 1,
+        "transparency": 1.0,
+        "scale": 1.0,
+        "texture": "ivv:textures/particles/mood_down.png",
         "color": "FFFFFF",
         "pos": [0.84375,0.4875,0.28133],
-        "initialVelocity": [0.0,0.5,0],
-        "movementVelocity": [0.0,-0.003125,0],
-        "terminalVelocity": [1024,1024,1024],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.003125,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "20_40_20_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": -50,
-            "clampMax": -25
+            "clampMin": -50.0,
+            "clampMax": -25.0
           },
           {
             "animationType": "visibility",
             "variable": "10_20_10_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": -50,
-            "clampMax": -45
+            "clampMin": -50.0,
+            "clampMax": -45.0
           }
         ]
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/mood_down.png",
         "quantity": 1,
         "duration": 10,
-        "transparency": 1,
-        "scale": 1,
+        "transparency": 1.0,
+        "scale": 1.0,
+        "texture": "ivv:textures/particles/mood_down.png",
         "color": "FFFFFF",
         "pos": [0.84375,0.4875,3.09383],
-        "initialVelocity": [0.0,0.5,0],
-        "movementVelocity": [0.0,-0.003125,0],
-        "terminalVelocity": [1024,1024,1024],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.003125,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "20_40_20_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": -50,
-            "clampMax": -25
+            "clampMin": -50.0,
+            "clampMax": -25.0
           },
           {
             "animationType": "visibility",
             "variable": "10_20_10_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": -50,
-            "clampMax": -45
+            "clampMin": -50.0,
+            "clampMax": -45.0
           }
         ]
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/mood_down.png",
         "quantity": 1,
         "duration": 10,
-        "transparency": 1,
-        "scale": 1,
+        "transparency": 1.0,
+        "scale": 1.0,
+        "texture": "ivv:textures/particles/mood_down.png",
         "color": "FFFFFF",
         "pos": [-0.84375,0.4875,0.28133],
-        "initialVelocity": [0.0,0.5,0],
-        "movementVelocity": [0.0,-0.003125,0],
-        "terminalVelocity": [1024,1024,1024],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.003125,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "20_40_20_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": -50,
-            "clampMax": -25
+            "clampMin": -50.0,
+            "clampMax": -25.0
           },
           {
             "animationType": "visibility",
             "variable": "10_20_10_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": -50,
-            "clampMax": -45
+            "clampMin": -50.0,
+            "clampMax": -45.0
           }
         ]
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/mood_down.png",
         "quantity": 1,
         "duration": 10,
-        "transparency": 1,
-        "scale": 1,
+        "transparency": 1.0,
+        "scale": 1.0,
+        "texture": "ivv:textures/particles/mood_down.png",
         "color": "FFFFFF",
         "pos": [-0.84375,0.4875,3.09383],
-        "initialVelocity": [0.0,0.5,0],
-        "movementVelocity": [0.0,-0.003125,0],
-        "terminalVelocity": [1024,1024,1024],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.003125,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "20_40_20_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": -50,
-            "clampMax": -25
+            "clampMin": -50.0,
+            "clampMax": -25.0
           },
           {
             "animationType": "visibility",
             "variable": "10_20_10_cycle",
-            "clampMin": 1,
+            "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": -50,
-            "clampMax": -45
+            "clampMin": -50.0,
+            "clampMax": -45.0
           }
         ]
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/flamejet.png",
         "quantity": 1,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.25,
         "scale": 0.8,
+        "texture": "ivv:textures/particles/flamejet.png",
         "color": "FFFFFF",
         "pos": [-0.59375,-0.10156,-1.5],
         "initialVelocity": [0.0,-0.125,-0.5],
@@ -5967,11 +5989,11 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/flamejet.png",
         "quantity": 1,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.25,
         "scale": 0.8,
+        "texture": "ivv:textures/particles/flamejet.png",
         "color": "FFFFFF",
         "pos": [-0.59375,-0.10156,-1.5],
         "initialVelocity": [0.0,-0.125,-0.5],
@@ -5998,11 +6020,11 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/flamejet.png",
         "quantity": 1,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.25,
         "scale": 0.8,
+        "texture": "ivv:textures/particles/flamejet.png",
         "color": "FFFFFF",
         "pos": [-0.84375,-0.10156,-1.5],
         "initialVelocity": [0.0,-0.125,-0.5],
@@ -6029,11 +6051,11 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/flamejet.png",
         "quantity": 1,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.25,
         "scale": 0.8,
+        "texture": "ivv:textures/particles/flamejet.png",
         "color": "FFFFFF",
         "pos": [-0.84375,-0.10156,-1.5],
         "initialVelocity": [0.0,-0.125,-0.5],
@@ -6060,11 +6082,11 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/flamejet.png",
         "quantity": 1,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.25,
         "scale": 0.8,
+        "texture": "ivv:textures/particles/flamejet.png",
         "color": "FFFFFF",
         "pos": [0.59375,-0.10156,-1.5],
         "initialVelocity": [0.0,-0.125,-0.5],
@@ -6091,11 +6113,11 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/flamejet.png",
         "quantity": 1,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.25,
         "scale": 0.8,
+        "texture": "ivv:textures/particles/flamejet.png",
         "color": "FFFFFF",
         "pos": [0.59375,-0.10156,-1.5],
         "initialVelocity": [0.0,-0.125,-0.5],
@@ -6122,11 +6144,11 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/flamejet.png",
         "quantity": 1,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.25,
         "scale": 0.8,
+        "texture": "ivv:textures/particles/flamejet.png",
         "color": "FFFFFF",
         "pos": [0.84375,-0.10156,-1.5],
         "initialVelocity": [0.0,-0.125,-0.5],
@@ -6153,11 +6175,11 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/flamejet.png",
         "quantity": 1,
-        "transparency": 1,
+        "transparency": 1.0,
         "toTransparency": 0.25,
         "scale": 0.8,
+        "texture": "ivv:textures/particles/flamejet.png",
         "color": "FFFFFF",
         "pos": [0.84375,-0.10156,-1.5],
         "initialVelocity": [0.0,-0.125,-0.5],

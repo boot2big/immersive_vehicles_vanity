@@ -1,0 +1,131 @@
+{
+  "generic": {
+    "type": "generic_lightbar",
+    "width": 0.5,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [0.0,-0.25,0.0],
+      "isController": true,
+      "isPermanent": true,
+      "partScale": [0.25,0.25,0.25],
+      "playerScale": [0.25,0.25,0.25],
+      "defaultPart": "ivv:rockseat",
+      "types": ["seat_invisible"],
+      "interactableVariables": [
+        ["disabled"]
+      ],
+      "seatEffects": [
+        {
+          "name": "night_vision",
+          "duration": 300
+        },
+        {
+          "name": "weakness",
+          "duration": 300,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 300,
+          "amplifier": 127
+        },
+        {
+          "name": "invisibility",
+          "duration": 300
+        },
+        {
+          "name": "fire_resistance",
+          "duration": 300
+        },
+        {
+          "name": "water_breathing",
+          "duration": 300
+        },
+        {
+          "name": "saturation",
+          "duration": 300
+        }
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [-0.140625,0.125,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "hidden",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hidden",
+          "axis": [0.0,0.0625,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "LIDAR/Camera Combination Bar",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hidden"
+          }
+        ]
+      },
+      {
+        "objectName": "righttcam",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.140625,0.125,0.0],
+            "axis": [0.0,-0.25,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "leftcam",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [0.140625,0.125,0.0],
+            "axis": [0.0,-0.25,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Not a real self driving thing",
+    "description": "§r§7Can be mounted on top of some cars for the looks.\nWill not §r§7§oself§r§7 drive the car however.",
+    "health": 100,
+    "materialLists": [
+      ["minecraft:iron_ingot:0:3","mts:ivv.circuit:0:2","minecraft:redstone:0:4"]
+    ]
+  }
+}
