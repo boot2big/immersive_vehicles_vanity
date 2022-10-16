@@ -827,19 +827,25 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "seat_occupied_1",
-          "axis": [0.0,0.0,0.0]
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,-0.001666667]
         },
         {
           "animationType": "translation",
-          "variable": "rudder",
-          "axis": [0.0,0.022222222,0.0]
+          "variable": "!ground_onground_1",
+          "axis": [0.0,-1,0.0],
+          "duration": 4
         },
         {
-          "animationType": "translation",
+          "animationType": "inhibitor",
           "variable": "speed",
-          "axis": [0.066666667,0.0,0.0],
-          "clampMax": 1.0
+          "clampMin": 0,
+          "clampMax": 0.125
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,0.5,6.0]
         }
       ]
     },
@@ -850,19 +856,25 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "seat_occupied_1",
-          "axis": [0.0,0.0,0.0]
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,-0.001666667]
         },
         {
           "animationType": "translation",
-          "variable": "rudder",
-          "axis": [0.0,0.022222222,0.0]
+          "variable": "!ground_onground_2",
+          "axis": [0.0,1,0.0],
+          "duration": 4
         },
         {
-          "animationType": "translation",
+          "animationType": "inhibitor",
           "variable": "speed",
-          "axis": [0.066666667,0.0,0.0],
-          "clampMax": 1.0
+          "clampMin": 0,
+          "clampMax": 0.125
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,0.5,6.0]
         }
       ]
     },
@@ -873,19 +885,25 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "seat_occupied_1",
-          "axis": [0.0,0.0,0.0]
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,-0.001666667]
         },
         {
           "animationType": "translation",
-          "variable": "rudder",
-          "axis": [0.0,0.022222222,0.0]
+          "variable": "!ground_onground_3",
+          "axis": [0.0,-1,0.0],
+          "duration": 4
         },
         {
-          "animationType": "translation",
+          "animationType": "inhibitor",
           "variable": "speed",
-          "axis": [0.066666667,0.0,0.0],
-          "clampMax": 1.0
+          "clampMin": 0,
+          "clampMax": 0.125
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,-0.5,6.0]
         }
       ]
     },
@@ -896,19 +914,25 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "seat_occupied_1",
-          "axis": [0.0,0.0,0.0]
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,-0.001666667]
         },
         {
           "animationType": "translation",
-          "variable": "rudder",
-          "axis": [0.0,0.022222222,0.0]
+          "variable": "!ground_onground_4",
+          "axis": [0.0,1,0.0],
+          "duration": 4
         },
         {
-          "animationType": "translation",
+          "animationType": "inhibitor",
           "variable": "speed",
-          "axis": [0.066666667,0.0,0.0],
-          "clampMax": 1.0
+          "clampMin": 0,
+          "clampMax": 0.125
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,-0.5,6.0]
         }
       ]
     },
@@ -1055,46 +1079,16 @@
         "objectName": "rearleftsuspension",
         "animations": [
           {
-            "animationType": "rotation",
-            "variable": "!ground_onground_1",
-            "centerPoint": [-1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,-6.0],
-            "duration": 4
-          },
-          {
             "animationType": "inhibitor",
-            "variable": "ground_onground_1"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_percent",
-            "centerPoint": [-1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,5.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ahegao",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "rlBodyroll",
+            "clampMin": -0.125,
+            "clampMax": 0.125
           },
           {
             "animationType": "rotation",
             "variable": "rlBodyroll",
             "centerPoint": [1.0E-8,-0.3125,-0.1875],
             "axis": [0.0,0.0,4.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "speed",
-            "clampMax": 0.125
-          },
-          {
-            "animationType": "rotation",
-            "variable": "acceleration",
-            "centerPoint": [1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,-6.0],
-            "clampMin": -8.0,
-            "clampMax": 8.0
           }
         ]
       },
@@ -1103,27 +1097,10 @@
         "applyAfter": "rearleftsuspension",
         "animations": [
           {
-            "animationType": "rotation",
-            "variable": "!ground_onground_1",
-            "centerPoint": [0.796875,-0.023437,-0.1875],
-            "axis": [0.0,0.0,9.0],
-            "duration": 4
-          },
-          {
             "animationType": "inhibitor",
-            "variable": "ground_onground_1"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_percent",
-            "centerPoint": [0.796875,-0.023437,-0.1875],
-            "axis": [0.0,0.0,-7.5]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ahegao",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "rlBodyroll",
+            "clampMin": -0.125,
+            "clampMax": 0.125
           },
           {
             "animationType": "rotation",
@@ -1149,46 +1126,16 @@
         "objectName": "rearrightsuspension",
         "animations": [
           {
-            "animationType": "rotation",
-            "variable": "!ground_onground_2",
-            "centerPoint": [-1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,6.0],
-            "duration": 4
-          },
-          {
             "animationType": "inhibitor",
-            "variable": "ground_onground_2"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_percent",
-            "centerPoint": [-1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,-5.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ahegao",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "rrBodyroll",
+            "clampMin": -0.125,
+            "clampMax": 0.125
           },
           {
             "animationType": "rotation",
             "variable": "rrBodyroll",
             "centerPoint": [-1.0E-8,-0.3125,-0.1875],
             "axis": [0.0,0.0,4.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "speed",
-            "clampMax": 0.125
-          },
-          {
-            "animationType": "rotation",
-            "variable": "acceleration",
-            "centerPoint": [-1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,6.0],
-            "clampMin": -8.0,
-            "clampMax": 8.0
           }
         ]
       },
@@ -1197,27 +1144,10 @@
         "applyAfter": "rearrightsuspension",
         "animations": [
           {
-            "animationType": "rotation",
-            "variable": "!ground_onground_2",
-            "centerPoint": [-0.796875,-0.023437,-0.1875],
-            "axis": [0.0,0.0,-9.0],
-            "duration": 4
-          },
-          {
             "animationType": "inhibitor",
-            "variable": "ground_onground_2"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_percent",
-            "centerPoint": [-0.796875,-0.023437,-0.1875],
-            "axis": [0.0,0.0,7.5]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ahegao",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "rrBodyroll",
+            "clampMin": -0.125,
+            "clampMax": 0.125
           },
           {
             "animationType": "rotation",
@@ -1243,46 +1173,16 @@
         "objectName": "frontleftsuspension",
         "animations": [
           {
-            "animationType": "rotation",
-            "variable": "!ground_onground_3",
-            "centerPoint": [-1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,-6.0],
-            "duration": 4
-          },
-          {
             "animationType": "inhibitor",
-            "variable": "ground_onground_3"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_percent",
-            "centerPoint": [-1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,6.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ahegao",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "flBodyroll",
+            "clampMin": -0.125,
+            "clampMax": 0.125
           },
           {
             "animationType": "rotation",
             "variable": "flBodyroll",
             "centerPoint": [1.0E-8,-0.3125,3.5625],
             "axis": [0.0,0.0,4.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "speed",
-            "clampMax": 0.125
-          },
-          {
-            "animationType": "rotation",
-            "variable": "acceleration",
-            "centerPoint": [1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,-6.0],
-            "clampMin": -8.0,
-            "clampMax": 8.0
           }
         ]
       },
@@ -1291,27 +1191,10 @@
         "applyAfter": "frontleftsuspension",
         "animations": [
           {
-            "animationType": "rotation",
-            "variable": "!ground_onground_3",
-            "centerPoint": [0.609375,-0.015625,3.5625],
-            "axis": [0.0,0.0,9.0],
-            "duration": 4
-          },
-          {
             "animationType": "inhibitor",
-            "variable": "ground_onground_3"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_percent",
-            "centerPoint": [0.609375,-0.015625,3.5625],
-            "axis": [0.0,0.0,-9.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ahegao",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "flBodyroll",
+            "clampMin": -0.125,
+            "clampMax": 0.125
           },
           {
             "animationType": "rotation",
@@ -1325,6 +1208,12 @@
         "objectName": "frontleftsteer",
         "applyAfter": "frontleftsuspension",
         "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "rudder",
+            "clampMin": -0.125,
+            "clampMax": 0.125
+          },
           {
             "animationType": "rotation",
             "variable": "rudder",
@@ -1349,46 +1238,16 @@
         "objectName": "frontrightsuspension",
         "animations": [
           {
-            "animationType": "rotation",
-            "variable": "!ground_onground_4",
-            "centerPoint": [-1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,6.0],
-            "duration": 4
-          },
-          {
             "animationType": "inhibitor",
-            "variable": "ground_onground_4"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_percent",
-            "centerPoint": [-1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,-6.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ahegao",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "frBodyroll",
+            "clampMin": -0.125,
+            "clampMax": 0.125
           },
           {
             "animationType": "rotation",
             "variable": "frBodyroll",
             "centerPoint": [-1.0E-8,-0.3125,3.5625],
             "axis": [0.0,0.0,4.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "speed",
-            "clampMax": 0.125
-          },
-          {
-            "animationType": "rotation",
-            "variable": "acceleration",
-            "centerPoint": [1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,6.0],
-            "clampMin": -8.0,
-            "clampMax": 8.0
           }
         ]
       },
@@ -1397,27 +1256,10 @@
         "applyAfter": "frontrightsuspension",
         "animations": [
           {
-            "animationType": "rotation",
-            "variable": "!ground_onground_4",
-            "centerPoint": [-0.609375,-0.015625,3.5625],
-            "axis": [0.0,0.0,-9.0],
-            "duration": 4
-          },
-          {
             "animationType": "inhibitor",
-            "variable": "ground_onground_4"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_percent",
-            "centerPoint": [-0.609375,-0.015625,3.5625],
-            "axis": [0.0,0.0,9.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ahegao",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "frBodyroll",
+            "clampMin": -0.125,
+            "clampMax": 0.125
           },
           {
             "animationType": "rotation",
@@ -1431,6 +1273,12 @@
         "objectName": "frontrightsteer",
         "applyAfter": "frontrightsuspension",
         "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "rudder",
+            "clampMin": -0.125,
+            "clampMax": 0.125
+          },
           {
             "animationType": "rotation",
             "variable": "rudder",

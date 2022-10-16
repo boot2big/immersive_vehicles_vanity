@@ -1,20 +1,32 @@
 {
   "generic": {
-    "type": "ground_jackstand"
+    "type": "ground_jackstand",
+    "canBeRemovedByHand": true,
+    "canBePlacedOnGround": true,
+    "placedOffset": 0.250485
   },
   "ground": {
     "width": 0.5,
     "height": 0.5,
-    "rainFrictionLoss": 0.0
+    "frictionModifiers": {
+      "snow": -0.2,
+      "ice": -0.2,
+      "dirt_wet": -0.1,
+      "sand_wet": -0.1,
+      "normal_wet": -0.1
+    }
   },
   "definitions": [
     {
       "subName": "",
       "name": "Jackstand",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:jackscrape",
@@ -105,7 +117,7 @@
         "toScale": 1.0,
         "color": "FFFFEE",
         "pos": [0.0,-0.4375,0.0],
-        "initialVelocity": [0.0,1,0.0],
+        "initialVelocity": [0.0,1.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -144,15 +156,15 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/3_utilities/1_wheelkits/",
-  "packID": "ivv",
-  "systemName": "jackstand",
-  "classification": "part",
   "general": {
     "name": "Jackstand",
     "description": "Can be placed under certain vehicles to lift them off the ground slightly.\nIf it starts making sparks and scary noises, take it off before driving.",
-    "materials": ["minecraft:iron_ingot:0:6"]
+    "health": 100,
+    "materialLists": [
+      ["minecraft:iron_ingot:0:6"]
+    ]
   }
 }
