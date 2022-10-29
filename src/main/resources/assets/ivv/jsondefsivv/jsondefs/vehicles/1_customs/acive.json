@@ -110,7 +110,8 @@
         {
           "animationType": "visibility",
           "variable": "EJECT",
-          "reverseDelay": 5
+          "forwardsDelay": 2,
+          "reverseDelay": 40
         }
       ]
     },
@@ -147,7 +148,8 @@
         {
           "animationType": "visibility",
           "variable": "EJECT",
-          "reverseDelay": 5
+          "forwardsDelay": 2,
+          "reverseDelay": 40
         }
       ]
     },
@@ -183,7 +185,8 @@
         {
           "animationType": "visibility",
           "variable": "EJECT",
-          "reverseDelay": 5
+          "forwardsDelay": 2,
+          "reverseDelay": 40
         }
       ]
     },
@@ -251,7 +254,8 @@
         {
           "animationType": "visibility",
           "variable": "EJECT",
-          "reverseDelay": 5
+          "forwardsDelay": 2,
+          "reverseDelay": 40
         }
       ]
     },
@@ -448,6 +452,7 @@
       "rot": [0.0,0.0,0.0],
       "isPermanent": true,
       "maxValue": 1.0,
+      "defaultPart": "ivv:glovebox",
       "types": ["interactable_glovebox"],
       "interactableVariables": [
         ["door_right"]
@@ -2055,6 +2060,40 @@
       ]
     },
     {
+      "variable": "door_left",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "EJECT",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "kitt_is_the_coolest_car_in_mts_period",
+          "axis": [0.0,0.0,1.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "door_right",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "EJECT",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "kitt_is_the_coolest_car_in_mts_period",
+          "axis": [0.0,0.0,1.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
       "variable": "aciveOn",
       "maxValue": 1.0,
       "animations": [
@@ -2274,7 +2313,7 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,0.5,6.0]
+          "axis": [0.0,3,0.0]
         }
       ]
     },
@@ -2302,7 +2341,7 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,0.5,6.0]
+          "axis": [0.0,-3,0]
         }
       ]
     },
@@ -2330,7 +2369,7 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,-0.5,6.0]
+          "axis": [0.0,-3,0]
         }
       ]
     },
@@ -2358,7 +2397,7 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,-0.5,6.0]
+          "axis": [0.0,3,0]
         }
       ]
     },
@@ -2477,7 +2516,21 @@
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.0,0.04,0.0]
+          "axis": [0.0,0.125,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "brakingFactor",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "BOOST"
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.125,0.0]
         }
       ]
     },
@@ -3432,6 +3485,13 @@
         "objectName": "leftdoor",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "EJECT",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 16
+          },
+          {
             "animationType": "rotation",
             "variable": "door_left",
             "centerPoint": [1.25,0.21875,2.3125],
@@ -3474,6 +3534,13 @@
       {
         "objectName": "rightdoor",
         "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "EJECT",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 16
+          },
           {
             "animationType": "rotation",
             "variable": "door_right",
@@ -5022,7 +5089,7 @@
         "isInterior": true
       },
       {
-        "name": "ivv:brakesqueal",
+        "name": "ivv:brakesquealrace",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -5068,6 +5135,84 @@
             "variable": "brake",
             "axis": [0.0,-0.0625,0.0],
             "offset": 1.0625
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:hydraulicsupercharge",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.0,
+            "clampMax": 0.999
+          },
+          {
+            "animationType": "visibility",
+            "variable": "brake",
+            "clampMin": 0.05,
+            "clampMax": 1.0,
+            "reverseDelay": 20
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.125,
+            "clampMax": 32767.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!BOOST",
+            "axis": [0.0,-0.375,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.1,0.0],
+            "offset": -1.0,
+            "clampMin": -1.0,
+            "clampMax": 0.125
+          },
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,0.5,0.0],
+            "offset": -0.5,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,0.5,0.0],
+            "duration": 5,
+            "forwardsDelay": -5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.5,
+            "duration": 10,
+            "forwardsDelay": -5
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0625,0.0],
+            "offset": -1.0,
+            "clampMin": -1.0,
+            "clampMax": 0.00125
           }
         ],
         "looping": true

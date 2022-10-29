@@ -9,26 +9,39 @@
     {
       "subName": "",
       "name": "Television",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.0,-100.0,0.001],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.65,
+        "fieldName": "imageURL",
+        "defaultText": "",
+        "maxLength": 400,
+        "color": "000000"
+      }
+    ],
     "animatedObjects": [
       {
-        "objectName": "off",
+        "objectName": "screenoff",
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "activated"
+            "variable": "text_1_present"
           }
         ]
       },
       {
-        "objectName": "&GenericLight_FFFFFF_FFFFF_000",
+        "objectName": "imageURL",
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "activated",
+            "variable": "text_1_present",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -37,8 +50,7 @@
     ],
     "lightObjects": [
       {
-        "objectName": "&GenericLight_FFFFFF_FFFFF_000",
-        "isElectric": true,
+        "objectName": "&imageURL",
         "color": "FFFFFF",
         "brightnessAnimations": []
       }
@@ -47,8 +59,10 @@
   },
   "general": {
     "name": "Television",
-    "stackSize": 64,
     "description": "[Insert boomer quote about TV or something]",
-    "materials": ["mts:ivv.plastic:0:9","mts:ivv.circuit:0:3","minecraft:glass_pane:0:1"]
+    "stackSize": 64,
+    "materialLists": [
+      ["mts:ivv.plastic:0:9","mts:ivv.circuit:0:3","minecraft:glass_pane:0:1"]
+    ]
   }
 }
