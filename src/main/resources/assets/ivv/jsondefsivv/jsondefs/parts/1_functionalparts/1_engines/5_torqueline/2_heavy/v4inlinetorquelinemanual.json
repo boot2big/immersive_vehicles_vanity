@@ -14,7 +14,7 @@
     "maxSafeRPM": 5750,
     "idleRPM": 500,
     "startRPM": 350,
-    "fuelConsumption": 1.25,
+    "fuelConsumption": 0.75,
     "gearRatios": [-3.4375,0,3.75,3.125,2.5,1.875,1.25,0.625],
     "fuelType": "diesel",
     "superchargerFuelConsumption": 1.5,
@@ -136,6 +136,23 @@
           "variable": "engine_powered",
           "axis": [0.0,-1200.0,0.0],
           "duration": 80
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
         }
       ]
     },
@@ -732,6 +749,7 @@
   "systemName": "v4inlinetorquelinemanual",
   "classification": "part",
   "general": {
+    "description": "3.5L Industrial IVLabs Motor",
     "name": "Torqueline Diesel V6 Engine HD §2(Manual)",
     "repairMaterials": ["mts:ivv.tape:0:1"],
     "materials": ["mts:ivv.engineblockheavyduty:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelfi:0:4","mts:ivv.turbo:0:1","mts:ivv.gearboxmanual:0:1"]

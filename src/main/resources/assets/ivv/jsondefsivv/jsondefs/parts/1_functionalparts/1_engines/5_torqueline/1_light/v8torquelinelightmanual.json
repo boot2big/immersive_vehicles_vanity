@@ -17,7 +17,7 @@
     "fuelConsumption": 0.9,
     "gearRatios": [-3.15,0,3.5,2.8,2.1,1.6,0.7],
     "fuelType": "diesel",
-    "superchargerFuelConsumption": 1.25,
+    "superchargerFuelConsumption": 1,
     "superchargerEfficiency": 1,
     "isCrankingNotPitched": true
   },
@@ -116,6 +116,23 @@
           "variable": "engine_powered",
           "axis": [0.0,-1200.0,0.0],
           "duration": 80
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
         }
       ]
     },
@@ -640,6 +657,7 @@
   "systemName": "v8torquelinelightmanual",
   "classification": "part",
   "general": {
+    "description": "7.8L Industrial IVLabs Motor",
     "name": "Torqueline Diesel V8 Engine LD §2(Manual)",
     "repairMaterials": ["mts:ivv.tape:0:1"],
     "materials": ["mts:ivv.engineblockheavyduty:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelfi:0:2","mts:ivv.gearboxmanual:0:1"]

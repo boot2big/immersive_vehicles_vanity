@@ -21,7 +21,7 @@
     "heatingCoefficient": 0.6,
     "coolingCoefficient": 2.0,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 0.425,
+    "fuelConsumption": 0.25,
     "gearRatios": [-3.4375,0,3.75,3.125,2.5,1.875,1.25,0.625],
     "upShiftRPM": [0,0,5000,5250,5000,4750,4500,4250],
     "downShiftRPM": [0,0,2000,2100,2200,2300,2400,2500],
@@ -45,6 +45,18 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
+        }
+      ]
+    },
     {
       "variable": "heatingCoefficient",
       "addValue": -0.25,
@@ -572,6 +584,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "2.4L Performance IVLabs Motor",
     "name": "Performante I5 Engine §2(Manual)",
     "health": 100,
     "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:5","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxmanual:0:1"],

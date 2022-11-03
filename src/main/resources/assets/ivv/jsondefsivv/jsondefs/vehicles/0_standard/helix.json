@@ -8,7 +8,7 @@
     "downForce": 0.65,
     "overSteer": 2.0,
     "underSteer": 1.0,
-    "overSteerAccel": 1.0,
+    "overSteerAccel": 4.0,
     "overSteerDecel": -1.0,
     "axleRatio": 3.0,
     "brakingFactor": 3.25,
@@ -164,7 +164,7 @@
       "linkedParts": [1,2,3,4,6,7,15,16,17,18,19,20,21,22]
     },
     {
-      "pos": [0.5,0.49875,0.7925],
+      "pos": [0.5,0.12375,0.7925],
       "rot": [0.0,0.0,0.0],
       "maxValue": 6.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"],
@@ -173,7 +173,7 @@
       ]
     },
     {
-      "pos": [0.5,1.24875,0.7925],
+      "pos": [0.5,0.87375,0.7925],
       "rot": [0.0,10.0,0.0],
       "maxValue": 6.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"],
@@ -184,7 +184,7 @@
       ]
     },
     {
-      "pos": [-0.5,0.49875,0.7925],
+      "pos": [-0.5,0.12375,0.7925],
       "rot": [0.0,0.0,0.0],
       "maxValue": 6.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"],
@@ -193,7 +193,7 @@
       ]
     },
     {
-      "pos": [-0.5,1.24875,0.7925],
+      "pos": [-0.5,0.87375,0.7925],
       "rot": [0.0,2.0,0.0],
       "maxValue": 6.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"],
@@ -204,7 +204,7 @@
       ]
     },
     {
-      "pos": [0.475,0.56,-0.275],
+      "pos": [0.475,0.185,-0.275],
       "rot": [0.0,0.0,0.0],
       "maxValue": 6.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"],
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "pos": [0.475,1.31,-0.275],
+      "pos": [0.475,0.935,-0.275],
       "rot": [0.0,-3.0,0.0],
       "maxValue": 6.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"],
@@ -224,7 +224,7 @@
       ]
     },
     {
-      "pos": [-0.475,0.56,-0.275],
+      "pos": [-0.475,0.185,-0.275],
       "rot": [0.0,0.0,0.0],
       "maxValue": 6.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"],
@@ -233,7 +233,7 @@
       ]
     },
     {
-      "pos": [-0.475,1.31,-0.275],
+      "pos": [-0.475,0.935,-0.275],
       "rot": [0.0,7.5,0.0],
       "maxValue": 6.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"],
@@ -319,9 +319,9 @@
     },
     {
       "pos": [0.0,-0.010837,-1.33289],
-      "partScale": [1,1,1],
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
+      "partScale": [1.0,1.0,1.0],
       "types": ["generic_hitch_mount"]
     }
   ],
@@ -922,8 +922,63 @@
   ],
   "variableModifiers": [
     {
+      "variable": "throttle",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_isautomatic_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!engine_clutching_1",
+          "axis": [1.0,0.0,0.0],
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "variable": "axleRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe_1",
+          "clampMin": 0.0625,
+          "clampMax": 0.875
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "throttle",
+          "clampMax": 0.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0625,0.0],
+          "offset": -3.0,
+          "clampMin": 0.0125,
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "4X4",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0625,0.0],
+          "offset": -3.0,
+          "clampMin": 0.0125,
+          "absolute": true
+        }
+      ]
+    },
+    {
       "variable": "downForce",
-      "addValue": 0.15,
+      "addValue": 0.5,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -971,7 +1026,7 @@
     },
     {
       "variable": "underSteer",
-      "addValue": -1.0,
+      "addValue": -0.5,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -1042,6 +1097,30 @@
       ]
     },
     {
+      "variable": "overSteer",
+      "addValue": -1,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "4X4",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "underSteer",
+      "addValue": 1,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "4X4",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
       "variable": "axleRatio",
       "animations": [
         {
@@ -1074,8 +1153,8 @@
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.0125,0,0.0],
-          "clampMax": 1
+          "axis": [0.0125,0.0,0.0],
+          "clampMax": 1.0
         }
       ]
     }
@@ -1641,6 +1720,52 @@
         ]
       }
     ],
+    "cameraObjects": [
+      {
+        "pos": [0.0,3,-4.0],
+        "rot": [20.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_yaw_2",
+            "centerPoint": [0.0,0.444727,1.51978],
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "acceleration",
+            "axis": [0.0,0.0,-0.5],
+            "clampMin": 0.0125,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0,-0.00375],
+            "clampMax": 2.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turn_indicator",
+            "centerPoint": [0.0,0.444727,1.51978],
+            "axis": [0.0,-0.0046875,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turn_indicator",
+            "centerPoint": [0.0,0.444727,1.51978],
+            "axis": [0.0,0.0,-0.00234375]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_pitch_2",
+            "centerPoint": [0.0,0.444727,1.51978],
+            "axis": [1.0,0.0,0.0],
+            "offset": -10.0
+          }
+        ]
+      }
+    ],
     "customVariables": ["HI/LOW","4X4"],
     "initialVariables": ["door_right","door_left"],
     "sounds": [
@@ -1678,8 +1803,8 @@
           {
             "animationType": "visibility",
             "variable": "rain_strength",
-            "clampMin": 1,
-            "clampMax": 2
+            "clampMin": 1.0,
+            "clampMax": 2.0
           }
         ],
         "looping": true,

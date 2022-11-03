@@ -7,7 +7,7 @@
     "type": "normal",
     "starterPower": 22,
     "shiftSpeed": 1,
-    "clutchTime": 10,
+    "clutchTime": 6,
     "revResistance": 9,
     "maxRPM": 8800,
     "maxSafeRPM": 8200,
@@ -20,7 +20,7 @@
     "heatingCoefficient": 0.6,
     "coolingCoefficient": 2.0,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 1.0,
+    "fuelConsumption": 0.8,
     "gearRatios": [-3.25,0,3.5,3,2.5,2,1.5,1,0.5],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 2,
@@ -42,6 +42,52 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
+        }
+      ]
+    },
     {
       "variable": "heatingCoefficient",
       "addValue": -0.25,
@@ -563,6 +609,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "6.3L Performance IVLabs Motor",
     "name": "Performante V12 Engine §2(Manual)",
     "health": 100,
     "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:12","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxmanual:0:1"],

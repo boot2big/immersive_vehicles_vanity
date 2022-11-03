@@ -1,0 +1,367 @@
+{
+  "generic": {
+    "type": "engine_car",
+    "mass": 290
+  },
+  "engine": {
+    "type": "electric",
+    "isAutomatic": true,
+    "disableAutomaticStarter": true,
+    "shiftSpeed": 1,
+    "revResistance": 6,
+    "idleRPM": -1,
+    "startRPM": -1,
+    "stallRPM": -1,
+    "maxRPM": 7000,
+    "maxSafeRPM": 7000,
+    "revlimitRPM": 5000,
+    "revlimitBounce": 9,
+    "engineWinddownRate": 100,
+    "heatingCoefficient": 0.75,
+    "coolingCoefficient": 1.25,
+    "engineWearFactor": 0.375,
+    "fuelConsumption": 0.9,
+    "gearRatios": [-3.0,0.0,3.0],
+    "fuelType": "electricity",
+    "superchargerFuelConsumption": -0.45,
+    "superchargerEfficiency": -1.5
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.86187,0.89325],
+      "rot": [0.0,-90.0,0.0],
+      "maxValue": 12.0,
+      "types": ["generic_ecu_electric"]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "engine_iselectric",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!bzzap",
+          "axis": [0.0,0.0,1]
+        }
+      ]
+    },
+    {
+      "variable": "fuelConsumption",
+      "setValue": 1.8,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "!industrial_grade_motoring",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "revlimitRPM",
+      "addValue": 2000.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "BOOST",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "fuelConsumption",
+      "addValue": 0.9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "BOOST",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "fuelConsumption",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.75,0.0,0.0],
+          "offset": 0.25
+        }
+      ]
+    },
+    {
+      "variable": "engine_gear_cvt",
+      "maxValue": 0.5,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!up",
+          "axis": [0.0,0.0125,0.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe",
+          "clampMin": 0.625,
+          "clampMax": 2.0
+        }
+      ]
+    },
+    {
+      "variable": "engine_gear_cvt",
+      "maxValue": 0.5,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!down",
+          "axis": [0.0,-0.025,0.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe",
+          "clampMin": -10.0,
+          "clampMax": 0.375
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_gear_cvt",
+          "axis": [-0.9875,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 4
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "customVariables": ["BOOST"],
+    "sounds": [
+      {
+        "name": "ivv:industrial_electricmotor_sputter",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissioncvtgrinding",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:electriccharging",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "fueling",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,0.1,0.0],
+            "offset": 1.0,
+            "clampMax": 1.2
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:electricwhirrheavy",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,1.25,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.275,0.0],
+            "offset": -0.3
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.800000011920929,0.0],
+            "offset": 0.3
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:electrichum",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.5,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,-0.25,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.25,0.0],
+            "offset": -0.25
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.375,0.0],
+            "offset": 0.625
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 115.556,
+            "clampMax": 999.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "scale": 2.5,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 121.111,
+            "clampMax": 999.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_oilleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "color": "FF0000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_fuelleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "835kW Industrial IVLabs Motor",
+    "name": "Magnitrox Electric Motor §5[Heavy Industrial]",
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.motorcase:0:1","mts:ivv.motorshaft:0:1","mts:ivv.motorbattery:0:3","mts:ivv.capacitor:0:16","mts:ivv.gearboxcvt:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.motorshaft:0:1","mts:ivv.capacitor:0:8","mts:ivv.tape:0:1"]
+    ]
+  }
+}

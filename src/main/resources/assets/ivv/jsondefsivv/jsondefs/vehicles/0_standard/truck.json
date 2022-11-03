@@ -8,9 +8,9 @@
     "fuelCapacity": 35000,
     "defaultFuelQty": 35000,
     "downForce": 0.6,
-    "overSteer": 1.5,
+    "overSteer": 2,
     "underSteer": 1.0,
-    "overSteerAccel": 1.5,
+    "overSteerAccel": 3,
     "overSteerDecel": -1.0,
     "axleRatio": 2.0,
     "brakingFactor": 4.5,
@@ -1723,8 +1723,48 @@
   ],
   "variableModifiers": [
     {
+      "variable": "throttle",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_isautomatic_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!engine_clutching_1",
+          "axis": [1.0,0.0,0.0],
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "variable": "axleRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe_1",
+          "clampMin": 0.0625,
+          "clampMax": 0.875
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "throttle",
+          "clampMax": 0.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.156,0.0],
+          "offset": -3.0,
+          "clampMin": 0.0125,
+          "absolute": true
+        }
+      ]
+    },
+    {
       "variable": "downForce",
-      "addValue": 0.2,
+      "addValue": 0.05,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -1748,7 +1788,7 @@
     },
     {
       "variable": "overSteer",
-      "addValue": 0.5,
+      "addValue": 1,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -1772,7 +1812,7 @@
     },
     {
       "variable": "underSteer",
-      "addValue": 0.5,
+      "addValue": -0.5,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -1864,8 +1904,8 @@
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.016666667,0,0.0],
-          "clampMax": 1
+          "axis": [0.016666667,0.0,0.0],
+          "clampMax": 1.0
         }
       ]
     }
@@ -2233,6 +2273,52 @@
         ]
       }
     ],
+    "cameraObjects": [
+      {
+        "pos": [0.0,2.5,-6],
+        "rot": [20.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_yaw_2",
+            "centerPoint": [0.0,0.61984,0.8142],
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "acceleration",
+            "axis": [0.0,0.0,-0.5],
+            "clampMin": 0.0125,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0,-0.00375],
+            "clampMax": 2.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turn_indicator",
+            "centerPoint": [0.0,0.61984,0.8142],
+            "axis": [0.0,-0.0046875,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turn_indicator",
+            "centerPoint": [0.0,0.61984,0.8142],
+            "axis": [0.0,0.0,-0.00234375]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_pitch_2",
+            "centerPoint": [0.0,0.61984,0.8142],
+            "axis": [1.0,0.0,0.0],
+            "offset": -10.0
+          }
+        ]
+      }
+    ],
     "initialVariables": ["door_right","door_left"],
     "sounds": [
       {
@@ -2269,8 +2355,8 @@
           {
             "animationType": "visibility",
             "variable": "rain_strength",
-            "clampMin": 1,
-            "clampMax": 2
+            "clampMin": 1.0,
+            "clampMax": 2.0
           }
         ],
         "looping": true,

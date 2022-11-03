@@ -7,7 +7,7 @@
     "type": "normal",
     "isAutomatic": true,
     "starterPower": 25,
-    "shiftSpeed": 5,
+    "shiftSpeed": 20,
     "clutchTime": 3,
     "revResistance": 6,
     "maxRPM": 6500,
@@ -21,10 +21,10 @@
     "heatingCoefficient": 0.825,
     "coolingCoefficient": 1.75,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 0.75,
+    "fuelConsumption": 0.65,
     "gearRatios": [-3.15,0,3.5,2.8,2.1,1.6,0.7],
     "upShiftRPM": [0,0,3600,4000,3800,5000,5000],
-    "downShiftRPM": [0,0,2200,2300,2400,2400,2400],
+    "downShiftRPM": [0,0,2000,2000,2200,2200,2200],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.5,
     "superchargerEfficiency": 1.0,
@@ -47,6 +47,18 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
+        }
+      ]
+    },
     {
       "variable": "superchargerFuelConsumption",
       "animations": [
@@ -756,6 +768,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "7.0L Standard IVLabs Motor",
     "name": "Median V10 Engine §9(Automatic)",
     "health": 100,
     "materialLists": [

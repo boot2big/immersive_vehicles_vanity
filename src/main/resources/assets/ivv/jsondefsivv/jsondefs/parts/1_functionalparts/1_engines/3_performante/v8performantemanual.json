@@ -7,7 +7,7 @@
     "type": "normal",
     "starterPower": 25,
     "shiftSpeed": 5,
-    "clutchTime": 10,
+    "clutchTime": 6,
     "revResistance": 6,
     "maxRPM": 7200,
     "maxSafeRPM": 6800,
@@ -20,7 +20,7 @@
     "heatingCoefficient": 0.6,
     "coolingCoefficient": 2.0,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 0.6,
+    "fuelConsumption": 0.65,
     "gearRatios": [-3.15,0,3.5,2.8,2.1,1.6,0.7],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 1.8,
@@ -35,6 +35,52 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
+        }
+      ]
+    },
     {
       "variable": "revlimitRPM",
       "setValue": 1.0,
@@ -485,7 +531,7 @@
     "modelType": "obj"
   },
   "general": {
-    "name": "Performante V8 Engine §2(Manual)",
+    "description": "7.0L Performance IVLabs Motor",
     "health": 100,
     "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelcarb:0:4","mts:ivv.gearboxmanual:0:1"],
     "repairMaterials": ["mts:ivv.tape:0:1"]

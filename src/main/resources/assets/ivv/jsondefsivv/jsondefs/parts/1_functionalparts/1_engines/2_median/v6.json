@@ -7,7 +7,7 @@
     "type": "normal",
     "isAutomatic": true,
     "starterPower": 30,
-    "shiftSpeed": 5,
+    "shiftSpeed": 20,
     "clutchTime": 3,
     "revResistance": 6,
     "maxRPM": 6700,
@@ -21,10 +21,10 @@
     "heatingCoefficient": 0.825,
     "coolingCoefficient": 1.75,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 0.5,
+    "fuelConsumption": 0.3,
     "gearRatios": [-3.0625,0,3.5,2.625,1.75,0.875],
     "upShiftRPM": [0,0,3800,4300,3900,3650],
-    "downShiftRPM": [0,0,2200,2300,2400,2400],
+    "downShiftRPM": [0,0,2000,2000,2200,2200],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.5,
     "superchargerEfficiency": 1.0,
@@ -47,6 +47,18 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
+        }
+      ]
+    },
     {
       "variable": "superchargerFuelConsumption",
       "animations": [
@@ -767,6 +779,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "3.5L Standard IVLabs Motor",
     "name": "Median V6 Engine §9(Automatic)",
     "health": 100,
     "materialLists": [

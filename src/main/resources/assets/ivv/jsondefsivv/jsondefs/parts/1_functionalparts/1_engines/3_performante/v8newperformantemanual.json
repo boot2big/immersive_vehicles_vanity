@@ -7,7 +7,7 @@
     "type": "normal",
     "starterPower": 45,
     "shiftSpeed": 5,
-    "clutchTime": 2,
+    "clutchTime": 6,
     "revResistance": 7,
     "maxRPM": 7600,
     "maxSafeRPM": 7400,
@@ -44,6 +44,52 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
+        }
+      ]
+    },
     {
       "variable": "heatingCoefficient",
       "addValue": -0.25,
@@ -773,6 +819,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "5.4L Performance IVLabs Motor",
     "name": "Performante V8 Engine §2(Manual)",
     "health": 100,
     "materialLists": [

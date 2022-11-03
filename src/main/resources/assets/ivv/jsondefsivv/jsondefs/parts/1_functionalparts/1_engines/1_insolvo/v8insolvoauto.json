@@ -21,7 +21,7 @@
     "heatingCoefficient": 0.75,
     "coolingCoefficient": 1.0,
     "engineWearFactor": 0.75,
-    "fuelConsumption": 0.6,
+    "fuelConsumption": 0.65,
     "gearRatios": [-3,0,3,2,1],
     "upShiftRPM": [0,0,3800,3800,3800],
     "downShiftRPM": [0,0,1400,1400,1400],
@@ -47,6 +47,18 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 15
+        }
+      ]
+    },
     {
       "variable": "revlimitRPM",
       "setValue": 1.0,
@@ -643,6 +655,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "3.6L Budget IVLabs Motor",
     "name": "Insolvo V6 Engine §9(Automatic)",
     "health": 100,
     "materialLists": [

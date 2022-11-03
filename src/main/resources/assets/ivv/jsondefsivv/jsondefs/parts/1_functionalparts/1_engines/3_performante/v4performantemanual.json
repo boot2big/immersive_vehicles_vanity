@@ -7,7 +7,7 @@
     "type": "normal",
     "starterPower": 25,
     "shiftSpeed": 10,
-    "clutchTime": 10,
+    "clutchTime": 6,
     "revResistance": 7,
     "maxRPM": 9200,
     "maxSafeRPM": 8600,
@@ -20,7 +20,7 @@
     "heatingCoefficient": 0.6,
     "coolingCoefficient": 2.0,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 0.35,
+    "fuelConsumption": 0.2,
     "gearRatios": [-3.4375,0,3.75,3.125,2.5,1.875,1.25,0.625],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.7,
@@ -42,6 +42,52 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
+        }
+      ]
+    },
     {
       "variable": "heatingCoefficient",
       "addValue": -0.25,
@@ -563,6 +609,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "1.6L Performance IVLabs Motor",
     "name": "Performante I4 Engine §2(Manual)",
     "health": 100,
     "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxmanual:0:1"],

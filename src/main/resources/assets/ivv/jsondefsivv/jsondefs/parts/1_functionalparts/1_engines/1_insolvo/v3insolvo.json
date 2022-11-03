@@ -20,7 +20,7 @@
     "heatingCoefficient": 0.75,
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.75,
-    "fuelConsumption": 0.15,
+    "fuelConsumption": 0.1,
     "gearRatios": [-3,0,3,2,1],
     "fuelType": "diesel",
     "superchargerFuelConsumption": -0.075,
@@ -64,6 +64,40 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear",
+          "clampMin": 3,
+          "clampMax": 3
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [1,0.0,0.0],
+          "duration": 10
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
+        }
+      ]
+    },
     {
       "variable": "revlimitRPM",
       "setValue": 1.0,
@@ -646,6 +680,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "1.0L Budget IVLabs Motor",
     "name": "Insolvo I3 Engine §2(Manual)",
     "health": 100,
     "materialLists": [

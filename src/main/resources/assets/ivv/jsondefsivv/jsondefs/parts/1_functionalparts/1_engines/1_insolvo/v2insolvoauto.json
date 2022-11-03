@@ -21,7 +21,7 @@
     "heatingCoefficient": 0.75,
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.75,
-    "fuelConsumption": 0.1,
+    "fuelConsumption": 0.05,
     "gearRatios": [-2,0,2,1],
     "upShiftRPM": [0,0,4000,4000],
     "downShiftRPM": [0,0,2800,2800],
@@ -61,6 +61,18 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 15
+        }
+      ]
+    },
     {
       "variable": "idleRPM",
       "animations": [
@@ -611,6 +623,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "0.6L Budget IVLabs Motor",
     "name": "Insolvo I2 Engine §9(Automatic)",
     "health": 100,
     "materialLists": [

@@ -6,7 +6,7 @@
   "engine": {
     "starterPower": 24,
     "shiftSpeed": 5,
-    "clutchTime": 3,
+    "clutchTime": 6,
     "revResistance": 4,
     "maxRPM": 8000,
     "maxSafeRPM": 7800,
@@ -19,11 +19,11 @@
     "heatingCoefficient": 0.875,
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 0.25,
+    "fuelConsumption": 0.1,
     "gearRatios": [-3.15,0,3.5,2.8,2.1,1.6,0.7],
     "fuelType": "gasoline",
-    "superchargerFuelConsumption": 0.45,
-    "superchargerEfficiency": 0.75,
+    "superchargerFuelConsumption": 0.2,
+    "superchargerEfficiency": 1,
     "isCrankingNotPitched": true
   },
   "variableModifiers": [
@@ -123,6 +123,52 @@
           "duration": 60
         }
       ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
+        }
+      ]
+    },
+    {
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "definitions": [
@@ -156,7 +202,7 @@
         ]
       },
       {
-        "name": "ivv:v5manual_sputter",
+        "name": "ivv:enginesputter2",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -168,38 +214,180 @@
         "forceSound": true
       },
       {
-        "name": "ivv:transmissionmanualgrinding",
+        "name": "ivv:transmissionfailshift1",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_badshift",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMax": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
       },
       {
-        "name": "ivv:transmissionmanualshiftup",
+        "name": "ivv:transmissionfailshift2",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_clutch_upshift",
+            "variable": "engine_badshift",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 1
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionmanualshift1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMax": 0.25
           }
         ]
       },
       {
-        "name": "ivv:transmissionmanualshiftdown",
+        "name": "ivv:transmissionmanualshift2",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_clutch_downshift",
+            "variable": "engine_clutching",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 1
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionmanualshift3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionmanualshift4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1.0
           }
         ]
       },
@@ -469,6 +657,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "1.3L Performance IVLabs Motor",
     "name": "Reuleauxid Twin Wankel Engine §2(Manual)",
     "health": 100,
     "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginerotor:0:2","mts:ivv.fuelcarb:0:2","mts:ivv.gearboxmanual:0:1"],

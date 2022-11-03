@@ -21,7 +21,7 @@
     "heatingCoefficient": 0.6,
     "coolingCoefficient": 2.0,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 1.0,
+    "fuelConsumption": 0.8,
     "gearRatios": [-3.75,0,4,3.5,3,2.5,2.0,1.5,1,0.5],
     "upShiftRPM": [0,0,4750,5250,5000,4750,4500,4250,4000,4000],
     "downShiftRPM": [0,0,2000,2100,2200,2200,2300,2400,2400,2500],
@@ -45,6 +45,18 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
+        }
+      ]
+    },
     {
       "variable": "heatingCoefficient",
       "addValue": -0.25,
@@ -588,6 +600,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "6.3L Performance IVLabs Motor",
     "name": "Performante V12 Engine §2(Manual)",
     "health": 100,
     "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:12","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxmanual:0:1"],

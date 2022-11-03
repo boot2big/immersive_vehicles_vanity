@@ -24,16 +24,16 @@
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
-      "applyAfter": "rearsuspension",
-      "types": ["ground_wheel"]
+      "types": ["ground_wheel"],
+      "applyAfter": "rearsuspension"
     },
     {
       "pos": [1.05,0.125,-0.1875],
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
-      "applyAfter": "rearsuspension",
-      "types": ["ground_wheel"]
+      "types": ["ground_wheel"],
+      "applyAfter": "rearsuspension"
     },
     {
       "pos": [-1.05,0.125,2.3125],
@@ -43,8 +43,8 @@
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
-      "applyAfter": "steeringfrontright",
       "types": ["ground_wheel"],
+      "applyAfter": "steeringfrontright",
       "animations": [
         {
           "animationType": "rotation",
@@ -60,8 +60,8 @@
       "minValue": 0.6,
       "maxValue": 0.75,
       "defaultPart": "ivv:smalltire",
-      "applyAfter": "steeringfrontleft",
       "types": ["ground_wheel"],
+      "applyAfter": "steeringfrontleft",
       "animations": [
         {
           "animationType": "rotation",
@@ -137,7 +137,7 @@
       ]
     },
     {
-      "pos": [-0.4,0.7625,-0.1],
+      "pos": [-0.4,0.3875,-0.1],
       "rot": [0.0,178.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
@@ -147,7 +147,7 @@
       ]
     },
     {
-      "pos": [0.4,0.7625,-0.1],
+      "pos": [0.4,0.3875,-0.1],
       "rot": [0.0,182.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
@@ -237,9 +237,9 @@
     },
     {
       "pos": [0.0,0.01561,-0.523836],
-      "partScale": [1,1,1],
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
+      "partScale": [1.0,1.0,1.0],
       "types": ["generic_hitch_mount"]
     }
   ],
@@ -846,6 +846,46 @@
   ],
   "variableModifiers": [
     {
+      "variable": "throttle",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_isautomatic_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!engine_clutching_1",
+          "axis": [1.0,0.0,0.0],
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "variable": "axleRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe_1",
+          "clampMin": 0.0625,
+          "clampMax": 0.875
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "throttle",
+          "clampMax": 0.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.156,0.0],
+          "offset": -1.75,
+          "clampMin": 0.0125,
+          "absolute": true
+        }
+      ]
+    },
+    {
       "variable": "rBodyroll",
       "minValue": -1.0,
       "maxValue": 1.0,
@@ -1047,20 +1087,20 @@
           {
             "animationType": "rotation",
             "variable": "fBodyroll",
-            "centerPoint": [0,0.125,-0.1875],
+            "centerPoint": [0.0,0.125,-0.1875],
             "axis": [0.0,0.0,2.0]
           },
           {
             "animationType": "inhibitor",
             "variable": "speed",
-            "clampMax": 1
+            "clampMax": 1.0
           },
           {
             "animationType": "translation",
             "variable": "acceleration",
             "axis": [0.0,0.375,0.0],
-            "clampMin": -1,
-            "clampMax": 1
+            "clampMin": -1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -1084,7 +1124,7 @@
             "animationType": "rotation",
             "variable": "fBodyroll",
             "centerPoint": [0.59375,0.125,-0.34375],
-            "axis": [-3,0.0,0.0]
+            "axis": [-3.0,0.0,0.0]
           }
         ]
       },
@@ -1096,7 +1136,7 @@
             "animationType": "rotation",
             "variable": "fBodyroll",
             "centerPoint": [0.59375,0.125,-0.03125],
-            "axis": [3,0.0,0.0]
+            "axis": [3.0,0.0,0.0]
           }
         ]
       },
@@ -1120,7 +1160,7 @@
             "animationType": "rotation",
             "variable": "fBodyroll",
             "centerPoint": [-0.59375,0.125,-0.34375],
-            "axis": [3,0.0,0.0]
+            "axis": [3.0,0.0,0.0]
           }
         ]
       },
@@ -1132,7 +1172,7 @@
             "animationType": "rotation",
             "variable": "fBodyroll",
             "centerPoint": [-0.59375,0.125,-0.03125],
-            "axis": [-3,0.0,0.0]
+            "axis": [-3.0,0.0,0.0]
           }
         ]
       },
@@ -1166,20 +1206,20 @@
           {
             "animationType": "rotation",
             "variable": "fBodyroll",
-            "centerPoint": [0,0.125,2.3125],
+            "centerPoint": [0.0,0.125,2.3125],
             "axis": [0.0,0.0,2.0]
           },
           {
             "animationType": "inhibitor",
             "variable": "speed",
-            "clampMax": 1
+            "clampMax": 1.0
           },
           {
             "animationType": "translation",
             "variable": "acceleration",
             "axis": [0.0,-0.375,0.0],
-            "clampMin": -1,
-            "clampMax": 1
+            "clampMin": -1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -1203,7 +1243,7 @@
             "animationType": "rotation",
             "variable": "fBodyroll",
             "centerPoint": [0.46875,0.125,2.15625],
-            "axis": [-3,0.0,0.0]
+            "axis": [-3.0,0.0,0.0]
           }
         ]
       },
@@ -1215,7 +1255,7 @@
             "animationType": "rotation",
             "variable": "fBodyroll",
             "centerPoint": [0.46875,0.125,2.46875],
-            "axis": [3,0.0,0.0]
+            "axis": [3.0,0.0,0.0]
           }
         ]
       },
@@ -1239,7 +1279,7 @@
             "animationType": "rotation",
             "variable": "fBodyroll",
             "centerPoint": [-0.46875,0.125,2.15625],
-            "axis": [3,0.0,0.0]
+            "axis": [3.0,0.0,0.0]
           }
         ]
       },
@@ -1251,7 +1291,7 @@
             "animationType": "rotation",
             "variable": "fBodyroll",
             "centerPoint": [-0.46875,0.125,2.46875],
-            "axis": [-3,0.0,0.0]
+            "axis": [-3.0,0.0,0.0]
           }
         ]
       },
@@ -1310,7 +1350,7 @@
           {
             "animationType": "rotation",
             "variable": "rudder",
-            "centerPoint": [-0.703125,0.058593,2],
+            "centerPoint": [-0.703125,0.058593,2.0],
             "axis": [0.0,0.5,0.0]
           }
         ]
@@ -1657,6 +1697,52 @@
         ]
       }
     ],
+    "cameraObjects": [
+      {
+        "pos": [0.0,2.5,-4.0],
+        "rot": [20.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_yaw_2",
+            "centerPoint": [0.0,0.516953,0.882015],
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "acceleration",
+            "axis": [0.0,0.0,-0.5],
+            "clampMin": 0.0125,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0,-0.00375],
+            "clampMax": 2.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turn_indicator",
+            "centerPoint": [0.0,0.516953,0.882015],
+            "axis": [0.0,-0.0046875,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turn_indicator",
+            "centerPoint": [0.0,0.516953,0.882015],
+            "axis": [0.0,0.0,-0.00234375]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_pitch_2",
+            "centerPoint": [0.0,0.516953,0.882015],
+            "axis": [1.0,0.0,0.0],
+            "offset": -10.0
+          }
+        ]
+      }
+    ],
     "initialVariables": ["door_right","door_left"],
     "sounds": [
       {
@@ -1849,8 +1935,8 @@
           {
             "animationType": "visibility",
             "variable": "rain_strength",
-            "clampMin": 1,
-            "clampMax": 2
+            "clampMin": 1.0,
+            "clampMax": 2.0
           }
         ],
         "looping": true,

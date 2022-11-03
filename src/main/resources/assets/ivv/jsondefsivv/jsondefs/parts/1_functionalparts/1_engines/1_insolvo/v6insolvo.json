@@ -20,7 +20,7 @@
     "heatingCoefficient": 0.75,
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.75,
-    "fuelConsumption": 0.45,
+    "fuelConsumption": 0.35,
     "gearRatios": [-3,0,3,2.25,1.5,0.75],
     "fuelType": "diesel",
     "superchargerFuelConsumption": -0.225,
@@ -63,6 +63,23 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
+        }
+      ]
+    },
     {
       "variable": "revlimitRPM",
       "setValue": 1.0,
@@ -644,6 +661,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "3.2L Budget IVLabs Motor",
     "name": "Insolvo V6 Engine §2(Manual)",
     "health": 100,
     "materialLists": [

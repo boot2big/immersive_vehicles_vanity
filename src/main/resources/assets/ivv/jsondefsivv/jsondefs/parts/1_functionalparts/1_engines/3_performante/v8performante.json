@@ -21,7 +21,7 @@
     "heatingCoefficient": 0.6,
     "coolingCoefficient": 2.0,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 0.6,
+    "fuelConsumption": 0.65,
     "gearRatios": [-3.0625,0,3.5,2.625,1.75,0.875],
     "upShiftRPM": [0,0,4500,4250,4000,4000],
     "downShiftRPM": [0,0,2300,2400,2500,2600],
@@ -38,6 +38,18 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
+        }
+      ]
+    },
     {
       "variable": "revlimitRPM",
       "setValue": 1.0,
@@ -510,6 +522,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "7.0L Performance IVLabs Motor",
     "name": "Performante V8 Engine §2(Manual)",
     "health": 100,
     "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelcarb:0:4","mts:ivv.gearboxmanual:0:1"],

@@ -21,7 +21,7 @@
     "heatingCoefficient": 0.75,
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.75,
-    "fuelConsumption": 0.3,
+    "fuelConsumption": 0.25,
     "gearRatios": [-3,0,3,2,1],
     "upShiftRPM": [0,0,3800,3800,3800],
     "downShiftRPM": [0,0,2100,2100,2100],
@@ -61,6 +61,18 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 15
+        }
+      ]
+    },
     {
       "variable": "idleRPM",
       "animations": [
@@ -583,6 +595,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "1.1L Budget IVLabs Motor",
     "name": "Insolvo H4 Engine §9(Automatic)",
     "health": 100,
     "materialLists": [

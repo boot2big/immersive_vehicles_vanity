@@ -20,7 +20,7 @@
     "heatingCoefficient": 1.0,
     "coolingCoefficient": 1.0,
     "engineWearFactor": 0.875,
-    "fuelConsumption": 1.8,
+    "fuelConsumption": 1.05,
     "gearRatios": [-1,0,8,7.2,6.4,5.6,4.8,4,3.2,2.4,1.6,0.8],
     "fuelType": "diesel",
     "superchargerFuelConsumption": 1.5,
@@ -151,6 +151,23 @@
           "variable": "engine_powered",
           "axis": [0.0,-1200.0,0.0],
           "duration": 80
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!manualgear",
+          "axis": [0,0,1],
+          "offset": -1
         }
       ]
     },
@@ -600,6 +617,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "9.2L Industrial IVLabs Motor",
     "name": "Torqueline Diesel V10 Engine HD §2(Manual)",
     "health": 100,
     "materialLists": [
