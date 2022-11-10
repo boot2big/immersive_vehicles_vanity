@@ -8,7 +8,7 @@
     "engineWinddownRate": 100,
     "engineWearFactor": 0.875,
     "shiftSpeed": 20,
-    "clutchTime": 10,
+    "clutchTime": 6,
     "revResistance": 12,
     "maxRPM": 3900,
     "maxSafeRPM": 4900,
@@ -288,66 +288,69 @@
         "forceSound": true
       },
       {
-        "name": "ivv:transmissionautoselectup",
+        "name": "ivv:transmissionmanualshift1",
         "activeAnimations": [
           {
-            "animationType": "inhibitor",
-            "variable": "engine_gear",
-            "clampMin": 2.0,
-            "clampMax": 127
-          },
-          {
             "animationType": "visibility",
-            "variable": "engine_clutch_upshift",
-            "clampMin": 1.0,
-            "clampMax": 127
-          }
-        ]
-      },
-      {
-        "name": "ivv:transmissionautoselectdown",
-        "activeAnimations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "engine_gear",
-            "clampMin": 1.0,
-            "clampMax": 127
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "engine_gear",
-            "clampMin": -127.0,
-            "clampMax": -2
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_clutch_downshift",
+            "variable": "engine_clutching",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMax": 0.25
           }
         ]
       },
       {
-        "name": "ivv:transmissionautooldshiftup",
+        "name": "ivv:transmissionmanualshift2",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_clutch_upshift",
+            "variable": "engine_clutching",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 2
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
           }
         ]
       },
       {
-        "name": "ivv:transmissionautooldshiftdown",
+        "name": "ivv:transmissionmanualshift3",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_clutch_downshift",
+            "variable": "engine_clutching",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 2
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ]
+      },
+      {
+        "name": "ivv:transmissionmanualshift4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutching",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1.0
           }
         ]
       },
