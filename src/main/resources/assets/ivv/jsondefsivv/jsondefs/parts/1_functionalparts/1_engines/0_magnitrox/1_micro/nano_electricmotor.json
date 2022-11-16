@@ -90,35 +90,46 @@
     },
     {
       "variable": "engine_gear_cvt",
-      "maxValue": 0.5,
+      "maxValue": 0.375,
       "animations": [
-        {
-          "animationType": "translation",
-          "variable": "!up",
-          "axis": [0.0,0.0125,0.0]
-        },
         {
           "animationType": "visibility",
           "variable": "engine_rpm_percent_safe",
-          "clampMin": 0.625,
+          "clampMin": 0.5,
           "clampMax": 2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!up",
+          "axis": [0.0,0.009375,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_rpm_percent_safe",
+          "clampMin": -1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!up",
+          "axis": [0.0,0.009375,0.0]
         }
       ]
     },
     {
       "variable": "engine_gear_cvt",
-      "maxValue": 0.5,
+      "maxValue": 0.375,
       "animations": [
         {
           "animationType": "translation",
           "variable": "!down",
-          "axis": [0.0,-0.025,0.0]
+          "axis": [0.0,-0.01875,0.0]
         },
         {
           "animationType": "visibility",
           "variable": "engine_rpm_percent_safe",
           "clampMin": -10.0,
-          "clampMax": 0.375
+          "clampMax": 0.125
         }
       ]
     },
@@ -141,7 +152,7 @@
           "variable": "throttle",
           "axis": [0.5,0.0,0.0],
           "offset": 0.5,
-          "duration": 4
+          "duration": 2
         }
       ]
     }

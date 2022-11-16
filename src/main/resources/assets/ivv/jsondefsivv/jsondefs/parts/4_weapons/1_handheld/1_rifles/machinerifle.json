@@ -76,14 +76,15 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "gun_inhand",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "gun_controller_firstperson",
+            "clampMin": 1,
+            "clampMax": 1
           }
         ]
       },
       {
         "objectName": "hudReloadModel",
+        "applyAfter": "hudModel",
         "animations": [
           {
             "animationType": "visibility",
@@ -95,6 +96,7 @@
       },
       {
         "objectName": "hudAmmoModel",
+        "applyAfter": "hudModel",
         "animations": [
           {
             "animationType": "visibility",
@@ -149,6 +151,7 @@
       },
       {
         "objectName": "defaultGripModel",
+        "applyAfter": "gunModel",
         "animations": [
           {
             "animationType": "rotation",
@@ -156,18 +159,6 @@
             "centerPoint": [0.0,0.07191,1.275],
             "axis": [-90.0,0.0,0.0],
             "duration": 2
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
           }
         ]
       },
