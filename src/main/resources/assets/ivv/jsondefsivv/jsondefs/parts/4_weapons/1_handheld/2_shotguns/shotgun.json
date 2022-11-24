@@ -12,8 +12,7 @@
     "fireDelay": 3.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 16.83,
-    "minCaseLength": 0,
-    "maxCaseLength": 90,
+    "maxCaseLength": 90.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "handHeldNormalOffset": [-0.05,-0.1,0.65],
@@ -46,9 +45,9 @@
         {
           "animationType": "translation",
           "variable": "gun_reload",
-          "axis": [0.0,0,1.0],
-            "forwardsDelay": 5,
-            "reverseDelay": 10
+          "axis": [0.0,0.0,1.0],
+          "forwardsDelay": 5,
+          "reverseDelay": 10
         }
       ]
     }
@@ -66,8 +65,8 @@
         "defaultText": "fill me up daddy owo",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudAmmoModel",
+        "lightsUp": true,
         "renderPosition": 2
       },
       {
@@ -81,8 +80,8 @@
         "defaultText": "uwwaaaaa~",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudReloadModel",
+        "lightsUp": true,
         "renderPosition": 2
       }
     ],
@@ -93,8 +92,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_controller_firstperson",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -105,8 +104,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -136,23 +135,23 @@
         "objectName": "cube",
         "animations": [
           {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-4.0,0.0,0.0],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
             "animationType": "translation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_active",
-            "axis": [0.0,0.0,-1.0E-6],
-            "duration": -1,
-            "forwardsStartSound": "ivv:gunequip2"
+            "axis": [0.0,0.0,-0.0875],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ]
       },
@@ -199,13 +198,13 @@
         "type": "generic",
         "quantity": 2,
         "duration": 200,
-        "transparency": 1.0,
+        "transparency": 2.5,
         "toTransparency": 0.01,
         "scale": 0.5,
         "toScale": 0.5,
         "texture": "ivv:textures/particles/casingshell.png",
         "color": "CCCCCC",
-        "pos": [0,1.79916e-09,-0.04116],
+        "pos": [0.0,1.79916E-9,-0.04116],
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
@@ -215,6 +214,25 @@
             "variable": "tonsOfAngrySwearWords",
             "centerPoint": [0.0,-0.05488,0.0],
             "axis": [45.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-4.0,0.0,0.0],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0875],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ],
         "activeAnimations": [
@@ -243,6 +261,25 @@
             "variable": "tonsOfAngrySwearWords",
             "centerPoint": [0.0,-0.05488,0.0],
             "axis": [45.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-4.0,0.0,0.0],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0875],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ],
         "activeAnimations": [
@@ -279,6 +316,25 @@
             "variable": "tonsOfAngrySwearWords",
             "centerPoint": [0.0,-0.05488,0.0],
             "axis": [45.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-4.0,0.0,0.0],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0875],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ],
         "activeAnimations": [
@@ -313,6 +369,25 @@
             "variable": "tonsOfAngrySwearWords",
             "centerPoint": [0.0,-0.05488,0.0],
             "axis": [45.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-4.0,0.0,0.0],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0875],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ],
         "activeAnimations": [
@@ -349,6 +424,25 @@
             "variable": "tonsOfAngrySwearWords",
             "centerPoint": [0.0,-0.05488,0.0],
             "axis": [45.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-4.0,0.0,0.0],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0875],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ],
         "activeAnimations": [
@@ -373,7 +467,7 @@
     "name": "Double Barrel Shotgun",
     "health": 100,
     "materialLists": [
-      ["minecraft:iron_ingot:0:13","minecraft:planks:0:2","minecraft:stone_button:0:1"]
+      ["oredict:ingotIron:13","minecraft:planks:0:2","minecraft:stone_button:0:1"]
     ]
   }
 }

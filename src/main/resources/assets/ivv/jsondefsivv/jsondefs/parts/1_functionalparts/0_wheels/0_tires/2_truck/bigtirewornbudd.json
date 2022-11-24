@@ -19,16 +19,23 @@
     "motiveFriction": 0.875,
     "lateralFriction": 0.875,
     "frictionModifiers": {
-      "snow": -0.45,
-      "ice": -0.725,
-      "dirt": -0.2,
-      "dirt_wet": -0.3,
-      "sand": -0.3,
-      "sand_wet": -0.4,
-      "normal_wet": -0.5,
-      "normal": -0.25
+      "snow": -0.4375,
+      "ice": -0.75,
+      "dirt": 0,
+      "dirt_wet": -0.25,
+      "sand": -0.125,
+      "sand_wet": -0.375,
+      "normal_wet": -0.75
     }
   },
+  "parts": [
+    {
+      "pos": [0.179238,0.0,0.0],
+      "partScale": [1,1,1],
+      "maxValue": 1.0,
+      "types": ["generic_rim"]
+    }
+  ],
   "definitions": [
     {
       "subName": "",
@@ -46,6 +53,15 @@
           {
             "animationType": "visibility",
             "variable": "ground_isflat"
+          }
+        ]
+      },
+      {
+        "objectName": "rim",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
           }
         ]
       }
@@ -544,13 +560,13 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 2,
         "duration": 40,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
         "scale": 2.5,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.5,0.0],
         "initialVelocity": [0.0,0.0,0.005],
@@ -591,13 +607,13 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 80,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
         "scale": 2.5,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.5,0.0],
         "initialVelocity": [0.0,0.0,0.0],
@@ -659,7 +675,7 @@
   },
   "general": {
     "name": "Big Wheel [Budd, Worn]",
-    "description": "Slightly larger than a usual wheel, perfect for offroading vehicles.\n(Less grip, drifts more)",
+    "description": "Truck sized wheel\n§r§cRisk of hydroplaning or popped tire!§r§7",
     "stackSize": 4,
     "health": 250,
     "materialLists": [

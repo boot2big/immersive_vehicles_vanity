@@ -10,8 +10,8 @@
     "shiftSpeed": 8,
     "clutchTime": 10,
     "revResistance": 5,
-    "maxRPM": 11000,
-    "maxSafeRPM": 13000,
+    "maxRPM": 12000,
+    "maxSafeRPM": 8000,
     "idleRPM": 500,
     "fuelConsumption": 0.05,
     "gearRatios": [-3,0,3,2,1],
@@ -65,7 +65,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "engine_rpm_percent",
+          "variable": "engine_rpm_percent_safe",
           "axis": [0.0,0.5,0.0],
           "offset": -0.25,
           "clampMin": 0.0625
@@ -394,6 +394,35 @@
         ]
       },
       {
+        "name": "ivv:engineoverrev",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,10,0.0],
+            "offset": -10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,4,0.0],
+            "offset": -3.5,
+            "clampMax": 4
+          }
+        ],
+        "looping": true
+      },
+      {
         "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
@@ -428,7 +457,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
@@ -504,7 +533,7 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,-0.29999998211860657,0.0],
             "offset": 0.7
           }
@@ -512,7 +541,7 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.75,0.0],
             "offset": 0.95
           }
@@ -538,7 +567,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,2.0,0.0]
           }
         ],
@@ -551,7 +580,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,0.8750000596046448,0.0],
             "offset": 0.325
           }
@@ -634,6 +663,6 @@
     "description": "0.2L Budget IVLabs Motor",
     "name": "Smallfry V2 Engine §2(Manual)",
     "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["minecraft:iron_ingot:0:6","mts:ivv.enginepiston:0:2","mts:ivv.fuelcarb:0:1","mts:ivv.gearboxmanual:0:1"]
+    "materials": ["oredict:ingotIron:6","mts:ivv.enginepiston:0:2","mts:ivv.fuelcarb:0:1","mts:ivv.gearboxmanual:0:1"]
   }
 }

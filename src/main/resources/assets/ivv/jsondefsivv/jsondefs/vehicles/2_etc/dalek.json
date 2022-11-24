@@ -70,11 +70,11 @@
       "types": ["ground_wheel_invisible"]
     },
     {
-      "pos": [0.0,1,0.0],
+      "pos": [0.0,1.0,0.0],
       "rot": [0.0,0.0,0.0],
       "isController": true,
-      "forceCameras": false,
       "isPermanent": true,
+      "canDisableGun": true,
       "partScale": [1.25,1.25,1.25],
       "playerScale": [0.875,0.875,0.875],
       "defaultPart": "ivv:rockseat",
@@ -121,7 +121,7 @@
       "linkedParts": [1,2,3,4]
     },
     {
-      "pos": [-0.070314,1.06380,0.445312],
+      "pos": [-0.070314,1.0638,0.445312],
       "rot": [0.0,0.0,0.0],
       "minValue": 1.0,
       "maxValue": 100.0,
@@ -132,26 +132,28 @@
       "defaultPart": "ivv:unigunlaser",
       "types": ["gun_unigun_laser"],
       "linkedParts": [5],
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "!dicke_titten",
-            "clampMin": 0,
-            "clampMax": 0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "gun_yaw_1",
-            "centerPoint": [0.179687,1.03125,0.28125],
-            "axis": [0.0,1.0,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "gun_pitch_1",
-            "centerPoint": [0.179687,1.03125,0.28125],
-            "axis": [1.0,0.0,0.0]
-          }
-        ]
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "!dicke_titten"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_active_1"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_yaw_1",
+          "centerPoint": [0.179687,1.03125,0.28125],
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_pitch_1",
+          "centerPoint": [0.179687,1.03125,0.28125],
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
     }
   ],
   "collisionGroups": [
@@ -162,8 +164,8 @@
           "pos": [0.0,0.5,0.0],
           "width": 0.75,
           "height": 0.75,
-          "armorThickness": 250,
-          "heatArmorThickness": 50
+          "armorThickness": 250.0,
+          "heatArmorThickness": 50.0
         }
       ]
     },
@@ -173,8 +175,8 @@
           "pos": [0.0,1.1875,0.0],
           "width": 0.5,
           "height": 0.125,
-          "armorThickness": 250,
-          "heatArmorThickness": 50
+          "armorThickness": 250.0,
+          "heatArmorThickness": 50.0
         }
       ]
     },
@@ -182,23 +184,29 @@
       "isForBullets": true,
       "collisions": [
         {
-          "pos": [0.0,1,0.0],
+          "pos": [0.0,0.5,0.0],
           "width": 0.75,
           "height": 0.75,
-          "armorThickness": 250,
-          "heatArmorThickness": 50
+          "armorThickness": 250.0,
+          "heatArmorThickness": 50.0
+        },
+        {
+          "pos": [0.0,1.25,0.0],
+          "width": 0.75,
+          "height": 0.75,
+          "armorThickness": 250.0,
+          "heatArmorThickness": 50.0
         }
       ]
     }
   ],
   "instruments": [
     {
-      "pos": [0,0,0],
-      "rot": [0,0.0,0.0],
-      "scale": 0.0,
+      "pos": [0.0,0.0,0.0],
+      "rot": [0.0,0.0,0.0],
       "hudX": 200,
       "hudY": -10,
-      "hudScale": 1,
+      "hudScale": 1.0,
       "defaultInstrument": "ivv:screen_dark",
       "animations": [
         {
@@ -273,40 +281,16 @@
       ]
     }
   ],
-  "rendering": {/*
-    "cameraObjects": [
-      {
-        "pos": [0.0,1.40625,0.5875],
-        "rot": [0.0,0.0,0.0],
-        "fovOverride": 90,
-        "overlay": "ivv:textures/overlay/cardisview",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "seat_occupied_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "seat_rider_yaw_1",
-            "centerPoint": [0,0,0],
-            "axis": [0.0,1.0,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "seat_rider_pitch_1",
-            "centerPoint": [0,1.40625,0.25],
-            "axis": [1.0,0.0,0.0]
-          }
-        ]
-      }
-  ],*/
+  "rendering": {
     "textObjects": [],
     "animatedObjects": [
       {
         "objectName": "gun",
         "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_active_1"
+        },
           {
             "animationType": "rotation",
             "variable": "gun_yaw_1",
@@ -322,12 +306,39 @@
         ]
       },
       {
+        "objectName": "plunger",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_active_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_yaw_1",
+            "centerPoint": [-0.179687,1.03125,0.28125],
+            "axis": [0.0,1.0,0.0],
+            "clampMin": -67.5,
+            "clampMax": 67.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_pitch_1",
+            "centerPoint": [-0.179687,1.03125,0.28125],
+            "axis": [1.0,0.0,0.0],
+            "clampMin": -20.0,
+            "clampMax": 30.0
+          }
+        ]
+      },
+      {
         "objectName": "head",
         "animations": [
           {
             "animationType": "rotation",
             "variable": "seat_rider_yaw_1",
-            "centerPoint": [0,0,0],
+            "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,1.0,0.0]
           }
         ]
@@ -339,10 +350,10 @@
           {
             "animationType": "rotation",
             "variable": "seat_rider_pitch_1",
-            "centerPoint": [0,1.40625,0.25],
+            "centerPoint": [0.0,1.40625,0.25],
             "axis": [1.0,0.0,0.0],
-            "clampMin": -20,
-            "clampMax": 30
+            "clampMin": -20.0,
+            "clampMax": 30.0
           }
         ]
       },

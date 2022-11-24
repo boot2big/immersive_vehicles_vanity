@@ -8,7 +8,7 @@
     "capacity": 10,
     "reloadTime": 25,
     "muzzleVelocity": 830,
-    "fireDelay": 10.0,
+    "fireDelay": 7.0,
     "bulletSpreadFactor": 0.5,
     "diameter": 7.62,
     "minCaseLength": 53.0,
@@ -78,8 +78,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_controller_firstperson",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -107,19 +107,8 @@
       },
       {
         "objectName": "ammoModel",
+        "applyAfter": "gunModel",
         "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
           {
             "animationType": "visibility",
             "variable": "gun_reload"
@@ -130,41 +119,28 @@
         "objectName": "gunModel",
         "animations": [
           {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
             "animationType": "translation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_active",
-            "axis": [0.0,0.0,-1.0E-6],
-            "duration": -1,
-            "forwardsStartSound": "ivv:gunequip5"
+            "axis": [0.0,0.0,-0.075],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ]
       },
       {
         "objectName": "slideModel",
+        "applyAfter": "gunModel",
         "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
           {
             "animationType": "translation",
             "variable": "gun_reload",
@@ -187,28 +163,31 @@
       {
         "pos": [0.0,0.30396,0.82575],
         "rot": [0.0,0.0,0.0],
-        "fovOverride": 30,
+        "fovOverride": 30.0,
         "overlay": "ivv:textures/overlay/overlayscope",
         "animations": [
           {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "rotation",
             "variable": "gun_fired",
-            "centerPoint": [0.0,0.30396,0.82575],
-            "axis": [-3,0.0,0],
-            "duration": 4,
-            "forwardsDelay": -4
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.075],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ]
       }
@@ -243,7 +222,7 @@
         "type": "generic",
         "quantity": 1,
         "duration": 200,
-        "transparency": 1.0,
+        "transparency": 2.5,
         "toTransparency": 0.01,
         "scale": 0.5,
         "toScale": 0.5,
@@ -253,6 +232,25 @@
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.075],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -275,6 +273,25 @@
         "color": "FFFFFF",
         "pos": [0.0,0.13521,1.27532],
         "initialVelocity": [0.0,0.0,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.075],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -295,6 +312,25 @@
         "color": "555555",
         "pos": [0.0,0.13521,1.27532],
         "initialVelocity": [0.0,0.0,2.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.075],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -312,7 +348,7 @@
     "description": "Model submitted by Laura, although original creator is to be found for crediting",
     "health": 100,
     "materialLists": [
-      ["minecraft:iron_ingot:0:16","minecraft:stone_button:0:1"]
+      ["oredict:ingotIron:16","minecraft:stone_button:0:1"]
     ]
   }
 }

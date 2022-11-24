@@ -1,0 +1,106 @@
+{
+  "bullet[If you REALLY want to enable this ammo type, remove this entire set of brackets. No, seriously. It's very overpowered.]": {
+    "types": [
+      "explosive",
+      "armor_piercing"
+    ],
+    "quantity": 12,
+    "diameter": 11.43,
+    "damage": 2.14748365E9,
+    "caseLength": 23.0,
+    "accelerationTime": 5,
+    "maxVelocity": 5000,
+    "blastStrength": 32,
+    "armorPenetration": 2.14748365E9,
+    "airBurstDelay": 20,
+    "pellets": 32,
+    "pelletSpreadFactor": -2,
+    "impactDespawnTime": 10,
+      "effects": [
+        {
+          "name": "night_vision",
+          "duration": 300
+        },
+        {
+          "name": "invisibility",
+          "duration": 300
+        },
+        {
+          "name": "blindness",
+          "duration": 300
+        },
+        {
+          "name": "unluck",
+          "duration": 300
+        }
+      ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Pistol Ammo [Inverse-Operative Quantum Bullets]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "pew",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [2.0,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:computerdeletedold",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "1_2_300_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "break",
+        "quantity": 1,
+        "duration": 1,
+        "scale": 1024,
+        "isBright": true,
+        "color": "0000ff",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Delorted!\nIt goes without saying that anyone in survival mode, for whatever reason behind it, should not have this ammunition.",
+    "stackSize": 64,
+    "materialLists": [
+      ["oredict:nuggetIron:12","minecraft:gunpowder:0:12","minecraft:barrier:0:12"]
+    ],
+    "type": "bullet"
+  }
+}

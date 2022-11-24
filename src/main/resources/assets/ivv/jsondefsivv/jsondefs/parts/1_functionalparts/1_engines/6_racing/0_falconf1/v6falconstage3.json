@@ -10,7 +10,7 @@
     "shiftSpeed": 10,
     "clutchTime": 3,
     "revResistance": 5,
-    "maxRPM": 17000,
+    "maxRPM": 28500,
     "maxSafeRPM": 19000,
     "idleRPM": 1400,
     "startRPM": 500,
@@ -344,6 +344,35 @@
         ]
       },
       {
+        "name": "ivv:engineoverrev",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,10,0.0],
+            "offset": -10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,4,0.0],
+            "offset": -3.5,
+            "clampMax": 4
+          }
+        ],
+        "looping": true
+      },
+      {
         "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
@@ -378,7 +407,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
@@ -454,7 +483,7 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,-0.6000000238418579,0.0],
             "offset": 0.85
           }
@@ -462,7 +491,7 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,3.0,0.0],
             "offset": 1.1
           }
@@ -488,7 +517,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,6.0,0.0],
             "offset": -0.5
           }
@@ -502,7 +531,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.274999976158142,0.0],
             "offset": 0.625
           }

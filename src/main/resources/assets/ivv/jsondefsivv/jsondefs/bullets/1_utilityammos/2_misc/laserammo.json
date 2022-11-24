@@ -1,0 +1,73 @@
+{
+  "bullet": {
+    "types": [
+      "armor_piercing"
+    ],
+    "quantity": 20,
+    "diameter": 30,
+    "damage": 100,
+    "blastStrength": 1,
+    "armorPenetration": 1000
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Generic Laser Ammo",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "quantity": 1,
+        "duration": 20,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 1.0,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "4BF21B",
+        "pos": [0.0,0.0,6.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!on",
+            "clampMin": -1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "materialLists": [
+      ["oredict:nuggetIron:1","oredict:gunpowder:1"]
+    ],
+    "type": "bullet"
+  }
+}

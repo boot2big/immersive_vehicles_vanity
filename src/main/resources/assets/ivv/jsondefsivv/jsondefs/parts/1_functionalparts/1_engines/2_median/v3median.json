@@ -6,12 +6,12 @@
   "engine": {
     "type": "normal",
     "isAutomatic": true,
-    "starterPower": 17,
-    "shiftSpeed": 20,
+    "starterPower": 40,
+    "shiftSpeed": 10,
     "clutchTime": 3,
     "revResistance": 6,
-    "maxRPM": 6750,
-    "maxSafeRPM": 6550,
+    "maxRPM": 10400,
+    "maxSafeRPM": 6400,
     "idleRPM": 800,
     "startRPM": 500,
     "revlimitRPM": 6000,
@@ -22,7 +22,7 @@
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.1,
-    "gearRatios": [-3.0625,0,3.5,2.625,1.75,0.875],
+    "gearRatios": [-3.0625,0,3.5,2.125,1.0,0.75],
     "upShiftRPM": [0,0,4400,4600,4500,4400],
     "downShiftRPM": [0,0,2000,2000,2200,2200],
     "fuelType": "gasoline",
@@ -76,7 +76,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "engine_rpm_percent",
+          "variable": "engine_rpm_percent_safe",
           "axis": [0.0,0.5,0.0],
           "offset": -0.25,
           "clampMin": 0.0625
@@ -426,6 +426,35 @@
         ]
       },
       {
+        "name": "ivv:engineoverrev",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,10,0.0],
+            "offset": -10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,4,0.0],
+            "offset": -3.5,
+            "clampMax": 4
+          }
+        ],
+        "looping": true
+      },
+      {
         "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
@@ -460,7 +489,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
@@ -564,7 +593,7 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,-0.9000000357627869,0.0],
             "offset": 1.1
           }
@@ -572,7 +601,7 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.940000057220459,0.0],
             "offset": 0.95
           }
@@ -598,7 +627,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,2.9000000953674316,0.0],
             "offset": 0.1
           }
@@ -606,7 +635,7 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,0.89,0.0],
             "offset": 0.32
           }
@@ -646,7 +675,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,2.5,0.0],
             "offset": -1.75,
             "clampMax": 0.25
@@ -662,7 +691,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,0.375,0.0],
             "offset": -0.25
           }
@@ -678,7 +707,7 @@
           },
           {
             "animationType": "inhibitor",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "clampMax": 0.425
           },
           {

@@ -1,0 +1,170 @@
+{
+  "generic": {
+    "type": "gun_unigun_laser"
+  },
+  "gun": {
+    "capacity": 100,
+    "reloadTime": 30,
+    "windupTime": 10,
+    "muzzleVelocity": 600,
+    "fireDelay": 1.0,
+    "bulletSpreadFactor": 0.125,
+    "diameter": 30,
+    "maxCaseLength": 30.0,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.25,-0.03125,0.172371],
+            "rot": [-2.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "WMG Laser Emitter",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [
+      {
+        "objectName": "laserdiode",
+        "emissive": true,
+        "color": "4BF21B",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_windup_time",
+            "axis": [0.0,0.5,0.0],
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:wmg_laserfiring",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:wmg_laserreloading",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:wmg_lasercharging",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_windup_time",
+            "axis": [0.0,0.1,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_windup_time",
+            "axis": [0.0,0.05,0.0],
+            "offset": 0.5
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "quantity": 2,
+        "duration": 3,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 5.0,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "4BF21B",
+        "pos": [0.25,-0.03125,0.172371],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "quantity": 1,
+        "duration": 20,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 1.0,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "4BF21B",
+        "pos": [0.25,-0.03125,0.172371],
+        "initialVelocity": [0.0,0.0,30],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "!on",
+            "centerPoint": [0.25,-0.03125,0.172371],
+            "axis": [-3,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "",
+    "health": 100,
+    "materialLists": [
+      ["minecraft:iron_ingot:0:8","minecraft:emerald:0:1","minecraft:redstone:0:6"]
+    ]
+  }
+}

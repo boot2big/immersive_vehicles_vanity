@@ -9,8 +9,8 @@
     "shiftSpeed": 1,
     "clutchTime": 6,
     "revResistance": 10,
-    "maxRPM": 8600,
-    "maxSafeRPM": 8000,
+    "maxRPM": 11050,
+    "maxSafeRPM": 6800,
     "idleRPM": 800,
     "startRPM": 600,
     "revlimitRPM": 7950,
@@ -125,7 +125,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "engine_rpm_percent",
+          "variable": "engine_rpm_percent_safe",
           "axis": [0.0,0.5,0.0],
           "offset": -0.25,
           "clampMin": 0.0625
@@ -295,6 +295,35 @@
         ]
       },
       {
+        "name": "ivv:engineoverrev",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,10,0.0],
+            "offset": -10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,4,0.0],
+            "offset": -3.5,
+            "clampMax": 4
+          }
+        ],
+        "looping": true
+      },
+      {
         "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
@@ -329,7 +358,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
@@ -403,7 +432,7 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,-0.699999988079071,0.0],
             "offset": 0.8
           }
@@ -411,7 +440,7 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,3.049999952316284,0.0],
             "offset": 0.7
           }
@@ -437,7 +466,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,3.9000000953674316,0.0],
             "offset": 0.1
           }
@@ -451,7 +480,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,2.6499998569488525,0.0],
             "offset": 0.45
           }
@@ -491,7 +520,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,2.5,0.0],
             "offset": -1.75,
             "clampMax": 0.25
@@ -507,7 +536,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,0.5,0.0],
             "offset": -0.125
           }
@@ -525,7 +554,7 @@
           },
           {
             "animationType": "inhibitor",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "clampMax": 0.425
           },
           {

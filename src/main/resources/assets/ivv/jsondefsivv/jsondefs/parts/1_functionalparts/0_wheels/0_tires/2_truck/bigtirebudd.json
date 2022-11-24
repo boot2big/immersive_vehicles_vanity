@@ -15,17 +15,16 @@
     "isWheel": true,
     "width": 0.45,
     "height": 1.0,
-    "motiveFriction": 1.0,
-    "lateralFriction": 1.0,
+    "motiveFriction": 0.875,
+    "lateralFriction": 0.875,
     "frictionModifiers": {
-      "snow": -0.5,
-      "ice": -0.7,
-      "dirt": -0.1,
-      "dirt_wet": -0.2,
-      "sand": -0.1,
-      "sand_wet": -0.2,
-      "normal_wet": -0.5,
-      "normal": -0.25
+      "snow": -0.375,
+      "ice": -0.75,
+      "dirt": 0,
+      "dirt_wet": -0.125,
+      "sand": -0.125,
+      "sand_wet": -0.25,
+      "normal_wet": -0.25
     }
   },
   "definitions": [
@@ -37,6 +36,14 @@
       ]
     }
   ],
+  "parts": [
+    {
+      "pos": [0.179238,0.0,0.0],
+      "partScale": [1,1,1],
+      "maxValue": 1.0,
+      "types": ["generic_rim"]
+    }
+  ],
   "rendering": {
     "animatedObjects": [
       {
@@ -45,6 +52,15 @@
           {
             "animationType": "visibility",
             "variable": "ground_isflat"
+          }
+        ]
+      },
+      {
+        "objectName": "rim",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
           }
         ]
       }
@@ -543,13 +559,13 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 2,
         "duration": 40,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
         "scale": 2.5,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.5,0.0],
         "initialVelocity": [0.0,0.0,0.005],
@@ -590,13 +606,13 @@
       },
       {
         "type": "generic",
-        "texture": "ivv:textures/particles/tiremark.png",
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 80,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
         "scale": 2.5,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.5,0.0],
         "initialVelocity": [0.0,0.0,0.0],
@@ -658,11 +674,11 @@
   },
   "general": {
     "name": "Big Wheel [Budd]",
-    "description": "Slightly larger than a usual wheel, perfect for offroading vehicles.",
+    "description": "Truck sized wheel",
     "stackSize": 4,
     "health": 260,
     "materialLists": [
-      ["minecraft:wool:15:10","minecraft:iron_ingot:0:8"]
+      ["minecraft:wool:15:10","oredict:ingotIron:8"]
     ]
   }
 }

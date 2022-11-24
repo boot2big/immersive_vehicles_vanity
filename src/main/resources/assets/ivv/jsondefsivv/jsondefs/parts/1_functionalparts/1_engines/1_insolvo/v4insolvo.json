@@ -9,7 +9,7 @@
     "shiftSpeed": 10,
     "clutchTime": 6,
     "revResistance": 7,
-    "maxRPM": 5000,
+    "maxRPM": 7200,
     "maxSafeRPM": 4800,
     "idleRPM": 500,
     "startRPM": 400,
@@ -363,6 +363,35 @@
             "clampMax": 1.0
           }
         ]
+      },
+      {
+        "name": "ivv:engineoverrev",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,10,0.0],
+            "offset": -10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,4,0.0],
+            "offset": -3.5,
+            "clampMax": 4
+          }
+        ],
+        "looping": true
       },
       {
         "name": "ivv:enginehourrattle",

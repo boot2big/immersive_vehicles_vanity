@@ -107,23 +107,8 @@
       },
       {
         "objectName": "magazine",
+        "applyAfter": "cube",
         "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "gun_reload"
-          },
           {
             "animationType": "visibility",
             "variable": "gun_reload",
@@ -136,42 +121,30 @@
         "objectName": "cube",
         "animations": [
           {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "axis": [-2,0.0,0],
+            "centerPoint": [0.0,0.0,0.0],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
             "animationType": "translation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_active",
-            "axis": [0.0,0.0,-1.0E-6],
-            "duration": -1,
-            "forwardsStartSound": "ivv:gunequip1alt"
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ]
       },
       {
         "objectName": "trigger",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          }
-        ]
+        "applyAfter": "cube",
+        "animations": []
       }
     ],
     "lightObjects": [],
@@ -205,7 +178,7 @@
         "type": "generic",
         "quantity": 1,
         "duration": 200,
-        "transparency": 1.0,
+        "transparency": 2.5,
         "toTransparency": 0.01,
         "scale": 0.25,
         "toScale": 0.25,
@@ -221,6 +194,27 @@
             "variable": "gun_fired",
             "clampMin": 1.0,
             "clampMax": 1.0
+          }
+        ],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "axis": [-5,0.0,0],
+            "centerPoint": [0.0,0.0,0.0],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ]
       },
@@ -244,6 +238,27 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
+        ],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "axis": [-5,0.0,0],
+            "centerPoint": [0.0,0.0,0.0],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
         ]
       },
       {
@@ -264,6 +279,27 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
+        ],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "axis": [-5,0.0,0],
+            "centerPoint": [0.0,0.0,0.0],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
         ]
       }
     ],
@@ -273,7 +309,7 @@
     "name": "Kolibri",
     "health": 100,
     "materialLists": [
-      ["minecraft:iron_ingot:0:2","minecraft:stone_button:0:1"]
+      ["oredict:ingotIron:2","minecraft:stone_button:0:1"]
     ]
   }
 }

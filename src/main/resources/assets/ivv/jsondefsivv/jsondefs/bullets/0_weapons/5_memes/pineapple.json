@@ -1,0 +1,147 @@
+{
+  "bullet": {
+    "types": [
+      "explosive"
+    ],
+    "quantity": 1,
+    "diameter": 150.0,
+    "damage": 15.0,
+    "caseLength": 300.0,
+    "blastStrength": 3.0,
+    "armorPenetration": 800.0,
+    "airBurstDelay": 50,
+    "burnTime": 10,
+    "accelerationTime": 10,
+    "maxVelocity": 300,
+    "impactDespawnTime": 40
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Pineapple",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:explode_fruit",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0],
+            "offset": 2.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:explode_fruit",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_burst",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0],
+            "offset": 2.0
+          }
+        ]
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "texture": "ivv:textures/particles/bulletpath.png",
+        "quantity": 3,
+        "duration": 20,
+        "transparency": 2.0,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,-0.125],
+        "initialVelocity": [0.0,0.0,-1.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 40.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "10_10_10_cycle",
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 2,
+        "duration": 100,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 32.0,
+        "toScale": 16.0,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Does not lock onto anything\nNo turn radius, anti-tank damage/explosive power",
+    "stackSize": 64,
+    "materialLists": [
+      ["minecraft:log:0:1","minecraft:apple:0:1","minecraft:tnt:0:4"]
+    ],
+    "type": "bullet"
+  }
+}

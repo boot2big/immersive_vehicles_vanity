@@ -110,42 +110,30 @@
         "objectName": "gunModel",
         "animations": [
           {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "axis": [-5,0.0,0],
+            "centerPoint": [0.0,0.0,0.0],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
             "animationType": "translation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_active",
-            "axis": [0.0,0.0,-1.0E-6],
-            "duration": -1,
-            "forwardsStartSound": "ivv:gunequip6"
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 2,
+            "forwardsDelay": -2,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
           }
         ]
       },
       {
         "objectName": "breakActionModel",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          }
-        ]
+        "applyAfter": "gunModel",
+        "animations": []
       }
     ],
     "lightObjects": [],
@@ -194,6 +182,27 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
+        ],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "axis": [-5,0.0,0],
+            "centerPoint": [0.0,0.0,0.0],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsDelay": -1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
         ]
       }
     ],
@@ -204,7 +213,7 @@
     "description": "Model submitted by Laura, although original creator is to be found for crediting",
     "health": 100,
     "materialLists": [
-      ["minecraft:iron_ingot:0:2","minecraft:stone_button:0:1"]
+      ["oredict:ingotIron:2","minecraft:stone_button:0:1"]
     ]
   }
 }

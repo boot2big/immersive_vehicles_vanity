@@ -7,9 +7,9 @@
     "isSemiAuto": true,
     "capacity": 4,
     "reloadTime": 61,
-    "muzzleVelocity": 200,
+    "muzzleVelocity": 250,
     "fireDelay": 17.0,
-    "gravitationalVelocity": 0.02,
+    "gravitationalVelocity": 0.015,
     "bulletSpreadFactor": 5.0,
     "diameter": 35.0,
     "minCaseLength": 35.0,
@@ -23,7 +23,7 @@
         "muzzles": [
           {
             "pos": [0.0,0.0,0.0],
-            "rot": [0.0,0.0,0.0],
+            "rot": [-5.0,0.0,0.0],
             "center": [0.0,0.0,0.0]
           }
         ]
@@ -52,8 +52,8 @@
         "defaultText": "fill me up daddy owo",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudAmmoModel",
+        "lightsUp": true,
         "renderPosition": 2
       },
       {
@@ -67,8 +67,8 @@
         "defaultText": "uwwaaaaa~",
         "maxLength": 7,
         "color": "CCCCCC",
-        "lightsUp": true,
         "attachedTo": "hudReloadModel",
+        "lightsUp": true,
         "renderPosition": 2
       }
     ],
@@ -79,8 +79,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_controller_firstperson",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -91,8 +91,8 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -108,73 +108,44 @@
       },
       {
         "objectName": "barrel",
+        "applyAfter": "handle",
         "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "gun_reload"
-          },
           {
             "animationType": "rotation",
             "variable": "gun_reload",
             "centerPoint": [0.0,-0.23916,0.18466],
-            "axis": [45.0,0.0,0.0],
-            "clampMin": 45.0,
-            "clampMax": 45.0,
-            "absolute": true
+            "axis": [45.0,0.0,0.0]
           }
         ]
       },
       {
-        "objectName": "cube",
+        "objectName": "handle",
         "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-6.0,0.0,0.0],
+            "duration": 6,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -6
+          },
           {
             "animationType": "translation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_active",
-            "axis": [0.0,0.0,-1.0E-6],
-            "duration": -1,
-            "forwardsStartSound": "ivv:gunequip6"
+            "axis": [0.0,0.0,-0.05],
+            "duration": 6,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -6
           }
         ]
       },
       {
         "objectName": "trigger",
+        "applyAfter": "handle",
         "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "axis": [0.0,0.0,-0.025],
-            "duration": 1
-          },
           {
             "animationType": "rotation",
             "variable": "gun_firing",

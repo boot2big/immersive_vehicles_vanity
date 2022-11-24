@@ -8,20 +8,20 @@
     "starterPower": 25,
     "shiftSpeed": 1,
     "clutchTime": 6,
-    "revResistance": 6,
-    "maxRPM": 6500,
-    "maxSafeRPM": 6300,
+    "revResistance": 10,
+    "maxRPM": 9345,
+    "maxSafeRPM": 5750,
     "idleRPM": 750,
     "startRPM": 500,
-    "revlimitRPM": 6000,
-    "revlimitBounce": 9,
+    "revlimitRPM": 5500,
+    "revlimitBounce": 20,
     "stallRPM": 400,
     "engineWinddownRate": 100,
     "heatingCoefficient": 0.825,
     "coolingCoefficient": 1.75,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.65,
-    "gearRatios": [-3.15,0,3.5,2.8,2.1,1.6,0.7],
+    "gearRatios": [-3.4375,0,3.75,3.125,2.5,1.875,1.25,0.625],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.5,
     "superchargerEfficiency": 1.0,
@@ -78,7 +78,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "engine_rpm_percent",
+          "variable": "engine_rpm_percent_safe",
           "axis": [0.0,0.5,0.0],
           "offset": -0.25,
           "clampMin": 0.0625
@@ -431,6 +431,35 @@
         ]
       },
       {
+        "name": "ivv:engineoverrev",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,10,0.0],
+            "offset": -10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,4,0.0],
+            "offset": -3.5,
+            "clampMax": 4
+          }
+        ],
+        "looping": true
+      },
+      {
         "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
@@ -465,7 +494,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
@@ -569,7 +598,7 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,-0.8499999642372131,0.0],
             "offset": 0.9
           }
@@ -577,7 +606,7 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,3.070000171661377,0.0],
             "offset": 0.98
           }
@@ -603,7 +632,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.2000000476837158,0.0],
             "offset": -0.1
           }
@@ -617,7 +646,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,0.8000000715255737,0.0],
             "offset": 0.9
           }
@@ -657,7 +686,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,2.5,0.0],
             "offset": -1.75,
             "clampMax": 0.25
@@ -673,7 +702,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,0.375,0.0],
             "offset": -0.25
           }
@@ -689,7 +718,7 @@
           },
           {
             "animationType": "inhibitor",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "clampMax": 0.425
           },
           {
