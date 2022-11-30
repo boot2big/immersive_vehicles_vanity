@@ -7,10 +7,10 @@
     "capacity": 500,
     "reloadTime": 30,
     "muzzleVelocity": 900,
-    "fireDelay": 1.0,
-    "bulletSpreadFactor": 1,
+    "fireDelay": 2.0,
+    "bulletSpreadFactor": 1.0,
     "diameter": 7.62,
-    "maxCaseLength": 60,
+    "maxCaseLength": 60.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "muzzleGroups": [
@@ -73,7 +73,6 @@
     "particles": [
       {
         "type": "smoke",
-        "spawnEveryTick": true,
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
@@ -86,6 +85,12 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          },
+          {
+            "animationType": "visibility",
             "variable": "gun_fired",
             "clampMin": 1.0,
             "clampMax": 1.0
@@ -94,7 +99,6 @@
       },
       {
         "type": "smoke",
-        "spawnEveryTick": true,
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
@@ -107,6 +111,12 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
             "variable": "gun_fired",
             "clampMin": 1.0,
             "clampMax": 1.0
@@ -117,7 +127,7 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "",
+    "description": "Loads mostly any correctly diametered bullets",
     "health": 100,
     "materialLists": [
       ["oredict:ingotIron:8","minecraft:redstone:0:2"]

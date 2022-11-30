@@ -4,8 +4,8 @@
     "mass": 3000
   },
   "engine": {
+    "type": "normal",
     "starterPower": 3,
-    "isSteamPowered": true,
     "shiftSpeed": 20,
     "revResistance": 15,
     "maxRPM": 900,
@@ -30,7 +30,9 @@
     {
       "subName": "",
       "name": "Locomotive Engine [§2Manual§r,§FSteam§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [],
@@ -52,15 +54,13 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,0,0.0],
-            "offset": -0
+            "axis": [0.0,0.0,0.0]
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,1,0.0],
-            "clampMax": 0.25,
-            "offset": 0
+            "axis": [0.0,1.0,0.0],
+            "clampMax": 0.25
           },
           {
             "animationType": "translation",
@@ -100,16 +100,15 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,0,0.0],
-            "offset": 1
+            "axis": [0.0,0.0,0.0],
+            "offset": 1.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_pressure",
-            "axis": [0.0,0.0,0.0],
-            "offset": 0.0
+            "axis": [0.0,0.0,0.0]
           }
         ],
         "looping": true
@@ -122,7 +121,11 @@
     "name": "Bruh",
     "description": "Chugga chugga chugga chugga",
     "health": 100,
-    "materials": ["minecraft:iron_block:0:2","minecraft:bucket:0:4","minecraft:cauldron:0:1"],
-    "repairMaterials": ["oredict:nuggetIron:1"]
+    "materialLists": [
+      ["minecraft:iron_block:0:2","minecraft:bucket:0:4","minecraft:cauldron:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["minecraft:bucket:0:4","mts:ivv.tape:0:1"]
+    ]
   }
 }

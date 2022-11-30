@@ -6,46 +6,49 @@
     "mass": 3
   },
   "engine": {
+    "type": "normal",
     "disableAutomaticStarter": true,
     "shiftSpeed": 20,
     "revResistance": 4,
     "maxRPM": 300,
     "maxSafeRPM": 1200,
+    "idleRPM": -1,
+    "startRPM": -1,
     "revlimitRPM": -1,
     "revlimitBounce": 12,
-    "idleRPM": -1,
     "stallRPM": -1,
-    "startRPM": -1,
     "engineWinddownRate": 50,
     "heatingCoefficient": 0.0025,
     "coolingCoefficient": 0.25,
     "engineWearFactor": 0.0025,
     "fuelConsumption": 0.25,
-    "gearRatios": [-1,0.0,1.0],
+    "gearRatios": [-1.0,0.0,1.0],
     "fuelType": "electric",
-    "isCrankingNotPitched": true,
     "superchargerFuelConsumption": -0.25,
-    "superchargerEfficiency": -1
+    "superchargerEfficiency": -1.0,
+    "isCrankingNotPitched": true
   },
-  "variableModifiers": [
-    {
-      "variable": "revlimitRPM",
-      "setValue": 100,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_reversed",
-          "clampMin": 1,
-          "clampMax": 1
-        }
-      ]
-    }
-  ],
   "definitions": [
     {
       "subName": "",
       "name": "Bicycle Chain [§2Manual§r,§8Legs§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "revlimitRPM",
+      "setValue": 100.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_reversed",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
     }
   ],
   "rendering": {
@@ -63,9 +66,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "engine_reversed",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "engine_reversed"
           }
         ],
         "volumeAnimations": [
@@ -79,23 +80,20 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,1,0.0],
-            "offset": 0.0
+            "axis": [0.0,1.0,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,0,0.0],
-            "offset": 0,
+            "axis": [0.0,0.0,0.0],
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,1,0.0],
-            "offset": 0.0
+            "axis": [0.0,1.0,0.0]
           }
         ],
         "looping": true
@@ -112,13 +110,11 @@
           {
             "animationType": "inhibitor",
             "variable": "engine_gear",
-            "clampMin": -1,
-            "clampMax": 0
+            "clampMin": -1.0
           },
           {
             "animationType": "visibility",
             "variable": "throttle",
-            "clampMin": 0.0,
             "clampMax": 0.0625,
             "forwardsDelay": 5
           }
@@ -127,21 +123,19 @@
           {
             "animationType": "inhibitor",
             "variable": "engine_gear",
-            "clampMin": -1,
-            "clampMax": 0
+            "clampMin": -1.0
           },
           {
             "animationType": "translation",
             "variable": "throttle",
             "axis": [0.0,-0.5,0.0],
-            "offset": 0,
             "duration": 5
           },
           {
             "animationType": "activator",
             "variable": "p_brake",
-            "clampMin": -3,
-            "clampMax": 3
+            "clampMin": -3.0,
+            "clampMax": 3.0
           },
           {
             "animationType": "translation",
@@ -154,15 +148,13 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,0,0.0],
-            "offset": 0,
+            "axis": [0.0,0.0,0.0],
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.1,0.0],
-            "offset": 0.0
+            "axis": [0.0,0.1,0.0]
           }
         ],
         "looping": true
@@ -175,7 +167,11 @@
     "name": "Bruh",
     "description": "Leg so hot, hot hot leg",
     "health": 100,
-    "materials": ["oredict:nuggetIron:3"],
-    "repairMaterials": ["oredict:nuggetIron:1"]
+    "materialLists": [
+      ["oredict:nuggetIron:3"]
+    ],
+    "repairMaterialLists": [
+      ["oredict:nuggetIron:1"]
+    ]
   }
 }

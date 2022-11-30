@@ -4,9 +4,8 @@
     "mass": 260
   },
   "engine": {
+    "type": "normal",
     "starterPower": 20,
-    "engineWinddownRate": 100,
-    "engineWearFactor": 0.875,
     "shiftSpeed": 20,
     "clutchTime": 6,
     "revResistance": 11,
@@ -14,13 +13,29 @@
     "maxSafeRPM": 4800,
     "idleRPM": 500,
     "startRPM": 350,
+    "revlimitRPM": 4560,
+    "revlimitBounce": 11,
+    "stallRPM": 325,
+    "engineWinddownRate": 100,
+    "heatingCoefficient": 1.0,
+    "coolingCoefficient": 1.0,
+    "engineWearFactor": 0.875,
     "fuelConsumption": 0.8,
-    "gearRatios": [-3.15,0,3.5,2.8,2.1,1.6,0.7],
+    "gearRatios": [-3.15,0,3.5,2.6,1.8,1.0,0.75],
     "fuelType": "diesel",
-    "superchargerFuelConsumption": 1,
-    "superchargerEfficiency": 1,
+    "superchargerFuelConsumption": 1.0,
+    "superchargerEfficiency": 1.0,
     "isCrankingNotPitched": true
   },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Torqueline Diesel V6 Engine LD [§2Manual§r]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "heatingCoefficient",
@@ -125,14 +140,14 @@
         {
           "animationType": "visibility",
           "variable": "engine_clutching",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "!manualgear",
-          "axis": [0,0,1],
-          "offset": -1
+          "axis": [0.0,0.0,1.0],
+          "offset": -1.0
         }
       ]
     },
@@ -166,14 +181,8 @@
       ]
     }
   ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Torqueline Diesel V6 Engine LD [§2Manual§r]",
-      "extraMaterials": []
-    }
-  ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:transmissionfailshift1",
@@ -187,7 +196,6 @@
           {
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0,
             "clampMax": 0.25
           }
         ],
@@ -196,9 +204,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -224,9 +232,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -252,9 +260,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -272,7 +280,7 @@
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -280,9 +288,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -368,17 +376,17 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,10,0.0],
-            "offset": -10
+            "axis": [0.0,10.0,0.0],
+            "offset": -10.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,4,0.0],
+            "axis": [0.0,4.0,0.0],
             "offset": -3.5,
-            "clampMax": 4
+            "clampMax": 4.0
           }
         ],
         "looping": true
@@ -399,15 +407,6 @@
             "clampMax": 999999.0
           }
         ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.75,
-            "duration": 20
-          }
-        ],
         "volumeAnimations": [
           {
             "animationType": "translation",
@@ -422,6 +421,15 @@
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "looping": true
@@ -519,7 +527,7 @@
             "variable": "engine_starter",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "forwardsDelay": 12
+            "forwardsDelay": 12
           }
         ],
         "volumeAnimations": [
@@ -549,9 +557,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_starter",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "engine_starter"
           }
         ]
       },
@@ -626,6 +632,9 @@
     "particles": [
       {
         "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "color": "000000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -633,12 +642,14 @@
             "clampMin": 115.556,
             "clampMax": 999.0
           }
-        ],
-        "spawnEveryTick": true,
-        "color": "#000000"
+        ]
       },
       {
         "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "scale": 2.5,
+        "color": "000000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -646,14 +657,12 @@
             "clampMin": 121.111,
             "clampMax": 999.0
           }
-        ],
-        "spawnEveryTick": true,
-        "color": "#000000",
-        "scale": 2.5,
-        "quantity": 1
+        ]
       },
       {
         "type": "drip",
+        "quantity": 1,
+        "color": "000000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -667,11 +676,12 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ],
-        "color": "#000000"
+        ]
       },
       {
         "type": "drip",
+        "quantity": 1,
+        "color": "FF0000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -685,19 +695,20 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ],
-        "color": "#FF0000"
+        ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/1_engines/5_torqueline/1_light/",
-  "packID": "ivv",
-  "systemName": "v6torquelinelightmanual",
-  "classification": "part",
   "general": {
-    "description": "6.6L Industrial IVLabs Motor",
     "name": "Torqueline Diesel V6 Engine LD §2(Manual)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblockheavyduty:0:1","mts:ivv.enginepiston:0:6","mts:ivv.fuelfi:0:2","mts:ivv.gearboxmanual:0:1"]
+    "description": "6.6L Industrial IVLabs Motor",
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblockheavyduty:0:1","mts:ivv.enginepiston:0:6","mts:ivv.fuelfi:0:2","mts:ivv.gearboxmanual:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.oilcan_industrial:0:1","mts:ivv.tape:0:1"]
+    ]
   }
 }

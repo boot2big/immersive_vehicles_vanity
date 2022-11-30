@@ -1,0 +1,165 @@
+{
+  "decor": {
+    "type": "generic",
+    "width": 1.0,
+    "height": 1.0,
+    "depth": 1.0
+  },
+  "definitions": [
+    {
+      "subName": "_cc",
+      "modelName": "prank_head_cc",
+      "name": "Prank Block [cowboycosmic head]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_mm",
+      "modelName": "prank_head_mm",
+      "name": "Prank Block [Moon]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "layer",
+        "applyAfter": "head",
+        "animations": []
+      },
+      {
+        "objectName": "layer_spin1_translucent",
+        "applyAfter": "head",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,1.25,0.0]
+          },
+          {
+            "animationType": "visibility",
+            "variable": "activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "layer_spin2_translucent",
+        "applyAfter": "head",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.25,0.0]
+          },
+          {
+            "animationType": "visibility",
+            "variable": "activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "head",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "activated",
+            "axis": [0.0,-144.0,0.0],
+            "offset": -144.0,
+            "duration": 2100,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "scaling",
+            "variable": "activated",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [3.5,3.5,3.5],
+            "offset": 0.5,
+            "duration": 2100,
+            "skipReverseMovement": true
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "head",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "redstone_active",
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "layer_spin1",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "redstone_active",
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "layer_spin2",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "redstone_active",
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:churchbell",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "40_2_40_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,50,0.0],
+            "offset": 50
+          }
+        ],
+        "forceSound": true
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "",
+    "description": "Fool your friends into thinking a giant object is crashing, or something",
+    "stackSize": 64,
+    "materialLists": [
+      ["minecraft:barrier:0:1"]
+    ]
+  }
+}

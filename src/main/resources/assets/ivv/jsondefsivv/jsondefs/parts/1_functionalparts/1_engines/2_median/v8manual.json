@@ -21,7 +21,7 @@
     "coolingCoefficient": 1.75,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.5,
-    "gearRatios": [-3.4375,0,3.75,3.125,2.5,1.875,1.25,0.625],
+    "gearRatios": [-3.4375,0,3.75,3.125,2.5,1.5,1.0,0.75],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.5,
     "superchargerEfficiency": 1.0,
@@ -44,6 +44,38 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "engine_checklight",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "idiot_lightbulb",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_temp",
+          "axis": [0.0,1.0,0.0],
+          "clampMin": 0.000125,
+          "clampMax": 1,
+          "offset": -250
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [0.0,1.0,0.0],
+          "clampMin": 0.000125,
+          "clampMax": 1,
+          "offset": -110
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_oilleak",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
     {
       "variable": "currentGearRatio",
       "animations": [
@@ -821,7 +853,7 @@
       ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelfi:0:1","mts:ivv.gearboxmanual:0:1"]
     ],
     "repairMaterialLists": [
-      ["mts:ivv.tape:0:1"]
+      ["mts:ivv.oilcan:0:1","mts:ivv.tape:0:1"]
     ]
   }
 }

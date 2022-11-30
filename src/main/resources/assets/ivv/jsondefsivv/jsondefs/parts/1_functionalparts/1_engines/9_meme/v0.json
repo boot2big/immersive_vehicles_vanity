@@ -3,19 +3,22 @@
     "type": "engine_car"
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
     "starterPower": 45,
-    "engineWinddownRate": 60,
-    "engineWearFactor": 10,
     "shiftSpeed": 20,
     "revResistance": 10,
     "maxRPM": 6000,
     "maxSafeRPM": 4250,
     "idleRPM": 66666,
     "startRPM": 4250,
+    "revlimitRPM": 4037,
+    "revlimitBounce": 10,
     "stallRPM": 6000,
+    "engineWinddownRate": 60,
     "heatingCoefficient": 0.1,
     "coolingCoefficient": 0.1,
+    "engineWearFactor": 10.0,
     "fuelConsumption": 0.6,
     "gearRatios": [-2.0,0.0,2.5,1.5,1.0],
     "fuelType": "gasoline",
@@ -26,10 +29,13 @@
     {
       "subName": "",
       "name": "Inutile V0 Engine [§9Automatic§r,§cSouls of the Damned§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v0_cranking",
@@ -66,8 +72,8 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm",
-            "axis": [0.0,1,0.0],
-            "offset": 10,
+            "axis": [0.0,1.0,0.0],
+            "offset": 10.0,
             "clampMin": 5.0,
             "clampMax": 5.0
           }
@@ -96,7 +102,7 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,80,0.0],
+            "axis": [0.0,80.0,0.0],
             "offset": 0.935
           }
         ],
@@ -158,6 +164,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -185,6 +192,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -203,6 +211,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -219,16 +228,18 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/9_experimental/",
-  "packID": "ivv",
-  "systemName": "v0",
-  "classification": "part",
   "general": {
     "name": "Inutile V0 Engine",
     "description": "Unpredictable behavior, use at own risk\nThere's probably souls of the damned in here.",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.fuelcarb:0:2","mts:ivv.gearboxauto:0:1"]
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.fuelcarb:0:2","mts:ivv.gearboxauto:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }

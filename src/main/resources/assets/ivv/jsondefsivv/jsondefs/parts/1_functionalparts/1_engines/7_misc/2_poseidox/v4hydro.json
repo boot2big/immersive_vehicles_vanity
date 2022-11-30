@@ -4,24 +4,25 @@
     "mass": 170
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
     "starterPower": 25,
-    "engineWinddownRate": 100,
-    "engineWearFactor": 0.875,
     "shiftSpeed": 5,
     "clutchTime": 3,
     "revResistance": 7,
     "maxRPM": 10565,
     "maxSafeRPM": 6500,
-    "revlimitRPM": 6000,
-    "revlimitBounce": 8,
     "idleRPM": 900,
     "startRPM": 500,
+    "revlimitRPM": 6000,
+    "revlimitBounce": 8,
     "stallRPM": 400,
-    "fuelConsumption": 0.2,
+    "engineWinddownRate": 100,
     "heatingCoefficient": 0.75,
     "coolingCoefficient": 1.5,
-    "gearRatios": [-3.0,0.0,3.5,2.5,1.25,0.75],
+    "engineWearFactor": 0.875,
+    "fuelConsumption": 0.2,
+    "gearRatios": [-3.0625,0,3.25,2.125,1.0,0.75],
     "upShiftRPM": [0,0,4000,4600,4100,3850],
     "downShiftRPM": [0,0,1100,1100,1200,1300],
     "fuelType": "hydrogen",
@@ -33,10 +34,13 @@
     {
       "subName": "",
       "name": "Poseidox I4 Engine [§9Automatic§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v4_starting",
@@ -96,17 +100,17 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,10,0.0],
-            "offset": -10
+            "axis": [0.0,10.0,0.0],
+            "offset": -10.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,4,0.0],
+            "axis": [0.0,4.0,0.0],
             "offset": -3.5,
-            "clampMax": 4
+            "clampMax": 4.0
           }
         ],
         "looping": true
@@ -127,15 +131,6 @@
             "clampMax": 999999.0
           }
         ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.75,
-            "duration": 20
-          }
-        ],
         "volumeAnimations": [
           {
             "animationType": "translation",
@@ -150,6 +145,15 @@
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "looping": true
@@ -290,13 +294,12 @@
             "animationType": "translation",
             "variable": "throttle",
             "axis": [0.0,1.25,0.0],
-            "offset": -1
+            "offset": -1.0
           },
           {
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.25,0.0],
-            "clampMin": 0,
             "clampMax": 1.5
           }
         ],
@@ -311,15 +314,15 @@
             "animationType": "translation",
             "variable": "electric_power",
             "axis": [0.0,0.125,0.0],
-            "offset": -1,
-            "clampMin": -1,
+            "offset": -1.0,
+            "clampMin": -1.0,
             "clampMax": 0.05
           },
           {
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.075,0.0],
-            "clampMax": 1.7000000476837158
+            "clampMax": 1.7
           }
         ],
         "looping": true
@@ -329,6 +332,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -356,6 +360,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -374,6 +379,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -390,16 +396,18 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/8_electrichybrids/1_poseidox/",
-  "packID": "ivv",
-  "systemName": "v4hydro",
-  "classification": "part",
   "general": {
-    "description": "1.4L Standard IVLabs Motor",
     "name": "Median I4 Engine §9(Automatic)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"]
+    "description": "1.4L Standard IVLabs Motor",
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.oilcan:0:1","mts:ivv.tape:0:1"]
+    ]
   }
 }

@@ -7,7 +7,8 @@
     "diameter": 30,
     "damage": 100,
     "blastStrength": 1,
-    "armorPenetration": 1000
+    "armorPenetration": 100,
+    "impactDespawnTime": 40
   },
   "definitions": [
     {
@@ -20,6 +21,27 @@
   ],
   "rendering": {
     "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:bullethitmoblaser",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,2.5,0.0],
+            "offset": 2.5
+          }
+        ]
+      }
+    ],
     "particles": [
       {
         "type": "generic",

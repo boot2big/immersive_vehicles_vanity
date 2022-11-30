@@ -4,6 +4,7 @@
     "mass": 170
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
     "starterPower": 40,
     "shiftSpeed": 10,
@@ -12,12 +13,14 @@
     "maxSafeRPM": 8500,
     "idleRPM": 800,
     "startRPM": 400,
+    "revlimitRPM": 8075,
+    "revlimitBounce": 5,
     "stallRPM": 600,
     "engineWinddownRate": 100,
+    "heatingCoefficient": 0.25,
+    "coolingCoefficient": 1.0,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.5,
-    "heatingCoefficient": 0.25,
-    "coolingCoefficient": 1,
     "gearRatios": [-3.0,0.0,3.0,2.0,1.0,0.75,0.5],
     "upShiftRPM": [0,0,7000,6800,6600,6400,6200],
     "downShiftRPM": [0,0,3900,4000,4100,4200,4300],
@@ -30,10 +33,13 @@
     {
       "subName": "",
       "name": "IVLabs ''N4S-RCDE'' Experimental Motor [§9Automatic§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:crankperformante3",
@@ -103,7 +109,7 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,3,0.0],
+            "axis": [0.0,3.0,0.0],
             "offset": -1.5
           },
           {
@@ -136,14 +142,14 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,3,0.0],
-            "offset": -2
+            "axis": [0.0,3.0,0.0],
+            "offset": -2.0
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
             "axis": [0.0,3.0,0.0],
-            "offset": -1
+            "offset": -1.0
           }
         ],
         "looping": true
@@ -153,6 +159,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -178,16 +185,18 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/9_experimental/",
-  "packID": "ivv",
-  "systemName": "v6arcade",
-  "classification": "part",
   "general": {
     "name": "Performante I5 Engine §9(Automatic)",
     "description": "Unpredictable behavior, use at own risk\nAnomalous engine imported from Universe N4S-RCDE-4E4452435652",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:6","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"]
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:6","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
   }
 }

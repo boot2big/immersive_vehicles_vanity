@@ -22,9 +22,9 @@
     "coolingCoefficient": 2.0,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.65,
-    "gearRatios": [-3.0625,0,3.5,2.625,1.75,0.875],
-    "upShiftRPM": [0,0,4500,4250,4000,4000],
-    "downShiftRPM": [0,0,2300,2400,2500,2600],
+    "gearRatios": [-3,0,3,2.25,1],
+    "upShiftRPM": [0,0,4500,4250,4000],
+    "downShiftRPM": [0,0,2300,2400,2500],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 1.8,
     "superchargerEfficiency": 0.8,
@@ -35,6 +35,15 @@
       "pos": [0.0,0.3875,0.765],
       "maxValue": 12.0,
       "types": ["generic_ecu_gas"]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Classic Performante V8 Engine [§9Automatic§r]",
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -57,8 +66,8 @@
         {
           "animationType": "visibility",
           "variable": "part_present_1",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -75,8 +84,8 @@
         {
           "animationType": "visibility",
           "variable": "part_present_1",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -159,13 +168,6 @@
           "axis": [0.0,0.0,1.0]
         }
       ]
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Classic Performante V8 Engine [§9Automatic§r]",
-      "extraMaterials": []
     }
   ],
   "rendering": {
@@ -300,17 +302,17 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,10,0.0],
-            "offset": -10
+            "axis": [0.0,10.0,0.0],
+            "offset": -10.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,4,0.0],
+            "axis": [0.0,4.0,0.0],
             "offset": -3.5,
-            "clampMax": 4
+            "clampMax": 4.0
           }
         ],
         "looping": true
@@ -329,17 +331,17 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,10,0.0],
-            "offset": -10
+            "axis": [0.0,10.0,0.0],
+            "offset": -10.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,4,0.0],
+            "axis": [0.0,4.0,0.0],
             "offset": -3.5,
-            "clampMax": 4
+            "clampMax": 4.0
           }
         ],
         "looping": true
@@ -360,15 +362,6 @@
             "clampMax": 999999.0
           }
         ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.75,
-            "duration": 20
-          }
-        ],
         "volumeAnimations": [
           {
             "animationType": "translation",
@@ -383,6 +376,15 @@
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "looping": true
@@ -580,10 +582,14 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "7.0L Performance IVLabs Motor",
     "name": "Performante V8 Engine §2(Manual)",
+    "description": "7.0L Performance IVLabs Motor",
     "health": 100,
-    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelcarb:0:4","mts:ivv.gearboxmanual:0:1"],
-    "repairMaterials": ["mts:ivv.tape:0:1"]
+    "materialLists": [
+      ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelcarb:0:4","mts:ivv.gearboxmanual:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.oilcan:0:1","mts:ivv.tape:0:1"]
+    ]
   }
 }

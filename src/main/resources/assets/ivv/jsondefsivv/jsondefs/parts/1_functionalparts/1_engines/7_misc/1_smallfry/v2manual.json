@@ -4,27 +4,36 @@
     "mass": 40
   },
   "engine": {
+    "type": "normal",
     "starterPower": 60,
-    "engineWinddownRate": 100,
-    "engineWearFactor": 0.875,
     "shiftSpeed": 8,
     "clutchTime": 10,
     "revResistance": 5,
     "maxRPM": 12000,
     "maxSafeRPM": 8000,
     "idleRPM": 500,
+    "startRPM": 600,
+    "revlimitRPM": 7600,
+    "revlimitBounce": 5,
+    "stallRPM": 325,
+    "engineWinddownRate": 100,
+    "heatingCoefficient": 1.0,
+    "coolingCoefficient": 1.0,
+    "engineWearFactor": 0.875,
     "fuelConsumption": 0.05,
-    "gearRatios": [-3,0,3,2,1],
+    "gearRatios": [-3,0,3,2.25,1.5,0.75],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.05,
-    "superchargerEfficiency": 1,
+    "superchargerEfficiency": 1.0,
     "isCrankingNotPitched": true
   },
   "definitions": [
     {
       "subName": "",
       "name": "Smallfry V2 Engine [§2Manual§r]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -151,7 +160,7 @@
     },
     {
       "variable": "engine_clutching",
-      "maxValue": 1,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
@@ -180,6 +189,7 @@
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v2manual_starting",
@@ -225,7 +235,6 @@
           {
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0,
             "clampMax": 0.25
           }
         ],
@@ -234,9 +243,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -262,9 +271,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -290,9 +299,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -310,7 +319,7 @@
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -318,9 +327,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -337,7 +346,6 @@
           {
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0,
             "clampMax": 0.25
           }
         ]
@@ -389,7 +397,7 @@
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ]
       },
@@ -407,17 +415,17 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,10,0.0],
-            "offset": -10
+            "axis": [0.0,10.0,0.0],
+            "offset": -10.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,4,0.0],
+            "axis": [0.0,4.0,0.0],
             "offset": -3.5,
-            "clampMax": 4
+            "clampMax": 4.0
           }
         ],
         "looping": true
@@ -438,15 +446,6 @@
             "clampMax": 999999.0
           }
         ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.75,
-            "duration": 20
-          }
-        ],
         "volumeAnimations": [
           {
             "animationType": "translation",
@@ -461,6 +460,15 @@
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "looping": true
@@ -484,7 +492,7 @@
             "variable": "engine_starter",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "forwardsDelay": 4
+            "forwardsDelay": 4
           }
         ],
         "volumeAnimations": [
@@ -514,9 +522,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_starter",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "engine_starter"
           }
         ]
       },
@@ -591,6 +597,9 @@
     "particles": [
       {
         "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "color": "000000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -598,12 +607,14 @@
             "clampMin": 115.556,
             "clampMax": 999.0
           }
-        ],
-        "spawnEveryTick": true,
-        "color": "#000000"
+        ]
       },
       {
         "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "scale": 2.5,
+        "color": "000000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -611,14 +622,12 @@
             "clampMin": 121.111,
             "clampMax": 999.0
           }
-        ],
-        "spawnEveryTick": true,
-        "color": "#000000",
-        "scale": 2.5,
-        "quantity": 1
+        ]
       },
       {
         "type": "drip",
+        "quantity": 1,
+        "color": "000000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -632,11 +641,12 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ],
-        "color": "#000000"
+        ]
       },
       {
         "type": "drip",
+        "quantity": 1,
+        "color": "FF0000",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -650,19 +660,20 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ],
-        "color": "#FF0000"
+        ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/1_engines/8_misc/",
-  "packID": "ivv",
-  "systemName": "v2manual",
-  "classification": "part",
   "general": {
-    "description": "0.2L Budget IVLabs Motor",
     "name": "Smallfry V2 Engine §2(Manual)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["oredict:ingotIron:6","mts:ivv.enginepiston:0:2","mts:ivv.fuelcarb:0:1","mts:ivv.gearboxmanual:0:1"]
+    "description": "0.2L Budget IVLabs Motor",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:6","mts:ivv.enginepiston:0:2","mts:ivv.fuelcarb:0:1","mts:ivv.gearboxmanual:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.oilcan:0:1","mts:ivv.tape:0:1"]
+    ]
   }
 }

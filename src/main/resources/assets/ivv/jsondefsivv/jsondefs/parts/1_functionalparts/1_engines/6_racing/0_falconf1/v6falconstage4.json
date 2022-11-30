@@ -4,10 +4,9 @@
     "mass": 120
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
     "starterPower": 65,
-    "engineWinddownRate": 100,
-    "engineWearFactor": 6,
     "shiftSpeed": 10,
     "clutchTime": 3,
     "revResistance": 6,
@@ -15,10 +14,14 @@
     "maxSafeRPM": 10000,
     "idleRPM": 800,
     "startRPM": 600,
+    "revlimitRPM": 9500,
+    "revlimitBounce": 6,
     "stallRPM": 520,
-    "fuelConsumption": 0.5,
+    "engineWinddownRate": 100,
     "heatingCoefficient": 1.5,
     "coolingCoefficient": 1.5,
+    "engineWearFactor": 6.0,
+    "fuelConsumption": 0.5,
     "gearRatios": [-1.5,0.0,2.0,1.0,0.75,0.5],
     "upShiftRPM": [0,0,8000,8500,8500,8500,7500],
     "downShiftRPM": [0,0,2400,2400,2400,2400,2400],
@@ -31,7 +34,9 @@
     {
       "subName": "",
       "name": "Falcon V6 Hydrogen Racing Engine [§9Automatic§r, Drag Built]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -135,6 +140,7 @@
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v6falcon_starting",
@@ -180,7 +186,6 @@
           {
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0,
             "clampMax": 0.25
           }
         ],
@@ -189,9 +194,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -217,9 +222,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -245,9 +250,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -265,7 +270,7 @@
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -273,9 +278,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -287,13 +292,13 @@
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": 2.0,
-            "clampMax": 127
+            "clampMax": 127.0
           },
           {
             "animationType": "visibility",
             "variable": "engine_clutch_upshift",
             "clampMin": 1.0,
-            "clampMax": 127
+            "clampMax": 127.0
           }
         ]
       },
@@ -304,13 +309,13 @@
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": 1.0,
-            "clampMax": 127
+            "clampMax": 127.0
           },
           {
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": -127.0,
-            "clampMax": -2
+            "clampMax": -2.0
           },
           {
             "animationType": "visibility",
@@ -358,17 +363,17 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,10,0.0],
-            "offset": -10
+            "axis": [0.0,10.0,0.0],
+            "offset": -10.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,4,0.0],
+            "axis": [0.0,4.0,0.0],
             "offset": -3.5,
-            "clampMax": 4
+            "clampMax": 4.0
           }
         ],
         "looping": true
@@ -389,15 +394,6 @@
             "clampMax": 999999.0
           }
         ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.75,
-            "duration": 20
-          }
-        ],
         "volumeAnimations": [
           {
             "animationType": "translation",
@@ -412,6 +408,15 @@
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "looping": true
@@ -435,7 +440,7 @@
             "variable": "engine_starter",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "forwardsDelay": 11
+            "forwardsDelay": 11
           }
         ],
         "volumeAnimations": [
@@ -465,9 +470,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_starter",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "engine_starter"
           }
         ]
       },
@@ -544,6 +547,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -571,6 +575,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -589,6 +594,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -605,16 +611,18 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/6_racing/0_falconf1/",
-  "packID": "ivv",
-  "systemName": "v6falconstage4",
-  "classification": "part",
   "general": {
-    "description": "2.6L Racing IVLabs Motor",
     "name": "Performante I4 Engine §9(Automatic)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:6","mts:ivv.fuelfihyper:0:4","mts:ivv.gearboxauto:0:1"]
+    "description": "2.6L Racing IVLabs Motor",
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:6","mts:ivv.fuelfihyper:0:4","mts:ivv.gearboxauto:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.oilcan_race:0:1","mts:ivv.tape:0:1"]
+    ]
   }
 }
