@@ -31,8 +31,8 @@
   "parts": [
     {
       "pos": [0.132375,0.0,0.0],
-      "partScale": [0.875,0.875,0.875],
       "maxValue": 1.0,
+      "partScale": [0.875,0.875,0.875],
       "types": ["generic_rim"]
     }
   ],
@@ -448,6 +448,10 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
+          {
+            "animationType": "visibility",
             "variable": "ground_inliquid"
           },
           {
@@ -485,6 +489,10 @@
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
@@ -536,6 +544,10 @@
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
@@ -601,6 +613,10 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
+          {
+            "animationType": "visibility",
             "variable": "ground_inliquid"
           },
           {
@@ -646,6 +662,10 @@
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
@@ -695,6 +715,10 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
+          {
+            "animationType": "visibility",
             "variable": "ground_inliquid"
           },
           {
@@ -720,6 +744,71 @@
             "variable": "slip",
             "clampMin": 20.0,
             "clampMax": 1024.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 3.0,
+            "clampMax": 3.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "duration": 20,
+        "transparency": 2,
+        "toTransparency": -1.0E-4,
+        "scale": 0.25,
+        "texture": "ivv:textures/particles/pattern2.png",
+        "color": "EDAC28",
+        "pos": [0.0,-0.375,0.0],
+        "initialVelocity": [0.0,1,-1.25],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [2048,2048,2048],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 65535.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_skidding",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
