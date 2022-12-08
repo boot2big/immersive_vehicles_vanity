@@ -1,0 +1,83 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "movementAnimations": [
+      {
+        "animationType": "rotation",
+        "variable": "ground_rotation",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [1.0,0.0,0.0]
+      }
+    ]
+  },
+  "ground": {
+    "isWheel": true,
+    "width": 0.2,
+    "height": 1.5,
+    "motiveFriction": 0.35,
+    "lateralFriction": 0.2,
+    "frictionModifiers": {
+      "snow": -0.275,
+      "ice": -0.475,
+      "dirt": -0.175,
+      "dirt_wet": -0.275,
+      "sand": -0.275,
+      "sand_wet": -0.375,
+      "normal_wet": -0.075,
+      "normal": 0.0
+    }
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "therobloxwheel",
+      "name": "Wooden Wheel",
+      "extraMaterials": []
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "motiveFriction",
+      "setValue": 0.00001,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear",
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "brake",
+          "clampMin": 0.5,
+          "clampMax": 1
+        },
+        {
+          "animationType": "visibility",
+          "variable": "throttle",
+          "clampMin": 0.625,
+          "clampMax": 1
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "sounds": [],
+    "particles": []
+  },
+  "prefixFolders": "4_vehiclespecificparts/z_misc/",
+  "packID": "ivv",
+  "systemName": "therobloxwheel",
+  "classification": "part",
+  "general": {
+    "name": "Wooden Wheel",
+    "description": "Oddly enough, it looks almost... block-like.\nUsed to craft ROBLOX Jeep.",
+    "stackSize": 4,
+    "materials": ["minecraft:iron_ingot:0:4"]
+  }
+}

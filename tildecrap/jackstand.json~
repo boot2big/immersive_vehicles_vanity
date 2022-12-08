@@ -1,0 +1,170 @@
+{
+  "generic": {
+    "type": "ground_jackstand",
+    "canBeRemovedByHand": true,
+    "canBePlacedOnGround": true,
+    "placedOffset": 0.250485
+  },
+  "ground": {
+    "width": 0.5,
+    "height": 0.5,
+    "frictionModifiers": {
+      "snow": -0.2,
+      "ice": -0.2,
+      "dirt_wet": -0.1,
+      "sand_wet": -0.1,
+      "normal_wet": -0.1
+    }
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Jackstand",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:jackscrape",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.01,
+            "clampMax": 9999.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.12,0.0],
+            "offset": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.01,0.0],
+            "offset": 0.7,
+            "clampMax": 1.4
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "break",
+        "quantity": 7,
+        "color": "FFFFFF",
+        "initialVelocity": [0.0,0.15,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_contacted",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 4,
+        "duration": 40,
+        "transparency": 0.3,
+        "toTransparency": 1.0E-7,
+        "scale": 2.0,
+        "toScale": 40.0,
+        "color": "999999",
+        "pos": [0.0,-0.4375,0.0],
+        "initialVelocity": [0.0,0.15,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.01,
+            "clampMax": 9999.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "quantity": 4,
+        "duration": 10,
+        "transparency": 0.8,
+        "toTransparency": 1.0E-7,
+        "scale": 5.0,
+        "toScale": 1.0,
+        "color": "FFFFEE",
+        "pos": [0.0,-0.4375,0.0],
+        "initialVelocity": [0.0,1.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.01,
+            "clampMax": 9999.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "spawnEveryTick": true,
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,-0.4375,0.0],
+        "initialVelocity": [0.0,1.5,-1.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.01,
+            "clampMax": 9999.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Jackstand",
+    "description": "Can be placed under certain vehicles to lift them off the ground slightly.\nIf it starts making sparks and scary noises, take it off before driving.",
+    "health": 100,
+    "materialLists": [
+      ["minecraft:iron_ingot:0:6"]
+    ]
+  }
+}

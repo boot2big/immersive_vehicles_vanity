@@ -8,11 +8,11 @@
     "emptyMass": 3400,
     "fuelCapacity": 35000,
     "defaultFuelQty": 35000,
-    "downForce": 0.8,
+    "downForce": 0.75,
     "overSteer": 2.0,
-    "underSteer": 1.5,
-    "overSteerAccel": 1.0,
-    "overSteerDecel": -2.0,
+    "underSteer": 2.0,
+    "overSteerAccel": 4.0,
+    "overSteerDecel": -1.0,
     "axleRatio": 1.5,
     "brakingFactor": 5.0,
     "dragCoefficient": 0.1,
@@ -86,6 +86,22 @@
       "interactableVariables": [
         ["door_left"]
       ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 2
+        },
+        {
+          "name": "water_breathing",
+          "duration": 100
+        }
+      ],
       "animations": [
         {
           "animationType": "rotation",
@@ -124,6 +140,22 @@
       "interactableVariables": [
         ["door_right"]
       ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 2
+        },
+        {
+          "name": "water_breathing",
+          "duration": 100
+        }
+      ],
       "animations": [
         {
           "animationType": "rotation",
@@ -160,6 +192,22 @@
       "types": ["seat"],
       "interactableVariables": [
         ["door_right"]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 2
+        },
+        {
+          "name": "water_breathing",
+          "duration": 100
+        }
       ],
       "animations": [
         {
@@ -229,6 +277,22 @@
       "types": ["seat"],
       "interactableVariables": [
         ["door_left"]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 2
+        },
+        {
+          "name": "water_breathing",
+          "duration": 100
+        }
       ],
       "animations": [
         {
@@ -403,7 +467,7 @@
       "defaultPart": "ivv:rockseat",
       "types": ["seat_invisible"],
       "interactableVariables": [
-        ["under_normal_circumstances_you_can_only_enter_the_car_from_inside_(:"]
+        ["!i_didnt_feel_like_removing_this"]
       ],
       "seatEffects": [
         {
@@ -443,7 +507,6 @@
       "rot": [-67.5,0.0,0.0],
       "minValue": 1.0,
       "maxValue": 100.0,
-      "defaultPart": "ivv:uniguncmflare",
       "types": ["gun_unigun_defense"],
       "linkedParts": [12,29]
     },
@@ -1335,7 +1398,7 @@
       "rot": [27.0,0.0,0.0],
       "scale": 0.0125,
       "hudX": 98,
-      "hudY": -5,
+      "hudY": -4,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:fueldigital_dark"
     },
@@ -1344,7 +1407,7 @@
       "rot": [27.0,0.0,0.0],
       "scale": 0.0125,
       "hudX": 168,
-      "hudY": -5,
+      "hudY": -4,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:tachdigital_dark"
     },
@@ -1353,7 +1416,7 @@
       "rot": [27.0,0.0,0.0],
       "scale": 0.0125,
       "hudX": 240,
-      "hudY": -5,
+      "hudY": -4,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:mphdigital_dark"
     },
@@ -1362,7 +1425,7 @@
       "rot": [27.0,0.0,0.0],
       "scale": 0.0125,
       "hudX": 310,
-      "hudY": -5,
+      "hudY": -4,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:hours_dark"
     },
@@ -1455,7 +1518,7 @@
           "variable": "slip",
           "centerPoint": [0.0,0.0,0.0],
           "axis": [0.0,0.125,0.0],
-          "offset": -3.0,
+          "offset": -1.5,
           "clampMin": 0.0125,
           "absolute": true
         }
@@ -2021,6 +2084,12 @@
         },
         {
           "animationType": "visibility",
+          "variable": "random",
+          "clampMin": 0.75,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
           "variable": "seat_occupied_4",
           "clampMin": 1.0,
           "clampMax": 1.0
@@ -2135,9 +2204,9 @@
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "480_20_480_cycle",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "variable": "random",
+          "clampMin": 1.0E-4,
+          "clampMax": 0.001
         },
         {
           "animationType": "visibility",
@@ -2153,9 +2222,7 @@
         },
         {
           "animationType": "visibility",
-          "variable": "EJECT",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "variable": "EJECT"
         },
         {
           "animationType": "translation",
@@ -2386,6 +2453,28 @@
           "variable": "gun_active_3",
           "axis": [0.0,4.0,0.0],
           "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "gun_active_4",
+          "axis": [0.0,4.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "console_weapon_state",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,3.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "40_2_40_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     },
@@ -2709,6 +2798,34 @@
   ],
   "rendering": {
     "textObjects": [
+      {
+        "pos": [0.04248,0.60257,2.5654],
+        "rot": [-26.7,180.0,0.0],
+        "scale": 0.03,
+        "variableName": "missile_#_distance",
+        "variableFactor": 1.0,
+        "variableFormat": "INC: %01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "BA7C35",
+        "attachedTo": "screen2",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      {
+        "pos": [0.04248,0.58639,2.55731],
+        "rot": [-26.7,180.0,0.0],
+        "scale": 0.03,
+        "variableName": "gun_ammo_count_4",
+        "variableFactor": 1.0,
+        "variableFormat": "CM: %01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "BA7C35",
+        "attachedTo": "screen2",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
       {
         "pos": [0.11548,0.60257,2.5654],
         "rot": [-26.7,180.0,0.0],
@@ -3117,7 +3234,7 @@
             "animationType": "rotation",
             "variable": "ground_rotation_4",
             "centerPoint": [-0.98047,-0.0625,3.5625],
-            "axis": [1.0,0.0,0.0]
+            "axis": [-1.0,0.0,0.0]
           }
         ]
       },
@@ -3299,11 +3416,6 @@
         "objectName": "gate_translucent",
         "animations": [
           {
-            "animationType": "visibility",
-            "variable": "damage_percent",
-            "clampMax": 0.99
-          },
-          {
             "animationType": "rotation",
             "variable": "door_trunk",
             "centerPoint": [0.0,1.25781,0.3125],
@@ -3313,6 +3425,17 @@
             "reverseEasing": "easeinoutsine",
             "forwardsStartSound": "ivv:trunkopen2",
             "reverseEndSound": "ivv:trunkclose2"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_percent",
+            "clampMax": 0.998725
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bruh",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -3503,8 +3626,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "160_80_0_cycle",
-            "clampMin": 1.0,
+            "variable": "console_weapon_state",
             "clampMax": 1.0
           }
         ]
@@ -3515,9 +3637,9 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "80_80_80_cycle",
+            "variable": "console_weapon_state",
             "clampMin": 1.0,
-            "clampMax": 1.0
+            "clampMax": 2.0
           }
         ]
       },
@@ -3527,9 +3649,9 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "0_80_160_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "console_weapon_state",
+            "clampMin": 2.0,
+            "clampMax": 3.0
           }
         ]
       },
@@ -3556,9 +3678,15 @@
         "objectName": "mirror",
         "animations": [
           {
-            "animationType": "visibility",
+            "animationType": "inhibitor",
             "variable": "damage_percent",
-            "clampMax": 0.99
+            "clampMax": 0.998725
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bruh",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -3566,9 +3694,15 @@
         "objectName": "glass_translucent",
         "animations": [
           {
-            "animationType": "visibility",
+            "animationType": "inhibitor",
             "variable": "damage_percent",
-            "clampMax": 0.99
+            "clampMax": 0.998725
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bruh",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -3599,9 +3733,15 @@
             "reverseDelay": 20
           },
           {
-            "animationType": "visibility",
+            "animationType": "inhibitor",
             "variable": "damage_percent",
-            "clampMax": 0.99
+            "clampMax": 0.998725
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bruh",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -3649,9 +3789,37 @@
         "applyAfter": "rightdoor",
         "animations": [
           {
-            "animationType": "visibility",
+            "animationType": "translation",
+            "variable": "EJECT",
+            "axis": [-0.178235,-0.544538,0.066074],
+            "offset": 0.0025,
+            "duration": 5,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": -5,
+            "reverseDelay": 20
+          },
+          {
+            "animationType": "rotation",
+            "variable": "EJECT",
+            "centerPoint": [0.964844,0.953125,1.26523],
+            "axis": [0.0,0.0,30.0],
+            "duration": 5,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": -5,
+            "reverseDelay": 20
+          },
+          {
+            "animationType": "inhibitor",
             "variable": "damage_percent",
-            "clampMax": 0.99
+            "clampMax": 0.998725
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bruh",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -4044,6 +4212,18 @@
         "color": "FFFFFF"
       },
       {
+        "objectName": "screen2target1",
+        "color": "FFFFFF"
+      },
+      {
+        "objectName": "screen2target2",
+        "color": "FFFFFF"
+      },
+      {
+        "objectName": "screen2target3",
+        "color": "FFFFFF"
+      },
+      {
         "objectName": "screen2missiles",
         "color": "FFFFFF"
       },
@@ -4238,7 +4418,7 @@
       {
         "objectName": "speaker1",
         "emissive": true,
-        "color": "FF26A2",
+        "color": "F00E6C",
         "brightnessAnimations": [
           {
             "animationType": "translation",
@@ -4261,7 +4441,7 @@
       {
         "objectName": "speaker2",
         "emissive": true,
-        "color": "FF26A2",
+        "color": "F00E6C",
         "brightnessAnimations": [
           {
             "animationType": "translation",
@@ -4285,7 +4465,7 @@
       {
         "objectName": "speaker3",
         "emissive": true,
-        "color": "FF26A2",
+        "color": "F00E6C",
         "brightnessAnimations": [
           {
             "animationType": "translation",
@@ -4309,7 +4489,7 @@
       {
         "objectName": "scanner1",
         "emissive": true,
-        "color": "FF26A2",
+        "color": "B63ACF",
         "brightnessAnimations": [
           {
             "animationType": "translation",
@@ -4335,7 +4515,7 @@
       {
         "objectName": "scanner2",
         "emissive": true,
-        "color": "FF26A2",
+        "color": "B63ACF",
         "brightnessAnimations": [
           {
             "animationType": "translation",
@@ -4363,7 +4543,7 @@
       {
         "objectName": "scanner3",
         "emissive": true,
-        "color": "FF26A2",
+        "color": "B63ACF",
         "brightnessAnimations": [
           {
             "animationType": "translation",
@@ -4391,7 +4571,7 @@
       {
         "objectName": "scanner4",
         "emissive": true,
-        "color": "FF26A2",
+        "color": "B63ACF",
         "brightnessAnimations": [
           {
             "animationType": "translation",
@@ -4419,7 +4599,7 @@
       {
         "objectName": "scanner5",
         "emissive": true,
-        "color": "FF26A2",
+        "color": "B63ACF",
         "brightnessAnimations": [
           {
             "animationType": "translation",
@@ -5018,6 +5198,11 @@
         "rot": [20.0,0.0,0.0],
         "animations": [
           {
+            "animationType": "visibility",
+            "variable": "seat_occupied_client_5",
+            "clampMax": 1.0
+          },
+          {
             "animationType": "rotation",
             "variable": "seat_rider_yaw_2",
             "centerPoint": [0.0,0.237865,1.19834],
@@ -5065,7 +5250,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "seat_occupied_5",
+            "variable": "seat_occupied_client_5",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -5079,7 +5264,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "seat_occupied_5",
+            "variable": "seat_occupied_client_5",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -5093,9 +5278,9 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "seat_occupied_5",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "seat_occupied_client_5",
+            "clampMin": 2.0,
+            "clampMax": 2.0
           }
         ]
       },
@@ -5106,7 +5291,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "seat_occupied_5",
+            "variable": "seat_occupied_client_5",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -5893,26 +6078,14 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "20_40_20_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "random",
+            "clampMin": 0.0124,
+            "clampMax": 0.0125
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 25.0,
-            "clampMax": 50.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "10_20_10_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "mood",
-            "clampMin": 45.0,
+            "clampMin": 40.0,
             "clampMax": 50.0
           }
         ]
@@ -5932,26 +6105,14 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "20_40_20_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "random",
+            "clampMin": 0.0124,
+            "clampMax": 0.0125
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 25.0,
-            "clampMax": 50.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "10_20_10_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "mood",
-            "clampMin": 45.0,
+            "clampMin": 40.0,
             "clampMax": 50.0
           }
         ]
@@ -5971,26 +6132,14 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "20_40_20_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "random",
+            "clampMin": 0.0124,
+            "clampMax": 0.0125
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 25.0,
-            "clampMax": 50.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "10_20_10_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "mood",
-            "clampMin": 45.0,
+            "clampMin": 40.0,
             "clampMax": 50.0
           }
         ]
@@ -6010,26 +6159,14 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "20_40_20_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "random",
+            "clampMin": 0.0124,
+            "clampMax": 0.0125
           },
           {
             "animationType": "visibility",
             "variable": "mood",
-            "clampMin": 25.0,
-            "clampMax": 50.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "10_20_10_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "mood",
-            "clampMin": 45.0,
+            "clampMin": 40.0,
             "clampMax": 50.0
           }
         ]
@@ -6049,27 +6186,15 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "20_40_20_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "random",
+            "clampMin": 0.0124,
+            "clampMax": 0.0125
           },
           {
             "animationType": "visibility",
             "variable": "mood",
             "clampMin": -50.0,
-            "clampMax": -25.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "10_20_10_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "mood",
-            "clampMin": -50.0,
-            "clampMax": -45.0
+            "clampMax": -40.0
           }
         ]
       },
@@ -6088,27 +6213,15 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "20_40_20_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "random",
+            "clampMin": 0.0124,
+            "clampMax": 0.0125
           },
           {
             "animationType": "visibility",
             "variable": "mood",
             "clampMin": -50.0,
-            "clampMax": -25.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "10_20_10_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "mood",
-            "clampMin": -50.0,
-            "clampMax": -45.0
+            "clampMax": -40.0
           }
         ]
       },
@@ -6127,33 +6240,15 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "disabled",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "20_40_20_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "random",
+            "clampMin": 0.0124,
+            "clampMax": 0.0125
           },
           {
             "animationType": "visibility",
             "variable": "mood",
             "clampMin": -50.0,
-            "clampMax": -25.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "10_20_10_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "mood",
-            "clampMin": -50.0,
-            "clampMax": -45.0
+            "clampMax": -40.0
           }
         ]
       },
@@ -6172,33 +6267,15 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "disabled",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "20_40_20_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "random",
+            "clampMin": 0.0124,
+            "clampMax": 0.0125
           },
           {
             "animationType": "visibility",
             "variable": "mood",
             "clampMin": -50.0,
-            "clampMax": -25.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "10_20_10_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "mood",
-            "clampMin": -50.0,
-            "clampMax": -45.0
+            "clampMax": -40.0
           }
         ]
       },
@@ -7029,23 +7106,23 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§f§lSTATS:\n§r§7Drivetrain: Microprocessor controlled twin electronically driven duoshaft all-time quad-system\nMax. Top Speed: 183MPH (215MPH with hybrid assist)\n0-60: 4.02 (1.92 with hybrid assist and turboboost)\n0-Top Speed: 0:54:23 (0:36:01 with hybrid assist and turboboost)\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Lightbar/Gyrophare x1\n-Roof Device x1\n-Magnitrox Hybrid Motor x2",
+    "description": "§f§lSTATS:\n§r§7Drivetrain: Microprocessor controlled twin electronically driven duoshaft all-time quad-system\nMax. Top Speed: 307MPH\n0-60: 2.15\n0-Top Speed: 0:49:26\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Lightbar/Gyrophare x1\n-Roof Device x1\n-Magnitrox Hybrid Motor x2",
     "health": 6800,
     "materialLists": [
-      ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:6","mts:ivv.uniguncmflare:0:1","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
-      ["mts:ivv.vector_red:0:1","mts:ivv.tcblock:0:4","mts:ivv.uniguncmflare:0:1","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
-      ["mts:ivv.vector_blue:0:1","mts:ivv.tcblock:0:4","mts:ivv.uniguncmflare:0:1","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
-      ["mts:ivv.vector_green:0:1","mts:ivv.tcblock:0:4","mts:ivv.uniguncmflare:0:1","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
-      ["mts:ivv.vector_black:0:1","mts:ivv.tcblock:0:4","mts:ivv.uniguncmflare:0:1","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
-      ["mts:ivv.vector_white:0:1","mts:ivv.tcblock:0:4","mts:ivv.uniguncmflare:0:1","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"]
+      ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:6","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
+      ["mts:ivv.vector_red:0:1","mts:ivv.tcblock:0:4","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
+      ["mts:ivv.vector_blue:0:1","mts:ivv.tcblock:0:4","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
+      ["mts:ivv.vector_green:0:1","mts:ivv.tcblock:0:4","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
+      ["mts:ivv.vector_black:0:1","mts:ivv.tcblock:0:4","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"],
+      ["mts:ivv.vector_white:0:1","mts:ivv.tcblock:0:4","mts:ivv.unigunmg:0:1","mts:ivv.unigunrl:0:1","mts:ivv.normaltiresuper:0:4","mts:ivv.carseat:0:2","mts:ivv.v8turbojet:0:1","mts:ivv.acivebox:0:1","mts:ivv.radardetector:0:1","mts:ivv.fueldigital_dark:0:1","mts:ivv.tachdigital_dark:0:1","mts:ivv.mphdigital_dark:0:1","mts:ivv.hours_dark:0:1"]
     ],
     "repairMaterialLists": [
-      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:2","mts:ivv.tape:0:2"],
-      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:2","mts:ivv.tape:0:2"],
-      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:2","mts:ivv.tape:0:2"],
-      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:2","mts:ivv.tape:0:2"],
-      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:2","mts:ivv.tape:0:2"],
-      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:2","mts:ivv.tape:0:2"]
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:1","mts:ivv.tape:0:2"],
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:1","mts:ivv.tape:0:2"],
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:1","mts:ivv.tape:0:2"],
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:1","mts:ivv.tape:0:2"],
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:1","mts:ivv.tape:0:2"],
+      ["mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.tcblock:0:1","mts:ivv.tape:0:2"]
     ]
   }
 }

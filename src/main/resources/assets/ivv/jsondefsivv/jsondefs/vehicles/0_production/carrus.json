@@ -9,7 +9,7 @@
     "defaultFuelQty": 26500,
     "downForce": 0.65,
     "overSteer": 1.5,
-    "underSteer": 2,
+    "underSteer": 2.0,
     "overSteerAccel": -1.0,
     "overSteerDecel": 3.0,
     "axleRatio": 2.75,
@@ -46,8 +46,8 @@
       "maxValue": 1.0625,
       "defaultPart": "ivv:normaltire",
       "types": ["ground_wheel"],
-      "animations": [],
-      "applyAfter": "frontrightsteer"
+      "applyAfter": "frontrightsteer",
+      "animations": []
     },
     {
       "pos": [0.950979,0.125,4.75],
@@ -56,8 +56,8 @@
       "maxValue": 1.0625,
       "defaultPart": "ivv:normaltire",
       "types": ["ground_wheel"],
-      "animations": [],
-      "applyAfter": "frontleftsteer"
+      "applyAfter": "frontleftsteer",
+      "animations": []
     },
     {
       "pos": [0.0,0.0,0.0],
@@ -190,16 +190,42 @@
       "types": ["generic_radio"]
     },
     {
-      "pos": [1.19,0.74,3.7],
+      "pos": [0.9725,0.675,5.425],
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
-      "types": ["generic_flag_small"]
+      "types": ["generic_flag_small"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "door_hood",
+          "centerPoint": [0.9725,0.675,5.425],
+          "axis": [33.75,0.0,0.0],
+          "duration": 15,
+          "forwardsEasing": "easeoutquint",
+          "reverseEasing": "easeoutquint",
+          "forwardsDelay": -13,
+          "reverseDelay": 15
+        }
+      ]
     },
     {
-      "pos": [-1.19,0.74,3.7],
+      "pos": [-0.9725,0.675,5.425],
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
-      "types": ["generic_flag_small"]
+      "types": ["generic_flag_small"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "door_hood",
+          "centerPoint": [0.9725,0.675,5.425],
+          "axis": [33.75,0.0,0.0],
+          "duration": 15,
+          "forwardsEasing": "easeoutquint",
+          "reverseEasing": "easeoutquint",
+          "forwardsDelay": -13,
+          "reverseDelay": 15
+        }
+      ]
     },
     {
       "pos": [-0.625,0.341854,2.3731],
@@ -656,7 +682,7 @@
   "instruments": [
     {
       "pos": [0.675,0.905521,3.84136],
-      "rot": [45,0.0,0.0],
+      "rot": [45.0,0.0,0.0],
       "scale": 0.01,
       "hudX": 125,
       "hudY": -10,
@@ -665,7 +691,7 @@
     },
     {
       "pos": [0.5625,0.905521,3.84136],
-      "rot": [45,0.0,0.0],
+      "rot": [45.0,0.0,0.0],
       "scale": 0.015,
       "hudX": 205,
       "hudY": -10,
@@ -752,7 +778,7 @@
           "variable": "slip",
           "centerPoint": [0.0,0.0,0.0],
           "axis": [0.0,0.156,0.0],
-          "offset": -1.75,
+          "offset": -1.25,
           "clampMin": 0.0125,
           "absolute": true
         }
@@ -1373,7 +1399,7 @@
             "animationType": "rotation",
             "variable": "throttle",
             "centerPoint": [0.0,0.308844,3.89621],
-            "axis": [-25,0.0,0.0]
+            "axis": [-25.0,0.0,0.0]
           }
         ]
       },
@@ -2003,8 +2029,8 @@
           {
             "animationType": "inhibitor",
             "variable": "engine_checklight_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -2068,16 +2094,16 @@
           {
             "animationType": "visibility",
             "variable": "damage_percent",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "!true",
-            "axis": [0.0,5,0.0],
-            "offset": 5
+            "axis": [0.0,5.0,0.0],
+            "offset": 5.0
           }
         ]
       }
@@ -2117,8 +2143,8 @@
         "transparency": 0.875,
         "toTransparency": 0.01,
         "scale": 16.0,
-        "toScale": 8,
-        "color": "ffffff",
+        "toScale": 8.0,
+        "color": "FFFFFF",
         "pos": [0.0,0.597246,2.0],
         "initialVelocity": [0.0,1.0,0.0],
         "activeAnimations": [
@@ -2157,11 +2183,12 @@
             "clampMax": 1.0
           }
         ]
-      }],
+      }
+    ],
     "modelType": "obj"
   },
   "general": {
-    "description": "§r§f§lSTATS:\n§r§7Drivetrain: FWD\nMax. Top Speed: 97MPH\n0-60: 12.24\n0-Top Speed: 0:54.09\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
+    "description": "§r§f§lSTATS:\n§r§7Drivetrain: FWD\nMax. Top Speed: 107MPH\n0-60: 9.27 \n0-Top Speed: 0:21.73\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
     "health": 3000,
     "materialLists": [
       ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:6","mts:ivv.normaltire:0:4","mts:ivv.carseat_gray:0:6","mts:ivv.compact_electricmotor:0:1","mts:ivv.fueltemp:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1","mts:ivv.oilpower:0:1"]

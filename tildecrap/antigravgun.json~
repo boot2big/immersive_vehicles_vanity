@@ -1,0 +1,240 @@
+{
+  "generic": {
+    "type": "gun_hand_portal"
+  },
+  "gun": {
+    "handHeld": true,
+    "isSemiAuto": true,
+    "capacity": 10,
+    "reloadTime": 30,
+    "muzzleVelocity": 1200,
+    "fireDelay": 10.0,
+    "diameter": 40.0,
+    "minCaseLength": 20.0,
+    "maxCaseLength": 20.0,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "handHeldNormalOffset": [-0.05,-0.05,0.5],
+    "handHeldAimedOffset": [0.315,0.05,0.45],
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Negative Gravitational Enhancement Gun",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.125,0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "AMMO: %01.0f/10",
+        "fontName": "ivv:digifont",
+        "defaultText": "fill me up daddy owo",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "attachedTo": "hudAmmoModel",
+        "lightsUp": true,
+        "renderPosition": 2
+      },
+      {
+        "pos": [0.125,-0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "RELOADING",
+        "fontName": "ivv:digifont",
+        "defaultText": "uwwaaaaa~",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "attachedTo": "hudReloadModel",
+        "lightsUp": true,
+        "renderPosition": 2
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_controller_firstperson",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "hudReloadModel",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "hudAmmoModel",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          }
+        ]
+      },
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-6.0,0.0,0.0],
+            "duration": 6,
+            "forwardsDelay": -6,
+            "forwardsEasing": "easeoutexpo",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.05],
+            "duration": 6,
+            "forwardsDelay": -6,
+            "forwardsEasing": "easeoutexpo",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      },
+      {
+        "objectName": "gemstable",
+        "applyAfter": "cube",
+        "animations": []
+      },
+      {
+        "objectName": "barrel",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_cooldown",
+            "axis": [0.0,0.0,-0.0375],
+            "duration": 2
+          }
+        ]
+      },
+      {
+        "objectName": "gem",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_cooldown",
+            "axis": [0.0,0.0,-0.0375],
+            "duration": 2
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:antigrav_firing",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:antigrav_reloading",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 4.0,
+        "color": "555555",
+        "pos": [0.0,0.11807,1.11259],
+        "initialVelocity": [0.0,0.0,2.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-3.0,0.0,0.0],
+            "duration": 6,
+            "forwardsDelay": -6,
+            "forwardsEasing": "easeoutexpo",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.1],
+            "duration": 6,
+            "forwardsDelay": -6,
+            "forwardsEasing": "easeoutexpo",
+            "reverseEasing": "easeinoutsine"
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 2.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "AAC Honeybadger",
+    "description": "Vvvvzwarp",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:16","minecraft:stone_button:0:1"]
+    ]
+  }
+}

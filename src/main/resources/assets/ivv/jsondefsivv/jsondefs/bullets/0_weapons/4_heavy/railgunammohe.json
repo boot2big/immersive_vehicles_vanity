@@ -5,13 +5,15 @@
       "armor_piercing"
     ],
     "quantity": 5,
-    "diameter": 30.0,
-    "damage": 32.0,
-    "caseLength": 90.0,
-    "blastStrength": 3.5,
+    "diameter": 250.0,
+    "damage": 160,
+    "caseLength": 500.0,
+    "blastStrength": 2,
     "armorPenetration": 600.0,
     "accelerationTime": 1,
-    "maxVelocity": 2400
+    "airBurstDelay": 20,
+    "maxVelocity": 2400,
+    "impactDespawnTime": 40
   },
   "definitions": [
     {
@@ -39,75 +41,58 @@
     "lightObjects": [],
     "sounds": [
       {
-        "name": "ivv:bullethitmob1",
+        "name": "ivv:explode_bullet",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "bullet_hit_entity",
+            "variable": "bullet_hit",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMax": 0.25
           }
         ],
-        "forceSound": true
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ]
       },
       {
-        "name": "ivv:bullethitmob2",
+        "name": "ivv:explode_bullet",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "bullet_hit_entity",
+            "variable": "bullet_hit_burst",
             "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.25,
-            "clampMax": 0.5
-          }
-        ],
-        "forceSound": true
-      },
-      {
-        "name": "ivv:bullethitmob3",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "bullet_hit_entity",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.5,
-            "clampMax": 0.75
-          }
-        ],
-        "forceSound": true
-      },
-      {
-        "name": "ivv:bullethitmob4",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "bullet_hit_entity",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.75,
             "clampMax": 1.0
           }
         ],
-        "forceSound": true
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1,0.0],
+            "offset": 1
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ]
       }
     ],
     "particles": [
@@ -122,6 +107,28 @@
           {
             "animationType": "visibility",
             "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "quantity": 1,
+        "duration": 10,
+        "transparency": 2.0,
+        "toTransparency": 0.01,
+        "scale": 16.0,
+        "toScale": 24.0,
+        "texture": "ivv:textures/particles/muzzleflash.png",
+        "color": "FFFFFF",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
