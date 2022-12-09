@@ -2,7 +2,7 @@
   "generic": {
     "type": "gun_hand_standard",
     "canBeRemovedByHand": true,
-    "width": 0.5,
+    "width": 0.375,
     "height": 0.375
   },
   "gun": {
@@ -38,6 +38,7 @@
       "rot": [0.0,0.0,0.0],
       "allowParentRemoval": true,
       "maxValue": 4.0,
+      "partScale": [1.375,1.375,1.0],
       "types": ["generic_gun_suppressor"],
       "linkedParts": [],
       "applyAfter": "cube"
@@ -165,8 +166,24 @@
           {
             "animationType": "translation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.025],
+            "axis": [0.0,0.0,-0.05],
             "duration": 1
+          },
+		  {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,0.0,-0.05],
+            "duration": 2,
+			"forwardsDelay": 26,
+			"skipReverseMovement": true
+          },
+		  {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,0.0,0.05],
+            "duration": 2,
+			"forwardsDelay": 28,
+			"skipReverseMovement": true
           }
         ]
       },

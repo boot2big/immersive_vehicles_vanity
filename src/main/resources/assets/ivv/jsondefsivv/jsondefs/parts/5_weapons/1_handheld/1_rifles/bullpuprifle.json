@@ -2,7 +2,7 @@
   "generic": {
     "type": "gun_hand_longarm",
     "canBeRemovedByHand": true,
-    "width": 0.5,
+    "width": 0.375,
     "height": 0.375
   },
   "gun": {
@@ -18,7 +18,7 @@
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "handHeldNormalOffset": [0.05,-0.1,0.45],
-    "handHeldAimedOffset": [0.315,-0.05,0.35],
+    "handHeldAimedOffset": [0.315,-0.05,0.45],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -47,15 +47,6 @@
       "allowParentRemoval": true,
       "maxValue": 4.0,
       "types": ["generic_gun_scope"],
-      "linkedParts": [],
-      "applyAfter": "gunModel"
-    },
-    {
-      "pos": [0.0,0.1125,0.4],
-      "rot": [0.0,0.0,0.0],
-      "allowParentRemoval": true,
-      "maxValue": 4.0,
-      "types": ["generic_gun_grip"],
       "linkedParts": [],
       "applyAfter": "gunModel"
     }
@@ -167,7 +158,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "part_present_2"
+            "variable": "part_present_1"
           }
         ]
       },
@@ -182,14 +173,14 @@
           {
             "animationType": "translation",
             "variable": "gun_reload",
-            "axis": [0.0,0.0,-0.05],
+            "axis": [0.0,0.0,-0.125],
             "duration": 1,
             "forwardsDelay": 28
           },
           {
             "animationType": "translation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,-0.125],
             "duration": 1
           }
         ]
@@ -289,7 +280,7 @@
         "toScale": 0.5,
         "texture": "ivv:textures/particles/casing.png",
         "color": "CCCCCC",
-        "pos": [0.025,0.1625,0.0],
+        "pos": [0.025,0.1625,-0.25625],
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
