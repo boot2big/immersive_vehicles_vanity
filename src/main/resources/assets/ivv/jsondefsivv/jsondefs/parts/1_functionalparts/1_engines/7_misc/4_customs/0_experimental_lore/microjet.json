@@ -1,0 +1,235 @@
+{
+  "generic": {
+    "type": "engine_jet"
+  },
+  "engine": {
+    "type": "normal",
+    "starterPower": 30,
+    "shiftSpeed": 20,
+    "revResistance": 4,
+    "maxRPM": 28000,
+    "maxSafeRPM": 27000,
+    "idleRPM": 2000,
+    "startRPM": 1500,
+    "revlimitRPM": -1,
+    "revlimitBounce": 10,
+    "stallRPM": 1000,
+    "engineWinddownRate": 25,
+    "heatingCoefficient": 0.5,
+    "coolingCoefficient": 1.25,
+    "engineWearFactor": 0.875,
+    "fuelConsumption": 0.375,
+    "jetPowerFactor": 1.0,
+    "bypassRatio": 2.0,
+    "gearRatios": [-1.0,0.0,1.0],
+    "fuelType": "avgas"
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "IVLabs ''Shortstack'' Experimental Motor",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "fuelConsumption",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.75,0.0,0.0],
+          "offset": 0.25
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:jetstart",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:jetstop",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running"
+          }
+        ]
+      },
+      {
+        "name": "ivv:jetcranking",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_starter",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.25,0.0],
+            "offset": 1.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.0,0.0],
+            "offset": 1.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:jetbackfire",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:jetwhirr",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 80
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_powered",
+            "axis": [0.0,1.0,0.0],
+            "duration": 80
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,2.25,0.0],
+            "offset": 0.75
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 115.556,
+            "clampMax": 999.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "scale": 2.5,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 121.111,
+            "clampMax": 999.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "quantity": 1,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_oilleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "quantity": 1,
+        "color": "FF0000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_fuelleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Jet Engine",
+    "description": "Experimental small scale turbojet",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:12","minecraft:heavy_weighted_pressure_plate:0:6","oredict:dustRedstone:3"]
+    ],
+    "repairMaterialLists": [
+      ["oredict:ingotIron:6","minecraft:heavy_weighted_pressure_plate:0:6","mts:ivv.oilcan:0:1"]
+    ]
+  }
+}

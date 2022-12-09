@@ -4,12 +4,14 @@
       "explosive",
       "armor_piercing"
     ],
-    "quantity": 18,
+    "quantity": 24,
     "diameter": 15.0,
-    "damage": 20,
+    "damage": 24.0,
     "caseLength": 25.0,
     "blastStrength": 2.0,
-    "armorPenetration": 100
+    "airBurstDelay": 20,
+    "armorPenetration": 100.0,
+    "impactDespawnTime": 40
   },
   "definitions": [
     {
@@ -17,19 +19,6 @@
       "name": "Staser Ammo [Overdrive]",
       "extraMaterialLists": [
         []
-      ]
-    }
-  ],
-  "variableModifiers": [
-    {
-      "variable": "lazinessThatJavaWontLike",
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "random",
-          "axis": [0.0,0.0,1.0]
-        }
       ]
     }
   ],
@@ -57,75 +46,23 @@
     ],
     "sounds": [
       {
-        "name": "ivv:bullethitmob1",
+        "name": "ivv:bullethitmoblaser",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "bullet_hit_entity",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMax": 0.25
           }
         ],
-        "forceSound": true
-      },
-      {
-        "name": "ivv:bullethitmob2",
-        "activeAnimations": [
+        "volumeAnimations": [
           {
-            "animationType": "visibility",
-            "variable": "bullet_hit_entity",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.25,
-            "clampMax": 0.5
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,2.5,0.0],
+            "offset": 2.5
           }
-        ],
-        "forceSound": true
-      },
-      {
-        "name": "ivv:bullethitmob3",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "bullet_hit_entity",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.5,
-            "clampMax": 0.75
-          }
-        ],
-        "forceSound": true
-      },
-      {
-        "name": "ivv:bullethitmob4",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "bullet_hit_entity",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.75,
-            "clampMax": 1.0
-          }
-        ],
-        "forceSound": true
+        ]
       }
     ],
     "particles": [
@@ -139,16 +76,14 @@
         "toTransparency": 0.01,
         "scale": 2.0,
         "toScale": 0.5,
-        "color": "3CFACE",
         "texture": "ivv:textures/particles/laser.png",
-        "pos": [0,0,0],
+        "color": "3CFACE",
+        "pos": [0.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "1_2_1_cycle",
-            "clampMin": -1.0,
-            "clampMax": 1.0
+            "variable": "bullet_hit"
           }
         ]
       },
@@ -172,6 +107,7 @@
     "modelType": "obj"
   },
   "general": {
+    "description": "12 dual-fire shots",
     "stackSize": 64,
     "materialLists": [
       ["oredict:dustRedstone:72","minecraft:gunpowder:0:36"]
