@@ -1,0 +1,85 @@
+{
+  "generic": {
+    "type": "generic_truckbed",
+    "width": 3.0,
+    "height": 0.25,
+    "mass": 850
+  },
+  "connectionGroups": [
+    {
+      "groupName": "TRAILER",
+      "canIntiateConnections": true,
+      "connections": [
+        {
+          "type": "tow_bumper",
+          "pos": [0.0,-0.01788,-7.0581],
+          "distance": 1
+        },
+        {
+          "type": "tow_bumper_heavy",
+          "pos": [0.0,-0.01788,-7.0581],
+          "distance": 1
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Truck Towhook bed",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "townt",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected"
+          }
+        ]
+      },
+      {
+        "objectName": "tow",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:towhookon1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:towhookoff1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected"
+          }
+        ]
+      }
+    ],
+    "particles": []
+  },
+  "general": {
+    "name": "Truck Towhook bed",
+    "description": "Takes a towhook-convention following vehicle",
+    "materials": ["minecraft:iron_block:0:8","minecraft:fishing_rod:0:1"]
+  }
+}

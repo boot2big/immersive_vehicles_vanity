@@ -4,26 +4,27 @@
     "mass": 170
   },
   "engine": {
+    "type": "normal",
     "isAutomatic": true,
-    "starterPower": 25,
-    "engineWinddownRate": 100,
-    "engineWearFactor": 0.875,
-    "shiftSpeed": 5,
+    "starterPower": 35,
+    "shiftSpeed": 10,
     "clutchTime": 3,
-    "revResistance": 7,
-    "maxRPM": 6800,
-    "maxSafeRPM": 6600,
-    "revlimitRPM": 6000,
-    "revlimitBounce": 8,
+    "revResistance": 10,
+    "maxRPM": 10565,
+    "maxSafeRPM": 6500,
     "idleRPM": 900,
     "startRPM": 500,
+    "revlimitRPM": 6000,
+    "revlimitBounce": 20,
     "stallRPM": 400,
-    "fuelConsumption": 0.35,
+    "engineWinddownRate": 100,
     "heatingCoefficient": 0.75,
     "coolingCoefficient": 1.5,
-    "gearRatios": [-3.0,0.0,3.5,2.5,1.25,0.75],
+    "engineWearFactor": 0.875,
+    "fuelConsumption": 0.2,
+    "gearRatios": [-3.0625,0,3.25,2.125,1.0,0.75],
     "upShiftRPM": [0,0,4000,4600,4100,3850],
-    "downShiftRPM": [0,0,2300,2400,2500,2600],
+    "downShiftRPM": [0,0,2000,2000,2200,2200],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.5,
     "superchargerEfficiency": 1.0,
@@ -36,31 +37,82 @@
       "types": ["generic_turbo"]
     }
   ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Median I4 Engine [§9Automatic§r]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
+    {
+      "variable": "engine_checklight",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "idiot_lightbulb",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_temp",
+          "axis": [0.0,1.0,0.0],
+          "clampMin": 0.000125,
+          "clampMax": 1,
+          "offset": -250
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [0.0,1.0,0.0],
+          "clampMin": 0.000125,
+          "clampMax": 1,
+          "offset": -110
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_oilleak",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
+        }
+      ]
+    },
     {
       "variable": "superchargerFuelConsumption",
       "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625,
-            "duration": 15
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.5,0.0],
-            "offset": -0.25,
-            "clampMin": 0.0625
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625,
+          "duration": 15
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent",
+          "axis": [0.0,0.5,0.0],
+          "offset": -0.25,
+          "clampMin": 0.0625
+        }
       ]
     },
     {
@@ -77,7 +129,7 @@
     },
     {
       "variable": "coolingCoefficient",
-      "addValue": 1,
+      "addValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -159,13 +211,35 @@
           "duration": 80
         }
       ]
-    }
-  ],
-  "definitions": [
+    },
     {
-      "subName": "",
-      "name": "Median I4 Engine [§9Automatic§r]",
-      "extraMaterials": []
+      "variable": "engine_clutching",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift",
+          "axis": [0.0,3.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -176,12 +250,13 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:v4_starting",
@@ -221,13 +296,112 @@
         "forceSound": true
       },
       {
-        "name": "ivv:transmissionautogrinding",
+        "name": "ivv:transmissionfailshift1",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_badshift",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMax": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionfailshift4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
+            "clampMin": 0.875,
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -236,10 +410,16 @@
         "name": "ivv:transmissionautoselectup",
         "activeAnimations": [
           {
-            "animationType": "visibility",
+            "animationType": "inhibitor",
             "variable": "engine_gear",
+            "clampMin": 2.0,
+            "clampMax": 127.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_clutch_upshift",
             "clampMin": 1.0,
-            "clampMax": 60.0
+            "clampMax": 127.0
           }
         ]
       },
@@ -247,8 +427,20 @@
         "name": "ivv:transmissionautoselectdown",
         "activeAnimations": [
           {
+            "animationType": "inhibitor",
+            "variable": "engine_gear",
+            "clampMin": 1.0,
+            "clampMax": 127.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_gear",
+            "clampMin": -127.0,
+            "clampMax": -2.0
+          },
+          {
             "animationType": "visibility",
-            "variable": "engine_reversed",
+            "variable": "engine_clutch_downshift",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -279,6 +471,35 @@
         ]
       },
       {
+        "name": "ivv:engineoverrev",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,10,0.0],
+            "offset": -10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,4,0.0],
+            "offset": -3.5,
+            "clampMax": 4
+          }
+        ],
+        "looping": true
+      },
+      {
         "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
@@ -290,37 +511,33 @@
           {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 150.0,
+            "clampMin": 250.0,
             "clampMax": 999999.0
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_hours",
-            "axis": [0.0,0.0045,0.0],
-            "offset": -0.675,
-            "clampMax": 0.675
-          },
-          {
-            "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,-0.4,0.0],
+            "axis": [0.0,-1.5,0.0],
+            "offset": 1.0,
             "duration": 10
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,1.0,0.0],
-            "offset": -0.1
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,1.75,0.0],
+            "offset": -1.25,
+            "clampMax": 1.5
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.8,0.0],
-            "offset": 0.45
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "looping": true
@@ -421,7 +638,13 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "throttle",
+            "axis": [0.0,-0.25,0.0],
+            "offset": 0.25
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,-1.0,0.0],
             "offset": 1.1
           }
@@ -429,9 +652,9 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,1.75,0.0],
-            "offset": 0.98
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,2.25,0.0],
+            "offset": 1.0
           }
         ],
         "looping": true
@@ -455,7 +678,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,2.3000001907348633,0.0],
             "offset": 0.1
           }
@@ -469,9 +692,9 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
-            "axis": [0.0,0.8700000047683716,0.0],
-            "offset": 0.51
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,1.25,0.0],
+            "offset": 0.25
           }
         ],
         "looping": true
@@ -482,8 +705,8 @@
           {
             "animationType": "visibility",
             "variable": "part_present_1",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -509,7 +732,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,2.5,0.0],
             "offset": -1.75,
             "clampMax": 0.25
@@ -525,7 +748,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "axis": [0.0,0.375,0.0],
             "offset": -0.25
           }
@@ -537,13 +760,11 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_present_1",
-            "clampMin": 0,
-            "clampMax": 0
+            "variable": "part_present_1"
           },
           {
             "animationType": "inhibitor",
-            "variable": "engine_rpm_percent",
+            "variable": "engine_rpm_percent_safe",
             "clampMax": 0.425
           },
           {
@@ -559,6 +780,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -586,6 +808,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -604,6 +827,7 @@
       },
       {
         "type": "drip",
+        "quantity": 1,
         "color": "FF0000",
         "activeAnimations": [
           {
@@ -620,15 +844,18 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "1_functionalparts/1_engines/2_median/",
-  "packID": "ivv",
-  "systemName": "v4",
-  "classification": "part",
   "general": {
     "name": "Median I4 Engine §9(Automatic)",
-    "repairMaterials": ["mts:ivv.tape:0:1"],
-    "materials": ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"]
+    "description": "1.8L Standard IVLabs Motor",
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:4","mts:ivv.fuelfi:0:1","mts:ivv.gearboxauto:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.oilcan:0:1","mts:ivv.tape:0:1"]
+    ]
   }
 }

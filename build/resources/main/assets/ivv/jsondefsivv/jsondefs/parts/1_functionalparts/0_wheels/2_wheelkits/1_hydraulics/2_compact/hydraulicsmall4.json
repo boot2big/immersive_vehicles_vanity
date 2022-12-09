@@ -1,0 +1,121 @@
+{
+  "generic": {
+    "type": "ground_wheel"
+  },
+  "ground": {
+    "width": 0.45,
+    "height": 0.749875,
+    "frictionModifiers": {
+      "snow": -0.2,
+      "ice": -0.2,
+      "dirt_wet": -0.1,
+      "sand_wet": -0.1,
+      "normal_wet": -0.1
+    }
+  },
+  "parts": [
+    {
+      "pos": [0.004890625,0.0,0.0],
+      "minValue": 0.75,
+      "maxValue": 0.75,
+      "types": ["ground_wheel"],
+      "applyAfter": "axle",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "HYDRAULIC_FOUR",
+          "axis": [0.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Hydraulic Kit [Compact, Type 4]",
+      "extraMaterialLists": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "piston",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "HYDRAULIC_FOUR",
+            "centerPoint": [-0.03418,0.0,0.048828125],
+            "axis": [0.0,0.0,-7.5],
+            "offset": 0,
+            "forwardsDelay": 0,
+            "duration": 3,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeoutexpo"
+          },
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_FOUR",
+            "axis": [0.0,-0.034296875,0.0],
+            "forwardsDelay": 0,
+            "duration": 3,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeoutexpo",
+            "forwardsStartSound": "ivv:hydraulicup",
+            "reverseStartSound": "ivv:hydraulicdown"
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "applyAfter": "piston",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_FOUR",
+            "axis": [0.0,-0.092734375,0.0],
+            "forwardsDelay": 0,
+            "duration": 3,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeoutexpo"
+          }
+        ]
+      },
+      {
+        "objectName": "axle",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_FOUR",
+            "axis": [0.01953125,0.0,0.0],
+            "forwardsDelay": 0,
+            "duration": 3,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeoutexpo"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": ["HYDRAULIC_FOUR"],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Hydraulic Kit [Compact, Type 1]",
+    "description": "Jump up, jump up and get down\nHas four variants with different buttons",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:4","oredict:dustRedstone:2","minecraft:water_bucket:0:1"],
+      ["mts:ivv.hydraulicsmall1:0:1"],
+      ["mts:ivv.hydraulicsmall2:0:1"],
+      ["mts:ivv.hydraulicsmall3:0:1"]
+    ]
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "bullet": {
+    "types": [
+      "explosive",
+      "incendiary",
+      "armor_piercing"
+    ],
+    "quantity": 1,
+    "diameter": 60.0,
+    "damage": 2000.0,
+    "caseLength": 200.0,
+    "blastStrength": 4.0,
+    "proximityFuze": 2,
+    "armorPenetration": 800.0,
+    "airBurstDelay": 205,
+    "burnTime": 45,
+    "accelerationTime": 10,
+    "accelerationDelay": 5,
+    "maxVelocity": 300,
+    "impactDespawnTime": 40
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Generic Missile [Heavy Explosive]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:rocket_running",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 40.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:explode_missile",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,3.75,0.0],
+            "offset": 3.75
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ]
+      },
+      {
+        "name": "ivv:explode_missile",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_burst",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,3.75,0.0],
+            "offset": 3.75
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ]
+      }
+    ],
+    "particles": [
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "quantity": 3,
+        "duration": 10,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 2.0,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,-0.125],
+        "initialVelocity": [0.0,0.0,-1.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 40.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "10_10_10_cycle",
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 2.0,
+        "color": "222222",
+        "pos": [0.0,0.0,-0.125],
+        "initialVelocity": [0.0,0.0,-2.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMax": 40.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "10_10_10_cycle",
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 2,
+        "duration": 100,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 32.0,
+        "toScale": 16.0,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "quantity": 1,
+        "duration": 10,
+        "transparency": 2.0,
+        "toTransparency": 0.01,
+        "scale": 24.0,
+        "toScale": 48.0,
+        "texture": "ivv:textures/particles/muzzleflash.png",
+        "color": "FFFFFF",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Does not lock onto anything\nNo turn radius, anti-tank damage/explosive power",
+    "stackSize": 64,
+    "materialLists": [
+      ["oredict:ingotIrot:4","oredict:gunpowder:12"]
+    ],
+    "type": "bullet"
+  }
+}

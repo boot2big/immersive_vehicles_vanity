@@ -5,15 +5,30 @@
     ],
     "quantity": 18,
     "diameter": 15.0,
+    "damage": 10,
     "caseLength": 25.0,
-    "damage": 7,
-    "armorPenetration": 32767
+    "armorPenetration": 10
   },
   "definitions": [
     {
       "subName": "",
       "name": "Staser Ammo",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -30,6 +45,79 @@
         ]
       }
     ],
+    "sounds": [
+      {
+        "name": "ivv:bullethitmob1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMax": 0.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:bullethitmob2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:bullethitmob3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:bullethitmob4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      }
+    ],
     "lightObjects": [
       {
         "objectName": "&GenericLight_FFFFFF_FFFFF_000",
@@ -39,6 +127,29 @@
       }
     ],
     "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "quantity": 1,
+        "duration": 20,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 0.5,
+        "color": "3CFACE",
+        "texture": "ivv:textures/particles/laser.png",
+        "pos": [0,0,0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "1_2_1_cycle",
+            "clampMin": -1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
       {
         "type": "break",
         "quantity": 4,
@@ -55,11 +166,14 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
   "general": {
     "stackSize": 64,
-    "materials": ["minecraft:redstone:0:36"],
+    "materialLists": [
+      ["oredict:dustRedstone:36"]
+    ],
     "type": "bullet"
   }
 }

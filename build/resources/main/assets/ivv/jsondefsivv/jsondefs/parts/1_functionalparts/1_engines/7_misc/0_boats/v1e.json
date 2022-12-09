@@ -1,0 +1,230 @@
+{
+  "generic": {
+    "type": "engine_boat",
+    "mass": 90
+  },
+  "engine": {
+    "type": "normal",
+    "isAutomatic": true,
+    "disableAutomaticStarter": true,
+    "starterPower": 100,
+    "shiftSpeed": 1,
+    "revResistance": 4,
+    "maxRPM": 11000,
+    "maxSafeRPM": 13000,
+    "revlimitRPM": -1,
+    "revlimitBounce": 4,
+    "engineWinddownRate": 1000,
+    "heatingCoefficient": 0.25,
+    "coolingCoefficient": 1.5,
+    "engineWearFactor": 0.375,
+    "fuelConsumption": 1.0,
+    "gearRatios": [-0.35,0.0,0.35],
+    "fuelType": "electric",
+    "superchargerFuelConsumption": -0.5,
+    "superchargerEfficiency": -2.0,
+    "isCrankingNotPitched": true
+  },
+  "parts": [
+    {
+      "pos": [0.0,-1.0,-0.2685],
+      "maxValue": 12.0,
+      "types": ["propeller"]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Magnitrox Electric Motor §5[Outboard Modified]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:nano_electricmotor_sputter",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:electriccharging",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "fueling",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,0.1,0.0],
+            "offset": 1.0,
+            "clampMax": 1.2
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:electricac",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,-0.050000011920928955,0.0],
+            "offset": 0.85
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,-0.1499999761581421,0.0],
+            "offset": 1.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:electricwhirrlight",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,1.25,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.3,0.0],
+            "offset": -0.3
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.25
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 115.556,
+            "clampMax": 999.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "scale": 2.5,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 121.111,
+            "clampMax": 999.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "quantity": 1,
+        "color": "000000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_oilleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "quantity": 1,
+        "color": "FF0000",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_fuelleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Magnitrox Electric Motor §5[Outboard Modified]",
+    "description": "30kW Standard IVLabs Motor",
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.motorcase:0:1","mts:ivv.motorshaft:0:1","mts:ivv.motorbattery:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.tape:0:1"]
+    ]
+  }
+}

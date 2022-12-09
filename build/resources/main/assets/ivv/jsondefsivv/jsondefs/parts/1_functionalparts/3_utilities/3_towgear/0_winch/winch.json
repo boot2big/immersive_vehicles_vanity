@@ -1,0 +1,85 @@
+{
+  "generic": {
+    "width": 1.0,
+    "height": 1.0,
+    "mass": 200
+  },
+    "connections": [
+		{
+			"hookup": false,
+			"type": "tow_bumper",
+			"pos": [0, -0.07452, 0.84836]
+		}
+	],
+  "rendering": {
+	"animatedObjects": [
+		{
+			"objectName": "ropebig",
+			"animations": [
+				{
+					"animationType": "visibility",
+					"variable": "connection_1_1_connected",
+					"clampMin": 0,
+					"clampMax": 0
+				}
+			]
+		},
+		{
+			"objectName": "hookclose",
+			"animations": [
+				{
+					"animationType": "visibility",
+					"variable": "connection_1_1_connected",
+					"clampMin": 0,
+					"clampMax": 0
+				}
+			]
+		},
+		{
+			"objectName": "hookopen",
+			"animations": [
+				{
+					"animationType": "visibility",
+					"variable": "connection_1_1_connected",
+					"clampMin": 1,
+					"clampMax": 1
+				}
+			]
+		}
+		
+	],
+    "sounds": [
+      {
+        "name": "ivv:towhookon1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:towhookoff1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected"
+          }
+        ]
+      }
+    ]
+  },
+  "general": {
+    "type": "generic_winch",
+    "disableMirroring": false,
+    "useVehicleTexture": false,
+    "name": "Winch",
+    "description": "Can tow convention-compatible vehicles\n(Requires that said vehicle have a towpoint defined in their JSON.)",
+    "materials": [
+      "oredict:ingotIron:6",
+      "minecraft:lead:0:1"
+    ]
+  }
+}

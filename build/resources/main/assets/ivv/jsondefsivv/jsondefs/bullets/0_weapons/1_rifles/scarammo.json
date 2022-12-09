@@ -3,14 +3,30 @@
     "types": [],
     "quantity": 30,
     "diameter": 5.56,
-    "damage": 3,
-    "caseLength": 45.0
+    "damage": 7,
+    "caseLength": 45.0,
+    "armorPenetration": 4
   },
   "definitions": [
     {
       "subName": "",
       "name": "SCAR Ammo",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -25,6 +41,79 @@
             "axis": [2.0,0.0,0.0]
           }
         ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:bullethitmob1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMax": 0.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:bullethitmob2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:bullethitmob3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:bullethitmob4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
       }
     ],
     "lightObjects": [],
@@ -45,11 +134,14 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
   "general": {
     "stackSize": 64,
-    "materials": ["minecraft:iron_nugget:0:40","minecraft:gunpowder:0:20"],
+    "materialLists": [
+      ["oredict:nuggetIron:40","minecraft:gunpowder:0:20"]
+    ],
     "type": "bullet"
   }
 }

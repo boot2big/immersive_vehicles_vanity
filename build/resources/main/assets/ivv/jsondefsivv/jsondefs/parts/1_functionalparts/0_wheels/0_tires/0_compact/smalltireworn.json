@@ -15,42 +15,77 @@
     "isWheel": true,
     "width": 0.25,
     "height": 0.75,
-    "flatHeight": 0.315,
-    "motiveFriction": 0.5,
-    "lateralFriction": 0.5,
+    "flatHeight": 0.54375,
+    "motiveFriction": 0.625,
+    "lateralFriction": 0.625,
     "frictionModifiers": {
-      "snow": -0.3,
-      "ice": -0.4,
-      "dirt": -0.1,
-      "dirt_wet": -0.2,
-      "sand": -0.2,
-      "sand_wet": -0.3,
-      "normal_wet": -0.25,
-      "normal": 0.0
+      "snow": -0.5,
+      "ice": -0.5,
+      "dirt": -0.125,
+      "dirt_wet": -0.375,
+      "sand": -0.375,
+      "sand_wet": -0.5,
+      "normal_wet": -0.375
     }
   },
+  "parts": [
+    {
+      "pos": [0.132375,0.0,0.0],
+      "partScale": [0.875,0.875,0.875],
+      "maxValue": 1.0,
+      "types": ["generic_rim"]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Compact Wheel [Worn]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_whitewall",
+      "name": "Compact Wheel [Whitewall, Worn]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_whitewallthin",
+      "name": "Compact Wheel [Thin Whitewall, Worn]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_rainbow",
+      "name": "Compact Wheel [Rainbow, Worn]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "motiveFriction",
-      "setValue": 0.00001,
+      "setValue": 1.0E-5,
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "engine_gear",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "engine_gear"
         },
         {
           "animationType": "visibility",
           "variable": "brake",
           "clampMin": 0.5,
-          "clampMax": 1
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
           "variable": "throttle",
           "clampMin": 0.625,
-          "clampMax": 1
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -60,48 +95,17 @@
       ]
     }
   ],
-  "parts": [
-    {
-      "isSubPart": true,
-      "pos": [0.11175,0.0,0.0],
-      "minValue": 0,
-      "maxValue": 1,
-      "types": ["generic_rim"],
-      "animations": [
-        {
-          "animationType": "scaling",
-          "variable": "part_present_1",
-          "centerPoint": [0,0,0],
-          "axis": [0,0,0],
-	  "offset": 0.87
-        }
-      ]
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Compact Wheel [Worn]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_whitewall",
-      "name": "Compact Wheel [Whitewall, Worn]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_whitewallthin",
-      "name": "Compact Wheel [Thin Whitewall, Worn]",
-      "extraMaterials": []
-    },
-    {
-      "subName": "_rainbow",
-      "name": "Compact Wheel [Rainbow, Worn]",
-      "extraMaterials": []
-    }
-  ],
   "rendering": {
     "animatedObjects": [
+      {
+        "objectName": "wall",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          }
+        ]
+      },
       {
         "objectName": "tire",
         "animations": [
@@ -121,6 +125,7 @@
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "mts:wheel_blowout",
@@ -223,7 +228,7 @@
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.04,0.0],
+            "axis": [0.0,0.025,0.0],
             "offset": -0.01,
             "clampMax": 0.25
           }
@@ -232,8 +237,8 @@
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.03,0.0],
-            "offset": 0.2
+            "axis": [0.0,0.025,0.0],
+            "offset": 0.25
           }
         ],
         "looping": true
@@ -274,9 +279,9 @@
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.04,0.0],
+            "axis": [0.0,0.02,0.0],
             "offset": -0.01,
-            "clampMax": 0.25
+            "clampMax": 0.125
           }
         ],
         "pitchAnimations": [
@@ -312,21 +317,39 @@
             "variable": "speed",
             "clampMin": 0.01,
             "clampMax": 65535.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip",
+            "clampMin": -1024.0,
+            "clampMax": -0.5
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip",
+            "clampMin": 0.5,
+            "clampMax": 1024.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 3.0,
+            "clampMax": 3.0
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "rain_strength",
-            "axis": [0.0,-0.5,0.0],
-            "clampMin": -0.5
+            "axis": [0.0,0.25,0.0],
+            "clampMin": -0.25
           },
           {
             "animationType": "translation",
             "variable": "slip",
-            "axis": [0.0,0.02,0.0],
-            "offset": -0.1,
-            "clampMax": 1,
+            "axis": [0.0,0.125,0.0],
+            "offset": -0.5,
+            "clampMax": 0.75,
             "absolute": true
           }
         ],
@@ -334,20 +357,22 @@
           {
             "animationType": "translation",
             "variable": "rain_strength",
-            "axis": [0.0,0.5,0.0],
-            "clampMax": 0.5
+            "axis": [0.0,0.25,0.0],
+            "clampMax": 0.25
           },
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.014,0.0],
-            "offset": 1.15
+            "axis": [0.0,0.00375,0.0],
+            "clampMax": 0.625
           },
           {
             "animationType": "translation",
             "variable": "slip",
-            "axis": [0.0,-0.003,0.0],
-            "offset": 0.12,
+            "axis": [0.0,-0.0125,0.0],
+            "offset": 1.75,
+            "clampMin": 1.25,
+            "clampMax": 1.5,
             "absolute": true
           }
         ],
@@ -374,17 +399,7 @@
             "animationType": "visibility",
             "variable": "ground_skidding",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 6
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "ground_skidding",
-            "axis": [0.0,1.875,0.0],
-            "duration": 6,
-            "offset": -0.125
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -397,9 +412,8 @@
           {
             "animationType": "translation",
             "variable": "ground_skidding",
-            "axis": [0.0,0.875,0.0],
-            "duration": 6,
-            "offset": 0.875
+            "axis": [0.0,1.65,0.0],
+            "duration": 3
           }
         ],
         "looping": true
@@ -425,25 +439,17 @@
             "axis": [-1.0,0.0,0.0]
           },
           {
-            "animationType" : "inhibitor",
-            "variable" : "part_ismirrored",
-            "clampMin": 0,
-            "clampMax": 0
-          },
-          {
             "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [2, 0, 0],
-            "variable": "ground_rotation"
-          },
-          {
-            "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [0, 180, 0],
-            "variable": "part_ismirrored"
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
@@ -453,6 +459,61 @@
             "variable": "ground_contacted",
             "clampMin": 1.0,
             "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "drip",
+        "spawnEveryTick": true,
+        "quantity": 4,
+        "duration": 10,
+        "transparency": 0.5,
+        "toTransparency": 1.0E-7,
+        "scale": 6.0,
+        "toScale": 10.0,
+        "color": "244B89",
+        "pos": [0.0,-0.375,0.0],
+        "initialVelocity": [0.0,1.125,-1.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 65535.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": 1.0,
+            "clampMax": 2.0
           }
         ]
       },
@@ -476,25 +537,17 @@
             "axis": [-1.0,0.0,0.0]
           },
           {
-            "animationType" : "inhibitor",
-            "variable" : "part_ismirrored",
-            "clampMin": 0,
-            "clampMax": 0
-          },
-          {
             "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [2, 0, 0],
-            "variable": "ground_rotation"
-          },
-          {
-            "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [0, 180, 0],
-            "variable": "part_ismirrored"
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
@@ -503,14 +556,31 @@
             "animationType": "visibility",
             "variable": "ground_slipping",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 4
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "rain_strength",
             "clampMin": -0.5,
             "clampMax": 0.5
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip",
+            "clampMin": -1024.0,
+            "clampMax": -32.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip",
+            "clampMin": 32.0,
+            "clampMax": 1024.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 3.0,
+            "clampMax": 3.0
           }
         ]
       },
@@ -534,25 +604,17 @@
             "axis": [-1.0,0.0,0.0]
           },
           {
-            "animationType" : "inhibitor",
-            "variable" : "part_ismirrored",
-            "clampMin": 0,
-            "clampMax": 0
-          },
-          {
             "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [2, 0, 0],
-            "variable": "ground_rotation"
-          },
-          {
-            "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [0, 180, 0],
-            "variable": "part_ismirrored"
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
@@ -572,13 +634,14 @@
         ]
       },
       {
-        "type": "break",
+        "type": "generic",
         "spawnEveryTick": true,
         "quantity": 2,
         "duration": 40,
         "transparency": 1.005,
         "toTransparency": -1.0E-4,
-        "scale": 3.0,
+        "scale": 1.5,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.375,0.0],
         "initialVelocity": [0.0,0.0,0.005],
@@ -592,25 +655,17 @@
             "axis": [-1.0,0.0,0.0]
           },
           {
-            "animationType" : "inhibitor",
-            "variable" : "part_ismirrored",
-            "clampMin": 0,
-            "clampMax": 0
-          },
-          {
             "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [2, 0, 0],
-            "variable": "ground_rotation"
-          },
-          {
-            "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [0, 180, 0],
-            "variable": "part_ismirrored"
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
@@ -630,13 +685,14 @@
         ]
       },
       {
-        "type": "break",
+        "type": "generic",
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 80,
-        "transparency": 1.005,
+        "transparency": 4,
         "toTransparency": -1.0E-4,
-        "scale": 3.0,
+        "scale": 1.5,
+        "texture": "ivv:textures/particles/tiremark.png",
         "color": "000000",
         "pos": [0.0,-0.375,0.0],
         "initialVelocity": [0.0,0.0,0.0],
@@ -650,25 +706,17 @@
             "axis": [-1.0,0.0,0.0]
           },
           {
-            "animationType" : "inhibitor",
-            "variable" : "part_ismirrored",
-            "clampMin": 0,
-            "clampMax": 0
-          },
-          {
             "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [2, 0, 0],
-            "variable": "ground_rotation"
-          },
-          {
-            "animationType": "rotation",
-            "centerPoint": [0, 0, 0],
-            "axis": [0, 180, 0],
-            "variable": "part_ismirrored"
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat"
+          },
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
@@ -683,22 +731,103 @@
             "animationType": "visibility",
             "variable": "ground_slipping",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 4
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip",
+            "clampMin": -1024.0,
+            "clampMax": -20.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip",
+            "clampMin": 20.0,
+            "clampMax": 1024.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 3.0,
+            "clampMax": 3.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "duration": 20,
+        "transparency": 2,
+        "toTransparency": -1.0E-4,
+        "scale": 0.25,
+        "texture": "ivv:textures/particles/pattern2.png",
+        "color": "EDAC28",
+        "pos": [0.0,-0.375,0.0],
+        "initialVelocity": [0.0,1,-1.25],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [2048,2048,2048],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 65535.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_skidding",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 3.0,
+            "clampMax": 3.0
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/0_wheels/0_tires/0_compact/",
-  "packID": "ivv",
-  "systemName": "smalltireworn",
-  "classification": "part",
   "general": {
-    "health": 50,
     "name": "Compact Wheel (Worn)",
-    "description": "A smaller tire, for your quaint little economy cars.\n(Lower grip which is better for drifting.)",
+    "description": "Small sized wheel\n§r§cRisk of hydroplaning on wet pavement!§r§7",
     "stackSize": 4,
-    "materials": ["mts:ivv.smalltire:0:1","minecraft:dirt:0:1"]
+    "health": 50,
+    "materialLists": [
+      ["mts:ivv.smalltire:0:1","minecraft:dirt:0:1"]
+    ]
   }
 }

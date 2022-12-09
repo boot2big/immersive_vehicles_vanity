@@ -1,0 +1,513 @@
+{
+  "generic": {
+    "type": "generic_radio",
+    "canBeRemovedByHand": true,
+    "width": 0.25,
+    "height": 0.25,
+    "canBePlacedOnGround": true,
+    "placedOffset": 0
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.132812,0.0625,0.125],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "radioControl",
+          "variableType": "toggle"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Police Frequency Radio",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "currentlyPlaying",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "295_10_295_cycle",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "knob",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "radioControl",
+            "centerPoint": [0.132812,0.0625,0.125],
+            "axis": [0.0,0.0,22.5],
+            "duration": 2
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:radiointerference",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 4
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "radioControl",
+            "axis": [0,0.5,0],
+            "duration": 4
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "missile_incoming",
+            "axis": [0,1,0],
+            "offset": 0.75
+          }
+        ],
+        "looping": true,
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiointerferencemissile",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "missile_incoming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "missile_1_distance",
+            "axis": [0,-0.020833333,0],
+            "offset": 1
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "missile_1_distance",
+            "axis": [0,-0.020833333,0],
+            "offset": 1,
+            "clampMin": 0.75
+          }
+        ],
+        "looping": true,
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0,
+            "clampMax": 0.066666667
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.066666667,
+            "clampMax": 0.133333334
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.133333334,
+            "clampMax": 0.199966667
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.199966667,
+            "clampMax": 0.266633334
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom5",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.266633334,
+            "clampMax": 0.333300001
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom6",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.333300001,
+            "clampMax": 0.399966668
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom7",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.399966668,
+            "clampMax": 0.466633335
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom8",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.466633335,
+            "clampMax": 0.533300002
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom9",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.533300002,
+            "clampMax": 0.599966669
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom10",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.599966669,
+            "clampMax": 0.666633336
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom11",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.666633336,
+            "clampMax": 0.733300003
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom12",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.733300003,
+            "clampMax": 0.79996667
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom13",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.79996667,
+            "clampMax": 0.866633337
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom14",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.866633337,
+            "clampMax": 0.933300004
+          }
+        ],
+        "isInterior": true
+      },
+      {
+        "name": "ivv:radiopolicerandom15",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.933300004,
+            "clampMax": 1
+          }
+        ],
+        "isInterior": true
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Useless radio",
+    "description": "Can be placed in certain vehicles\nPicks up emergency service band chatter",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:4","oredict:dustRedstone:2"]
+    ]
+  }
+}

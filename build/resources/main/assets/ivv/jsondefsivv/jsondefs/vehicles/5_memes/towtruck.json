@@ -1,0 +1,566 @@
+{
+  "motorized": {
+    "isRearWheelDrive": true,
+    "hasRunningLights": true,
+    "hasHeadlights": true,
+    "emptyMass": 5000,
+    "fuelCapacity": 30000,
+    "defaultFuelQty": 30000,
+    "downForce": 0.5,
+    "overSteer": 2.0,
+    "underSteer": 2.0,
+    "overSteerAccel": 2.0,
+    "overSteerDecel": -1.0,
+    "axleRatio": 3.0,
+    "brakingFactor": 3.5,
+    "dragCoefficient": 0.001,
+    "hudTexture": "ivv:textures/guis/ivlabshud.png",
+    "panelTexture": "ivv:textures/guis/ivlabspanel.png"
+  },
+  "parts": [
+    {
+      "pos": [0.0,1.03125,5.09375],
+      "maxValue": 2.0,
+      "intakeOffset": 1.5,
+      "defaultPart": "ivv:v3vanilla",
+      "types": ["engine_car"],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        }
+      ]
+    },
+    {
+      "pos": [0.75,0.0,0.0],
+      "minValue": 0.875,
+      "maxValue": 1.125,
+      "defaultPart": "ivv:blocktire",
+      "types": ["ground_wheel"],
+      "additionalParts": [
+        {
+          "pos": [1.25,0.0,0.0],
+          "minValue": 0.875,
+          "maxValue": 1.125,
+          "defaultPart": "ivv:blocktire",
+          "types": ["ground_wheel"],
+          "activeAnimations": [
+            {
+              "animationType": "visibility",
+              "variable": "p_brake"
+            }
+          ]
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "p_brake"
+        }
+      ]
+    },
+    {
+      "pos": [-0.75,0.0,0.0],
+      "minValue": 0.875,
+      "maxValue": 1.125,
+      "defaultPart": "ivv:blocktire",
+      "types": ["ground_wheel"],
+      "additionalParts": [
+        {
+          "pos": [-1.25,0.0,0.0],
+          "minValue": 0.875,
+          "maxValue": 1.125,
+          "defaultPart": "ivv:blocktire",
+          "types": ["ground_wheel"],
+          "activeAnimations": [
+            {
+              "animationType": "visibility",
+              "variable": "p_brake"
+            }
+          ]
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "p_brake"
+        }
+      ]
+    },
+    {
+      "pos": [1.25,0.0,4.0],
+      "turnsWithSteer": true,
+      "minValue": 0.8,
+      "maxValue": 1.15,
+      "defaultPart": "ivv:blocktire",
+      "types": ["ground_wheel"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [1.25,0.0,4.0],
+          "axis": [0.0,-1.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [-1.25,0.0,4.0],
+      "turnsWithSteer": true,
+      "minValue": 0.8,
+      "maxValue": 1.15,
+      "defaultPart": "ivv:blocktire",
+      "types": ["ground_wheel"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [-1.25,0.0,4.0],
+          "axis": [0.0,-1.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [0,0.8,2.9],
+      "isController": true,
+      "defaultPart": "ivv:truckseat",
+      "types": ["seat"],
+      "linkedVariables": ["door_left"]
+    },
+    {
+      "pos": [0.0,0.0945,3.0],
+      "maxValue": 6.0,
+      "types": ["generic_truckbed"]
+    },
+    {
+      "pos": [-0.8,0.5331,-3.43744],
+      "maxValue": 1.0,
+      "types": ["generic_bumpersticker"]
+    },
+    {
+      "pos": [0.4,0.53233,5.97072],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_bumpersticker"]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [1.0,1.0,4.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [0.0,1.0,4.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [-1.0,1.0,4.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [1.0,1.0,2.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [0.0,1.0,2.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [-1.0,1.0,2.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [0.0,1.0,1.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [-1.0,1.0,1.0],
+          "width": 1.0,
+          "height": 1.0
+        }, 
+        {
+          "pos": [1.0,0.25,1.0],
+          "width": 1.0,
+          "height": 0.5
+        },
+        {
+          "pos": [-1.0,0.25,1.0],
+          "width": 1.0,
+          "height": 0.5
+        }, 
+        {
+          "pos": [1.0,0.75,0.0],
+          "width": 1.0,
+          "height": 0.5
+        },
+        {
+          "pos": [-1.0,0.75,0.0],
+          "width": 1.0,
+          "height": 0.5
+        }
+      ]
+    },
+    {
+      "collisions": [
+        {
+          "pos": [1.0,0.25,5.0],
+          "width": 1.0,
+          "height": 0.5
+        },
+        {
+          "pos": [0.0,0.25,5.0],
+          "width": 1.0,
+          "height": 0.5
+        },
+        {
+          "pos": [-1.0,0.25,5.0],
+          "width": 1.0,
+          "height": 0.5
+        },
+        {
+          "pos": [0.0,2.0,-1.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [0.0,3.0,-2.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [0.0,3.5,-3.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [0.0,3.75,-4.0],
+          "width": 1.0,
+          "height": 0.5
+        },
+        {
+          "pos": [1.0,1.0,-1.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [-1.0,1.0,-1.0],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [1.0,1.25,-2.0],
+          "width": 1.0,
+          "height": 0.5
+        },
+        {
+          "pos": [-1.0,1.25,-2.0],
+          "width": 1.0,
+          "height": 0.5
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [1,0.75,3.0],
+          "width": 1,
+          "height": 0.5,
+          "variableName": "door_left",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [1.25,1.25,2.75],
+          "width": 0.5,
+          "height": 0.5,
+          "variableName": "door_left",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [1.25,1.25,3.25],
+          "width": 0.5,
+          "height": 0.5,
+          "variableName": "door_left",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [1.72415,0.9234,3.00208],
+          "width": 0.375,
+          "height": 0.375,
+          "variableName": "door_left",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "door_left",
+          "centerPoint": [0.5,0.5,3],
+          "axis": [0,0,-90.0],
+          "duration": 10,
+          "forwardsEasing": "easeoutcirc",
+          "reverseEasing": "easeoutcirc"
+        }
+      ]
+    }
+  ],
+  "connectionGroups": [
+    {
+      "groupName": "TRAILER",
+      "canInitiateConnections": true,
+      "isHitch": true,
+      "connections": [
+        {
+          "type": "tow_bumper",
+          "pos": [0.0,1.5,-4.0],
+          "distance": 2.0
+        },
+        {
+          "type": "tow_bumper_heavy",
+          "pos": [0.0,1.5,-4.0],
+          "distance": 2.0
+        }
+      ]
+    },
+    {
+      "groupName": "HOOKUP",
+      "isHookup": true,
+      "connections": [
+        {
+          "type": "tow_bumper_heavy",
+          "pos": [0.0,0.0,5.5],
+          "distance": 0.5
+        },
+        {
+          "type": "tow_bumper",
+          "pos": [0.0,0.0,5.5],
+          "distance": 0.5
+        }
+      ]
+    }
+  ],
+  "instruments": [
+    {
+      "pos": [0.0,-5000.0,0.0],
+      "rot": [0.0,0.0,0.0],
+      "hudX": 120,
+      "hudY": 15,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:classicfuel"
+    },
+    {
+      "pos": [0.0,-5000.0,0.0],
+      "rot": [0.0,0.0,0.0],
+      "hudX": 280,
+      "hudY": 15,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:classicgear"
+    },
+    {
+      "pos": [0.0,-5000.0,0.0],
+      "rot": [0.0,0.0,0.0],
+      "hudX": 200,
+      "hudY": 15,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:classicmphround"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_oak",
+      "name": "Vanilla Tow Truck [Planks]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_gr",
+      "name": "Vanilla Tow Truck [Gallifrey Repairs]",
+      "extraMaterials": []
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "brakingFactor",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "hood",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "!part_present_1",
+            "centerPoint": [0.0,0.5,5.5],
+            "axis": [85,0.0,0.0],
+          "duration": 10,
+          "forwardsEasing": "easeoutcirc",
+          "reverseEasing": "easeoutcirc"
+          }
+        ]
+      },
+      {
+        "objectName": "door",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "door_left",
+          "centerPoint": [0.5,0.5,3],
+          "axis": [0,0,-90.0],
+          "duration": 10,
+          "forwardsEasing": "easeoutcirc",
+          "reverseEasing": "easeoutcirc"
+          }
+        ]
+      }
+     ],
+    "lightObjects": [
+      {
+        "objectName": "brakebulb",
+        "isElectric": true,
+        "color": "F73307",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,1.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "glass_translucent",
+        "isElectric": true,
+        "color": "F73307",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,1.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "brakelights",
+        "isElectric": true,
+        "emissive": true,
+        "color": "F73307",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,0.25,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "headlightcase",
+        "isElectric": true,
+        "color": "FCF0D5",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [1.0,0.6875,5.1875],
+            "axis": [0.0,0.0,1.0],
+            "beamDiameter": 12.0,
+            "beamLength": 16.0
+          },
+          {
+            "pos": [-1.0,0.6875,5.1875],
+            "axis": [0.0,0.0,1.0],
+            "beamDiameter": 12.0,
+            "beamLength": 16.0
+          }
+        ]
+      },
+      {
+        "objectName": "beams",
+        "isElectric": true,
+        "color": "FCF0D5",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "running_light",
+            "axis": [0.0,1.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "beamlights",
+        "isElectric": true,
+        "color": "FCF0D5",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "running_light",
+            "axis": [0.0,1.0,0.0]
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:horn5",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "horn",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 4
+          },
+          {
+            "animationType": "visibility",
+            "variable": "electric_power",
+            "clampMin": 3.0,
+            "clampMax": 16.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "horn",
+            "axis": [0.0,1.0,0.0],
+            "duration": 3,
+            "forwardsDelay": -2
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "§r§f[Modeled by LauraDarkez2001]\n§r\n§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 60MPH\n0-60: 35.0\n0-Top Speed: 0:35.0\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Gyrophare x4\n-Lightbar x1\n-Roof Device x1",
+    "health": 10000,
+    "materials": ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","minecraft:planks:0:24","minecraft:planks:1:16","mts:ivv.classicgear:0:1","mts:ivv.classicmphround:0:1","mts:ivv.classicfueltemp:0:1","mts:ivv.blocktire:0:4","mts:ivv.v3vanilla:0:1","mts:ivv.truckseat:0:1"],
+    "repairMaterials": ["mts:ivv.axle:0:2","minecraft:planks:0:24","minecraft:planks:1:16","mts:ivv.tape:0:2"]
+  }
+}

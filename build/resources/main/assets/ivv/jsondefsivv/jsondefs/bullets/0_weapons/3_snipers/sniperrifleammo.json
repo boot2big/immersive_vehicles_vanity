@@ -1,20 +1,110 @@
 {
   "bullet": {
-    "types": [],
+    "types": [
+      "armor_piercing"],
     "quantity": 5,
-    "diameter": 20.0,
-    "damage": 22,
-    "caseLength": 100.0
+    "diameter": 8.61,
+    "damage": 26.0,
+    "caseLength": 69.20,
+    "armorPenetration": 40
   },
   "definitions": [
     {
       "subName": "",
       "name": "Sniper Rifle Ammo",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
     "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:bullethitmob1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMax": 0.25
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:bullethitmob2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.25,
+            "clampMax": 0.5
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:bullethitmob3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.5,
+            "clampMax": 0.75
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:bullethitmob4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "lazinessThatJavaWontLike",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      }
+    ],
     "particles": [
       {
         "type": "break",
@@ -32,11 +122,14 @@
           }
         ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
   "general": {
     "stackSize": 64,
-    "materials": ["minecraft:iron_nugget:0:10","minecraft:gunpowder:0:5"],
+    "materialLists": [
+      ["oredict:nuggetIron:10","minecraft:gunpowder:0:5"]
+    ],
     "type": "bullet"
   }
 }

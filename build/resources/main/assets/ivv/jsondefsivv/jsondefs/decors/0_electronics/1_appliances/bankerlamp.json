@@ -1,0 +1,86 @@
+{
+  "decor": {
+    "type": "generic",
+    "width": 0.625,
+    "height": 0.75,
+    "depth": 0.625
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Banker Lamp",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+"variableModifiers": [
+    {
+      "variable": "lightLevel",
+      "animations": [
+          {
+            "animationType": "translation",
+            "variable": "activated",
+            "axis": [0.0,0.6,0.0],
+            "duration": 7,
+            "forwardsDelay": -4
+          }
+      ]
+    }
+  ],
+  "rendering": {
+    "sounds": [
+      {
+        "name": "ivv:lampclick",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "clicked",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      }],
+    "animatedObjects": [
+      {
+        "objectName": "pullchain",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "clicked",
+            "axis": [0.0,-0.250,0.0],
+            "duration": 3,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "bulb",
+        "emissive": true,
+        "color": "FFF3CF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "activated",
+            "axis": [0.0,1.0,0.0],
+            "duration": 7,
+            "forwardsDelay": -4
+          }
+      ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "THE LAMP",
+    "description": "Don't we all need one",
+    "stackSize": 64,
+    "materialLists": [
+      ["oresict:ingotGold:0:3","minecraft:redstone_lamp:0:1"]
+    ]
+  }
+}

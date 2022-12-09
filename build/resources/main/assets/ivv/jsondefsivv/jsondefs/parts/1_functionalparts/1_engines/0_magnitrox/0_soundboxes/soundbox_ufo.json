@@ -1,0 +1,88 @@
+{
+  "generic": {
+    "type": "generic_ecu_electric"
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Electric Soundbox [Cartoon UFO]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "sim_engine_gear",
+      "minValue": 1.0,
+      "maxValue": 4.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "unused",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "kitt_is_the_coolest_car_in_mts_period",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "sim_engine_rpm_percent",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:ufoengine_running",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "sim_engine_rpm_percent",
+            "axis": [0.0,0.875,0.0],
+            "offset": 0.5
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Engine Control Unit",
+    "description": "Adds some much-needed sound to your electric car!\n§5§oCrafted in the Custom Parts bench",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.circuit:-1:2"]
+    ]
+  }
+}

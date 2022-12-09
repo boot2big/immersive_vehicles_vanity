@@ -1,0 +1,71 @@
+{
+  "generic": {
+    "type": "generic_ecu_electric"
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Electric Soundbox [Standard Liability Unit]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:electricparkinglothum",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": -1,
+            "clampMax": 7
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!engine_gear",
+            "reverseDelay": 10,
+            "forwardsDelay": -10
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!engine_gear",
+            "axis": [0.0,-1,0.0],
+            "offset": 6,
+            "clampMax": 1,
+            "duration": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,-1,0.0],
+            "offset": 6,
+            "clampMax": 1
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Engine Control Unit",
+    "description": "Adds some much-needed sound to your electric car!\n§5§oCrafted in the Custom Parts bench",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      ["mts:ivv.circuit:-1:2"]
+    ]
+  }
+}

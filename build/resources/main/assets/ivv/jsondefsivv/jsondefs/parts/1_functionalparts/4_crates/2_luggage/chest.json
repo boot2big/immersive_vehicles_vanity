@@ -1,0 +1,67 @@
+{
+  "generic": {
+    "type": "interactable_chest",
+    "width": 0.9,
+    "height": 0.9,
+    "canBeRemovedByHand": true,
+    "canBePlacedOnGround": true,
+    "placedOffset": 0.0
+  },
+  "interactable": {
+    "interactionType": "crate",
+    "feedsVehicles": true,
+    "canBeOpenedInHand": true,
+    "inventoryUnits": 3.0
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Chest",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "chesttop",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMin": 0.05,
+            "clampMax": 0.1
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "locked",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door",
+            "centerPoint": [0.0,0.1192,-0.34466],
+            "axis": [-90.0,0.0,0.0],
+            "absolute": true,
+            "duration": 5,
+            "forwardsStartSound": "ivv:chestopen",
+            "reverseStartSound": "ivv:chestclose"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Chest",
+    "description": "Good for dungeon masters or vanilla enthusiasts alike\n(Does NOT use the convention, until people start using ''interactable_chest'')",
+    "health": 100,
+    "materialLists": [
+      ["minecraft:chest:0:1"]
+    ]
+  }
+}

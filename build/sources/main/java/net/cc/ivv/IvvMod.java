@@ -25,6 +25,11 @@ import net.minecraft.block.Block;
 
 import java.util.function.Supplier;
 
+//printLn("''Le Grand Chase''");
+//printLn("Kevin MacLeod (incompetech.com)");
+//printLn("Licensed under Creative Commons: By Attribution 3.0");
+//printLn("http://creativecommons.org/licenses/by/3.0/");
+
 @Mod(modid = IvvMod.MODID, version = IvvMod.VERSION)
 public class IvvMod {
 	public static final String MODID = "ivv";
