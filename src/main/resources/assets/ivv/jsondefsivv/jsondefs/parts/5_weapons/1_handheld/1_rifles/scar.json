@@ -10,7 +10,7 @@
     "capacity": 30,
     "reloadTime": 42,
     "muzzleVelocity": 800,
-    "fireDelay": 3.0,
+    "fireDelay": 2.0,
     "bulletSpreadFactor": 2.0,
     "diameter": 5.56,
     "minCaseLength": 45.0,
@@ -185,7 +185,7 @@
             "axis": [0.0,0.0,-0.2],
             "duration": 1
           },
-		  {
+          {
             "animationType": "translation",
             "variable": "gun_reload",
             "axis": [0.0,0.0,-0.2],
@@ -195,12 +195,49 @@
         ]
       }
     ],
-	"constants": ["generic_gun_suppressor_cube"],
     "lightObjects": [],
+    "constants": ["generic_gun_suppressor_cube"],
     "sounds": [
       {
         "name": "ivv:scar_firing",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_gun_suppressor_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,2.5,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:scar_firing_silenced",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_gun_suppressor_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
           {
             "animationType": "visibility",
             "variable": "gun_fired",
