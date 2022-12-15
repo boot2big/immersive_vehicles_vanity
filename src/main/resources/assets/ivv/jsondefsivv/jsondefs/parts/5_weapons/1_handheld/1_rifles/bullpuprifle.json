@@ -31,15 +31,6 @@
       }
     ]
   },
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Bullpup Rifle",
-      "extraMaterialLists": [
-        []
-      ]
-    }
-  ],
   "parts": [
     {
       "pos": [0.0,0.225,-0.1375],
@@ -49,6 +40,15 @@
       "types": ["generic_gun_scope"],
       "linkedParts": [],
       "applyAfter": "gunModel"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Bullpup Rifle",
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
@@ -293,6 +293,38 @@
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:generic_gun_hammer",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!gun_ammo_percent",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_firing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9875
           }
         ]
       }

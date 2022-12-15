@@ -9,13 +9,13 @@
     "disableAutomaticStarter": true,
     "shiftSpeed": 1,
     "revResistance": 2,
-    "idleRPM": -1,
-    "startRPM": -1,
-    "stallRPM": -1,
     "maxRPM": 22500,
     "maxSafeRPM": 15000,
     "revlimitRPM": 11000,
     "revlimitBounce": 2,
+    "idleRPM": -1,
+    "startRPM": -1,
+    "stallRPM": -1,
     "engineWinddownRate": 100,
     "heatingCoefficient": 0.75,
     "coolingCoefficient": 1.25,
@@ -56,17 +56,17 @@
           "animationType": "translation",
           "variable": "engine_temp",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 0.000125,
-          "clampMax": 1,
-          "offset": -250
+          "offset": -250.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "engine_hours",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 0.000125,
-          "clampMax": 1,
-          "offset": -110
+          "offset": -110.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
@@ -81,7 +81,7 @@
         {
           "animationType": "translation",
           "variable": "!bzzap",
-          "axis": [0.0,0.0,1]
+          "axis": [0.0,0.0,1.0]
         }
       ]
     },
@@ -138,8 +138,8 @@
         {
           "animationType": "inhibitor",
           "variable": "engine_rpm_percent_safe",
-          "clampMin": -1,
-          "clampMax": 1
+          "clampMin": -1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
@@ -319,6 +319,7 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "quantity": 1,
         "color": "000000",
         "activeAnimations": [
           {
@@ -343,49 +344,13 @@
             "clampMax": 999.0
           }
         ]
-      },
-      {
-        "type": "drip",
-        "color": "000000",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_oilleak",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "cycle_10_20",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "drip",
-        "color": "FF0000",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_fuelleak",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "cycle_10_20",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
       }
     ],
     "modelType": "obj"
   },
   "general": {
-    "description": "120kW Standard IVLabs Motor",
     "name": "Magnitrox Electric Motor §5[Compact]",
+    "description": "120kW Standard IVLabs Motor",
     "health": 100,
     "materialLists": [
       ["mts:ivv.motorcase:0:1","mts:ivv.motorshaft:0:1","mts:ivv.motorbattery:0:1","mts:ivv.capacitor:0:4","mts:ivv.gearboxcvt:0:1"]

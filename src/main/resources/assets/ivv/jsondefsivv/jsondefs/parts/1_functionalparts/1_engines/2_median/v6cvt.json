@@ -22,7 +22,7 @@
     "coolingCoefficient": 1.75,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.3,
-    "gearRatios": [-3,0,3],
+    "gearRatios": [-3.0,0.0,3.0],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.5,
     "superchargerEfficiency": 1.0,
@@ -58,17 +58,17 @@
           "animationType": "translation",
           "variable": "engine_temp",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 0.000125,
-          "clampMax": 1,
-          "offset": -250
+          "offset": -250.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "engine_hours",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 0.000125,
-          "clampMax": 1,
-          "offset": -110
+          "offset": -110.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
@@ -79,7 +79,6 @@
     },
     {
       "variable": "engine_gear_cvt",
-      "minValue": 0,
       "maxValue": 0.75,
       "animations": [
         {
@@ -90,14 +89,13 @@
         {
           "animationType": "visibility",
           "variable": "engine_rpm",
-          "clampMin": 4000,
-          "clampMax": 99999
+          "clampMin": 4000.0,
+          "clampMax": 99999.0
         }
       ]
     },
     {
       "variable": "engine_gear_cvt",
-      "minValue": 0,
       "maxValue": 0.75,
       "animations": [
         {
@@ -114,20 +112,19 @@
         {
           "animationType": "visibility",
           "variable": "engine_rpm",
-          "clampMin": -10,
+          "clampMin": -10.0,
           "clampMax": 2500.0
         },
         {
           "animationType": "visibility",
           "variable": "throttle",
           "clampMin": 0.5,
-          "clampMax": 1
+          "clampMax": 1.0
         }
       ]
     },
     {
       "variable": "engine_gear_cvt",
-      "minValue": 0,
       "maxValue": 0.75,
       "animations": [
         {
@@ -138,14 +135,13 @@
         {
           "animationType": "visibility",
           "variable": "engine_rpm",
-          "clampMin": 3500,
-          "clampMax": 4000
+          "clampMin": 3500.0,
+          "clampMax": 4000.0
         }
       ]
     },
     {
       "variable": "engine_gear_cvt",
-      "minValue": 0,
       "maxValue": 0.75,
       "animations": [
         {
@@ -162,13 +158,12 @@
         {
           "animationType": "visibility",
           "variable": "engine_rpm",
-          "clampMin": -10,
+          "clampMin": -10.0,
           "clampMax": 2000.0
         },
         {
           "animationType": "visibility",
           "variable": "throttle",
-          "clampMin": 0,
           "clampMax": 0.5
         }
       ]
@@ -179,8 +174,8 @@
         {
           "animationType": "translation",
           "variable": "engine_gear_cvt",
-          "axis": [-0.9875,0,0.0],
-          "offset": 1
+          "axis": [-0.9875,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -573,17 +568,17 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,10,0.0],
-            "offset": -10
+            "axis": [0.0,10.0,0.0],
+            "offset": -10.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,4,0.0],
+            "axis": [0.0,4.0,0.0],
             "offset": -3.5,
-            "clampMax": 4
+            "clampMax": 4.0
           }
         ],
         "looping": true
@@ -604,15 +599,6 @@
             "clampMax": 999999.0
           }
         ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.75,
-            "duration": 20
-          }
-        ],
         "volumeAnimations": [
           {
             "animationType": "translation",
@@ -627,6 +613,15 @@
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "looping": true
@@ -899,51 +894,13 @@
             "clampMax": 999.0
           }
         ]
-      },
-      {
-        "type": "drip",
-        "quantity": 1,
-        "color": "000000",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_oilleak",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "cycle_10_20",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "drip",
-        "quantity": 1,
-        "color": "FF0000",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_fuelleak",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "cycle_10_20",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
       }
     ],
     "modelType": "obj"
   },
   "general": {
-    "description": "3.5L Standard IVLabs Motor",
     "name": "Median V6 Engine §d(CVT)",
+    "description": "3.5L Standard IVLabs Motor",
     "health": 100,
     "materialLists": [
       ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:6","mts:ivv.fuelfi:0:1","mts:ivv.gearboxcvt:0:1"]

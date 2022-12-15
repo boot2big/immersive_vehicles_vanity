@@ -24,18 +24,7 @@
       "maxValue": 0.875,
       "defaultPart": "ivv:normaltire_whitewall",
       "types": ["ground_wheel"],
-      "applyAfter": "rearsuspension",
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "damage_percent",
-          "clampMax": 0.8
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
-      ]
+      "applyAfter": "rearsuspension"
     },
     {
       "pos": [-1.25,0.125,-0.1875],
@@ -45,18 +34,7 @@
       "maxValue": 0.875,
       "defaultPart": "ivv:normaltire_whitewall",
       "types": ["ground_wheel"],
-      "applyAfter": "rearsuspension",
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "damage_percent",
-          "clampMax": 0.8
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
-      ]
+      "applyAfter": "rearsuspension"
     },
     {
       "pos": [1.0,0.125,3.25],
@@ -72,17 +50,6 @@
           "variable": "rudder",
           "centerPoint": [1.0,0.125,3.25],
           "axis": [0.0,0.0,0.0]
-        }
-      ],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "damage_percent",
-          "clampMax": 0.8
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
         }
       ]
     },
@@ -102,17 +69,6 @@
           "variable": "rudder",
           "centerPoint": [-1.0,0.125,3.25],
           "axis": [0.0,0.0,0.0]
-        }
-      ],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "damage_percent",
-          "clampMax": 0.8
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
         }
       ]
     },
@@ -190,7 +146,7 @@
     },
     {
       "pos": [0.0,0.26983,2.87037],
-      "maxValue": 0.4,
+      "maxValue": 10,
       "defaultPart": "ivv:v4inlineinsolvo",
       "types": ["engine_car"],
       "linkedParts": [1,2,18,19,20]
@@ -871,6 +827,13 @@
       ]
     },
     {
+      "subName": "_purple",
+      "name": "Betsy [Purple]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
       "subName": "_white",
       "name": "Betsy [White]",
       "extraMaterialLists": [
@@ -1457,8 +1420,9 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
-            "clampMax": 0.5
+            "variable": "damage_totaled",
+	    "clampMin": 1,
+            "clampMax": 1
           }
         ]
       },
@@ -1659,8 +1623,9 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
-            "clampMax": 0.6
+            "variable": "damage_totaled",
+            "clampMin": 1,
+            "clampMax": 1
           }
         ]
       }
@@ -2489,7 +2454,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -2519,7 +2484,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2546,7 +2511,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2567,14 +2532,15 @@
         "toTransparency": 0.01,
         "scale": 24.0,
         "toScale": 48.0,
-        "texture": "ivv:textures/particles/muzzleflash.png",
+        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png","ivv:textures/particles/explosion_7.png","ivv:textures/particles/explosion_8.png"],
+        "textureDelays": [2,2,2,2,2,2,2,32767],
         "color": "FFFFFF",
         "pos": [0.0,0.793924,1.29833],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }

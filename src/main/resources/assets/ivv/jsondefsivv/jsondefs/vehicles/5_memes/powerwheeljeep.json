@@ -1,6 +1,5 @@
 {
   "motorized": {
-    "isRearWheelDrive": true,
     "hasOpenTop": true,
     "hasRunningLights": true,
     "hasHeadlights": true,
@@ -24,14 +23,14 @@
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "p_brake"
         }
       ]
     },
     {
       "pos": [-0.45,0.18468,-0.02358],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "minValue": 0.25,
       "maxValue": 0.5,
       "defaultPart": "ivv:tinypwtire",
@@ -39,15 +38,15 @@
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "p_brake"
         }
       ]
     },
     {
       "pos": [-0.46,0.18468,1.14463],
+      "rot": [0.0,0.0,0.0],
       "turnsWithSteer": true,
+      "isMirrored": true,
       "minValue": 0.25,
       "maxValue": 0.5,
       "defaultPart": "ivv:tinypwtire",
@@ -63,9 +62,7 @@
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "p_brake"
         }
       ]
     },
@@ -87,9 +84,7 @@
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "p_brake"
         }
       ]
     },
@@ -104,17 +99,19 @@
     },
     {
       "pos": [0.0,0.15661,0.77049],
-      "maxValue": 0.15,
+      "maxValue": 10,
       "intakeOffset": 0.5,
       "defaultPart": "ivv:nano_electricmotor",
-      "types": ["engine_car"]
+      "types": ["engine_car"],
+      "linkedParts": [1,2,8]
     },
     {
       "pos": [0.0,0.60003,-0.56941],
       "rot": [5.447,0.0,0.0],
       "maxValue": 5.0,
       "intakeOffset": 0.5,
-      "types": ["engine_rocket"]
+      "types": ["engine_rocket"],
+      "linkedParts": [1,2,8]
     },
     {
       "pos": [0.0,0.45819,-0.35038],
@@ -161,27 +158,27 @@
   "connectionGroups": [
     {
       "groupName": "HOOKUP",
-      "hookup": true,
+      "isHookup": true,
       "connections": [
         {
           "type": "tow_bumper",
           "pos": [0.0,0.2253,1.35],
-          "distance": 0.0
+          "distance": 2.0
         },
         {
           "type": "tow_bumper_heavy",
           "pos": [0.0,0.2253,1.35],
-          "distance": 0.0
+          "distance": 2.0
         },
         {
           "type": "tow_wheel",
           "pos": [0.0,-0.03842,-1.14463],
-          "distance": 0.0
+          "distance": 2.0
         },
         {
           "type": "tow_wheel_heavy",
           "pos": [0.0,-0.03842,-1.14463],
-          "distance": 0.0
+          "distance": 2.0
         }
       ]
     }
@@ -208,27 +205,37 @@
     {
       "subName": "_disney",
       "name": "Power Wheels Wrangler [Disney]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_mario",
       "name": "Power Wheels Wrangler [Mario Kart]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_racingflame",
       "name": "Power Wheels Wrangler [Racing Flames]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_yellow",
       "name": "Power Wheels Wrangler [Surprised Pikachu]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_military",
       "name": "Power Wheels Wrangler [Pretend-Military]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
@@ -343,11 +350,17 @@
         ]
       }
     ],
-    "particles": []
+    "particles": [],
+    "modelType": "obj"
   },
   "general": {
-    "description": "§r§f[Modeled by HashimIsaPotato]\n§r\n§r§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 20MPH\n0-60: N/A\n0-Top Speed: 0:04.20\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
+    "description": "§r§f[Modeled by HashimIsaPotato]\n§r§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 20MPH\n0-60: N/A\n0-Top Speed: 0:04.20\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
     "health": 800,
-    "materials": ["oredict:ingotIron:12","mts:ivv.circuit:0:2","mts:ivv.tinypwtire:0:4","mts:ivv.nano_electricmotor:0:1"]
+    "materialLists": [
+      ["oredict:ingotIron:12","mts:ivv.circuit:0:2","mts:ivv.tinypwtire:0:4","mts:ivv.nano_electricmotor:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["oredict:ingotIron:6","mts:ivv.circuit:0:1"]
+    ]
   }
 }

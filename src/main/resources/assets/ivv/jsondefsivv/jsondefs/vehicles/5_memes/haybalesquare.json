@@ -1,6 +1,5 @@
 {
   "motorized": {
-    "isRearWheelDrive": true,
     "emptyMass": 80,
     "fuelCapacity": 4000,
     "downForce": 0.2,
@@ -14,19 +13,20 @@
     {
       "pos": [0.0,0.21718,0.30483],
       "maxValue": 500.0,
-      "types": ["engine_car","engine_mariokart","engine_rocket"]
+      "types": ["engine_car","engine_mariokart","engine_rocket"],
+      "linkedParts": [2,3]
     },
     {
       "pos": [-0.745,0.10156,-0.09375],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "minValue": 0.6,
       "maxValue": 0.875,
       "types": ["ground_wheel"],
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "p_brake"
         }
       ]
     },
@@ -38,15 +38,15 @@
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "p_brake"
         }
       ]
     },
     {
       "pos": [-0.745,0.10156,1.03125],
+      "rot": [0.0,0.0,0.0],
       "turnsWithSteer": true,
+      "isMirrored": true,
       "minValue": 0.6,
       "maxValue": 0.875,
       "types": ["ground_wheel"],
@@ -61,9 +61,7 @@
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "p_brake"
         }
       ]
     },
@@ -84,9 +82,7 @@
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "p_brake"
         }
       ]
     },
@@ -253,7 +249,9 @@
     {
       "subName": "",
       "name": "Hay Bale Square",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
@@ -357,11 +355,14 @@
     ],
     "lightObjects": [],
     "sounds": [],
-    "particles": []
+    "particles": [],
+    "modelType": "obj"
   },
   "general": {
     "description": "Holy shit",
     "health": 160,
-    "materials": ["minecraft:hay_block:0:1"]
+    "materialLists": [
+      ["minecraft:hay_block:0:1"]
+    ]
   }
 }

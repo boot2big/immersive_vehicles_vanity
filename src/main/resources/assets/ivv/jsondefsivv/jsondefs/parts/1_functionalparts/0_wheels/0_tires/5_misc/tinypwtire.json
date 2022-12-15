@@ -19,7 +19,6 @@
     "frictionModifiers": {
       "snow": -0.375,
       "ice": -0.675,
-      "dirt": 0.0,
       "dirt_wet": -0.375,
       "sand": -0.125,
       "sand_wet": -0.25,
@@ -32,31 +31,31 @@
       "subName": "",
       "modelName": "pwtire",
       "name": "Power Wheels Wheel",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
     {
       "variable": "motiveFriction",
-      "setValue": 0.00001,
+      "setValue": 1.0E-5,
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "engine_gear",
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "variable": "engine_gear"
         },
         {
           "animationType": "visibility",
           "variable": "brake",
           "clampMin": 0.5,
-          "clampMax": 1
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
           "variable": "throttle",
           "clampMin": 0.625,
-          "clampMax": 1
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -67,10 +66,17 @@
     }
   ],
   "rendering": {
+    "lightObjects": [],
     "sounds": [],
     "particles": [
       {
         "type": "break",
+        "spawnEveryTick": true,
+        "quantity": 3,
+        "scale": 0.5,
+        "color": "A0A0A0",
+        "pos": [0.0,-0.2224999964237213,0.0],
+        "initialVelocity": [0.0,1.0,-0.75],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -78,16 +84,16 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ],
-        "spawnEveryTick": true,
-        "color": "a0a0a0",
-        "scale": 0.5,
-        "pos": [0.0,-0.2224999964237213,0.0],
-        "initialVelocity": [0.0,1.0,-0.75],
-        "quantity": 3
+        ]
       },
       {
         "type": "break",
+        "spawnEveryTick": true,
+        "quantity": 3,
+        "scale": 0.5,
+        "color": "A0A0A0",
+        "pos": [0.0,-0.2224999964237213,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -95,41 +101,35 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ],
-        "spawnEveryTick": true,
-        "color": "a0a0a0",
-        "scale": 0.5,
-        "pos": [0.0,-0.2224999964237213,0.0],
-        "initialVelocity": [0.0,1.5,0.0],
-        "quantity": 3
+        ]
       },
       {
         "type": "break",
+        "spawnEveryTick": true,
+        "quantity": 3,
+        "scale": 0.5,
+        "color": "A0A0A0",
+        "pos": [0.0,-0.2224999964237213,0.0],
+        "initialVelocity": [0.0,1.0,-0.75],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "acceleration",
             "clampMin": 0.0125,
-            "clampMax": 99999999
+            "clampMax": 1.0E8
           }
-        ],
-        "spawnEveryTick": true,
-        "color": "a0a0a0",
-        "scale": 0.5,
-        "pos": [0.0,-0.2224999964237213,0.0],
-        "initialVelocity": [0.0,1.0,-0.75],
-        "quantity": 3
+        ]
       }
-    ]
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "3_vehiclespecificparts/z_misc/",
-  "packID": "ivv",
-  "systemName": "tinypwtire",
-  "classification": "part",
   "general": {
     "name": "Power Wheels... Wheel",
     "description": "A Power Wheel, for your Power Wheels, steered by the Power Steering Wheel\nUsed for crafting the Powerwheels Wrangler",
     "stackSize": 4,
-    "materials": ["oredict:ingotIron:4"]
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:4"]
+    ]
   }
 }

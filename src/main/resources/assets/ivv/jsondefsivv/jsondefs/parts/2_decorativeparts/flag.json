@@ -2,22 +2,28 @@
   "generic": {
     "type": "generic_flag_small",
     "canBeRemovedByHand": true,
-    "width": 0.25,
-    "height": 0.25,
     "canBePlacedOnGround": true,
-    "placedOffset": 0.0
+    "width": 0.25,
+    "height": 0.375
   },
   "definitions": [
     {
+      "subName": "_gramados",
+      "name": "Flag [Gramados Flag]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
       "subName": "_underwear",
-      "name": "Flag [Superhero Flag]",
+      "name": "Flag [Underwear Flag]",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_usa",
-      "name": "Flag [USA]",
+      "name": "Flag [USA Flag]",
       "extraMaterialLists": [
         []
       ]
@@ -59,17 +65,43 @@
     }
   ],
   "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+      {
+        "animationType": "scaling",
+        "variable": "!part_onvehicle",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [1.0,1.0,1.0],
+        "offset": 1
+      }
+        ]
+      },
+      {
+        "objectName": "flag",
+        "applyAfter": "cube",
+        "animations": [
+      {
+        "animationType": "rotation",
+        "variable": "random",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,0.0]
+      }
+        ]
+      }
+    ],
     "lightObjects": [],
     "particles": [],
     "modelType": "obj"
   },
   "general": {
     "name": "Flag",
-    "description": "Can be placed on convention-following vehicles",
+    "description": "Can be placed on convention-following vehicles or as a block",
     "stackSize": 64,
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:1","minecraft:paper:0:1"]
+      ["oredict:ingotIron:1","oredict:paper:1"]
     ]
   }
 }

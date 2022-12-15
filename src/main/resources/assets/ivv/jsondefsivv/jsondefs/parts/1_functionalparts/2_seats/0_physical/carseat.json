@@ -53,11 +53,81 @@
   "rendering": {
     "animatedObjects": [
       {
+        "objectName": "damage_lvl1",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.333,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "damage_lvl2",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.666,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "damage_mirrored_lvl1",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.333,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "damage_mirrored_lvl2",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.666,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
         "objectName": "buckle",
         "animations": [
           {
             "animationType": "visibility",
             "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -70,11 +140,17 @@
         ]
       },
       {
-        "objectName": "buckle_mirror",
+        "objectName": "buckle_mirrored",
         "animations": [
           {
             "animationType": "visibility",
             "variable": "!part_ismirrored"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -94,6 +170,10 @@
             "variable": "part_ismirrored"
           },
           {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          },
+          {
             "animationType": "inhibitor",
             "variable": "part_present_1",
             "clampMin": 1.0,
@@ -107,20 +187,22 @@
           },
           {
             "animationType": "visibility",
-            "variable": "p_brake",
-            "clampMin": 3.0,
-            "clampMax": 3.0
+            "variable": "!buckle_your_seat_belts_or_stop_driving"
           }
         ]
       },
       {
-        "objectName": "belt_mirror",
+        "objectName": "belt_mirrored",
         "animations": [
           {
             "animationType": "visibility",
             "variable": "!part_ismirrored"
           },
           {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          },
+          {
             "animationType": "inhibitor",
             "variable": "part_present_1",
             "clampMin": 1.0,
@@ -134,9 +216,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "p_brake",
-            "clampMin": 3.0,
-            "clampMax": 3.0
+            "variable": "!the_three_point_is_one_of_the_best_automotive_innovations_ever_thank_you_volvo"
           }
         ]
       },
@@ -150,7 +230,7 @@
         ]
       },
       {
-        "objectName": "lever_mirror",
+        "objectName": "lever_mirrored",
         "animations": [
           {
             "animationType": "visibility",
@@ -168,7 +248,7 @@
         ]
       },
       {
-        "objectName": "mount_mirror",
+        "objectName": "mount_mirrored",
         "animations": [
           {
             "animationType": "visibility",
@@ -178,6 +258,36 @@
       }
     ],
     "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:beltbuckle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "seat_occupied_client",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:beltunbuckle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "seat_occupied_client"
+          }
+        ]
+      }
+    ],
     "particles": [],
     "modelType": "obj"
   },
@@ -186,7 +296,7 @@
     "stackSize": 64,
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:2","minecraft:leather:0:2"]
+      ["oredict:ingotIron:2","oredict:leather:2"]
     ]
   }
 }

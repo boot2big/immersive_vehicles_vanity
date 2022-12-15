@@ -19,8 +19,7 @@
   "variableModifiers": [
     {
       "variable": "siren_state",
-      "minValue": 0,
-      "maxValue": 1,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
@@ -35,19 +34,18 @@
         {
           "animationType": "inhibitor",
           "variable": "!redstone_active",
-          "clampMin": 1,
+          "clampMin": 1.0,
           "clampMax": 1.0
         },
         {
           "animationType": "inhibitor",
           "variable": "!activated",
-          "clampMin": 1,
+          "clampMin": 1.0,
           "clampMax": 1.0
         },
         {
           "animationType": "inhibitor",
           "variable": "siren_state",
-          "clampMin": 0,
           "clampMax": 0.5
         },
         {
@@ -72,20 +70,20 @@
             "clampMax": 1.0
           }
         ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "siren_state",
+            "axis": [0.0,20.0,0.0],
+            "clampMax": 10.0
+          }
+        ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "siren_state",
             "axis": [0.0,0.75,0.0],
             "offset": 0.25
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "siren_state",
-            "axis": [0.0,20,0.0],
-            "clampMax": 10
           }
         ],
         "looping": true

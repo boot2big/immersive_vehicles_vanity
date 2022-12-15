@@ -171,7 +171,7 @@
     },
     {
       "pos": [0.0,0.2,3.4],
-      "maxValue": 1.15,
+      "maxValue": 10,
       "defaultPart": "ivv:v9",
       "types": ["engine_car"],
       "interactableVariables": [
@@ -1025,8 +1025,8 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "damage_percent",
-          "axis": [0.0,0.75,0.0]
+          "variable": "damage_totaled",
+          "axis": [0.0,0.86215,0.0]
         }
       ]
     },
@@ -1540,9 +1540,12 @@
         "applyAfter": "doorfrontleft",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "damage_totaled"
+          },
+          {
             "animationType": "visibility",
-            "variable": "damage_percent",
-            "clampMax": 0.99
+            "variable": "!yeet"
           }
         ]
       },
@@ -1551,9 +1554,12 @@
         "applyAfter": "doorfrontright",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "damage_totaled"
+          },
+          {
             "animationType": "visibility",
-            "variable": "damage_percent",
-            "clampMax": 0.99
+            "variable": "!yeet"
           }
         ]
       },
@@ -1562,9 +1568,12 @@
         "applyAfter": "doorrearleft",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "damage_totaled"
+          },
+          {
             "animationType": "visibility",
-            "variable": "damage_percent",
-            "clampMax": 0.99
+            "variable": "!yeet"
           }
         ]
       },
@@ -1573,9 +1582,76 @@
         "applyAfter": "doorrearright",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "damage_totaled"
+          },
+          {
             "animationType": "visibility",
-            "variable": "damage_percent",
-            "clampMax": 0.99
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "glassfrontleftinside_translucent",
+        "applyAfter": "glassfrontleft_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "glassfrontrightinside_translucent",
+        "applyAfter": "glassfrontright_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "glassrearleftinside_translucent",
+        "applyAfter": "glassrearleft_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "glassrearrightinside_translucent",
+        "applyAfter": "glassrearright_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
           }
         ]
       },
@@ -1583,9 +1659,12 @@
         "objectName": "mirror",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "damage_totaled"
+          },
+          {
             "animationType": "visibility",
-            "variable": "damage_percent",
-            "clampMax": 0.99
+            "variable": "!yeet"
           }
         ]
       },
@@ -1593,9 +1672,28 @@
         "objectName": "glass_translucent",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "damage_totaled"
+          },
+          {
             "animationType": "visibility",
-            "variable": "damage_percent",
-            "clampMax": 0.99
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "glassinside_translucent",
+        "applyAfter": "glass_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
           }
         ]
       },
@@ -2391,7 +2489,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -2421,7 +2519,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2448,7 +2546,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2469,14 +2567,15 @@
         "toTransparency": 0.01,
         "scale": 24.0,
         "toScale": 48.0,
-        "texture": "ivv:textures/particles/muzzleflash.png",
+        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png","ivv:textures/particles/explosion_7.png","ivv:textures/particles/explosion_8.png"],
+        "textureDelays": [2,2,2,2,2,2,2,32767],
         "color": "FFFFFF",
         "pos": [0.0,0.451506,1.60069],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -2698,7 +2797,7 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§r\n§r§f§lSTATS:\n§r§7Drivetrain: 4WD\nMax. Top Speed: 124MPH\n0-60: 9:44\n0-Top Speed: 1:04.45\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
+    "description": "§r§f§lSTATS:\n§r§7Drivetrain: 4WD\nMax. Top Speed: 124MPH\n0-60: 9:44\n0-Top Speed: 1:04.45\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
     "health": 3800,
     "materialLists": [
       ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.bigtire:0:4","mts:ivv.carseat_gray:0:4","mts:ivv.v9:0:1","mts:ivv.clustermodern:0:1"]

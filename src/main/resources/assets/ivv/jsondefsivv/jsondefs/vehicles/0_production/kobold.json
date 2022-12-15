@@ -44,7 +44,7 @@
     },
     {
       "pos": [0.0,0.1875,0.03125],
-      "maxValue": 1.0,
+      "maxValue": 10,
       "defaultPart": "ivv:v4smallfry",
       "types": ["engine_car"],
       "linkedParts": [2]
@@ -264,9 +264,12 @@
       "variable": "rudder",
       "animations": [
         {
+          "animationType": "visibility",
+          "variable": "seat_occupied_1"
+        },
+        {
           "animationType": "inhibitor",
-          "variable": "seat_occupied_1",
-          "clampMin": 1.0,
+          "variable": "speed",
           "clampMax": 1.0
         },
         {
@@ -278,8 +281,14 @@
         },
         {
           "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,22.5,0.0],
+          "offset": -11.25
+        },
+        {
+          "animationType": "translation",
           "variable": "speed",
-          "axis": [0.125,0.0,0.0],
+          "axis": [0.0625,0.0,0.0],
           "clampMax": 1.0
         }
       ]

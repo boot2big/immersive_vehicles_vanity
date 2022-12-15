@@ -22,7 +22,7 @@
     "coolingCoefficient": 1.0,
     "engineWearFactor": 0.75,
     "fuelConsumption": 0.65,
-    "gearRatios": [-3,0,3,2,1],
+    "gearRatios": [-3.0,0.0,3.0,2.0,1.0],
     "upShiftRPM": [0,0,3800,3800,3800],
     "downShiftRPM": [0,0,1400,1400,1400],
     "fuelType": "gasoline",
@@ -60,17 +60,17 @@
           "animationType": "translation",
           "variable": "engine_temp",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 0.000125,
-          "clampMax": 1,
-          "offset": -250
+          "offset": -250.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "engine_hours",
           "axis": [0.0,1.0,0.0],
-          "clampMin": 0.000125,
-          "clampMax": 1,
-          "offset": -110
+          "offset": -110.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
@@ -103,8 +103,8 @@
         {
           "animationType": "visibility",
           "variable": "part_present_2",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -121,8 +121,8 @@
         {
           "animationType": "visibility",
           "variable": "part_present_2",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -274,7 +274,6 @@
           {
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0,
             "clampMax": 0.25
           }
         ],
@@ -283,9 +282,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -311,9 +310,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -339,9 +338,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -359,7 +358,7 @@
             "animationType": "visibility",
             "variable": "lazinessThatJavaWontLike",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -367,9 +366,9 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
+            "offset": 0.75,
             "clampMin": 0.875,
-            "clampMax": 1.25,
-            "offset": 0.75
+            "clampMax": 1.25
           }
         ],
         "forceSound": true
@@ -381,13 +380,13 @@
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": 2.0,
-            "clampMax": 127
+            "clampMax": 127.0
           },
           {
             "animationType": "visibility",
             "variable": "engine_clutch_upshift",
             "clampMin": 1.0,
-            "clampMax": 127
+            "clampMax": 127.0
           }
         ]
       },
@@ -398,13 +397,13 @@
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": 1.0,
-            "clampMax": 127
+            "clampMax": 127.0
           },
           {
             "animationType": "inhibitor",
             "variable": "engine_gear",
             "clampMin": -127.0,
-            "clampMax": -2
+            "clampMax": -2.0
           },
           {
             "animationType": "visibility",
@@ -452,17 +451,17 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,10,0.0],
-            "offset": -10
+            "axis": [0.0,10.0,0.0],
+            "offset": -10.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,4,0.0],
+            "axis": [0.0,4.0,0.0],
             "offset": -3.5,
-            "clampMax": 4
+            "clampMax": 4.0
           }
         ],
         "looping": true
@@ -483,15 +482,6 @@
             "clampMax": 999999.0
           }
         ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.75,
-            "duration": 20
-          }
-        ],
         "volumeAnimations": [
           {
             "animationType": "translation",
@@ -506,6 +496,15 @@
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 20
           }
         ],
         "looping": true
@@ -678,51 +677,13 @@
             "clampMax": 999.0
           }
         ]
-      },
-      {
-        "type": "drip",
-        "quantity": 1,
-        "color": "000000",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_oilleak",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "cycle_10_20",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "drip",
-        "quantity": 1,
-        "color": "FF0000",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_fuelleak",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "cycle_10_20",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
       }
     ],
     "modelType": "obj"
   },
   "general": {
-    "description": "3.6L Budget IVLabs Motor",
     "name": "Insolvo V6 Engine §9(Automatic)",
+    "description": "3.6L Budget IVLabs Motor",
     "health": 100,
     "materialLists": [
       ["mts:ivv.engineblock:0:1","mts:ivv.enginepiston:0:8","mts:ivv.fuelcarb:0:2","mts:ivv.gearboxauto:0:1"]

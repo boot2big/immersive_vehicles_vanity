@@ -17,7 +17,7 @@
     "maxCaseLength": 57.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
-    "handHeldNormalOffset": [0,-0.125,0.5],
+    "handHeldNormalOffset": [0.0,-0.125,0.5],
     "handHeldAimedOffset": [0.315,0.05,0.45],
     "muzzleGroups": [
       {
@@ -198,6 +198,38 @@
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:generic_gun_hammer",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!gun_ammo_percent",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_firing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9875
           }
         ]
       }

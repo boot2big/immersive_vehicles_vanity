@@ -1,6 +1,5 @@
 {
   "motorized": {
-    "isRearWheelDrive": true,
     "hasRunningLights": true,
     "hasHeadlights": true,
     "emptyMass": 5000,
@@ -20,10 +19,11 @@
   "parts": [
     {
       "pos": [0.0,1.03125,5.09375],
-      "maxValue": 2.0,
+      "maxValue": 10,
       "intakeOffset": 1.5,
       "defaultPart": "ivv:v3vanilla",
       "types": ["engine_car"],
+      "linkedParts": [2,3,8],
       "animations": [
         {
           "animationType": "visibility",
@@ -37,20 +37,21 @@
       "maxValue": 1.125,
       "defaultPart": "ivv:blocktire",
       "types": ["ground_wheel"],
-      "additionalParts": [
+      "activeAnimations": [
         {
-          "pos": [1.25,0.0,0.0],
-          "minValue": 0.875,
-          "maxValue": 1.125,
-          "defaultPart": "ivv:blocktire",
-          "types": ["ground_wheel"],
-          "activeAnimations": [
-            {
-              "animationType": "visibility",
-              "variable": "p_brake"
-            }
-          ]
+          "animationType": "visibility",
+          "variable": "p_brake"
         }
+      ]
+    },
+    {
+      "pos": [1.25,0.0,0.0],
+      "minValue": 0.875,
+      "maxValue": 1.125,
+      "defaultPart": "ivv:blocktire",
+      "types": ["ground_wheel"],
+      "interactableVariables": [
+        ["part_present_2"]
       ],
       "activeAnimations": [
         {
@@ -61,24 +62,29 @@
     },
     {
       "pos": [-0.75,0.0,0.0],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "minValue": 0.875,
       "maxValue": 1.125,
       "defaultPart": "ivv:blocktire",
       "types": ["ground_wheel"],
-      "additionalParts": [
+      "activeAnimations": [
         {
-          "pos": [-1.25,0.0,0.0],
-          "minValue": 0.875,
-          "maxValue": 1.125,
-          "defaultPart": "ivv:blocktire",
-          "types": ["ground_wheel"],
-          "activeAnimations": [
-            {
-              "animationType": "visibility",
-              "variable": "p_brake"
-            }
-          ]
+          "animationType": "visibility",
+          "variable": "p_brake"
         }
+      ]
+    },
+    {
+      "pos": [-1.25,0.0,0.0],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
+      "minValue": 0.875,
+      "maxValue": 1.125,
+      "defaultPart": "ivv:blocktire",
+      "types": ["ground_wheel"],
+      "interactableVariables": [
+        ["part_present_4"]
       ],
       "activeAnimations": [
         {
@@ -105,7 +111,9 @@
     },
     {
       "pos": [-1.25,0.0,4.0],
+      "rot": [0.0,0.0,0.0],
       "turnsWithSteer": true,
+      "isMirrored": true,
       "minValue": 0.8,
       "maxValue": 1.15,
       "defaultPart": "ivv:blocktire",
@@ -120,11 +128,13 @@
       ]
     },
     {
-      "pos": [0,0.8,2.9],
+      "pos": [0.0,0.8,2.9],
       "isController": true,
       "defaultPart": "ivv:truckseat",
       "types": ["seat"],
-      "linkedVariables": ["door_left"]
+      "interactableVariables": [
+        ["door_left"]
+      ]
     },
     {
       "pos": [0.0,0.0945,3.0],
@@ -186,7 +196,7 @@
           "pos": [-1.0,1.0,1.0],
           "width": 1.0,
           "height": 1.0
-        }, 
+        },
         {
           "pos": [1.0,0.25,1.0],
           "width": 1.0,
@@ -196,7 +206,7 @@
           "pos": [-1.0,0.25,1.0],
           "width": 1.0,
           "height": 0.5
-        }, 
+        },
         {
           "pos": [1.0,0.75,0.0],
           "width": 1.0,
@@ -272,8 +282,8 @@
       "isInterior": true,
       "collisions": [
         {
-          "pos": [1,0.75,3.0],
-          "width": 1,
+          "pos": [1.0,0.75,3.0],
+          "width": 1.0,
           "height": 0.5,
           "variableName": "door_left",
           "variableType": "toggle"
@@ -304,8 +314,8 @@
         {
           "animationType": "rotation",
           "variable": "door_left",
-          "centerPoint": [0.5,0.5,3],
-          "axis": [0,0,-90.0],
+          "centerPoint": [0.5,0.5,3.0],
+          "axis": [0.0,0.0,-90.0],
           "duration": 10,
           "forwardsEasing": "easeoutcirc",
           "reverseEasing": "easeoutcirc"
@@ -378,12 +388,16 @@
     {
       "subName": "_oak",
       "name": "Vanilla Tow Truck [Planks]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     },
     {
       "subName": "_gr",
       "name": "Vanilla Tow Truck [Gallifrey Repairs]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -413,10 +427,10 @@
             "animationType": "rotation",
             "variable": "!part_present_1",
             "centerPoint": [0.0,0.5,5.5],
-            "axis": [85,0.0,0.0],
-          "duration": 10,
-          "forwardsEasing": "easeoutcirc",
-          "reverseEasing": "easeoutcirc"
+            "axis": [85.0,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeoutcirc"
           }
         ]
       },
@@ -426,15 +440,15 @@
           {
             "animationType": "rotation",
             "variable": "door_left",
-          "centerPoint": [0.5,0.5,3],
-          "axis": [0,0,-90.0],
-          "duration": 10,
-          "forwardsEasing": "easeoutcirc",
-          "reverseEasing": "easeoutcirc"
+            "centerPoint": [0.5,0.5,3.0],
+            "axis": [0.0,0.0,-90.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeoutcirc"
           }
         ]
       }
-     ],
+    ],
     "lightObjects": [
       {
         "objectName": "brakebulb",
@@ -462,8 +476,8 @@
       },
       {
         "objectName": "brakelights",
-        "isElectric": true,
         "emissive": true,
+        "isElectric": true,
         "color": "F73307",
         "brightnessAnimations": [
           {
@@ -558,9 +572,13 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§r§f[Modeled by LauraDarkez2001]\n§r\n§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 60MPH\n0-60: 35.0\n0-Top Speed: 0:35.0\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Gyrophare x4\n-Lightbar x1\n-Roof Device x1",
+    "description": "§r§f[Modeled by LauraDarkez2001]\n§f§lSTATS:\n§r§7Drivetrain: RWD\nMax. Top Speed: 60MPH\n0-60: 35.0\n0-Top Speed: 0:35.0\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Gyrophare x4\n-Lightbar x1\n-Roof Device x1",
     "health": 10000,
-    "materials": ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","minecraft:planks:0:24","minecraft:planks:1:16","mts:ivv.classicgear:0:1","mts:ivv.classicmphround:0:1","mts:ivv.classicfueltemp:0:1","mts:ivv.blocktire:0:4","mts:ivv.v3vanilla:0:1","mts:ivv.truckseat:0:1"],
-    "repairMaterials": ["mts:ivv.axle:0:2","minecraft:planks:0:24","minecraft:planks:1:16","mts:ivv.tape:0:2"]
+    "materialLists": [
+      ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","minecraft:planks:0:24","minecraft:planks:1:16","mts:ivv.classicgear:0:1","mts:ivv.classicmphround:0:1","mts:ivv.classicfueltemp:0:1","mts:ivv.blocktire:0:4","mts:ivv.v3vanilla:0:1","mts:ivv.truckseat:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.axle:0:2","minecraft:planks:0:24","minecraft:planks:1:16","mts:ivv.tape:0:2"]
+    ]
   }
 }

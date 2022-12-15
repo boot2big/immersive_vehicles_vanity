@@ -1,7 +1,5 @@
 {
   "motorized": {
-    "isFrontWheelDrive": true,
-    "isRearWheelDrive": true,
     "hasOpenTop": true,
     "hasRunningLights": true,
     "emptyMass": 6000,
@@ -18,8 +16,10 @@
   "parts": [
     {
       "pos": [-2.0,1.0,-1.5],
+      "rot": [0.0,0.0,0.0],
       "turnsWithSteer": true,
       "isPermanent": true,
+      "isMirrored": true,
       "minValue": 0.4,
       "maxValue": 2.0,
       "defaultPart": "ivv:rockwheel",
@@ -64,8 +64,10 @@
     },
     {
       "pos": [-2.0,1.0,1.5],
+      "rot": [0.0,0.0,0.0],
       "turnsWithSteer": true,
       "isPermanent": true,
+      "isMirrored": true,
       "minValue": 0.4,
       "maxValue": 2.0,
       "defaultPart": "ivv:rockwheel",
@@ -128,7 +130,10 @@
       "intakeOffset": 5000.0,
       "types": ["engine_car","engine_rocket","engine_ufo","engine_plane","engine_boat","engine_jet","engine_aircraft","engine_helicopter_piston","engine_helicopter_turbine","engine_aircraft_opposed","engine_aircraft_pt6"],
       "customTypes": ["pw150","j2350tf","CFM563B1","trent1000","apu","j3283tf","j34200tj","j1018tj","h4","787dl","volkswagen","corsair",""],
-      "linkedVariables": ["door_hood"],
+      "interactableVariables": [
+        ["door_hood"]
+      ],
+      "linkedParts": [1,2,3,4,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51],
       "animations": [
         {
           "animationType": "visibility",
@@ -141,14 +146,16 @@
       "rot": [0.0,2.5,90.0],
       "maxValue": 50.0,
       "intakeOffset": 0.25,
-      "types": ["engine_rocket"]
+      "types": ["engine_rocket"],
+      "linkedParts": [1,2,3,4,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]
     },
     {
       "pos": [2.4976,0.7825,-1.42025],
       "rot": [0.0,-2.5,-90.0],
       "maxValue": 50.0,
       "intakeOffset": 0.25,
-      "types": ["engine_rocket"]
+      "types": ["engine_rocket"],
+      "linkedParts": [1,2,3,4,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]
     },
     {
       "pos": [0.4,0.4625,-2.5005],
@@ -233,7 +240,7 @@
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel","seat_furniture","interactable_furniture","generic_furniture"]
     },
     {
-      "pos": [0.0,3,-2.0],
+      "pos": [0.0,3.0,-2.0],
       "rot": [0.0,180.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel","seat_furniture","interactable_furniture","generic_furniture"]
@@ -245,7 +252,7 @@
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel","seat_furniture","interactable_furniture","generic_furniture"]
     },
     {
-      "pos": [1.0,3,-1.0],
+      "pos": [1.0,3.0,-1.0],
       "rot": [0.0,180.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel","seat_furniture","interactable_furniture","generic_furniture"]
@@ -263,7 +270,7 @@
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel","seat_furniture","interactable_furniture","generic_furniture"]
     },
     {
-      "pos": [-1.0,3,-1.0],
+      "pos": [-1.0,3.0,-1.0],
       "rot": [0.0,180.0,0.0],
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel","seat_furniture","interactable_furniture","generic_furniture"]
@@ -342,7 +349,8 @@
     },
     {
       "pos": [2.531,1.8875,0.0],
-      "inverseMirroring": true,
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "maxValue": 1.0,
       "types": ["generic_busad_sign"]
     },
@@ -358,7 +366,6 @@
     },
     {
       "pos": [-2.531,0.7875,0.0],
-      "inverseMirroring": true,
       "maxValue": 1.0,
       "types": ["generic_busad_sign"]
     },
@@ -416,13 +423,13 @@
       ],
       "animations": [
         {
-            "animationType": "rotation",
-            "variable": "door_hood",
-            "centerPoint": [0.0,2.0,-2.4375],
-            "axis": [87.5,0.0,0.0],
-            "duration": 5,
-            "forwardsEasing": "easeoutelastic",
-            "reverseEasing": "easeinback"
+          "animationType": "rotation",
+          "variable": "door_hood",
+          "centerPoint": [0.0,2.0,-2.4375],
+          "axis": [87.5,0.0,0.0],
+          "duration": 5,
+          "forwardsEasing": "easeoutelastic",
+          "reverseEasing": "easeinback"
         }
       ]
     },
@@ -954,7 +961,7 @@
     },
     {
       "groupName": "TRAILER",
-      "canIntiateConnections": true,
+      "canInitiateConnections": true,
       "isHitch": true,
       "connections": [
         {
@@ -1011,38 +1018,52 @@
     {
       "subName": "_vanilla",
       "name": "Varied Rock",
-      "extraMaterials": ["minecraft:cobblestone:0:8"]
+      "extraMaterialLists": [
+        ["minecraft:cobblestone:0:8"]
+      ]
     },
     {
       "subName": "_stone",
       "name": "Smoothstone Rock",
-      "extraMaterials": ["minecraft:stone:0:8"]
+      "extraMaterialLists": [
+        ["minecraft:stone:0:8"]
+      ]
     },
     {
       "subName": "_blue",
       "name": "Blue Rock",
-      "extraMaterials": ["minecraft:lapis_block:0:8"]
+      "extraMaterialLists": [
+        ["minecraft:lapis_block:0:8"]
+      ]
     },
     {
       "subName": "_bedrock",
       "name": "Bed Rock",
       "description": "(No, you can't sleep on it)",
-      "extraMaterials": ["minecraft:stone:0:7","minecraft:bedrock:0:1"]
+      "extraMaterialLists": [
+        ["minecraft:stone:0:7","minecraft:bedrock:0:1"]
+      ]
     },
     {
       "subName": "_ore",
       "name": "Ore-laden Rock",
-      "extraMaterials": ["minecraft:diamond_ore:0:1","minecraft:gold_ore:0:1","minecraft:emerald_ore:0:1","minecraft:iron_ore:0:1","minecraft:coal_ore:0:1","minecraft:lapis_ore:0:1","minecraft:redstone_ore:0:1","minecraft:stone:0:1"]
+      "extraMaterialLists": [
+        ["minecraft:diamond_ore:0:1","minecraft:gold_ore:0:1","minecraft:emerald_ore:0:1","minecraft:iron_ore:0:1","minecraft:coal_ore:0:1","minecraft:lapis_ore:0:1","minecraft:redstone_ore:0:1","minecraft:stone:0:1"]
+      ]
     },
     {
       "subName": "_oresmelted",
       "name": "Mineral Rock",
-      "extraMaterials": ["minecraft:diamond_block:0:1","minecraft:gold_block:0:1","minecraft:emerald_block:0:1","minecraft:iron_block:0:1","minecraft:coal_block:0:1","minecraft:lapis_block:0:1","minecraft:redstone_block:0:1","minecraft:stone:0:1"]
+      "extraMaterialLists": [
+        ["minecraft:diamond_block:0:1","minecraft:gold_block:0:1","minecraft:emerald_block:0:1","minecraft:iron_block:0:1","minecraft:coal_block:0:1","minecraft:lapis_block:0:1","minecraft:redstone_block:0:1","minecraft:stone:0:1"]
+      ]
     },
     {
       "subName": "_nether",
       "name": "Nether Rock",
-      "extraMaterials": ["minecraft:netherrack:0:8"]
+      "extraMaterialLists": [
+        ["minecraft:netherrack:0:8"]
+      ]
     }
   ],
   "rendering": {
@@ -1186,7 +1207,7 @@
           {
             "animationType": "translation",
             "variable": "horn",
-            "axis":[0,1,0],
+            "axis": [0.0,1.0,0.0],
             "duration": 24
           }
         ],
@@ -1197,19 +1218,22 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "horn",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "horn"
           }
         ]
       }
-      ],
+    ],
     "particles": [],
     "modelType": "obj"
   },
   "general": {
     "description": "§r§f§lSTATS:\n§r§7Drivetrain: Rock\nMax. Top Speed: Rock\n0-60: Rock\n0-Top Speed: Rock\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2\n-Canopy 1x",
     "health": 12000,
-    "materials": ["minecraft:stone:0:48","minecraft:iron_block:0:8","mts:ivv.rockwheel:0:4"]
+    "materialLists": [
+      ["minecraft:stone:0:48","minecraft:iron_block:0:8","mts:ivv.rockwheel:0:4"]
+    ],
+    "repairMaterialLists": [
+      ["minecraft:stone:0:24","minecraft:iron_block:0:4"]
+    ]
   }
 }

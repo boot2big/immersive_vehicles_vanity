@@ -19,13 +19,21 @@
     "motiveFriction": 0.6,
     "lateralFriction": 0.6,
     "extraCollisionBoxOffset": 0.15,
-    "rainFrictionLoss": 0.15
+    "frictionModifiers": {
+      "snow": -0.2,
+      "ice": -0.2,
+      "dirt_wet": -0.1,
+      "sand_wet": -0.1,
+      "normal_wet": -0.1
+    }
   },
   "definitions": [
     {
       "subName": "",
       "name": "Giant Wheel [Worn]",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "rendering": {
@@ -35,13 +43,12 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "ground_isflat"
           }
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "mts:wheel_blowout",
@@ -119,9 +126,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "ground_isflat"
           },
           {
             "animationType": "visibility",
@@ -161,9 +166,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "ground_isflat"
           },
           {
             "animationType": "visibility",
@@ -174,8 +177,8 @@
           {
             "animationType": "visibility",
             "variable": "rain_strength",
-            "clampMin": 1,
-            "clampMax": 1
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ],
         "volumeAnimations": [
@@ -209,9 +212,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "variable": "ground_isflat"
           },
           {
             "animationType": "visibility",
@@ -252,17 +253,114 @@
         ],
         "looping": true
       }
-    ]
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "quantity": 4,
+        "color": "FFFFFF",
+        "initialVelocity": [0.0,0.15,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_contacted",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 4,
+        "color": "FFFFFF",
+        "pos": [0.0,-0.987500011920929,0.0],
+        "initialVelocity": [0.0,0.15,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "spawnEveryTick": true,
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,-0.987500011920929,0.0],
+        "initialVelocity": [0.0,1.5,-1.5],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_skidding",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "spawnEveryTick": true,
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,-0.987500011920929,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
   },
-  "prefixFolders": "2_functionalparts/0_wheels/0_tires/",
-  "packID": "ivv",
-  "systemName": "1gianttireworn",
-  "classification": "part",
   "general": {
-    "health": 470,
     "name": "Giant Wheel (Worn)",
     "description": "Only fits on lift kits, and the Trin Gorgantom\n§r§cRisk of hydroplaning or popped tire!§r§7",
     "stackSize": 4,
-    "materials": ["mts:ivv.1gianttire:0:1","minecraft:dirt:0:2"]
+    "health": 470,
+    "materialLists": [
+      ["mts:ivv.1gianttire:0:1","minecraft:dirt:0:2"]
+    ]
   }
 }

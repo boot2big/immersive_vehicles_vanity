@@ -159,7 +159,7 @@
     {
       "pos": [0.225,0.2,2.3125],
       "rot": [0.0,-90.0,0.0],
-      "maxValue": 0.45,
+      "maxValue": 10,
       "defaultPart": "ivv:v2insolvo",
       "types": ["engine_car"],
       "interactableVariables": [
@@ -932,6 +932,16 @@
       ]
     },
     {
+      "variable": "dragCoefficient",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.0,0.9125,0.0]
+        }
+      ]
+    },
+    {
       "variable": "downForce",
       "addValue": 0.2,
       "animations": [
@@ -1370,13 +1380,8 @@
             "reverseEndSound": "ivv:hoodclose3"
           },
           {
-            "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.99
-          },
-          {
             "animationType": "rotation",
-            "variable": "!lefucked",
+            "variable": "damage_totaled",
             "centerPoint": [0.0,0.9375,2.0],
             "axis": [-2.0,0.0,0.0]
           }
@@ -1399,18 +1404,79 @@
         ]
       },
       {
+        "objectName": "gateglassinside_translucent",
+        "applyAfter": "gateglass_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "glassinside_translucent",
+        "applyAfter": "glass_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "leftdoorglassinside_translucent",
+        "applyAfter": "leftdoorglass_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "rightdoorglassinside_translucent",
+        "applyAfter": "rightdoorglass_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
         "objectName": "glass_translucent",
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
+            "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
-            "variable": "bruh",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "!yeet"
           }
         ]
       },
@@ -1420,14 +1486,11 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
+            "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
-            "variable": "bruh",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "!yeet"
           }
         ]
       },
@@ -1437,14 +1500,21 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
+            "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
-            "variable": "bruh",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "leftdoorglass_translucent",
+        "applyAfter": "leftdoor",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
           }
         ]
       },
@@ -1454,31 +1524,11 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
+            "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
-            "variable": "bruh",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "objectName": "leftdoorglass_translucent",
-        "applyAfter": "leftdoor",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
-          },
-          {
-            "animationType": "visibility",
-            "variable": "bruh",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "!yeet"
           }
         ]
       },
@@ -1497,13 +1547,8 @@
             "reverseEndSound": "ivv:doorclose5"
           },
           {
-            "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.99
-          },
-          {
             "animationType": "rotation",
-            "variable": "!lefucked",
+            "variable": "damage_totaled",
             "centerPoint": [1.125,0.5625,1.5],
             "axis": [-2.0,-3.0,0.0]
           }
@@ -1524,13 +1569,8 @@
             "reverseEndSound": "ivv:doorclose5"
           },
           {
-            "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.99
-          },
-          {
             "animationType": "rotation",
-            "variable": "!lefucked",
+            "variable": "damage_totaled",
             "centerPoint": [-1.125,0.5625,1.5],
             "axis": [-0.5,1.0,0.0]
           }
@@ -2010,7 +2050,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -2040,7 +2080,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2067,7 +2107,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2088,14 +2128,15 @@
         "toTransparency": 0.01,
         "scale": 24.0,
         "toScale": 48.0,
-        "texture": "ivv:textures/particles/muzzleflash.png",
+        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png","ivv:textures/particles/explosion_7.png","ivv:textures/particles/explosion_8.png"],
+        "textureDelays": [2,2,2,2,2,2,2,32767],
         "color": "FFFFFF",
         "pos": [0.0,0.516953,0.882015],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }

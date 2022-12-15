@@ -4,12 +4,13 @@
       "explosive"
     ],
     "quantity": 10,
-    "diameter": 40.0,
+    "diameter": 4.0,
     "damage": 0.001,
     "caseLength": 20.0,
     "blastStrength": -1.0,
-    "pellets": 24,
-    "pelletSpreadFactor": 0.00001
+    "despawnTime": 5,
+    "pellets": 6,
+    "pelletSpreadFactor": 1.0E-5
   },
   "definitions": [
     {
@@ -21,6 +22,26 @@
     }
   ],
   "rendering": {
+    "sounds":[
+      {
+        "name": "ivv:explode_techno",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,4.0,0.0]
+          }
+        ]
+      },
+    ],
     "lightObjects": [],
     "particles": [
       {

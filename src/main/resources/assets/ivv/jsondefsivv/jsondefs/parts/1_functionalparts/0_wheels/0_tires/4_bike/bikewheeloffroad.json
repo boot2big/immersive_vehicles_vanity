@@ -17,11 +17,10 @@
     "height": 0.875,
     "flatHeight": 0.625,
     "motiveFriction": 0.75,
-    "lateralFriction": 1,
+    "lateralFriction": 1.0,
     "frictionModifiers": {
       "snow": -0.375,
       "ice": -0.875,
-      "dirt": 0.0,
       "dirt_wet": -0.25,
       "sand": -0.25,
       "sand_wet": -0.375,
@@ -32,7 +31,9 @@
     {
       "subName": "",
       "name": "Standard Motorcycle Wheel",
-      "extraMaterials": []
+      "extraMaterialLists": [
+        []
+      ]
     }
   ],
   "variableModifiers": [
@@ -290,14 +291,14 @@
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": -1024,
+            "clampMin": -1024.0,
             "clampMax": -0.5
           },
           {
             "animationType": "inhibitor",
             "variable": "slip",
             "clampMin": 0.5,
-            "clampMax": 1024
+            "clampMax": 1024.0
           },
           {
             "animationType": "visibility",
@@ -333,16 +334,15 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.00375,0.0],
-            "offset": 0,
             "clampMax": 0.625
           },
           {
             "animationType": "translation",
             "variable": "slip",
             "axis": [0.0,-0.0125,0.0],
+            "offset": 1.75,
             "clampMin": 1.25,
             "clampMax": 1.5,
-            "offset": 1.75,
             "absolute": true
           }
         ],
@@ -427,55 +427,6 @@
         ]
       },
       {
-        "type": "drip",
-        "spawnEveryTick": true,
-        "quantity": 4,
-        "duration": 10,
-        "transparency": 0.5,
-        "toTransparency": 1.0E-7,
-        "scale": 4,
-        "toScale": 8,
-        "color": "244B89",
-        "pos": [0.0,-0.5,0.0],
-        "initialVelocity": [0.0,1.125,-1],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [-1.0,0.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "ground_isflat"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.25,
-            "clampMax": 65535
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "rain_strength",
-            "clampMin": 1,
-            "clampMax": 2
-          }
-        ]
-      },
-      {
         "type": "smoke",
         "spawnEveryTick": true,
         "quantity": 4,
@@ -519,14 +470,14 @@
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": -1024,
-            "clampMax": -32
+            "clampMin": -1024.0,
+            "clampMax": -32.0
           },
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": 32,
-            "clampMax": 1024
+            "clampMin": 32.0,
+            "clampMax": 1024.0
           },
           {
             "animationType": "visibility",
@@ -628,7 +579,7 @@
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 80,
-        "transparency": 4,
+        "transparency": 4.0,
         "toTransparency": -1.0E-4,
         "scale": 2.0,
         "color": "000000",
@@ -668,14 +619,14 @@
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": -1024,
-            "clampMax": -20
+            "clampMin": -1024.0,
+            "clampMax": -20.0
           },
           {
             "animationType": "inhibitor",
             "variable": "slip",
-            "clampMin": 20,
-            "clampMax": 1024
+            "clampMin": 20.0,
+            "clampMax": 1024.0
           },
           {
             "animationType": "visibility",
@@ -690,15 +641,15 @@
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 20,
-        "transparency": 2,
+        "transparency": 2.0,
         "toTransparency": -1.0E-4,
         "scale": 0.25,
         "texture": "ivv:textures/particles/pattern2.png",
         "color": "EDAC28",
         "pos": [0.0,-0.4375,0.0],
-        "initialVelocity": [0.0,1,-1.25],
+        "initialVelocity": [0.0,1.0,-1.25],
         "movementVelocity": [0.0,-0.02,0.0],
-        "terminalVelocity": [2048,2048,2048],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -758,6 +709,8 @@
     "description": "Motorcycle Wheel",
     "stackSize": 4,
     "health": 130,
-    "materials": ["minecraft:wool:15:8","minecraft:slime_ball:0:2","oredict:ingotIron:6"]
+    "materialLists": [
+      ["minecraft:wool:15:8","minecraft:slime_ball:0:2","oredict:ingotIron:6"]
+    ]
   }
 }

@@ -93,16 +93,22 @@
       "linkedParts": [12]
     },
     {
-      "pos": [0.9,-0.5875,1.52168],
-      "minValue": 0.25,
-      "maxValue": 0.75,
-      "types": ["generic_this_part_slot_is_disabled_sorry"]
+      "pos": [-0.3,0.101987,-0.4375],
+      "maxValue": 3.0,
+      "partScale": [0.875,0.875,0.875],
+      "types": ["interactable_crate","interactable_chest","interactable_luggage"],
+      "interactableVariables": [
+        ["door_trunk"]
+      ]
     },
     {
-      "pos": [-0.9,-0.5875,1.52168],
-      "minValue": 0.25,
-      "maxValue": 0.75,
-      "types": ["generic_this_part_slot_is_disabled_sorry"]
+      "pos": [0.3,0.101987,-0.4375],
+      "maxValue": 3.0,
+      "partScale": [0.875,0.875,0.875],
+      "types": ["interactable_crate","interactable_chest","interactable_luggage"],
+      "interactableVariables": [
+        ["door_trunk"]
+      ]
     },
     {
       "pos": [0.5,0.0,0.5],
@@ -132,7 +138,7 @@
       ]
     },
     {
-      "pos": [-0.5625,0.1625,1.5],
+      "pos": [-0.6,0.04375,1.5],
       "rot": [0.0,90.0,0.0],
       "maxValue": 2.0,
       "types": ["interactable_luggage"],
@@ -153,7 +159,7 @@
     },
     {
       "pos": [0.0,0.1,2.9],
-      "maxValue": 1.25,
+      "maxValue": 10.0,
       "defaultPart": "ivv:v8newperformantemanual",
       "types": ["engine_car"],
       "interactableVariables": [
@@ -165,7 +171,7 @@
       "pos": [0.0,0.45761,-0.82712],
       "rot": [-15.0,180.0,0.0],
       "maxValue": 3.0,
-      "types": ["no_space_for_luggage"],
+      "types": ["disabled_legacy"],
       "interactableVariables": [
         ["door_gate"]
       ]
@@ -370,7 +376,7 @@
           "axis": [-55.0,0.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -514,7 +520,7 @@
           "axis": [0.0,-65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -572,7 +578,7 @@
           "axis": [0.0,65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -983,7 +989,7 @@
         {
           "animationType": "translation",
           "variable": "damage_percent",
-          "axis": [0.0,0.75,0.0]
+          "axis": [0.0,0.875,0.0]
         }
       ]
     },
@@ -1508,7 +1514,7 @@
             "axis": [-55.0,0.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutelastic",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:hoodopen1",
             "reverseEndSound": "ivv:hoodclose1"
           }
@@ -1530,14 +1536,27 @@
           },
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
+            "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
-            "variable": "bruh",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "gateinside_translucent",
+        "applyAfter": "gate_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
           }
         ]
       },
@@ -1546,14 +1565,59 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
+            "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
-            "variable": "bruh",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "glassinside_translucent",
+        "applyAfter": "glass_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "leftdoorglassinside_translucent",
+        "applyAfter": "leftdoorglass_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
+          }
+        ]
+      },
+      {
+        "objectName": "rightdoorglassinside_translucent",
+        "applyAfter": "rightdoorglass_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!yeet"
           }
         ]
       },
@@ -1562,14 +1626,11 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
+            "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
-            "variable": "bruh",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "!yeet"
           }
         ]
       },
@@ -1579,14 +1640,11 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
+            "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
-            "variable": "bruh",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "!yeet"
           }
         ]
       },
@@ -1600,7 +1658,7 @@
             "axis": [0.0,-65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen4",
             "reverseEndSound": "ivv:doorclose4"
           }
@@ -1612,14 +1670,11 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMax": 0.998725
+            "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
-            "variable": "bruh",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "!yeet"
           }
         ]
       },
@@ -1633,7 +1688,7 @@
             "axis": [0.0,65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen4",
             "reverseEndSound": "ivv:doorclose4"
           }
@@ -2544,7 +2599,7 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2561,7 +2616,7 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2734,7 +2789,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -2764,7 +2819,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2791,7 +2846,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2812,14 +2867,15 @@
         "toTransparency": 0.01,
         "scale": 24.0,
         "toScale": 48.0,
-        "texture": "ivv:textures/particles/muzzleflash.png",
+        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png","ivv:textures/particles/explosion_7.png","ivv:textures/particles/explosion_8.png"],
+        "textureDelays": [2,2,2,2,2,2,2,32767],
         "color": "FFFFFF",
         "pos": [0.0,0.237865,1.19834],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }

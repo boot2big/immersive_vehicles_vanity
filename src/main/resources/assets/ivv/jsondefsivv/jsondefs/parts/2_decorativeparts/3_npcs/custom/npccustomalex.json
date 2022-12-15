@@ -1,22 +1,226 @@
 {
   "generic": {
     "type": "generic_npc",
+    "canBePlacedOnGround": true,
     "width": 0.5,
     "height": 1.0,
-    "mass": 100,
-    "canBePlacedOnGround": true,
-    "placedOffset": 0.1875
+    "placedOffset": 0.1875,
+    "mass": 100
   },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.9375,0.0],
+          "width": 0.5,
+          "height": 0.5,
+          "variableName": "driver",
+          "variableType": "toggle"
+        }
+      ]
+    }
+  ],
   "definitions": [
     {
       "subName": "",
-      "name": "Seat NPC [Custom, Alex]",
+      "name": "Seat NPC [Alex CustomURL]",
       "extraMaterialLists": [
         []
       ]
     }
   ],
   "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "RightArm_imageURL",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [0.0,-7.5,0.0],
+            "offset": -7.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [67.5,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [0.375,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "RightArm_translucent_imageURL",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [0.0,-7.5,0.0],
+            "offset": -7.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [67.5,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [0.375,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "LeftArm_imageURL",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [0.375,0.5625,0.0],
+            "axis": [0.0,7.5,0.0],
+            "offset": -7.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [67.5,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [-0.375,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "LeftArm_translucent_imageURL",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [0.375,0.5625,0.0],
+            "axis": [0.0,7.5,0.0],
+            "offset": -7.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [67.5,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [-0.375,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "RightLeg_imageURL",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "throttle",
+            "centerPoint": [-0.11875,0.0,-0.0625],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "RightLeg_translucent_imageURL",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "throttle",
+            "centerPoint": [-0.11875,0.0,-0.0625],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "LeftLeg_imageURL",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "brake",
+            "centerPoint": [-0.11875,0.0,-0.0625],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "LeftLeg_translucent_imageURL",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "brake",
+            "centerPoint": [-0.11875,0.0,-0.0625],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ],
     "textObjects": [
       {
         "pos": [0.0,-100.0,0.001],
@@ -29,11 +233,12 @@
       }
     ],
     "lightObjects": [],
+    "initialVariables": ["driver"],
     "particles": [],
     "modelType": "obj"
   },
   "general": {
-    "name": "Seat NPC [Custom, Alex]",
+    "name": "Seat NPC [Custom Alex]",
     "description": "Just put a URL into the box that goes to a PNG file, and you're good!\nDon't come crying to me if it doesn't work because you didn't give it a direct link!\nNOTE FOR SERVER OWNERS: I do not take responsibility for what §oyour§r§7 players put here.\nIf you don't like §otheir§r§7 content, simply take away their custom bodypillows and make them uncraftable.\nTransparency does not work properly either.",
     "health": 100,
     "materialLists": [

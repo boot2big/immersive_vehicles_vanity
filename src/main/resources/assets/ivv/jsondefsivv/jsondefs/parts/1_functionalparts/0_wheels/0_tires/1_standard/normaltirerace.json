@@ -16,8 +16,8 @@
     "width": 0.25,
     "height": 0.875,
     "flatHeight": 0.625,
-    "motiveFriction": 1,
-    "lateralFriction": 1,
+    "motiveFriction": 1.0,
+    "lateralFriction": 1.0,
     "frictionModifiers": {
       "snow": -0.75,
       "ice": -0.875,
@@ -434,6 +434,60 @@
     ],
     "particles": [
       {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "quantity": 3,
+        "duration": 10,
+        "transparency": 2,
+        "toTransparency": 1.0E-7,
+        "textureList": ["ivv:textures/particles/fluidsplash_1.png","ivv:textures/particles/fluidsplash_2.png","ivv:textures/particles/fluidsplash_3.png","ivv:textures/particles/fluidsplash_4.png"],
+        "textureDelays": [1,1,1,1],
+        "scale": 2.0,
+        "color": "244B89",
+        "pos": [0.0,-0.4375,0.0],
+        "initialVelocity": [0.0,0.125,-0.125],
+        "movementVelocity": [0.0,-0.005,0.0],
+        "terminalVelocity": [1024,1024,1024],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 65535.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": 1.0,
+            "clampMax": 2.0
+          }
+        ]
+      },
+      {
         "type": "smoke",
         "quantity": 8,
         "duration": 30,
@@ -461,6 +515,12 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
             "variable": "ground_isflat"
           },
           {
@@ -472,61 +532,6 @@
             "variable": "ground_contacted",
             "clampMin": 1.0,
             "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "drip",
-        "spawnEveryTick": true,
-        "quantity": 4,
-        "duration": 10,
-        "transparency": 0.5,
-        "toTransparency": 1.0E-7,
-        "scale": 6.0,
-        "toScale": 10.0,
-        "color": "244B89",
-        "pos": [0.0,-0.4375,0.0],
-        "initialVelocity": [0.0,1.125,-1.0],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [-1.0,0.0,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "part_ismirrored",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,180.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "ground_isflat"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.25,
-            "clampMax": 65535.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "rain_strength",
-            "clampMin": 1.0,
-            "clampMax": 2.0
           }
         ]
       },
@@ -557,6 +562,12 @@
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
           {
             "animationType": "visibility",
             "variable": "ground_isflat"
@@ -626,6 +637,12 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
             "variable": "ground_isflat"
           },
           {
@@ -677,6 +694,12 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
             "variable": "ground_isflat"
           },
           {
@@ -702,7 +725,7 @@
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 80,
-        "transparency": 4,
+        "transparency": 4.0,
         "toTransparency": -1.0E-4,
         "scale": 2.0,
         "texture": "ivv:textures/particles/tiremark.png",
@@ -726,6 +749,12 @@
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
           {
             "animationType": "visibility",
             "variable": "ground_isflat"
@@ -771,15 +800,15 @@
         "spawnEveryTick": true,
         "quantity": 1,
         "duration": 20,
-        "transparency": 2,
+        "transparency": 2.0,
         "toTransparency": -1.0E-4,
         "scale": 0.25,
         "texture": "ivv:textures/particles/pattern2.png",
         "color": "EDAC28",
         "pos": [0.0,-0.4375,0.0],
-        "initialVelocity": [0.0,1,-1.25],
+        "initialVelocity": [0.0,1.0,-1.25],
         "movementVelocity": [0.0,-0.02,0.0],
-        "terminalVelocity": [2048,2048,2048],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -795,6 +824,12 @@
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
           {
             "animationType": "visibility",
             "variable": "ground_isflat",
