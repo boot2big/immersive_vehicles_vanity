@@ -4,6 +4,13 @@
     "width": 0.25,
     "height": 0.25
   },
+  "parts": [
+    {
+      "pos": [0.0,-0.09375,-0.4],
+      "types": ["generic_hitch_attachment"],
+      "applyAfter": "pivot"
+    }
+  ],
   "collisionGroups": [
     {
       "isInterior": true,
@@ -59,20 +66,6 @@
       ]
     }
   ],
-  "connectionGroups": [
-    {
-      "groupName": "TRAILER",
-      "canInitiateConnections": true,
-      "isHitch": true,
-      "connections": [
-        {
-          "type": "trailer_standard",
-          "pos": [0.0,-0.052083,-0.446875],
-          "distance": 0.5
-        }
-      ]
-    }
-  ],
   "definitions": [
     {
       "subName": "",
@@ -106,37 +99,39 @@
             "axis": [0.0,180.0,0.0]
           }
         ]
-      }
-    ],
-    "lightObjects": [],
-    "sounds": [
+      },
       {
-        "name": "ivv:towhookon1",
-        "activeAnimations": [
+        "objectName": "#pivot_alt",
+        "applyAfter": "joint",
+        "animations": [
           {
             "animationType": "visibility",
-            "variable": "connection_1_1_connected",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "hitch_pitch",
+            "clampMin": 1,
+            "clampMax": 1
           }
         ]
       },
       {
-        "name": "ivv:towhookoff1",
-        "activeAnimations": [
+        "objectName": "#joint_alt",
+        "applyAfter": "joint",
+        "animations": [
           {
             "animationType": "visibility",
-            "variable": "connection_1_1_connected"
+            "variable": "hitch_pitch",
+            "clampMin": 1,
+            "clampMax": 1
           }
         ]
       }
     ],
+    "lightObjects": [],
     "particles": [],
     "modelType": "obj"
   },
   "general": {
     "name": "Hitch",
-    "description": "Can tow vehicles with a hitch connector\nAttached hitches or connectors can be flipped depending on where you need them to be located",
+    "description": "Mounts hitch attachment",
     "health": 100,
     "materialLists": [
       ["oredict:ingotIron:3"]

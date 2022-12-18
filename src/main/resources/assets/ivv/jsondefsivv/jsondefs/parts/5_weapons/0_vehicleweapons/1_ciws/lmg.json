@@ -195,7 +195,8 @@
           {
             "animationType": "translation",
             "variable": "gun_windup_time",
-            "axis": [0.0,0.05,0.0]
+            "axis": [0.0,0.05,0.0],
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -213,13 +214,23 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "!gun_ammo_percent",
+            "variable": "gun_ammo_count"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_windup_time",
+            "clampMin": 35.0,
+            "clampMax": 45.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_firing",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
-            "variable": "gun_firing",
+            "variable": "1_2_1_cycle",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -228,7 +239,7 @@
           {
             "animationType": "translation",
             "variable": "!kitchen_gun",
-            "axis": [0.0,0.5,0.0]
+            "axis": [0.0,1,0.0]
           }
         ],
         "pitchAnimations": [
@@ -277,7 +288,7 @@
   },
   "general": {
     "name": "Roof Mounted Turret",
-    "description": "§oRequires Roof Mount part!\nModeled by the breathtaking HashimIsaPotato",
+    "description": "§oRequires roof mount part\nModeled by HashimIsaPotato",
     "health": 100,
     "materialLists": [
       ["minecraft:iron_block:-1:6","oredict:ingotIron:1"]
