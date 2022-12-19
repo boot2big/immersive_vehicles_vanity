@@ -5,12 +5,13 @@
     ],
     "quantity": 10,
     "diameter": 4.0,
-    "damage": 0.001,
+    "damage": 1.5,
     "caseLength": 20.0,
     "blastStrength": -1.0,
-    "despawnTime": 5,
-    "pellets": 6,
-    "pelletSpreadFactor": 1.0E-5
+    "despawnTime": 10,
+    "pellets": 4,
+    "pelletSpreadFactor": 0.25,
+    "impactDespawnTime": 40
   },
   "definitions": [
     {
@@ -22,7 +23,19 @@
     }
   ],
   "rendering": {
-    "sounds":[
+    "animatedObjects": [
+      {
+        "objectName": "&GenericLight_FFFFFF_FFFFF_000",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
       {
         "name": "ivv:explode_techno",
         "activeAnimations": [
@@ -37,12 +50,11 @@
           {
             "animationType": "translation",
             "variable": "!true",
-            "axis": [0.0,4.0,0.0]
+            "axis": [0.0,1.5,0.0]
           }
         ]
-      },
+      }
     ],
-    "lightObjects": [],
     "particles": [
       {
         "type": "break",

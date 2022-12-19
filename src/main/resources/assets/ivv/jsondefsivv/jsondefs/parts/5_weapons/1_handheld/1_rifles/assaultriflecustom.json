@@ -18,7 +18,7 @@
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "handHeldNormalOffset": [0.05,-0.1,0.525],
-    "handHeldAimedOffset": [0.315,0.05,0.45],
+    "handHeldAimedOffset": [0.3125,0.05,0.45],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -125,6 +125,16 @@
       {
         "objectName": "gunModel",
         "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,33.75],
+            "forwardsDelay": 2,
+            "duration": 7,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeoutback"
+          },
           {
             "animationType": "rotation",
             "variable": "gun_fired",
@@ -240,9 +250,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "gun_ammo_percent",
-            "clampMin": 0,
-            "clampMax": 0
+            "variable": "gun_ammo_percent"
           },
           {
             "animationType": "visibility",

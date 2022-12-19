@@ -7,7 +7,7 @@
     "handHeld": true,
     "isSemiAuto": true,
     "capacity": 1,
-    "reloadTime": 50,
+    "reloadTime": 55,
     "muzzleVelocity": 100,
     "fireDelay": 1.0,
     "gravitationalVelocity": 0.03,
@@ -123,6 +123,16 @@
         "animations": [
           {
             "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-33.75,11.25,0.0],
+            "forwardsDelay": 10,
+            "duration": 10,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeoutback"
+          },
+          {
+            "animationType": "rotation",
             "variable": "gun_fired",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [-3.0,0.0,0.0],
@@ -176,20 +186,13 @@
         "forceSound": true
       },
       {
-        "name": "ivv:wmg_reloadingrocket",
+        "name": "ivv:rpg_reloading",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "!kerblewy",
-            "axis": [0.0,0.5875,0.0]
           }
         ]
       }
