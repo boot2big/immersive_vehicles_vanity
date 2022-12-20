@@ -1,28 +1,30 @@
 {
   "bullet": {
     "types": [
-      "explosive"
+      "explosive",
+      "incendiary",
+      "armor_piercing"
     ],
+    "isHeat": true,
     "quantity": 1,
     "diameter": 60.0,
-    "damage": 750.0,
-    "caseLength": 240.0,
-    "blastStrength": 2.0,
-    "armorPenetration": 200.0,
-    "proximityFuze": 1.0,
+    "damage": 1000.0,
+    "caseLength": 200.0,
+    "blastStrength": 3.0,
+    "armorPenetration": 5000.0,
+    "proximityFuze": 2.0,
     "airBurstDelay": 305,
     "despawnTime": 310,
-    "burnTime": 105,
-    "accelerationTime": 50,
+    "burnTime": 45,
+    "accelerationTime": 10,
     "accelerationDelay": 5,
-    "maxVelocity": 600,
-    "impactDespawnTime": 40,
-    "turnRate": 18
+    "maxVelocity": 300,
+    "impactDespawnTime": 40
   },
   "definitions": [
     {
       "subName": "",
-      "name": "Generic Missile [Heat Seeking Accurate]",
+      "name": "Generic Missile [Anti-Tank]",
       "extraMaterialLists": [
         []
       ]
@@ -59,7 +61,7 @@
             "animationType": "visibility",
             "variable": "bullet_burntime",
             "clampMin": 1.0,
-            "clampMax": 100.0
+            "clampMax": 40.0
           }
         ],
         "volumeAnimations": [
@@ -153,7 +155,7 @@
             "animationType": "visibility",
             "variable": "bullet_burntime",
             "clampMin": 1.0,
-            "clampMax": 100.0
+            "clampMax": 40.0
           },
           {
             "animationType": "visibility",
@@ -182,7 +184,7 @@
           {
             "animationType": "visibility",
             "variable": "bullet_burntime",
-            "clampMax": 100.0
+            "clampMax": 40.0
           },
           {
             "animationType": "visibility",
@@ -239,7 +241,7 @@
         "transparency": 2.0,
         "toTransparency": 0.01,
         "scale": 24.0,
-        "toScale": 48.0,
+        "toScale": 64.0,
         "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png","ivv:textures/particles/explosion_7.png","ivv:textures/particles/explosion_8.png"],
         "textureDelays": [2,2,2,2,2,2,2,32767],
         "color": "FFFFFF",
@@ -258,10 +260,10 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "Automatically locks onto engines and mobs\nTighter turn radius and longer range, less damage/explosive power",
+    "description": "Does not lock onto anything\nNo turn radius, anti-tank damage/explosive power",
     "stackSize": 64,
     "materialLists": [
-      ["oredict:ingotGold:4","oredict:dustRedstone:8","oredict:gunpowder:4"]
+      ["oredict:ingotIron:4","oredict:gunpowder:12"]
     ],
     "type": "bullet"
   }

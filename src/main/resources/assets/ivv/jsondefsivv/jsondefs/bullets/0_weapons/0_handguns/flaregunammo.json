@@ -5,10 +5,11 @@
     ],
     "quantity": 1,
     "diameter": 25.0,
-    "damage": 4.0,
+    "damage": 7.0,
     "caseLength": 85.0,
-    "despawnTime": 240,
-    "burnTime": 5
+    "despawnTime": 205,
+    "burnTime": 5,
+    "impactDespawnTime": 40
   },
   "definitions": [
     {
@@ -94,7 +95,36 @@
         ]
       }
     ],
-    "sounds": [],
+    "sounds": [
+      {
+        "name": "ivv:flaregun_crackle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:explode_flare",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+      ],
     "particles": [
       {
         "type": "smoke",

@@ -6,6 +6,47 @@
     "width": 0.25,
     "height": 0.375
   },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.125,0.0],
+          "width": 0.375,
+          "height": 0.25,
+          "variableValue": 1,
+          "clampMax": 9,
+          "variableName": "flag_size",
+          "variableType": "increment"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_onvehicle"
+        }
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "flag_size",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "flag_size",
+          "clampMin": 9,
+          "clampMax": 9
+        },
+        {
+          "animationType": "translation",
+          "variable": "!yes",
+          "axis": [0.0,0.0,1.0],
+          "offset": -1.0
+        }
+      ]
+    }
+  ],
   "definitions": [
     {
       "subName": "_gramados",
@@ -69,25 +110,43 @@
       {
         "objectName": "cube",
         "animations": [
-      {
-        "animationType": "scaling",
-        "variable": "!part_onvehicle",
-        "centerPoint": [0.0,0.0,0.0],
-        "axis": [1.0,1.0,1.0],
-        "offset": 1
-      }
+          {
+            "animationType": "inhibitor",
+            "variable": "part_onvehicle",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "scaling",
+            "variable": "flag_size",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 1.0
+          }
         ]
       },
       {
         "objectName": "flag",
-        "applyAfter": "cube",
         "animations": [
-      {
-        "animationType": "rotation",
-        "variable": "random",
-        "centerPoint": [0.0,0.0,0.0],
-        "axis": [0.0,0.0,0.0]
-      }
+          {
+            "animationType": "rotation",
+            "variable": "random",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "part_onvehicle",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "scaling",
+            "variable": "flag_size",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 1.0
+          }
         ]
       }
     ],
