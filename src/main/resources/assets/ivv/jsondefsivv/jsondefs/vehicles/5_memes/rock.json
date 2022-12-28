@@ -1,5 +1,7 @@
 {
   "motorized": {
+    "hasAutopilot": true,
+    "hasSingleEngineControl": true,
     "hasOpenTop": true,
     "hasRunningLights": true,
     "emptyMass": 6000,
@@ -425,8 +427,8 @@
         {
           "animationType": "rotation",
           "variable": "door_hood",
-          "centerPoint": [0.0,2.0,-2.4375],
-          "axis": [87.5,0.0,0.0],
+          "centerPoint": [0.0,2.0,-2.5],
+          "axis": [100,0.0,0.0],
           "duration": 5,
           "forwardsEasing": "easeoutelastic",
           "reverseEasing": "easeinback"
@@ -1075,89 +1077,12 @@
             "animationType": "rotation",
             "variable": "door_hood",
             "centerPoint": [0.0,2.0,-2.4375],
-            "axis": [87.5,0.0,0.0],
+            "axis": [100,0.0,0.0],
             "duration": 5,
             "forwardsEasing": "easeoutelastic",
             "reverseEasing": "easeinback",
             "forwardsStartSound": "ivv:mwdooropen",
             "reverseEndSound": "ivv:mwdoorclose"
-          }
-        ]
-      },
-      {
-        "objectName": "&RunningLight_000000_fffff_010",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "engine_magneto_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "runninglight"
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "DASHBOARD_MUTE",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "electric_power",
-            "clampMax": 3.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "cycle_20_10",
-            "axis": [0.0,0.0,0.0],
-            "clampMax": 1.0,
-            "absolute": true,
-            "duration": -1,
-            "forwardsStartSound": "ivv:chimefast1",
-            "reverseStartSound": "ivv:chimefast1"
-          }
-        ]
-      },
-      {
-        "objectName": "stone",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "engine_running_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "engine_magneto_1"
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "engine_starter_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "electric_power",
-            "clampMax": 3.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "DASHBOARD_MUTE",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "cycle_20_10",
-            "axis": [0.0,0.0,0.0],
-            "clampMax": 1.0,
-            "absolute": true,
-            "duration": -1,
-            "forwardsStartSound": "ivv:chimeslow1"
           }
         ]
       }
@@ -1178,8 +1103,8 @@
         ]
       }
     ],
-    "customVariables": ["ENGINE_VISIBILE","DASHBOARD_MUTE"],
-    "initialVariables": ["door_hood","door_hood"],
+    "customVariables": ["ENGINE_VISIBILE"],
+    "initialVariables": ["door_hood"],
     "sounds": [
       {
         "name": "ivv:yellstart",

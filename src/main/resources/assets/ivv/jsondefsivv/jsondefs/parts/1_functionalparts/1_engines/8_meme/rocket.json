@@ -5,23 +5,24 @@
   },
   "engine": {
     "type": "rocket",
+    "starterPower": 250,
     "shiftSpeed": 50,
-    "revResistance": 6,
-    "maxRPM": 12500,
-    "maxSafeRPM": 12500,
-    "idleRPM": 12500,
+    "revResistance": 3,
+    "maxRPM": 10000,
+    "maxSafeRPM": 10000,
+    "idleRPM": 5000,
     "startRPM": 4000,
     "revlimitRPM": -1,
     "revlimitBounce": 1,
     "stallRPM": 2000,
-    "engineWinddownRate": 75,
-    "rocketFuel": 1400,
-    "heatingCoefficient": 1.0,
-    "coolingCoefficient": 1.0,
+    "engineWinddownRate": 150,
+    "rocketFuel": 400,
+    "heatingCoefficient": 1.5,
+    "coolingCoefficient": 5.0,
     "engineWearFactor": 4.0,
     "fuelConsumption": 2.0,
-    "jetPowerFactor": 2.0,
-    "bypassRatio": 2.0,
+    "jetPowerFactor": 0.625,
+    "bypassRatio": 3.5,
     "gearRatios": [-1.0,0.0,1.0],
     "fuelType": "avgas",
     "isCrankingNotPitched": true
@@ -117,16 +118,15 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,39.70000076293945,0.0],
-            "offset": 0.3
+            "axis": [0.0,7.5,0.0],
+            "offset": 2.5
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,0.8999999761581421,0.0],
-            "offset": 0.5
+            "axis": [0.0,2.5,0.0]
           }
         ],
         "looping": true
@@ -144,9 +144,9 @@
         "toScale": 0.1,
         "color": "000000",
         "pos": [0.0,0.21875,-0.125],
-        "initialVelocity": [0.0,0.0,-3.0],
+        "initialVelocity": [0.0,0.0,-1.0],
         "movementVelocity": [0.0,0.0,0.0],
-        "terminalVelocity": [9.0,9.0,9.0],
+        "terminalVelocity": [128,128,128],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -156,7 +156,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "3_6_3_cycle",
+            "variable": "1_2_1_cycle",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -177,17 +177,17 @@
         "scale": 2.5,
         "toScale": 0.1,
         "pos": [0.0,0.21875,-0.125],
-        "initialVelocity": [0.0,0.0,-3.0],
+        "initialVelocity": [0.0,0.0,-1.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_powered",
+            "variable": "engine_running",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
-            "variable": "3_6_3_cycle",
+            "variable": "1_2_1_cycle",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -241,7 +241,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_powered",
+            "variable": "engine_running",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
