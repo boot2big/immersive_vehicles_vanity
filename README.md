@@ -5,9 +5,13 @@ This is the repository intended to act as a resource for additional contributor-
 !! IMPORTANT !!
 
 The official download pages for Immersive Vehicles Vanity are as follows:
+
 https://github.com/boot2big/immersive_vehicles_vanity
+
 https://modrinth.com/mod/mts-ivv
+
 https://www.planetminecraft.com/mod/immersive-vehicles-vanity-mts-iv-pack/ (https://www.dropbox.com/sh/g2d6w0zeoo5gdbf/AABbIR1FDPTIBb5ZK68VhYaoa?dl=0)
+
 https://www.curseforge.com/minecraft/mc-mods/immersive-vehicles-vanity
 
 It is advised to avoid other pages that share IVV, as they are not officially hosted nor can we guarantee any support for issues arising from unofficial downloads.
