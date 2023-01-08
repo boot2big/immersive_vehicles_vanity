@@ -1,23 +1,27 @@
 {
   "generic": {
-    "type": "gun_hand_heavy",
+    "type": "gun_handheld_rocket",
     "canBeRemovedByHand": true
   },
   "gun": {
+    "lockOnType": "boresight",
+    "targetType": "hard",
     "autoReload": true,
-    "isSemiAuto": true,
     "handHeld": true,
+    "isSemiAuto": true,
     "capacity": 4,
-    "reloadTime": 45,
+    "reloadTime": 43,
     "muzzleVelocity": 100,
-    "fireDelay": 6.0,
+    "fireDelay": 4.0,
     "gravitationalVelocity": 0.03,
-    "bulletSpreadFactor": 12.0,
+    "bulletSpreadFactor": 8.0,
     "diameter": 60.0,
     "minCaseLength": 240.0,
     "maxCaseLength": 240.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
+    "lockRange": 192,
+    "lockMaxAngle": 3.75,
     "handHeldNormalOffset": [-0.125,-0.125,0.5],
     "handHeldAimedOffset": [-0.02625,0.05875,0.4],
     "muzzleGroups": [
@@ -110,6 +114,20 @@
         "maxLength": 7,
         "color": "CCCCCC",
         "attachedTo": "gunModel"
+      },
+      {
+        "pos": [0.0,0.25,0.952249],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.025,
+        "variableName": "gun_lockedon_name",
+        "variableFactor": 1.0,
+        "variableFormat": "%s",
+        "fontName": "ivv:digifont",
+        "defaultText": "fuck their shit up boi",
+        "maxLength": 10,
+        "color": "AB2515",
+        "attachedTo": "hudModelLocking1",
+        "lightsUp": true
       }
     ],
     "animatedObjects": [
@@ -421,13 +439,19 @@
       },
       {
         "objectName": "hudModelSearch",
-        "applyAfter": "gunModel",
+        "applyAfter": "hudModel",
         "animations": [
           {
             "animationType": "visibility",
             "variable": "gun_reload",
             "forwardsDelay": 20,
             "reverseDelay": 5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -451,7 +475,7 @@
       },
       {
         "objectName": "hudModelLocking1",
-        "applyAfter": "gunModel",
+        "applyAfter": "hudModel",
         "animations": [
           {
             "animationType": "visibility",
@@ -468,6 +492,12 @@
           {
             "animationType": "visibility",
             "variable": "gun_controller_firstperson",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -510,6 +540,12 @@
           },
           {
             "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
             "variable": "gun_active",
             "clampMin": 1.0,
             "clampMax": 1.0,
@@ -531,7 +567,7 @@
       },
       {
         "objectName": "hudModelLockon",
-        "applyAfter": "gunModel",
+        "applyAfter": "hudModel",
         "animations": [
           {
             "animationType": "visibility",
@@ -548,6 +584,12 @@
           {
             "animationType": "visibility",
             "variable": "gun_controller_firstperson",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -677,7 +719,9 @@
           },
           {
             "animationType": "visibility",
-            "variable": "gun_inhand_sneaking"
+            "variable": "gun_inhand_smokin",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "rotation",
@@ -725,7 +769,9 @@
             "offset": 1.125
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:rpg_reloading",
@@ -743,7 +789,9 @@
             "variable": "!kitchen_gun",
             "axis": [0.0,1.125,0.0]
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:missilelockactive",
@@ -760,7 +808,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:missilelockinactive",
@@ -775,7 +825,9 @@
             "animationType": "visibility",
             "variable": "gun_active"
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:missilelockidle",
@@ -810,7 +862,9 @@
             "reverseDelay": 10
           }
         ],
-        "looping": true
+        "looping": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:missilelockaiming",
@@ -845,7 +899,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:missilelockready",
@@ -882,7 +938,9 @@
             "forwardsDelay": 10
           }
         ],
-        "looping": true
+        "looping": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [

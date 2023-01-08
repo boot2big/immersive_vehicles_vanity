@@ -1,0 +1,94 @@
+{
+  "generic": {
+    "type": "generic_hitch_attachment",
+    "width": 0.125,
+    "height": 0.25
+  },
+  "connectionGroups": [
+    {
+      "groupName": "HITCH",
+      "canInitiateConnections": true,
+      "isHitch": true,
+      "connections": [
+        {
+          "type": "hitch_standard",
+          "pos": [0.0,-0.0375,-0.4],
+          "distance": 0.25
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Hitch Attachment",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "pivot",
+        "applyAfter": "joint",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "hitch_pitch",
+            "centerPoint": [0.0,-0.03125,-0.05625],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "joint",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0,0.069125],
+            "axis": [0.0,180.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:towhookon3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      },
+      {
+        "name": "ivv:towhookoff3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected"
+          }
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Hitch Attachment",
+    "description": "Can tow vehicles with a hitch connector",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:1"]
+    ]
+  }
+}

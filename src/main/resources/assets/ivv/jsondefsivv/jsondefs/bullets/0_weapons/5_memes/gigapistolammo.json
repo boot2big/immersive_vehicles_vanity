@@ -9,8 +9,9 @@
     "damage": 90.0,
     "caseLength": 90.0,
     "blastStrength": 2.0,
+    "armorPenetration": 125.0,
     "despawnTime": 100,
-    "armorPenetration": 125.0
+    "impactDespawnTime": 10
   },
   "definitions": [
     {
@@ -21,36 +22,22 @@
       ]
     }
   ],
-  "variableModifiers": [
-    {
-      "variable": "lazinessThatJavaWontLike",
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "random",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    }
-  ],
   "rendering": {
     "animatedObjects": [
       {
-        "objectName": "pew",
+        "objectName": "cone",
         "animations": [
           {
-            "animationType": "rotation",
-            "variable": "p_brake",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [1.0,1.0,1.0],
-            "offset": 48.0
+            "animationType": "visibility",
+            "variable": "!bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "rotation",
             "variable": "tick",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [2.0,0.0,0.0]
+            "axis": [22.5,0.0,0.0]
           }
         ]
       }
@@ -58,75 +45,46 @@
     "lightObjects": [],
     "sounds": [
       {
-        "name": "ivv:bullethitmob1",
+        "name": "ivv:bulletwoosh",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "bullet_hit_entity",
+            "variable": "!bullet_hit",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMax": 0.25
           }
         ],
-        "forceSound": true
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "maxDistance": 8.0
       },
       {
-        "name": "ivv:bullethitmob2",
+        "name": "ivv:bullethitmob",
+        "soundVariations": ["ivv:bullethitmob1","ivv:bullethitmob2","ivv:bullethitmob3","ivv:bullethitmob4"],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "bullet_hit_entity",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.25,
-            "clampMax": 0.5
           }
         ],
-        "forceSound": true
-      },
-      {
-        "name": "ivv:bullethitmob3",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "bullet_hit_entity",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.5,
-            "clampMax": 0.75
-          }
-        ],
-        "forceSound": true
-      },
-      {
-        "name": "ivv:bullethitmob4",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "bullet_hit_entity",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.75,
-            "clampMax": 1.0
-          }
-        ],
-        "forceSound": true
+        "minDistance": 0.0,
+        "maxDistance": 8.0
       }
     ],
     "particles": [

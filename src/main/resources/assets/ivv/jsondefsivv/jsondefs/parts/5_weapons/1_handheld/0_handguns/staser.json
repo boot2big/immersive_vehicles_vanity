@@ -6,6 +6,8 @@
     "height": 0.25
   },
   "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
     "handHeld": true,
     "isSemiAuto": true,
     "capacity": 24,
@@ -18,6 +20,7 @@
     "maxCaseLength": 25.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.05,-0.05,0.5],
     "handHeldAimedOffset": [0.315,0.05,0.6],
     "muzzleGroups": [
@@ -132,10 +135,10 @@
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.0,22.5],
-            "forwardsDelay": 2,
             "duration": 5,
             "forwardsEasing": "easeinoutsine",
-            "reverseEasing": "easeoutback"
+            "reverseEasing": "easeoutback",
+            "forwardsDelay": 2
           },
           {
             "animationType": "rotation",
@@ -180,7 +183,7 @@
           {
             "animationType": "translation",
             "variable": "!kitchen_gun",
-            "axis": [0.0,1.5,0.0]
+            "axis": [0.0,2,0.0]
           }
         ],
         "pitchAnimations": [
@@ -191,7 +194,9 @@
             "offset": 0.9875
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:staser_reloading",
@@ -202,7 +207,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [

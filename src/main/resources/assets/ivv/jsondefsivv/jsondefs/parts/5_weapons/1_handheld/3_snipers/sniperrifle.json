@@ -6,6 +6,8 @@
     "height": 0.375
   },
   "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
     "handHeld": true,
     "isSemiAuto": true,
     "capacity": 5,
@@ -17,6 +19,7 @@
     "maxCaseLength": 69.2,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.1,-0.075,0.6],
     "handHeldAimedOffset": [0.3125,0.15,0.525],
     "muzzleGroups": [
@@ -206,10 +209,10 @@
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.0,22.5],
-            "forwardsDelay": 2,
             "duration": 7,
             "forwardsEasing": "easeinoutsine",
-            "reverseEasing": "easeoutback"
+            "reverseEasing": "easeoutback",
+            "forwardsDelay": 2
           },
           {
             "animationType": "rotation",
@@ -321,17 +324,6 @@
     "constants": ["generic_gun_suppressor_square","generic_gun_scope_invis","generic_gun_grip_invis"],
     "sounds": [
       {
-        "name": "ivv:gunequip5",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "gun_active",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
         "name": "ivv:sniperrifle_firing",
         "activeAnimations": [
           {
@@ -360,7 +352,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:sniperrifle_firing_silenced",
@@ -393,7 +387,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:bulletdistantsniper",
@@ -409,8 +405,8 @@
           {
             "animationType": "translation",
             "variable": "!generic_gun_suppressor_1",
-            "axis": [0.0,7.5,0.0],
-            "offset": 2.5
+            "axis": [0.0,1.5,0.0],
+            "offset": 0.5
           }
         ],
         "pitchAnimations": [
@@ -421,7 +417,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 128
       },
       {
         "name": "ivv:sniperrifle_bolt",
@@ -445,7 +443,9 @@
             "offset": 0.9875
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:sniperrifle_reloading",
@@ -456,7 +456,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -490,7 +492,9 @@
             "axis": [0.0,0.0625,0.0],
             "offset": 0.9875
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [

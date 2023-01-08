@@ -1,7 +1,7 @@
 {
   "motorized": {
-    "hasSingleEngineControl": true,
     "hasOpenTop": true,
+    "hasSingleEngineControl": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
     "emptyMass": 800,
@@ -147,7 +147,7 @@
     },
     {
       "pos": [0.0,0.26983,2.87037],
-      "maxValue": 10,
+      "maxValue": 10.0,
       "defaultPart": "ivv:v4inlineinsolvo",
       "types": ["engine_car"],
       "linkedParts": [1,2,18,19,20]
@@ -222,27 +222,16 @@
       "maxValue": 1.0,
       "partScale": [1.0,1.0,1.0],
       "types": ["generic_hitch_mount"]
+    },
+    {
+      "pos": [1.1,1.20312,2.32738],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "defaultPart": "ivv:horn_runabout",
+      "types": ["generic_horn"]
     }
   ],
   "collisionGroups": [
-    {
-      "isInterior": true,
-      "collisions": [
-        {
-          "pos": [1.05469,1.20312,2.25],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "horn",
-          "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "seat_occupied_2"
-        }
-      ]
-    },
     {
       "isInterior": true,
       "collisions": [
@@ -937,23 +926,6 @@
       ]
     },
     {
-      "variable": "horn",
-      "addValue": -1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "seat_occupied_2"
-        },
-        {
-          "animationType": "visibility",
-          "variable": "horn",
-          "clampMin": 1.0,
-          "clampMax": 1.0,
-          "forwardsDelay": 3
-        }
-      ]
-    },
-    {
       "variable": "downForce",
       "addValue": 0.15,
       "animations": [
@@ -1596,27 +1568,6 @@
         ]
       },
       {
-        "objectName": "hornoff",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "horn",
-            "clampMin": -2.0
-          }
-        ]
-      },
-      {
-        "objectName": "hornon",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "horn",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
         "objectName": "roofopen",
         "animations": [
           {
@@ -2197,24 +2148,6 @@
     ],
     "sounds": [
       {
-        "name": "ivv:hornbessie",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "horn",
-            "forwardsDelay": 1
-          },
-          {
-            "animationType": "visibility",
-            "variable": "horn",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "forceSound": true,
-        "pos": [1.05469,1.20312,2.48438]
-      },
-      {
         "name": "ivv:interiorrain",
         "activeAnimations": [
           {
@@ -2229,7 +2162,9 @@
           }
         ],
         "looping": true,
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:brakesqueal",
@@ -2280,7 +2215,9 @@
             "offset": 0.925
           }
         ],
-        "looping": true
+        "looping": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:interiorwind",
@@ -2312,7 +2249,9 @@
         ],
         "looping": true,
         "isInterior": true,
-        "pos": [0.0,0.475,1.0]
+        "pos": [0.0,0.475,1.0],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalswitchon",
@@ -2323,7 +2262,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalswitchon",
@@ -2334,7 +2275,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalswitchoff",
@@ -2343,7 +2286,9 @@
             "animationType": "visibility",
             "variable": "left_turn_signal"
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalswitchoff",
@@ -2352,7 +2297,9 @@
             "animationType": "visibility",
             "variable": "right_turn_signal"
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalon",
@@ -2381,7 +2328,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignaloff",
@@ -2408,7 +2357,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalon",
@@ -2437,7 +2388,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignaloff",
@@ -2464,7 +2417,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:headlightson",
@@ -2475,7 +2430,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:headlightsoff",
@@ -2484,7 +2441,9 @@
             "animationType": "visibility",
             "variable": "headlight"
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:explode_car",
@@ -2503,7 +2462,9 @@
             "axis": [0.0,5.0,0.0],
             "offset": 5.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [

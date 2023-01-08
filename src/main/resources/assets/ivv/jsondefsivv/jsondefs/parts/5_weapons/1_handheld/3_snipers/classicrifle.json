@@ -6,11 +6,13 @@
     "height": 0.375
   },
   "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
     "handHeld": true,
     "isSemiAuto": true,
     "capacity": 5,
     "reloadTime": 40,
-    "muzzleVelocity": 2400,
+    "muzzleVelocity": 2800,
     "fireDelay": 20.0,
     "bulletSpreadFactor": 0.1,
     "diameter": 7.62,
@@ -18,6 +20,7 @@
     "maxCaseLength": 64.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.1,-0.075,0.6],
     "handHeldAimedOffset": [0.3125,0.055,0.5],
     "muzzleGroups": [
@@ -181,10 +184,10 @@
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.0,-11.25],
-            "forwardsDelay": 2,
             "duration": 7,
             "forwardsEasing": "easeinoutsine",
-            "reverseEasing": "easeoutback"
+            "reverseEasing": "easeoutback",
+            "forwardsDelay": 2
           },
           {
             "animationType": "rotation",
@@ -298,17 +301,6 @@
     "constants": ["generic_gun_scope_invis"],
     "sounds": [
       {
-        "name": "ivv:gunequip5",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "gun_active",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
         "name": "ivv:classicrifle_firing",
         "activeAnimations": [
           {
@@ -322,7 +314,7 @@
           {
             "animationType": "translation",
             "variable": "!kitchen_gun",
-            "axis": [0.0,2.5,0.0]
+            "axis": [0.0,2,0.0]
           }
         ],
         "pitchAnimations": [
@@ -333,7 +325,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:bulletdistantsniper",
@@ -349,8 +343,8 @@
           {
             "animationType": "translation",
             "variable": "!generic_gun_suppressor_1",
-            "axis": [0.0,7.5,0.0],
-            "offset": 2.5
+            "axis": [0.0,1.5,0.0],
+            "offset": 0.5
           }
         ],
         "pitchAnimations": [
@@ -361,7 +355,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 128
       },
       {
         "name": "ivv:classicrifle_bolt",
@@ -381,7 +377,9 @@
             "offset": 0.9875
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:classicrifle_reloading",
@@ -392,7 +390,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:classicrifle_plang",
@@ -401,7 +401,9 @@
             "animationType": "visibility",
             "variable": "gun_ammo_count"
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -435,7 +437,9 @@
             "axis": [0.0,0.0625,0.0],
             "offset": 0.9875
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [

@@ -6,17 +6,21 @@
     "height": 0.375
   },
   "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
     "autoReload": true,
+    "isSemiAuto": false,
     "handHeld": true,
     "capacity": 2,
     "reloadTime": 12,
     "muzzleVelocity": 675,
-    "fireDelay": 3.0,
-    "bulletSpreadFactor": 2.0,
+    "fireDelay": 2.0,
+    "bulletSpreadFactor": 4.0,
     "diameter": 16.83,
     "maxCaseLength": 90.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.05,-0.1,0.65],
     "handHeldAimedOffset": [0.315,0.025,0.75],
     "muzzleGroups": [
@@ -131,9 +135,14 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "tonsOfAngrySwearWords",
+            "variable": "gun_reload",
             "centerPoint": [0.0,-0.05488,0.0],
-            "axis": [45.0,0.0,0.0]
+            "axis": [45.0,0.0,0.0],
+            "duration": 4,
+            "forwardsDelay": 5,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeinoutcirc",
+            "reverseEasing": "easeinoutcirc"
           }
         ]
       },
@@ -200,10 +209,12 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
-        "name": "ivv:bulletdistant",
+        "name": "ivv:bulletdistantshotgun",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -216,8 +227,8 @@
           {
             "animationType": "translation",
             "variable": "!generic_gun_suppressor_1",
-            "axis": [0.0,7.5,0.0],
-            "offset": 2.5
+            "axis": [0.0,1.5,0.0],
+            "offset": 0.5
           }
         ],
         "pitchAnimations": [
@@ -228,7 +239,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 128.0
       },
       {
         "name": "ivv:shotgun_reloading",
@@ -239,7 +252,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -273,13 +288,15 @@
             "axis": [0.0,0.0625,0.0],
             "offset": 0.9875
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
-        "quantity": 2,
+        "quantity": 1,
         "duration": 200,
         "transparency": 2.5,
         "toTransparency": 0.01,
@@ -294,9 +311,14 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
-            "variable": "tonsOfAngrySwearWords",
+            "variable": "gun_reload",
             "centerPoint": [0.0,-0.05488,0.0],
-            "axis": [45.0,0.0,0.0]
+            "axis": [45.0,0.0,0.0],
+            "duration": 4,
+            "forwardsDelay": 5,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeinoutcirc",
+            "reverseEasing": "easeinoutcirc"
           },
           {
             "animationType": "rotation",
@@ -321,9 +343,10 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "tonsOfAngrySwearWords",
+            "variable": "gun_reload",
             "clampMin": 1.0,
-            "clampMax": 1.0
+            "clampMax": 1.0,
+            "forwardsDelay": 9
           }
         ]
       },
@@ -341,9 +364,14 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
-            "variable": "tonsOfAngrySwearWords",
+            "variable": "gun_reload",
             "centerPoint": [0.0,-0.05488,0.0],
-            "axis": [45.0,0.0,0.0]
+            "axis": [45.0,0.0,0.0],
+            "duration": 4,
+            "forwardsDelay": 5,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeinoutcirc",
+            "reverseEasing": "easeinoutcirc"
           },
           {
             "animationType": "rotation",
@@ -396,9 +424,14 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
-            "variable": "tonsOfAngrySwearWords",
+            "variable": "gun_reload",
             "centerPoint": [0.0,-0.05488,0.0],
-            "axis": [45.0,0.0,0.0]
+            "axis": [45.0,0.0,0.0],
+            "duration": 4,
+            "forwardsDelay": 5,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeinoutcirc",
+            "reverseEasing": "easeinoutcirc"
           },
           {
             "animationType": "rotation",
@@ -449,9 +482,14 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
-            "variable": "tonsOfAngrySwearWords",
+            "variable": "gun_reload",
             "centerPoint": [0.0,-0.05488,0.0],
-            "axis": [45.0,0.0,0.0]
+            "axis": [45.0,0.0,0.0],
+            "duration": 4,
+            "forwardsDelay": 5,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeinoutcirc",
+            "reverseEasing": "easeinoutcirc"
           },
           {
             "animationType": "rotation",
@@ -504,9 +542,14 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
-            "variable": "tonsOfAngrySwearWords",
+            "variable": "gun_reload",
             "centerPoint": [0.0,-0.05488,0.0],
-            "axis": [45.0,0.0,0.0]
+            "axis": [45.0,0.0,0.0],
+            "duration": 4,
+            "forwardsDelay": 5,
+            "reverseDelay": 10,
+            "forwardsEasing": "easeinoutcirc",
+            "reverseEasing": "easeinoutcirc"
           },
           {
             "animationType": "rotation",

@@ -6,6 +6,8 @@
     "height": 0.125
   },
   "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
     "handHeld": true,
     "isSemiAuto": true,
     "capacity": 6,
@@ -18,6 +20,7 @@
     "maxCaseLength": 9.4,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.1,-0.05,0.6],
     "handHeldAimedOffset": [0.315,0.0,0.525],
     "muzzleGroups": [
@@ -144,10 +147,10 @@
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.0,22.5],
-            "forwardsDelay": 1,
             "duration": 2,
             "forwardsEasing": "easeinoutsine",
-            "reverseEasing": "easeinoutsine"
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": 1
           },
           {
             "animationType": "rotation",
@@ -208,7 +211,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:kolibri_firing_silenced",
@@ -241,7 +246,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:bulletdistant",
@@ -257,8 +264,8 @@
           {
             "animationType": "translation",
             "variable": "!generic_gun_suppressor_1",
-            "axis": [0.0,3.75,0.0],
-            "offset": 1.25
+            "axis": [0.0,0.75,0.0],
+            "offset": 0.25
           }
         ],
         "pitchAnimations": [
@@ -266,10 +273,12 @@
             "animationType": "translation",
             "variable": "random",
             "axis": [0.0,0.125,0.0],
-            "offset": 0.9375
+            "offset": 1.4375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 64
       },
       {
         "name": "ivv:kolibri_reloading",
@@ -280,7 +289,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -314,7 +325,9 @@
             "axis": [0.0,0.0625,0.0],
             "offset": 0.9875
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [

@@ -160,7 +160,7 @@
     {
       "pos": [0.225,0.2,2.3125],
       "rot": [0.0,-90.0,0.0],
-      "maxValue": 10,
+      "maxValue": 10.0,
       "defaultPart": "ivv:v2insolvo",
       "types": ["engine_car"],
       "interactableVariables": [
@@ -242,6 +242,13 @@
       "maxValue": 1.0,
       "partScale": [1.0,1.0,1.0],
       "types": ["generic_hitch_mount"]
+    },
+    {
+      "pos": [0.0,0.619846,1.7864],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 1.0,
+      "defaultPart": "ivv:horn_1",
+      "types": ["generic_horn"]
     }
   ],
   "collisionGroups": [
@@ -1859,7 +1866,9 @@
             "clampMax": 1.0
           }
         ],
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalswitchon",
@@ -1871,7 +1880,9 @@
             "clampMax": 1.0
           }
         ],
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalswitchoff",
@@ -1881,7 +1892,9 @@
             "variable": "left_turn_signal"
           }
         ],
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalswitchoff",
@@ -1891,7 +1904,9 @@
             "variable": "right_turn_signal"
           }
         ],
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalon",
@@ -1915,7 +1930,9 @@
             "clampMax": 16.0
           }
         ],
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignaloff",
@@ -1937,7 +1954,9 @@
             "clampMax": 16.0
           }
         ],
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignalon",
@@ -1961,7 +1980,9 @@
             "clampMax": 16.0
           }
         ],
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:turnsignaloff",
@@ -1983,7 +2004,9 @@
             "clampMax": 16.0
           }
         ],
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:headlightson",
@@ -1994,7 +2017,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:headlightsoff",
@@ -2003,35 +2028,9 @@
             "animationType": "visibility",
             "variable": "headlight"
           }
-        ]
-      },
-      {
-        "name": "ivv:horn1",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "horn",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 4
-          },
-          {
-            "animationType": "visibility",
-            "variable": "electric_power",
-            "clampMin": 3.0,
-            "clampMax": 16.0
-          }
         ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "horn",
-            "axis": [0.0,1.0,0.0],
-            "duration": 3,
-            "forwardsDelay": -2
-          }
-        ],
-        "looping": true
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:interiorrain",
@@ -2044,7 +2043,87 @@
           }
         ],
         "looping": true,
-        "isInterior": true
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      },
+      {
+        "name": "ivv:interiorrattle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.25,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.0625,
+            "clampMax": 32767.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.00625,0.0],
+            "clampMax": 0.5
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_percent",
+            "clampMin": 0.5,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.00625,0.0],
+            "clampMax": 0.5
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMax": 0.5
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_totaled"
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.025,0.0],
+            "clampMax": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.025,0.0],
+            "offset": 0.75,
+            "clampMin": 0.75,
+            "clampMax": 1.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.025,0.0]
+          }
+        ],
+        "looping": true,
+        "isInterior": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:explode_car",
@@ -2063,7 +2142,9 @@
             "axis": [0.0,5.0,0.0],
             "offset": 5.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [

@@ -6,6 +6,8 @@
     "height": 0.375
   },
   "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
     "autoReload": true,
     "handHeld": true,
     "isSemiAuto": true,
@@ -13,11 +15,12 @@
     "reloadTime": 22,
     "muzzleVelocity": 675,
     "fireDelay": 16.0,
-    "bulletSpreadFactor": 1.5,
+    "bulletSpreadFactor": 2.0,
     "diameter": 16.83,
     "maxCaseLength": 90.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.05,-0.1,0.65],
     "handHeldAimedOffset": [0.315,0.025,0.75],
     "muzzleGroups": [
@@ -136,7 +139,8 @@
             "reverseEasing": "easeinoutquad",
             "forwardsDelay": 8,
             "reverseDelay": -8,
-            "forwardsStartSound": "ivv:pumpshotgun_boltback"
+            "forwardsStartSound": "ivv:pumpshotgun_boltback",
+            "skipReverseMovement": true
           },
           {
             "animationType": "translation",
@@ -147,7 +151,8 @@
             "reverseEasing": "easeinoutquad",
             "forwardsDelay": 12,
             "reverseDelay": -12,
-            "forwardsStartSound": "ivv:pumpshotgun_boltforth"
+            "forwardsStartSound": "ivv:pumpshotgun_boltforth",
+            "skipForwardsMovementMovement": true
           }
         ]
       },
@@ -177,54 +182,6 @@
       }
     ],
     "lightObjects": [],
-    "cameraObjects": [
-      {
-        "pos": [0.0,0.15625,-0.0525],
-        "rot": [0.0,0.0,0.0],
-        "fovOverride": 30.0,
-        "overlay": "ivv:textures/overlay/scopes/medrange",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "generic_gun_scope_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "gun_reload",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "gun_inhand",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "gun_fired",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [-4.0,0.0,0.0],
-            "duration": 2,
-            "forwardsEasing": "easeoutcirc",
-            "reverseEasing": "easeinoutsine",
-            "forwardsDelay": -2
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.0875],
-            "duration": 2,
-            "forwardsEasing": "easeoutcirc",
-            "reverseEasing": "easeinoutsine",
-            "forwardsDelay": -2
-          }
-        ]
-      }
-    ],
     "constants": ["generic_gun_scope_short"],
     "sounds": [
       {
@@ -252,10 +209,12 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
-        "name": "ivv:bulletdistant",
+        "name": "ivv:bulletdistantshotgun",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -268,8 +227,8 @@
           {
             "animationType": "translation",
             "variable": "!generic_gun_suppressor_1",
-            "axis": [0.0,7.5,0.0],
-            "offset": 2.5
+            "axis": [0.0,1.5,0.0],
+            "offset": 0.5
           }
         ],
         "pitchAnimations": [
@@ -280,7 +239,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 128.0
       },
       {
         "name": "ivv:shotgun_reloading",
@@ -291,7 +252,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -325,7 +288,9 @@
             "axis": [0.0,0.0625,0.0],
             "offset": 0.9875
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [

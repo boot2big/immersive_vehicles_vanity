@@ -6,6 +6,8 @@
     "height": 0.25
   },
   "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
     "handHeld": true,
     "capacity": 40,
     "reloadTime": 25,
@@ -17,6 +19,7 @@
     "maxCaseLength": 30.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [0.0,-0.05,0.6],
     "handHeldAimedOffset": [0.315,0.075,0.55],
     "muzzleGroups": [
@@ -171,11 +174,11 @@
             "animationType": "rotation",
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,45],
-            "forwardsDelay": 2,
+            "axis": [0.0,0.0,45.0],
             "duration": 5,
             "forwardsEasing": "easeinoutsine",
-            "reverseEasing": "easeoutback"
+            "reverseEasing": "easeoutback",
+            "forwardsDelay": 2
           },
           {
             "animationType": "rotation",
@@ -200,52 +203,6 @@
       }
     ],
     "lightObjects": [],
-    "cameraObjects": [
-      {
-        "pos": [0.0,0.236668,-0.0125],
-        "rot": [0.0,0.0,0.0],
-        "fovOverride": 30.0,
-        "overlay": "ivv:textures/overlay/overlayscope",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "generic_gun_scope_2",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "gun_reload",
-            "reverseDelay": 5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "gun_inhand",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "gun_fired",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [-3.0,0.0,0.0],
-            "duration": 1,
-            "forwardsEasing": "easeoutcirc",
-            "reverseEasing": "easeinoutsine",
-            "forwardsDelay": -1
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.0625],
-            "duration": 1,
-            "forwardsEasing": "easeoutcirc",
-            "reverseEasing": "easeinoutsine",
-            "forwardsDelay": -1
-          }
-        ]
-      }
-    ],
     "constants": ["generic_gun_scope_short","generic_gun_grip_invis"],
     "sounds": [
       {
@@ -266,7 +223,7 @@
           {
             "animationType": "translation",
             "variable": "!kitchen_gun",
-            "axis": [0.0,2.5,0.0]
+            "axis": [0.0,2,0.0]
           }
         ],
         "pitchAnimations": [
@@ -277,7 +234,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:mp7_firing_silenced",
@@ -310,7 +269,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:bulletdistant",
@@ -326,8 +287,8 @@
           {
             "animationType": "translation",
             "variable": "!generic_gun_suppressor_1",
-            "axis": [0.0,7.5,0.0],
-            "offset": 2.5
+            "axis": [0.0,1.5,0.0],
+            "offset": 0.5
           }
         ],
         "pitchAnimations": [
@@ -338,7 +299,9 @@
             "offset": 0.9375
           }
         ],
-        "forceSound": true
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 128
       },
       {
         "name": "ivv:mp7_reloading",
@@ -349,7 +312,9 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -383,7 +348,9 @@
             "axis": [0.0,0.0625,0.0],
             "offset": 0.9875
           }
-        ]
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
       }
     ],
     "particles": [
