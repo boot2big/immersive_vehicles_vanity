@@ -11,7 +11,8 @@
     "handHeld": true,
     "isSemiAuto": true,
     "capacity": 1,
-    "reloadTime": 30,
+    "reloadTime": 40,
+    "reloadDelay": 10,
     "muzzleVelocity": 225,
     "fireDelay": 30.0,
     "gravitationalVelocity": 0.01,
@@ -99,8 +100,7 @@
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -111,14 +111,35 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
       {
         "objectName": "gunModel",
         "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-67.5,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": 8,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [67.5,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": 30,
+            "skipReverseMovement": true
+          },
           {
             "animationType": "rotation",
             "variable": "gun_fired",
@@ -143,7 +164,29 @@
       {
         "objectName": "breakActionModel",
         "applyAfter": "gunModel",
-        "animations": []
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.053748,0.291506],
+            "axis": [67.5,0.0,0.0],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": 8,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.053748,0.291506],
+            "axis": [-67.5,0.0,0.0],
+            "duration": 5,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": 30,
+            "skipReverseMovement": true
+          }]
       }
     ],
     "lightObjects": [],

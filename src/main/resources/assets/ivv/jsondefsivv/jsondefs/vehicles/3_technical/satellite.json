@@ -96,22 +96,13 @@
     },
     {
       "pos": [0.0,2.38923,0.0],
+      "pos": [0.0,90,0.0],
       "dismountPos": [0.0,2.69472,0.7154],
       "isController": true,
       "isPermanent": true,
       "canDisableGun": true,
       "defaultPart": "ivv:rockseat",
-      "types": ["seat_invisible"],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "seat_occupied_1",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,180.0,0.0],
-          "duration": 20,
-          "reverseDelay": -20
-        }
-      ]
+      "types": ["seat_invisible"]
     },
     {
       "pos": [0.5,0.5,0.5],
@@ -329,8 +320,8 @@
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "altitude",
-          "clampMin": 320.0,
+          "variable": "terrain_distance",
+          "clampMin": 128.0,
           "clampMax": 99999.0
         }
       ]
@@ -341,9 +332,9 @@
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "altitude",
+          "variable": "terrain_distance",
           "clampMin": -1536.0,
-          "clampMax": 320.0
+          "clampMax": 128.0
         }
       ]
     },
@@ -1013,15 +1004,10 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "1_2_1_cycle",
+            "variable": "random",
             "centerPoint": [-0.10156,2.69922,-0.83203],
-            "axis": [0.0,0.0,0.25]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "2_2_0_cycle",
-            "centerPoint": [-0.10156,2.69922,-0.83203],
-            "axis": [0.0,0.0,-0.25]
+            "axis": [0.0,0.0,2],
+            "offset": -1
           },
           {
             "animationType": "rotation",
@@ -1037,15 +1023,10 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "1_2_1_cycle",
+            "variable": "random",
             "centerPoint": [0.0,2.69922,-0.83203],
-            "axis": [0.0,0.0,0.25]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "2_2_0_cycle",
-            "centerPoint": [0.0,2.69922,-0.83203],
-            "axis": [0.0,0.0,-0.25]
+            "axis": [0.0,0.0,2],
+            "offset": -1
           },
           {
             "animationType": "rotation",
@@ -1061,21 +1042,16 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "1_2_1_cycle",
+            "variable": "random",
             "centerPoint": [0.10156,2.69922,-0.83203],
-            "axis": [0.0,0.0,0.25]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "2_2_0_cycle",
-            "centerPoint": [0.10156,2.69922,-0.83203],
-            "axis": [0.0,0.0,-0.25]
+            "axis": [0.0,0.0,2],
+            "offset": -1
           },
           {
             "animationType": "rotation",
             "variable": "gun_ammo_percent_1",
             "centerPoint": [0.10156,2.69922,-0.83203],
-            "axis": [0.0,0.0,130.0],
+            "axis": [0.0,0.0,-130.0],
             "offset": -65.0
           }
         ]
@@ -1218,7 +1194,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "damage_percent",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -1347,9 +1323,13 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "damage_totaled"
+          },
+          {
+            "animationType": "visibility",
             "variable": "damage_percent",
             "clampMin": 0.75,
-            "clampMax": 0.99
+            "clampMax": 1
           }
         ],
         "looping": true,

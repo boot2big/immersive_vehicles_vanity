@@ -9,8 +9,10 @@
     "lockOnType": "default",
     "targetType": "all",
     "handHeld": true,
+    "isTwoHanded": true,
     "capacity": 30,
-    "reloadTime": 42,
+    "reloadTime": 45,
+    "reloadDelay": 10,
     "muzzleVelocity": 940,
     "fireDelay": 3.0,
     "bulletSpreadFactor": 2.0,
@@ -20,7 +22,7 @@
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "lockMaxAngle": 0.0,
-    "handHeldNormalOffset": [0.05,-0.1,0.45],
+    "handHeldNormalOffset": [0.05,-0.1,0.5],
     "handHeldAimedOffset": [0.3125,-0.05,0.45],
     "muzzleGroups": [
       {
@@ -108,8 +110,7 @@
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -120,8 +121,7 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -130,8 +130,40 @@
         "applyAfter": "gunModel",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "gun_controller_firstperson"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,-2.0,0.0],
+            "duration": 8,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,2.0,0.0],
+            "duration": 3,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 17,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "activator",
+            "variable": "gun_controller_firstperson"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!gun_controller_firstperson"
+          },
+          {
             "animationType": "visibility",
-            "variable": "gun_reload"
+            "variable": "gun_reload",
+            "forwardsDelay": 2
           }
         ]
       },
@@ -142,11 +174,23 @@
             "animationType": "rotation",
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,-33.75],
+            "duration": 10,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": 2,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.0,33.75],
-            "duration": 7,
-            "forwardsEasing": "easeinoutsine",
-            "reverseEasing": "easeoutback",
-            "forwardsDelay": 2
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": 35,
+            "skipReverseMovement": true
           },
           {
             "animationType": "rotation",
@@ -190,16 +234,29 @@
         "animations": [
           {
             "animationType": "translation",
-            "variable": "gun_reload",
-            "axis": [0.0,0.0,-0.125],
-            "duration": 1,
-            "forwardsDelay": 28
-          },
-          {
-            "animationType": "translation",
             "variable": "gun_fired",
             "axis": [0.0,0.0,-0.125],
             "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,0.0,-0.125],
+            "duration": 2,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 25,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,0.0,0.125],
+            "duration": 2,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 30,
+            "skipReverseMovement": true
           }
         ]
       }
@@ -221,7 +278,7 @@
           {
             "animationType": "translation",
             "variable": "!kitchen_gun",
-            "axis": [0.0,2,0.0]
+            "axis": [0.0,2.0,0.0]
           }
         ],
         "pitchAnimations": [
@@ -264,7 +321,7 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 128
+        "maxDistance": 128.0
       },
       {
         "name": "ivv:bullpuprifle_reloading",

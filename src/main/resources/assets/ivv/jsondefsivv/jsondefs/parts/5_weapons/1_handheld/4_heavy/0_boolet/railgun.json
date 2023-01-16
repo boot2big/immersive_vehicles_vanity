@@ -1,15 +1,17 @@
 {
   "generic": {
-    "type": "gun_hand_heavy",
+    "type": "gun_hand_longarm",
     "canBeRemovedByHand": true
   },
   "gun": {
     "lockOnType": "default",
     "targetType": "all",
     "handHeld": true,
+    "isTwoHanded": true,
     "isSemiAuto": true,
     "capacity": 3,
     "reloadTime": 80,
+    "reloadDelay": 10,
     "muzzleVelocity": 1200,
     "fireDelay": 16.0,
     "diameter": 250.0,
@@ -17,8 +19,8 @@
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "lockMaxAngle": 0.0,
-    "handHeldNormalOffset": [-0.2,-0.125,0.4],
-    "handHeldAimedOffset": [0.315,0.05,0.6],
+    "handHeldNormalOffset": [-0.05,-0.125,0.4],
+    "handHeldAimedOffset": [0.315,0.025,0.6],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -94,8 +96,7 @@
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -106,8 +107,7 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -120,8 +120,8 @@
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.0,-22.5],
             "duration": 20,
-            "forwardsDelay": 3,
             "forwardsEasing": "easeoutback",
+            "forwardsDelay": 3,
             "skipReverseMovement": true
           },
           {
@@ -130,8 +130,8 @@
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.0,22.5],
             "duration": 10,
-            "forwardsDelay": 65,
             "forwardsEasing": "easeoutback",
+            "forwardsDelay": 65,
             "skipReverseMovement": true
           },
           {
@@ -170,8 +170,8 @@
             "variable": "gun_reload",
             "axis": [0.0,0.0,-0.1],
             "duration": 2,
-            "forwardsDelay": 60,
             "forwardsEasing": "easeinoutsine",
+            "forwardsDelay": 60,
             "skipReverseMovement": true
           },
           {
@@ -179,8 +179,8 @@
             "variable": "gun_reload",
             "axis": [0.0,0.0,0.1],
             "duration": 1,
-            "forwardsDelay": 65,
             "forwardsEasing": "easeinoutsine",
+            "forwardsDelay": 65,
             "skipReverseMovement": true
           }
         ]

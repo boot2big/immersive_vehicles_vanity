@@ -1,15 +1,15 @@
 {
   "generic": {
-    "type": "generic_hitch_connector",
-    "width": 0.25,
-    "height": 0.25
+    "type": "generic_hitch_mount",
+    "width": 0.125,
+    "height": 0.125
   },
   "collisionGroups": [
     {
       "isInterior": true,
       "collisions": [
         {
-          "pos": [0.0,0.016551,-0.155608],
+          "pos": [0.0,0.015625,0.078125],
           "width": 0.0625,
           "height": 0.0625,
           "variableName": "hitch_orientation",
@@ -17,16 +17,21 @@
         }
       ],
       "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "hitch_orientation",
+            "axis": [0.0,180,0.0],
+            "centerPoint": [0.0,0.0,0.0]
+          },
         {
           "animationType": "translation",
           "variable": "hitch_orientation",
-          "axis": [0.0,0.0625,-0.0375]
+          "axis": [0.0,-0.015625,-0.078125]
         },
         {
-          "animationType": "rotation",
+          "animationType": "translation",
           "variable": "hitch_orientation",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,180.0,0.0]
+          "axis": [0.0,0.016551,-0.280608]
         }
       ]
     }
@@ -56,34 +61,57 @@
   "rendering": {
     "animatedObjects": [
       {
-        "objectName": "bolt",
+        "objectName": "mount",
         "animations": [
-          {
-            "animationType": "translation",
-            "variable": "hitch_orientation",
-            "axis": [0.0,0.0625,-0.0375]
-          },
           {
             "animationType": "rotation",
             "variable": "hitch_orientation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,180.0,0.0]
+            "axis": [0.0,180,0.0],
+            "centerPoint": [0.0,0.0,0.0]
           }
         ]
       },
       {
-        "objectName": "slider",
+        "objectName": "bolt",
+        "applyAfter": "connector",
         "animations": [
           {
-            "animationType": "translation",
-            "variable": "hitch_orientation",
-            "axis": [0.0,0.0625,-0.0375]
-          },
+            "animationType": "visibility",
+            "variable": "hitch_orientation"
+          }
+        ]
+      },
+      {
+        "objectName": "connector",
+        "applyAfter": "mount",
+        "animations": [
           {
-            "animationType": "rotation",
+            "animationType": "visibility",
+            "variable": "hitch_orientation"
+          }
+        ]
+      },
+      {
+        "objectName": "#boltalt",
+        "applyAfter": "#connector_alt",
+        "animations": [
+          {
+            "animationType": "visibility",
             "variable": "hitch_orientation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,180.0,0.0]
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#connector_alt",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       }

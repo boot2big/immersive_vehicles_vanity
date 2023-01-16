@@ -12,6 +12,7 @@
     "isSemiAuto": true,
     "capacity": 24,
     "reloadTime": 30,
+    "reloadDelay": 10,
     "muzzleVelocity": 600,
     "fireDelay": 6.0,
     "bulletSpreadFactor": 1.0,
@@ -110,8 +111,7 @@
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -122,8 +122,7 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -135,10 +134,31 @@
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.0,22.5],
-            "duration": 5,
-            "forwardsEasing": "easeinoutsine",
-            "reverseEasing": "easeoutback",
+            "duration": 6,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcubic",
             "forwardsDelay": 2
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,-22.5],
+            "duration": 6,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": 8
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [360.0,0.0,0.0],
+            "duration": 12,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutback",
+            "forwardsDelay": 16,
+            "skipReverseMovement": true
           },
           {
             "animationType": "rotation",
@@ -183,7 +203,7 @@
           {
             "animationType": "translation",
             "variable": "!kitchen_gun",
-            "axis": [0.0,2,0.0]
+            "axis": [0.0,2.0,0.0]
           }
         ],
         "pitchAnimations": [

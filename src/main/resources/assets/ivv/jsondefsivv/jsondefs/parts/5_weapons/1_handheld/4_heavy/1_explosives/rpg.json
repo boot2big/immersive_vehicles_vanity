@@ -7,9 +7,11 @@
     "lockOnType": "default",
     "targetType": "all",
     "handHeld": true,
+    "isTwoHanded": true,
     "isSemiAuto": true,
     "capacity": 1,
-    "reloadTime": 55,
+    "reloadTime": 65,
+    "reloadDelay": 10,
     "muzzleVelocity": 100,
     "fireDelay": 1.0,
     "gravitationalVelocity": 0.03,
@@ -96,8 +98,7 @@
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -108,8 +109,7 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -136,7 +136,19 @@
             "duration": 10,
             "forwardsEasing": "easeinoutsine",
             "reverseEasing": "easeoutback",
-            "forwardsDelay": 10
+            "forwardsDelay": 10,
+	    "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [33.75,-11.25,0.0],
+            "duration": 15,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeoutback",
+            "forwardsDelay": 50,
+	    "skipReverseMovement": true
           },
           {
             "animationType": "rotation",

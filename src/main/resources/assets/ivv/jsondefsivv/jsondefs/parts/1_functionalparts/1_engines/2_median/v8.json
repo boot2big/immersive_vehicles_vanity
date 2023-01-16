@@ -229,17 +229,6 @@
           "offset": -1.0
         }
       ]
-    },
-    {
-      "variable": "lazinessThatJavaWontLike",
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "random",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
     }
   ],
   "rendering": {
@@ -289,7 +278,35 @@
       },
       {
         "name": "ivv:enginesputter1",
+        "soundVariations": ["ivv:enginesputter1","ivv:enginesputter2","ivv:enginesputter3","ivv:enginesputter4"],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_hours",
+            "clampMin": 250,
+            "clampMax": 750
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      },
+      {
+        "name": "ivv:enginesputterbig1",
+        "soundVariations": ["ivv:enginesputterbig1","ivv:enginesputterbig2","ivv:enginesputterbig3","ivv:enginesputterbig4"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_hours",
+            "clampMin": 750,
+            "clampMax": 10000
+          },
           {
             "animationType": "visibility",
             "variable": "engine_backfired",
@@ -303,106 +320,12 @@
       },
       {
         "name": "ivv:transmissionfailshift1",
+        "soundVariations": ["ivv:transmissionfailshift1","ivv:transmissionfailshift2","ivv:transmissionfailshift3","ivv:transmissionfailshift4"],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_badshift",
             "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMax": 0.25
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
-            "offset": 0.75,
-            "clampMin": 0.875,
-            "clampMax": 1.25
-          }
-        ],
-        "forceSound": true,
-        "minDistance": 0.0,
-        "maxDistance": 0.0
-      },
-      {
-        "name": "ivv:transmissionfailshift2",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_badshift",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.25,
-            "clampMax": 0.5
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
-            "offset": 0.75,
-            "clampMin": 0.875,
-            "clampMax": 1.25
-          }
-        ],
-        "forceSound": true,
-        "minDistance": 0.0,
-        "maxDistance": 0.0
-      },
-      {
-        "name": "ivv:transmissionfailshift3",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_badshift",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.5,
-            "clampMax": 0.75
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
-            "offset": 0.75,
-            "clampMin": 0.875,
-            "clampMax": 1.25
-          }
-        ],
-        "forceSound": true,
-        "minDistance": 0.0,
-        "maxDistance": 0.0
-      },
-      {
-        "name": "ivv:transmissionfailshift4",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_badshift",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "lazinessThatJavaWontLike",
-            "clampMin": 0.75,
             "clampMax": 1.0
           }
         ],
@@ -418,7 +341,7 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "maxDistance": 16.0
       },
       {
         "name": "ivv:transmissionautoselectup",
@@ -743,7 +666,7 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 96
+        "maxDistance": 96.0
       },
       {
         "name": "ivv:v8idling",
@@ -784,7 +707,7 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 24
+        "maxDistance": 24.0
       },
       {
         "name": "ivv:v8hi",
@@ -813,8 +736,8 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,-1,0.0],
-            "offset": 1
+            "axis": [0.0,-1.0,0.0],
+            "offset": 1.0
           }
         ],
         "pitchAnimations": [
@@ -833,7 +756,7 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 32
+        "maxDistance": 32.0
       },
       {
         "name": "ivv:v8low",
@@ -861,8 +784,7 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,1,0.0],
-            "offset": 0
+            "axis": [0.0,1.0,0.0]
           }
         ],
         "pitchAnimations": [
@@ -875,13 +797,13 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,2,0.0],
+            "axis": [0.0,2.0,0.0],
             "offset": 0.125
           }
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 64
+        "maxDistance": 64.0
       },
       {
         "name": "ivv:turbo1",

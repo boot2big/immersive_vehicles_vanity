@@ -10,9 +10,11 @@
     "targetType": "all",
     "autoReload": true,
     "handHeld": true,
+    "isTwoHanded": true,
     "isSemiAuto": true,
     "capacity": 5,
-    "reloadTime": 22,
+    "reloadTime": 12,
+    "reloadDelay": 32,
     "muzzleVelocity": 675,
     "fireDelay": 16.0,
     "bulletSpreadFactor": 2.0,
@@ -21,8 +23,8 @@
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "lockMaxAngle": 0.0,
-    "handHeldNormalOffset": [-0.05,-0.1,0.65],
-    "handHeldAimedOffset": [0.315,0.025,0.75],
+    "handHeldNormalOffset": [-0.05,-0.125,0.65],
+    "handHeldAimedOffset": [0.315,0.0375,0.75],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -109,8 +111,7 @@
             "variable": "gun_reload",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -121,8 +122,7 @@
           {
             "animationType": "visibility",
             "variable": "gun_reload",
-            "forwardsDelay": 5,
-            "reverseDelay": 5
+            "reverseDelay": 2
           }
         ]
       },
@@ -139,8 +139,8 @@
             "reverseEasing": "easeinoutquad",
             "forwardsDelay": 8,
             "reverseDelay": -8,
-            "forwardsStartSound": "ivv:pumpshotgun_boltback",
-            "skipReverseMovement": true
+            "skipReverseMovement": true,
+            "forwardsStartSound": "ivv:pumpshotgun_boltback"
           },
           {
             "animationType": "translation",
@@ -151,8 +151,7 @@
             "reverseEasing": "easeinoutquad",
             "forwardsDelay": 12,
             "reverseDelay": -12,
-            "forwardsStartSound": "ivv:pumpshotgun_boltforth",
-            "skipForwardsMovementMovement": true
+            "forwardsStartSound": "ivv:pumpshotgun_boltforth"
           }
         ]
       },
