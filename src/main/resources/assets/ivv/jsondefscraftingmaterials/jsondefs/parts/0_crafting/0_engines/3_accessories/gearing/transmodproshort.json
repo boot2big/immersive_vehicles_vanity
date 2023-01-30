@@ -1,0 +1,67 @@
+{
+  "generic": {
+    "type": "generic_engine_gearbox",
+    "width": 0.375,
+    "height": 0.375,
+    "mass": 50
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "transmod",
+      "name": "Transmission Pro-short Gearing",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "generic_engine_gearbox",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_engine_gear",
+          "clampMin": -32767.0,
+          "clampMax": 3.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gearing",
+          "axis": [0.0,0.0,0.1875]
+        }
+      ]
+    },
+    {
+      "variable": "generic_engine_gearbox",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_engine_gear",
+          "clampMin": 3.5,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gearing",
+          "axis": [0.0,0.0,0.125]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Transmission Upgrade",
+    "description": "Can be installed onto engines to modify their gearing\n1.1875:1/1.125:1 gear ratio\n§5§oCrafted in the Engine Hoist bench",
+    "stackSize": 64,
+    "health": 80,
+    "materialLists": [
+      ["oredict:ingotIron:2","mts:ivv.gear:-1:12"]
+    ]
+  }
+}

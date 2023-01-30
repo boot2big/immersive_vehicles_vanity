@@ -2,7 +2,7 @@
   "components": [
     {
       "scale": 1.0,
-      "textureXCenter": 960,
+      "textureXCenter": 832,
       "textureYCenter": 800,
       "textureWidth": 128,
       "textureHeight": 64,
@@ -11,16 +11,85 @@
     {
       "scale": 1.0,
       "textObject": {
-        "pos": [0.0,2.0,0.0],
+        "pos": [-52.0,22.0,0.0],
         "rot": [0.0,0.0,0.0],
-        "scale": 3.0,
-        "variableName": "engine_hours_1",
+        "scale": 1.0,
+        "variableName": "engine_temp_1",
         "variableFactor": 1.0,
-        "variableFormat": "%01.2f",
+        "variableFormat": "TEMP: %01.2f",
         "fontName": "ivv:digifont",
         "defaultText": "ERR",
         "color": "FFFFFF",
-        "lightsUp": true
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-52.0,13.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "variableName": "engine_pressure_1",
+        "variableFactor": 1.0,
+        "variableFormat": "OIL: %01.2f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERR",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-52.0,4.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "variableName": "engine_hours_1",
+        "variableFactor": 1.0,
+        "variableFormat": "HRS: %01.2f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERR",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-52.0,-5.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "variableName": "engine_fuel_flow",
+        "variableFactor": 1.0,
+        "variableFormat": "FC: %01.2f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERR",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-52.0,-14.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "variableName": "electric_power",
+        "variableFactor": 1.0,
+        "variableFormat": "VOLT: %01.1f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERR",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
       },
       "lightUpTexture": true
     },
@@ -64,6 +133,61 @@
     },
     {
       "scale": 1.0,
+      "textureXCenter": 832,
+      "textureYCenter": 960,
+      "textureWidth": 116,
+      "textureHeight": 52,
+      "rotateWindow": true,
+      "lightUpTexture": true,
+      "overlayTexture": true,
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "random",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,10.0],
+          "offset": -5.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [16.0,0.0,0.0],
+          "offset": -8.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,16.0,0.0],
+          "offset": -8.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "damage_percent",
+          "clampMin": 0.75,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "random",
+          "clampMin": 0.9875,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "damage_percent",
+          "clampMin": 0.875,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "30_20_30_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
       "textureXCenter": 960,
       "textureYCenter": 736,
       "textureWidth": 116,
@@ -80,12 +204,19 @@
           "clampMax": 5.0
         }
       ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 960,
+      "textureYCenter": 672,
+      "textureWidth": 116,
+      "textureHeight": 52
     }
   ],
   "textureName": "instruments_modern.png",
   "general": {
-    "name": "Hours Gauge",
-    "description": "Indicates engine hours",
+    "name": "Engine Informational Unit",
+    "description": "Indicates engine temperature, pressure, fuel consumption, battery voltage and hours",
     "stackSize": 64,
     "materialLists": [
       ["oredict:dustRedstone:1","minecraft:glass_pane:0:1"]

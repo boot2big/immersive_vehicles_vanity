@@ -19,10 +19,10 @@
       "isController": true,
       "canDisableGun": true,
       "types": ["seat"],
-      "linkedParts": [4,5,6],
       "interactableVariables": [
         ["parent_door_fl"]
       ],
+      "linkedParts": [4,5,6],
       "animations": [
         {
           "animationType": "translation",
@@ -60,9 +60,17 @@
     },
     {
       "pos": [0.0,-1.72349,-2.78314],
-      "rot": [22.0,0.0,0.0],
+      "rot": [20,0.0,0.0],
       "maxValue": 1.0,
-      "types": ["generic_hitch_mount"]
+      "types": ["generic_hitch_mount"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "hitch_scale",
+          "centerPoint": [0.0,-1.72349,-2.78314],
+          "axis": [-2.0,0.0,0.0]
+        }
+      ]
     },
     {
       "pos": [0.0,-1.20536,2.09591],
@@ -92,11 +100,11 @@
       "partScale": [0.25,0.25,0.25],
       "playerScale": [4.0,4.0,4.0],
       "defaultPart": "ivv:rockseat",
-      "linkedParts": [4,5,6],
       "types": ["seat_invisible"],
       "interactableVariables": [
         ["no"]
       ],
+      "linkedParts": [4,5,6],
       "seatEffects": [
         {
           "name": "night_vision",
@@ -188,8 +196,8 @@
   "variableModifiers": [
     {
       "variable": "parent_rlBodyroll",
-      "minValue": -2.0,
-      "maxValue": 2.0,
+      "minValue": -3.0,
+      "maxValue": 3.0,
       "animations": [
         {
           "animationType": "translation",
@@ -211,6 +219,11 @@
           "reverseEasing": "easeoutback"
         },
         {
+          "animationType": "translation",
+          "variable": "hydraulics_bounce_rear",
+          "axis": [0.0,1,0.0]
+        },
+        {
           "animationType": "inhibitor",
           "variable": "speed",
           "clampMax": 0.125
@@ -224,8 +237,8 @@
     },
     {
       "variable": "parent_rrBodyroll",
-      "minValue": -2.0,
-      "maxValue": 2.0,
+      "minValue": -3.0,
+      "maxValue": 3.0,
       "animations": [
         {
           "animationType": "translation",
@@ -247,6 +260,11 @@
           "reverseEasing": "easeoutback"
         },
         {
+          "animationType": "translation",
+          "variable": "hydraulics_bounce_rear",
+          "axis": [0.0,-1,0.0]
+        },
+        {
           "animationType": "inhibitor",
           "variable": "speed",
           "clampMax": 0.125
@@ -260,8 +278,8 @@
     },
     {
       "variable": "parent_flBodyroll",
-      "minValue": -2.0,
-      "maxValue": 2.0,
+      "minValue": -3.0,
+      "maxValue": 3.0,
       "animations": [
         {
           "animationType": "translation",
@@ -283,6 +301,11 @@
           "reverseEasing": "easeoutback"
         },
         {
+          "animationType": "translation",
+          "variable": "hydraulics_bounce_front",
+          "axis": [0.0,1,0.0]
+        },
+        {
           "animationType": "inhibitor",
           "variable": "speed",
           "clampMax": 0.125
@@ -296,8 +319,8 @@
     },
     {
       "variable": "parent_frBodyroll",
-      "minValue": -2.0,
-      "maxValue": 2.0,
+      "minValue": -3.0,
+      "maxValue": 3.0,
       "animations": [
         {
           "animationType": "translation",
@@ -319,6 +342,11 @@
           "reverseEasing": "easeoutback"
         },
         {
+          "animationType": "translation",
+          "variable": "hydraulics_bounce_front",
+          "axis": [0.0,-1,0.0]
+        },
+        {
           "animationType": "inhibitor",
           "variable": "speed",
           "clampMax": 0.125
@@ -327,6 +355,84 @@
           "animationType": "translation",
           "variable": "acceleration",
           "axis": [0.0,2.5,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_neutral",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!uwu_bouncy_wouncy",
+          "axis": [0.0,0.0,1]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_engine_gearshift_1",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_bounce_rear",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "12_12_0_cycle",
+          "axis": [0.0,0.0,1.5],
+          "offset": -0.5,
+          "duration": 16,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeinoutsine"
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_magneto_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!hydraulics_neutral",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_bounce_front",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "12_12_0_cycle",
+          "axis": [0.0,0.0,1.5],
+          "duration": 16,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeinoutsine"
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_magneto_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!hydraulics_neutral",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_engine_reversed_1",
+          "axis": [2.0,0.0,0.0],
+          "offset": -1
+        },
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -1093,9 +1199,9 @@
       {
         "pos": [0.0,-0.9,2.0875],
         "rot": [0.0,0.0,0.0],
-        "nightVision": true,
         "fovOverride": 110.0,
         "overlay": "ivv:textures/overlay/cars/cardisview",
+        "nightVision": true,
         "animations": [
           {
             "animationType": "visibility",
@@ -1108,9 +1214,9 @@
       {
         "pos": [0.0,-0.8,-3.0],
         "rot": [0.0,180.0,0.0],
-        "nightVision": true,
         "fovOverride": 110.0,
         "overlay": "ivv:textures/overlay/cars/cardisview",
+        "nightVision": true,
         "animations": [
           {
             "animationType": "visibility",
@@ -1134,7 +1240,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 8.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:cloakreappear",
@@ -1145,7 +1255,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 8.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:niconiconii",
@@ -1166,7 +1280,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 8.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       }
     ],
     "particles": [

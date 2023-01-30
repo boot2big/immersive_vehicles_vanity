@@ -1,0 +1,72 @@
+{
+  "generic": {
+    "type": "generic_engine_turbo",
+    "width": 0.25,
+    "height": 0.25,
+    "mass": 20
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "textureName": "turbo",
+      "modelName": "turbo",
+      "name": "Large Turbocharger",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "generic_engine_turbo_power",
+      "minValue": -0.125,
+      "maxValue": 3.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_rpm_percent_safe",
+          "axis": [0.0,0.0,3.5],
+          "offset": -0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.375,0.0,0.0],
+          "offset": 0.625
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [1.125,0.0,0.0],
+          "offset": -0.125,
+          "duration": 20
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!invisible"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "IVLabs Turbocharger",
+    "description": "Can be installed onto engines for additional power\n§5§oCrafted in the Engine Hoist bench",
+    "stackSize": 64,
+    "health": 80,
+    "materialLists": [
+      ["oredict:ingotIron:3","mts:ivv.tcalloy:-1:9"]
+    ]
+  }
+}

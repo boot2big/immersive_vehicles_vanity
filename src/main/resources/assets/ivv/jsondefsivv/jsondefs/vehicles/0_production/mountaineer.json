@@ -15,8 +15,12 @@
     "axleRatio": 2.5,
     "brakingFactor": 2.325,
     "dragCoefficient": 0.125,
+    "litVariable": "engine_magneto_1",
+    "panel": "ivv:standard",
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
-    "panelTexture": "ivv:textures/guis/ivlabspanel.png"
+    "panelTexture": "ivv:textures/guis/ivlabspanel.png",
+    "panelTextColor": "3D4A37",
+    "panelLitTextColor": "569937"
   },
   "parts": [
     {
@@ -274,6 +278,10 @@
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
       "partScale": [1.0,1.0,1.0],
+      "conditionalDefaultParts": {
+        "defaultparts_hitch_connector": "ivv:hitchconnector",
+        "defaultparts_hitch": "ivv:hitch"
+      },
       "types": ["generic_hitch_mount"]
     },
     {
@@ -281,7 +289,15 @@
       "rot": [0.0,90.0,0.0],
       "maxValue": 1.0,
       "defaultPart": "ivv:horn_2",
-      "types": ["generic_horn"]
+      "types": ["generic_horn"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "generic_horn_rotated_28",
+          "centerPoint": [0.0,0.725,2.65],
+          "axis": [0.0,-90.0,0.0]
+        }
+      ]
     }
   ],
   "collisionGroups": [
@@ -1710,48 +1726,82 @@
   "definitions": [
     {
       "subName": "_red",
-      "name": "Mountaineer [Red]",
+      "name": "Mountaineer",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_silver",
-      "name": "Mountaineer [Silver]",
+      "name": "Mountaineer",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_blue",
-      "name": "Mountaineer [Blue]",
+      "name": "Mountaineer",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_white",
-      "name": "Mountaineer [White]",
+      "name": "Mountaineer",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_gray",
-      "name": "Mountaineer [Gray]",
+      "name": "Mountaineer",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_black",
-      "name": "Mountaineer [Black]",
+      "name": "Mountaineer",
       "extraMaterialLists": [
         []
       ]
     }
   ],
+  "initialVariables": ["door_frontright","door_frontleft","door_rearright","door_rearleft"],
   "variableModifiers": [
+    {
+      "variable": "defaultparts_hitch_connector",
+      "setValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "random",
+          "clampMax": 0.333
+        }
+      ]
+    },
+    {
+      "variable": "defaultparts_hitch_connector",
+      "setValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "random",
+          "clampMin": 0.666,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_size",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!big_boye",
+          "axis": [0.0,0.0,0.1]
+        }
+      ]
+    },
     {
       "variable": "throttle",
       "animations": [
@@ -2222,7 +2272,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "rlSpecific",
+            "variable": "running_light",
             "axis": [0.0,0.5,0.0],
             "duration": 5,
             "forwardsDelay": -3
@@ -2313,7 +2363,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "rlSpecific",
+            "variable": "running_light",
             "axis": [0.0,1.0,0.0],
             "duration": 5,
             "forwardsDelay": -3
@@ -2327,7 +2377,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "rlSpecific",
+            "variable": "running_light",
             "axis": [0.0,1.0,0.0],
             "duration": 5,
             "forwardsDelay": -3
@@ -2431,7 +2481,6 @@
       }
     ],
     "customVariables": ["SUNROOF","A/C"],
-    "initialVariables": ["door_frontright","door_frontleft","door_rearright","door_rearleft"],
     "sounds": [
       {
         "name": "ivv:interiorrain",
@@ -2446,7 +2495,11 @@
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:interiorrattle",
@@ -2524,7 +2577,127 @@
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:brakesqueal",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "brake",
+            "clampMin": 0.05,
+            "clampMax": 1.0,
+            "reverseDelay": 80
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.125,
+            "clampMax": 32767.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.1,0.0],
+            "offset": -1.0,
+            "clampMin": -1.0,
+            "clampMax": 0.125
+          },
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,0.5,0.0],
+            "offset": -0.5,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "forwardsDelay": -5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,-0.0625,0.0],
+            "offset": 1.0625
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:hydraulic_powersteering",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!input_rudder"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_running_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "input_rudder",
+            "axis": [0.0,0.05,0.0],
+            "offset": -0.25,
+            "clampMax": 0.25,
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_hours_1",
+            "axis": [0.0,5.0E-4,0.0],
+            "clampMax": 0.25
+          },
+          {
+            "animationType": "translation",
+            "variable": "damage_percent",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "input_rudder",
+            "axis": [0.0,0.01,0.0],
+            "offset": 0.5,
+            "clampMax": 1.0,
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "damage_percent",
+            "axis": [0.0,1.0,0.0],
+            "clampMax": 0.5
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:airconditioner",
@@ -2567,7 +2740,11 @@
         "isInterior": true,
         "pos": [0.0,0.475,1.0],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalswitchon",
@@ -2581,7 +2758,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalswitchon",
@@ -2595,7 +2776,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalswitchoff",
@@ -2607,7 +2792,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalswitchoff",
@@ -2619,7 +2808,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalon",
@@ -2645,7 +2838,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignaloff",
@@ -2669,7 +2866,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalon",
@@ -2695,7 +2896,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignaloff",
@@ -2719,7 +2924,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:headlightson",
@@ -2732,7 +2941,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:headlightsoff",
@@ -2743,7 +2956,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:alarmunlock",
@@ -2761,7 +2978,11 @@
         ],
         "pos": [0.625,0.74901,2.42227],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:alarmlock",
@@ -2781,7 +3002,11 @@
         ],
         "pos": [0.625,0.74901,2.42227],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:chimestart1",
@@ -2799,10 +3024,13 @@
             "clampMax": 1.0
           }
         ],
-        "isInterior": true,
         "pos": [0.625,0.74901,2.42227],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:chimelong1",
@@ -2840,10 +3068,13 @@
             "clampMax": 3.0
           }
         ],
-        "isInterior": true,
         "pos": [0.625,0.74901,2.42227],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:chimefast1",
@@ -2880,18 +3111,14 @@
             "clampMax": 3.0
           }
         ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "seat_occupied_client_4",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.5
-          }
-        ],
         "looping": true,
         "pos": [0.625,0.74901,2.42227],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:explode_car",
@@ -2907,12 +3134,15 @@
           {
             "animationType": "translation",
             "variable": "!true",
-            "axis": [0.0,5.0,0.0],
-            "offset": 5.0
+            "axis": [0.0,5.0,0.0]
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       }
     ],
     "particles": [

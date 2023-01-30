@@ -1,0 +1,240 @@
+{
+  "generic": {
+    "type": "generic_bench",
+    "canBeRemovedByHand": true,
+    "canBePlacedOnGround": true,
+    "width": 1.0,
+    "height": 1.0,
+    "placedOffset": 0.5
+  },
+  "parts": [
+    {
+      "pos": [1.0,0.6725,-0.4],
+      "maxValue": 10.0,
+      "types": ["engine_car","engine_car_electric","engine_jet"],
+      "linkedParts": []
+    },
+    {
+      "pos": [1.0,-0.125,0.0],
+      "isPermanent": true,
+      "maxValue": 1.0,
+      "partScale": [1.0,0.875,0.0],
+      "defaultPart": "ivv:glovebox",
+      "types": ["interactable_glovebox"]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "bench_status",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!bleeh_uwu",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "bench_engine_integrity",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!bleeh_uwu",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours_1",
+          "axis": [-0.000658333,0.0,0.0],
+          "clampMin": 0.000062134,
+          "offset": 1
+        }
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [1.0,0.4375,0.0],
+          "width": 1.0,
+          "height": 0.125
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Engine Tuning Bench",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [-0.199219,1.13842,0.056655],
+        "rot": [-3.0,0.0,0.0],
+        "scale": 0.1,
+        "variableName": "engine_obdiii_horsepower_1",
+        "variableFactor": 1.0,
+        "variableFormat": "HP: %01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "BA7C35",
+        "attachedTo": "screen_blank",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      {
+        "pos": [-0.199219,1.0682,0.059108],
+        "rot": [-3.0,0.0,0.0],
+        "scale": 0.1,
+        "variableName": "engine_obdiii_torque_1",
+        "variableFactor": 1.0,
+        "variableFormat": "TqLB: %01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "BA7C35",
+        "attachedTo": "screen_blank",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      {
+        "pos": [-0.199219,0.997987,0.062788],
+        "rot": [-3.0,0.0,0.0],
+        "scale": 0.1,
+        "variableName": "engine_rpm_safe_1",
+        "variableFactor": 1.0,
+        "variableFormat": "mRPM: %01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "BA7C35",
+        "attachedTo": "screen_blank",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      {
+        "pos": [-0.199219,0.927771,0.066468],
+        "rot": [-3.0,0.0,0.0],
+        "scale": 0.1,
+        "variableName": "bench_engine_integrity",
+        "variableFactor": 100.0,
+        "variableFormat": "INT: %01.0f`",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "BA7C35",
+        "attachedTo": "screen_blank",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      {
+        "pos": [-0.199219,0.849753,0.070557],
+        "rot": [-3.0,0.0,0.0],
+        "scale": 0.1,
+        "variableName": "engine_hours_1",
+        "variableFactor": 1.0,
+        "variableFormat": "AGE: %01.1f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "BA7C35",
+        "attachedTo": "screen_blank",
+        "lightsUp": true,
+        "renderPosition": 1
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "screen_blank",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_obdiii_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "cursor1",
+        "applyAfter": "screen_blank",
+        "animations": [
+        ]
+      },
+      {
+        "objectName": "cursor2",
+        "applyAfter": "screen_blank",
+        "animations": [
+        ]
+      },
+      {
+        "objectName": "cursor3",
+        "applyAfter": "screen_blank",
+        "animations": [
+        ]
+      },
+      {
+        "objectName": "cursor4",
+        "applyAfter": "screen_blank",
+        "animations": [
+        ]
+      },
+      {
+        "objectName": "cursor5",
+        "applyAfter": "screen_blank",
+        "animations": [
+        ]
+      },
+      {
+        "objectName": "cursor6",
+        "applyAfter": "screen_blank",
+        "animations": [
+        ]
+      },
+      {
+        "objectName": "screen_invalid",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_obdiii_present_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "screen_insert",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "How would silverado feel bout this",
+    "description": "Can modify engines and view their stats (if supported)\nPlaces into the world",
+    "health": 20,
+    "materialLists": [
+      ["minecraft:crafting_table:0:1"]
+    ]
+  }
+}

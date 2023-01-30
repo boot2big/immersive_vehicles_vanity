@@ -7,7 +7,9 @@
     "defaultFuelQty": 6000,
     "brakingFactor": 0.25,
     "dragCoefficient": 0.6,
-    "hudTexture": "ivv:textures/guis/ivlabshud.png",
+    "litVariable": "engine_magneto_1",
+    "panel": "mts:default_car",
+    "hudTexture": "ivv:textures/guis/ivlabspanel_jetpack.png",
     "panelTexture": "ivv:textures/guis/ivlabspanel_jetpack.png"
   },
   "parts": [
@@ -22,13 +24,13 @@
         {
           "animationType": "rotation",
           "variable": "elevatorModified",
-          "centerPoint": [0.0,1.0,0.25],
+          "centerPoint": [0.375,1.0,0.25],
           "axis": [-3.625,0.0,0.0]
         },
         {
           "animationType": "rotation",
           "variable": "aileronModified",
-          "centerPoint": [0.0,1.0,0.25],
+          "centerPoint": [0.375,1.0,0.25],
           "axis": [0.0,0.0,3.625]
         },
         {
@@ -64,13 +66,13 @@
         {
           "animationType": "rotation",
           "variable": "elevatorModified",
-          "centerPoint": [0.0,1.0,0.25],
+          "centerPoint": [0.375,1.0,0.25],
           "axis": [-3.625,0.0,0.0]
         },
         {
           "animationType": "rotation",
           "variable": "aileronModified",
-          "centerPoint": [0.0,1.0,0.25],
+          "centerPoint": [0.375,1.0,0.25],
           "axis": [0.0,0.0,3.625]
         },
         {
@@ -121,24 +123,6 @@
       "types": ["ground_wheel_invisible"],
       "animations": [
         {
-          "animationType": "rotation",
-          "variable": "elevatorModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [-3.625,0.0,0.0]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "aileronModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,3.625]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "rudderModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,0.0]
-        },
-        {
           "animationType": "translation",
           "variable": "!seat_occupied_1",
           "axis": [0.0,1.0,0.0]
@@ -157,24 +141,6 @@
       "types": ["ground_wheel_invisible"],
       "animations": [
         {
-          "animationType": "rotation",
-          "variable": "elevatorModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [-3.625,0.0,0.0]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "aileronModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,3.625]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "rudderModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,0.0]
-        },
-        {
           "animationType": "translation",
           "variable": "!seat_occupied_1",
           "axis": [0.0,1.0,0.0]
@@ -190,24 +156,6 @@
       "defaultPart": "ivv:theinvisitire",
       "types": ["ground_wheel_invisible"],
       "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "elevatorModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [-3.625,0.0,0.0]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "aileronModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,3.625]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "rudderModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,0.0]
-        },
         {
           "animationType": "translation",
           "variable": "!seat_occupied_1",
@@ -226,24 +174,6 @@
       "defaultPart": "ivv:theinvisitire",
       "types": ["ground_wheel_invisible"],
       "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "elevatorModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [-3.625,0.0,0.0]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "aileronModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,3.625]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "rudderModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,0.0]
-        },
         {
           "animationType": "translation",
           "variable": "!seat_occupied_1",
@@ -277,24 +207,6 @@
         }
       ],
       "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "elevatorModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [-3.625,0.0,0.0]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "aileronModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,3.625]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "rudderModified",
-          "centerPoint": [0.0,1.0,0.25],
-          "axis": [0.0,0.0,0.0]
-        }
       ]
     }
   ],
@@ -358,18 +270,61 @@
     },
     {
       "variable": "elevatorModified",
+      "minValue": -25,
+      "maxValue": 25,
+      "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "elevatorModified",
+            "clampMin": -25,
+            "clampMax": 0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!elevator",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1,0.0]
+          }
+      ]
+    },
+    {
+      "variable": "elevatorModified",
+      "minValue": -25,
+      "maxValue": 25,
+      "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "elevatorModified",
+            "clampMin": 0,
+            "clampMax": 25
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!elevator",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,-1,0.0]
+          }
+      ]
+    },
+    {
+      "variable": "elevatorModified",
+      "minValue": -25,
+      "maxValue": 25,
       "animations": [
         {
           "animationType": "translation",
           "variable": "elevator",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "onGround",
-          "axis": [0.75,0.0,0.0],
-          "offset": 0.25,
-          "duration": 30
+          "axis": [0.0,0.08,0.0]
         }
       ]
     },
@@ -424,7 +379,7 @@
     },
     {
       "variable": "dragCoefficient",
-      "setValue": 1.0,
+      "addValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -440,24 +395,6 @@
       {
         "objectName": "cube",
         "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "elevatorModified",
-            "centerPoint": [0.0,1.0,0.25],
-            "axis": [-3.625,0.0,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "aileronModified",
-            "centerPoint": [0.0,1.0,0.25],
-            "axis": [0.0,0.0,3.625]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "rudderModified",
-            "centerPoint": [0.0,1.0,0.25],
-            "axis": [0.0,0.0,0.0]
-          }
         ]
       },
       {
@@ -670,7 +607,7 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§r§f§lSTATS:\n§r§7Drivetrain: Twin jets\nMax. Top Speed: 70MPH\n0-60: 5.31\n0-Top Speed: 0:10.43\n§f§lACCESSORIES:\n§r§7-Crate/Chest x8\n§r§7-Ion Beam Emitter x1",
+    "description": "§r§f§lSTATS:\n§r§7Drivetrain: Twin jets\nMax. Top Speed: 70MPH\n0-60: 5.31\n0-Top Speed: 0:10.43\n§f§lNO AVAILABLE ACCESSORIES",
     "health": 200,
     "materialLists": [
       ["mts:ivv.tcalloy:0:8","mts:ivv.microjet:0:2","mts:ivv.fueldigital:0:1","mts:ivv.mphdigital:0:1"]

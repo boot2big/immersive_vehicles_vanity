@@ -1,22 +1,29 @@
 {
   "motorized": {
     "isAircraft": true,
-    "emptyMass": 600,
+    "emptyMass": 500,
     "fuelCapacity": 10000,
-    "brakingFactor": 0.7,
+    "brakingFactor": 0.5,
     "flapSpeed": 0.1,
-    "dragCoefficient": 0.4,
-    "tailDistance": 4,
-    "wingSpan": 8.0,
-    "wingArea": 6.0,
-    "aileronArea": 3,
-    "elevatorArea": 4.0,
-    "rudderArea": 1,
+    "dragCoefficient": 0.2125,
+    "tailDistance": 4.0,
+    "downForce": 0.5,
+    "overSteer": 1.0,
+    "underSteer": 1.0,
+    "overSteerAccel": -1.0,
+    "overSteerDecel": 2.0,
+    "wingSpan": 14.0,
+    "wingArea": 12.0,
+    "aileronArea": 5.0,
+    "elevatorArea": 8,
+    "rudderArea": 2,
+    "litVariable": "engine_magneto_1",
+    "panel": "mts:default_plane",
     "flapNotches": [0.0,10.0,20.0,30.0]
   },
   "parts": [
     {
-      "pos": [-0.01255,-0.328125,-0.75],
+      "pos": [0.0,-0.328125,-0.75],
       "rot": [0.0,180.0,0.0],
       "isMirrored": true,
       "minValue": 0.25,
@@ -121,72 +128,106 @@
       ]
     },
     {
-      "health": 60,
+      "health": 20,
       "collisions": [
         {
           "pos": [1.0,1.75,0.1],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
         },
         {
           "pos": [1.0,1.75,0.7],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
         },
         {
           "pos": [2.0,1.75,0.1],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
         },
         {
           "pos": [2.0,1.75,0.7],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
         },
         {
           "pos": [3.0,1.75,0.5],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
         }
       ]
     },
     {
-      "health": 60,
+      "health": 20,
       "collisions": [
         {
           "pos": [-1.0,1.75,0.1],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
         },
         {
           "pos": [-1.0,1.75,0.7],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
         },
         {
           "pos": [-2.0,1.75,0.1],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
         },
         {
           "pos": [-2.0,1.75,0.7],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
         },
         {
           "pos": [-3.0,1.75,0.5],
           "width": 1.0,
           "height": 0.25,
-          "damageMultiplier": 0.625
+          "damageMultiplier": 0.375
+        }
+      ]
+    },
+    {
+      "health": 20,
+      "collisions": [
+        {
+          "pos": [1.0,0.875,-3.125],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [1.5,0.875,-3.125],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        }
+      ]
+    },
+    {
+      "health": 20,
+      "collisions": [
+        {
+          "pos": [-1.0,0.875,-3.125],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [-1.5,0.875,-3.125],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
         }
       ]
     }
@@ -295,49 +336,97 @@
   "variableModifiers": [
     {
       "variable": "wingSpan",
-      "addValue": -4.0,
+      "addValue": -7,
       "animations": [
         {
           "animationType": "visibility",
           "variable": "collision_2_damage",
-          "clampMin": 59.9875,
-          "clampMax": 60.0
+          "clampMin": 20.0,
+          "clampMax": 32767.0
         }
       ]
     },
     {
       "variable": "wingArea",
-      "addValue": -3.0,
+      "addValue": -6.0,
       "animations": [
         {
           "animationType": "visibility",
           "variable": "collision_2_damage",
-          "clampMin": 59.9875,
-          "clampMax": 60.0
+          "clampMin": 20.0,
+          "clampMax": 32767.0
         }
       ]
     },
     {
       "variable": "wingSpan",
-      "addValue": -3.75,
+      "addValue": -7,
       "animations": [
         {
           "animationType": "visibility",
           "variable": "collision_3_damage",
-          "clampMin": 59.9875,
-          "clampMax": 60.0
+          "clampMin": 20.0,
+          "clampMax": 32767.0
         }
       ]
     },
     {
       "variable": "wingArea",
-      "addValue": -3.0,
+      "addValue": -6.0,
       "animations": [
         {
           "animationType": "visibility",
           "variable": "collision_3_damage",
-          "clampMin": 59.9875,
-          "clampMax": 60.0
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "elevatorArea",
+      "addValue": -4.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_4_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "elevatorArea",
+      "addValue": -4.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_5_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "aileronArea",
+      "addValue": -2.5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_2_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "aileronArea",
+      "addValue": -2.5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_3_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
         }
       ]
     }
@@ -374,7 +463,7 @@
           {
             "animationType": "visibility",
             "variable": "collision_2_damage",
-            "clampMax": 59.9875
+            "clampMax": 19.9875
           }
         ]
       },
@@ -384,28 +473,50 @@
           {
             "animationType": "visibility",
             "variable": "collision_3_damage",
-            "clampMax": 59.9875
+            "clampMax": 19.9875
           }
         ]
       },
       {
-        "objectName": "$Elevator_L",
+        "objectName": "leftfin",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "collision_4_damage",
+            "clampMax": 19.9875
+          }
+        ]
+      },
+      {
+        "objectName": "rightfin",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "collision_5_damage",
+            "clampMax": 19.9875
+          }
+        ]
+      },
+      {
+        "objectName": "leftelevator",
+        "applyAfter": "leftfin",
         "animations": [
           {
             "animationType": "rotation",
             "variable": "elevator",
-            "centerPoint": [0.0,0.5,-4.25],
+            "centerPoint": [1.4375,0.875,-3.125],
             "axis": [1.0,0.0,0.0]
           }
         ]
       },
       {
-        "objectName": "$Elevator_R",
+        "objectName": "rightelevator",
+        "applyAfter": "rightfin",
         "animations": [
           {
             "animationType": "rotation",
             "variable": "elevator",
-            "centerPoint": [0.0,0.5,-4.25],
+            "centerPoint": [-1.4375,0.875,-3.125],
             "axis": [1.0,0.0,0.0]
           }
         ]
@@ -416,30 +527,8 @@
           {
             "animationType": "rotation",
             "variable": "rudder",
-            "centerPoint": [0.0,0.0,-4.25],
+            "centerPoint": [0.0,1.75,-3.0625],
             "axis": [0.0,1.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "$Flap_L",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "flaps_actual",
-            "centerPoint": [0.0,1.6875,0.125],
-            "axis": [-1.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "$Flap_R",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "flaps_actual",
-            "centerPoint": [0.0,1.6875,0.125],
-            "axis": [-1.0,0.0,0.0]
           }
         ]
       }

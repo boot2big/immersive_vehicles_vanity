@@ -1,0 +1,146 @@
+{
+  "generic": {
+    "type": "generic_hitch_attachment_industrial",
+    "width": 0.125,
+    "height": 0.25
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.0625,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "connection_1_0_connected",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "connection_1_0_connected",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "connectionGroups": [
+    {
+      "groupName": "HITCH",
+      "canInitiateConnections": true,
+      "canInitiateSubConnections": true,
+      "isHitch": true,
+      "isSnap": true,
+      "connections": [
+        {
+          "type": "hitch_industrial",
+          "pos": [0.0,-0.0375,-0.4],
+          "distance": 0.5
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Industrial Hitch Attachment",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constants": ["generic_hitch_attachment_industrial"],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "connector_industrial",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 2.0,
+            "clampMax": 3.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "hitch_orientation",
+            "axis": [0.0,0.035,0.425]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0,-0.046875],
+            "axis": [-90.0,0.0,0.0]
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,2.0,0.0],
+            "offset": 2.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hitch_scale"
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.5
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:towhookon2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_0_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:towhookoff2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_0_connected"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Hitch Attachment",
+    "description": "Can tow hitch connectors",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:1"]
+    ]
+  }
+}
