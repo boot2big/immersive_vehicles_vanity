@@ -4,40 +4,16 @@
     "width": 0.125,
     "height": 0.25
   },
-  "collisionGroups": [
-    {
-      "isInterior": true,
-      "collisions": [
-        {
-          "pos": [0.0,0.0625,0.0],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "connection_1_0_connected",
-          "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "connection_1_0_connected",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
-      ]
-    }
-  ],
   "connectionGroups": [
     {
-      "groupName": "HITCH",
+      "groupName": "TRAILER",
       "canInitiateConnections": true,
-      "canInitiateSubConnections": true,
       "isHitch": true,
-      "isSnap": true,
       "connections": [
         {
           "type": "hitch_industrial",
-          "pos": [0.0,-0.0375,-0.4],
-          "distance": 0.5
+          "pos": [0.0,0.075,0.0],
+          "distance": 1.0
         }
       ]
     }
@@ -109,6 +85,13 @@
             "clampMax": 1.0
           }
         ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!>^<",
+            "axis": [0.0,0.75,0.0]
+          }
+        ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
         "maxDistance": 0.0,
@@ -124,9 +107,16 @@
             "variable": "connection_1_0_connected"
           }
         ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!>^<",
+            "axis": [0.0,0.75,0.0]
+          }
+        ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 8.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0

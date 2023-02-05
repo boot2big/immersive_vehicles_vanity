@@ -2,13 +2,12 @@
   "motorized": {
     "hasAutopilot": true,
     "hasRadioNav": true,
-    "hasSingleEngineControl": true,
     "hasRunningLights": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
     "emptyMass": 3400,
-    "fuelCapacity": 35000,
-    "defaultFuelQty": 35000,
+    "fuelCapacity": 45000,
+    "defaultFuelQty": 45000,
     "downForce": 0.85,
     "overSteer": 2.0,
     "underSteer": 2.0,
@@ -19,8 +18,8 @@
     "dragCoefficient": 0.1,
     "tailDistance": 2.0,
     "litVariable": "aciveOn",
-    "hudTexture": "ivv:textures/guis/ivlabshud.png",
-    "panelTexture": "ivv:textures/guis/ivlabspanel.png"
+    "panel": "ivv:acive",
+    "hudTexture": "ivv:textures/guis/ivlabshud.png"
   },
   "parts": [
     {
@@ -562,6 +561,94 @@
       "maxValue": 1.0,
       "defaultPart": "ivv:horn_acive",
       "types": ["generic_horn"]
+    },
+    {
+      "pos": [1.125,-0.06255,-0.18742],
+      "isPermanent": true,
+      "minValue": 0.4,
+      "maxValue": 1.0,
+      "partScale": [0.25,0.875,0.25],
+      "defaultPart": "ivv:theinvisitire",
+      "types": ["ground_wheel","ground_wheel_invisible"],
+      "applyAfter": "rearleftsuspension",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "skii",
+          "centerPoint": [-1.125,-0.06255,-0.18742],
+          "axis": [0.0,0.0,45],
+          "clampMax": 5.0
+        }
+      ]
+    },
+    {
+      "pos": [-1.125,-0.06255,-0.18742],
+      "rot": [0.0,180.0,0.0],
+      "isPermanent": true,
+      "isMirrored": true,
+      "minValue": 0.4,
+      "maxValue": 1.0,
+      "partScale": [0.25,0.875,0.25],
+      "defaultPart": "ivv:theinvisitire",
+      "types": ["ground_wheel","ground_wheel_invisible"],
+      "applyAfter": "rearrightsuspension",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "skii",
+          "centerPoint": [1.125,-0.06255,-0.18742],
+          "axis": [0.0,0.0,45],
+          "clampMin": -5.0
+        }
+      ]
+    },
+    {
+      "pos": [1.125,-0.06255,3.56258],
+      "turnsWithSteer": true,
+      "isPermanent": true,
+      "minValue": 0.4,
+      "maxValue": 1.0,
+      "partScale": [0.25,0.875,0.25],
+      "defaultPart": "ivv:theinvisitire",
+      "types": ["ground_wheel","ground_wheel_invisible"],
+      "applyAfter": "frontleftsteer",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "skii",
+          "centerPoint": [-1.125,-0.06255,3.56258],
+          "axis": [0.0,0.0,45],
+          "clampMax": 5.0
+        }
+      ]
+    },
+    {
+      "pos": [-1.125,-0.06255,3.56258],
+      "rot": [0.0,180.0,0.0],
+      "turnsWithSteer": true,
+      "isPermanent": true,
+      "isMirrored": true,
+      "minValue": 0.4,
+      "maxValue": 1.0,
+      "partScale": [0.25,0.875,0.25],
+      "defaultPart": "ivv:theinvisitire",
+      "types": ["ground_wheel","ground_wheel_invisible"],
+      "applyAfter": "frontrightsteer",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "skii",
+          "centerPoint": [1.125,-0.06255,3.56258],
+          "axis": [0.0,0.0,45],
+          "clampMin": -5.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,-0.283125,4.0],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_skidplate"]
     }
   ],
   "collisionGroups": [
@@ -1420,8 +1507,8 @@
       "pos": [0.80273,0.59319,2.58505],
       "rot": [27.0,0.0,0.0],
       "scale": 0.0125,
-      "hudX": 98,
-      "hudY": -4,
+      "hudX": 99,
+      "hudY": 32,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:fueldigital_dark"
     },
@@ -1429,8 +1516,8 @@
       "pos": [0.68945,0.59319,2.58505],
       "rot": [27.0,0.0,0.0],
       "scale": 0.0125,
-      "hudX": 168,
-      "hudY": -4,
+      "hudX": 169,
+      "hudY": 32,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:tachdigital_dark"
     },
@@ -1438,8 +1525,8 @@
       "pos": [0.49805,0.59319,2.58505],
       "rot": [27.0,0.0,0.0],
       "scale": 0.0125,
-      "hudX": 240,
-      "hudY": -4,
+      "hudX": 239,
+      "hudY": 32,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:mphdigital_dark"
     },
@@ -1447,8 +1534,8 @@
       "pos": [0.38477,0.59319,2.58505],
       "rot": [27.0,0.0,0.0],
       "scale": 0.0125,
-      "hudX": 310,
-      "hudY": -4,
+      "hudX": 309,
+      "hudY": 32,
       "hudScale": 0.5,
       "defaultInstrument": "ivv:hours_dark"
     },
@@ -1456,28 +1543,10 @@
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 327,
-      "hudY": 72,
+      "hudY": 56,
       "hudScale": 1.0,
       "placeOnPanel": true,
       "defaultInstrument": "ivv:screen_dark"
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 231,
-      "hudY": 40,
-      "hudScale": 0.5,
-      "optionalPartNumber": 2,
-      "placeOnPanel": true
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 231,
-      "hudY": 104,
-      "hudScale": 0.5,
-      "optionalPartNumber": 3,
-      "placeOnPanel": true
     }
   ],
   "definitions": [
@@ -1726,9 +1795,9 @@
           "animationType": "translation",
           "variable": "engine_badshift_1",
           "axis": [0.0,0.5,0.0],
+          "clampMax": 0.25,
           "duration": 10,
-          "forwardsDelay": -10,
-          "clampMax": 0.25
+          "forwardsDelay": -10
         },
         {
           "animationType": "inhibitor",
@@ -1747,7 +1816,6 @@
     },
     {
       "variable": "mood_revving",
-      "minValue": 0.0,
       "maxValue": 10000.0,
       "animations": [
         {
@@ -1786,14 +1854,14 @@
         {
           "animationType": "translation",
           "variable": "currently_disabled_because_of_inconsistent_behavior",
-          "axis": [1,0.0,0.0]
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
     {
       "variable": "mood_temperature",
-      "minValue": -80,
-      "maxValue": 140,
+      "minValue": -80.0,
+      "maxValue": 140.0,
       "animations": [
         {
           "animationType": "translation",
@@ -1885,7 +1953,7 @@
         {
           "animationType": "translation",
           "variable": "this_variable_is_always_false",
-          "axis": [0.0,0.0,1]
+          "axis": [0.0,0.0,1.0]
         },
         {
           "animationType": "translation",
@@ -2212,6 +2280,63 @@
       ]
     },
     {
+      "variable": "mood_blocker_badmood",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "mood",
+          "clampMin": -25.0,
+          "clampMax": 50.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!angery",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_client_5",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "mood_blocker_badmood",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "mood",
+          "clampMin": -50.0,
+          "clampMax": -25.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!angery",
+          "axis": [0.0,0.0,1.0],
+          "offset": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_client_5",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "scanner",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_5"
+        },
+        {
+          "animationType": "translation",
+          "variable": "aciveOn",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "running_light",
       "animations": [
         {
@@ -2317,6 +2442,10 @@
           "clampMax": -25.0
         },
         {
+          "animationType": "visibility",
+          "variable": "seat_occupied_5"
+        },
+        {
           "animationType": "translation",
           "variable": "throttle",
           "axis": [0.0,0.0,0.5]
@@ -2336,14 +2465,18 @@
         {
           "animationType": "visibility",
           "variable": "aciveRunning",
-          "clampMin": 2.0E-4,
-          "clampMax": 0.001
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
-          "variable": "random",
-          "clampMin": 2.0E-4,
-          "clampMax": 0.001
+          "variable": "seat_occupied_5"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "900_2_900_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -2365,6 +2498,10 @@
           "variable": "mood",
           "clampMin": -50.0,
           "clampMax": -25.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_5"
         },
         {
           "animationType": "visibility",
@@ -2392,6 +2529,10 @@
         },
         {
           "animationType": "visibility",
+          "variable": "seat_occupied_5"
+        },
+        {
+          "animationType": "visibility",
           "variable": "BOOST",
           "clampMin": 1.0,
           "clampMax": 1.0
@@ -2410,15 +2551,19 @@
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "random",
-          "clampMin": 1.0E-4,
-          "clampMax": 0.001
+          "variable": "900_2_900_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
           "variable": "!mood_has_companion",
           "clampMin": 1.0,
           "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_5"
         },
         {
           "animationType": "visibility",
@@ -2782,6 +2927,16 @@
       ]
     },
     {
+      "variable": "self_controlled",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_5",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "sliderstate",
       "maxValue": 1.0,
       "animations": [
@@ -2802,6 +2957,44 @@
           "variable": "gun_active_3",
           "axis": [0.0,4.0,0.0],
           "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "skii_speed",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [0.0,0.0,1.0],
+          "duration": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.25,0.0,0.0],
+          "offset": -1.25,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "skii",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "skii_speed",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ski_side",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 10
         }
       ]
     },
@@ -2835,6 +3028,12 @@
           "animationType": "translation",
           "variable": "acceleration",
           "axis": [0.0,3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [-0.875,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -2868,6 +3067,12 @@
           "animationType": "translation",
           "variable": "acceleration",
           "axis": [0.0,-3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [-0.875,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -2901,6 +3106,12 @@
           "animationType": "translation",
           "variable": "acceleration",
           "axis": [0.0,-3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [-0.875,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -2934,6 +3145,12 @@
           "animationType": "translation",
           "variable": "acceleration",
           "axis": [0.0,3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [-0.875,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -3047,6 +3264,58 @@
       ]
     },
     {
+      "variable": "downForce",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [-0.625,0.0,0.0],
+          "offset": 1.0,
+          "duration": 10,
+          "reverseDelay": 10
+        }
+      ]
+    },
+    {
+      "variable": "overSteer",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [-0.75,0.0,0.0],
+          "offset": 1.0,
+          "duration": 10,
+          "reverseDelay": 10
+        }
+      ]
+    },
+    {
+      "variable": "underSteer",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [-0.75,0.0,0.0],
+          "offset": 1.0,
+          "duration": 10,
+          "reverseDelay": 10
+        }
+      ]
+    },
+    {
+      "variable": "brakingFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [-0.875,0.0,0.0],
+          "offset": 1.0,
+          "duration": 10,
+          "reverseDelay": 10
+        }
+      ]
+    },
+    {
       "variable": "brakingFactor",
       "animations": [
         {
@@ -3129,27 +3398,6 @@
           "variable": "speed",
           "axis": [0.004875,0.0,0.0],
           "clampMax": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "dragCoefficient",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "dragCoefficient",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "visibility",
-          "variable": "mood",
-          "clampMin": 25.0,
-          "clampMax": 50.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "kitt_is_the_coolest_car_in_mts_period",
-          "axis": [0.5,0.0,0.0]
         }
       ]
     }
@@ -3752,8 +4000,8 @@
             "centerPoint": [0.0,0.70312,2.9375],
             "axis": [-55.0,0.0,0.0],
             "duration": 15,
-            "forwardsEasing": "easeoutelastic",
-            "reverseEasing": "easeinback",
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine",
             "forwardsStartSound": "ivv:hoodopen1",
             "reverseEndSound": "ivv:hoodclose1"
           }
@@ -4446,6 +4694,22 @@
             "reverseEasing": "easeoutcubic",
             "reverseDelay": 20,
             "skipForwardsMovement": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "EJECT",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 16
+          },
+          {
+            "animationType": "rotation",
+            "variable": "t_tops",
+            "centerPoint": [0.171875,1.23437,1.5625],
+            "axis": [0.0,0.0,85.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
           }
         ]
       },
@@ -4521,6 +4785,22 @@
             "reverseEasing": "easeoutcubic",
             "reverseDelay": 20,
             "skipForwardsMovement": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "EJECT",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 16
+          },
+          {
+            "animationType": "rotation",
+            "variable": "t_tops",
+            "centerPoint": [-0.171875,1.23437,1.5625],
+            "axis": [0.0,0.0,-85.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
           }
         ]
       },
@@ -5292,7 +5572,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5320,7 +5600,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5348,7 +5628,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5376,7 +5656,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5404,7 +5684,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5432,7 +5712,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5460,7 +5740,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5488,7 +5768,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5516,7 +5796,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5544,7 +5824,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5572,7 +5852,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5600,7 +5880,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5628,7 +5908,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5656,7 +5936,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5684,7 +5964,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5712,7 +5992,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5740,7 +6020,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5768,7 +6048,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5796,7 +6076,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5824,7 +6104,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5852,7 +6132,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5880,7 +6160,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5908,7 +6188,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5936,7 +6216,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5964,7 +6244,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -5992,7 +6272,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -6020,7 +6300,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -6048,7 +6328,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -6076,7 +6356,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -6104,7 +6384,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -6132,7 +6412,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -6160,7 +6440,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -6761,6 +7041,12 @@
           },
           {
             "animationType": "rotation",
+            "variable": "skii",
+            "centerPoint": [0.0,0.237865,1.19834],
+            "axis": [0.0,0.0,45.0]
+          },
+          {
+            "animationType": "rotation",
             "variable": "seat_rider_yaw_4",
             "centerPoint": [0.0,0.237865,1.19834],
             "axis": [0.0,1.0,0.0]
@@ -6861,7 +7147,6 @@
         ]
       }
     ],
-    "customVariables": ["BOOST","EJECT"],
     "sounds": [
       {
         "name": "ivv:aciveconsoleneton",
@@ -6877,7 +7162,11 @@
         "blockDoppler": true,
         "pos": [0.0,0.51562,2.57031],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:aciveconsolenetoff",
@@ -6898,14 +7187,18 @@
         "blockDoppler": true,
         "pos": [0.0,0.51562,2.57031],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:acivescanner",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "aciveOn",
+            "variable": "scanner",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -6932,7 +7225,11 @@
         "blockDoppler": true,
         "pos": [0.0,0.39062,4.80469],
         "minDistance": 0.0,
-        "maxDistance": 16.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:interiorrattle",
@@ -7010,7 +7307,11 @@
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:aciveboost",
@@ -7058,7 +7359,11 @@
         "looping": true,
         "isExterior": true,
         "minDistance": 0.0,
-        "maxDistance": 128.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:aciveboostinterior",
@@ -7106,7 +7411,11 @@
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 128.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:interiorrain",
@@ -7121,7 +7430,11 @@
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:brakesquealrace",
@@ -7174,7 +7487,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:hydraulicsuperbrake",
@@ -7251,7 +7568,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:hydraulicsupercushion",
@@ -7280,7 +7601,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:hydraulicsupercharge",
@@ -7339,7 +7664,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:ejector",
@@ -7352,7 +7681,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:hydraulicsuperjump",
@@ -7365,7 +7698,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:hydraulicsuperjumpboom",
@@ -7385,7 +7722,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:hydraulicsuperjumpvwaou",
@@ -7405,7 +7746,11 @@
         ],
         "blockDoppler": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:aciveuwa",
@@ -7426,7 +7771,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealert",
@@ -7458,7 +7807,11 @@
         ],
         "blockDoppler": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertbuzz",
@@ -7497,7 +7850,11 @@
         "looping": true,
         "blockDoppler": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertlooplow",
@@ -7537,7 +7894,11 @@
         "looping": true,
         "blockDoppler": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertloopmed",
@@ -7577,7 +7938,11 @@
         "looping": true,
         "blockDoppler": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertloophi",
@@ -7617,7 +7982,11 @@
         "looping": true,
         "blockDoppler": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertloopsuperhi",
@@ -7656,7 +8025,11 @@
         "looping": true,
         "blockDoppler": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:damagewarning",
@@ -7700,7 +8073,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:airconditioner",
@@ -7743,7 +8120,11 @@
         "isInterior": true,
         "pos": [0.0,0.475,1.0],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalswitchon",
@@ -7757,7 +8138,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalswitchon",
@@ -7771,7 +8156,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalswitchoff",
@@ -7783,7 +8172,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalswitchoff",
@@ -7795,7 +8188,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalon",
@@ -7821,7 +8218,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignaloff",
@@ -7845,7 +8246,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignalon",
@@ -7871,7 +8276,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turnsignaloff",
@@ -7895,7 +8304,11 @@
         ],
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:headlightpopupson",
@@ -7914,7 +8327,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:headlightpopupsoff",
@@ -7931,7 +8348,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:headlightson",
@@ -7944,7 +8365,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:headlightsoff",
@@ -7955,7 +8380,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:explode_car",
@@ -7976,7 +8405,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       }
     ],
     "particles": [

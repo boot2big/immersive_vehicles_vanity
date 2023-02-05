@@ -1,0 +1,82 @@
+{
+  "generic": {
+    "type": "generic_boombox",
+    "canBeRemovedByHand": true,
+    "canBePlacedOnGround": true,
+    "width": 0.5,
+    "height": 0.375
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.3125,0.125],
+      "maxValue": 1.0,
+      "types": ["generic_music_cassette"]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Boombox",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "cassette_playing",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_present_1",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "cassette_volume",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_present_1",
+          "axis": [0.0,0.0,1.0],
+          "duration": 10
+        }
+      ]
+    },
+    {
+      "variable": "cassette_speed",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "cassette_playing",
+          "axis": [0.0,0.0,1.0],
+          "duration": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0625,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.0,-0.0625,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Boombox",
+    "health": 20,
+    "materialLists": [
+      ["oredict:ingotIron:6","oredict:dustRedstone:3"]
+    ]
+  }
+}

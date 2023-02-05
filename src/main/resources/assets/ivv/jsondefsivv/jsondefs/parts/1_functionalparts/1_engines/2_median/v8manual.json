@@ -23,7 +23,7 @@
     "coolingCoefficient": 1.75,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.5,
-    "gearRatios": [-3.4375,0.0,3.75,3.125,2.5,1.5,1.0,0.75],
+    "gearRatios": [-3.25,0.0,3.75,3.125,2.5,1.5,1.0,0.75],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.5,
     "superchargerEfficiency": 1.0,
@@ -211,25 +211,101 @@
       ]
     },
     {
+      "variable": "engine_shift_up",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "disabled_simplethrottle",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "1_2_1_cycle",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "reverseDelay": 14
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe",
+          "clampMin": 0.875,
+          "clampMax": 32767
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear",
+          "clampMin": 1,
+          "clampMax": 32767
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_reversed"
+        }
+      ]
+    },
+    {
+      "variable": "engine_shift_down",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "disabled_simplethrottle",
+          "clampMin": 1,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "1_2_1_cycle",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_clutching",
+          "reverseDelay": 4
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe",
+          "clampMin": 0.0,
+          "clampMax": 0.25
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear",
+          "clampMin": 2,
+          "clampMax": 32767
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_reversed"
+        }
+      ]
+    },
+    {
       "variable": "currentGearRatio",
       "animations": [
         {
           "animationType": "translation",
-          "variable": "!manualgear",
-          "axis": [0.0,0.0,1.0],
-          "offset": -1.0
+          "variable": "engine_clutching",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 2
         },
         {
           "animationType": "inhibitor",
-          "variable": "engine_clutching",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "variable": "speed",
+          "clampMin": 0.5,
+          "clampMax": 32767.0
         },
         {
-          "animationType": "visibility",
-          "variable": "a_face_on_a_lover_with_a_fire_in_his_heart",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "animationType": "translation",
+          "variable": "!throttle",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 6
         }
       ]
     },
@@ -855,6 +931,11 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
+            "variable": "generic_engine_upgrade_2",
+            "axis": [0.0,0.4,0.0]
+          },
+          {
+            "animationType": "translation",
             "variable": "throttle",
             "axis": [0.0,0.125,0.0],
             "offset": -0.125,
@@ -874,6 +955,11 @@
           }
         ],
         "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "generic_engine_upgrade_2",
+            "axis": [0.0,0.4,0.0]
+          },
           {
             "animationType": "translation",
             "variable": "throttle",

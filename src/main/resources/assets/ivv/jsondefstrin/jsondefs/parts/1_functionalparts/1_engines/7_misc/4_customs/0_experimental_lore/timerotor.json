@@ -18,7 +18,7 @@
     "revlimitBounce": 12,
     "stallRPM": 400,
     "engineWinddownRate": 15,
-    "heatingCoefficient": 4.0,
+    "heatingCoefficient": 2.0,
     "coolingCoefficient": 4.0,
     "engineWearFactor": 0.00156,
     "fuelConsumption": 0.33,
@@ -30,6 +30,61 @@
     "superchargerEfficiency": 1.0,
     "isCrankingNotPitched": true
   },
+  "parts": [
+    {
+      "pos": [0.184659,0.380682,0.474432],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 12.0,
+      "types": ["generic_engine_ecu_electric"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [-0.416155,0.009791,0.75],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "types": ["generic_engine_turbo"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,-0.125,0.9],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "partScale": [0.5,0.5,0.5],
+      "types": ["generic_engine_gearbox"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
   "collisionGroups": [
     {
       "isInterior": true,
@@ -54,6 +109,166 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "bench_tomfuckery",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "8_2_8_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,327.67],
+          "offset": 0.33
+        }
+      ]
+    },
+    {
+      "variable": "parent_bench_engine_integrity",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "bench_tomfuckery",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_obdiii_present",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "random",
+          "clampMin": 0.125,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "8_2_8_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!built_atlas_tough",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_obdiii_present",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "random",
+          "clampMax": 0.125
+        },
+        {
+          "animationType": "visibility",
+          "variable": "8_2_8_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "time_vortex_distortion",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_obdiii_horsepower",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "8_2_8_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tick_cos",
+          "axis": [0.0,0.0,119.5],
+          "offset": 119.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_turbo_power_2",
+          "axis": [0.0,94.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [-1.5E-4,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.5
+        }
+      ]
+    },
+    {
+      "variable": "engine_obdiii_torque",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "8_2_8_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,-90.0],
+          "offset": 180.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_turbo_power_2",
+          "axis": [0.0,9.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [-1.5E-4,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.5
+        }
+      ]
+    },
+    {
+      "variable": "engine_checklight",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "idiot_lightbulb",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_temp",
+          "axis": [0.0,1.0,0.0],
+          "offset": -250.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [0.0,1.0,0.0],
+          "offset": -110.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_oilleak",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
     {
       "variable": "superchargerEfficiency",
       "setValue": -1.5,
@@ -137,13 +352,27 @@
       ]
     },
     {
+      "variable": "superchargerFuelConsumption",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_turbo_power_2",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
       "variable": "engine_shift_up",
       "animations": [
         {
           "animationType": "visibility",
           "variable": "engine_rpm_percent_safe",
-          "clampMin": 0.75,
+          "clampMin": 0.875,
           "clampMax": 4.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_self_controlled"
         },
         {
           "animationType": "visibility",
@@ -180,8 +409,12 @@
         {
           "animationType": "visibility",
           "variable": "engine_rpm_percent_safe",
-          "clampMin": 0.4875,
+          "clampMin": 0.6125,
           "clampMax": 4.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_self_controlled"
         },
         {
           "animationType": "visibility",
@@ -221,6 +454,10 @@
         },
         {
           "animationType": "visibility",
+          "variable": "parent_self_controlled"
+        },
+        {
+          "animationType": "visibility",
           "variable": "engine_gear",
           "clampMin": 2.0,
           "clampMax": 6.0
@@ -243,15 +480,120 @@
       ]
     },
     {
-      "variable": "engine_shift_phase",
-      "minValue": 0.25,
-      "maxValue": 1.0,
+      "variable": "engine_shift_down",
       "animations": [
         {
-          "animationType": "translation",
+          "animationType": "visibility",
           "variable": "engine_rpm_percent_safe",
-          "axis": [0.0,0.0,-1.75],
-          "offset": 2.25
+          "clampMin": 0.875,
+          "clampMax": 4.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_self_controlled"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear",
+          "clampMin": -6.0,
+          "clampMax": -1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "throttle",
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_clutch_upshift",
+          "forwardsDelay": 2
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_clutch_downshift",
+          "forwardsDelay": 2
+        },
+        {
+          "animationType": "translation",
+          "variable": "!upshift_sport_reverse",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_shift_down",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe",
+          "clampMin": 0.6125,
+          "clampMax": 4.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_self_controlled"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear",
+          "clampMin": -6.0,
+          "clampMax": -1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "throttle",
+          "clampMax": 0.5
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_clutch_upshift",
+          "forwardsDelay": 2
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_clutch_downshift",
+          "forwardsDelay": 2
+        },
+        {
+          "animationType": "translation",
+          "variable": "!upshift_reverse",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_shift_up",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe",
+          "clampMax": 0.375
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_self_controlled"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear",
+          "clampMin": -6.0,
+          "clampMax": -2.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_clutch_upshift",
+          "forwardsDelay": 1
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_clutch_downshift",
+          "forwardsDelay": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "!downshift_reverse",
+          "axis": [0.0,0.0,1.0]
         }
       ]
     },
@@ -260,8 +602,9 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "engine_shift_phase",
-          "axis": [1.0,0.0,0.0]
+          "variable": "generic_engine_gearbox_3",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     }
@@ -976,7 +1319,11 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "iv_tpp:engine_badshift",
@@ -1005,7 +1352,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "iv_tpp:engine_cranking_4",
@@ -1037,7 +1388,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "iv_tpp:trin_biturbine_engine_running",
@@ -1078,7 +1433,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "iv_tpp:engine_v6_idle",
@@ -1107,7 +1466,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "iv_tpp:engine_v6_high",
@@ -1148,7 +1511,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "iv_tpp:engine_v12_force",
@@ -1190,7 +1557,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:blueboxtick",
@@ -1254,7 +1625,11 @@
         "looping": true,
         "pos": [0.0,0.25,-0.5],
         "minDistance": 0.0,
-        "maxDistance": 2.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 2.0,
+        "middleDistanceVolume": 0.125
       },
       {
         "name": "ivv:blueboxambient",
@@ -1274,7 +1649,11 @@
         "looping": true,
         "pos": [0.0,0.25,-0.5],
         "minDistance": 0.0,
-        "maxDistance": 2.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 2.0,
+        "middleDistanceVolume": 0.125
       },
       {
         "name": "ivv:blueboxbell",
@@ -1286,14 +1665,8 @@
             "clampMax": 1.0
           },
           {
-            "animationType": "visibility",
-            "variable": "engine_magneto",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
             "animationType": "inhibitor",
-            "variable": "engine_oilleak",
+            "variable": "engine_checklight",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -1305,15 +1678,25 @@
           },
           {
             "animationType": "visibility",
-            "variable": "p_brake",
-            "clampMin": 3.0,
-            "clampMax": 3.0
+            "variable": "engine_magneto",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.5,
+            "clampMax": 1
           }
         ],
         "forceSound": true,
         "pos": [0.0,0.25,-0.5],
         "minDistance": 0.0,
-        "maxDistance": 32.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 64.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25
       },
       {
         "name": "ivv:blueboxbackfire",
@@ -1327,7 +1710,11 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 16.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:blueboxwhirrlow",
@@ -1395,7 +1782,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 4.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 6.0,
+        "middleDistanceVolume": 0.125
       },
       {
         "name": "ivv:blueboxwhirrmid",
@@ -1444,7 +1835,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 6.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 6.0,
+        "middleDistanceVolume": 0.125
       },
       {
         "name": "ivv:blueboxwhirrhigh",
@@ -1488,11 +1883,19 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 8.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 6.0,
+        "middleDistanceVolume": 0.125
       },
       {
         "name": "ivv:blueboxdrum",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running"
+          },
           {
             "animationType": "visibility",
             "variable": "p_brake",
@@ -1501,7 +1904,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 8.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       }
     ],
     "particles": [

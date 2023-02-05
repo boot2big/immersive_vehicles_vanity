@@ -24,7 +24,7 @@
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.2,
-    "gearRatios": [-3.0625,0.0,3.25,2.125,1.0,0.75],
+    "gearRatios": [-3.0,0.0,3.25,2.5,1.0,0.75],
     "upShiftRPM": [0,0,4000,4600,4100,3850],
     "downShiftRPM": [0,0,2000,2000,2200,2200],
     "fuelType": "gasoline",
@@ -921,6 +921,70 @@
         "middleDistanceVolume": 0.0
       },
       {
+        "name": "ivv:engineexhaust4cyl",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "generic_engine_upgrade_2",
+            "axis": [0.0,0.4,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.125,0.0],
+            "offset": -0.125,
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.125,0.0],
+            "offset": -0.125
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "generic_engine_upgrade_2",
+            "axis": [0.0,0.4,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.05,0.0],
+            "offset": -0.05
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,2.5,0.0],
+            "offset": 0.0
+          }
+        ],
+        "looping": true,
+        "isExterior": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.5,
+        "maxDistance": 48.0,
+        "maxDistanceVolume": -0.25,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.75
+      },
+      {
         "name": "ivv:i4idling",
         "activeAnimations": [
           {
@@ -934,14 +998,21 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,-0.25,0.0],
-            "offset": 0.25
+            "axis": [0.0,0.25,0.0],
+            "offset": -0.25,
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "offset": -0.25
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,-1.0,0.0],
-            "offset": 1.1
+            "axis": [0.0,-0.5,0.0],
+            "offset": 1.0
           }
         ],
         "pitchAnimations": [
@@ -974,14 +1045,19 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,0.5,0.0],
+            "axis": [0.0,0.25,0.0],
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
             "offset": -0.25
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,2.3000001907348633,0.0],
-            "offset": 0.1
+            "axis": [0.0,1.0,0.0]
           }
         ],
         "pitchAnimations": [

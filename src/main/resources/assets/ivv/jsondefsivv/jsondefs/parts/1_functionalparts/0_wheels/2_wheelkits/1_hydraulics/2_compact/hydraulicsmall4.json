@@ -3,14 +3,9 @@
     "type": "ground_wheel"
   },
   "ground": {
-    "width": 0.45,
-    "height": 0.749875,
+    "width": 0.25,
+    "height": 0.75,
     "frictionModifiers": {
-      "snow": -0.2,
-      "ice": -0.2,
-      "dirt_wet": -0.1,
-      "sand_wet": -0.1,
-      "normal_wet": -0.1
     }
   },
   "parts": [
@@ -24,7 +19,7 @@
         {
           "animationType": "translation",
           "variable": "HYDRAULIC_FOUR",
-          "axis": [0.0,0.0,0.0]
+          "axis": [0.03125,0.0,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -38,7 +33,7 @@
           "animationType": "rotation",
           "variable": "ground_rotation_1",
           "centerPoint": [0.004890625,0.0,0.0],
-          "axis": [-1.0,0.0,0.0]
+          "axis": [-2.0,0.0,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -95,6 +90,7 @@
       ]
     }
   ],
+  "constants": ["ground_wheel_hydraulic"],
   "rendering": {
     "animatedObjects": [
       {
@@ -104,16 +100,31 @@
             "animationType": "rotation",
             "variable": "HYDRAULIC_FOUR",
             "centerPoint": [-0.03418,0.0,0.048828125],
-            "axis": [0.0,0.0,-7.5],
-            "duration": 3,
-            "forwardsEasing": "easeoutelastic"
+            "axis": [0.0,0.0,-3.75],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcirc"
+          },
+        {
+          "animationType": "inhibitor",
+          "variable": "!parent_ground_wheel_hydraulic"
+        },
+          {
+            "animationType": "rotation",
+            "variable": "HYDRAULIC_FOUR",
+            "centerPoint": [-0.03418,0.0,0.048828125],
+            "axis": [0.0,0.0,-3.75],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcirc"
           },
           {
             "animationType": "translation",
             "variable": "HYDRAULIC_FOUR",
             "axis": [0.0,-0.034296875,0.0],
-            "duration": 3,
-            "forwardsEasing": "easeoutelastic",
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcirc",
             "forwardsStartSound": "ivv:hydraulicup",
             "reverseStartSound": "ivv:hydraulicdown"
           }
@@ -127,8 +138,9 @@
             "animationType": "translation",
             "variable": "HYDRAULIC_FOUR",
             "axis": [0.0,-0.092734375,0.0],
-            "duration": 3,
-            "forwardsEasing": "easeoutelastic"
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcirc"
           }
         ]
       },
@@ -140,8 +152,9 @@
             "animationType": "translation",
             "variable": "HYDRAULIC_FOUR",
             "axis": [0.01953125,0.0,0.0],
-            "duration": 3,
-            "forwardsEasing": "easeoutelastic"
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcirc"
           }
         ]
       }

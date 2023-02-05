@@ -3,20 +3,14 @@
     "type": "ground_wheel"
   },
   "ground": {
-    "width": 0.65,
-    "height": 0.65,
+    "width": 0.625,
+    "height": 0.625,
     "frictionModifiers": {
-      "snow": -0.2,
-      "ice": -0.2,
-      "dirt_wet": -0.1,
-      "sand_wet": -0.1,
-      "normal_wet": -0.1
     }
   },
   "parts": [
     {
       "pos": [1.24,-1.73694,0.0],
-      "minValue": 0.9,
       "maxValue": 3.0,
       "types": ["ground_wheel"],
       "animations": [
@@ -32,7 +26,7 @@
           "animationType": "rotation",
           "variable": "ground_rotation_1",
           "centerPoint": [1.24,-1.73694,0.0],
-          "axis": [-1.0,0.0,0.0]
+          "axis": [-2.0,0.0,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -70,7 +64,7 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "ground_rotation_2",
+            "variable": "ground_rotation_1",
             "centerPoint": [1.60025,-1.73694,0.0],
             "axis": [1.0,0.0,0.0]
           }
@@ -78,147 +72,8 @@
       }
     ],
     "lightObjects": [],
-    "sounds": [
-      {
-        "name": "ivv:tirepop",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "ground_isflat",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "minDistance": 0.0,
-        "maxDistance": 0.0
-      },
-      {
-        "name": "mts:wheel_striking",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "ground_contacted",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "forceSound": true,
-        "minDistance": 0.0,
-        "maxDistance": 0.0
-      },
-      {
-        "name": "mts:wheel_skidding",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "ground_slipping",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "looping": true,
-        "minDistance": 0.0,
-        "maxDistance": 0.0
-      }
-    ],
-    "particles": [
-      {
-        "type": "smoke",
-        "quantity": 4,
-        "color": "FFFFFF",
-        "initialVelocity": [0.0,0.15,0.0],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [-1.0,0.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "ground_contacted",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawnEveryTick": true,
-        "quantity": 4,
-        "color": "FFFFFF",
-        "pos": [0.0,-0.32499998807907104,0.0],
-        "initialVelocity": [0.0,0.15,0.0],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [-1.0,0.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "ground_slipping",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "break",
-        "spawnEveryTick": true,
-        "quantity": 4,
-        "scale": 0.3,
-        "color": "999999",
-        "pos": [0.0,-0.32499998807907104,0.0],
-        "initialVelocity": [0.0,1.5,-1.5],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [-1.0,0.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "ground_skidding",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "break",
-        "spawnEveryTick": true,
-        "quantity": 4,
-        "scale": 0.3,
-        "color": "999999",
-        "pos": [0.0,-0.32499998807907104,0.0],
-        "initialVelocity": [0.0,1.5,0.0],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [-1.0,0.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "ground_slipping",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      }
-    ],
+    "sounds": [],
+    "particles": [],
     "modelType": "obj"
   },
   "general": {

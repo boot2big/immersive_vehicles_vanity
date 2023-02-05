@@ -1,40 +1,42 @@
-basic 2speed auto
+auto
+    2 speed
     "gearRatios": [-2,0,2.5,1],
     "upShiftRPM": [0,0,0,0],
     "downShiftRPM": [0,0,0,0],
-basic 3speed auto
+    3 speed
     "gearRatios": [-3,0,3,2.25,1],
     "upShiftRPM": [0,0,0,0,0],
     "downShiftRPM": [0,0,0,0,0],
-basic 3speed manual
+    4 speed (1 od)
+    "gearRatios": [-3.0,0,3.25,2.5,1.0,0.75],
+    "upShiftRPM": [0,0,0],
+    "downShiftRPM": [0,0,0]
+    5 speed (2 od)
+    "gearRatios": [-3.0,0,3.5,2.5,1.0,0.75,0.5],
+    "upShiftRPM": [0,0,0],
+    "downShiftRPM": [0,0,0],
+    6 speed (2 od)
+    "gearRatios": [-3.4375,0,3.5,2.75,1.5,1.0,0.75,0.5],
+    "upShiftRPM": [0,0,0],
+    "downShiftRPM": [0,0,0],
+    8 speed (3 od) :muscle:
+    "gearRatios": [-3.5,0,4.0,3.0,2.0,1.5,1.0,0.75,0.5,0.375],
+    "upShiftRPM": [0,0,0],
+    "downShiftRPM": [0,0,0],
+--
+manual
+    3 speed
     "gearRatios": [-2.75,0,3.25,2,1],
-basic 4speed manual
+    4 speed (1 od)
     "gearRatios": [-3,0,3,2.25,1.5,0.75],
+    5 speed (1 od)
+    "gearRatios": [-3.15,0,3.5,2.5,1.75,1.0,0.75],
+    6 speed (1 od)
+    "gearRatios": [-3.25,0,3.75,3.125,2.5,1.5,1.0,0.75],
+    7 speed (1 od)
+    "gearRatios": [-3.0,0,3.5,2.25,1.375,1.0,0.75,0.5,0.375],
 --
-standard 4speed auto
-    "gearRatios": [-3.0625,0,3.25,2.125,1.0,0.75],
-    "upShiftRPM": [0,0,0],
-    "downShiftRPM": [0,0,0],
-standard 5speed auto
-    "gearRatios": [-3.15,0,3.25,2.35,1.5,1.0,0.75],
-    "upShiftRPM": [0,0,0],
-    "downShiftRPM": [0,0,0],
-standard 5speed manual
-    "gearRatios": [-3.15,0,3.5,2.6,1.8,1.0,0.75],
---
-sport 6speed auto
-    "gearRatios": [-3.4375,0,3.75,3.125,2.5,1.5,1.0,0.75],
-    "upShiftRPM": [0,0,0],
-    "downShiftRPM": [0,0,0],
-sport 8speed auto
-    "gearRatios": [-3.75,0,4,3.5,3,3,2.5,2,1,0.75],
-    "upShiftRPM": [0,0,0],
-    "downShiftRPM": [0,0,0],
-sport 6speed manual
-    "gearRatios": [-3.4375,0,3.75,3.125,2.5,1.5,1.0,0.75],
-sport 7speed manual
-    "gearRatios": [-3.25,0,3.5,3,2.5,2,1.5,1,0.75],
---
+industrial crap
 industrial 8speed auto
     "gearRatios": [-3,-4,0,4,3,2.5,2,1.5,1,0.75,0.5],
     "upShiftRPM": [0,0,0,0,0,0,0,0,0,0,0],
@@ -54,12 +56,12 @@ industrial 15speed manual
 industrial 20speed manual
     "gearRatios": [-1,0,1], todo
 --
+unique
 cvt
     "gearRatios": [-3,0,3],
   "variableModifiers": [
     {
       "variable": "engine_gear_cvt",
-      "minValue": 0,
       "maxValue": 0.75,
       "animations": [
         {
@@ -70,14 +72,13 @@ cvt
         {
           "animationType": "visibility",
           "variable": "engine_rpm",
-          "clampMin": 4000,
-          "clampMax": 99999
+          "clampMin": 4000.0,
+          "clampMax": 99999.0
         }
       ]
     },
     {
       "variable": "engine_gear_cvt",
-      "minValue": 0,
       "maxValue": 0.75,
       "animations": [
         {
@@ -94,20 +95,19 @@ cvt
         {
           "animationType": "visibility",
           "variable": "engine_rpm",
-          "clampMin": -10,
+          "clampMin": -10.0,
           "clampMax": 2500.0
         },
         {
           "animationType": "visibility",
           "variable": "throttle",
           "clampMin": 0.5,
-          "clampMax": 1
+          "clampMax": 1.0
         }
       ]
     },
     {
       "variable": "engine_gear_cvt",
-      "minValue": 0,
       "maxValue": 0.75,
       "animations": [
         {
@@ -118,14 +118,13 @@ cvt
         {
           "animationType": "visibility",
           "variable": "engine_rpm",
-          "clampMin": 3500,
-          "clampMax": 4000
+          "clampMin": 3500.0,
+          "clampMax": 4000.0
         }
       ]
     },
     {
       "variable": "engine_gear_cvt",
-      "minValue": 0,
       "maxValue": 0.75,
       "animations": [
         {
@@ -142,13 +141,12 @@ cvt
         {
           "animationType": "visibility",
           "variable": "engine_rpm",
-          "clampMin": -10,
+          "clampMin": -10.0,
           "clampMax": 2000.0
         },
         {
           "animationType": "visibility",
           "variable": "throttle",
-          "clampMin": 0,
           "clampMax": 0.5
         }
       ]
@@ -159,16 +157,21 @@ cvt
         {
           "animationType": "translation",
           "variable": "engine_gear_cvt",
-          "axis": [-0.9875,0,0.0],
-          "offset": 1
+          "axis": [-0.9875,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
         }
       ]
     }
   ],
-hyper 8speed auto
-    "gearRatios": [-3.75,0,4,3.5,3,3,2.5,2,1,0.5],
-    "upShiftRPM": [0,0,5800,6000,5800,5900,6000,6100,6200,6300],
-    "downShiftRPM": [0,0,3500,3500,3500,3300,3500,3700,3900,4100],
-direct 1:1
-    "gearRatios": [-1,0,1],
---

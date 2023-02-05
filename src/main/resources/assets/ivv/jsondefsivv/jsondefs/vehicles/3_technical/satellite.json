@@ -12,6 +12,7 @@
     "tailDistance": 3.0,
     "crossSectionalArea": 202.0,
     "litVariable": "engine_magneto_1",
+    "panel": "mts:default_plane",
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
     "panelTexture": "ivv:textures/guis/ivlabspanel.png"
   },
@@ -97,7 +98,7 @@
     },
     {
       "pos": [0.0,2.38923,0.0],
-      "pos": [0.0,90,0.0],
+      "rot": [0.0,90.0,0.0],
       "dismountPos": [0.0,2.69472,0.7154],
       "isController": true,
       "isPermanent": true,
@@ -271,6 +272,7 @@
       ]
     }
   ],
+  "initialVariables": ["hatch"],
   "variableModifiers": [
     {
       "variable": "ship_running",
@@ -1007,8 +1009,8 @@
             "animationType": "rotation",
             "variable": "random",
             "centerPoint": [-0.10156,2.69922,-0.83203],
-            "axis": [0.0,0.0,2],
-            "offset": -1
+            "axis": [0.0,0.0,2.0],
+            "offset": -1.0
           },
           {
             "animationType": "rotation",
@@ -1026,8 +1028,8 @@
             "animationType": "rotation",
             "variable": "random",
             "centerPoint": [0.0,2.69922,-0.83203],
-            "axis": [0.0,0.0,2],
-            "offset": -1
+            "axis": [0.0,0.0,2.0],
+            "offset": -1.0
           },
           {
             "animationType": "rotation",
@@ -1045,8 +1047,8 @@
             "animationType": "rotation",
             "variable": "random",
             "centerPoint": [0.10156,2.69922,-0.83203],
-            "axis": [0.0,0.0,2],
-            "offset": -1
+            "axis": [0.0,0.0,2.0],
+            "offset": -1.0
           },
           {
             "animationType": "rotation",
@@ -1188,7 +1190,6 @@
         ]
       }
     ],
-    "initialVariables": ["hatch"],
     "sounds": [
       {
         "name": "ivv:rocket_stopping",
@@ -1201,7 +1202,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealert",
@@ -1214,7 +1219,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertbuzz",
@@ -1234,7 +1243,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertlooplow",
@@ -1255,7 +1268,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertloopmed",
@@ -1276,7 +1293,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertloophi",
@@ -1297,7 +1318,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertloopsuperhi",
@@ -1317,7 +1342,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:damagewarning",
@@ -1330,12 +1359,66 @@
             "animationType": "visibility",
             "variable": "damage_percent",
             "clampMin": 0.75,
-            "clampMax": 1
+            "clampMax": 1.0
           }
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:interiorwind",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!hatch"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "vertical_speed",
+            "clampMin": 0.125,
+            "clampMax": 32767.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMin": 0.125,
+            "clampMax": 32767.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!this_boi_fucks_up_earth_and_moon_targets_beyatch"
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.166666667,0.0],
+            "clampMax": 1.0,
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "vertical_speed",
+            "axis": [0.0,0.166666667,0.0],
+            "clampMax": 1.0,
+            "absolute": true
+          }
+        ],
+        "looping": true,
+        "isInterior": true,
+        "pos": [0.0,0.475,1.0],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:blueboxambientshort",
@@ -1350,11 +1433,8 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "altitude",
-            "axis": [0.0,-0.125,0.0],
-            "offset": 100.0,
-            "clampMin": 0.5,
-            "clampMax": 1.0
+            "variable": "!boobs",
+            "axis": [0.0,0.5,0.0]
           }
         ],
         "pitchAnimations": [
@@ -1362,14 +1442,19 @@
             "animationType": "translation",
             "variable": "vertical_speed",
             "axis": [0.0,0.125,0.0],
-            "offset": 0.5,
-            "clampMax": 0.75
+            "offset": 0.875,
+            "clampMin": 0.75,
+            "clampMax": 1.125
           }
         ],
         "looping": true,
         "pos": [0.02734,2.65625,-0.83203],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "mts:backup_beeper",
@@ -1408,7 +1493,11 @@
         "looping": true,
         "pos": [0.02734,2.65625,-0.83203],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:explode_car",
@@ -1429,7 +1518,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       }
     ],
     "particles": [
