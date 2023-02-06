@@ -45,6 +45,24 @@
   ],
   "variableModifiers": [
     {
+      "variable": "revlimitRPM",
+      "setValue": 6800.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": -10.0,
+          "clampMax": 110.0
+        }
+      ]
+    },
+    {
       "variable": "engine_clutching",
       "maxValue": 1.0,
       "animations": [
@@ -105,24 +123,6 @@
           "variable": "engine_temp",
           "clampMin": 110.0,
           "clampMax": 1000.0
-        }
-      ]
-    },
-    {
-      "variable": "revlimitRPM",
-      "setValue": 6800.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "part_present_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "engine_temp",
-          "clampMin": -10.0,
-          "clampMax": 110.0
         }
       ]
     },
@@ -478,6 +478,70 @@
         ],
         "minDistance": 0.0,
         "maxDistance": 0.0
+      },
+      {
+        "name": "ivv:engineexhaust8cyl",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "generic_engine_upgrade_2",
+            "axis": [0.0,0.4,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.125,0.0],
+            "offset": -0.125,
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.125,0.0],
+            "offset": -0.125
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "generic_engine_upgrade_2",
+            "axis": [0.0,0.4,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.05,0.0],
+            "offset": -0.05
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm",
+            "axis": [0.0,2.5E-4,0.0],
+            "offset": 0.5
+          }
+        ],
+        "looping": true,
+        "isExterior": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.5,
+        "maxDistance": 96.0,
+        "maxDistanceVolume": -0.25,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.75
       },
       {
         "name": "ivv:v8performanteidling",

@@ -29,9 +29,75 @@
   },
   "parts": [
     {
-      "pos": [-0.244375,0.180625,0.349167],
+      "pos": [-0.24438,0.18062,0.34917],
+      "allowParentRemoval": true,
       "maxValue": 1.0,
-      "types": ["generic_engine_turbo"]
+      "types": ["generic_engine_turbo"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.16875,0.15625,0.4875],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "partScale": [0.5,0.5,0.5],
+      "types": ["generic_engine_upgrade"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,-0.125,0.75],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "partScale": [0.5,0.5,0.5],
+      "types": ["generic_engine_gearbox"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,0.375,0.25],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "partScale": [0.5,0.5,0.5],
+      "types": ["generic_engine_topend"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
     }
   ],
   "definitions": [
@@ -464,8 +530,8 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,1.5,0.0],
+            "variable": "engine_rpm",
+            "axis": [0.0,0.000174419,0.0],
             "offset": 0.95
           }
         ],
@@ -506,8 +572,8 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,1.274999976158142,0.0],
+            "variable": "engine_rpm",
+            "axis": [0.0,0.000148256,0.0],
             "offset": 0.625
           }
         ],
@@ -516,7 +582,7 @@
         "maxDistance": 0.0
       },
       {
-        "name": "ivv:turbo2",
+        "name": "ivv:turbo1",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -535,23 +601,24 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,2.0,0.0],
-            "offset": -1.0,
-            "duration": 25
+            "axis": [0.0,0.375,0.0],
+            "offset": -0.1875,
+            "clampMax": 0.1875,
+            "duration": 16
           },
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,2.0,0.0],
-            "offset": -0.5,
-            "clampMax": 1.5
+            "axis": [0.0,0.375,0.0],
+            "offset": -0.1875,
+            "clampMax": 0.1875
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,2.5,0.0],
-            "offset": -1.75,
-            "clampMax": 0.25
+            "axis": [0.0,0.75,0.0],
+            "offset": -0.375,
+            "clampMax": 0.375
           }
         ],
         "pitchAnimations": [
@@ -571,7 +638,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turboworble2",
@@ -591,11 +662,38 @@
             "animationType": "visibility",
             "variable": "throttle",
             "clampMax": 0.4,
-            "forwardsDelay": 25
+            "forwardsDelay": 16,
+            "reverseDelay": 2
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.75,0.0],
+            "offset": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": -0.125
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       }
     ],
     "particles": [
