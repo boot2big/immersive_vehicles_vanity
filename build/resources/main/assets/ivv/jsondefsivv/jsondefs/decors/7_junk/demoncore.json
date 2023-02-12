@@ -1,0 +1,139 @@
+{
+  "decor": {
+    "type": "generic",
+    "width": 1.0,
+    "height": 0.625,
+    "depth": 1.0
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Demon Core",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "screwdriver",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "redstone_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "activated"
+          }
+        ]
+      },
+      {
+        "objectName": "spheretop",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "redstone_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "activated",
+            "centerPoint": [0.0,0.34375,-0.4375],
+            "axis": [1.5,0.0,0.0],
+            "offset": -1.5,
+            "duration": 2,
+            "reverseDelay": -1,
+            "forwardsStartSound": "ivv:demoncorestart"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "core",
+        "emissive": true,
+        "color": "1151D1",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "redstone_active"
+          },
+          {
+            "animationType": "translation",
+            "variable": "activated",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "forwardsDelay": 25,
+            "reverseDelay": -25
+          },
+          {
+            "animationType": "translation",
+            "variable": "0_2_2_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": -1
+          },
+          {
+            "animationType": "translation",
+            "variable": "1_2_1_cycle",
+            "axis": [0.0,0.5,0.0],
+            "duration": -1
+          },
+          {
+            "animationType": "translation",
+            "variable": "2_2_0_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": -1
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.34375,-0.125],
+            "axis": [0.0,1.0,0.0],
+            "flareHeight": 4.0,
+            "flareWidth": 4.0
+          },
+          {
+            "pos": [0.0,0.34375,-0.125],
+            "axis": [0.0,-1.0,0.0],
+            "flareHeight": 4.0,
+            "flareWidth": 4.0
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:demoncoreloop",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "redstone_active"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 26,
+            "reverseDelay": -26
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Meme Orb",
+    "description": "My tongue tastes like TV static",
+    "stackSize": 64,
+    "materialLists": [
+      ["mts:ivv.normaltire:0:1"]
+    ]
+  }
+}

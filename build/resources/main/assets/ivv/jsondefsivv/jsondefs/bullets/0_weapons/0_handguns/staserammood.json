@@ -1,0 +1,139 @@
+{
+  "bullet": {
+    "types": [
+      "explosive",
+      "armor_piercing"
+    ],
+    "quantity": 24,
+    "diameter": 15.0,
+    "damage": 24.0,
+    "caseLength": 25.0,
+    "blastStrength": 3.0,
+    "armorPenetration": 100.0,
+    "airBurstDelay": 15,
+    "despawnTime": 20,
+    "impactDespawnTime": 40
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Overdriven Staser Ammo",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "&GenericLight_FFFFFF_FFFFF_000",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.2,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "&GenericLight_FFFFFF_FFFFF_000",
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": []
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:explode_techno",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      },
+      {
+        "name": "ivv:bullethitmoblaser",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "quantity": 1,
+        "duration": 20,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 0.5,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "3CFACE",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "12 dual-fire shots",
+    "stackSize": 64,
+    "materialLists": [
+      ["oredict:dustRedstone:72","minecraft:gunpowder:0:36"]
+    ],
+    "type": "bullet"
+  }
+}

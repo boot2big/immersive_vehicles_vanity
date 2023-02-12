@@ -1,0 +1,110 @@
+{
+  "generic": {
+    "type": "generic_hitch_mount",
+    "width": 0.125,
+    "height": 0.25
+  },
+  "definitions": [
+    {
+      "subName": "_lugnuts",
+      "modelName": "trucknuts_lugnuts",
+      "name": "Lugnuts",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "anglex",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,0.003333333]
+        }
+      ]
+    },
+    {
+      "variable": "angley",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,0.0,8.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "string",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "anglex",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,-10.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "angley",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [10.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "lugnutleft",
+        "applyAfter": "string",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "anglex",
+            "centerPoint": [0.039063,-0.261719,-0.015626],
+            "axis": [0.0,0.0,5.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "angley",
+            "centerPoint": [0.039063,-0.261719,-0.015626],
+            "axis": [20.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "lugnutright",
+        "applyAfter": "string",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "anglex",
+            "centerPoint": [-0.039063,-0.261719,0.015626],
+            "axis": [0.0,0.0,5.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "angley",
+            "centerPoint": [-0.039063,-0.261719,0.015626],
+            "axis": [20.0,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Trailer Park Trash",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:1","oredict:nuggetIron:2"]
+    ]
+  }
+}

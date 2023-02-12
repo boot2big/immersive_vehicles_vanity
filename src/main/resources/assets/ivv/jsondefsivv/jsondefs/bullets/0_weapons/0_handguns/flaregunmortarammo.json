@@ -1,0 +1,273 @@
+{
+  "bullet": {
+    "types": [
+      "explosive",
+      "armor_piercing"
+    ],
+    "isHeat": true,
+    "quantity": 1,
+    "diameter": 25.0,
+    "damage": 160,
+    "caseLength": 85.0,
+    "blastStrength": 3,
+    "armorPenetration": 250.0,
+    "burnTime": 40,
+    "accelerationTime": 5,
+    "maxVelocity": 600,
+    "airBurstDelay": 40,
+    "despawnTime": 45,
+    "impactDespawnTime": 40
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "flaregunammo",
+      "name": "Flare Mortar Ammo",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "ammoModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "ammoModel",
+        "emissive": true,
+        "color": "CF2923",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "20_40_20_cycle",
+            "axis": [0.0,0.5,0.0],
+            "duration": 20
+          },
+          {
+            "animationType": "translation",
+            "variable": "10_20_10_cycle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.25,
+            "duration": 10
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "flareHeight": 2.0,
+            "flareWidth": 2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "flareHeight": 2.0,
+            "flareWidth": -2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0],
+            "flareHeight": 2.0,
+            "flareWidth": 2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0],
+            "flareHeight": 2.0,
+            "flareWidth": -2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 2.0,
+            "flareWidth": 2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 2.0,
+            "flareWidth": -2.0
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:flaregun_mortar",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "1_2_1000_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,2.0,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.5,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 32.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:explode_bullet",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.5,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 32.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:flaregun_blooddebt",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,2.0,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 2.0,
+        "maxDistance": 192.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 64.0,
+        "middleDistanceVolume": 0.25
+      }
+    ],
+    "particles": [
+      {
+        "type": "break",
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 2,
+        "duration": 40,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 24.0,
+        "toScale": 12.0,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "quantity": 1,
+        "duration": 10,
+        "transparency": 2.0,
+        "toTransparency": 0.01,
+        "scale": 16.0,
+        "toScale": 64.0,
+        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png","ivv:textures/particles/explosion_7.png","ivv:textures/particles/explosion_8.png"],
+        "textureDelays": [2,2,2,2,2,2,2,32767],
+        "color": "FFFFFF",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "HAHAHAHAHAHA\nYOU WISH YOU WERE RIGHT",
+    "stackSize": 64,
+    "materialLists": [
+      ["oredict:ingotIron:2","minecraft:gunpowder:0:8"]
+    ],
+    "type": "bullet"
+  }
+}

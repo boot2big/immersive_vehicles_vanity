@@ -1,0 +1,294 @@
+{
+  "generic": {
+    "type": "generic_radio",
+    "canBeRemovedByHand": true,
+    "canBePlacedOnGround": true,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.015625,0.031249,0.125],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "radioControl",
+          "variableType": "toggle"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Police Frequency Radio",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "currentlyPlaying",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "75_2_75_cycle",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "knob3",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "radioControl",
+            "centerPoint": [0.015625,0.031249,0.125],
+            "axis": [0.0,0.0,22.5],
+            "duration": 4
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "led1",
+        "emissive": true,
+        "color": "C1240C",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!radioControl",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "0_2_8_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "led2",
+        "emissive": true,
+        "color": "C1240C",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!radioControl",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "2_2_6_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "led3",
+        "emissive": true,
+        "color": "C1240C",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!radioControl",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "4_2_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "led4",
+        "emissive": true,
+        "color": "C1240C",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!radioControl",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "6_2_2_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "led5",
+        "emissive": true,
+        "color": "C1240C",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!radioControl",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "8_2_0_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 1
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      }],
+    "sounds": [
+      {
+        "name": "ivv:radiointerference",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 4
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "radioControl",
+            "axis": [0.0,0.375,0.0],
+            "duration": 4
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "missile_incoming",
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.75
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "maxDistance": 8.0
+      },
+      {
+        "name": "ivv:radiointerferencemissile",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "missile_incoming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "missile_1_distance",
+            "axis": [0.0,-0.020833333,0.0],
+            "offset": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "missile_1_distance",
+            "axis": [0.0,-0.020833333,0.0],
+            "offset": 1.0,
+            "clampMin": 0.75
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "maxDistance": 8.0
+      },
+      {
+        "name": "ivv:radiopolicerandom1",
+        "soundVariations": ["ivv:radiopolicerandom1","ivv:radiopolicerandom2","ivv:radiopolicerandom3","ivv:radiopolicerandom4","ivv:radiopolicerandom5","ivv:radiopolicerandom6","ivv:radiopolicerandom7","ivv:radiopolicerandom8","ivv:radiopolicerandom9","ivv:radiopolicerandom10","ivv:radiopolicerandom11","ivv:radiopolicerandom12","ivv:radiopolicerandom13","ivv:radiopolicerandom14","ivv:radiopolicerandom15"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "random",
+            "clampMax": 0.75
+          },
+          {
+            "animationType": "visibility",
+            "variable": "currentlyPlaying",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "radioControl",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "maxDistance": 8.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Useless radio",
+    "description": "Can be placed in certain vehicles\nPicks up emergency service band chatter",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:4","oredict:dustRedstone:2"]
+    ]
+  }
+}

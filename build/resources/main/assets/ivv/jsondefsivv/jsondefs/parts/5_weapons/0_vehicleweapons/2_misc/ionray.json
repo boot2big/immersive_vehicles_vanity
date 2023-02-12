@@ -1,0 +1,154 @@
+{
+  "generic": {
+    "type": "gun_beam"
+  },
+  "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
+    "autoReload": true,
+    "capacity": 1,
+    "reloadTime": 200,
+    "windupTime": 60,
+    "muzzleVelocity": 2600,
+    "fireDelay": 5.0,
+    "diameter": 34.621,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
+    "handHeldNormalOffset": [0.315,0.55,0.525],
+    "handHeldAimedOffset": [0.315,0.35,0.525],
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.25,0.25,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [0.25,0.0,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [0.25,-0.25,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [0.0,0.25,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [0.0,-0.25,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [-0.25,0.25,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [-0.25,0.0,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [-0.25,-0.25,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Temporally Accellerated Ion Beam Emitter",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:pew",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 59
+          }
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      },
+      {
+        "name": "ivv:blueboxwhirrlow",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_windup_time",
+            "clampMin": 1.0,
+            "clampMax": 60.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_windup_time",
+            "axis": [0.0,0.007,0.0],
+            "clampMax": 0.35
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      },
+      {
+        "name": "ivv:crankperformante4",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 0.05,
+            "clampMax": 1.0,
+            "reverseDelay": 199
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "p_brake",
+            "axis": [0.0,0.0,0.0],
+            "offset": 0.45
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "none"
+  },
+  "general": {
+    "description": "A wise man said ''When a gun doesn't work, use more gun'' shortly before being shot by a gun.\nHis profound last words were what inspired our engineers and scientists to create a giant space gun.\n(Besides the small handgun we used to coerce them to do so)",
+    "health": 200,
+    "materialLists": [
+      ["minecraft:iron_block:0:2","minecraft:emerald_block:0:3","minecraft:redstone_block:0:2"]
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "decor": {
+    "type": "fuel_pump",
+    "width": 1.0,
+    "height": 2.0,
+    "depth": 0.7,
+    "fuelCapacity": 30000,
+    "pumpRate": 30.0
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Fuel Pump",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_st",
+      "name": "Fuel Pump [SpeedTrip]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_bell",
+      "name": "Fuel Pump [Bell]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_ivl",
+      "name": "Fuel Pump [IVLabs]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.0,1.85938,0.316868],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.25,
+        "variableName": "fuelpump_fluid",
+        "variableFormat": "%s",
+        "defaultText": "",
+        "color": "111111",
+        "wrapWidth": 8,
+        "lightsUp": true,
+        "autoScale": true
+      },
+      {
+        "pos": [0.0,1.3921875,0.16455],
+        "rot": [0.0,0.0,0.0],
+        "variableName": "fuelpump_purchased",
+        "variableFactor": 0.001,
+        "variableFormat": "PAY:%04.1fb",
+        "defaultText": "",
+        "color": "EBAF26",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.0,1.33125,0.16455],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.0875,
+        "variableName": "fuelpump_stored",
+        "variableFactor": 0.001,
+        "variableFormat": "LVL:%04.1fb",
+        "defaultText": "",
+        "color": "EBAF26",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.0,1.2703125,0.16455],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.0875,
+        "variableName": "fuelpump_dispensed",
+        "variableFactor": 0.001,
+        "variableFormat": "DISP:%04.1fb",
+        "defaultText": "",
+        "color": "EBAF26",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.0,1.85938,-0.316868],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "fuelpump_fluid",
+        "variableFormat": "%s",
+        "defaultText": "",
+        "color": "111111",
+        "wrapWidth": 8,
+        "lightsUp": true,
+        "autoScale": true
+      },
+      {
+        "pos": [0.0,1.3921875,-0.16455],
+        "rot": [0.0,180.0,0.0],
+        "variableName": "fuelpump_purchased",
+        "variableFactor": 0.001,
+        "variableFormat": "PAY:%04.1fb",
+        "defaultText": "",
+        "color": "EBAF26",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.0,1.33125,-0.16455],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.0875,
+        "variableName": "fuelpump_stored",
+        "variableFactor": 0.001,
+        "variableFormat": "LVL:%04.1fb",
+        "defaultText": "",
+        "color": "EBAF26",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.0,1.2703125,-0.16455],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.0875,
+        "variableName": "fuelpump_dispensed",
+        "variableFactor": 0.001,
+        "variableFormat": "DISP:%04.1fb",
+        "defaultText": "",
+        "color": "EBAF26",
+        "lightsUp": true
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "button4",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fuelpump_active",
+            "centerPoint": [0.0,0.85075,0.28176],
+            "axis": [5.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "button1",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fuelpump_active",
+            "centerPoint": [0.0,0.85075,-0.28176],
+            "axis": [-5.0,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "screen",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "miata_is_sexy",
+            "clampMin": -9999999.0,
+            "clampMax": 9999999.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Fuel Pump",
+    "description": "Can be used to fuel vehicles or jerrycans.\nRight click with bucket of valid fuel to fill by 1000mb (Alternatively, connect to the bottom of the pump with a fluid pipe)\nRight click by hand to fuel the nearest vehicle to this pump",
+    "materialLists": [
+      ["oredict:ingotIron:4","oredict:dustRedstone:1","minecraft:bucket:-1:2"]
+    ]
+  }
+}

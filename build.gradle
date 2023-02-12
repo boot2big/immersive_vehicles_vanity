@@ -1,52 +1,57 @@
 buildscript {
     repositories {
-        jcenter()
-        maven { url = "https://files.minecraftforge.net/maven" }
+        maven { url = "https://maven.minecraftforge.net" }
+        mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "5.1.+", changing: true
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
 
+//Apply plugins
+apply plugin: "net.minecraftforge.gradle"
+
+//Set file name.
 version = "2.1.0"
-group = "com.yourname.modid"
+group = "ivv"
 archivesBaseName = "IV-Vanity"
 
-sourceCompatibility = targetCompatibility = '1.8'
+//Options for Java version to compile to.
+sourceCompatibility = targetCompatibility = "1.8"
 compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
+    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
 }
 
+//Minecraft mappings and run configs.
 minecraft {
-    version = "1.12.2-14.23.5.2847"
-    runDir = "run"
-    
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20171003"
-    makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    // The mappings can be changed at any time, and must be in the following format.
+    // Channel:   Version:
+    // snapshot   YYYYMMDD   Snapshot are built nightly.
+    // stable     #          Stables are built at the discretion of the MCP team.
+    // official   MCVersion  Official field/method names from Mojang mapping files
+    mappings channel: "official", version: "1.16.5"
+
+    //Run configurations.
+    runs {
+        client {
+            workingDirectory project.file("run")
+        }
+
+        server {
+            workingDirectory project.file("runServer")
+        }
+    }
 }
+
+//Specify dependencies.
 dependencies {
+    //Minecraft to use.
+    minecraft "net.minecraftforge:forge:1.16.5-36.2.23"
 }
 
-processResources {
-    
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
+//Now compile the mod.
+jar.finalizedBy("reobfJar")
 
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8" // Use the UTF-8 charset for Java compilation
 }
-
