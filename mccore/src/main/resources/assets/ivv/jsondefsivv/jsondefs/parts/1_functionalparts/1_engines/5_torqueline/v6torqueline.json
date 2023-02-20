@@ -33,7 +33,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Torqueline Diesel V6 Engine [§9Automatic§r]",
+      "name": "Torqueline Diesel V6 Engine",
       "extraMaterialLists": [
         []
       ]
@@ -473,8 +473,7 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
       },
-      {
-        "name": "ivv:enginehourrattle",
+      {        "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -483,9 +482,15 @@
             "clampMax": 1.0
           },
           {
+            "animationType": "inhibitor",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.5,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 250.0,
+            "clampMin": 500.0,
             "clampMax": 999999.0
           }
         ],
@@ -499,7 +504,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent_safe",
+            "variable": "engine_rpm_percent",
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5

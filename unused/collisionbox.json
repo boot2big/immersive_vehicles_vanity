@@ -1,0 +1,171 @@
+{
+  "generic": {
+    "type": "ground_collision_box",
+    "forwardsDamage": true,
+    "movementAnimations": [
+      {
+        "animationType": "rotation",
+        "variable": "ow_OnO_dont_hurt_meee",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,0.0]
+      }
+    ]
+  },
+  "ground": {
+    "width": 1.0,
+    "height": 1.0,
+    "frictionModifiers": {}
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
+      "name": "Noise Collision Box",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.0,0.5,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.5,
+        "variableName": "terrain_distance",
+        "variableFactor": 1.0,
+        "variableFormat": "RGD: %01.2f`",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:crashsmall1",
+        "soundVariations": ["ivv:crashsmall1","ivv:crashsmall2","ivv:crashsmall3"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "terrain_distance",
+            "clampMin": -1,
+            "clampMax": 0.25
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": -1,
+            "clampMax": 10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.5,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 48.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:crashmed1",
+        "soundVariations": ["ivv:crashmed1","ivv:crashmed2","ivv:crashmed3"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "terrain_distance",
+            "clampMin": -0.5,
+            "clampMax": 0.25
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 10,
+            "clampMax": 30
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.4875,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 48.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:crashlarge1",
+        "soundVariations": ["ivv:crashlarge1","ivv:crashlarge2"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "terrain_distance",
+            "clampMin": -0.5,
+            "clampMax": 0.25
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 10,
+            "clampMax": 30
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.375,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 48.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Noisy Wheel",
+    "description": "Makes noise upon block collision",
+    "stackSize": 4,
+    "health": 100,
+    "materialLists": [
+      ["minecraft:dirt:0:1"]
+    ]
+  }
+}

@@ -3,7 +3,46 @@
     "type": "engine_car",
     "width": 0.75,
     "height": 0.625,
-    "mass": 230
+    "mass": 230,
+    "movementAnimations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_piston_0_1_0_crank",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.00625,0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "engine_cos",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,1]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "engine_rpm_percent",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,-3],
+          "clampMin": -3,
+          "clampMax": 3
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_running"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "throttle",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,1]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "throttle",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,1],
+          "duration": 5
+        }
+      ]
   },
   "engine": {
     "type": "normal",
@@ -105,7 +144,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Modern Performante V8 Engine [§2Manual§r]",
+      "name": "Modern Performante V8 Engine",
       "extraMaterialLists": [
         []
       ]
@@ -756,8 +795,7 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
       },
-      {
-        "name": "ivv:enginehourrattle",
+      {        "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -766,9 +804,15 @@
             "clampMax": 1.0
           },
           {
+            "animationType": "inhibitor",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.5,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 250.0,
+            "clampMin": 500.0,
             "clampMax": 999999.0
           }
         ],
@@ -782,7 +826,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent_safe",
+            "variable": "engine_rpm_percent",
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5

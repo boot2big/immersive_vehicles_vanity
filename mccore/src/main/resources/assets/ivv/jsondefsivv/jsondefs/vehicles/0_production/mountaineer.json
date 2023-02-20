@@ -8,12 +8,11 @@
     "fuelCapacity": 26500,
     "defaultFuelQty": 26500,
     "downForce": 0.7,
-    "overSteer": 4.0,
-    "underSteer": 2.0,
-    "overSteerAccel": 5.5,
-    "overSteerDecel": -0.5,
+    "overSteer": 3.0,
+    "underSteer": 1.0,
+    "overSteerAccel": 3.0,
     "axleRatio": 2.5,
-    "brakingFactor": 2.325,
+    "brakingFactor": 3.0,
     "dragCoefficient": 0.125,
     "litVariable": "engine_magneto_1",
     "panel": "ivv:premier",
@@ -1858,6 +1857,51 @@
       ]
     },
     {
+      "variable": "throttle",
+      "minValue": 0,
+      "maxValue": 1,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "autopilot_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "autopilot",
+          "axis": [0.0,0.0,0.5]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,-0.4875,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "autopilot_active",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "autopilot_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "brake",
+          "clampMin": 0.1,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "blep",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "input_rudder",
       "animations": [
         {
@@ -1867,13 +1911,30 @@
           "clampMax": 1.0
         },
         {
+          "animationType": "visibility",
+          "variable": "electric_power",
+          "clampMin": 5.0,
+          "clampMax": 14.0
+        },
+        {
           "animationType": "translation",
           "variable": "slip",
-          "axis": [-0.01875,0.0,0.0],
-          "offset": 1.125,
+          "axis": [-0.00625,0.0,0.0],
+          "offset": 1.0,
           "clampMin": 0.5,
           "clampMax": 1.0,
           "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "damage_percent",
+          "clampMax": 0.5
+        },
+        {
+          "animationType": "visibility",
+          "variable": "5_10_5_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     },
@@ -1883,16 +1944,16 @@
         {
           "animationType": "visibility",
           "variable": "slip",
-          "clampMin": 8,
-          "clampMax": 32767,
+          "clampMin": 8.0,
+          "clampMax": 32767.0,
           "absolute": true
         },
         {
           "animationType": "translation",
           "variable": "slip",
-          "axis": [0.0,0.156,0.0],
-          "offset": -1.5,
-          "clampMin": 0.0125,
+          "axis": [0.0,0.125,0.0],
+          "offset": -1.0,
+          "clampMin": 0.001,
           "absolute": true
         },
         {
@@ -1907,8 +1968,8 @@
           "animationType": "translation",
           "variable": "engine_rpm_percent_revlimit_1",
           "axis": [-8.0,0.0,0.0],
-          "offset": 9,
-          "clampMin": 0.25,
+          "offset": 8.5,
+          "clampMin": 0.125,
           "clampMax": 1.0
         }
       ]
@@ -3393,7 +3454,7 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§r§f§lSTATS:\n§r§7Drivetrain: AWD\nMax. Top Speed: 120MPH\n0-60: 10.58\n0-Top Speed: 0:56.04\n§f§lACCESSORIES:\n§r§7-Bumper Sticker x2\n-License Plate x2",
+    "description": "§r§lSTATS:\n§rDrivetrain: AWD\nMax. Top Speed: 120MPH\n0-60: 10.58\n0-Top Speed: 0:56.04\n§lACCESSORIES:\n§r-Bumper Sticker x2\n-License Plate x2",
     "health": 3400,
     "materialLists": [
       ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:6","mts:ivv.normaltire:0:4","mts:ivv.carseat_gray:0:4","mts:ivv.v8:0:1","mts:ivv.fueltemp:0:1","mts:ivv.tach:0:1","mts:ivv.mph:0:1","mts:ivv.oilpower:0:1"]

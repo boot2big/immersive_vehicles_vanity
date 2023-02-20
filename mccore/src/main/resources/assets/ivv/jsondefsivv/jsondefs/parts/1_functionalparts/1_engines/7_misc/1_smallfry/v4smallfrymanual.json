@@ -30,7 +30,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Smallfry V4 Engine [§2Manual§r]",
+      "name": "Smallfry V4 Engine",
       "extraMaterialLists": [
         []
       ]
@@ -471,8 +471,7 @@
         "minDistance": 0.0,
         "maxDistance": 0.0
       },
-      {
-        "name": "ivv:enginehourrattle",
+      {        "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -481,9 +480,15 @@
             "clampMax": 1.0
           },
           {
+            "animationType": "inhibitor",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.5,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 250.0,
+            "clampMin": 500.0,
             "clampMax": 999999.0
           }
         ],
@@ -497,7 +502,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent_safe",
+            "variable": "engine_rpm_percent",
             "axis": [0.0,1.75,0.0],
             "offset": -1.25,
             "clampMax": 1.5

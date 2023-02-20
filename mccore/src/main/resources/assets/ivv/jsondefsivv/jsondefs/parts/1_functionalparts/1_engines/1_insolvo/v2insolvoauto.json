@@ -3,7 +3,46 @@
     "type": "engine_car",
     "width": 0.75,
     "height": 0.625,
-    "mass": 140
+    "mass": 140,
+    "movementAnimations": [
+      {
+        "animationType": "translation",
+        "variable": "engine_piston_0_1_0_crank",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.00625,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "engine_cos",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,1.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "engine_rpm_percent",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,-3.0],
+        "clampMin": -3.0,
+        "clampMax": 3.0
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "engine_running"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "throttle",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,1.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "throttle",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,1.0],
+        "duration": 5
+      }
+    ]
   },
   "engine": {
     "type": "normal",
@@ -108,7 +147,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Insolvo I2 Engine [§9Automatic§r]",
+      "name": "Insolvo I2 Engine",
       "extraMaterialLists": [
         []
       ]
@@ -711,7 +750,6 @@
           {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 0.0,
             "clampMax": 250.0
           }
         ],
@@ -748,9 +786,15 @@
             "clampMax": 1.0
           },
           {
+            "animationType": "inhibitor",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.5,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "visibility",
             "variable": "engine_hours",
-            "clampMin": 250.0,
+            "clampMin": 500.0,
             "clampMax": 999999.0
           }
         ],
@@ -957,7 +1001,7 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm",
-            "axis": [0.0,0.000366667,0.0],
+            "axis": [0.0,3.66667E-4,0.0],
             "offset": 0.75
           }
         ],
@@ -1008,7 +1052,7 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm",
-            "axis": [0.0,0.000233333,0.0],
+            "axis": [0.0,2.33333E-4,0.0],
             "offset": 0.25
           }
         ],

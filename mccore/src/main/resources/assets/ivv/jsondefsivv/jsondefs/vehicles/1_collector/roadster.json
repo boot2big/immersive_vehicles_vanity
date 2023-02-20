@@ -10,9 +10,8 @@
     "defaultFuelQty": 20000,
     "downForce": 0.8,
     "overSteer": 4.0,
-    "underSteer": 1.5,
+    "underSteer": 1.0,
     "overSteerAccel": 4.0,
-    "overSteerDecel": -0.5,
     "axleRatio": 2.25,
     "brakingFactor": 4.0,
     "dragCoefficient": 0.125,
@@ -1256,6 +1255,251 @@
       ]
     },
     {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -22.5,
+          "clampMax": 22.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": 22.5,
+          "clampMax": 67.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": -45.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": 67.5,
+          "clampMax": 112.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": -90.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": 112.5,
+          "clampMax": 157.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": -135.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": 157.5,
+          "clampMax": 180.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": -180.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -180.0,
+          "clampMax": -157.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": 180.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -157.5,
+          "clampMax": -112.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": 135.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -112.5,
+          "clampMax": -67.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": 90.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -67.5,
+          "clampMax": -22.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": 45.0
+        }
+      ]
+    },
+    {
+      "variable": "input_rudder",
+      "minValue": -10,
+      "maxValue": 10,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "autopilot_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_lks_compass",
+          "axis": [0.0,0.1875,0.0],
+          "clampMin": -3.333,
+          "clampMax": 3.333
+        },
+        {
+          "animationType": "translation",
+          "variable": "!wow",
+          "axis": [1.0,0.0,0.0],
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "throttle",
+      "minValue": 0,
+      "maxValue": 1,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "autopilot_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "autopilot",
+          "axis": [0.0,0.0,0.5]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,-0.4875,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "autopilot_active",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "autopilot_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "brake",
+          "clampMin": 0.1,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "blep",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "autopilot_active",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "autopilot_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "input_rudder",
+          "clampMin": -9.0,
+          "clampMax": 9.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "blep",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "input_rudder",
       "animations": [
         {
@@ -1265,13 +1509,30 @@
           "clampMax": 1.0
         },
         {
+          "animationType": "visibility",
+          "variable": "electric_power",
+          "clampMin": 5.0,
+          "clampMax": 14.0
+        },
+        {
           "animationType": "translation",
           "variable": "slip",
-          "axis": [-0.01875,0.0,0.0],
-          "offset": 1.125,
+          "axis": [-0.00625,0.0,0.0],
+          "offset": 1.0,
           "clampMin": 0.5,
           "clampMax": 1.0,
           "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "damage_percent",
+          "clampMax": 0.5
+        },
+        {
+          "animationType": "visibility",
+          "variable": "5_10_5_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     },
@@ -1296,16 +1557,16 @@
         {
           "animationType": "visibility",
           "variable": "slip",
-          "clampMin": 8,
-          "clampMax": 32767,
+          "clampMin": 8.0,
+          "clampMax": 32767.0,
           "absolute": true
         },
         {
           "animationType": "translation",
           "variable": "slip",
-          "axis": [0.0,0.156,0.0],
-          "offset": -1.5,
-          "clampMin": 0.0125,
+          "axis": [0.0,0.125,0.0],
+          "offset": -1.0,
+          "clampMin": 0.001,
           "absolute": true
         },
         {
@@ -1320,8 +1581,8 @@
           "animationType": "translation",
           "variable": "engine_rpm_percent_revlimit_1",
           "axis": [-8.0,0.0,0.0],
-          "offset": 9,
-          "clampMin": 0.25,
+          "offset": 8.5,
+          "clampMin": 0.125,
           "clampMax": 1.0
         }
       ]
@@ -2561,7 +2822,7 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§r§f§lSTATS:\n§r§7Drivetrain: AWD\nMax. Top Speed: 141MPH\n0-60: 4.26\n0-Top Speed: 0:16:77\nTCS equipped\n§f§lACCESSORIES:\n§r§7-License Plate x2",
+    "description": "§r§lSTATS:\n§rDrivetrain: AWD\nMax. Top Speed: 141MPH\n0-60: 4.26\n0-Top Speed: 0:16:77\nTCS equipped\n§lACCESSORIES:\n§r-License Plate x2",
     "health": 4800,
     "materialLists": [
       ["mts:ivv.frame:0:1","mts:ivv.axle:0:1","mts:ivv.bodypanel:0:4","mts:ivv.normaltire:0:4","mts:ivv.carseat_gray:0:2","mts:ivv.ultra_electricmotor:0:2","mts:ivv.fuelelectric:0:1","mts:ivv.screen:0:1"]

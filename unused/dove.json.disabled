@@ -1,0 +1,551 @@
+{
+  "motorized": {
+    "isAircraft": true,
+    "emptyMass": 500,
+    "fuelCapacity": 10000,
+    "brakingFactor": 0.5,
+    "flapSpeed": 0.1,
+    "dragCoefficient": 0.2125,
+    "tailDistance": 4.0,
+    "downForce": 0.5,
+    "overSteer": 1.0,
+    "underSteer": 1.0,
+    "overSteerAccel": -1.0,
+    "overSteerDecel": 2.0,
+    "wingSpan": 14.0,
+    "wingArea": 12.0,
+    "aileronArea": 5.0,
+    "elevatorArea": 8,
+    "rudderArea": 2,
+    "litVariable": "engine_magneto_1",
+    "panel": "mts:default_plane",
+    "flapNotches": [0.0,10.0,20.0,30.0]
+  },
+  "parts": [
+    {
+      "pos": [0.0,-0.328125,-0.75],
+      "rot": [0.0,180.0,0.0],
+      "isMirrored": true,
+      "minValue": 0.25,
+      "maxValue": 0.75,
+      "partScale": [0.5,0.5,0.5],
+      "defaultPart": "ivv:smalltire",
+      "types": ["ground_wheel"]
+    },
+    {
+      "pos": [-0.64875,-0.3125,1.9375],
+      "rot": [0.0,180.0,0.0],
+      "turnsWithSteer": true,
+      "isMirrored": true,
+      "minValue": 0.25,
+      "maxValue": 0.75,
+      "partScale": [0.5,0.5,0.5],
+      "defaultPart": "ivv:smalltire",
+      "types": ["ground_wheel"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [-0.64875,-0.3125,1.9375],
+          "axis": [0.0,-1.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [0.64875,-0.3125,1.9375],
+      "turnsWithSteer": true,
+      "minValue": 0.25,
+      "maxValue": 0.85,
+      "partScale": [0.5,0.5,0.5],
+      "defaultPart": "ivv:smalltire",
+      "types": ["ground_wheel"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [0.64875,-0.3125,1.9375],
+          "axis": [0.0,-1.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [0.0,0.6,2.5625],
+      "maxValue": 2.0,
+      "types": ["engine_aircraft_horizontal"],
+      "linkedParts": []
+    },
+    {
+      "pos": [0.0,0.45,0.45],
+      "dismountPos": [-2.0,1.0,-1.0],
+      "isController": true,
+      "defaultPart": "ivv:carseat",
+      "types": ["seat","seat_pilot"]
+    },
+    {
+      "pos": [0.0,0.475,-0.3],
+      "maxValue": 3.0,
+      "types": ["interactable_crate"]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisions": [
+        {
+          "pos": [0.0,0.7,-1.25],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [0.0,0.8,-2.25],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [0.0,0.8,-3.15],
+          "width": 1.0,
+          "height": 1.0
+        },
+        {
+          "pos": [0.25,0.25,1.95],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.25,0.25,1.95],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,1.75,0.1],
+          "width": 1.0,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,1.75,0.7],
+          "width": 1.0,
+          "height": 0.25
+        }
+      ]
+    },
+    {
+      "health": 20,
+      "collisions": [
+        {
+          "pos": [1.0,1.75,0.1],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [1.0,1.75,0.7],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [2.0,1.75,0.1],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [2.0,1.75,0.7],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [3.0,1.75,0.5],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        }
+      ]
+    },
+    {
+      "health": 20,
+      "collisions": [
+        {
+          "pos": [-1.0,1.75,0.1],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [-1.0,1.75,0.7],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [-2.0,1.75,0.1],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [-2.0,1.75,0.7],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [-3.0,1.75,0.5],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        }
+      ]
+    },
+    {
+      "health": 20,
+      "collisions": [
+        {
+          "pos": [1.0,0.875,-3.125],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [1.5,0.875,-3.125],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        }
+      ]
+    },
+    {
+      "health": 20,
+      "collisions": [
+        {
+          "pos": [-1.0,0.875,-3.125],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        },
+        {
+          "pos": [-1.5,0.875,-3.125],
+          "width": 1.0,
+          "height": 0.25,
+          "damageMultiplier": 0.375
+        }
+      ]
+    }
+  ],
+  "instruments": [
+    {
+      "pos": [0.46875,0.34375,0.718125],
+      "rot": [0.0,0.0,0.0],
+      "scale": 0.04375,
+      "hudX": 120,
+      "hudY": 36,
+      "hudScale": 0.425
+    },
+    {
+      "pos": [0.125,0.34375,0.718125],
+      "rot": [0.0,0.0,0.0],
+      "scale": 0.04375,
+      "hudX": 200,
+      "hudY": 36,
+      "hudScale": 0.425
+    },
+    {
+      "pos": [-0.21875,0.34375,0.718125],
+      "rot": [0.0,0.0,0.0],
+      "scale": 0.04375,
+      "hudX": 280,
+      "hudY": 36,
+      "hudScale": 0.425
+    },
+    {
+      "pos": [0.46875,0.0,0.718125],
+      "rot": [0.0,0.0,0.0],
+      "scale": 0.04375,
+      "hudX": 120,
+      "hudY": 103,
+      "hudScale": 0.425
+    },
+    {
+      "pos": [0.125,0.0,0.718125],
+      "rot": [0.0,0.0,0.0],
+      "scale": 0.04375,
+      "hudX": 200,
+      "hudY": 103,
+      "hudScale": 0.425
+    },
+    {
+      "pos": [-0.21875,0.0,0.718125],
+      "rot": [0.0,0.0,0.0],
+      "scale": 0.04375,
+      "hudX": 280,
+      "hudY": 103,
+      "hudScale": 0.425
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_red",
+      "name": "IVLabs Dove [Red]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_white",
+      "name": "IVLabs Dove [White]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_yellow",
+      "name": "IVLabs Dove [Yellow]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_green",
+      "name": "IVLabs Dove [Green]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_blue",
+      "name": "IVLabs Dove [Blue]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_gray",
+      "name": "IVLabs Dove [Gray]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_black",
+      "name": "IVLabs Dove [Black]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "wingSpan",
+      "addValue": -7,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_2_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "wingArea",
+      "addValue": -6.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_2_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "wingSpan",
+      "addValue": -7,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_3_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "wingArea",
+      "addValue": -6.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_3_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "elevatorArea",
+      "addValue": -4.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_4_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "elevatorArea",
+      "addValue": -4.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_5_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "aileronArea",
+      "addValue": -2.5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_2_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "variable": "aileronArea",
+      "addValue": -2.5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "collision_3_damage",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "rightaileron",
+        "applyAfter": "rightwing",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "aileron",
+            "centerPoint": [0.0,1.8125,0.4375],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "leftaileron",
+        "applyAfter": "leftwing",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "aileron",
+            "centerPoint": [0.0,1.8125,0.4375],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "leftwing",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "collision_2_damage",
+            "clampMax": 19.9875
+          }
+        ]
+      },
+      {
+        "objectName": "rightwing",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "collision_3_damage",
+            "clampMax": 19.9875
+          }
+        ]
+      },
+      {
+        "objectName": "leftfin",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "collision_4_damage",
+            "clampMax": 19.9875
+          }
+        ]
+      },
+      {
+        "objectName": "rightfin",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "collision_5_damage",
+            "clampMax": 19.9875
+          }
+        ]
+      },
+      {
+        "objectName": "leftelevator",
+        "applyAfter": "leftfin",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "elevator",
+            "centerPoint": [1.4375,0.875,-3.125],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "rightelevator",
+        "applyAfter": "rightfin",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "elevator",
+            "centerPoint": [-1.4375,0.875,-3.125],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "$Rudder",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [0.0,1.75,-3.0625],
+            "axis": [0.0,1.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "§r\n§r§lSTATS:\n§rDrivetrain: Propeller\nMax. Top Speed: MPH\n0-60: \n0-Top Speed: \n§lACCESSORIES:\n§r-Chest/Crate x1",
+    "health": 1200,
+    "materialLists": [
+      ["mts:ivv.frame:0:1","mts:ivv.bodypanel:0:4","mts:ivv.smalltire:0:4","mts:ivv.carseat:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["mts:ivv.bodypanel:0:4","mts:ivv.tape:0:1"]
+    ]
+  }
+}

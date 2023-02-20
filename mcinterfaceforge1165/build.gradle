@@ -2,20 +2,20 @@ buildscript {
     repositories {
         maven { url = "https://maven.minecraftforge.net" }
         maven { url = "https://maven.parchmentmc.org" }
-        maven { url = "https://repo.spongepowered.org/maven" }
+        //maven { url = "https://repo.spongepowered.org/maven" }
         mavenCentral()
     }
     dependencies {
         classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "5.1.+", changing: true
         classpath group: "org.parchmentmc", name: "librarian", version: "1.+"
-        classpath group: "org.spongepowered", name: "mixingradle", version: "0.7.+"
+        //classpath group: "org.spongepowered", name: "mixingradle", version: "0.7.+"
     }
 }
 
 //Apply plugins
 apply plugin: "net.minecraftforge.gradle"
 apply plugin: "org.parchmentmc.librarian.forgegradle"
-apply plugin: "org.spongepowered.mixin"
+//apply plugin: "org.spongepowered.mixin"
 apply plugin: "eclipse"
 
 //Set file name.
@@ -40,7 +40,7 @@ minecraft {
     mappings channel: "parchment", version: "2022.03.06-1.16.5"
 
     //Run configurations.
-    runs {
+    /*runs {
         client {
             workingDirectory project.file("run")
             arg "-mixin.config=ivv.mixins.json"
@@ -61,7 +61,7 @@ minecraft {
                 }
             }
         }
-    }
+    }*/
 }
 
 repositories {
@@ -80,21 +80,21 @@ dependencies {
     //Minecraft to use.
     minecraft "net.minecraftforge:forge:1.16.5-36.2.23"
     //Make mixin annotations actually do something
-    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
+    //annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
     //Core to use.
     embed(project(":mccore"))
 
     //Compile against the JEI API but do not include it at runtime
-    compileOnly fg.deobf("mezz.jei:jei-1.16.5:7.7.1.152:api")
+    //compileOnly fg.deobf("mezz.jei:jei-1.16.5:7.7.1.152:api")
     //At runtime, use the full JEI jar
-    runtimeOnly fg.deobf("mezz.jei:jei-1.16.5:7.7.1.152")
+    //runtimeOnly fg.deobf("mezz.jei:jei-1.16.5:7.7.1.152")
 }
 
-mixin {
+/*mixin {
     add sourceSets.main, "ivv.refmap.json"
     config "ivv.mixins.json"
-}
+}*/
 
 //Here is where we zip up all embeds and add them to our jar.
 jar {
@@ -102,13 +102,13 @@ jar {
         configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
     }
 
-    manifest {
+    manifest {/*
         attributes([
                 "TweakClass"    : "org.spongepowere.dasm.launch.MixinTweaker",
                 "TweakOrder"    : "0",
                 "MixinConfigs"  : "ivv.mixins.json",
                 "MixinConnector": "mcinterface1165.mixin.MixinConnector"
-        ])
+        ])*/
     }
 }
 
