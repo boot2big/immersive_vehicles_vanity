@@ -33,7 +33,7 @@ import java.util.function.Supplier;
 @Mod(modid = IvvMod.MODID, version = IvvMod.VERSION)
 public class IvvMod {
 	public static final String MODID = "ivv";
-	public static final String VERSION = "2.1.0";
+	public static final String VERSION = "2.2.0";
 	public static final String DEPS="required-after:mts@[22.6.0,);";
 	public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("ivv:a");
 	@SidedProxy(clientSide = "net.cc.ivv.ClientProxyIvvMod", serverSide = "net.cc.ivv.ServerProxyIvvMod")

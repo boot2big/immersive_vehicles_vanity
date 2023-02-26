@@ -15,13 +15,11 @@
     "isWheel": true,
     "width": 0.25,
     "height": 0.875,
-    "motiveFriction": 1.0,
-    "lateralFriction": 0.75,
+    "motiveFriction": 0.5,
+    "lateralFriction": 0.5,
     "frictionModifiers": {
-      "snow": -0.125,
       "ice": -0.25,
       "dirt_wet": -0.125,
-      "sand": -0.125,
       "sand_wet": -0.25,
       "normal_wet": -0.125
     }
@@ -32,14 +30,14 @@
       "maxValue": 1.0,
       "defaultPart": "ivv:rim_hypnodish",
       "types": ["generic_rim"],
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [1.0,0.0,0.0]
-          }
-          ]
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
     }
   ],
   "definitions": [
@@ -69,7 +67,7 @@
         {
           "animationType": "visibility",
           "variable": "throttle",
-          "clampMin": 0.625,
+          "clampMin": 0.5125,
           "clampMax": 1.0
         },
         {
@@ -86,13 +84,24 @@
       ]
     },
     {
+      "variable": "motiveFriction",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_damage_totaled",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
       "variable": "lateralFriction",
       "animations": [
         {
           "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,0.00390625,0.0],
-          "absolute": true
+          "variable": "parent_damage_totaled",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -100,9 +109,29 @@
       "variable": "height",
       "animations": [
         {
+          "animationType": "visibility",
+          "variable": "parent_damage_totaled"
+        },
+        {
           "animationType": "translation",
-          "variable": "damage_percent",
+          "variable": "parent_damage_percent",
           "axis": [0.0,-0.125,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_damage_totaled",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,0.625]
         }
       ]
     }
@@ -120,7 +149,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           }
         ]
       },
@@ -135,7 +164,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           }
         ]
       },
@@ -177,8 +206,8 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.875
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
           }
         ],
         "minDistance": 0.0,
@@ -208,8 +237,8 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.875
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
           }
         ],
         "minDistance": 0.0,
@@ -224,7 +253,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
+            "variable": "parent_damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -241,7 +270,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
+            "variable": "parent_damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -294,7 +323,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -348,7 +377,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -404,7 +433,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -467,7 +496,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -522,7 +551,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -606,7 +635,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -690,7 +719,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -748,7 +777,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -812,7 +841,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
+            "variable": "parent_damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -874,7 +903,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
+            "variable": "parent_damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -938,7 +967,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
+            "variable": "parent_damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -1029,7 +1058,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -1077,7 +1106,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -1128,7 +1157,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -1188,7 +1217,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -1246,7 +1275,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat"
+            "variable": "parent_damage_totaled"
           },
           {
             "animationType": "visibility",
@@ -1310,7 +1339,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_isflat",
+            "variable": "parent_damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -1350,7 +1379,7 @@
   "general": {
     "name": "Standard Wheel",
     "description": "Regular sized wheel\nBulletproof tire",
-    "stackSize": 4,
+    "stackSize": 64,
     "health": 120,
     "materialLists": [
       ["mts:ivv.rubber:0:8","oredict:ingotIron:6","oredict:dustRedstone:4","minecraft:slime_ball:0:4","mts:ivv.rim_hypnodish:0:1"]

@@ -23,17 +23,11 @@
   "parts": [
     {
       "pos": [1.125,-0.06255,-0.18742],
-      "minValue": 0.75,
-      "maxValue": 0.875,
+      "minValue": 0.125,
+      "maxValue": 1.5,
       "defaultPart": "ivv:normaltire",
       "types": ["ground_wheel"],
-      "applyAfter": "rearleftsuspension",
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
-      ]
+      "applyAfter": "rearleftsuspension"
     },
     {
       "pos": [-1.125,-0.06255,-0.18742],
@@ -43,19 +37,13 @@
       "maxValue": 0.875,
       "defaultPart": "ivv:normaltire",
       "types": ["ground_wheel"],
-      "applyAfter": "rearrightsuspension",
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
-      ]
+      "applyAfter": "rearrightsuspension"
     },
     {
       "pos": [1.125,-0.06255,3.56258],
       "turnsWithSteer": true,
-      "minValue": 0.75,
-      "maxValue": 0.875,
+      "minValue": 0.125,
+      "maxValue": 1.5,
       "defaultPart": "ivv:normaltire",
       "types": ["ground_wheel"],
       "applyAfter": "frontleftsteer",
@@ -73,8 +61,8 @@
       "rot": [0.0,180.0,0.0],
       "turnsWithSteer": true,
       "isMirrored": true,
-      "minValue": 0.75,
-      "maxValue": 0.875,
+      "minValue": 0.125,
+      "maxValue": 1.5,
       "defaultPart": "ivv:normaltire",
       "types": ["ground_wheel"],
       "applyAfter": "frontrightsteer",
@@ -812,40 +800,41 @@
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 65,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     },
     {
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 135,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     },
     {
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 205,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     },
     {
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 275,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     },
     {
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 345,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     }
   ],
   "definitions": [
     {
+      "constants": ["defaultparts_rims_cyclone"],
       "subName": "_red",
       "name": "Vector",
       "extraMaterialLists": [
@@ -853,6 +842,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_cyclone"],
       "subName": "_green",
       "name": "Vector",
       "extraMaterialLists": [
@@ -860,6 +850,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_cyclone"],
       "subName": "_blue",
       "name": "Vector",
       "extraMaterialLists": [
@@ -867,6 +858,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_cyclone"],
       "subName": "_white",
       "name": "Vector",
       "extraMaterialLists": [
@@ -874,6 +866,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_cyclone"],
       "subName": "_black",
       "name": "Vector",
       "extraMaterialLists": [
@@ -910,8 +903,7 @@
     },
     {
       "variable": "throttle",
-      "minValue": 0,
-      "maxValue": 1,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -2248,6 +2240,7 @@
       },
       {
         "objectName": "headlightright",
+        "emissive": true,
         "isElectric": true,
         "color": "FFF3CF",
         "brightnessAnimations": [
@@ -2286,6 +2279,7 @@
       },
       {
         "objectName": "headlightleft",
+        "emissive": true,
         "isElectric": true,
         "color": "FFF3CF",
         "brightnessAnimations": [
@@ -2324,6 +2318,7 @@
       },
       {
         "objectName": "parklights",
+        "emissive": true,
         "isElectric": true,
         "color": "F07305",
         "brightnessAnimations": [
@@ -2367,6 +2362,7 @@
       },
       {
         "objectName": "foglights",
+        "emissive": true,
         "isElectric": true,
         "color": "FFF3CF",
         "brightnessAnimations": [
@@ -3264,8 +3260,8 @@
         "toTransparency": 0.01,
         "scale": 24.0,
         "toScale": 48.0,
-        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png","ivv:textures/particles/explosion_7.png","ivv:textures/particles/explosion_8.png"],
-        "textureDelays": [2,2,2,2,2,2,2,32767],
+        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png"],
+        "textureDelays": [1,1,1,1,1,32767],
         "color": "FFFFFF",
         "pos": [0.0,0.237865,1.19834],
         "initialVelocity": [0.0,0.0,0.0],
@@ -3625,7 +3621,7 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§r§lSTATS:\n§rDrivetrain: RWD\nMax. Top Speed: 146MPH\n0-60: 5.28\n0-Top Speed: 0:37:58\n§lACCESSORIES:\n§r-Bumper Sticker x2\n-License Plate x2\n-Lightbar/Gyrophare x1\n-Roof Device x1",
+    "description": "§lSTATS:\nDrivetrain: RWD\nMax. Top Speed: 146MPH\n0-60: 5.28\n0-Top Speed: 0:37:58\n§lACCESSORIES:\n-License Plate x2\n-Bumper Sticker x2\n-Lightbar/Gyrophare/Roof Device x1",
     "health": 2400,
     "materialLists": [
       ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","mts:ivv.bodypanel:0:4","mts:ivv.normaltire:0:4","mts:ivv.carseat:0:2","mts:ivv.v8newperformante:0:1","mts:ivv.classicfuel:0:1","mts:ivv.classicmph:0:1","mts:ivv.classictemp:0:1"]

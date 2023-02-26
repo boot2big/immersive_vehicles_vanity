@@ -1,0 +1,732 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "mass": 200,
+    "movementAnimations": [
+      {
+        "animationType": "rotation",
+        "variable": "no_thank_you_legacy_compats_i_think_my_bttf_is_fine_this_way",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,0.0]
+      }
+    ]
+  },
+  "ground": {
+    "isWheel": true,
+    "canFloat": true,
+    "width": 1.0,
+    "height": 1.0,
+    "lateralFriction": 0.05,
+    "frictionModifiers": {}
+  },
+  "parts": [
+    {
+      "pos": [0.0125,0.0,0.0],
+      "maxValue": 1.25,
+      "types": ["ground_wheel"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "hovering",
+          "centerPoint": [0.0125,0.0,0.0],
+          "axis": [0.0,0.0,-45.0],
+          "duration": 10,
+          "forwardsEasing": "easeoutcubic",
+          "reverseEasing": "easeoutcubic",
+          "forwardsDelay": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "hovering",
+          "axis": [0.0125,-0.05,0.0],
+          "duration": 10,
+          "forwardsEasing": "easeoutcubic",
+          "reverseEasing": "easeoutcubic",
+          "reverseDelay": 10
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "hovering"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!10_20_10_cycle",
+          "axis": [-0.0125,0.0125,0.0],
+          "duration": 20,
+          "forwardsEasing": "easeinoutsine",
+          "reverseEasing": "easeinoutsine"
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "hovering",
+          "reverseDelay": 20
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "hoverwheel",
+      "textureName": "hoverwheel",
+      "name": "Large Hoverwheel",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constants": ["ground_wheel_hoverwheel"],
+  "variableModifiers": [
+    {
+      "variable": "hovering",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "HOVER",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_running_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!damage_totaled",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_ground_wheel_hoverwheel",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "motiveFriction",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "ground_onground_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hovering"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!hovering",
+          "axis": [0.0,0.0,1.0],
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "variable": "lateralFriction",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "ground_onground_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hovering"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!hovering",
+          "axis": [0.0,0.0,0.625],
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "variable": "motiveFriction",
+      "maxValue": 8.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "hovering",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hovering",
+          "axis": [0.0,0.0,0.75],
+          "duration": 20
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.025,0.0,0.0],
+          "offset": 1.0,
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "lateralFriction",
+      "maxValue": 6.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "hovering",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hovering",
+          "axis": [0.0,0.0,0.125],
+          "duration": 20
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.00625,0.0,0.0],
+          "offset": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0375,0.0,0.0],
+          "offset": 1.0,
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "hover_sway",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ill_use_it_later",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "10_20_10_cycle",
+          "axis": [0.0,0.0,1.0],
+          "duration": 20,
+          "forwardsEasing": "easeinoutsine",
+          "reverseEasing": "easeinoutsine"
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [-0.0125,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "minValue": 0.125,
+      "maxValue": 16.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "hovering",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 10,
+          "reverseDelay": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_distance",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.75,
+          "clampMax": 24.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_distance",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0875,0.0,0.0],
+          "offset": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0375,0.0,0.0],
+          "offset": 0.6125,
+          "clampMin": 0.625,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "10_20_10_cycle",
+          "axis": [0.125,0.0,0.0],
+          "offset": 0.9875,
+          "duration": 20,
+          "forwardsEasing": "easeinoutsine",
+          "reverseEasing": "easeinoutsine"
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_backfired_1",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0,
+          "duration": 6,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "hovering",
+          "axis": [0.875,0.0,0.0],
+          "offset": 0.125,
+          "duration": 10
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      },
+      {
+        "objectName": "hover",
+        "applyAfter": "cube",
+        "animations": []
+      },
+      {
+        "objectName": "hoverthrusterleft",
+        "applyAfter": "hover",
+        "animations": []
+      },
+      {
+        "objectName": "hoverthrusterright",
+        "applyAfter": "hover",
+        "animations": []
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": ["HOVER"],
+    "sounds": [
+      {
+        "name": "ivv:jackscrape",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "hovering",
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.1,
+            "clampMax": 9999.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.1,0.0],
+            "offset": -0.1,
+            "clampMax": 0.75
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.01,0.0],
+            "offset": 0.7,
+            "clampMax": 2.0
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:blueboxambientshort",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "hovering",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "hovering",
+            "axis": [0.0,0.375,0.0],
+            "duration": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "damage_percent",
+            "axis": [0.0,0.375,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "hovering",
+            "axis": [0.0,0.5625,0.0],
+            "offset": 0.5625,
+            "duration": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0125,0.0],
+            "clampMax": 0.375
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0075,0.0],
+            "clampMax": 0.375
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "damage_percent",
+            "clampMax": 0.75
+          },
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": -0.125
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:explode_techno",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:hydraulicspmon",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "hovering",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.25,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:hydraulicspmoff",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "hovering"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.25,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "quantity": 2,
+        "duration": 100,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 12.0,
+        "toScale": 6.0,
+        "color": "787878",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,1.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "2_4_2_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "flame",
+        "isBright": true,
+        "quantity": 2,
+        "duration": 20,
+        "transparency": 2.0,
+        "toTransparency": 0.01,
+        "scale": 8.0,
+        "toScale": 4.0,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,1.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "2_4_2_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "quantity": 1,
+        "duration": 10,
+        "transparency": 2.0,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 8.0,
+        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png"],
+        "textureDelays": [1,1,1,1,1,32767],
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 2,
+        "duration": 60,
+        "transparency": 0.25,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 6.0,
+        "color": "787878",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "5_10_5_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "hovering",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "quantity": 1,
+        "duration": 10,
+        "transparency": 0.25,
+        "toTransparency": -1.0E-4,
+        "scale": 3.0,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "50BDD9",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,-1.25,0.0],
+        "movementVelocity": [0.0,0.005,0.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "hovering",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 2,
+        "duration": 40,
+        "transparency": 0.1,
+        "toTransparency": 1.0E-7,
+        "scale": 2.0,
+        "toScale": 20.0,
+        "color": "999999",
+        "pos": [0.0,-0.25,0.0],
+        "initialVelocity": [0.0,0.5,-0.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "hovering"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.1,
+            "clampMax": 9999.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "quantity": 2,
+        "duration": 20,
+        "transparency": 2.0,
+        "toTransparency": -1.0E-4,
+        "scale": 0.25,
+        "texture": "ivv:textures/particles/pattern2.png",
+        "color": "EDAC28",
+        "pos": [0.0,-0.25,0.0],
+        "initialVelocity": [0.0,1.0,-1.25],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "hovering"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.1,
+            "clampMax": 9999.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Hoverwheel",
+    "description": "",
+    "stackSize": 64,
+    "health": 300,
+    "materialLists": [
+      ["mts:ivv.tcalloy:0:2","oredict:dustRedstone:6","oredict:enderpearl:1"]
+    ],
+    "repairMaterialLists": [
+      ["oredict:dustRedstone:3","oredict:enderpearl:1"]
+    ]
+  }
+}

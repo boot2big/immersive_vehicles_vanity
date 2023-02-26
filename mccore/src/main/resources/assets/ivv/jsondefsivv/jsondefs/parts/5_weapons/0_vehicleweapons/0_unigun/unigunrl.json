@@ -4,20 +4,20 @@
   },
   "gun": {
     "lockOnType": "default",
-    "targetType": "all",
+    "targetType": "hard",
     "autoReload": true,
-    "isSemiAuto": true,
     "canLockTargets": true,
+    "isSemiAuto": true,
     "capacity": 20,
     "reloadTime": 5,
     "muzzleVelocity": 100,
     "fireDelay": 10.0,
-    "gravitationalVelocity": 0.03,
+    "bulletSpreadFactor": 1.0,
     "diameter": 60.0,
     "minCaseLength": 240.0,
     "maxCaseLength": 240.0,
-    "yawSpeed": Infinity,
-    "pitchSpeed": Infinity,
+    "yawSpeed": 22.5,
+    "pitchSpeed": 22.5,
     "lockRange": 256,
     "lockMaxAngle": 45.0,
     "muzzleGroups": [
@@ -26,7 +26,7 @@
           {
             "pos": [0.25,0.0,0.0],
             "rot": [0.0,0.0,0.0],
-            "center": [0.0,0.0,0.0]
+            "center": [0.25,0.0,0.0]
           }
         ]
       },
@@ -35,7 +35,7 @@
           {
             "pos": [1.0,0.0,0.0],
             "rot": [0.0,0.0,0.0],
-            "center": [0.0,0.0,0.0]
+            "center": [1.0,0.0,0.0]
           }
         ]
       }
@@ -44,6 +44,8 @@
   "definitions": [
     {
       "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
       "name": "WMG Missile Launcher",
       "extraMaterialLists": [
         []
@@ -80,11 +82,19 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:wmg_reloadingrocket",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired"
+          },
           {
             "animationType": "visibility",
             "variable": "gun_reload",
@@ -93,7 +103,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockactive",
@@ -112,7 +126,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockinactive",
@@ -129,7 +147,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockidle",
@@ -159,7 +181,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockaiming",
@@ -189,7 +215,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockready",
@@ -221,7 +251,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       }
     ],
     "particles": [],

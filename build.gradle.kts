@@ -20,7 +20,7 @@ subprojects {
     apply(plugin = "java")
 }
 
-var modVersion: String = "2.1.0"
+var modVersion: String = "2.2.0"
 
 var mcCore = project(":mccore")
 var mcInterfaceForge1122 = project(":mcinterfaceforge1122")

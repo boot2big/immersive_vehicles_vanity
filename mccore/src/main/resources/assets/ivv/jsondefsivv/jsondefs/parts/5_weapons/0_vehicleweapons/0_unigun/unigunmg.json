@@ -6,6 +6,7 @@
     "lockOnType": "default",
     "targetType": "all",
     "autoReload": true,
+    "canLockTargets": true,
     "capacity": 500,
     "reloadTime": 10,
     "muzzleVelocity": 900,
@@ -13,15 +14,15 @@
     "bulletSpreadFactor": 2.0,
     "diameter": 7.62,
     "maxCaseLength": 67.0,
-    "yawSpeed": Infinity,
-    "pitchSpeed": Infinity,
+    "yawSpeed": 11.25,
+    "pitchSpeed": 11.25,
     "lockMaxAngle": 0.0,
     "muzzleGroups": [
       {
         "muzzles": [
           {
             "pos": [0.0,0.0,0.0],
-            "rot": [0.0,0.0,0.0],
+            "rot": [0.0,-1.0,0.0],
             "center": [0.0,0.0,0.0]
           }
         ]
@@ -30,8 +31,8 @@
         "muzzles": [
           {
             "pos": [-1.25,0.0,0.0],
-            "rot": [0.0,0.0,0.0],
-            "center": [0.0,0.0,0.0]
+            "rot": [0.0,1.0,0.0],
+            "center": [-1.25,0.0,0.0]
           }
         ]
       }
@@ -40,6 +41,8 @@
   "definitions": [
     {
       "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
       "name": "WMG Machine Gun",
       "extraMaterialLists": [
         []
@@ -76,7 +79,11 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:bulletdistantmg",
@@ -106,11 +113,19 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 128
+        "minDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:wmg_reloading",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired"
+          },
           {
             "animationType": "visibility",
             "variable": "gun_reload",
@@ -119,7 +134,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -155,7 +174,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       }
     ],
     "particles": [
@@ -170,12 +193,26 @@
         "color": "555555",
         "pos": [0.0,0.0,0.0625],
         "initialVelocity": [0.0,0.0,2.0],
+        "spawningAnimations": [
+        {
+          "animationType": "rotation",
+          "variable": "gun_yaw",
+          "centerPoint": [0.0,0.0,0.0625],
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_pitch",
+          "centerPoint": [0.0,0.0,0.0625],
+          "axis": [1.0,0.0,0.0]
+        }
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "gun_active_muzzlegroup",
-            "clampMin": 2.0,
-            "clampMax": 2.0
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -196,12 +233,26 @@
         "color": "555555",
         "pos": [-1.25,0.0,0.0625],
         "initialVelocity": [0.0,0.0,2.0],
+        "spawningAnimations": [
+        {
+          "animationType": "rotation",
+          "variable": "gun_yaw",
+          "centerPoint": [-1.25,0.0,0.0625],
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_pitch",
+          "centerPoint": [-1.25,0.0,0.0625],
+          "axis": [1.0,0.0,0.0]
+        }
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "gun_active_muzzlegroup",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "clampMin": 2.0,
+            "clampMax": 2.0
           },
           {
             "animationType": "visibility",
@@ -212,7 +263,7 @@
         ]
       }
     ],
-    "modelType": "none"
+    "modelType": "obj"
   },
   "general": {
     "description": "Fires mostly any correctly diametered bullets",

@@ -16,11 +16,11 @@
     "width": 0.45,
     "height": 1.0,
     "flatHeight": 0.625,
-    "motiveFriction": 0.875,
-    "lateralFriction": 0.875,
+    "motiveFriction": 0.75,
+    "lateralFriction": 0.75,
     "frictionModifiers": {
-      "snow": -0.375,
-      "ice": -0.75,
+      "snow": -0.25,
+      "ice": -0.5,
       "dirt_wet": -0.125,
       "sand": -0.125,
       "sand_wet": -0.25,
@@ -33,14 +33,14 @@
       "maxValue": 1.0,
       "partScale": [1.0,1.0,1.0],
       "types": ["generic_rim"],
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [1.0,0.0,0.0]
-          }
-          ]
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
     }
   ],
   "definitions": [
@@ -70,7 +70,7 @@
         {
           "animationType": "visibility",
           "variable": "throttle",
-          "clampMin": 0.625,
+          "clampMin": 0.5125,
           "clampMax": 1.0
         },
         {
@@ -169,6 +169,68 @@
     ],
     "lightObjects": [],
     "sounds": [
+      {
+        "name": "ivv:tirelandsoft",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "vertical_speed",
+            "clampMin": -3.5,
+            "clampMax": -1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:tirelandhard",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "vertical_speed",
+            "clampMin": -32767.0,
+            "clampMax": -3.5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.25
+      },
       {
         "name": "ivv:tirepop",
         "activeAnimations": [
@@ -1300,7 +1362,7 @@
   "general": {
     "name": "Big Wheel [Budd]",
     "description": "Truck sized wheel",
-    "stackSize": 4,
+    "stackSize": 64,
     "health": 260,
     "materialLists": [
       ["mts:ivv.rubber:0:10","oredict:ingotIron:8"]

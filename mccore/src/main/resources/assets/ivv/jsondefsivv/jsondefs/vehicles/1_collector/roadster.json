@@ -46,37 +46,25 @@
       "pos": [-1.19999,-0.0625,-0.25],
       "rot": [0.0,180.0,0.0],
       "isMirrored": true,
-      "minValue": 0.75,
-      "maxValue": 0.875,
+      "minValue": 0.125,
+      "maxValue": 1.5,
       "defaultPart": "ivv:normaltire",
-      "types": ["ground_wheel"],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
-      ]
+      "types": ["ground_wheel"]
     },
     {
       "pos": [1.19999,-0.0625,-0.25],
-      "minValue": 0.75,
-      "maxValue": 0.875,
+      "minValue": 0.125,
+      "maxValue": 1.5,
       "defaultPart": "ivv:normaltire",
-      "types": ["ground_wheel"],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
-      ]
+      "types": ["ground_wheel"]
     },
     {
       "pos": [-1.19999,-0.0625,3.3125],
       "rot": [0.0,180.0,0.0],
       "turnsWithSteer": true,
       "isMirrored": true,
-      "minValue": 0.75,
-      "maxValue": 0.875,
+      "minValue": 0.125,
+      "maxValue": 1.5,
       "defaultPart": "ivv:normaltire",
       "types": ["ground_wheel"],
       "animations": [
@@ -90,15 +78,15 @@
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake"
+          "variable": "true"
         }
       ]
     },
     {
       "pos": [1.19999,-0.0625,3.3125],
       "turnsWithSteer": true,
-      "minValue": 0.75,
-      "maxValue": 0.875,
+      "minValue": 0.125,
+      "maxValue": 1.5,
       "defaultPart": "ivv:normaltire",
       "types": ["ground_wheel"],
       "animations": [
@@ -112,7 +100,7 @@
       "activeAnimations": [
         {
           "animationType": "visibility",
-          "variable": "p_brake"
+          "variable": "true"
         }
       ]
     },
@@ -1149,40 +1137,41 @@
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 65,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     },
     {
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 135,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     },
     {
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 205,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     },
     {
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 275,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     },
     {
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
       "hudX": 345,
-      "hudY": 102,
+      "hudY": 104,
       "hudScale": 0.5
     }
   ],
   "definitions": [
     {
+      "constants": ["defaultparts_rims_wire"],
       "subName": "_silver",
       "name": "Roadster",
       "extraMaterialLists": [
@@ -1190,6 +1179,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_wire"],
       "subName": "_white",
       "name": "Roadster",
       "extraMaterialLists": [
@@ -1197,6 +1187,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_wire"],
       "subName": "_black",
       "name": "Roadster",
       "extraMaterialLists": [
@@ -1204,6 +1195,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_wire"],
       "subName": "_orange",
       "name": "Roadster",
       "extraMaterialLists": [
@@ -1211,6 +1203,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_wire"],
       "subName": "_purple",
       "name": "Roadster",
       "extraMaterialLists": [
@@ -1218,6 +1211,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_wire"],
       "subName": "_lime",
       "name": "Roadster",
       "extraMaterialLists": [
@@ -1225,6 +1219,7 @@
       ]
     },
     {
+      "constants": ["defaultparts_rims_wire"],
       "subName": "_red",
       "name": "Roadster",
       "extraMaterialLists": [
@@ -1408,8 +1403,8 @@
     },
     {
       "variable": "input_rudder",
-      "minValue": -10,
-      "maxValue": 10,
+      "minValue": -10.0,
+      "maxValue": 10.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -1434,8 +1429,7 @@
     },
     {
       "variable": "throttle",
-      "minValue": 0,
-      "maxValue": 1,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -2587,6 +2581,98 @@
         "middleDistanceVolume": 0.0
       },
       {
+        "name": "ivv:chimering2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "electric_power",
+            "clampMin": 5.0,
+            "clampMax": 16.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "vehicle_traction_control",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pos": [0.53125,0.906462,3.03093],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:chimeerror2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "electric_power",
+            "clampMin": 5.0,
+            "clampMax": 16.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "vehicle_traction_control"
+          }
+        ],
+        "pos": [0.53125,0.906462,3.03093],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:chimeautopiloton2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "electric_power",
+            "clampMin": 5.0,
+            "clampMax": 16.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "autopilot_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pos": [0.53125,0.906462,3.03093],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:chimeautopilotoff2",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "electric_power",
+            "clampMin": 5.0,
+            "clampMax": 16.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "autopilot_active"
+          }
+        ],
+        "pos": [0.53125,0.906462,3.03093],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
         "name": "ivv:chimestart2",
         "activeAnimations": [
           {
@@ -2804,8 +2890,8 @@
         "toTransparency": 0.01,
         "scale": 24.0,
         "toScale": 48.0,
-        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png","ivv:textures/particles/explosion_7.png","ivv:textures/particles/explosion_8.png"],
-        "textureDelays": [2,2,2,2,2,2,2,32767],
+        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png"],
+        "textureDelays": [1,1,1,1,1,32767],
         "color": "FFFFFF",
         "pos": [0.0,0.314984,1.43942],
         "initialVelocity": [0.0,0.0,0.0],
@@ -2822,7 +2908,7 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§r§lSTATS:\n§rDrivetrain: AWD\nMax. Top Speed: 141MPH\n0-60: 4.26\n0-Top Speed: 0:16:77\nTCS equipped\n§lACCESSORIES:\n§r-License Plate x2",
+    "description": "§lSTATS:\nDrivetrain: AWD\nMax. Top Speed: 141MPH\n0-60: 4.26\n0-Top Speed: 0:16:77\nTCS equipped\n§lACCESSORIES:\n-License Plate x2",
     "health": 4800,
     "materialLists": [
       ["mts:ivv.frame:0:1","mts:ivv.axle:0:1","mts:ivv.bodypanel:0:4","mts:ivv.normaltire:0:4","mts:ivv.carseat_gray:0:2","mts:ivv.ultra_electricmotor:0:2","mts:ivv.fuelelectric:0:1","mts:ivv.screen:0:1"]
