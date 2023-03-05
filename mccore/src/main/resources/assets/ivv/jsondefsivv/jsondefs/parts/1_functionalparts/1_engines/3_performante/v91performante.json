@@ -5,44 +5,44 @@
     "height": 0.625,
     "mass": 270,
     "movementAnimations": [
-        {
-          "animationType": "translation",
-          "variable": "engine_piston_0_1_0_crank",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,0.00625,0]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "engine_cos",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,0.0,1]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "engine_rpm_percent",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,0.0,-3],
-          "clampMin": -3,
-          "clampMax": 3
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "engine_running"
-        },
-        {
-          "animationType": "rotation",
-          "variable": "throttle",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,0.0,1]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "throttle",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,0.0,1],
-          "duration": 5
-        }
-      ]
+      {
+        "animationType": "translation",
+        "variable": "engine_piston_0_1_0_crank",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.00625,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "engine_cos",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,1.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "engine_rpm_percent",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,-3.0],
+        "clampMin": -3.0,
+        "clampMax": 3.0
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "engine_running"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "throttle",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,1.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "throttle",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,1.0],
+        "duration": 5
+      }
+    ]
   },
   "engine": {
     "type": "normal",
@@ -647,6 +647,37 @@
           "offset": -1.0
         }
       ]
+    },
+    {
+      "variable": "engine_revlimit_backfire",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "poppop",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "1_4_0_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "engine_gear"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_rpm_percent_revlimit",
+          "clampMin": -10.0,
+          "clampMax": 0.9875
+        },
+        {
+          "animationType": "translation",
+          "variable": "!poppop",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -677,7 +708,7 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -692,14 +723,21 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
       },
       {
-        "name": "ivv:v91performantemanual_sputter",
+        "name": "ivv:enginesputter1",
+        "soundVariations": ["ivv:enginesputter1","ivv:enginesputter2","ivv:enginesputter3","ivv:enginesputter4"],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_hours",
+            "clampMin": 250.0,
+            "clampMax": 750.0
+          },
           {
             "animationType": "visibility",
             "variable": "engine_backfired",
@@ -707,10 +745,77 @@
             "clampMax": 1.0
           }
         ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ],
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:enginesputterbig1",
+        "soundVariations": ["ivv:enginesputterbig1","ivv:enginesputterbig2","ivv:enginesputterbig3","ivv:enginesputterbig4"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_hours",
+            "clampMin": 750.0,
+            "clampMax": 10000.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 64.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:enginebackfire1",
+        "soundVariations": ["ivv:enginebackfire1","ivv:enginebackfire2","ivv:enginebackfire3"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_revlimit_backfire",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 32.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -727,7 +832,7 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -744,7 +849,7 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -762,7 +867,7 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -780,7 +885,7 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -798,7 +903,97 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:hydraulicsupercushion",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 100
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!engine_powered",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.25,
+            "duration": 10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_powered",
+            "axis": [0.0,0.125,0.0],
+            "offset": 1.125,
+            "duration": 10
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:enginepressurehiss",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "reverseDelay": 100
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:jumpercable",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_jumper_cable",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -833,12 +1028,13 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
       },
-      {        "name": "ivv:enginehourrattle",
+      {
+        "name": "ivv:enginehourrattle",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -887,7 +1083,7 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -904,7 +1100,7 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -943,7 +1139,7 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -958,7 +1154,7 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -992,7 +1188,7 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -1038,7 +1234,7 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -1161,12 +1357,14 @@
     "particles": [
       {
         "type": "flame",
-        "quantity": 1,
+        "quantity": 2,
         "duration": 40,
         "transparency": 4.0,
         "toTransparency": 0.01,
-        "scale": 4.0,
-        "toScale": 6.0,
+        "scale": 3.0,
+        "toScale": 4.0,
+        "spreadFactorHorizontal": 4,
+        "spreadFactorVertical": 1,
         "color": "FFFFFF",
         "pos": [0.0,0.0,0.75],
         "initialVelocity": [0.0,0.25,0.25],
@@ -1192,55 +1390,20 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "reverseDelay": 50
+            "reverseDelay": 40
           }
         ]
       },
       {
         "type": "smoke",
-        "quantity": 5,
-        "duration": 40,
+        "quantity": 4,
+        "duration": 60,
         "transparency": 0.75,
         "toTransparency": 0.01,
         "scale": 4.0,
         "toScale": 8.0,
-        "color": "555555",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.0,0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.875,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "1_2_1_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_powered",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 50
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "quantity": 5,
-        "duration": 40,
-        "transparency": 0.75,
-        "toTransparency": 0.01,
-        "scale": 2.0,
-        "toScale": 4.0,
+        "spreadFactorHorizontal": 8,
+        "spreadFactorVertical": 2,
         "color": "555555",
         "pos": [0.0,0.0,0.75],
         "initialVelocity": [0.0,0.0,0.5],
@@ -1253,7 +1416,7 @@
             "animationType": "visibility",
             "variable": "parent_damage_percent",
             "clampMin": 0.75,
-            "clampMax": 0.875
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -1266,7 +1429,63 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0,
+            "reverseDelay": 90
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 8,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 6.0,
+        "toScale": 12.0,
+        "spreadFactorHorizontal": 8,
+        "spreadFactorVertical": 2,
+        "color": "888888",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.0,0.75],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
             "reverseDelay": 100
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 2.0,
+        "toTransparency": -1.0E-4,
+        "scale": 0.375,
+        "toScale": 0.625,
+        "texture": "ivv:textures/particles/pattern2.png",
+        "color": "EDAC28",
+        "spreadFactorHorizontal": 10,
+        "spreadFactorVertical": 1,
+        "pos": [0.0,0.25,0.375],
+        "initialVelocity": [0.0,0.625,0.375],
+        "movementVelocity": [0.0,-0.01,0.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_jumper_cable",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -1316,6 +1535,8 @@
   "general": {
     "name": "Performante V12 Engine §2(Manual)",
     "description": "6.3L48V Performance IVLabs Motor",
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["mts:ivv.engineblockperformance:0:1","mts:ivv.enginepiston:0:12","mts:ivv.fuelfihyper:0:1","mts:ivv.gearboxmanual:0:1"]

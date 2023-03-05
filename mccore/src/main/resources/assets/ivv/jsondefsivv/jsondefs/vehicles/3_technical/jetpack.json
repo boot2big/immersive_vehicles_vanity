@@ -6,7 +6,7 @@
     "fuelCapacity": 6000,
     "defaultFuelQty": 6000,
     "brakingFactor": 0.25,
-    "dragCoefficient": 0.6,
+    "dragCoefficient": 0.05,
     "litVariable": "engine_magneto_1",
     "panel": "mts:default_plane",
     "hudTexture": "ivv:textures/guis/ivlabspanel_jetpack.png",
@@ -14,7 +14,7 @@
   },
   "parts": [
     {
-      "pos": [0.375,1.0,-0.25],
+      "pos": [0.21875,1.10156,-0.25],
       "rot": [-90.0,0.0,0.0],
       "maxValue": 10.0,
       "defaultPart": "ivv:microjet",
@@ -22,26 +22,8 @@
       "linkedParts": [],
       "animations": [
         {
-          "animationType": "rotation",
-          "variable": "elevatorModified",
-          "centerPoint": [0.375,1.0,0.25],
-          "axis": [-3.625,0.0,0.0]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "aileronModified",
-          "centerPoint": [0.375,1.0,0.25],
-          "axis": [0.0,0.0,3.625]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "rudderModified",
-          "centerPoint": [0.375,1.0,0.25],
-          "axis": [1.5,0.0,0.0]
-        },
-        {
           "animationType": "visibility",
-          "variable": "nazi_are_scum",
+          "variable": "ivv_best",
           "clampMin": 1.0,
           "clampMax": 1.0
         }
@@ -56,7 +38,7 @@
       ]
     },
     {
-      "pos": [-0.375,1.0,-0.25],
+      "pos": [-0.21875,1.10156,-0.25],
       "rot": [-90.0,0.0,0.0],
       "maxValue": 10.0,
       "defaultPart": "ivv:microjet",
@@ -64,26 +46,8 @@
       "linkedParts": [],
       "animations": [
         {
-          "animationType": "rotation",
-          "variable": "elevatorModified",
-          "centerPoint": [0.375,1.0,0.25],
-          "axis": [-3.625,0.0,0.0]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "aileronModified",
-          "centerPoint": [0.375,1.0,0.25],
-          "axis": [0.0,0.0,3.625]
-        },
-        {
-          "animationType": "rotation",
-          "variable": "rudderModified",
-          "centerPoint": [-0.375,1.0,0.25],
-          "axis": [-1.5,0.0,0.0]
-        },
-        {
           "animationType": "visibility",
-          "variable": "nazi_are_scum",
+          "variable": "ivv_best",
           "clampMin": 1.0,
           "clampMax": 1.0
         }
@@ -114,7 +78,7 @@
       ]
     },
     {
-      "pos": [0.25,0.25,0.25],
+      "pos": [0.125,0.125,0.125],
       "isPermanent": true,
       "minValue": 0.1,
       "maxValue": 1.0,
@@ -130,7 +94,7 @@
       ]
     },
     {
-      "pos": [-0.25,0.25,0.25],
+      "pos": [-0.125,0.125,0.125],
       "rot": [0.0,0.0,0.0],
       "isPermanent": true,
       "isMirrored": true,
@@ -148,7 +112,7 @@
       ]
     },
     {
-      "pos": [0.25,0.25,-0.25],
+      "pos": [0.125,0.125,-0.125],
       "isPermanent": true,
       "minValue": 0.1,
       "maxValue": 1.0,
@@ -164,7 +128,7 @@
       ]
     },
     {
-      "pos": [-0.25,0.25,-0.25],
+      "pos": [-0.125,0.125,-0.125],
       "rot": [0.0,0.0,0.0],
       "isPermanent": true,
       "isMirrored": true,
@@ -282,114 +246,33 @@
         },
         {
           "animationType": "translation",
-          "variable": "!ground_onground_1",
+          "variable": "ground_onground_1",
           "axis": [1.0,0.0,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "!ground_onground_2",
+          "variable": "ground_onground_2",
           "axis": [1.0,0.0,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "!ground_onground_3",
+          "variable": "ground_onground_3",
           "axis": [1.0,0.0,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "!ground_onground_4",
+          "variable": "ground_onground_4",
           "axis": [1.0,0.0,0.0]
         }
       ]
     },
     {
-      "variable": "elevatorModified",
-      "minValue": -25.0,
-      "maxValue": 25.0,
+      "variable": "brake",
       "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "elevatorModified",
-          "clampMin": -25.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "!elevator",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,1.0,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "elevatorModified",
-      "minValue": -25.0,
-      "maxValue": 25.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "elevatorModified",
-          "clampMax": 25.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "!elevator",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,-1.0,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "elevatorModified",
-      "minValue": -25.0,
-      "maxValue": 25.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "elevator",
-          "axis": [0.0,0.08,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "rudderModified",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "rudder",
-          "axis": [0.0,0.0,1.0]
-        },
         {
           "animationType": "translation",
           "variable": "onGround",
-          "axis": [1.0,0.0,0.0],
-          "duration": 30
-        }
-      ]
-    },
-    {
-      "variable": "aileronModified",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "aileron",
           "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "onGround",
-          "axis": [0.75,0.0,0.0],
-          "offset": 0.25,
-          "duration": 30
         }
       ]
     },
@@ -398,26 +281,30 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "!spingles_spangled",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "translation",
           "variable": "onGround",
-          "axis": [1.0,0.0,0.0],
-          "duration": 30
+          "axis": [0.0,0.0,1.0]
         }
       ]
     },
     {
       "variable": "dragCoefficient",
-      "addValue": 1.0,
+      "addValue": 0.15,
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "damage_percent",
+          "variable": "seat_occupied_1",
           "clampMin": 1.0,
           "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "dragCoefficient",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.0,0.3,0.0]
         }
       ]
     }
@@ -638,13 +525,15 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§lSTATS:\nMax. Top Speed: 70MPH\n0-60: 5.31\n0-Top Speed: 0:10.43\n§lNO AVAILABLE ACCESSORIES",
+    "description": "§lSTATS:\nMax. Top Speed: 30MPH\n0-Top Speed: 0:10.43\n§lNO AVAILABLE ACCESSORIES",
     "health": 200,
     "materialLists": [
       ["mts:ivv.tcalloy:0:8","mts:ivv.microjet:0:2","mts:ivv.fueldigital:0:1","mts:ivv.mphdigital:0:1"]
     ],
     "repairMaterialLists": [
       ["mts:ivv.tcalloy:0:4"]
-    ]
+    ],
+    "radarWidth": 180.0,
+    "radarRange": 256.0
   }
 }

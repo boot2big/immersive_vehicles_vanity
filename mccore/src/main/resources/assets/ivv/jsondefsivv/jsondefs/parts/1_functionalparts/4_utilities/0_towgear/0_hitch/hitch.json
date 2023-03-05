@@ -1,6 +1,7 @@
 {
   "generic": {
     "type": "generic_hitch_mount",
+    "forceAllLinks": true,
     "width": 0.125,
     "height": 0.125
   },
@@ -134,14 +135,12 @@
         {
           "animationType": "visibility",
           "variable": "generic_hitch_attachment_industrial_1",
-          "clampMin": -1.0,
+          "clampMin": 1.0,
           "clampMax": 1.0
         },
         {
           "animationType": "visibility",
-          "variable": "part_present_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "variable": "part_present_1"
         }
       ]
     },
@@ -157,14 +156,6 @@
           "variableValue": 0.25,
           "clampMax": 1.25
         }
-      ],
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "hitch_orientation",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
       ]
     }
   ],
@@ -178,6 +169,20 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "hitch_orientation",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "generic_hitch_attachment_industrial_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "no",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
     {
       "variable": "hitch_scale",
       "animations": [
@@ -214,6 +219,10 @@
         "objectName": "bolt",
         "applyAfter": "joint",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          },
           {
             "animationType": "visibility",
             "variable": "hitch_orientation"
@@ -269,6 +278,12 @@
         "applyAfter": "mount",
         "animations": [
           {
+            "animationType": "rotation",
+            "variable": "hitch_pitch",
+            "centerPoint": [0.0,0.0625,-0.0625],
+            "axis": [0.875,0.0,0.0]
+          },
+          {
             "animationType": "visibility",
             "variable": "generic_hitch_attachment_industrial_1",
             "clampMin": 1.0,
@@ -293,6 +308,8 @@
     "health": 100,
     "materialLists": [
       ["oredict:ingotIron:2"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

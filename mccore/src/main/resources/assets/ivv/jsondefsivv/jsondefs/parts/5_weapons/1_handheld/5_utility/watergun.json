@@ -1,7 +1,8 @@
 {
   "generic": {
-    "type": "gun_hand_heavy",
-    "canBeRemovedByHand": true
+    "type": "gun_hand_sprayer",
+    "canBeRemovedByHand": true,
+    "forceAllLinks": true
   },
   "gun": {
     "lockOnType": "default",
@@ -20,22 +21,22 @@
     "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.1,-0.1,0.4],
     "handHeldAimedOffset": [0.315,0.05,0.45],
-    "handHeldModelOffset": [0.0,0.078125,0.15625],
+    "handHeldModelOffset": [0.0,0.078125,0.1875],
     "muzzleGroups": [
       {
         "muzzles": [
           {
-            "pos": [0.0,0.0,0.560547],
+            "pos": [0.0,0.0,0.529297],
             "rot": [-5.0,0.0,0.0],
             "center": [0.0,0.0,0.0]
           },
           {
-            "pos": [0.0,0.0,0.560546],
+            "pos": [0.0,0.0,0.529296],
             "rot": [-5.0,0.0,0.0],
             "center": [0.0,0.0,0.0]
           },
           {
-            "pos": [0.0,0.0,0.560545],
+            "pos": [0.0,0.0,0.529295],
             "rot": [-5.0,0.0,0.0],
             "center": [0.0,0.0,0.0]
           }
@@ -43,6 +44,44 @@
       }
     ]
   },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.11718,0.50743],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "gun_scope_installed",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_inhand"
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.0,0.296875],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "gun_case_installed",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_inhand"
+        }
+      ]
+    }
+  ],
   "definitions": [
     {
       "subName": "",
@@ -150,7 +189,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "gun_inhand_sneaking"
+            "variable": "gun_scope_installed"
           }
         ]
       },
@@ -165,20 +204,39 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "unused",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "gun_case_installed"
           }
         ]
       },
       {
         "objectName": "barrel",
         "applyAfter": "cube",
-        "animations": []
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_active_1"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_yaw_1",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_pitch_1",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [1.0,0.0,0.0]
+        }
+       ]
       },
       {
         "objectName": "cube",
         "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "gun_inhand"
+          },
           {
             "animationType": "rotation",
             "variable": "gun_reload",
@@ -259,7 +317,7 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -283,7 +341,7 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
+        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0
@@ -294,6 +352,8 @@
   },
   "general": {
     "name": "Sprayer",
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["oredict:ingotIron:6","oredict:dustRedstone:6","minecraft:bucket:0:2"]

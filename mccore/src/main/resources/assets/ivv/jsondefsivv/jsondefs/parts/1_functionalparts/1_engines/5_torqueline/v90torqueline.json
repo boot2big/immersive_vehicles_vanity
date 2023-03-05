@@ -1,7 +1,46 @@
 {
   "generic": {
     "type": "engine_car",
-    "mass": 420
+    "mass": 420,
+    "movementAnimations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_piston_0_1_0_crank",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.00625,0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "engine_cos",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,1]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "engine_rpm_percent",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,-3],
+          "clampMin": -3,
+          "clampMax": 3
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_running"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "throttle",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,1]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "throttle",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,1],
+          "duration": 5
+        }
+      ]
   },
   "engine": {
     "type": "normal",
@@ -10,13 +49,14 @@
     "shiftSpeed": 20,
     "clutchTime": 3,
     "revResistance": 12,
-    "maxRPM": 6600,
-    "maxSafeRPM": 4400,
+    "revResistance": 16,
+    "maxRPM": 4500,
+    "maxSafeRPM": 3600,
     "idleRPM": 500,
-    "startRPM": 350,
-    "revlimitRPM": 4180,
-    "revlimitBounce": 12,
-    "stallRPM": 325,
+    "startRPM": 400,
+    "revlimitRPM": 3500,
+    "revlimitBounce": 24,
+    "stallRPM": 300,
     "engineWinddownRate": 100,
     "heatingCoefficient": 1.0,
     "coolingCoefficient": 1.0,
@@ -26,10 +66,83 @@
     "upShiftRPM": [3500,0,3500,3500,3500,3500,3500,3500,3500,3500,3500],
     "downShiftRPM": [1250,0,1250,1250,1250,1250,1250,1250,1250,1250,1250],
     "fuelType": "diesel",
-    "superchargerFuelConsumption": 1.5,
+    "superchargerFuelConsumption": 1.05,
     "superchargerEfficiency": 1.0,
     "isCrankingNotPitched": true
   },
+  "parts": [
+    {
+      "pos": [-0.49345,0.11627,0.30433],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "types": ["generic_engine_turbo"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.35875,0.15625,0.625],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "partScale": [0.5,0.5,0.5],
+      "types": ["generic_engine_upgrade"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,-0.125,0.875],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "partScale": [0.5,0.5,0.5],
+      "types": ["generic_engine_gearbox"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,0.375,0.25],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "partScale": [0.5,0.5,0.5],
+      "types": ["generic_engine_topend"],
+      "interactableVariables": [
+        ["parent_bench_status"]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
   "definitions": [
     {
       "subName": "",
@@ -41,22 +154,112 @@
   ],
   "variableModifiers": [
     {
-      "variable": "superchargerFuelConsumption",
+      "variable": "engine_obdiii_present",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!built_atlas_tough",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_obdiii_horsepower",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!built_atlas_tough",
+          "axis": [0.0,0.0,665.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_turbo_power_1",
+          "axis": [0.0,98.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_upgrade_2",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [-1.5E-4,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.5
+        }
+      ]
+    },
+    {
+      "variable": "engine_obdiii_torque",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!built_atlas_tough",
+          "axis": [0.0,0.0,1645.5]
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_turbo_power_1",
+          "axis": [0.0,211.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_upgrade_2",
+          "axis": [0.8,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [-1.5E-4,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.5
+        }
+      ]
+    },
+    {
+      "variable": "engine_checklight",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "idiot_lightbulb",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [0.0,1.0,0.0],
+          "offset": -500.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_temp",
+          "axis": [0.0,1.0,0.0],
+          "offset": -110.0,
+          "clampMin": 1.25E-4,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_oilleak",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
       "animations": [
         {
           "animationType": "translation",
           "variable": "throttle",
-          "axis": [0.0,0.5,0.0],
-          "offset": -0.25,
-          "clampMin": 0.0625,
-          "duration": 15
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_rpm_percent_safe",
-          "axis": [0.0,0.5,0.0],
-          "offset": -0.25,
-          "clampMin": 0.0625
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
         }
       ]
     },
@@ -91,24 +294,24 @@
         {
           "animationType": "visibility",
           "variable": "engine_temp",
-          "clampMin": 110.0,
+          "clampMin": 100.0,
           "clampMax": 1000.0
         }
       ]
     },
     {
       "variable": "revlimitRPM",
-      "setValue": 4000.0,
+      "setValue": 3500.0,
       "animations": [
         {
           "animationType": "visibility",
           "variable": "engine_temp",
-          "clampMin": -10.0,
+          "clampMin": -32767.0,
           "clampMax": 110.0
         },
         {
           "animationType": "visibility",
-          "variable": "engine_gear"
+          "variable": "engine_gearshift"
         }
       ]
     },
@@ -116,21 +319,17 @@
       "variable": "idleRPM",
       "animations": [
         {
-          "animationType": "inhibitor",
+          "animationType": "visibility",
           "variable": "!engine_gear"
         },
         {
-          "animationType": "inhibitor",
-          "variable": "throttle",
-          "clampMin": 0.0625,
-          "clampMax": 2.0
-        },
-        {
           "animationType": "translation",
-          "variable": "5_10_0_cycle",
-          "axis": [0.0,100.0,0.0],
-          "forwardsEasing": "easeinoutbounce",
-          "reverseEasing": "easeinoutbounce"
+          "variable": "2_4_2_cycle",
+          "axis": [0.0,20.0,0.0],
+          "offset": -10.0,
+          "duration": 4,
+          "forwardsEasing": "easeinoutback",
+          "reverseEasing": "easeinoutback"
         }
       ]
     },
@@ -138,22 +337,131 @@
       "variable": "idleRPM",
       "animations": [
         {
-          "animationType": "inhibitor",
+          "animationType": "visibility",
+          "variable": "engine_gear"
+        },
+        {
+          "animationType": "translation",
+          "variable": "5_10_5_cycle",
+          "axis": [0.0,100.0,0.0],
+          "offset": -50.0,
+          "duration": 10,
+          "forwardsEasing": "easeinoutback",
+          "reverseEasing": "easeinoutback"
+        }
+      ]
+    },
+    {
+      "variable": "idleRPM",
+      "animations": [
+        {
+          "animationType": "translation",
           "variable": "engine_powered",
-          "clampMin": 1.0,
-          "clampMax": 1.0,
-          "forwardsDelay": 80
+          "axis": [0.0,1800.0,0.0]
         },
         {
           "animationType": "translation",
           "variable": "engine_powered",
-          "axis": [0.0,1200.0,0.0]
-        },
+          "axis": [0.0,-1800.0,0.0],
+          "duration": 60,
+          "skipReverseMovement": true
+        }
+      ]
+    },
+    {
+      "variable": "superchargerFuelConsumption",
+      "animations": [
         {
           "animationType": "translation",
-          "variable": "engine_powered",
-          "axis": [0.0,-1200.0,0.0],
-          "duration": 80
+          "variable": "generic_engine_turbo_power_1",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fuelConsumption",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_upgrade_2",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "superchargerFuelConsumption",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_upgrade_2",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "revlimitRPM",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_topend_4",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "maxRPM",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_topend_4",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "maxSafeRPM",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_topend_4",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "fuelConsumption",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75
+        }
+      ]
+    },
+    {
+      "variable": "superchargerFuelConsumption",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_engine_gearbox_3",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -172,17 +480,6 @@
           "variable": "engine_clutch_downshift",
           "axis": [0.0,3.0,0.0],
           "offset": -1.0
-        }
-      ]
-    },
-    {
-      "variable": "lazinessThatJavaWontLike",
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "random",
-          "axis": [0.0,0.0,1.0]
         }
       ]
     }
@@ -220,6 +517,12 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0
@@ -229,23 +532,24 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,1.0,0.0],
-            "offset": -0.5,
-            "duration": 25
+            "axis": [0.0,0.375,0.0],
+            "offset": -0.1875,
+            "clampMax": 0.1875,
+            "duration": 8
           },
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,2.0,0.0],
-            "offset": -0.5,
-            "clampMax": 1.5
+            "axis": [0.0,0.375,0.0],
+            "offset": -0.1875,
+            "clampMax": 0.1875
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,2.5,0.0],
-            "offset": -1.75,
-            "clampMax": 0.25
+            "axis": [0.0,0.75,0.0],
+            "offset": -0.375,
+            "clampMax": 0.375
           }
         ],
         "pitchAnimations": [
@@ -265,11 +569,19 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:turboworble3",
         "activeAnimations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "part_present_1"
+          },
           {
             "animationType": "inhibitor",
             "variable": "engine_rpm_percent_safe",
@@ -279,11 +591,37 @@
             "animationType": "visibility",
             "variable": "throttle",
             "clampMax": 0.4,
-            "forwardsDelay": 25
+            "forwardsDelay": 15
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.75,0.0],
+            "offset": 0.25
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.375,0.0],
+            "offset": -0.1875
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
       },
       {
         "name": "ivv:transmissionfailshift1",
@@ -829,25 +1167,170 @@
     ],
     "particles": [
       {
-        "type": "smoke",
-        "spawnEveryTick": true,
-        "quantity": 1,
-        "color": "000000",
+        "type": "flame",
+        "quantity": 2,
+        "duration": 40,
+        "transparency": 4.0,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 4.0,
+        "spreadFactorHorizontal": 4,
+        "spreadFactorVertical": 1,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.25,0.25],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_temp",
-            "clampMin": 115.556,
-            "clampMax": 999.0
+            "variable": "parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.875,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "2_4_2_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 40
           }
         ]
       },
       {
         "type": "smoke",
-        "spawnEveryTick": true,
-        "quantity": 1,
-        "scale": 2.5,
-        "color": "000000",
+        "quantity": 4,
+        "duration": 60,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 8.0,
+        "spreadFactorHorizontal": 8,
+        "spreadFactorVertical": 2,
+        "color": "555555",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.0,0.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "1_2_1_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 90
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 8,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 6.0,
+        "toScale": 12.0,
+        "spreadFactorHorizontal": 8,
+        "spreadFactorVertical": 2,
+        "color": "888888",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.0,0.75],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "reverseDelay": 100
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 2.0,
+        "toTransparency": -1.0E-4,
+        "scale": 0.375,
+        "toScale": 0.625,
+        "texture": "ivv:textures/particles/pattern2.png",
+        "color": "EDAC28",
+        "spreadFactorHorizontal": 10,
+        "spreadFactorVertical": 1,
+        "pos": [0.0,0.25,0.375],
+        "initialVelocity": [0.0,0.625,0.375],
+        "movementVelocity": [0.0,-0.01,0.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_jumper_cable",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 2,
+        "duration": 60,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 2.0,
+        "color": "060606",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.0,0.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 115.556,
+            "clampMax": 121.111
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 4,
+        "duration": 80,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 4.0,
+        "color": "060606",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.0,0.75],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -862,7 +1345,9 @@
   },
   "general": {
     "name": "Torqueline Diesel V10 Engine HD §9(Automatic)",
-    "description": "9.2L Industrial IVLabs Motor",
+    "description": "9.2L40V Industrial IVLabs Motor",
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["mts:ivv.engineblockheavyduty:0:1","mts:ivv.enginepiston:0:10","mts:ivv.fuelfi:0:4","mts:ivv.turbo:0:1","mts:ivv.gearboxauto:0:1"]

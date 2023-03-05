@@ -165,11 +165,7 @@
         {
           "animationType": "translation",
           "variable": "slip",
-          "axis": [-0.0375,0.0,0.0],
-          "offset": 1.375,
-          "clampMin": 0.5,
-          "clampMax": 1.0,
-          "absolute": true
+          "axis": [0.0,-0.0375,0.0]
         }
       ]
     },
@@ -231,6 +227,17 @@
         {
           "animationType": "translation",
           "variable": "!radar_ground_1_distance",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "parent_vehicle_traction_control",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "squeeee",
           "axis": [0.0,0.0,1]
         }
       ]
@@ -249,7 +256,8 @@
         "defaultText": "ERROR!",
         "color": "FFFFFF",
         "lightsUp": true,
-        "renderPosition": 1
+        "renderPosition": 1,
+        "attatchedTo": "cube"
       },
       {
         "pos": [0.0,0.5,0.0],
@@ -262,7 +270,8 @@
         "defaultText": "ERROR!",
         "color": "FFFFFF",
         "lightsUp": true,
-        "renderPosition": 1
+        "renderPosition": 1,
+        "attatchedTo": "cube"
       },
       {
         "pos": [0.0,1.0,0.0],
@@ -275,7 +284,8 @@
         "defaultText": "ERROR!",
         "color": "FFFFFF",
         "lightsUp": true,
-        "renderPosition": 1
+        "renderPosition": 1,
+        "attatchedTo": "cube"
       },
       {
         "pos": [0.0,1.0,0.0],
@@ -288,7 +298,8 @@
         "defaultText": "ERROR!",
         "color": "FFFFFF",
         "lightsUp": true,
-        "renderPosition": 1
+        "renderPosition": 1,
+        "attatchedTo": "cube"
       }
     ],
     "animatedObjects": [
@@ -332,10 +343,12 @@
   },
   "general": {
     "name": "",
-    "description": "§rSemi-self driving model\nChase\nAttempts to follow nearest vehicle, will not stop when close enough\nUnexpected behavior may occur, use at own risk",
+    "description": "§2Chase\nAttempts to follow nearest vehicle, will not stop when close enough\nUnexpected behavior may occur, use at own risk",
     "health": 100,
     "materialLists": [
       ["minecrafT:barrier:0:1"]
-    ]
+    ],
+    "radarWidth": 180.0,
+    "radarRange": 128.0
   }
 }

@@ -276,25 +276,170 @@
     ],
     "particles": [
       {
-        "type": "smoke",
-        "spawnEveryTick": true,
-        "quantity": 1,
-        "color": "000000",
+        "type": "flame",
+        "quantity": 2,
+        "duration": 40,
+        "transparency": 4.0,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 4.0,
+        "spreadFactorHorizontal": 4,
+        "spreadFactorVertical": 1,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.25,0.25],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_temp",
-            "clampMin": 115.556,
-            "clampMax": 999.0
+            "variable": "parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.875,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "2_4_2_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 40
           }
         ]
       },
       {
         "type": "smoke",
-        "spawnEveryTick": true,
-        "quantity": 1,
-        "scale": 2.5,
-        "color": "000000",
+        "quantity": 4,
+        "duration": 60,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 8.0,
+        "spreadFactorHorizontal": 8,
+        "spreadFactorVertical": 2,
+        "color": "555555",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.0,0.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "1_2_1_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 90
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 8,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 6.0,
+        "toScale": 12.0,
+        "spreadFactorHorizontal": 8,
+        "spreadFactorVertical": 2,
+        "color": "888888",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.0,0.75],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "reverseDelay": 100
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 2.0,
+        "toTransparency": -1.0E-4,
+        "scale": 0.375,
+        "toScale": 0.625,
+        "texture": "ivv:textures/particles/pattern2.png",
+        "color": "EDAC28",
+        "spreadFactorHorizontal": 10,
+        "spreadFactorVertical": 1,
+        "pos": [0.0,0.25,0.375],
+        "initialVelocity": [0.0,0.625,0.375],
+        "movementVelocity": [0.0,-0.01,0.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_jumper_cable",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 2,
+        "duration": 60,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 2.0,
+        "color": "060606",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.0,0.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 115.556,
+            "clampMax": 121.111
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 4,
+        "duration": 80,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 4.0,
+        "color": "060606",
+        "pos": [0.0,0.0,0.75],
+        "initialVelocity": [0.0,0.0,0.75],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -310,6 +455,8 @@
   "general": {
     "name": "Pioneer I1 Engine §9(Automatic)",
     "description": "10.3L Classic Motor",
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["minecraft:cobblestone:0:9","minecraft:piston:0:3","mts:ivv.fuelcarb:0:1","mts:ivv.gearboxauto:0:1"]
