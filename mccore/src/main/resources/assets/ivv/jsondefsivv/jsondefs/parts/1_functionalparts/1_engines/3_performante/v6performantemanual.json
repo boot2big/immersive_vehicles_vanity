@@ -62,7 +62,7 @@
     "coolingCoefficient": 1.5,
     "engineWearFactor": 0.875,
     "fuelConsumption": 0.35,
-    "gearRatios": [-3.0,0.0,3.5,2.25,1.375,1.0,0.75,0.5,0.375],
+    "gearRatios": [-3.0,0,3.5,2.25,1.375,1.0,0.75,0.5,0.375],
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 1.0,
     "superchargerEfficiency": 1.0,
@@ -509,28 +509,6 @@
           "axis": [1.0,0.0,0.0]
         }
       ]
-    },
-    {
-      "variable": "engine_revlimit_backfire",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "!poppop",
-          "axis": [0.0,1.0,0.0]
-        },
-        {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "forwardsDelay": 1,
-          "reverseDelay": 3
-        },
-        {
-          "animationType": "visibility",
-          "variable": "engine_running",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
-      ]
     }
   ],
   "rendering": {
@@ -649,7 +627,7 @@
       },
       {
         "name": "ivv:enginebackfire1",
-        "soundVariations": ["ivv:enginebackfire1","ivv:enginebackfire2","ivv:enginebackfire3"],
+        "soundVariations": ["ivv:enginebackfire1","ivv:enginebackfire2","ivv:enginebackfire3","ivv:enginebackfire4","ivv:enginebackfire5","ivv:enginebackfire6"],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -732,40 +710,47 @@
           {
             "animationType": "visibility",
             "variable": "engine_temp",
-            "clampMin": 35.0,
+            "clampMin": 30.0,
             "clampMax": 1000.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_powered"
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
+            "variable": "engine_running",
+            "axis": [0.0,-0.75,0.0]
+          },
+          {
+            "animationType": "translation",
             "variable": "engine_temp",
             "axis": [0.0,0.5,0.0],
-            "offset": -18.0,
+            "offset": -15.0,
             "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_temp",
+            "variable": "random",
             "axis": [0.0,0.125,0.0],
-            "offset": -5.0,
-            "clampMin": 0.875,
-            "clampMax": 1.0
+            "offset": -0.0625
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_temp",
+            "axis": [0.0,0.00625,0.0],
+            "offset": 0.375,
+            "clampMin": 0.5,
+            "clampMax": 2.0
           }
         ],
         "looping": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 24.0,
         "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.5
       },
       {
         "name": "ivv:hydraulicsupercushion",

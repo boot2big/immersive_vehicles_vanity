@@ -165,6 +165,26 @@
       ]
     },
     {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent_revlimit",
+          "axis": [-3,0.0,0.0],
+          "offset": 4,
+          "clampMin": 0.0125,
+          "clampMax": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
+        }
+      ]
+    },
+    {
       "variable": "turbineRPM",
       "maxValue": 27000.0,
       "animations": [
@@ -654,7 +674,7 @@
       },
       {
         "name": "ivv:enginebackfire1",
-        "soundVariations": ["ivv:enginebackfire1","ivv:enginebackfire2","ivv:enginebackfire3"],
+        "soundVariations": ["ivv:enginebackfire1","ivv:enginebackfire2","ivv:enginebackfire3","ivv:enginebackfire4","ivv:enginebackfire5","ivv:enginebackfire6"],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -789,40 +809,47 @@
           {
             "animationType": "visibility",
             "variable": "engine_temp",
-            "clampMin": 35.0,
+            "clampMin": 30.0,
             "clampMax": 1000.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_powered"
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
+            "variable": "engine_running",
+            "axis": [0.0,-0.75,0.0]
+          },
+          {
+            "animationType": "translation",
             "variable": "engine_temp",
             "axis": [0.0,0.5,0.0],
-            "offset": -18.0,
+            "offset": -15.0,
             "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_temp",
+            "variable": "random",
             "axis": [0.0,0.125,0.0],
-            "offset": -5.0,
-            "clampMin": 0.875,
-            "clampMax": 1.0
+            "offset": -0.0625
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_temp",
+            "axis": [0.0,0.00625,0.0],
+            "offset": 0.375,
+            "clampMin": 0.5,
+            "clampMax": 2.0
           }
         ],
         "looping": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 24.0,
         "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.5
       },
       {
         "name": "ivv:hydraulicsupercushion",
@@ -1381,8 +1408,8 @@
         "toTransparency": 0.01,
         "scale": 3.0,
         "toScale": 4.0,
-        "spreadFactorHorizontal": 4,
-        "spreadFactorVertical": 1,
+        "spreadFactorHorizontal": 4.0,
+        "spreadFactorVertical": 1.0,
         "color": "FFFFFF",
         "pos": [0.0,0.0,0.75],
         "initialVelocity": [0.0,0.25,0.25],
@@ -1420,8 +1447,8 @@
         "toTransparency": 0.01,
         "scale": 4.0,
         "toScale": 8.0,
-        "spreadFactorHorizontal": 8,
-        "spreadFactorVertical": 2,
+        "spreadFactorHorizontal": 8.0,
+        "spreadFactorVertical": 2.0,
         "color": "555555",
         "pos": [0.0,0.0,0.75],
         "initialVelocity": [0.0,0.0,0.5],
@@ -1459,8 +1486,8 @@
         "toTransparency": 0.01,
         "scale": 6.0,
         "toScale": 12.0,
-        "spreadFactorHorizontal": 8,
-        "spreadFactorVertical": 2,
+        "spreadFactorHorizontal": 8.0,
+        "spreadFactorVertical": 2.0,
         "color": "888888",
         "pos": [0.0,0.0,0.75],
         "initialVelocity": [0.0,0.0,0.75],
@@ -1490,10 +1517,10 @@
         "toTransparency": -1.0E-4,
         "scale": 0.375,
         "toScale": 0.625,
+        "spreadFactorHorizontal": 10.0,
+        "spreadFactorVertical": 1.0,
         "texture": "ivv:textures/particles/pattern2.png",
         "color": "EDAC28",
-        "spreadFactorHorizontal": 10,
-        "spreadFactorVertical": 1,
         "pos": [0.0,0.25,0.375],
         "initialVelocity": [0.0,0.625,0.375],
         "movementVelocity": [0.0,-0.01,0.0],
@@ -1553,14 +1580,14 @@
   "general": {
     "name": "Performante V8 Engine §9(Automatic)",
     "description": "4.6L24V Experimental IVLabs Motor\nTurbojet intake fed hyperefficient pierospherical design",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["mts:ivv.v8newperformante:0:1","oredict:gemDiamond:0:8","mts:ivv.microjet:0:2","mts:ivv.gearboxauto:0:1","mts:ivv.ecu:0:1"]
     ],
     "repairMaterialLists": [
       ["mts:ivv.oilcan:0:1","mts:ivv.microjet:0:2","mts:ivv.tape:0:1"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }
