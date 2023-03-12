@@ -1,9 +1,9 @@
 {
   "generic": {
     "type": "generic_licenseplate_us",
+    "forceAllLinks": true,
     "width": 0.25,
-    "height": 0.25,
-    "forceAllLinks": true
+    "height": 0.25
   },
   "parts": [
     {
@@ -20,7 +20,7 @@
     },
     {
       "pos": [0.0,-0.025,-0.0025],
-      "rot": [10.0,0.0,0.0],
+      "rot": [2.5,0.0,0.0],
       "types": ["generic_ram"]
     },
     {
@@ -41,6 +41,29 @@
     }
   ],
   "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_2"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_3"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_4"
+          }
+        ]
+      }
+    ],
     "textObjects": [
       {
         "pos": [0.005,0.025,0.00215],
@@ -49,6 +72,7 @@
         "fieldName": "License Plate",
         "defaultText": "ABC-1234",
         "maxLength": 8,
+        "attachedTo": "cube",
         "color": "040404"
       }
     ],
@@ -60,11 +84,11 @@
     "name": "License Plate [Agent Y Inspired]",
     "description": "Plain and simple, yet endless possibilities",
     "stackSize": 64,
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["oredict:ingotIron:1","minecraft:emerald_block:0:4"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }
