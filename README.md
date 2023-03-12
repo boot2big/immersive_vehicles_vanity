@@ -17,9 +17,8 @@ https://www.curseforge.com/minecraft/mc-mods/immersive-vehicles-vanity
 It is advised to avoid other pages that share IVV, as they are not officially hosted nor can we guarantee any support for issues arising from unofficial downloads.
 
 --
+1.12.2 version and 1.16.5 versions available
 
-While there _is_ a `/java/` directory in the main build folder, this is not included in the default CurseForge release for version agnostics and general compatibility.\
-However, it is used in an alternate file linked next to the default release in the event that any 1.12.2-specific modpack makers and/or server owners seek additional fancy features such as more involved potion effects and other miscellaneous things.\
+1.12 has additional back-end features while 1.16.5 only loads into the game as a proper FML-format mod.
 \
-Code is generated using Pylo's MCreator found at https://mcreator.net/
-\(because I was lazy. deal widdit, it's fun to throw together funky mods in it without using much brainpower or vi/notepad.)
+1.12.2 code is generated using Pylo's MCreator found at https://mcreator.net/ for my convenience and sanity.
