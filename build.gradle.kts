@@ -20,7 +20,9 @@ subprojects {
     apply(plugin = "java")
 }
 
-var modVersion: String = "2.2.0"
+var modVersion: String = project.property("global_version").toString()
+
+//var modVersion: String = providers.gradleProperty("global_version")
 
 var mcCore = project(":mccore")
 var mcInterfaceForge1122 = project(":mcinterfaceforge1122")
@@ -33,22 +35,25 @@ tasks.register("buildCore") {
     }
 }
 
-tasks.register("buildForge1.12.2") {
+tasks.register("buildForge1122") {
     doFirst { preBuild() }
-    dependsOn(mcInterfaceForge1122.tasks.build)
     doLast {
         moveToOut(mcInterfaceForge1122, "1.12.2")
-        moveToOut(mcCore, "core")
     }
+    dependsOn(mcInterfaceForge1122.tasks.build)
 }
 
-tasks.register("buildForge1.16.5") {
+tasks.register("buildForge1165") {
     doFirst { preBuild() }
     doLast {
         moveToOut(mcInterfaceForge1165, "1.16.5")
-        moveToOut(mcCore, "core")
     }
     dependsOn(mcInterfaceForge1165.tasks.build)
+}
+
+tasks.register("buildForgeAll") {
+    dependsOn(tasks.getByName("buildForge1122"))
+    dependsOn(tasks.getByName("buildForge1165"))
 }
 
 @OptIn(ExperimentalPathApi::class)
@@ -56,7 +61,7 @@ fun moveToOut(subProject: Project, versionStr: String) {
     mkdir("out/$versionStr")
     val jarName = "IV-Vanity-${subProject.version}.jar"
     Paths.get("${subProject.projectDir.canonicalPath}/build/libs/$jarName")
-        .moveTo(Paths.get("${project.projectDir.canonicalPath}/out/$versionStr/$jarName"), true)
+        .moveTo(Paths.get("${project.projectDir.canonicalPath}/out/$jarName"), true)
 }
 
 fun preBuild() {
