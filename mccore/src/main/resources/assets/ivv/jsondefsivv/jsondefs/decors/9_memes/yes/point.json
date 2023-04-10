@@ -5,6 +5,87 @@
     "height": 0.125,
     "depth": 2.0
   },
+  "variableModifiers": [
+    {
+      "variable": "capture_progress",
+      "maxValue": 100.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "redstone_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "clicked",
+          "axis": [0.0,25.0,0.0],
+          "duration": 3
+        },
+        {
+          "animationType": "translation",
+          "variable": "4_2_4_cycle",
+          "axis": [0.0,-1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "capture_capped",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "redstone_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "capture_progress",
+          "axis": [0.0,0.0,1.0],
+          "offset": -99
+        }
+      ]
+    },
+    {
+      "variable": "capture_progress",
+      "maxValue": 100.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "redstone_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "capture_capped",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "reset",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "capture_state",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "capture_capped",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!capture_state",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
   "definitions": [
     {
       "subName": "",
@@ -15,60 +96,61 @@
     }
   ],
   "rendering": {
+    "textObjects": [
+      {
+        "pos": [0,1.5,0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.5,
+        "variableName": "capture_progress",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.0f`",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "DE3023",
+        "attachedTo": "redsign",
+        "lightsUp": true
+      },
+      {
+        "pos": [0,1.5,0],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.5,
+        "variableName": "capture_progress",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.0f`",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "DE3023",
+        "attachedTo": "redsign",
+        "lightsUp": true
+      },
+      {
+        "pos": [0,1.5,0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.5,
+        "variableName": "capture_progress",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.0f`",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "2364DE",
+        "attachedTo": "bluesign",
+        "lightsUp": true
+      },
+      {
+        "pos": [0,1.5,0],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.5,
+        "variableName": "capture_progress",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.0f`",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "2364DE",
+        "attachedTo": "bluesign",
+        "lightsUp": true
+      }
+    ],
     "animatedObjects": [
-      {
-        "objectName": "bluepoint",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "redstone_active",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "activated"
-          }
-        ]
-      },
-      {
-        "objectName": "bluepointbeam_translucent",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "redstone_active",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "activated"
-          }
-        ]
-      },
-      {
-        "objectName": "bluesign_translucent",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "20_40_20_cycle",
-            "axis": [0.0,-0.125,0.0],
-            "duration": 35,
-            "forwardsEasing": "easeinoutsine",
-            "reverseEasing": "easeinoutsine"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "redstone_active",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "activated"
-          }
-        ]
-      },
       {
         "objectName": "redpoint",
         "animations": [
@@ -80,15 +162,19 @@
           },
           {
             "animationType": "visibility",
-            "variable": "activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "capture_state"
           }
         ]
       },
       {
         "objectName": "redpointbeam_translucent",
         "animations": [
+          {
+            "animationType": "translation",
+            "variable": "capture_progress",
+            "axis": [-0.1,0.0,0.0],
+            "offset": 0.5
+          },
           {
             "animationType": "visibility",
             "variable": "redstone_active",
@@ -97,9 +183,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "capture_state"
           }
         ]
       },
@@ -107,9 +191,21 @@
         "objectName": "redsign_translucent",
         "animations": [
           {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0,0,0],
+            "axis": [0.0,0.75,0.0]
+          },
+          {
             "animationType": "translation",
             "variable": "20_40_20_cycle",
-            "axis": [0.0,-0.125,0.0],
+            "axis": [0.0,0.0625,0.0],
+            "duration": 35
+          },
+          {
+            "animationType": "translation",
+            "variable": "20_40_20_cycle",
+            "axis": [0.0,0.0625,0.0],
             "duration": 35,
             "forwardsEasing": "easeinoutsine",
             "reverseEasing": "easeinoutsine"
@@ -122,7 +218,82 @@
           },
           {
             "animationType": "visibility",
-            "variable": "activated",
+            "variable": "capture_state"
+          }
+        ]
+      },
+      {
+        "objectName": "bluepoint",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "redstone_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "capture_state",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "bluepointbeam_translucent",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "capture_progress",
+            "axis": [-0.1,0.0,0.0],
+            "offset": 0.5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "redstone_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "capture_state",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "bluesign_translucent",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0,0,0],
+            "axis": [0.0,0.75,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "20_40_20_cycle",
+            "axis": [0.0,0.0625,0.0],
+            "duration": 35
+          },
+          {
+            "animationType": "translation",
+            "variable": "20_40_20_cycle",
+            "axis": [0.0,0.0625,0.0],
+            "duration": 35,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "redstone_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "capture_state",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -146,10 +317,6 @@
         "brightnessAnimations": [
           {
             "animationType": "visibility",
-            "variable": "activated"
-          },
-          {
-            "animationType": "visibility",
             "variable": "redstone_active",
             "clampMin": 1.0,
             "clampMax": 1.0
@@ -161,10 +328,6 @@
         "brightnessAnimations": [
           {
             "animationType": "visibility",
-            "variable": "activated"
-          },
-          {
-            "animationType": "visibility",
             "variable": "redstone_active",
             "clampMin": 1.0,
             "clampMax": 1.0
@@ -174,10 +337,6 @@
       {
         "objectName": "bluesign_translucent",
         "brightnessAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "activated"
-          },
           {
             "animationType": "visibility",
             "variable": "redstone_active",
@@ -193,12 +352,6 @@
         "brightnessAnimations": [
           {
             "animationType": "visibility",
-            "variable": "activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
             "variable": "redstone_active",
             "clampMin": 1.0,
             "clampMax": 1.0
@@ -210,12 +363,6 @@
         "brightnessAnimations": [
           {
             "animationType": "visibility",
-            "variable": "activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
             "variable": "redstone_active",
             "clampMin": 1.0,
             "clampMax": 1.0
@@ -225,12 +372,6 @@
       {
         "objectName": "redsign_translucent",
         "brightnessAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
           {
             "animationType": "visibility",
             "variable": "redstone_active",
@@ -247,6 +388,8 @@
     "stackSize": 64,
     "materialLists": [
       ["minecraft:iron_block:0:9","minecraft:redstone_block:0:2"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

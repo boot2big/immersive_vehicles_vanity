@@ -15,9 +15,6 @@
         "defaultparts_hitch_industrial": "ivv:hitchadapterxl"
       },
       "types": ["generic_hitch_attachment","generic_hitch_attachment_heavy","generic_hitch_attachment_industrial"],
-      "interactableVariables": [
-        ["!hitch_orientation"]
-      ],
       "animations": [
         {
           "animationType": "scaling",
@@ -43,6 +40,12 @@
         {
           "animationType": "rotation",
           "variable": "hitch_pitch",
+          "centerPoint": [0.0,-0.039062,-0.421875],
+          "axis": [-1.0,0.0,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "parent_vehicle_hitch_offset",
           "centerPoint": [0.0,-0.039062,-0.421875],
           "axis": [-1.0,0.0,0.0]
         },
@@ -134,7 +137,7 @@
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "generic_hitch_attachment_industrial_1",
+          "variable": "p_brake",
           "clampMin": 1.0,
           "clampMax": 1.0
         },
@@ -170,16 +173,24 @@
   ],
   "variableModifiers": [
     {
-      "variable": "hitch_orientation",
+      "variable": "hitch_pitch",
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "generic_hitch_attachment_industrial_1"
+          "variable": "vehicle_hitch_offset_present",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "1_2_2147483647_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "no",
-          "axis": [0.0,0.0,1.0]
+          "variable": "parent_vehicle_hitch_offset",
+          "axis": [0.0,0.0,-1.0]
         }
       ]
     },

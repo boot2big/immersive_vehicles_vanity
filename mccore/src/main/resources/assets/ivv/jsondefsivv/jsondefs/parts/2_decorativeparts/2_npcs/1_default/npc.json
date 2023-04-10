@@ -1,0 +1,1115 @@
+{
+  "generic": {
+    "type": "generic_npc",
+    "canBePlacedOnGround": true,
+    "width": 0.5,
+    "height": 1.0,
+    "placedOffset": 0.1875,
+    "mass": 100
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.9375,0.0],
+          "width": 0.5,
+          "height": 0.5,
+          "variableName": "driver",
+          "variableType": "toggle"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    /*{
+      "subName": "steve_stig",
+      "modelName": "npcsteve",
+      "name": "Driving Seat NPC",
+      "constants": ["ssd_ftl"],
+      "extraMaterialLists": [
+        []
+      ]
+    },*/
+    {
+      "subName": "steve_robot",
+      "modelName": "npcsteve",
+      "name": "Driving Seat NPC",
+      "description": "Beats owning a Teslus!",
+      "constants": ["ssd_ftl"],
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "steve_robotpdu",
+      "modelName": "npcsteve",
+      "name": "Driving Seat NPC",
+      "description": "Beats owning a Teslus!",
+      "constants": ["ssd_chase"],
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "steve_robotdummy",
+      "modelName": "npcsteve",
+      "name": "Driving Seat NPC",
+      "description": "Beats owning a Teslus!",
+      "constants": ["ssd_ftl"],
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "ssd_alive_chase",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ssd_chase",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_damage_totaled",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engines_running",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_2",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_3",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_4",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_5",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_6",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_7",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_8",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_9",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_10",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "target_angle_input",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_chase",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "radar_ground_1_direction",
+          "axis": [0.0,0.0,1.0],
+          "offset": 5.0
+        }
+      ]
+    },
+    {
+      "variable": "target_angle_output",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_chase",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "target_angle_input",
+          "clampMin": 180.05,
+          "clampMax": 360.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "target_angle_input",
+          "axis": [0.0,0.0,-1.0],
+          "offset": 355.0,
+          "clampMin": -45.0,
+          "clampMax": 45.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!unnecessary_amount_of_vms",
+          "axis": [-1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "target_angle_output",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_chase",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "target_angle_input",
+          "clampMin": -180.0,
+          "clampMax": 180.04
+        },
+        {
+          "animationType": "translation",
+          "variable": "target_angle_input",
+          "axis": [0.0,0.0,1.0],
+          "offset": -5.0,
+          "clampMin": -45.0,
+          "clampMax": 45.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,-0.0375,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "parent_input_rudder",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_chase",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "override_test",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "target_angle_output",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "parent_throttle",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_chase",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "radar_ground_1_distance",
+          "axis": [0.0,0.0,0.075],
+          "clampMax": 0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "radar_ground_1_distance",
+          "axis": [0.0,0.025,0.0],
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "parent_brake",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_chase",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!radar_ground_1_distance",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "spinwardmarches",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!the_modifiers_above_make_the_npc_go_christine_mode",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!and_the_one_belows_make_the_npc_drive_normally",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!yes_i_am_in_a_lot_of_pain_thanks_for_asking",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_alive_ftl",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ssd_ftl",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_damage_totaled",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engines_running",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_2",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_3",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_4",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_5",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_6",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_7",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_8",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_9",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_seat_occupied_10",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_stopanyways",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_speed",
+          "clampMax": 0.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_stopanyways",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_speed",
+          "clampMin": 0.25,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_close",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 10.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMin": 12.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_close",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 10.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMax": 12.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_tooclose",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 10.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMin": 8.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_tooclose",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 10.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMax": 8.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_close",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": 10.0,
+          "clampMax": 20.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_close",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": 10.0,
+          "clampMax": 20.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMax": 20.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_tooclose",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": 10.0,
+          "clampMax": 20.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMin": 16.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_tooclose",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": 10.0,
+          "clampMax": 20.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMax": 16.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_close",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMin": 32.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_close",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMax": 32.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_tooclose",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMin": 24.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ssd_tooclose",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": 20.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "radar_ground_1_distance",
+          "clampMax": 24.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "target_angle_input",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "radar_ground_1_direction",
+          "axis": [0.0,0.0,1.0],
+          "offset": 5.0
+        }
+      ]
+    },
+    {
+      "variable": "target_angle_output",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "target_angle_input",
+          "clampMin": 180.05,
+          "clampMax": 360.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "target_angle_input",
+          "axis": [0.0,0.0,-1.0],
+          "offset": 355.0,
+          "clampMin": -45.0,
+          "clampMax": 45.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!unnecessary_amount_of_vms",
+          "axis": [-1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "target_angle_output",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "target_angle_input",
+          "clampMin": -180.0,
+          "clampMax": 180.04
+        },
+        {
+          "animationType": "translation",
+          "variable": "target_angle_input",
+          "axis": [0.0,0.0,1.0],
+          "offset": -5.0,
+          "clampMin": -45.0,
+          "clampMax": 45.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,-0.0375,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "parent_input_rudder",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "override_test",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "target_angle_output",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "parent_throttle",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "radar_ground_1_distance",
+          "axis": [0.0,0.0,0.01875],
+          "clampMax": 0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "radar_ground_1_distance",
+          "axis": [0.0,0.0125,0.0],
+          "clampMax": 0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "!ssd_stopanyways",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!ssd_close",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "parent_brake",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ssd_alive_ftl",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "radar_ground_1_distance",
+          "axis": [0.0,0.0,-0.125],
+          "offset": 1.25,
+          "clampMin": 0.25,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "ssd_tooclose",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ssd_stopanyways",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "parent_vehicle_traction_control",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "squeeee",
+          "axis": [0.0,0.0,1]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "RightArm",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [0.0,-7.5,0.0],
+            "offset": -7.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [67.5,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [0.375,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "RightArm_translucent",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [0.0,-7.5,0.0],
+            "offset": -7.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [67.5,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [0.375,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "LeftArm",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [0.375,0.5625,0.0],
+            "axis": [0.0,7.5,0.0],
+            "offset": -7.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [67.5,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [-0.375,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "LeftArm_translucent",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [0.375,0.5625,0.0],
+            "axis": [0.0,7.5,0.0],
+            "offset": -7.5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "driver",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [67.5,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [-0.375,0.5625,0.0],
+            "axis": [-0.375,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "RightLeg",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "throttle",
+            "centerPoint": [-0.11875,0.0,-0.0625],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "RightLeg_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "throttle",
+            "centerPoint": [-0.11875,0.0,-0.0625],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "LeftLeg",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "brake",
+            "centerPoint": [-0.11875,0.0,-0.0625],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "LeftLeg_translucent",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "driver",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "brake",
+            "centerPoint": [-0.11875,0.0,-0.0625],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "initialVariables": ["driver"],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Seat NPC",
+    "description": "Can be placed on certain seats\nDoes NOT automatically drive cars! It only exists for decoration\nHowever, if you click on its head it'll animate as if it could...",
+    "stackSize": 64,
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "health": 100,
+    "materialLists": [
+      ["minecraft:rotten_flesh:0:12","minecraft:bone:0:8"]
+    ]
+  }
+}

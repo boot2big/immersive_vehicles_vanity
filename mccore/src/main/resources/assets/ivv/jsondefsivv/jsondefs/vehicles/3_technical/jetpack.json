@@ -5,11 +5,12 @@
     "emptyMass": 100,
     "fuelCapacity": 6000,
     "defaultFuelQty": 6000,
+    "axleRatio": 3.55,
     "brakingFactor": 0.25,
     "dragCoefficient": 0.05,
     "litVariable": "engine_magneto_1",
     "panel": "mts:default_plane",
-    "hudTexture": "ivv:textures/guis/ivlabspanel_jetpack.png",
+    "hudTexture": "ivv:textures/guis/ivlabshud.png",
     "panelTexture": "ivv:textures/guis/ivlabspanel_jetpack.png"
   },
   "parts": [
@@ -27,14 +28,6 @@
           "clampMin": 1.0,
           "clampMax": 1.0
         }
-      ],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "seat_occupied_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
       ]
     },
     {
@@ -48,14 +41,6 @@
         {
           "animationType": "visibility",
           "variable": "ivv_best",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
-      ],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "seat_occupied_1",
           "clampMin": 1.0,
           "clampMax": 1.0
         }
@@ -305,6 +290,103 @@
           "animationType": "translation",
           "variable": "damage_percent",
           "axis": [0.0,0.3,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fly_wildly",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_1",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_distance",
+          "axis": [2.0,0.0,0.0],
+          "offset": -32.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engines_running",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "input_rudder",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "fly_wildly",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "fly_wildly",
+          "axis": [0.0,0.0,22.5],
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "variable": "input_aileron",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "fly_wildly",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "fly_wildly",
+          "axis": [0.0,0.0,10.0],
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "variable": "input_elevator",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "fly_wildly",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "fly_wildly",
+          "axis": [0.0,0.0,5.0],
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "variable": "throttle",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "fly_wildly",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "15_30_15_cycle",
+          "axis": [0.0,0.0,0.75],
+          "offset": 0.25,
+          "duration": 30
         }
       ]
     }
