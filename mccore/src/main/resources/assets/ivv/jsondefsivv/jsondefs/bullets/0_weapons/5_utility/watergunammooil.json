@@ -1,7 +1,7 @@
 {
   "bullet": {
     "types": [
-      "water"
+      "incendiary"
     ],
     "quantity": 6000,
     "diameter": 4.0,
@@ -15,7 +15,7 @@
       "modelName": "invisible",
       "textureName": "fluidammoil",
       "name": "Sprayer Fluid Canister",
-      "description": "Engine Oil",
+      "description": "Engine Oil\nIgnitable",
       "extraMaterialLists": [
         []
       ]
@@ -25,6 +25,27 @@
     "lightObjects": [],
     "sounds": [],
     "particles": [
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "duration": 4,
+        "transparency": 2.0,
+        "toTransparency": 1.0E-7,
+        "scale": 1.5,
+        "toScale": 3.0,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "movementVelocity": [0.0,0.025,0.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ]
+      },
       {
         "type": "generic",
         "spawnEveryTick": true,
