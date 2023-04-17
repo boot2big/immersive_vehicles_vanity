@@ -1,10 +1,4 @@
 {
-  "motorized": {
-    "litVariable": "engine_magneto_1",
-    "panel": "ivv:standard",
-    "hudTexture": "ivv:textures/guis/ivlabshud.png",
-    "panelTexture": "ivv:textures/guis/ivlabspanel.png"
-  },
   "generic": {
     "type": "generic_lightbar",
     "useVehicleTexture": true,
@@ -48,27 +42,38 @@
       "rot": [0.0,0.0,0.0],
       "minValue": 1.0,
       "maxValue": 100.0,
+      "minYaw": -45.0,
+      "maxYaw": 45.0,
+      "minPitch": -45.0,
+      "maxPitch": 45.0,
       "types": ["gun_unigun_rl"],
       "interactableVariables": [
         ["parent_door_hood"]
-      ]
+      ],
+      "linkedParts": []
     },
     {
       "pos": [0.625,-1.75,1.83538],
       "rot": [0.0,0.0,0.0],
       "minValue": 1.0,
       "maxValue": 100.0,
+      "minYaw": -22.5,
+      "maxYaw": 22.5,
+      "minPitch": -22.5,
+      "maxPitch": 22.5,
       "types": ["gun_unigun_mg"],
       "interactableVariables": [
         ["parent_door_hood"]
-      ]
+      ],
+      "linkedParts": []
     },
     {
       "pos": [0.25,-1.34375,-3.0],
       "rot": [-67.5,0.0,0.0],
       "minValue": 1.0,
       "maxValue": 100.0,
-      "types": ["gun_unigun_defense"]
+      "types": ["gun_unigun_defense"],
+      "linkedParts": []
     },
     {
       "pos": [0.0,-1.7375,-2.675],
@@ -106,8 +111,8 @@
       "pos": [0.0,-1.5,0.3],
       "isController": true,
       "isPermanent": true,
-      "allowParentRemoval": true,
       "canDisableGun": true,
+      "allowParentRemoval": true,
       "partScale": [0.25,0.25,0.25],
       "playerScale": [4.0,4.0,4.0],
       "defaultPart": "ivv:rockseat",
@@ -226,7 +231,50 @@
       ]
     }
   ],
-  "instruments": [],
+  "instruments": [
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 562,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 65,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 135,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 205,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 275,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 345,
+      "hudY": 104,
+      "hudScale": 0.5
+    }
+  ],
   "definitions": [
     {
       "subName": "",
@@ -814,19 +862,7 @@
         ]
       },
       {
-        "objectName": "#eyelidright",
-        "applyAfter": "#face",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "hitch_n",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "objectName": "#eyelidleft",
+        "objectName": "#eyes",
         "applyAfter": "#face",
         "animations": [
           {
@@ -1155,12 +1191,75 @@
         ]
       },
       {
+        "objectName": "#eyelidright",
+        "applyAfter": "#face",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_n"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "wip",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#eyelidleft",
+        "applyAfter": "#face",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_n"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "wip",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
         "objectName": "temporalbrake",
         "animations": [
           {
             "animationType": "rotation",
             "variable": "p_brake",
             "centerPoint": [0.0,-1.625,0.46875],
+            "axis": [-30.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "clutchmount",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_semiautomatic_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_isautomatic_1"
+          }
+        ]
+      },
+      {
+        "objectName": "clutch",
+        "applyAfter": "clutchmount",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "parent_engine_clutch_upshift_1",
+            "centerPoint": [0.0,1.25,0.796875],
+            "axis": [-30.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "parent_engine_clutch_downshift_1",
+            "centerPoint": [0.0,1.25,0.796875],
             "axis": [-30.0,0.0,0.0]
           }
         ]
@@ -1971,14 +2070,14 @@
   },
   "general": {
     "description": "???",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 1100,
     "materialLists": [
       ["minecraft:fish:-1:63","oredict:nuggetIron:621"]
     ],
     "repairMaterialLists": [
       ["minecraft:fish:-1:34","oredict:nuggetIron:69"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

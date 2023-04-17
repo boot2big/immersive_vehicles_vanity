@@ -11,7 +11,7 @@
     "overSteerAccel": 2.0,
     "overSteerDecel": -1.0,
     "axleRatio": 3.0,
-    "brakingFactor": 3.5,
+    "brakingFactor": 4,
     "dragCoefficient": 0.001,
     "litVariable": "engine_magneto_1",
     "panel": "mts:default_car",
@@ -20,12 +20,12 @@
   },
   "parts": [
     {
-      "pos": [0.0,1.03125,5.09375],
+      "pos": [0.0,0.75,4.5],
       "maxValue": 10.0,
       "intakeOffset": 1.5,
       "defaultPart": "ivv:v3vanilla",
       "types": ["engine_car"],
-      "linkedParts": [2,3,8],
+      "linkedParts": [2,3],
       "animations": [
         {
           "animationType": "visibility",
@@ -38,13 +38,7 @@
       "minValue": 0.875,
       "maxValue": 1.125,
       "defaultPart": "ivv:blocktire",
-      "types": ["ground_wheel"],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
-      ]
+      "types": ["ground_wheel"]
     },
     {
       "pos": [1.25,0.0,0.0],
@@ -54,32 +48,20 @@
       "types": ["ground_wheel"],
       "interactableVariables": [
         ["part_present_2"]
-      ],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
       ]
     },
     {
       "pos": [-0.75,0.0,0.0],
-      "rot": [0.0,0.0,0.0],
+      "rot": [0.0,180.0,0.0],
       "isMirrored": true,
       "minValue": 0.875,
       "maxValue": 1.125,
       "defaultPart": "ivv:blocktire",
-      "types": ["ground_wheel"],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
-      ]
+      "types": ["ground_wheel"]
     },
     {
       "pos": [-1.25,0.0,0.0],
-      "rot": [0.0,0.0,0.0],
+      "rot": [0.0,180.0,0.0],
       "isMirrored": true,
       "minValue": 0.875,
       "maxValue": 1.125,
@@ -87,12 +69,6 @@
       "types": ["ground_wheel"],
       "interactableVariables": [
         ["part_present_4"]
-      ],
-      "activeAnimations": [
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
       ]
     },
     {
@@ -139,17 +115,28 @@
       ]
     },
     {
-      "pos": [0.0,0.0945,3.0],
+      "pos": [0.0,0.05,0.0],
       "maxValue": 6.0,
-      "types": ["generic_truckbed"]
+      "types": ["generic_unused"]
     },
     {
-      "pos": [-0.8,0.5331,-3.43744],
+      "pos": [1,0.25,5.50625],
       "maxValue": 1.0,
       "types": ["generic_bumpersticker"]
     },
     {
-      "pos": [0.4,0.53233,5.97072],
+      "pos": [-1,0.25,5.50625],
+      "maxValue": 1.0,
+      "types": ["generic_bumpersticker"]
+    },
+    {
+      "pos": [1,1.25,-2.50625],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_bumpersticker"]
+    },
+    {
+      "pos": [-1,1.25,-2.50625],
       "rot": [0.0,180.0,0.0],
       "maxValue": 1.0,
       "types": ["generic_bumpersticker"]
@@ -557,7 +544,7 @@
         "brightnessAnimations": [
           {
             "animationType": "translation",
-            "variable": "running_light",
+            "variable": "headlight",
             "axis": [0.0,1.0,0.0]
           }
         ]
@@ -577,32 +564,37 @@
     ],
     "sounds": [
       {
-        "name": "ivv:horn5",
+        "name": "ivv:hornbessie",
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "horn",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 4
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "kitt_is_the_coolest_car_in_mts_period"
           },
           {
             "animationType": "visibility",
-            "variable": "electric_power",
-            "clampMin": 3.0,
-            "clampMax": 16.0
+            "variable": "BOOST"
           }
         ],
-        "volumeAnimations": [
+        "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "horn",
-            "axis": [0.0,1.0,0.0],
-            "duration": 3,
-            "forwardsDelay": -2
+            "variable": "random",
+            "axis": [0.0,0.05,0.0],
+            "offset": -0.025
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.5,0.0],
+            "offset": 1.0
           }
         ],
-        "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
         "maxDistance": 16.0,
@@ -616,14 +608,14 @@
   },
   "general": {
     "description": "[Modeled by LauraDarkez2001]\n§lSTATS:\nDrivetrain: RWD\nMax. Top Speed: 60MPH\n0-60: 35.0\n0-Top Speed: 0:35.0\n§lACCESSORIES:\n-License Plate x2\n-Bumper Sticker x2\n-Gyrophare x4\n-Lightbar x1\n-Roof Device x1",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 10000,
     "materialLists": [
       ["mts:ivv.frame:0:1","mts:ivv.axle:0:2","minecraft:planks:0:24","minecraft:planks:1:16","mts:ivv.classicgear:0:1","mts:ivv.classicmphround:0:1","mts:ivv.classicfueltemp:0:1","mts:ivv.blocktire:0:4","mts:ivv.v3vanilla:0:1","mts:ivv.truckseat:0:1"]
     ],
     "repairMaterialLists": [
       ["mts:ivv.axle:0:2","minecraft:planks:0:24","minecraft:planks:1:16","mts:ivv.tape:0:2"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }
