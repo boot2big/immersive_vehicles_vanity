@@ -14,7 +14,7 @@
     "reloadDelay": 10,
     "muzzleVelocity": 100,
     "fireDelay": 1.0,
-    "bulletSpreadFactor": 4.0,
+    "bulletSpreadFactor": 12.0,
     "diameter": 60.0,
     "maxCaseLength": 200.0,
     "yawSpeed": Infinity,
@@ -34,6 +34,35 @@
       }
     ]
   },
+  "variableModifiers": [
+    {
+      "variable": "isTwoHanded",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_reload",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "bulletSpreadFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_sneaking",
+          "axis": [0.0,0.0,9.0],
+          "offset": 3
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_aiming",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5
+        }
+      ]
+    }
+  ],
   "definitions": [
     {
       "subName": "",
@@ -340,11 +369,11 @@
   },
   "general": {
     "description": "Fires regular missiles",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["oredict:ingotIron:4","oredict:ingotGold:4","oredict:dustRedstone:2"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

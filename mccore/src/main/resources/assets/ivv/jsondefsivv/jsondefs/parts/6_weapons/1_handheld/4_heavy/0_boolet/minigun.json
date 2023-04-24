@@ -21,7 +21,7 @@
     "windupTime": 20,
     "muzzleVelocity": 715,
     "fireDelay": 1.0,
-    "bulletSpreadFactor": 5.0,
+    "bulletSpreadFactor": 8.0,
     "diameter": 7.62,
     "minCaseLength": 51.0,
     "maxCaseLength": 52.0,
@@ -85,6 +85,33 @@
     }
   ],
   "variableModifiers": [
+    {
+      "variable": "isTwoHanded",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_reload",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "bulletSpreadFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_sneaking",
+          "axis": [0.0,0.0,4.0],
+          "offset": 4
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_aiming",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5
+        }
+      ]
+    },
     {
       "variable": "gun_overheating",
       "setValue": 1.0,
@@ -762,11 +789,11 @@
   "general": {
     "name": "M134 Minigun",
     "description": "Model from LauraDarkez2001, original creator to be found for proper credit attribution\nWill overheat with sustained fire",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["oredict:ingotIron:27","oredict:dustRedstone:6","minecraft:stone_button:0:2"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

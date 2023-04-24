@@ -5,7 +5,7 @@
   },
   "gun": {
     "lockOnType": "boresight",
-    "targetType": "hard",
+    "targetType": "all",
     "autoReload": true,
     "canLockTargets": true,
     "handHeld": true,
@@ -15,15 +15,15 @@
     "reloadTime": 43,
     "reloadDelay": 10,
     "muzzleVelocity": 100,
-    "fireDelay": 6.0,
-    "bulletSpreadFactor": 8.0,
+    "fireDelay": 18.0,
+    "bulletSpreadFactor": 12.0,
     "diameter": 60.0,
     "minCaseLength": 240.0,
     "maxCaseLength": 240.0,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "lockRange": 192,
-    "lockMaxAngle": 3.75,
+    "lockMaxAngle": 5,
     "handHeldNormalOffset": [-0.125,-0.125,0.5],
     "handHeldAimedOffset": [-0.02625,0.05875,0.4],
     "muzzleGroups": [
@@ -31,7 +31,7 @@
         "muzzles": [
           {
             "pos": [-0.09375,0.377834,0.6375],
-            "rot": [0.0,0.0,0.0],
+            "rot": [2.0,-2.0,0.0],
             "center": [0.0,0.0,0.0]
           }
         ]
@@ -40,7 +40,7 @@
         "muzzles": [
           {
             "pos": [0.09375,0.377834,0.6375],
-            "rot": [0.0,0.0,0.0],
+            "rot": [2.0,2.0,0.0],
             "center": [0.0,0.0,0.0]
           }
         ]
@@ -49,7 +49,7 @@
         "muzzles": [
           {
             "pos": [-0.09375,0.190334,0.6375],
-            "rot": [0.0,0.0,0.0],
+            "rot": [-2.0,-2.0,0.0],
             "center": [0.0,0.0,0.0]
           }
         ]
@@ -58,7 +58,7 @@
         "muzzles": [
           {
             "pos": [0.09375,0.190334,0.6375],
-            "rot": [0.0,0.0,0.0],
+            "rot": [-2.0,2.0,0.0],
             "center": [0.0,0.0,0.0]
           }
         ]
@@ -71,6 +71,34 @@
       "name": "Missile Launcher",
       "extraMaterialLists": [
         []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "fireDelay",
+      "setValue": 6.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_lockedon",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "reverseDelay": 5
+        }
+      ]
+    },
+    {
+      "variable": "bulletSpreadFactor",
+      "setValue": 2.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_lockedon",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "reverseDelay": 5
+        }
       ]
     }
   ],
@@ -227,8 +255,8 @@
             "duration": 15,
             "forwardsEasing": "easeinoutsine",
             "reverseEasing": "easeoutback",
-            "forwardsDelay": 20,
-            "reverseDelay": 5
+            "forwardsDelay": 5,
+            "reverseDelay": 10
           },
           {
             "animationType": "rotation",
@@ -261,8 +289,8 @@
             "duration": 10,
             "forwardsEasing": "easeoutquint",
             "reverseEasing": "easeoutquint",
-            "forwardsDelay": 20,
-            "reverseDelay": 5
+            "forwardsDelay": 5,
+            "reverseDelay": 10
           }
         ]
       },
@@ -275,11 +303,11 @@
             "variable": "gun_reload",
             "centerPoint": [0.210938,0.237208,0.205419],
             "axis": [0.0,90.0,0.0],
-            "duration": 10,
+            "duration": 5,
             "forwardsEasing": "easeoutquint",
             "reverseEasing": "easeoutquint",
-            "forwardsDelay": 20,
-            "reverseDelay": 5
+            "forwardsDelay": 5,
+            "reverseDelay": 10
           }
         ]
       },
@@ -1017,11 +1045,11 @@
   },
   "general": {
     "description": "Fires homing missiles",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["oredict:ingotIron:8","oredict:ingotGold:16","oredict:dustRedstone:8"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

@@ -37,6 +37,35 @@
       }
     ]
   },
+  "variableModifiers": [
+    {
+      "variable": "isTwoHanded",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_reload",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "bulletSpreadFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_sneaking",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_aiming",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5
+        }
+      ]
+    }
+  ],
   "parts": [
     {
       "pos": [0.0,0.09375,-0.007975],
@@ -57,7 +86,9 @@
       ]
     }
   ],
-  "constants": ["generic_gun_scope_short"],
+  "constantValues": {
+    "generic_gun_scope_short": 1.0
+  },
   "rendering": {
     "textObjects": [
       {
