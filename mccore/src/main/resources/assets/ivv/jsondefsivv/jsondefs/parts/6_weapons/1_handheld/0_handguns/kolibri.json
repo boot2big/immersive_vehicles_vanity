@@ -36,6 +36,35 @@
       }
     ]
   },
+  "variableModifiers": [
+    {
+      "variable": "isTwoHanded",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_reload",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "bulletSpreadFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_sneaking",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_aiming",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5
+        }
+      ]
+    }
+  ],
   "parts": [
     {
       "pos": [0.0,0.0,0.106338],
@@ -57,7 +86,9 @@
       ]
     }
   ],
-  "constants": ["generic_gun_suppressor_cube"],
+  "constantValues": {
+    "generic_gun_suppressor_cube": 1.0
+  },
   "rendering": {
     "textObjects": [
       {
@@ -533,11 +564,11 @@
   },
   "general": {
     "name": "Kolibri",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
       ["oredict:ingotIron:2","minecraft:stone_button:0:1"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

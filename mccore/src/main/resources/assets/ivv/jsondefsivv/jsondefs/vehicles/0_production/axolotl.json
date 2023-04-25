@@ -985,8 +985,19 @@
           "variable": "engine_isautomatic_1"
         },
         {
+          "animationType": "visibility",
+          "variable": "engine_isdualclutch_1"
+        },
+        {
           "animationType": "translation",
-          "variable": "!engine_clutching_1",
+          "variable": "!engine_clutch_downshift_1",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 3
+        },
+        {
+          "animationType": "translation",
+          "variable": "!engine_clutch_upshift_1",
           "axis": [1.0,0.0,0.0],
           "duration": 3
         }
@@ -1005,12 +1016,12 @@
         {
           "animationType": "translation",
           "variable": "autopilot",
-          "axis": [0.0,0.0,0.5]
+          "axis": [0.0,0.0,1.0]
         },
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.0,-0.4875,0.0]
+          "axis": [0.0,-0.9875,0.0]
         }
       ]
     },
@@ -1117,23 +1128,22 @@
         {
           "animationType": "translation",
           "variable": "turn_indicator",
-          "axis": [0.0,0.0,-0.001666667]
+          "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
           "variable": "!ground_onground_1",
-          "axis": [0.0,-1.0,0.0],
-          "duration": 4
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMax": 0.125
+          "axis": [0.0,-0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,5.0,0.0]
+          "axis": [0.0,3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rlBodyroll",
+          "axis": [0.0,-0.375,0.0]
         }
       ]
     },
@@ -1145,23 +1155,22 @@
         {
           "animationType": "translation",
           "variable": "turn_indicator",
-          "axis": [0.0,0.0,-0.001666667]
+          "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
           "variable": "!ground_onground_2",
-          "axis": [0.0,1.0,0.0],
-          "duration": 4
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMax": 0.125
+          "axis": [0.0,0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,-5.0,0.0]
+          "axis": [0.0,-3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rrBodyroll",
+          "axis": [0.0,-0.375,0.0]
         }
       ]
     },
@@ -1173,23 +1182,22 @@
         {
           "animationType": "translation",
           "variable": "turn_indicator",
-          "axis": [0.0,0.0,-0.001666667]
+          "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
           "variable": "!ground_onground_3",
-          "axis": [0.0,-1.0,0.0],
-          "duration": 4
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMax": 0.125
+          "axis": [0.0,-0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,-5.0,0.0]
+          "axis": [0.0,-3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "flBodyroll",
+          "axis": [0.0,-0.375,0.0]
         }
       ]
     },
@@ -1201,23 +1209,22 @@
         {
           "animationType": "translation",
           "variable": "turn_indicator",
-          "axis": [0.0,0.0,-0.001666667]
+          "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
           "variable": "!ground_onground_4",
-          "axis": [0.0,1.0,0.0],
-          "duration": 4
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMax": 0.125
+          "axis": [0.0,0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,5.0,0.0]
+          "axis": [0.0,3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "frBodyroll",
+          "axis": [0.0,-0.375,0.0]
         }
       ]
     },
@@ -1242,30 +1249,6 @@
           "variable": "part_present_19",
           "clampMin": 1.0,
           "clampMax": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "downForce",
-      "setValue": 0.9,
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "p_brake",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 3.0,
-          "clampMax": 3.0
         }
       ]
     },
@@ -1318,30 +1301,6 @@
       ]
     },
     {
-      "variable": "brakingFactor",
-      "setValue": 1.0,
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "p_brake",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 3.0,
-          "clampMax": 3.0
-        }
-      ]
-    },
-    {
       "variable": "dragCoefficient",
       "addValue": 0.25,
       "animations": [
@@ -1369,6 +1328,14 @@
       "variable": "brakingFactor",
       "animations": [
         {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [-0.004166667,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.25,
+          "clampMax": 32767.0
+        },
+        {
           "animationType": "inhibitor",
           "variable": "p_brake",
           "clampMin": 1.0,
@@ -1386,14 +1353,15 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "CONVERTIBLE",
-          "axis": [0.0,0.05,0.0]
-        },
-        {
-          "animationType": "translation",
           "variable": "speed",
           "axis": [0.0125,0.0,0.0],
           "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [9.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     }
