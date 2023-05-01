@@ -11,7 +11,7 @@
     "downForce": 0.65,
     "overSteer": 4.0,
     "underSteer": 1.0,
-    "overSteerAccel": 6.0,
+    "overSteerAccel": 8.0,
     "axleRatio": 2.5,
     "brakingFactor": 3.0,
     "dragCoefficient": 0.125,
@@ -1225,14 +1225,16 @@
           {
             "animationType": "inhibitor",
             "variable": "rlBodyroll",
-            "clampMin": -0.125,
-            "clampMax": 0.125
+            "clampMin": -0.0625,
+            "clampMax": 0.0625
           },
           {
             "animationType": "rotation",
             "variable": "rlBodyroll",
             "centerPoint": [1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,4.0]
+            "axis": [0.0,0.0,4.0],
+            "clampMin": -8.0,
+            "clampMax": 4.0
           }
         ]
       },
@@ -1243,14 +1245,16 @@
           {
             "animationType": "inhibitor",
             "variable": "rlBodyroll",
-            "clampMin": -0.125,
-            "clampMax": 0.125
+            "clampMin": -0.0625,
+            "clampMax": 0.0625
           },
           {
             "animationType": "rotation",
             "variable": "rlBodyroll",
             "centerPoint": [0.796875,-0.023437,-0.1875],
-            "axis": [0.0,0.0,-6.0]
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -8.0,
+            "clampMax": 4.0
           }
         ]
       },
@@ -1272,14 +1276,16 @@
           {
             "animationType": "inhibitor",
             "variable": "rrBodyroll",
-            "clampMin": -0.125,
-            "clampMax": 0.125
+            "clampMin": -0.0625,
+            "clampMax": 0.0625
           },
           {
             "animationType": "rotation",
             "variable": "rrBodyroll",
             "centerPoint": [-1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,4.0]
+            "axis": [0.0,0.0,4.0],
+            "clampMin": -4.0,
+            "clampMax": 8.0
           }
         ]
       },
@@ -1290,14 +1296,16 @@
           {
             "animationType": "inhibitor",
             "variable": "rrBodyroll",
-            "clampMin": -0.125,
-            "clampMax": 0.125
+            "clampMin": -0.0625,
+            "clampMax": 0.0625
           },
           {
             "animationType": "rotation",
             "variable": "rrBodyroll",
             "centerPoint": [-0.796875,-0.023437,-0.1875],
-            "axis": [0.0,0.0,-6.0]
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -6.0,
+            "clampMax": 12.0
           }
         ]
       },
@@ -1319,14 +1327,16 @@
           {
             "animationType": "inhibitor",
             "variable": "flBodyroll",
-            "clampMin": -0.125,
-            "clampMax": 0.125
+            "clampMin": -0.0625,
+            "clampMax": 0.0625
           },
           {
             "animationType": "rotation",
             "variable": "flBodyroll",
             "centerPoint": [1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,4.0]
+            "axis": [0.0,0.0,4.0],
+            "clampMin": -8.0,
+            "clampMax": 4.0
           }
         ]
       },
@@ -1337,14 +1347,16 @@
           {
             "animationType": "inhibitor",
             "variable": "flBodyroll",
-            "clampMin": -0.125,
-            "clampMax": 0.125
+            "clampMin": -0.0625,
+            "clampMax": 0.0625
           },
           {
             "animationType": "rotation",
             "variable": "flBodyroll",
             "centerPoint": [0.609375,-0.015625,3.5625],
-            "axis": [0.0,0.0,-6.0]
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -12.0,
+            "clampMax": 6.0
           }
         ]
       },
@@ -1355,8 +1367,8 @@
           {
             "animationType": "inhibitor",
             "variable": "rudder",
-            "clampMin": -0.125,
-            "clampMax": 0.125
+            "clampMin": -0.0625,
+            "clampMax": 0.0625
           },
           {
             "animationType": "rotation",
@@ -1384,14 +1396,16 @@
           {
             "animationType": "inhibitor",
             "variable": "frBodyroll",
-            "clampMin": -0.125,
-            "clampMax": 0.125
+            "clampMin": -0.0625,
+            "clampMax": 0.0625
           },
           {
             "animationType": "rotation",
             "variable": "frBodyroll",
             "centerPoint": [-1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,4.0]
+            "axis": [0.0,0.0,4.0],
+            "clampMin": -4.0,
+            "clampMax": 8.0
           }
         ]
       },
@@ -1409,7 +1423,9 @@
             "animationType": "rotation",
             "variable": "frBodyroll",
             "centerPoint": [-0.609375,-0.015625,3.5625],
-            "axis": [0.0,0.0,-6.0]
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -6.0,
+            "clampMax": 12.0
           }
         ]
       },
@@ -2406,6 +2422,165 @@
       }
     ],
     "sounds": [
+      {
+        "name": "ivv:generic_fuel_fluid_empty1",
+        "soundVariations": ["ivv:generic_fuel_fluid_empty1","ivv:generic_fuel_fluid_empty2","ivv:generic_fuel_fluid_empty3","ivv:generic_fuel_fluid_empty4"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_iselectric_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "fuel",
+            "clampMax": 1.125
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engines_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "random",
+            "clampMax": 0.05
+          },
+          {
+            "animationType": "visibility",
+            "variable": "35_10_35_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,-1.0,0.0],
+            "offset": 1.125
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.9375
+          },
+          {
+            "animationType": "translation",
+            "variable": "vehicle_size",
+            "axis": [0.0,-0.125,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "tick_sin",
+            "axis": [0.0,0.0625,0.0],
+            "offset": -0.0375
+          }
+        ],
+        "forceSound": true,
+        "pos": [0.0,0.0,0.0],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:generic_fuel_chug",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_iselectric_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "fueling",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fueling",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9375
+          },
+          {
+            "animationType": "translation",
+            "variable": "vehicle_size",
+            "axis": [0.0,-0.25,0.0]
+          }
+        ],
+        "looping": true,
+        "pos": [0.0,0.0125,5.125],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:generic_fuel_charging",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_iselectric_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "fueling",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fueling",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "vehicle_size",
+            "axis": [0.0,-0.375,0.0]
+          }
+        ],
+        "looping": true,
+        "pos": [0.0,0.0125,5.125],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
       {
         "name": "ivv:interiorrain",
         "activeAnimations": [
