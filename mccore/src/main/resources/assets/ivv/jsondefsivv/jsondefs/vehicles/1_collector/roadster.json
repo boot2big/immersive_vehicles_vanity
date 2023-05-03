@@ -1171,56 +1171,56 @@
   ],
   "definitions": [
     {
-      "constants": ["defaultparts_rims_wire"],
       "subName": "_silver",
+      "constants": ["defaultparts_rims_wire"],
       "name": "Roadster",
       "extraMaterialLists": [
         []
       ]
     },
     {
-      "constants": ["defaultparts_rims_wire"],
       "subName": "_white",
+      "constants": ["defaultparts_rims_wire"],
       "name": "Roadster",
       "extraMaterialLists": [
         []
       ]
     },
     {
-      "constants": ["defaultparts_rims_wire"],
       "subName": "_black",
+      "constants": ["defaultparts_rims_wire"],
       "name": "Roadster",
       "extraMaterialLists": [
         []
       ]
     },
     {
-      "constants": ["defaultparts_rims_wire"],
       "subName": "_orange",
+      "constants": ["defaultparts_rims_wire"],
       "name": "Roadster",
       "extraMaterialLists": [
         []
       ]
     },
     {
-      "constants": ["defaultparts_rims_wire"],
       "subName": "_purple",
+      "constants": ["defaultparts_rims_wire"],
       "name": "Roadster",
       "extraMaterialLists": [
         []
       ]
     },
     {
-      "constants": ["defaultparts_rims_wire"],
       "subName": "_lime",
+      "constants": ["defaultparts_rims_wire"],
       "name": "Roadster",
       "extraMaterialLists": [
         []
       ]
     },
     {
-      "constants": ["defaultparts_rims_wire"],
       "subName": "_red",
+      "constants": ["defaultparts_rims_wire"],
       "name": "Roadster",
       "extraMaterialLists": [
         []
@@ -1440,12 +1440,12 @@
         {
           "animationType": "translation",
           "variable": "autopilot",
-          "axis": [0.0,0.0,0.5]
+          "axis": [0.0,0.0,1.0]
         },
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.0,-0.4875,0.0]
+          "axis": [0.0,-0.9875,0.0]
         }
       ]
     },
@@ -1538,8 +1538,19 @@
           "variable": "engine_isautomatic_1"
         },
         {
+          "animationType": "visibility",
+          "variable": "engine_isdualclutch_1"
+        },
+        {
           "animationType": "translation",
-          "variable": "!engine_clutching_1",
+          "variable": "!engine_clutch_downshift_1",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 3
+        },
+        {
+          "animationType": "translation",
+          "variable": "!engine_clutch_upshift_1",
           "axis": [1.0,0.0,0.0],
           "duration": 3
         }
@@ -2170,6 +2181,165 @@
       }
     ],
     "sounds": [
+      {
+        "name": "ivv:generic_fuel_fluid_empty1",
+        "soundVariations": ["ivv:generic_fuel_fluid_empty1","ivv:generic_fuel_fluid_empty2","ivv:generic_fuel_fluid_empty3","ivv:generic_fuel_fluid_empty4"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_iselectric_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "fuel",
+            "clampMax": 1.125
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engines_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "random",
+            "clampMax": 0.05
+          },
+          {
+            "animationType": "visibility",
+            "variable": "35_10_35_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,-1.0,0.0],
+            "offset": 1.125
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.9375
+          },
+          {
+            "animationType": "translation",
+            "variable": "vehicle_size",
+            "axis": [0.0,-0.125,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "tick_sin",
+            "axis": [0.0,0.0625,0.0],
+            "offset": -0.0375
+          }
+        ],
+        "forceSound": true,
+        "pos": [0.0,0.0,0.0],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:generic_fuel_chug",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_iselectric_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "fueling",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fueling",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9375
+          },
+          {
+            "animationType": "translation",
+            "variable": "vehicle_size",
+            "axis": [0.0,-0.25,0.0]
+          }
+        ],
+        "looping": true,
+        "pos": [0.0,0.18326,4.64651],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:generic_fuel_charging",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_iselectric_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "fueling",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fueling",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "vehicle_size",
+            "axis": [0.0,-0.375,0.0]
+          }
+        ],
+        "looping": true,
+        "pos": [0.0,0.18326,4.64651],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
       {
         "name": "ivv:interiorrain",
         "activeAnimations": [
@@ -2909,14 +3079,14 @@
   },
   "general": {
     "description": "§lSTATS:\nDrivetrain: AWD\nMax. Top Speed: 141MPH\n0-60: 4.26\n0-Top Speed: 0:16:77\nTCS equipped\n§lACCESSORIES:\n-License Plate x2",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 4800,
     "materialLists": [
       ["mts:ivv.frame:0:1","mts:ivv.axle:0:1","mts:ivv.bodypanel:0:4","mts:ivv.normaltire:0:4","mts:ivv.carseat_gray:0:2","mts:ivv.ultra_electricmotor:0:2","mts:ivv.fuelelectric:0:1","mts:ivv.screen:0:1"]
     ],
     "repairMaterialLists": [
       ["mts:ivv.axle:0:1","mts:ivv.bodypanel:0:4","mts:ivv.tape:0:1"]
-    ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

@@ -9,12 +9,12 @@
     "fuelCapacity": 45000,
     "defaultFuelQty": 45000,
     "downForce": 0.85,
-    "overSteer": 4.0,
+    "overSteer": 8.0,
     "underSteer": 2.0,
-    "overSteerAccel": 6.0,
+    "overSteerAccel": 12.0,
     "axleRatio": 1.5,
     "brakingFactor": 5.0,
-    "dragCoefficient": 0.1,
+    "dragCoefficient": 0.05,
     "tailDistance": 2.0,
     "litVariable": "aciveOn",
     "panel": "ivv:acive",
@@ -92,7 +92,7 @@
       "defaultPart": "ivv:rockseat",
       "types": ["seat_invisible"],
       "interactableVariables": [
-        ["door_left"]
+        ["door_left","t_tops_interactable"]
       ],
       "seatEffects": [
         {
@@ -103,7 +103,7 @@
         {
           "name": "resistance",
           "duration": 100,
-          "amplifier": 2
+          "amplifier": 127
         },
         {
           "name": "water_breathing",
@@ -146,7 +146,7 @@
       "defaultPart": "ivv:rockseat",
       "types": ["seat_invisible"],
       "interactableVariables": [
-        ["door_right"]
+        ["door_right","t_tops_interactable"]
       ],
       "seatEffects": [
         {
@@ -157,7 +157,7 @@
         {
           "name": "resistance",
           "duration": 100,
-          "amplifier": 2
+          "amplifier": 127
         },
         {
           "name": "water_breathing",
@@ -203,7 +203,7 @@
       },
       "types": ["seat"],
       "interactableVariables": [
-        ["door_right"]
+        ["door_right","t_tops_interactable"]
       ],
       "seatEffects": [
         {
@@ -214,7 +214,7 @@
         {
           "name": "resistance",
           "duration": 100,
-          "amplifier": 2
+          "amplifier": 127
         },
         {
           "name": "water_breathing",
@@ -256,9 +256,8 @@
       "maxValue": 2.0,
       "types": ["interactable_luggage"],
       "interactableVariables": [
-        ["door_right"],
-        ["part_present_10"],
-        ["door_right"]
+        ["door_right","t_tops_interactable"],
+        ["part_present_10"]
       ],
       "animations": [
         {
@@ -292,7 +291,7 @@
       },
       "types": ["seat"],
       "interactableVariables": [
-        ["door_left"]
+        ["door_left","t_tops_interactable"]
       ],
       "seatEffects": [
         {
@@ -303,7 +302,7 @@
         {
           "name": "resistance",
           "duration": 100,
-          "amplifier": 2
+          "amplifier": 127
         },
         {
           "name": "water_breathing",
@@ -618,6 +617,14 @@
           "animationType": "translation",
           "variable": "ground_isflat_acivecompat_1",
           "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0,0.1875,0.0],
+          "clampMin": -3,
+          "clampMax": 0.001,
+	  "offset": 0.75
         }
       ]
     },
@@ -658,6 +665,14 @@
           "animationType": "translation",
           "variable": "ground_isflat_acivecompat_2",
           "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0,0.1875,0.0],
+          "clampMin": -3,
+          "clampMax": 0.001,
+	  "offset": 0.75
         }
       ]
     },
@@ -697,6 +712,14 @@
           "animationType": "translation",
           "variable": "ground_isflat_acivecompat_3",
           "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0,0.1875,0.0],
+          "clampMin": -3,
+          "clampMax": 0.001,
+	  "offset": 0.75
         }
       ]
     },
@@ -738,6 +761,14 @@
           "animationType": "translation",
           "variable": "ground_isflat_acivecompat_4",
           "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0,0.1875,0.0],
+          "clampMin": -3,
+          "clampMax": 0.001,
+	  "offset": 0.75
         }
       ]
     },
@@ -1217,6 +1248,86 @@
       "isInterior": true,
       "collisions": [
         {
+          "pos": [-0.5,1.2875,0.6],
+          "width": 0.5,
+          "height": 0.25,
+          "armorThickness": 400.0,
+          "heatArmorThickness": 300.0,
+          "damageMultiplier": 0.25
+        },
+        {
+          "pos": [-0.5,1.2875,1.1],
+          "width": 0.5,
+          "height": 0.25,
+          "armorThickness": 400.0,
+          "heatArmorThickness": 300.0,
+          "damageMultiplier": 0.25
+        },
+        {
+          "pos": [-0.5,1.2875,1.6],
+          "width": 0.5,
+          "height": 0.25,
+          "armorThickness": 400.0,
+          "heatArmorThickness": 300.0,
+          "damageMultiplier": 0.25
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "t_tops",
+          "centerPoint": [-0.171875,1.23437,1.5625],
+          "axis": [0.0,0.0,-85.0],
+          "duration": 10,
+          "forwardsEasing": "easeoutcubic",
+          "reverseEasing": "easeoutcubic"
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.5,1.2875,0.6],
+          "width": 0.5,
+          "height": 0.25,
+          "armorThickness": 400.0,
+          "heatArmorThickness": 300.0,
+          "damageMultiplier": 0.25
+        },
+        {
+          "pos": [0.5,1.2875,1.1],
+          "width": 0.5,
+          "height": 0.25,
+          "armorThickness": 400.0,
+          "heatArmorThickness": 300.0,
+          "damageMultiplier": 0.25
+        },
+        {
+          "pos": [0.5,1.2875,1.6],
+          "width": 0.5,
+          "height": 0.25,
+          "armorThickness": 400.0,
+          "heatArmorThickness": 300.0,
+          "damageMultiplier": 0.25
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "t_tops",
+          "centerPoint": [0.171875,1.23437,1.5625],
+          "axis": [0.0,0.0,85.0],
+          "duration": 10,
+          "forwardsEasing": "easeoutcubic",
+          "reverseEasing": "easeoutcubic"
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
           "pos": [0.25,0.4,-0.2],
           "width": 0.5,
           "height": 0.5,
@@ -1381,30 +1492,6 @@
     {
       "collisions": [
         {
-          "pos": [0.5,1.2875,0.6],
-          "width": 0.5,
-          "height": 0.25,
-          "armorThickness": 400.0,
-          "heatArmorThickness": 300.0,
-          "damageMultiplier": 0.25
-        },
-        {
-          "pos": [0.5,1.2875,1.1],
-          "width": 0.5,
-          "height": 0.25,
-          "armorThickness": 400.0,
-          "heatArmorThickness": 300.0,
-          "damageMultiplier": 0.25
-        },
-        {
-          "pos": [0.5,1.2875,1.6],
-          "width": 0.5,
-          "height": 0.25,
-          "armorThickness": 400.0,
-          "heatArmorThickness": 300.0,
-          "damageMultiplier": 0.25
-        },
-        {
           "pos": [0.0,1.2875,0.6],
           "width": 0.5,
           "height": 0.25,
@@ -1422,30 +1509,6 @@
         },
         {
           "pos": [0.0,1.2875,1.6],
-          "width": 0.5,
-          "height": 0.25,
-          "armorThickness": 400.0,
-          "heatArmorThickness": 300.0,
-          "damageMultiplier": 0.25
-        },
-        {
-          "pos": [-0.5,1.2875,0.6],
-          "width": 0.5,
-          "height": 0.25,
-          "armorThickness": 400.0,
-          "heatArmorThickness": 300.0,
-          "damageMultiplier": 0.25
-        },
-        {
-          "pos": [-0.5,1.2875,1.1],
-          "width": 0.5,
-          "height": 0.25,
-          "armorThickness": 400.0,
-          "heatArmorThickness": 300.0,
-          "damageMultiplier": 0.25
-        },
-        {
-          "pos": [-0.5,1.2875,1.6],
           "width": 0.5,
           "height": 0.25,
           "armorThickness": 400.0,
@@ -1687,12 +1750,12 @@
       "name": "ACIVE",
       "description": "§lSTATS:\nDrivetrain: Lexicon Incorporated patented microprocessor integrated quad-axle-drive system\nMax. Top Speed: 307MPH\n0-60: 2.15\n0-Top Speed: 0:49:26\n§lACCESSORIES:\n-Bumper Sticker x2\n-License Plate x2\n-Bumper Sticker x2\n-Axle Driving Hybrid Motor x2",
       "extraMaterialLists": [
-        ["mts:ivv.scanner_ace:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_ace:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_ace:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_ace:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_ace:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_ace:0:2","mts:ivv.blueprint_acive:0:1"]
+        ["mts:ivv.scanner_ace:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_ace:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_ace:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_ace:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_ace:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_ace:0:1","mts:ivv.blueprint_acive:0:1"]
       ]
     },
     {
@@ -1701,12 +1764,12 @@
       "name": "KITT",
       "description": "§lSTATS:\nDrivetrain: Knight Industries patented microprocessor integrated quad-axle-drive system\nMax. Top Speed: 307MPH\n0-60: 2.15\n0-Top Speed: 0:49:26\n§lACCESSORIES:\n-License Plate x2\n-Bumper Sticker x2\n-Axle Driving Hybrid Motor x2",
       "extraMaterialLists": [
-        ["mts:ivv.scanner:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner:0:2","mts:ivv.blueprint_acive:0:1"]
+        ["mts:ivv.scanner:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner:0:1","mts:ivv.blueprint_acive:0:1"]
       ]
     },
     {
@@ -1715,12 +1778,12 @@
       "name": "KARR",
       "description": "§lSTATS:\nDrivetrain: Knight Industries patented microprocessor integrated quad-axle-drive system\nMax. Top Speed: 307MPH\n0-60: 2.15\n0-Top Speed: 0:49:26\n§lACCESSORIES:\n-License Plate x2\n-Bumper Sticker x2\n-Axle Driving Hybrid Motor x2",
       "extraMaterialLists": [
-        ["mts:ivv.scanner_karr:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_karr:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_karr:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_karr:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_karr:0:2","mts:ivv.blueprint_acive:0:1"],
-        ["mts:ivv.scanner_karr:0:2","mts:ivv.blueprint_acive:0:1"]
+        ["mts:ivv.scanner_karr:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_karr:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_karr:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_karr:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_karr:0:1","mts:ivv.blueprint_acive:0:1"],
+        ["mts:ivv.scanner_karr:0:1","mts:ivv.blueprint_acive:0:1"]
       ]
     }
   ],
@@ -1731,19 +1794,71 @@
   "initialVariables": ["door_right","door_left","vehicle_traction_control"],
   "variableModifiers": [
     {
+      "variable": "vehicle_has_ac",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!oxygen_systems",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_is_convertable",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!s4",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_size",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!base",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "kitt",
+          "axis": [0.0,0.001,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "karr",
+          "axis": [0.0,0.0625,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ace",
+          "axis": [0.0,-0.125,0.0]
+        }
+      ]
+    },
+    {
       "variable": "throttle",
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "engine_kr2k_1"
+          "variable": "engine_isautomatic_1"
         },
         {
           "animationType": "visibility",
-          "variable": "engine_isautomatic"
+          "variable": "engine_isdualclutch_1"
         },
         {
           "animationType": "translation",
-          "variable": "!engine_clutching_1",
+          "variable": "!engine_clutch_downshift_1",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 3
+        },
+        {
+          "animationType": "translation",
+          "variable": "!engine_clutch_upshift_1",
           "axis": [1.0,0.0,0.0],
           "duration": 3
         }
@@ -2025,14 +2140,7 @@
         {
           "animationType": "translation",
           "variable": "damage_percent",
-          "axis": [0.0,0.0,0.0313]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_backfired_1",
-          "axis": [0.0,0.25,0.0],
-          "duration": 10,
-          "forwardsDelay": -10
+          "axis": [0.0,0.0,0.0125]
         },
         {
           "animationType": "translation",
@@ -2760,12 +2868,12 @@
         {
           "animationType": "translation",
           "variable": "autopilot",
-          "axis": [0.0,0.0,0.5]
+          "axis": [0.0,0.0,1.0]
         },
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.0,-0.50125,0.0]
+          "axis": [0.0,-0.9875,0.0]
         }
       ]
     },
@@ -3228,6 +3336,16 @@
       ]
     },
     {
+      "variable": "t_tops_interactable",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "t_tops",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "aciveOn",
       "maxValue": 1.0,
       "animations": [
@@ -3553,8 +3671,7 @@
         {
           "animationType": "translation",
           "variable": "ski_mode",
-          "axis": [0.0,0.0,1.0],
-          "duration": 5
+          "axis": [0.0,0.0,1.0]
         },
         {
           "animationType": "translation",
@@ -3567,12 +3684,12 @@
     },
     {
       "variable": "skii",
-      "minValue": -1.0,
-      "maxValue": 1.0,
+      "minValue": -1.5,
+      "maxValue": 1.5,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "ski_mode",
+          "variable": "!gymnastics",
           "axis": [0.0,0.0,1.0]
         },
         {
@@ -3586,18 +3703,85 @@
           "axis": [-2.0,0.0,0.0],
           "offset": 1.0,
           "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,-5.0E-4,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ski_mode",
+          "axis": [1.0,0.0,0.0],
+          "duration": 10,
+          "forwardsEasing": "easeoutback",
+          "reverseEasing": "easeincubic"
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_dip",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.0,4.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [0.0,-4.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_5",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_panel",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_sway",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "rudder",
+          "axis": [0.0,0.0,-0.5]
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_5",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_panel",
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
     {
       "variable": "rlBodyroll",
-      "minValue": -1.0,
-      "maxValue": 1.0,
+      "minValue": -2.0,
+      "maxValue": 2.0,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "turn_indicator",
-          "axis": [0.0,0.0,-0.001666667]
+          "variable": "hydraulics_dip",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_sway",
+          "axis": [0.0,0.25,0.0]
         },
         {
           "animationType": "translation",
@@ -3606,14 +3790,13 @@
         },
         {
           "animationType": "translation",
-          "variable": "!ground_onground_1",
-          "axis": [0.0,-1.0,0.0],
-          "duration": 4
+          "variable": "turn_indicator",
+          "axis": [0.0,-0.001,0.0]
         },
         {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMax": 0.125
+          "animationType": "translation",
+          "variable": "!ground_onground_1",
+          "axis": [0.0,-0.5,0.0]
         },
         {
           "animationType": "translation",
@@ -3630,18 +3813,37 @@
           "animationType": "translation",
           "variable": "skii",
           "axis": [0.0,2.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rlBodyroll",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!hydraulics_panel"
+        },
+        {
+          "animationType": "translation",
+          "variable": "rlBodyroll",
+          "axis": [0.0,-0.25,0.0]
         }
       ]
     },
     {
       "variable": "rrBodyroll",
-      "minValue": -1.0,
-      "maxValue": 1.0,
+      "minValue": -2.0,
+      "maxValue": 2.0,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "turn_indicator",
-          "axis": [0.0,0.0,-0.001666667]
+          "variable": "hydraulics_dip",
+          "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_sway",
+          "axis": [0.0,0.25,0.0]
         },
         {
           "animationType": "translation",
@@ -3650,14 +3852,13 @@
         },
         {
           "animationType": "translation",
-          "variable": "!ground_onground_2",
-          "axis": [0.0,1.0,0.0],
-          "duration": 4
+          "variable": "turn_indicator",
+          "axis": [0.0,-0.001,0.0]
         },
         {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMax": 0.125
+          "animationType": "translation",
+          "variable": "!ground_onground_2",
+          "axis": [0.0,0.5,0.0]
         },
         {
           "animationType": "translation",
@@ -3674,18 +3875,37 @@
           "animationType": "translation",
           "variable": "skii",
           "axis": [0.0,2.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rrBodyroll",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!hydraulics_panel"
+        },
+        {
+          "animationType": "translation",
+          "variable": "rrBodyroll",
+          "axis": [0.0,-0.25,0.0]
         }
       ]
     },
     {
       "variable": "flBodyroll",
-      "minValue": -1.0,
-      "maxValue": 1.0,
+      "minValue": -2.0,
+      "maxValue": 2.0,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "turn_indicator",
-          "axis": [0.0,0.0,-0.001666667]
+          "variable": "hydraulics_dip",
+          "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_sway",
+          "axis": [0.0,0.25,0.0]
         },
         {
           "animationType": "translation",
@@ -3694,14 +3914,13 @@
         },
         {
           "animationType": "translation",
-          "variable": "!ground_onground_3",
-          "axis": [0.0,-1.0,0.0],
-          "duration": 4
+          "variable": "turn_indicator",
+          "axis": [0.0,-0.001,0.0]
         },
         {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMax": 0.125
+          "animationType": "translation",
+          "variable": "!ground_onground_3",
+          "axis": [0.0,-0.5,0.0]
         },
         {
           "animationType": "translation",
@@ -3718,18 +3937,37 @@
           "animationType": "translation",
           "variable": "skii",
           "axis": [0.0,2.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "flBodyroll",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!hydraulics_panel"
+        },
+        {
+          "animationType": "translation",
+          "variable": "flBodyroll",
+          "axis": [0.0,-0.25,0.0]
         }
       ]
     },
     {
       "variable": "frBodyroll",
-      "minValue": -1.0,
-      "maxValue": 1.0,
+      "minValue": -2.0,
+      "maxValue": 2.0,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "turn_indicator",
-          "axis": [0.0,0.0,-0.001666667]
+          "variable": "hydraulics_dip",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_sway",
+          "axis": [0.0,0.25,0.0]
         },
         {
           "animationType": "translation",
@@ -3738,14 +3976,13 @@
         },
         {
           "animationType": "translation",
-          "variable": "!ground_onground_4",
-          "axis": [0.0,1.0,0.0],
-          "duration": 4
+          "variable": "turn_indicator",
+          "axis": [0.0,-0.001,0.0]
         },
         {
-          "animationType": "inhibitor",
-          "variable": "speed",
-          "clampMax": 0.125
+          "animationType": "translation",
+          "variable": "!ground_onground_4",
+          "axis": [0.0,0.5,0.0]
         },
         {
           "animationType": "translation",
@@ -3762,41 +3999,26 @@
           "animationType": "translation",
           "variable": "skii",
           "axis": [0.0,2.0,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "dragCoefficient",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "damage_percent",
-          "axis": [0.0,0.75,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "downForce",
-      "addValue": 0.05,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "gun_active_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
         },
         {
-          "animationType": "visibility",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0,
-          "reverseDelay": 2
+          "animationType": "translation",
+          "variable": "frBodyroll",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!hydraulics_panel"
+        },
+        {
+          "animationType": "translation",
+          "variable": "frBodyroll",
+          "axis": [0.0,-0.25,0.0]
         }
       ]
     },
     {
       "variable": "overSteer",
-      "addValue": 6.0,
+      "addValue": 8.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -3815,7 +4037,7 @@
     },
     {
       "variable": "underSteer",
-      "addValue": -1.0,
+      "addValue": -1.5,
       "animations": [
         {
           "animationType": "visibility",
@@ -3829,48 +4051,6 @@
           "clampMin": 1.0,
           "clampMax": 1.0,
           "reverseDelay": 2
-        }
-      ]
-    },
-    {
-      "variable": "brakingFactor",
-      "setValue": 1.2,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "gun_active_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "dragCoefficient",
-      "addValue": 0.25,
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "p_brake",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 3.0,
-          "clampMax": 3.0
         }
       ]
     },
@@ -4002,21 +4182,8 @@
         {
           "animationType": "translation",
           "variable": "vertical_speed",
-          "axis": [0.0,0.0,-6.0],
-          "offset": -12.0,
-          "clampMin": -0.0125
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "terrain_distance",
-          "clampMin": 8.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "vertical_speed",
-          "axis": [0.0,0.0,-6.0],
-          "offset": -12.0,
+          "axis": [0.0,0.0,-8.0],
+          "offset": -16.0,
           "clampMin": -0.0125
         }
       ]
@@ -4029,6 +4196,12 @@
           "variable": "speed",
           "axis": [0.004875,0.0,0.0],
           "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [4.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     }
@@ -4251,7 +4424,9 @@
             "animationType": "rotation",
             "variable": "rlBodyroll",
             "centerPoint": [1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,4.0]
+            "axis": [0.0,0.0,4.0],
+            "clampMin": -8.0,
+            "clampMax": 4.0
           }
         ]
       },
@@ -4269,7 +4444,9 @@
             "animationType": "rotation",
             "variable": "rlBodyroll",
             "centerPoint": [0.796875,-0.023437,-0.1875],
-            "axis": [0.0,0.0,-6.0]
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -12.0,
+            "clampMax": 6.0
           }
         ]
       },
@@ -4298,7 +4475,9 @@
             "animationType": "rotation",
             "variable": "rrBodyroll",
             "centerPoint": [-1.0E-8,-0.3125,-0.1875],
-            "axis": [0.0,0.0,4.0]
+            "axis": [0.0,0.0,4.0],
+            "clampMin": -4.0,
+            "clampMax": 8.0
           }
         ]
       },
@@ -4316,7 +4495,9 @@
             "animationType": "rotation",
             "variable": "rrBodyroll",
             "centerPoint": [-0.796875,-0.023437,-0.1875],
-            "axis": [0.0,0.0,-6.0]
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -12.0,
+            "clampMax": 6.0
           }
         ]
       },
@@ -4345,7 +4526,9 @@
             "animationType": "rotation",
             "variable": "flBodyroll",
             "centerPoint": [1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,4.0]
+            "axis": [0.0,0.0,4.0],
+            "clampMin": -8.0,
+            "clampMax": 4.0
           }
         ]
       },
@@ -4363,7 +4546,9 @@
             "animationType": "rotation",
             "variable": "flBodyroll",
             "centerPoint": [0.671875,-0.015625,3.5625],
-            "axis": [0.0,0.0,-6.0]
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -6.0,
+            "clampMax": 12.0
           }
         ]
       },
@@ -4371,6 +4556,20 @@
         "objectName": "frontleftsteer",
         "applyAfter": "frontleftsuspension",
         "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "!hydraulics_panel"
+          },
+          {
+            "animationType": "activator",
+            "variable": "!engine_gearshift_1"
+          },
+          {
+            "animationType": "activator",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 32767.0
+          },
           {
             "animationType": "rotation",
             "variable": "rudder",
@@ -4404,7 +4603,9 @@
             "animationType": "rotation",
             "variable": "frBodyroll",
             "centerPoint": [-1.0E-8,-0.3125,3.5625],
-            "axis": [0.0,0.0,4.0]
+            "axis": [0.0,0.0,4.0],
+            "clampMin": -4.0,
+            "clampMax": 8.0
           }
         ]
       },
@@ -4422,7 +4623,9 @@
             "animationType": "rotation",
             "variable": "frBodyroll",
             "centerPoint": [-0.671875,-0.015625,3.5625],
-            "axis": [0.0,0.0,-6.0]
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -12.0,
+            "clampMax": 6.0
           }
         ]
       },
@@ -4430,6 +4633,20 @@
         "objectName": "frontrightsteer",
         "applyAfter": "frontrightsuspension",
         "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "!hydraulics_panel"
+          },
+          {
+            "animationType": "activator",
+            "variable": "!engine_gearshift_1"
+          },
+          {
+            "animationType": "activator",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 32767.0
+          },
           {
             "animationType": "rotation",
             "variable": "rudder",
@@ -5583,31 +5800,44 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "engine_kr2k_1"
-          },
-          {
-            "animationType": "visibility",
             "variable": "engine_isautomatic_1"
           },
           {
-            "animationType": "rotation",
-            "variable": "engine_clutch_upshift_1",
-            "centerPoint": [0.0,-0.15625,2.78125],
-            "axis": [-26.0,0.0,0.0],
-            "offset": 6.0
+            "animationType": "visibility",
+            "variable": "engine_isdualclutch_1"
           },
           {
-            "animationType": "rotation",
-            "variable": "engine_clutch_downshift_1",
-            "centerPoint": [0.0,-0.15625,2.78125],
-            "axis": [-26.0,0.0,0.0],
-            "offset": 6.0
+            "animationType": "translation",
+            "variable": "!engine_clutch_downshift_1",
+            "axis": [0.5,0.0,0.0],
+            "offset": 0.5,
+            "duration": 3
+          },
+          {
+            "animationType": "translation",
+            "variable": "!engine_clutch_upshift_1",
+            "axis": [1.0,0.0,0.0],
+            "duration": 3
           }
         ]
       },
       {
         "objectName": "steeringwheel",
         "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "!hydraulics_panel"
+          },
+          {
+            "animationType": "activator",
+            "variable": "!engine_gearshift_1"
+          },
+          {
+            "animationType": "activator",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 32767.0
+          },
           {
             "animationType": "rotation",
             "variable": "rudder",
@@ -7827,6 +8057,16 @@
             "variable": "running_light",
             "axis": [0.0,0.375,0.0],
             "duration": 2
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!engine_gearshift_1"
+          },
+          {
+            "animationType": "translation",
+            "variable": "hydraulics_panel",
+            "axis": [0.0,-2.0,0.0],
+            "duration": 4
           }
         ],
         "blendableComponents": [
@@ -8515,6 +8755,165 @@
     ],
     "sounds": [
       {
+        "name": "ivv:generic_fuel_fluid_empty1",
+        "soundVariations": ["ivv:generic_fuel_fluid_empty1","ivv:generic_fuel_fluid_empty2","ivv:generic_fuel_fluid_empty3","ivv:generic_fuel_fluid_empty4"],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_iselectric_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "fuel",
+            "clampMax": 1.125
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engines_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "random",
+            "clampMax": 0.05
+          },
+          {
+            "animationType": "visibility",
+            "variable": "35_10_35_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,-1.0,0.0],
+            "offset": 1.125
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.9375
+          },
+          {
+            "animationType": "translation",
+            "variable": "vehicle_size",
+            "axis": [0.0,-0.125,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "tick_sin",
+            "axis": [0.0,0.0625,0.0],
+            "offset": -0.0375
+          }
+        ],
+        "forceSound": true,
+        "pos": [0.0,0.0,0.0],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:generic_fuel_chug",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_iselectric_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "fueling",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fueling",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9375
+          },
+          {
+            "animationType": "translation",
+            "variable": "vehicle_size",
+            "axis": [0.0,-0.25,0.0]
+          }
+        ],
+        "looping": true,
+        "pos": [0.0,0.0125,5.125],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
+        "name": "ivv:generic_fuel_charging",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_iselectric_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "fueling",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fueling",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "fuel",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "vehicle_size",
+            "axis": [0.0,-0.375,0.0]
+          }
+        ],
+        "looping": true,
+        "pos": [0.0,0.0125,5.125],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25
+      },
+      {
         "name": "ivv:aciveconsoleneton",
         "activeAnimations": [
           {
@@ -8562,6 +8961,12 @@
       {
         "name": "ivv:acivespeedflip",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "graah_doesnt_work",
+            "clampMin": 1.01,
+            "clampMax": 1.0
+          },
           {
             "animationType": "visibility",
             "variable": "speed_tick_calc",
@@ -8919,14 +9324,14 @@
           {
             "animationType": "translation",
             "variable": "brake",
-            "axis": [0.0,0.5,0.0],
+            "axis": [0.0,0.25,0.0],
             "offset": -0.5,
-            "clampMax": 1.0
+            "clampMax": 0.5
           },
           {
             "animationType": "translation",
             "variable": "brake",
-            "axis": [0.0,1.0,0.0],
+            "axis": [0.0,0.25,0.0],
             "duration": 10,
             "forwardsDelay": -5
           }
@@ -9170,26 +9575,21 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "skii",
-            "clampMin": 0.25,
-            "clampMax": 2.0
-          }
-        ],
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:hydraulicsuperjump",
-        "activeAnimations": [
+            "variable": "ski_mode",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMin": 1.0,
+            "clampMax": 32767.0
+          },
           {
             "animationType": "visibility",
-            "variable": "skii",
-            "clampMin": -2.0,
-            "clampMax": -0.25
+            "variable": "never_true",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ],
         "minDistance": 0.0,
@@ -9209,19 +9609,12 @@
             "clampMax": 1.0
           }
         ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "!kitchen_gun",
-            "axis": [0.0,3.0,0.0]
-          }
-        ],
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 1.0,
+        "maxDistance": 72.0,
         "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25
       },
       {
         "name": "ivv:hydraulicsuperjumpvwaou",
@@ -10213,14 +10606,17 @@
       },
       {
         "type": "smoke",
-        "quantity": 3,
-        "duration": 20,
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 0.5,
         "toTransparency": 1.0E-7,
-        "scale": 10.0,
-        "toScale": 20.0,
+        "scale": 12.0,
+        "toScale": 32.0,
+        "spreadFactorHorizontal": 15.0,
+        "spreadFactorVertical": 2.0,
         "color": "999999",
-        "pos": [1.125,-0.50005,-0.18742],
-        "initialVelocity": [0.0,-0.5,0.0],
+        "pos": [0.0,-0.25,0.0],
+        "initialVelocity": [0.0,0.375,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -10232,14 +10628,17 @@
       },
       {
         "type": "smoke",
-        "quantity": 3,
-        "duration": 20,
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 0.5,
         "toTransparency": 1.0E-7,
-        "scale": 10.0,
-        "toScale": 20.0,
+        "scale": 12.0,
+        "toScale": 32.0,
+        "spreadFactorHorizontal": 15.0,
+        "spreadFactorVertical": 2.0,
         "color": "999999",
-        "pos": [-1.125,-0.50005,-0.18742],
-        "initialVelocity": [0.0,-0.5,0.0],
+        "pos": [0.0,-0.25,1.5],
+        "initialVelocity": [0.0,0.375,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -10251,33 +10650,17 @@
       },
       {
         "type": "smoke",
-        "quantity": 3,
-        "duration": 20,
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 0.5,
         "toTransparency": 1.0E-7,
-        "scale": 10.0,
-        "toScale": 20.0,
+        "scale": 12.0,
+        "toScale": 32.0,
+        "spreadFactorHorizontal": 15.0,
+        "spreadFactorVertical": 2.0,
         "color": "999999",
-        "pos": [1.125,-0.50005,3.56258],
-        "initialVelocity": [0.0,-0.5,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "jumping",
-            "clampMin": 0.125,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "quantity": 3,
-        "duration": 20,
-        "toTransparency": 1.0E-7,
-        "scale": 10.0,
-        "toScale": 20.0,
-        "color": "999999",
-        "pos": [-1.125,-0.50005,3.56258],
-        "initialVelocity": [0.0,-0.5,0.0],
+        "pos": [0.0,-0.25,3.0],
+        "initialVelocity": [0.0,0.375,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -10290,22 +10673,25 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
-        "quantity": 3,
-        "duration": 20,
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 0.5,
         "toTransparency": 1.0E-7,
-        "scale": 10.0,
-        "toScale": 20.0,
+        "scale": 12.0,
+        "toScale": 32.0,
+        "spreadFactorHorizontal": 15.0,
+        "spreadFactorVertical": 2.0,
         "color": "999999",
-        "pos": [1.125,-0.50005,-0.18742],
-        "initialVelocity": [0.0,-16.0,0.0],
+        "pos": [0.0,-0.25,0.0],
+        "initialVelocity": [0.0,-16,0.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
             "variable": "pitch",
-            "centerPoint": [1.125,-0.50005,-0.18742],
+            "centerPoint": [0.0,-0.25,0.0],
             "axis": [-1.0,0.0,0.0],
-            "clampMin": -78.75,
-            "clampMax": 78.75
+            "clampMin": -90,
+            "clampMax": 90
           }
         ],
         "activeAnimations": [
@@ -10326,22 +10712,25 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
-        "quantity": 3,
-        "duration": 20,
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 0.5,
         "toTransparency": 1.0E-7,
-        "scale": 10.0,
-        "toScale": 20.0,
+        "scale": 12.0,
+        "toScale": 32.0,
+        "spreadFactorHorizontal": 15.0,
+        "spreadFactorVertical": 2.0,
         "color": "999999",
-        "pos": [-1.125,-0.50005,-0.18742],
-        "initialVelocity": [0.0,-16.0,0.0],
+        "pos": [0.0,-0.25,1.5],
+        "initialVelocity": [0.0,-16,0.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
             "variable": "pitch",
-            "centerPoint": [-1.125,-0.50005,-0.18742],
-            "axis": [-1.0,0.0,0.0],
-            "clampMin": -78.75,
-            "clampMax": 78.75
+            "centerPoint": [0.0,-0.25,0.0],
+            "axis": [-1.0,0.0,1.5],
+            "clampMin": -90,
+            "clampMax": 90
           }
         ],
         "activeAnimations": [
@@ -10362,58 +10751,25 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
-        "quantity": 3,
-        "duration": 20,
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 0.5,
         "toTransparency": 1.0E-7,
-        "scale": 10.0,
-        "toScale": 20.0,
+        "scale": 12.0,
+        "toScale": 32.0,
+        "spreadFactorHorizontal": 15.0,
+        "spreadFactorVertical": 2.0,
         "color": "999999",
-        "pos": [1.125,-0.50005,3.56258],
-        "initialVelocity": [0.0,-16.0,0.0],
+        "pos": [0.0,-0.25,3.0],
+        "initialVelocity": [0.0,-16,0.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
             "variable": "pitch",
-            "centerPoint": [1.125,-0.50005,3.56258],
+            "centerPoint": [0.0,-0.25,3.0],
             "axis": [-1.0,0.0,0.0],
-            "clampMin": -78.75,
-            "clampMax": 78.75
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "aciveRunning",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "vertical_speed",
-            "clampMin": -1000.0,
-            "clampMax": -16.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawnEveryTick": true,
-        "quantity": 3,
-        "duration": 20,
-        "toTransparency": 1.0E-7,
-        "scale": 10.0,
-        "toScale": 20.0,
-        "color": "999999",
-        "pos": [-1.125,-0.50005,3.56258],
-        "initialVelocity": [0.0,-16.0,0.0],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "pitch",
-            "centerPoint": [-1.125,-0.50005,3.56258],
-            "axis": [-1.0,0.0,0.0],
-            "clampMin": -78.75,
-            "clampMax": 78.75
+            "clampMin": -90,
+            "clampMax": 90
           }
         ],
         "activeAnimations": [
