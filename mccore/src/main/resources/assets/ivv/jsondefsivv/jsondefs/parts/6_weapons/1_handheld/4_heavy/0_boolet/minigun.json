@@ -18,7 +18,7 @@
     "capacity": 1000,
     "reloadTime": 100,
     "reloadDelay": 10,
-    "windupTime": 20,
+    "windupTime": 15,
     "muzzleVelocity": 715,
     "fireDelay": 1.0,
     "bulletSpreadFactor": 8.0,
@@ -29,7 +29,8 @@
     "pitchSpeed": Infinity,
     "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.1,-0.1,0.4],
-    "handHeldAimedOffset": [0.315,0.05,0.45],
+    "handHeldAimedOffset": [-0.1,-0.1,0.4],
+    "handHeldModelOffset": [0.0,0.0,-0.375],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -102,13 +103,7 @@
           "animationType": "translation",
           "variable": "!gun_inhand_sneaking",
           "axis": [0.0,0.0,4.0],
-          "offset": 4
-        },
-        {
-          "animationType": "translation",
-          "variable": "!gun_inhand_aiming",
-          "axis": [0.5,0.0,0.0],
-          "offset": 0.5
+          "offset": 4.0
         }
       ]
     },
@@ -249,6 +244,11 @@
             "variable": "gun_controller_firstperson",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_controller_firstperson",
+            "axis": [0.0,0.0,0.375]
           }
         ]
       },
@@ -307,7 +307,7 @@
             "animationType": "rotation",
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [22.5,0.0,0.0],
+            "axis": [-11.25,0.0,0.0],
             "duration": 10,
             "forwardsEasing": "easeinoutsine",
             "reverseEasing": "easeinoutsine",
@@ -318,7 +318,7 @@
             "animationType": "rotation",
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [-22.5,0.0,0.0],
+            "axis": [11.25,0.0,0.0],
             "duration": 20,
             "forwardsEasing": "easeinoutsine",
             "reverseEasing": "easeinoutsine",
@@ -357,6 +357,16 @@
             "axis": [0.0,0.0,-0.0625],
             "duration": 1,
             "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_windup_time",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [11.25,0.0,0.0],
+            "offset": -11.25,
+            "duration": 10,
+            "forwardsEasing": "easeinoutsine",
             "reverseEasing": "easeinoutsine"
           }
         ]
@@ -399,8 +409,8 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.125,0.0],
-            "offset": 0.9375
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
           }
         ],
         "forceSound": true,
@@ -412,7 +422,7 @@
         "middleDistanceVolume": 0.0
       },
       {
-        "name": "ivv:bulletdistantheavy",
+        "name": "ivv:bulletdistantbrrrt",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -476,7 +486,7 @@
           {
             "animationType": "translation",
             "variable": "gun_windup_time",
-            "axis": [0.0,0.05,0.0],
+            "axis": [0.0,0.025,0.0],
             "clampMax": 0.75
           }
         ],
@@ -484,7 +494,7 @@
           {
             "animationType": "translation",
             "variable": "gun_windup_time",
-            "axis": [0.0,0.025,0.0],
+            "axis": [0.0,0.033333333,0.0],
             "offset": 0.5,
             "clampMax": 1.0
           }
