@@ -1,6 +1,7 @@
 {
   "generic": {
     "type": "generic_lightbar",
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.25,
     "height": 0.25
   },
@@ -112,286 +113,37 @@
     },
     {
       "variable": "ssd_stopanyways",
+      "maxValue": 1.0,
       "animations": [
         {
-          "animationType": "visibility",
+          "animationType": "translation",
+          "variable": "radar_ground_1_distance",
+          "axis": [0.0,-5.0,0.0],
+          "offset": 5.0
+        }
+      ]
+    },
+    {
+      "variable": "ssd_followdistance",
+      "minValuent": -1.0,
+      "maxValuent": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "radar_ground_1_distance",
+          "axis": [0.0,0.0,1.0],
+          "offset": -7.0
+        },
+        {
+          "animationType": "translation",
           "variable": "radar_ground_1_speed",
-          "clampMax": 0.25
+          "axis": [0.2,0.0,0.0],
+          "offset": 0.2
         },
         {
           "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_stopanyways",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_speed",
-          "clampMin": 0.25,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_close",
-      "animations": [
-        {
-          "animationType": "visibility",
           "variable": "speed",
-          "clampMax": 10.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMin": 12.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_close",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMax": 10.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMax": 12.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_tooclose",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMax": 10.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMin": 8.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_tooclose",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMax": 10.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMax": 8.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_close",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMin": 10.0,
-          "clampMax": 20.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMin": 20.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_close",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMin": 10.0,
-          "clampMax": 20.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMax": 20.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_tooclose",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMin": 10.0,
-          "clampMax": 20.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMin": 16.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_tooclose",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMin": 10.0,
-          "clampMax": 20.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMax": 16.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_close",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMin": 20.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMin": 32.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_close",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMin": 20.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMax": 32.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_tooclose",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMin": 20.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMin": 24.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "ssd_tooclose",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "speed",
-          "clampMin": 20.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "radar_ground_1_distance",
-          "clampMax": 24.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,0.0,1.0]
+          "axis": [0.0,-0.75,0.0]
         }
       ]
     },
@@ -427,6 +179,15 @@
           "animationType": "translation",
           "variable": "!unnecessary_amount_of_vms",
           "axis": [-1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [-0.00625,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.5,
+          "clampMax": 1.0,
+          "absolute": true
         }
       ]
     },
@@ -450,7 +211,11 @@
         {
           "animationType": "translation",
           "variable": "slip",
-          "axis": [0.0,-0.0375,0.0]
+          "axis": [-0.00625,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.5,
+          "clampMax": 1.0,
+          "absolute": true
         }
       ]
     },
@@ -487,19 +252,26 @@
         },
         {
           "animationType": "translation",
-          "variable": "radar_ground_1_distance",
-          "axis": [0.0,0.0,0.01875],
-          "clampMax": 0.5
+          "variable": "ssd_followdistance",
+          "axis": [0.0,0.0,0.125],
+          "clampMax": 0.5,
+          "offset": -0.0625
         },
         {
           "animationType": "translation",
-          "variable": "radar_ground_1_distance",
-          "axis": [0.0,0.0125,0.0],
-          "clampMax": 0.5
+          "variable": "ssd_followdistance",
+          "axis": [0.0,0.0625,0.0],
+          "clampMax": 0.5,
+          "offset": -0.0625
         },
         {
           "animationType": "translation",
           "variable": "!ssd_stopanyways",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!ssd_slowingdown",
           "axis": [1.0,0.0,0.0]
         },
         {
@@ -521,16 +293,13 @@
         },
         {
           "animationType": "translation",
-          "variable": "radar_ground_1_distance",
-          "axis": [0.0,0.0,-0.125],
-          "offset": 1.25,
-          "clampMin": 0.25,
-          "clampMax": 1.0
+          "variable": "ssd_followdistance",
+          "axis": [0.0,0.0,-0.25]
         },
         {
           "animationType": "translation",
-          "variable": "ssd_tooclose",
-          "axis": [1.0,0.0,0.0]
+          "variable": "ssd_slowingdown",
+          "axis": [0.0,1.0,0.0]
         },
         {
           "animationType": "translation",
@@ -546,7 +315,7 @@
         {
           "animationType": "translation",
           "variable": "squeeee",
-          "axis": [0.0,0.0,1]
+          "axis": [0.0,0.0,1.0]
         }
       ]
     }
@@ -568,9 +337,9 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "rudder",
+            "variable": "target_angle_output",
             "centerPoint": [-0.140625,0.125,0.0],
-            "axis": [0.0,-0.25,0.0]
+            "axis": [0.0,-1,0.0]
           }
         ]
       },
@@ -580,9 +349,9 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "rudder",
+            "variable": "target_angle_output",
             "centerPoint": [0.140625,0.125,0.0],
-            "axis": [0.0,-0.25,0.0]
+            "axis": [0.0,-1,0.0]
           }
         ]
       }
@@ -593,12 +362,12 @@
   },
   "general": {
     "name": "",
-    "description": "§2''Follow The Leader''\nAttempts to follow nearest vehicle, will try to stop if too close. Good following distance is recommended for your AI teammate\nUnexpected behavior may occur, use at own risk",
+    "description": "§2Follow The Leader\nAttempts to follow nearest vehicle, will try to stop if too close\nGood following distance is always preferable\nUnexpected behavior may occur, use at own risk",
     "health": 100,
     "materialLists": [
       ["minecrafT:barrier:0:1"]
     ],
-    "radarWidth": 130.0,
+    "radarWidth": 180.0,
     "radarRange": 128.0
   }
 }

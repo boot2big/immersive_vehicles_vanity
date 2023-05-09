@@ -8,9 +8,9 @@
     "fuelCapacity": 20000,
     "defaultFuelQty": 20000,
     "downForce": 0.65,
-    "overSteer": 2.0,
+    "overSteer": 6.0,
     "underSteer": 1.0,
-    "overSteerAccel": 6.0,
+    "overSteerAccel": 12.0,
     "axleRatio": 2.5,
     "brakingFactor": 3.0,
     "dragCoefficient": 0.1,
@@ -92,7 +92,7 @@
       "defaultPart": "ivv:rockseat",
       "types": ["seat_invisible"],
       "interactableVariables": [
-        ["door_rearleft","door_rearright"]
+        ["hatch_rearleft","hatch_rearright"]
       ]
     },
     {
@@ -102,7 +102,7 @@
       "defaultPart": "ivv:rockseat",
       "types": ["seat_invisible"],
       "interactableVariables": [
-        ["door_rearleft"]
+        ["hatch_rearleft"]
       ]
     },
     {
@@ -112,7 +112,7 @@
       "defaultPart": "ivv:rockseat",
       "types": ["seat_invisible"],
       "interactableVariables": [
-        ["door_rearright"]
+        ["hatch_rearright"]
       ]
     },
     {
@@ -133,7 +133,7 @@
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
       "interactableVariables": [
-        ["door_frontright"]
+        ["hatch_frontright"]
       ]
     },
     {
@@ -142,7 +142,7 @@
       "defaultPart": "ivv:carseat_gray",
       "types": ["seat"],
       "interactableVariables": [
-        ["door_frontleft"]
+        ["hatch_frontleft"]
       ],
       "linkedParts": [5]
     },
@@ -151,8 +151,9 @@
       "maxValue": 10.0,
       "defaultPart": "ivv:v6",
       "types": ["engine_car"],
+      "intakeOffset": 2.0,
       "interactableVariables": [
-        ["door_hood"]
+        ["hatch_hood"]
       ],
       "linkedParts": [1,2,6,7,15,17,18,19]
     },
@@ -162,7 +163,7 @@
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
       "interactableVariables": [
-        ["door_trunk"]
+        ["hatch_trunk"]
       ]
     },
     {
@@ -171,18 +172,24 @@
       "maxValue": 3.0,
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
       "interactableVariables": [
-        ["door_trunk"]
+        ["hatch_trunk"]
       ]
     },
     {
       "pos": [0.0,1.79687,1.8125],
       "maxValue": 3.0,
+      "conditionalDefaultParts": {
+        "defaultparts_coa_taxi": "ivv:roof_sign_trin"
+      },
       "types": ["generic_roofdevice","generic_lightbar","generic_gyrophare"],
       "linkedParts": [13]
     },
     {
       "pos": [0.0,1.79687,2.3125],
       "maxValue": 3.0,
+      "conditionalDefaultParts": {
+        "defaultparts_coa_police": "ivv:lightbar_rb"
+      },
       "types": ["generic_roofdevice","generic_lightbar","generic_gyrophare"],
       "linkedParts": [13]
     },
@@ -234,6 +241,7 @@
     {
       "pos": [-1.0,0.9,3.5],
       "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "maxValue": 1.0,
       "types": ["generic_flag_small"]
     },
@@ -246,6 +254,7 @@
     {
       "pos": [-1.0,1.0625,-0.9],
       "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "maxValue": 1.0,
       "types": ["generic_flag_small"]
     },
@@ -257,7 +266,7 @@
       "defaultPart": "ivv:glovebox",
       "types": ["interactable_glovebox"],
       "interactableVariables": [
-        ["door_right"]
+        ["hatch_frontright"]
       ]
     },
     {
@@ -285,6 +294,79 @@
       "maxValue": 1.0,
       "defaultPart": "ivv:horn_3",
       "types": ["generic_horn"]
+    },
+    {
+      "pos": [0.0,0.860445,4.37513],
+      "rot": [-83.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_carsticker","generic_bumpersticker"],
+      "applyAfter": "hood"
+    },
+    {
+      "pos": [1.38025,0.375,4.9875],
+      "rot": [-0.625,87.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_carsticker","generic_bumpersticker"]
+    },
+    {
+      "pos": [-1.38025,0.375,4.9875],
+      "rot": [-0.625,-87.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_carsticker","generic_bumpersticker"]
+    },
+    {
+      "pos": [1.40725,0.375,2.625],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_carsticker","generic_bumpersticker"],
+      "applyAfter": "doorfrontleft"
+    },
+    {
+      "pos": [-1.40725,0.375,2.625],
+      "rot": [0.0,-90.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_carsticker","generic_bumpersticker"],
+      "applyAfter": "doorfrontright"
+    },
+    {
+      "pos": [1.4125,0.375,1.06641],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_carsticker","generic_bumpersticker"],
+      "applyAfter": "doorrearleft"
+    },
+    {
+      "pos": [-1.4125,0.375,1.06641],
+      "rot": [0.0,-90.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_carsticker","generic_bumpersticker"],
+      "applyAfter": "doorrearright"
+    },
+    {
+      "pos": [1.37875,0.375,-0.9065],
+      "rot": [0.0,98.0,0.0],
+      "maxValue": 1.0,
+      "partScale": [0.75,0.75,0.75],
+      "types": ["generic_carsticker","generic_bumpersticker"]
+    },
+    {
+      "pos": [-1.37875,0.375,-0.9065],
+      "rot": [0.0,-98.0,0.0],
+      "maxValue": 1.0,
+      "partScale": [0.75,0.75,0.75],
+      "types": ["generic_carsticker","generic_bumpersticker"]
+    },
+    {
+      "pos": [0.5875,1.7675,1.34375],
+      "rot": [-93.5,0.0,88.0],
+      "maxValue": 1.0,
+      "types": ["generic_carsticker","generic_bumpersticker"]
+    },
+    {
+      "pos": [-0.5875,1.7675,1.34375],
+      "rot": [-93.5,0.0,-88.0],
+      "maxValue": 1.0,
+      "types": ["generic_carsticker","generic_bumpersticker"]
     }
   ],
   "collisionGroups": [
@@ -295,89 +377,101 @@
           "pos": [1.2875,0.5,1.75],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.2875,0.5,1.5],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.2875,0.5,1.25],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.2875,0.5,1.0],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.2875,0.5,0.75],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.2875,0.5,0.5],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,1.75],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,1.5],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,1.25],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,1.0],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,0.75],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearleft",
+          "variableName": "hatch_rearleft",
           "variableType": "toggle"
         }
       ],
       "animations": [
         {
           "animationType": "rotation",
-          "variable": "door_rearleft",
+          "variable": "hatch_rearleft",
           "centerPoint": [1.375,0.81255,1.8125],
-          "axis": [0.0,-55.0,0.0],
+          "axis": [0.0,-65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_rearleft"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "flBodyroll",
+          "centerPoint": [1.375,0.81255,1.8125],
+          "axis": [0.0,-8.0,0.0],
+          "clampMin": -10.0,
+          "clampMax": 5.0
         }
       ]
     },
@@ -388,82 +482,94 @@
           "pos": [1.2875,0.5,2.0],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.2875,0.5,2.25],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.2875,0.5,2.5],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.2875,0.5,2.75],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.2875,0.5,3.0],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,2.0],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,2.25],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,2.5],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,2.75],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         },
         {
           "pos": [1.125,1.3125,3.0],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontleft",
+          "variableName": "hatch_frontleft",
           "variableType": "toggle"
         }
       ],
       "animations": [
         {
           "animationType": "rotation",
-          "variable": "door_frontleft",
+          "variable": "hatch_frontleft",
           "centerPoint": [1.375,0.81255,3.375],
-          "axis": [0.0,-55.0,0.0],
+          "axis": [0.0,-65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_frontleft"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "flBodyroll",
+          "centerPoint": [1.375,0.81255,3.375],
+          "axis": [0.0,-8.0,0.0],
+          "clampMin": -10.0,
+          "clampMax": 5.0
         }
       ]
     },
@@ -474,89 +580,101 @@
           "pos": [-1.2875,0.5,1.75],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.2875,0.5,1.5],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.2875,0.5,1.25],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.2875,0.5,1.0],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.2875,0.5,0.75],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.2875,0.5,0.5],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,1.75],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,1.5],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,1.25],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,1.0],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,0.75],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_rearright",
+          "variableName": "hatch_rearright",
           "variableType": "toggle"
         }
       ],
       "animations": [
         {
           "animationType": "rotation",
-          "variable": "door_rearright",
+          "variable": "hatch_rearright",
           "centerPoint": [-1.375,0.81255,1.8125],
-          "axis": [0.0,55.0,0.0],
+          "axis": [0.0,65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_rearright"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "frBodyroll",
+          "centerPoint": [-1.375,0.81255,1.8125],
+          "axis": [0.0,-8.0,0.0],
+          "clampMin": -5.0,
+          "clampMax": 10.0
         }
       ]
     },
@@ -567,82 +685,94 @@
           "pos": [-1.2875,0.5,2.0],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.2875,0.5,2.25],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.2875,0.5,2.5],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.2875,0.5,2.75],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.2875,0.5,3.0],
           "width": 0.25,
           "height": 0.975,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,2.0],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,2.25],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,2.5],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,2.75],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         },
         {
           "pos": [-1.125,1.3125,3.0],
           "width": 0.25,
           "height": 0.625,
-          "variableName": "door_frontright",
+          "variableName": "hatch_frontright",
           "variableType": "toggle"
         }
       ],
       "animations": [
         {
           "animationType": "rotation",
-          "variable": "door_frontright",
+          "variable": "hatch_frontright",
           "centerPoint": [-1.375,0.81255,3.375],
-          "axis": [0.0,55.0,0.0],
+          "axis": [0.0,65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_frontright"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "frBodyroll",
+          "centerPoint": [-1.375,0.81255,3.375],
+          "axis": [0.0,-8.0,0.0],
+          "clampMin": -5.0,
+          "clampMax": 10.0
         }
       ]
     },
@@ -653,166 +783,178 @@
           "pos": [0.5,0.45,-1.25],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.0,0.45,-1.25],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [-0.5,0.45,-1.25],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.25,0.7,-1.25],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [-0.25,0.7,-1.25],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.5,0.75,-1.0],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.0,0.75,-1.0],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [-0.5,0.75,-1.0],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.75,0.75,-0.75],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.25,0.75,-0.75],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [-0.25,0.75,-0.75],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [-0.75,0.75,-0.75],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.5,0.875,-0.5],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.0,0.875,-0.5],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [-0.5,0.875,-0.5],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.75,0.875,-0.25],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.25,0.875,-0.25],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [-0.25,0.875,-0.25],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [-0.75,0.875,-0.25],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.5,0.875,-0.0],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [0.0,0.875,-0.0],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         },
         {
           "pos": [-0.5,0.875,-0.0],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_trunk",
+          "variableName": "hatch_trunk",
           "variableType": "toggle"
         }
       ],
       "animations": [
         {
           "animationType": "rotation",
-          "variable": "door_trunk",
+          "variable": "hatch_trunk",
           "centerPoint": [0.0,1.0,0.1875],
           "axis": [75.0,0.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeinoutcubic",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_trunk"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "rBodyTranslation",
+          "centerPoint": [0.0,1.0,0.1875],
+          "axis": [-10.0,0.0,0.0],
+          "clampMin": -30.0,
+          "clampMax": 10.0
         }
       ]
     },
@@ -823,68 +965,80 @@
           "pos": [1.0,0.9,4.0],
           "width": 0.5,
           "height": 0.25,
-          "variableName": "door_hood",
+          "variableName": "hatch_hood",
           "variableType": "toggle"
         },
         {
           "pos": [0.0,0.9,4.0],
           "width": 0.5,
           "height": 0.25,
-          "variableName": "door_hood",
+          "variableName": "hatch_hood",
           "variableType": "toggle"
         },
         {
           "pos": [-1.0,0.9,4.0],
           "width": 0.5,
           "height": 0.25,
-          "variableName": "door_hood",
+          "variableName": "hatch_hood",
           "variableType": "toggle"
         },
         {
           "pos": [0.5,0.8,4.5],
           "width": 0.5,
           "height": 0.25,
-          "variableName": "door_hood",
+          "variableName": "hatch_hood",
           "variableType": "toggle"
         },
         {
           "pos": [-0.5,0.8,4.5],
           "width": 0.5,
           "height": 0.25,
-          "variableName": "door_hood",
+          "variableName": "hatch_hood",
           "variableType": "toggle"
         },
         {
           "pos": [1.0,0.7,5.0],
           "width": 0.5,
           "height": 0.25,
-          "variableName": "door_hood",
+          "variableName": "hatch_hood",
           "variableType": "toggle"
         },
         {
           "pos": [0.0,0.7,5.0],
           "width": 0.5,
           "height": 0.25,
-          "variableName": "door_hood",
+          "variableName": "hatch_hood",
           "variableType": "toggle"
         },
         {
           "pos": [-1.0,0.7,5.0],
           "width": 0.5,
           "height": 0.25,
-          "variableName": "door_hood",
+          "variableName": "hatch_hood",
           "variableType": "toggle"
         }
       ],
       "animations": [
         {
           "animationType": "rotation",
-          "variable": "door_hood",
+          "variable": "hatch_hood",
           "centerPoint": [0.0,0.9375,3.6875],
           "axis": [-55.0,0.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_hood"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "rBodyTranslation",
+          "centerPoint": [0.0,0.9375,3.6875],
+          "axis": [-10.0,0.0,0.0],
+          "clampMin": -10.0,
+          "clampMax": 30.0
         }
       ]
     },
@@ -1112,7 +1266,7 @@
     },
     {
       "subName": "_policeblue",
-      "constants": ["police"],
+      "constants": ["police","defaultparts_coa_police"],
       "name": "Colada",
       "extraMaterialLists": [
         []
@@ -1120,7 +1274,7 @@
     },
     {
       "subName": "_policeblack",
-      "constants": ["police"],
+      "constants": ["police","defaultparts_coa_police"],
       "name": "Colada",
       "extraMaterialLists": [
         []
@@ -1128,7 +1282,7 @@
     },
     {
       "subName": "_minimod",
-      "constants": ["police"],
+      "constants": ["police","defaultparts_coa_police"],
       "name": "Colada",
       "extraMaterialLists": [
         []
@@ -1136,6 +1290,7 @@
     },
     {
       "subName": "_ivlabs",
+      "constants": ["defaultparts_coa_companylivery_ivlabs"],
       "name": "Colada",
       "extraMaterialLists": [
         []
@@ -1143,6 +1298,7 @@
     },
     {
       "subName": "_ivltest",
+      "constants": ["defaultparts_coa_test"],
       "name": "Colada",
       "extraMaterialLists": [
         []
@@ -1150,14 +1306,33 @@
     },
     {
       "subName": "_taxi",
+      "constants": ["taxi","defaultparts_coa_taxi"],
+      "name": "Colada",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_taxigramados",
+      "constants": ["taxi","defaultparts_coa_taxi"],
       "name": "Colada",
       "extraMaterialLists": [
         []
       ]
     }
   ],
-  "initialVariables": ["door_frontright","door_frontleft","door_rearright","door_rearleft"],
+  "initialVariables": ["hatch_frontleft"],
   "variableModifiers": [
+    {
+      "variable": "vehicle_size",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!big_boye",
+          "axis": [0.0,0.0,0.05]
+        }
+      ]
+    },
     {
       "variable": "vehicle_has_ac",
       "animations": [
@@ -1282,22 +1457,28 @@
         {
           "animationType": "translation",
           "variable": "!ground_onground_1",
-          "axis": [0.0,-0.5,0.0]
+          "axis": [0.0,0.125,0.0]
         },
         {
           "animationType": "translation",
           "variable": "!ground_onground_2",
-          "axis": [0.0,0.5,0.0]
+          "axis": [0.0,0.125,0.0]
         },
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,3.0,0.0]
+          "axis": [0.0,2.0,0.0]
         },
         {
           "animationType": "translation",
           "variable": "rBodyTranslation",
-          "axis": [0.0,-0.375,0.0]
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -1324,7 +1505,13 @@
         {
           "animationType": "translation",
           "variable": "rBodyroll",
-          "axis": [0.0,-0.375,0.0]
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -1351,7 +1538,13 @@
         {
           "animationType": "translation",
           "variable": "flBodyroll",
-          "axis": [0.0,-0.375,0.0]
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -1378,7 +1571,13 @@
         {
           "animationType": "translation",
           "variable": "frBodyroll",
-          "axis": [0.0,-0.375,0.0]
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -1723,14 +1922,26 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "door_hood",
+            "variable": "hatch_hood",
             "centerPoint": [0.0,0.9375,3.6875],
             "axis": [-55.0,0.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutelastic",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:hoodopen3",
             "reverseEndSound": "ivv:hoodclose3"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hatch_hood"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rBodyTranslation",
+            "centerPoint": [0.0,0.9375,3.6875],
+            "axis": [-10.0,0.0,0.0],
+            "clampMin": -10.0,
+            "clampMax": 30.0
           }
         ]
       },
@@ -1739,14 +1950,26 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "door_trunk",
+            "variable": "hatch_trunk",
             "centerPoint": [0.0,1.0,0.1875],
             "axis": [75.0,0.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeinoutcubic",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:trunkopen2",
             "reverseEndSound": "ivv:trunkclose2"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hatch_trunk"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rBodyTranslation",
+            "centerPoint": [0.0,1.0,0.1875],
+            "axis": [-10.0,0.0,0.0],
+            "clampMin": -30.0,
+            "clampMax": 10.0
           }
         ]
       },
@@ -1755,14 +1978,26 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "door_frontleft",
+            "variable": "hatch_frontleft",
             "centerPoint": [1.375,0.81255,3.375],
-            "axis": [0.0,-55.0,0.0],
+            "axis": [0.0,-65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen4",
             "reverseEndSound": "ivv:doorclose4"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hatch_frontleft"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "flBodyroll",
+            "centerPoint": [1.375,0.81255,3.375],
+            "axis": [0.0,-8.0,0.0],
+            "clampMin": -10.0,
+            "clampMax": 5.0
           }
         ]
       },
@@ -1793,34 +2028,26 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "door_rearleft",
+            "variable": "hatch_rearleft",
             "centerPoint": [1.375,0.81255,1.8125],
-            "axis": [0.0,-55.0,0.0],
+            "axis": [0.0,-65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen4",
             "reverseEndSound": "ivv:doorclose4"
           },
           {
             "animationType": "inhibitor",
-            "variable": "vashkmat_will_sue_our_asses_rip"
+            "variable": "hatch_rearleft"
           },
           {
             "animationType": "rotation",
-            "variable": "turn_indicator",
+            "variable": "flBodyroll",
             "centerPoint": [1.375,0.81255,1.8125],
-            "axis": [0.0,-0.016,0.0],
+            "axis": [0.0,-8.0,0.0],
             "clampMin": -10.0,
             "clampMax": 5.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "acceleration",
-            "centerPoint": [1.375,0.81255,1.8125],
-            "axis": [0.0,22.5,0.0],
-            "clampMin": -10.0,
-            "clampMax": 10.0
           }
         ]
       },
@@ -1851,14 +2078,26 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "door_frontright",
+            "variable": "hatch_frontright",
             "centerPoint": [-1.375,0.81255,3.375],
-            "axis": [0.0,55.0,0.0],
+            "axis": [0.0,65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen4",
             "reverseEndSound": "ivv:doorclose4"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hatch_frontright"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "frBodyroll",
+            "centerPoint": [-1.375,0.81255,3.375],
+            "axis": [0.0,-8.0,0.0],
+            "clampMin": -5.0,
+            "clampMax": 10.0
           }
         ]
       },
@@ -1889,14 +2128,26 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "door_rearright",
+            "variable": "hatch_rearright",
             "centerPoint": [-1.375,0.81255,1.8125],
-            "axis": [0.0,55.0,0.0],
+            "axis": [0.0,65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen4",
             "reverseEndSound": "ivv:doorclose4"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hatch_rearright"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "frBodyroll",
+            "centerPoint": [-1.375,0.81255,1.8125],
+            "axis": [0.0,-8.0,0.0],
+            "clampMin": -5.0,
+            "clampMax": 10.0
           }
         ]
       },
@@ -3562,7 +3813,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "door_frontleft",
+            "variable": "hatch_frontleft",
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 15
