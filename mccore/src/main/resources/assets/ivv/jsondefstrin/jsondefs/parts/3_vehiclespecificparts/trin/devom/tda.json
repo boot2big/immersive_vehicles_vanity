@@ -2,6 +2,7 @@
   "generic": {
     "type": "generic_lightbar",
     "useVehicleTexture": true,
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.00625,
     "height": 0.00625
   },
@@ -58,10 +59,10 @@
       "rot": [0.0,0.0,0.0],
       "minValue": 1.0,
       "maxValue": 100.0,
-      "minYaw": -45.0,
-      "maxYaw": 45.0,
-      "minPitch": -45.0,
-      "maxPitch": 45.0,
+      "minYaw": -67.5,
+      "maxYaw": 67.5,
+      "minPitch": -67.5,
+      "maxPitch": 67.5,
       "types": ["gun_unigun_rl"],
       "interactableVariables": [
         ["parent_door_hood"]
@@ -73,10 +74,10 @@
       "rot": [0.0,0.0,0.0],
       "minValue": 1.0,
       "maxValue": 100.0,
-      "minYaw": -22.5,
-      "maxYaw": 22.5,
-      "minPitch": -22.5,
-      "maxPitch": 22.5,
+      "minYaw": -67.5,
+      "maxYaw": 67.5,
+      "minPitch": -67.5,
+      "maxPitch": 67.5,
       "types": ["gun_unigun_mg"],
       "interactableVariables": [
         ["parent_door_hood"]
@@ -193,6 +194,89 @@
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
       "types": ["generic_skidplate"]
+    },
+    {
+      "pos": [0.4875,-1.2125,-2.4375],
+      "rot": [0.0,-90.0,-70.0],
+      "partScale": [0.375,0.375,0.375],
+      "maxValue": 3.0,
+      "types": ["interactable_bench"]
+    },
+    {
+      "pos": [-0.4875,-1.2125,-2.4375],
+      "rot": [0.0,90.0,70.0],
+      "partScale": [0.375,0.375,0.375],
+      "maxValue": 3.0,
+      "types": ["interactable_bench"]
+    },
+    {
+      "pos": [0.875,-0.841554,-2.84595],
+      "rot": [45.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_bumpersticker"]
+    },
+    {
+      "pos": [0.4875,-0.841554,-2.84595],
+      "rot": [45.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_bumpersticker"],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "door_boot",
+            "centerPoint": [0.0,-0.6875,-2.3125],
+            "axis": [90.0,0.0,0.0],
+            "duration": 15,
+            "forwardsEasing": "easeoutquint",
+            "reverseEasing": "easeincubic",
+            "forwardsStartSound": "iv_tpp:bootopen",
+            "reverseEndSound": "iv_tpp:bootclose"
+          }
+        ]
+    },
+    {
+      "pos": [0.0,-0.841554,-2.84595],
+      "rot": [45.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_bumpersticker"],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "door_boot",
+            "centerPoint": [0.0,-0.6875,-2.3125],
+            "axis": [90.0,0.0,0.0],
+            "duration": 15,
+            "forwardsEasing": "easeoutquint",
+            "reverseEasing": "easeincubic",
+            "forwardsStartSound": "iv_tpp:bootopen",
+            "reverseEndSound": "iv_tpp:bootclose"
+          }
+        ]
+    },
+    {
+      "pos": [-0.4875,-0.841554,-2.84595],
+      "rot": [45.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_bumpersticker"],
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "door_boot",
+            "centerPoint": [0.0,-0.6875,-2.3125],
+            "axis": [90.0,0.0,0.0],
+            "duration": 15,
+            "forwardsEasing": "easeoutquint",
+            "reverseEasing": "easeincubic",
+            "forwardsStartSound": "iv_tpp:bootopen",
+            "reverseEndSound": "iv_tpp:bootclose"
+          }
+        ]
+    },
+    {
+      "pos": [-0.875,-0.841554,-2.84595],
+      "rot": [45.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": ["generic_bumpersticker"]
     }
   ],
   "collisionGroups": [
@@ -522,8 +606,9 @@
         },
         {
           "animationType": "translation",
-          "variable": "rlBodyroll_tda",
-          "axis": [0.0,-0.25,0.0]
+          "variable": "parent_engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -564,8 +649,9 @@
         },
         {
           "animationType": "translation",
-          "variable": "rrBodyroll_tda",
-          "axis": [0.0,-0.25,0.0]
+          "variable": "parent_engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -606,8 +692,9 @@
         },
         {
           "animationType": "translation",
-          "variable": "flBodyroll_tda",
-          "axis": [0.0,-0.25,0.0]
+          "variable": "parent_engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -648,8 +735,9 @@
         },
         {
           "animationType": "translation",
-          "variable": "frBodyroll_tda",
-          "axis": [0.0,-0.25,0.0]
+          "variable": "parent_engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -1477,6 +1565,12 @@
         "objectName": "temporalbrake",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "parent_engine_magneto_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "rotation",
             "variable": "p_brake",
             "centerPoint": [0.0,-1.625,0.46875],
@@ -1489,7 +1583,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "parent_engine_semiautomatic_1"
+            "variable": "parent_engine_isdualclutch_1"
           },
           {
             "animationType": "visibility",
@@ -1504,13 +1598,13 @@
           {
             "animationType": "rotation",
             "variable": "parent_engine_clutch_upshift_1",
-            "centerPoint": [0.0,1.25,0.796875],
+            "centerPoint": [0.796875,-1.25,0.796875],
             "axis": [-30.0,0.0,0.0]
           },
           {
             "animationType": "rotation",
             "variable": "parent_engine_clutch_downshift_1",
-            "centerPoint": [0.0,1.25,0.796875],
+            "centerPoint": [0.796875,-1.25,0.796875],
             "axis": [-30.0,0.0,0.0]
           }
         ]
@@ -1613,32 +1707,79 @@
     ],
     "cameraObjects": [
       {
-        "pos": [0.0,-0.9,2.0875],
-        "rot": [0.0,0.0,0.0],
-        "fovOverride": 110.0,
+        "pos": [0.0,1.0,-6.0],
+        "rot": [20.0,0.0,0.0],
         "overlay": "ivv:textures/overlay/cars/cardisview_translucent",
-        "nightVision": true,
         "animations": [
           {
             "animationType": "visibility",
             "variable": "seat_occupied_client_2",
-            "clampMin": 1.0,
+            "clampMin": -1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_yaw_2",
+            "centerPoint": [0.0,-1.11887,-0.529691],
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "acceleration",
+            "axis": [0.0,0.0,-0.5],
+            "clampMin": 0.0125,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0,-0.00375],
+            "clampMax": 2.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turn_indicator",
+            "centerPoint": [0.0,-1.11887,-0.529691],
+            "axis": [0.0,-0.0046875,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turn_indicator",
+            "centerPoint": [0.0,-1.11887,-0.529691],
+            "axis": [0.0,0.0,-0.00234375]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_pitch_2",
+            "centerPoint": [0.0,-1.11887,-0.529691],
+            "axis": [1.0,0.0,0.0],
+            "offset": -10.0
           }
         ]
       },
       {
-        "pos": [0.0,-0.8,-3.0],
-        "rot": [0.0,180.0,0.0],
-        "fovOverride": 110.0,
+        "pos": [0.0,-1.55,2.25],
+        "rot": [0.0,0.0,0.0],
+        "fovOverride": 90.0,
         "overlay": "ivv:textures/overlay/cars/cardisview_translucent",
-        "nightVision": true,
         "animations": [
           {
             "animationType": "visibility",
             "variable": "seat_occupied_client_2",
-            "clampMin": 1.0,
+            "clampMin": -1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_yaw_2",
+            "centerPoint": [0.0,-1.55,2.25],
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "seat_rider_pitch_2",
+            "centerPoint": [0.0,-1.55,2.25],
+            "axis": [1.0,0.0,0.0]
           }
         ]
       }

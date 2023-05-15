@@ -340,9 +340,9 @@
     },
     {
       "pos": [0.0,0.0,2.9],
-      "partScale": [0.875,0.875,0.875],
       "maxValue": 10.0,
       "intakeOffset": 2.0,
+      "partScale": [0.875,0.875,0.875],
       "defaultPart": "ivv:v8turbojet",
       "types": ["engine_car"],
       "interactableVariables": [
@@ -1810,6 +1810,61 @@
   "initialVariables": ["hatch_right","hatch_left","vehicle_traction_control"],
   "variableModifiers": [
     {
+      "variable": "vehicle_p_brake_drift",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "gun_windup_time_1",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_wheels_locked",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!vehicle_traction_control",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [4.0,0.0,0.0],
+          "offset": -3.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [1.0,0.0,0.0],
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_wheels_locked",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "vehicle_p_brake_drift",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [1.0,0.0,0.0],
+          "duration": 5
+        }
+      ]
+    },
+    {
       "variable": "vehicle_has_ac",
       "animations": [
         {
@@ -2156,28 +2211,25 @@
         {
           "animationType": "translation",
           "variable": "damage_percent",
-          "axis": [0.0,0.0,0.0125]
+          "axis": [0.0,0.0,0.025]
         },
         {
           "animationType": "translation",
-          "variable": "engine_badshift_1",
-          "axis": [0.0,0.5,0.0],
-          "clampMax": 0.25,
+          "variable": "8_16_8_cycle",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_backfired_1",
+          "axis": [0.0,0.125,0.0],
+          "clampMax": 0.0625,
           "duration": 10,
-          "forwardsDelay": -10
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "hours",
-          "clampMin": -1000.0,
-          "clampMax": 500.0
+          "skipForwardsMovement": true
         },
         {
           "animationType": "translation",
-          "variable": "engine_hours_1",
-          "axis": [0.0,6.25E-5,0.0],
-          "offset": -0.03125,
-          "clampMax": 0.0125
+          "variable": "mood_has_companion",
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -2226,6 +2278,32 @@
       ]
     },
     {
+      "variable": "mood_slip",
+      "minValue": -80.0,
+      "maxValue": 140.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,0.000625],
+          "clampMax": 0.0375,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.0025,0.0],
+          "clampMax": 0.0375,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "!vehicle_traction_control",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
       "variable": "mood_temperature",
       "minValue": -80.0,
       "maxValue": 140.0,
@@ -2238,45 +2316,42 @@
       ]
     },
     {
+      "variable": "mood_towed",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "connection_0_0_connected",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "connection_0_1_connected",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "connection_1_0_connected",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "connection_1_1_connected",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
       "variable": "mood_anger",
       "maxValue": 5.0,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "unused",
-          "axis": [0.0,-0.125,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "mood_drift_invert_operation",
-      "maxValue": 0.125,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "slip",
-          "clampMax": 1000.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,0.0,0.005]
-        }
-      ]
-    },
-    {
-      "variable": "mood_drift_invert_operation",
-      "maxValue": 0.125,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "slip",
-          "clampMin": -1000.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,0.0,-0.005]
+          "variable": "engine_badshift_1",
+          "axis": [0.0,0.0,0.5],
+          "clampMax": 0.25,
+          "duration": 10,
+          "skipForwardsMovement": true
         }
       ]
     },
@@ -2292,24 +2367,32 @@
         {
           "animationType": "translation",
           "variable": "fueling",
-          "axis": [0.0,0.0625,0.0]
+          "axis": [0.0,0.05,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "mood_drift_invert_operation",
-          "axis": [0.0,1.0,0.0],
-          "clampMax": 0.125
+          "variable": "mood_slip",
+          "axis": [0.0,1.0,0.0]
         },
         {
           "animationType": "inhibitor",
           "variable": "mood",
-          "clampMin": -50.0,
-          "clampMax": -40.0
+          "clampMin": 10.0,
+          "clampMax": 50.0
         },
         {
           "animationType": "translation",
           "variable": "!mood_has_companion",
-          "axis": [0.0,0.00625,0.0]
+          "axis": [0.0,0.00375,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "aciveRunning"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!mood_has_companion",
+          "axis": [0.0,0.00375,0.0]
         }
       ]
     },
@@ -2329,6 +2412,14 @@
         },
         {
           "animationType": "translation",
+          "variable": "mood_towed",
+          "axis": [0.0,0.0625,0.0],
+          "clampMax": 0.0375,
+          "duration": 200,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
           "variable": "mood_has_engine",
           "axis": [0.0,0.5,0.0]
         },
@@ -2339,18 +2430,28 @@
         },
         {
           "animationType": "translation",
-          "variable": "inliquid",
-          "axis": [0.0,0.0125,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "rain_strength",
-          "axis": [0.0,0.0078125,0.0]
-        },
-        {
-          "animationType": "translation",
           "variable": "mood_anger",
           "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "mood",
+          "clampMin": -50.0,
+          "clampMax": 10.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!mood_has_companion",
+          "axis": [0.0,0.00375,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!aciveRunning"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!mood_has_companion",
+          "axis": [0.0,0.00375,0.0]
         }
       ]
     },
@@ -2359,10 +2460,6 @@
       "minValue": -50.0,
       "maxValue": 50.0,
       "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "missile_incoming"
-        },
         {
           "animationType": "visibility",
           "variable": "seat_occupied_5"
@@ -2400,10 +2497,6 @@
       "minValue": -50.0,
       "maxValue": 50.0,
       "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "missile_incoming"
-        },
         {
           "animationType": "visibility",
           "variable": "seat_occupied_5"
@@ -2453,9 +2546,8 @@
         },
         {
           "animationType": "translation",
-          "variable": "mood_drift_invert_operation",
-          "axis": [0.0,0.25,0.0],
-          "clampMax": 0.25
+          "variable": "mood_positive",
+          "axis": [0.0,1.0,0.0]
         }
       ]
     },
@@ -4383,6 +4475,18 @@
         "defaultText": "4B495454434152",
         "maxLength": 14,
         "color": "CCCCCC",
+        "renderPosition": 1
+      },
+      {
+        "pos": [0.11548,0.467988,2.52312],
+        "rot": [0.0,180.0,0.0],
+        "variableName": "unused",
+        "variableFormat": "TOPIR: %01.0f`",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "BA7C35",
+        "attachedTo": "screen0",
+        "lightsUp": true,
         "renderPosition": 1
       }
     ],
