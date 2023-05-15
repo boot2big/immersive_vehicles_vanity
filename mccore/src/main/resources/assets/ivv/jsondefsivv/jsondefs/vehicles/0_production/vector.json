@@ -879,6 +879,61 @@
   "initialVariables": ["door_right","door_left"],
   "variableModifiers": [
     {
+      "variable": "vehicle_p_brake_drift",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "gun_windup_time_1",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_wheels_locked",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!remove_exclaimation_mark_if_vehicle_has_abs",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [1.0,0.0,0.0],
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [4.0,0.0,0.0],
+          "offset": -3.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_wheels_locked",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "vehicle_p_brake_drift",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [1.0,0.0,0.0],
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
       "variable": "vehicle_has_ac",
       "animations": [
         {

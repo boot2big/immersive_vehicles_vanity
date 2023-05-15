@@ -4,11 +4,9 @@
     "emptyMass": 600,
     "fuelCapacity": 10000,
     "defaultFuelQty": 10000,
-    "downForce": 0.75,
-    "overSteer": 3.0,
-    "underSteer": 1.0,
-    "overSteerAccel": 6.0,
-    "overSteerDecel": 0.0,
+    "downForce": 0.7,
+    "overSteer": 4.0,
+    "overSteerAccel": 8.0,
     "axleRatio": 2.25,
     "brakingFactor": 2.0,
     "maxTiltAngle": -2.0,
@@ -129,8 +127,8 @@
       "types": ["generic_rollbar_single"]
     },
     {
-      "pos": [0.0,-0.150421,-0.872385],
-      "rot": [10.0,0.0,0.0],
+      "pos": [0.0,-0.160369,-0.558827],
+      "rot": [12.25,0.0,0.0],
       "maxValue": 1.0,
       "partScale": [1.0,1.0,1.0],
       "types": ["generic_hitch_mount"]
@@ -356,6 +354,91 @@
   "initialVariables": [],
   "variableModifiers": [
     {
+      "variable": "vehicle_p_brake_drift",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "gun_windup_time_1",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_wheels_locked",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!remove_exclaimation_mark_if_vehicle_has_abs",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [1.0,0.0,0.0],
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [4.0,0.0,0.0],
+          "offset": -3.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_wheels_locked",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "vehicle_p_brake_drift",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [1.0,0.0,0.0],
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_hitch_offset_present",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!uwa",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_hitch_offset",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!uwa",
+          "axis": [0.0,0.0,12.25]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_size",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!miat",
+          "axis": [0.0,0.0,-0.05]
+        }
+      ]
+    },
+    {
       "variable": "throttle",
       "animations": [
         {
@@ -526,8 +609,8 @@
       ]
     },
     {
-      "variable": "overSteer",
-      "addValue": -0.5,
+      "variable": "downForce",
+      "addValue": 0.1,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -551,7 +634,6 @@
     },
     {
       "variable": "underSteer",
-      "addValue": -1.0,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -661,10 +743,16 @@
         "applyAfter": "rearleftsuspension",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "vehicle_wheels_locked",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "rotation",
             "variable": "ground_rotation_1",
             "centerPoint": [1.11023,0.15625,-0.09375],
-            "axis": [1.0,0.0,0.0]
+            "axis": [-1.0,0.0,0.0]
           }
         ]
       },
@@ -712,10 +800,16 @@
         "applyAfter": "rearrightsuspension",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "vehicle_wheels_locked",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "rotation",
             "variable": "ground_rotation_1",
             "centerPoint": [-1.11023,0.15625,-0.09375],
-            "axis": [1.0,0.0,0.0]
+            "axis": [-1.0,0.0,0.0]
           }
         ]
       },
@@ -781,10 +875,16 @@
         "applyAfter": "frontleftsteer",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "vehicle_wheels_locked",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "rotation",
             "variable": "ground_rotation_3",
             "centerPoint": [0.9375,0.15625,2.78125],
-            "axis": [1.0,0.0,0.0]
+            "axis": [-1.0,0.0,0.0]
           }
         ]
       },
@@ -850,10 +950,16 @@
         "applyAfter": "frontrightsteer",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "vehicle_wheels_locked",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "rotation",
             "variable": "ground_rotation_4",
             "centerPoint": [-0.9375,0.15625,2.78125],
-            "axis": [-1.0,0.0,0.0]
+            "axis": [1.0,0.0,0.0]
           }
         ]
       },
@@ -876,8 +982,7 @@
       {
         "objectName": "spoiler",
         "applyAfter": "hood",
-        "animations": [
-        ]
+        "animations": []
       },
       {
         "objectName": "gas",
