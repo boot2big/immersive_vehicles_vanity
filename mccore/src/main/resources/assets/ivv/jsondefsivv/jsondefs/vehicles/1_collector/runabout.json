@@ -26,7 +26,7 @@
       "maxValue": 1.5,
       "defaultPart": "ivv:normaltire_whitewall",
       "types": ["ground_wheel"],
-      "applyAfter": "rearsuspension"
+      "applyAfter": "suspensionrear"
     },
     {
       "pos": [-1.25,0.125,-0.1875],
@@ -36,7 +36,7 @@
       "maxValue": 1.5,
       "defaultPart": "ivv:normaltire_whitewall",
       "types": ["ground_wheel"],
-      "applyAfter": "rearsuspension"
+      "applyAfter": "suspensionrear"
     },
     {
       "pos": [1.0,0.125,3.25],
@@ -1033,17 +1033,17 @@
         {
           "animationType": "translation",
           "variable": "turn_indicator",
-          "axis": [0.0,-0.002,0.0]
+          "axis": [0.0,-0.00075,0.0]
         },
         {
           "animationType": "translation",
           "variable": "!ground_onground_1",
-          "axis": [0.0,1.0,0.0]
+          "axis": [0.0,0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "!ground_onground_2",
-          "axis": [0.0,-1.0,0.0]
+          "axis": [0.0,-0.5,0.0]
         },
         {
           "animationType": "translation",
@@ -1076,11 +1076,11 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,2.0,0.0]
+          "axis": [0.0,-2.0,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "rBodyTranslation",
+          "variable": "fBodyTranslation",
           "axis": [0.0,-0.25,0.0]
         },
         {
@@ -1099,17 +1099,17 @@
         {
           "animationType": "translation",
           "variable": "turn_indicator",
-          "axis": [0.0,-0.002,0.0]
+          "axis": [0.0,-0.00075,0.0]
         },
         {
           "animationType": "translation",
           "variable": "!ground_onground_3",
-          "axis": [0.0,1.0,0.0]
+          "axis": [0.0,0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "!ground_onground_4",
-          "axis": [0.0,-1.0,0.0]
+          "axis": [0.0,-0.5,0.0]
         },
         {
           "animationType": "translation",
@@ -1150,7 +1150,7 @@
     },
     {
       "variable": "overSteer",
-      "addValue": 2,
+      "addValue": 2.0,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -1203,21 +1203,13 @@
   "rendering": {
     "animatedObjects": [
       {
-        "objectName": "reardiff",
+        "objectName": "suspensionrear",
         "animations": [
           {
             "animationType": "translation",
             "variable": "rBodyTranslation",
-            "axis": [0.0,0.125,0.0],
-            "clampMin": -1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "objectName": "rearsuspension",
-        "applyAfter": "reardiff",
-        "animations": [
+            "axis": [0.0,0.25,0.0]
+          },
           {
             "animationType": "rotation",
             "variable": "fBodyroll",
@@ -1227,80 +1219,8 @@
         ]
       },
       {
-        "objectName": "rearleftspring",
-        "applyAfter": "rearsuspension",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [0.78125,0.125,-0.1875],
-            "axis": [0.0,0.0,-4.0]
-          }
-        ]
-      },
-      {
-        "objectName": "rearleftspringrear",
-        "applyAfter": "rearleftspring",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [0.78125,0.125,-0.34375],
-            "axis": [-6.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "rearleftspringfront",
-        "applyAfter": "rearleftspring",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [0.78125,0.125,-0.03125],
-            "axis": [6.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "rearrightspring",
-        "applyAfter": "rearsuspension",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [-0.78125,0.125,-0.1875],
-            "axis": [0.0,0.0,-4.0]
-          }
-        ]
-      },
-      {
-        "objectName": "rearrightspringrear",
-        "applyAfter": "rearrightspring",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [-0.78125,0.125,-0.34375],
-            "axis": [6.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "rearrightspringfront",
-        "applyAfter": "rearrightspring",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [-0.78125,0.125,-0.03125],
-            "axis": [-6.0,0.0,0.0]
-          }
-        ]
-      },
-      {
         "objectName": "axlerearright",
-        "applyAfter": "rearsuspension",
+        "applyAfter": "suspensionrear",
         "animations": [
           {
             "animationType": "rotation",
@@ -1312,7 +1232,7 @@
       },
       {
         "objectName": "axlerearleft",
-        "applyAfter": "rearsuspension",
+        "applyAfter": "suspensionrear",
         "animations": [
           {
             "animationType": "rotation",
@@ -1323,14 +1243,12 @@
         ]
       },
       {
-        "objectName": "frontsuspension",
+        "objectName": "suspensionfront",
         "animations": [
           {
             "animationType": "translation",
             "variable": "fBodyTranslation",
-            "axis": [0.0,-0.125,0.0],
-            "clampMin": -1.0,
-            "clampMax": 1.0
+            "axis": [0.0,0.25,0.0]
           },
           {
             "animationType": "rotation",
@@ -1341,80 +1259,8 @@
         ]
       },
       {
-        "objectName": "frontleftspring",
-        "applyAfter": "frontsuspension",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [0.46875,0.125,3.25],
-            "axis": [0.0,0.0,-2.0]
-          }
-        ]
-      },
-      {
-        "objectName": "frontleftspringrear",
-        "applyAfter": "frontleftspring",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [0.46875,0.125,3.09375],
-            "axis": [-3.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "frontleftspringfront",
-        "applyAfter": "frontleftspring",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [0.46875,0.125,3.40625],
-            "axis": [3.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "frontrightspring",
-        "applyAfter": "frontsuspension",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [-0.46875,0.125,3.25],
-            "axis": [0.0,0.0,-2.0]
-          }
-        ]
-      },
-      {
-        "objectName": "frontrightspringrear",
-        "applyAfter": "frontrightspring",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [-0.46875,0.125,3.09375],
-            "axis": [3.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "frontrightspringfront",
-        "applyAfter": "frontrightspring",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [-0.46875,0.125,3.40625],
-            "axis": [-3.0,0.0,0.0]
-          }
-        ]
-      },
-      {
         "objectName": "steeringfrontright",
-        "applyAfter": "frontsuspension",
+        "applyAfter": "suspensionfront",
         "animations": [
           {
             "animationType": "rotation",
@@ -1438,7 +1284,7 @@
       },
       {
         "objectName": "steeringfrontleft",
-        "applyAfter": "frontsuspension",
+        "applyAfter": "suspensionfront",
         "animations": [
           {
             "animationType": "rotation",
@@ -1457,18 +1303,6 @@
             "variable": "ground_rotation_3",
             "centerPoint": [0.90901,0.125,3.25],
             "axis": [1.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "swaybar",
-        "applyAfter": "steeringfrontright",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "rudder",
-            "centerPoint": [-0.65625,0.08984,2.9375],
-            "axis": [0.0,0.425,0.0]
           }
         ]
       },
@@ -1752,37 +1586,37 @@
         ],
         "blendableComponents": [
           {
-            "pos": [0.875,0.98437,3.56256],
+            "pos": [0.90625,1.04687,3.70325],
             "axis": [0.0,0.0,-1.0],
             "flareHeight": 0.375,
             "flareWidth": 0.375
           },
           {
-            "pos": [-0.875,0.98437,3.56256],
+            "pos": [-0.90625,1.04687,3.70325],
             "axis": [0.0,0.0,-1.0],
             "flareHeight": 0.375,
             "flareWidth": 0.375
           },
           {
-            "pos": [0.875,0.98437,3.56256],
+            "pos": [0.90625,1.04687,3.70325],
             "axis": [0.0,0.0,1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5
           },
           {
-            "pos": [-0.875,0.98437,3.56256],
+            "pos": [-0.90625,1.04687,3.70325],
             "axis": [0.0,0.0,1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5
           },
           {
-            "pos": [0.875,0.98437,3.56946],
+            "pos": [0.90625,1.04687,3.70325],
             "axis": [0.0,0.0,1.0],
             "beamDiameter": 16.0,
             "beamLength": 16.0
           },
           {
-            "pos": [-0.875,0.98437,3.56946],
+            "pos": [-0.90625,1.04687,3.70325],
             "axis": [0.0,0.0,1.0],
             "beamDiameter": 16.0,
             "beamLength": 16.0
@@ -2442,50 +2276,28 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
             "variable": "damage_percent",
-            "clampMin": 0.5,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMin": 0.75,
-            "clampMax": 1.0
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5,
+            "clampMax": 0.0125
           },
           {
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled"
+            "clampMax": 0.5
           },
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
-            "clampMax": 0.25
+            "axis": [0.0,0.0125,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
+            "axis": [0.0,0.025,0.0],
             "offset": 0.5,
             "clampMin": 0.5,
             "clampMax": 1.5
@@ -2493,17 +2305,17 @@
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0375,0.0]
+            "axis": [0.0,0.025,0.0]
           }
         ],
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 1.0
       },
       {
         "name": "ivv:interiorrain",
@@ -2891,6 +2703,8 @@
     "particles": [
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 100,
         "transparency": 1.5,
@@ -2918,6 +2732,8 @@
       {
         "type": "flame",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 80,
         "transparency": 0.875,
@@ -2945,6 +2761,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 2.0,
@@ -2967,12 +2785,14 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
         "scale": 0.8,
         "color": "D9D9D9",
-        "pos": [-0.54688,0.35938,-1.0],
+        "pos": [-0.609375,0.34375,-0.9375],
         "initialVelocity": [0.0,0.1,-1.0],
         "activeAnimations": [
           {
@@ -2985,12 +2805,14 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
         "scale": 0.8,
         "color": "D9D9D9",
-        "pos": [-0.54688,0.35938,-1.0],
+        "pos": [-0.609375,0.34375,-0.9375],
         "initialVelocity": [0.0,0.1,-1.0],
         "activeAnimations": [
           {
@@ -3003,10 +2825,12 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "scale": 2.5,
         "color": "000000",
-        "pos": [-0.54688,0.35938,-1.0],
+        "pos": [-0.609375,0.34375,-0.9375],
         "initialVelocity": [0.0,0.2,-1.25],
         "activeAnimations": [
           {
@@ -3020,6 +2844,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
@@ -3028,7 +2854,7 @@
         "toScale": 2.0,
         "texture": "ivv:textures/particles/muzzleflash.png",
         "color": "FFFFFF",
-        "pos": [-0.54688,0.35938,-1.0],
+        "pos": [-0.609375,0.34375,-0.9375],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {

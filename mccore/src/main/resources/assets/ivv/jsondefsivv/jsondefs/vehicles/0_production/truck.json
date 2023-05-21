@@ -8,11 +8,10 @@
     "emptyMass": 2200,
     "fuelCapacity": 35000,
     "defaultFuelQty": 35000,
-    "downForce": 0.6,
-    "overSteer": 2.0,
-    "underSteer": 1.0,
-    "overSteerAccel": 3.0,
-    "overSteerDecel": -1.0,
+    "downForce": 0.55,
+    "overSteer": 4.0,
+    "underSteer": 0.5,
+    "overSteerAccel": 4.0,
     "axleRatio": 2.0,
     "brakingFactor": 3.0,
     "dragCoefficient": 0.1875,
@@ -25,10 +24,9 @@
     {
       "pos": [0.0,-0.52732,3.27668],
       "maxValue": 10.0,
-      "intakeOffset": 1.0,
+      "intakeOffset": 2.0,
       "defaultPart": "ivv:v4inlinetorquelinemanual",
       "types": ["engine_car"],
-      "intakeOffset": 2.0,
       "linkedParts": [2,3,10,13]
     },
     {
@@ -1886,32 +1884,7 @@
       ]
     },
     {
-      "variable": "downForce",
-      "addValue": 0.05,
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "p_brake",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 3.0,
-          "clampMax": 3.0
-        }
-      ]
-    },
-    {
       "variable": "overSteer",
-      "addValue": 1.0,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -1935,55 +1908,6 @@
     },
     {
       "variable": "underSteer",
-      "addValue": -0.5,
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "p_brake",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 3.0,
-          "clampMax": 3.0
-        }
-      ]
-    },
-    {
-      "variable": "brakingFactor",
-      "setValue": 2.25,
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "p_brake",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 3.0,
-          "clampMax": 3.0
-        }
-      ]
-    },
-    {
-      "variable": "dragCoefficient",
-      "addValue": 0.25,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -2008,6 +1932,14 @@
     {
       "variable": "brakingFactor",
       "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [-0.004166667,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.25,
+          "clampMax": 32767.0
+        },
         {
           "animationType": "inhibitor",
           "variable": "p_brake",
@@ -2029,6 +1961,12 @@
           "variable": "speed",
           "axis": [0.016666667,0.0,0.0],
           "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [9.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     }
@@ -2640,50 +2578,28 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
             "variable": "damage_percent",
-            "clampMin": 0.5,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMin": 0.75,
-            "clampMax": 1.0
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5,
+            "clampMax": 0.0125
           },
           {
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled"
+            "clampMax": 0.5
           },
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
-            "clampMax": 0.25
+            "axis": [0.0,0.0125,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
+            "axis": [0.0,0.025,0.0],
             "offset": 0.5,
             "clampMin": 0.5,
             "clampMax": 1.5
@@ -2691,17 +2607,17 @@
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0375,0.0]
+            "axis": [0.0,0.025,0.0]
           }
         ],
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 1.0
       },
       {
         "name": "ivv:brakesqueal",
@@ -3285,6 +3201,8 @@
     "particles": [
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 100,
         "transparency": 1.5,
@@ -3312,6 +3230,8 @@
       {
         "type": "flame",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 80,
         "transparency": 0.875,
@@ -3339,6 +3259,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 2.0,
@@ -3361,6 +3283,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 6,
         "transparency": 0.25,
         "toTransparency": 0.225,
@@ -3379,6 +3303,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 6,
         "transparency": 0.25,
         "toTransparency": 0.225,
@@ -3397,6 +3323,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "scale": 2.5,
         "color": "000000",
@@ -3414,6 +3342,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
@@ -3435,6 +3365,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 20,
         "transparency": 0.6,
         "toTransparency": 0.5,
@@ -3465,6 +3397,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 12,
         "transparency": 0.6,
         "toTransparency": 0.5,
@@ -3494,6 +3428,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 12,
         "transparency": 0.6,
         "toTransparency": 0.5,
