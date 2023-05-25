@@ -1,20 +1,19 @@
 {
   "motorized": {
-    "hasOpenTop": true,
     "hasSingleEngineControl": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
-    "emptyMass": 1600,
+    "emptyMass": 1200,
     "fuelCapacity": 8000,
     "defaultFuelQty": 8000,
     "downForce": 0.4875,
-    "overSteer": 2.0,
-    "underSteer": 1.0,
-    "overSteerAccel": 2.0,
+    "overSteer": 1.5,
+    "underSteer": 0.625,
+    "overSteerAccel": 1.5,
     "axleRatio": 4.0,
-    "brakingFactor": 2.0,
-    "maxTiltAngle": 56.25,
-    "dragCoefficient": 0.375,
+    "brakingFactor": 3.0,
+    "maxTiltAngle": 33.75,
+    "dragCoefficient": 0.625,
     "litVariable": "engine_magneto_1",
     "panel": "ivv:budget",
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
@@ -51,9 +50,9 @@
     {
       "pos": [0.0,0.1875,0.03125],
       "maxValue": 10.0,
+      "intakeOffset": 2.0,
       "defaultPart": "ivv:v4smallfry",
       "types": ["engine_car"],
-      "intakeOffset": 2.0,
       "linkedParts": [2]
     },
     {
@@ -401,11 +400,17 @@
           "variable": "speed",
           "axis": [0.0125,0.0,0.0],
           "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [9.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
     {
-      "variable": "rudder",
+      "variable": "input_rudder",
       "animations": [
         {
           "animationType": "visibility",
@@ -414,32 +419,52 @@
         {
           "animationType": "inhibitor",
           "variable": "speed",
-          "clampMax": 1.0
+          "clampMax": 0.125
         },
         {
           "animationType": "translation",
-          "variable": "4_8_4_cycle",
-          "axis": [0.0,45.0,0.0],
-          "offset": -22.5,
-          "duration": 8
+          "variable": "10_20_10_cycle",
+          "axis": [0.0,0.0,22.5],
+          "duration": 15
         },
         {
           "animationType": "translation",
-          "variable": "random",
-          "axis": [0.0,22.5,0.0],
-          "offset": -11.25
+          "variable": "!10_20_10_cycle",
+          "axis": [0.0,-22.5,0.0],
+          "duration": 15
         },
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.0625,0.0,0.0],
-          "clampMax": 1.0
+          "axis": [-0.125,0.0,0.0],
+          "offset": 1.0625,
+          "clampMin": 0.0625
+        }
+      ]
+    },
+    {
+      "variable": "downForce",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "input_rudder",
+          "axis": [0.044444444,0.0,0.0],
+          "clampMax": 1.0,
+	  "absolute": true
         }
       ]
     },
     {
       "variable": "brakingFactor",
       "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [-0.004166667,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.25,
+          "clampMax": 32767.0
+        },
         {
           "animationType": "inhibitor",
           "variable": "p_brake",
@@ -933,6 +958,8 @@
     "particles": [
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -951,6 +978,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -969,6 +998,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "scale": 1.5,
         "color": "000000",
@@ -986,6 +1017,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,

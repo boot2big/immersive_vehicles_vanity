@@ -70,6 +70,7 @@
     },
     {
       "pos": [-0.3,0.101987,-0.4375],
+      "isMirrored": true,
       "maxValue": 3.0,
       "partScale": [0.875,0.875,0.875],
       "types": ["interactable_crate","interactable_chest","interactable_luggage"],
@@ -196,6 +197,7 @@
     {
       "pos": [-0.6,0.0375,1.5],
       "isPermanent": true,
+      "isMirrored": true,
       "conditionalDefaultParts": {
         "kitt": "ivv:carseat_tan",
         "ace": "ivv:carseat_gray",
@@ -253,6 +255,7 @@
     {
       "pos": [-0.6,0.125,1.5],
       "rot": [0.0,90.0,0.0],
+      "isMirrored": true,
       "maxValue": 2.0,
       "types": ["interactable_luggage"],
       "interactableVariables": [
@@ -408,10 +411,10 @@
       "resetPosition": true,
       "minValue": 1.0,
       "maxValue": 100.0,
-      "minYaw": -22.5,
-      "maxYaw": 22.5,
-      "minPitch": -22.5,
-      "maxPitch": 22.5,
+      "minYaw": -45.0,
+      "maxYaw": 45.0,
+      "minPitch": -45.0,
+      "maxPitch": 45.0,
       "defaultPart": "ivv:unigunmg",
       "types": ["gun_unigun_mg"],
       "linkedParts": [12,29,6,7],
@@ -1830,20 +1833,20 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "!vehicle_traction_control",
+          "variable": "remove_exclaimation_mark_if_vehicle_has_abs",
           "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [1.0,0.0,0.0],
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "brake",
           "axis": [4.0,0.0,0.0],
           "offset": -3.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [1.0,0.0,0.0],
-          "duration": 5
         }
       ]
     },
@@ -1860,7 +1863,7 @@
           "animationType": "translation",
           "variable": "speed",
           "axis": [1.0,0.0,0.0],
-          "duration": 5
+          "clampMax": 1.0
         }
       ]
     },
@@ -2285,7 +2288,7 @@
         {
           "animationType": "translation",
           "variable": "turn_indicator",
-          "axis": [0.0,0.0,0.000625],
+          "axis": [0.0,0.0,6.25E-4],
           "clampMax": 0.0375,
           "absolute": true
         },
@@ -9402,50 +9405,28 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
             "variable": "damage_percent",
-            "clampMin": 0.5,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMin": 0.75,
-            "clampMax": 1.0
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5,
+            "clampMax": 0.0125
           },
           {
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled"
+            "clampMax": 0.5
           },
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
-            "clampMax": 0.25
+            "axis": [0.0,0.0125,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
+            "axis": [0.0,0.025,0.0],
             "offset": 0.5,
             "clampMin": 0.5,
             "clampMax": 1.5
@@ -9453,17 +9434,17 @@
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0375,0.0]
+            "axis": [0.0,0.025,0.0]
           }
         ],
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 1.0
       },
       {
         "name": "ivv:aciveboost",
@@ -10598,6 +10579,8 @@
     "particles": [
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 100,
         "transparency": 1.5,
@@ -10625,6 +10608,8 @@
       {
         "type": "flame",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 80,
         "transparency": 0.875,
@@ -10652,6 +10637,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 2.0,
@@ -10674,6 +10661,8 @@
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 1.0,
@@ -10701,6 +10690,8 @@
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 1.0,
@@ -10728,6 +10719,8 @@
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 1.0,
@@ -10755,6 +10748,8 @@
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 1.0,
@@ -10782,6 +10777,8 @@
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 1.0,
@@ -10809,6 +10806,8 @@
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 1.0,
@@ -10836,6 +10835,8 @@
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 1.0,
@@ -10863,6 +10864,8 @@
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 1.0,
@@ -10890,17 +10893,18 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 10,
         "transparency": 0.5,
         "toTransparency": 1.0E-7,
         "scale": 12.0,
         "toScale": 32.0,
-        "spreadFactorHorizontal": 15.0,
-        "spreadFactorVertical": 2.0,
         "color": "999999",
         "pos": [0.0,-0.25,0.0],
         "initialVelocity": [0.0,0.375,0.0],
+        "spreadVelocity": [0.0,1.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -10912,17 +10916,18 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 10,
         "transparency": 0.5,
         "toTransparency": 1.0E-7,
         "scale": 12.0,
         "toScale": 32.0,
-        "spreadFactorHorizontal": 15.0,
-        "spreadFactorVertical": 2.0,
         "color": "999999",
         "pos": [0.0,-0.25,1.5],
         "initialVelocity": [0.0,0.375,0.0],
+        "spreadVelocity": [0.0,1.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -10934,17 +10939,18 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 10,
         "transparency": 0.5,
         "toTransparency": 1.0E-7,
         "scale": 12.0,
         "toScale": 32.0,
-        "spreadFactorHorizontal": 15.0,
-        "spreadFactorVertical": 2.0,
         "color": "999999",
         "pos": [0.0,-0.25,3.0],
         "initialVelocity": [0.0,0.375,0.0],
+        "spreadVelocity": [0.0,1.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -10957,17 +10963,18 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 10,
         "transparency": 0.5,
         "toTransparency": 1.0E-7,
         "scale": 12.0,
         "toScale": 32.0,
-        "spreadFactorHorizontal": 15.0,
-        "spreadFactorVertical": 2.0,
         "color": "999999",
         "pos": [0.0,-0.25,0.0],
         "initialVelocity": [0.0,-16.0,0.0],
+        "spreadVelocity": [0.0,1.0,0.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -10996,17 +11003,18 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 10,
         "transparency": 0.5,
         "toTransparency": 1.0E-7,
         "scale": 12.0,
         "toScale": 32.0,
-        "spreadFactorHorizontal": 15.0,
-        "spreadFactorVertical": 2.0,
         "color": "999999",
         "pos": [0.0,-0.25,1.5],
         "initialVelocity": [0.0,-16.0,0.0],
+        "spreadVelocity": [0.0,1.0,0.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -11035,17 +11043,18 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 10,
         "transparency": 0.5,
         "toTransparency": 1.0E-7,
         "scale": 12.0,
         "toScale": 32.0,
-        "spreadFactorHorizontal": 15.0,
-        "spreadFactorVertical": 2.0,
         "color": "999999",
         "pos": [0.0,-0.25,3.0],
         "initialVelocity": [0.0,-16.0,0.0],
+        "spreadVelocity": [0.0,1.0,0.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -11073,6 +11082,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -11097,6 +11108,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -11121,6 +11134,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "scale": 2.5,
         "color": "000000",
@@ -11143,6 +11158,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -11167,6 +11184,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -11191,6 +11210,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "scale": 2.5,
         "color": "000000",
@@ -11213,6 +11234,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -11237,6 +11260,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -11261,6 +11286,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "scale": 2.5,
         "color": "000000",
@@ -11283,6 +11310,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -11307,6 +11336,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 0.25,
         "toTransparency": 0.25,
@@ -11331,6 +11362,8 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "scale": 2.5,
         "color": "000000",
@@ -11354,6 +11387,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
@@ -11381,6 +11416,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
@@ -11409,6 +11446,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
@@ -11437,6 +11476,8 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
@@ -11465,19 +11506,20 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 160,
         "transparency": 4.0,
         "toTransparency": 0.001,
         "scale": 24.0,
         "toScale": 72.0,
-        "spreadFactorHorizontal": 32.0,
-        "spreadFactorVertical": 1.0,
         "color": "D9D9D9",
         "pos": [0.0,-0.145362,-1.20589],
         "initialVelocity": [0.5,-0.125,-0.75],
         "movementVelocity": [0.0,7.5E-4,0.0],
         "terminalVelocity": [32.0,32.0,32.0],
+        "spreadVelocity": [16.0,0.5,-24.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -11496,19 +11538,20 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 160,
         "transparency": 4.0,
         "toTransparency": 0.001,
         "scale": 24.0,
         "toScale": 72.0,
-        "spreadFactorHorizontal": 32.0,
-        "spreadFactorVertical": 1.0,
         "color": "D9D9D9",
         "pos": [0.0,-0.145362,-1.20589],
         "initialVelocity": [0.0,-0.125,-0.75],
         "movementVelocity": [0.0,7.5E-4,0.0],
         "terminalVelocity": [32.0,32.0,32.0],
+        "spreadVelocity": [0.0,0.5,-24.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -11527,19 +11570,20 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 160,
         "transparency": 0.9375,
         "toTransparency": 0.001,
         "scale": 24.0,
         "toScale": 72.0,
-        "spreadFactorHorizontal": 32.0,
-        "spreadFactorVertical": 1.0,
         "color": "D9D9D9",
         "pos": [0.0,-0.145362,-1.20589],
         "initialVelocity": [-0.5,-0.125,-0.75],
         "movementVelocity": [0.0,7.5E-4,0.0],
         "terminalVelocity": [32.0,32.0,32.0],
+        "spreadVelocity": [-16.0,0.5,-24.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -11558,13 +11602,13 @@
       {
         "type": "generic",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 16,
         "transparency": 8.0,
         "toTransparency": 1.0E-7,
         "scale": 4.0,
-        "spreadFactorHorizontal": 32.0,
-        "spreadFactorVertical": 2.0,
         "textureList": ["ivv:textures/particles/fluidsplash_1.png","ivv:textures/particles/fluidsplash_2.png","ivv:textures/particles/fluidsplash_3.png","ivv:textures/particles/fluidsplash_4.png"],
         "textureDelays": [1,1,1,1],
         "color": "121212",
@@ -11572,6 +11616,7 @@
         "initialVelocity": [0.0,-0.25,-0.5],
         "movementVelocity": [0.0,-0.01,0.0],
         "terminalVelocity": [32767.0,32767.0,32767.0],
+        "spreadVelocity": [0.0,1.0,-16.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -11596,7 +11641,8 @@
       {
         "type": "generic",
         "spawnEveryTick": true,
-        "axisAligned": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
         "quantity": 2,
         "duration": 160,
         "transparency": 0.5,
@@ -11635,12 +11681,14 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "axisAligned": true
       },
       {
         "type": "generic",
         "spawnEveryTick": true,
-        "axisAligned": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
         "quantity": 2,
         "duration": 40,
         "transparency": 1.0,
@@ -11671,7 +11719,8 @@
             "clampMin": 1.0,
             "clampMax": 1.0
           }
-        ]
+        ],
+        "axisAligned": true
       }
     ],
     "modelType": "obj"

@@ -9,9 +9,9 @@
     "fuelCapacity": 22500,
     "defaultFuelQty": 22500,
     "downForce": 0.65,
-    "overSteer": 4.0,
-    "underSteer": 1.0,
-    "overSteerAccel": 8.0,
+    "overSteer": 6.0,
+    "underSteer": 0.375,
+    "overSteerAccel": 6.0,
     "axleRatio": 2.5,
     "brakingFactor": 3.0,
     "dragCoefficient": 0.125,
@@ -899,7 +899,7 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "!remove_exclaimation_mark_if_vehicle_has_abs",
+          "variable": "remove_exclaimation_mark_if_vehicle_has_abs",
           "axis": [0.0,0.0,1.0]
         },
         {
@@ -1104,12 +1104,18 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,3.0,0.0]
+          "axis": [0.0,2.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "rlBodyroll",
-          "axis": [0.0,-0.375,0.0]
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -1131,12 +1137,18 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,-3.0,0.0]
+          "axis": [0.0,-2.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "rrBodyroll",
-          "axis": [0.0,-0.375,0.0]
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -1158,12 +1170,18 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,-3.0,0.0]
+          "axis": [0.0,-2.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "flBodyroll",
-          "axis": [0.0,-0.375,0.0]
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -1185,18 +1203,23 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,3.0,0.0]
+          "axis": [0.0,2.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "frBodyroll",
-          "axis": [0.0,-0.375,0.0]
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
     {
       "variable": "overSteer",
-      "addValue": 6.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -1215,7 +1238,6 @@
     },
     {
       "variable": "underSteer",
-      "addValue": -1.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -1280,12 +1302,6 @@
         "objectName": "rearleftsuspension",
         "animations": [
           {
-            "animationType": "inhibitor",
-            "variable": "rlBodyroll",
-            "clampMin": -0.0625,
-            "clampMax": 0.0625
-          },
-          {
             "animationType": "rotation",
             "variable": "rlBodyroll",
             "centerPoint": [1.0E-8,-0.3125,-0.1875],
@@ -1299,12 +1315,6 @@
         "objectName": "rearleftspring",
         "applyAfter": "rearleftsuspension",
         "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "rlBodyroll",
-            "clampMin": -0.0625,
-            "clampMax": 0.0625
-          },
           {
             "animationType": "rotation",
             "variable": "rlBodyroll",
@@ -1331,12 +1341,6 @@
         "objectName": "rearrightsuspension",
         "animations": [
           {
-            "animationType": "inhibitor",
-            "variable": "rrBodyroll",
-            "clampMin": -0.0625,
-            "clampMax": 0.0625
-          },
-          {
             "animationType": "rotation",
             "variable": "rrBodyroll",
             "centerPoint": [-1.0E-8,-0.3125,-0.1875],
@@ -1350,12 +1354,6 @@
         "objectName": "rearrightspring",
         "applyAfter": "rearrightsuspension",
         "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "rrBodyroll",
-            "clampMin": -0.0625,
-            "clampMax": 0.0625
-          },
           {
             "animationType": "rotation",
             "variable": "rrBodyroll",
@@ -1382,12 +1380,6 @@
         "objectName": "frontleftsuspension",
         "animations": [
           {
-            "animationType": "inhibitor",
-            "variable": "flBodyroll",
-            "clampMin": -0.0625,
-            "clampMax": 0.0625
-          },
-          {
             "animationType": "rotation",
             "variable": "flBodyroll",
             "centerPoint": [1.0E-8,-0.3125,3.5625],
@@ -1401,12 +1393,6 @@
         "objectName": "frontleftspring",
         "applyAfter": "frontleftsuspension",
         "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "flBodyroll",
-            "clampMin": -0.0625,
-            "clampMax": 0.0625
-          },
           {
             "animationType": "rotation",
             "variable": "flBodyroll",
@@ -1451,12 +1437,6 @@
         "objectName": "frontrightsuspension",
         "animations": [
           {
-            "animationType": "inhibitor",
-            "variable": "frBodyroll",
-            "clampMin": -0.0625,
-            "clampMax": 0.0625
-          },
-          {
             "animationType": "rotation",
             "variable": "frBodyroll",
             "centerPoint": [-1.0E-8,-0.3125,3.5625],
@@ -1470,12 +1450,6 @@
         "objectName": "frontrightspring",
         "applyAfter": "frontrightsuspension",
         "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "frBodyroll",
-            "clampMin": -0.125,
-            "clampMax": 0.125
-          },
           {
             "animationType": "rotation",
             "variable": "frBodyroll",
@@ -2676,50 +2650,28 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
             "variable": "damage_percent",
-            "clampMin": 0.5,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_percent",
-            "clampMin": 0.75,
-            "clampMax": 1.0
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5,
+            "clampMax": 0.0125
           },
           {
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.0125,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled"
+            "clampMax": 0.5
           },
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
-            "clampMax": 0.25
+            "axis": [0.0,0.0125,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0125,0.0],
+            "axis": [0.0,0.025,0.0],
             "offset": 0.5,
             "clampMin": 0.5,
             "clampMax": 1.5
@@ -2727,17 +2679,17 @@
           {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.0375,0.0]
+            "axis": [0.0,0.025,0.0]
           }
         ],
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 1.0
       },
       {
         "name": "ivv:brakesqueal",
