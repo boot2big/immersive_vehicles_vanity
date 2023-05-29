@@ -112,10 +112,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:explode_flare",
@@ -129,22 +129,25 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
         "duration": 20,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 3.0,
-        "toScale": 0.25,
+        "scale": 0.6,
+        "toScale": 0.05,
+        "hitboxSize": 0.2,
         "color": "666666",
         "pos": [0.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,0.0],
@@ -164,10 +167,13 @@
       {
         "type": "flame",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 160,
         "transparency": 0.75,
-        "scale": 2.0,
+        "scale": 0.4,
+        "hitboxSize": 0.2,
         "color": "FFBAB8",
         "pos": [0.0,0.0,0.0],
         "initialVelocity": [0.0,0.15,0.0],
@@ -185,12 +191,15 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
         "duration": 100,
         "transparency": 0.25,
         "toTransparency": 0.01,
-        "scale": 2.0,
-        "toScale": 6.0,
+        "scale": 0.4,
+        "toScale": 1.2,
+        "hitboxSize": 0.2,
         "color": "E3322B",
         "pos": [0.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,0.0],
@@ -207,16 +216,18 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 100,
         "transparency": 0.25,
         "toTransparency": 0.01,
-        "scale": 4.0,
-        "toScale": 8.0,
+        "scale": 0.8,
+        "toScale": 1.6,
+        "hitboxSize": 0.2,
         "color": "E3322B",
         "pos": [-0.5,0.75,-0.5],
-        "spreadFactorHorizontal": 4,
-        "spreadFactorVertical": 1,
+        "spreadRandomness": [1.0,0.5,1.0],
         "initialVelocity": [0.25,0.25,0.25],
         "activeAnimations": [
           {
@@ -233,8 +244,14 @@
   "general": {
     "stackSize": 64,
     "materialLists": [
-      ["minecraft:blaze_powder:0:1","oredict:nuggetIron:2","minecraft:gunpowder:0:2"]
+      [
+        "minecraft:blaze_powder:0:1",
+        "oredict:nuggetIron:2",
+        "minecraft:gunpowder:0:2"
+      ]
     ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "type": "bullet"
   }
 }

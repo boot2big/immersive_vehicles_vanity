@@ -2,6 +2,7 @@
   "generic": {
     "type": "gun_hand_longarm",
     "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.375,
     "height": 0.375
   },
@@ -14,7 +15,7 @@
     "capacity": 5,
     "reloadTime": 40,
     "reloadDelay": 10,
-    "muzzleVelocity": 2800,
+    "muzzleVelocity": 375,
     "fireDelay": 20.0,
     "bulletSpreadFactor": 0.1,
     "diameter": 7.62,
@@ -36,6 +37,32 @@
         ]
       }
     ]
+  },
+  "parts": [
+    {
+      "pos": [0.046257,0.271614,0.352002],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "defaultPart": "ivv:scope",
+      "types": [
+        "generic_gun_scope"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Classic Rifle",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "generic_gun_scope_invis": 1.0
   },
   "variableModifiers": [
     {
@@ -66,30 +93,6 @@
       ]
     }
   ],
-  "parts": [
-    {
-      "pos": [0.046257,0.271614,0.352002],
-      "rot": [0.0,0.0,0.0],
-      "allowParentRemoval": true,
-      "maxValue": 4.0,
-      "defaultPart": "ivv:scope",
-      "types": ["generic_gun_scope"],
-      "linkedParts": [],
-      "applyAfter": "gunModel"
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Classic Rifle",
-      "extraMaterialLists": [
-        []
-      ]
-    }
-  ],
-  "constantValues": {
-    "generic_gun_scope_invis": 1.0
-  },
   "rendering": {
     "textObjects": [
       {
@@ -434,10 +437,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:bulletdistantsniper",
@@ -468,10 +471,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:classicrifle_bolt",
@@ -498,10 +501,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:classicrifle_reloading",
@@ -515,10 +518,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:classicrifle_plang",
@@ -530,10 +533,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -570,48 +573,32 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 200,
-        "transparency": 2.5,
+        "duration": 120,
+        "transparency": 10.0,
         "toTransparency": 0.01,
-        "scale": 0.5,
-        "toScale": 0.5,
-        "texture": "ivv:textures/particles/casingclip.png",
+        "scale": 0.75,
+        "toScale": 0.75,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/magtexture_gray.png",
+        "model": "ivv:textures/particles/3d/mag_machinegun.obj",
         "color": "CCCCCC",
         "pos": [-0.0125,0.192188,0.328125],
         "initialVelocity": [-0.5,2.125,-0.125],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "gun_fired",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [-3.0,0.0,0.0],
-            "duration": 2,
-            "forwardsEasing": "easeoutcirc",
-            "reverseEasing": "easeinoutsine",
-            "forwardsDelay": -2
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.0625],
-            "duration": 2,
-            "forwardsEasing": "easeoutcirc",
-            "reverseEasing": "easeinoutsine",
-            "forwardsDelay": -2
-          }
-        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -621,15 +608,28 @@
       },
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 200,
-        "transparency": 2.5,
+        "duration": 120,
+        "transparency": 10.0,
         "toTransparency": 0.01,
-        "scale": 0.5,
-        "toScale": 0.5,
-        "texture": "ivv:textures/particles/casing.png",
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/casing.png",
+        "model": "ivv:textures/particles/3d/casing.obj",
         "color": "CCCCCC",
         "pos": [-0.0125,0.192188,0.328125],
+        "rotationRandomness": [22.5,0.0,22.5],
+        "spreadRandomness": [0.0,0.25,0.25],
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
@@ -672,12 +672,15 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 1.5,
-        "toScale": 2.5,
+        "scale": 0.3,
+        "toScale": 0.5,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/muzzleflash.png",
         "color": "FFFFFF",
         "pos": [0.0,0.185625,1.8125],
@@ -714,12 +717,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 4.0,
+        "scale": 0.2,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [0.0,0.185625,1.8125],
         "initialVelocity": [0.0,0.0,2.0],
@@ -761,7 +767,11 @@
     "description": "Model from LauraDarkez2001, originally modeled by LizardPile",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:7","minecraft:stone_button:0:1","mts:ivv.scope:0:1"]
+      [
+        "oredict:ingotIron:7",
+        "minecraft:stone_button:0:1",
+        "mts:ivv.scope:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

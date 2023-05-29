@@ -2,6 +2,7 @@
   "generic": {
     "type": "gun_hand_longarm",
     "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.5,
     "height": 0.375
   },
@@ -13,7 +14,7 @@
     "capacity": 20,
     "reloadTime": 45,
     "reloadDelay": 10,
-    "muzzleVelocity": 900,
+    "muzzleVelocity": 375,
     "fireDelay": 2.0,
     "bulletSpreadFactor": 1.5,
     "diameter": 9.6,
@@ -36,6 +37,16 @@
       }
     ]
   },
+  "parts": [],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "AAC Honeybadger",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "isTwoHanded",
@@ -68,16 +79,6 @@
           "axis": [0.5,0.0,0.0],
           "offset": 0.5
         }
-      ]
-    }
-  ],
-  "parts": [],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "AAC Honeybadger",
-      "extraMaterialLists": [
-        []
       ]
     }
   ],
@@ -227,10 +228,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:bulletdistantrifle",
@@ -261,10 +262,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:aac_reloading",
@@ -278,10 +279,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -318,24 +319,67 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 200,
-        "transparency": 2.5,
+        "duration": 120,
+        "transparency": 10.0,
         "toTransparency": 0.01,
-        "scale": 0.5,
-        "toScale": 0.5,
-        "texture": "ivv:textures/particles/casing.png",
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/magtexture_tan.png",
+        "model": "ivv:textures/particles/3d/mag_assaultrifle.obj",
+        "color": "CCCCCC",
+        "pos": [0.0,-0.5,-0.25],
+        "rot": [0.0,0.0,90.0],
+        "rotationRandomness": [180.0,0.0,0.0],
+        "initialVelocity": [0.0,0.25,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 120,
+        "transparency": 10.0,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/casing.png",
+        "model": "ivv:textures/particles/3d/casing.obj",
         "color": "CCCCCC",
         "pos": [-0.0625,0.11807,-0.0313],
+        "rotationRandomness": [22.5,0.0,22.5],
+        "spreadRandomness": [0.0,0.25,0.25],
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
@@ -372,12 +416,15 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 2.0,
+        "scale": 0.2,
+        "toScale": 0.4,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/muzzleflash.png",
         "color": "FFFFFF",
         "pos": [0.0,0.11807,1.11259],
@@ -418,12 +465,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 4.0,
+        "scale": 0.2,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [0.0,0.11807,1.11259],
         "initialVelocity": [0.0,0.0,2.0],
@@ -469,7 +519,10 @@
     "description": "Modeled by HashimIsaPotato",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:16","minecraft:stone_button:0:1"]
+      [
+        "oredict:ingotIron:16",
+        "minecraft:stone_button:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

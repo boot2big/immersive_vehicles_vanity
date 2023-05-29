@@ -2,6 +2,7 @@
   "generic": {
     "type": "gun_hand_standard",
     "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.375,
     "height": 0.25
   },
@@ -12,7 +13,7 @@
     "capacity": 40,
     "reloadTime": 40,
     "reloadDelay": 10,
-    "muzzleVelocity": 735,
+    "muzzleVelocity": 250,
     "fireDelay": 2.0,
     "bulletSpreadFactor": 3.0,
     "diameter": 4.6,
@@ -34,6 +35,56 @@
         ]
       }
     ]
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.064793,0.3125],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "partScale": [1.5,1.5,1.25],
+      "types": [
+        "generic_gun_suppressor"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
+    },
+    {
+      "pos": [0.0,0.174168,-0.075],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "types": [
+        "generic_gun_scope"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
+    },
+    {
+      "pos": [0.0,-0.075832,0.205835],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "defaultPart": "ivv:grip",
+      "types": [
+        "generic_gun_grip"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "MP7",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "generic_gun_scope_short": 1.0,
+    "generic_gun_grip_invis": 1.0
   },
   "variableModifiers": [
     {
@@ -76,50 +127,6 @@
       ]
     }
   ],
-  "parts": [
-    {
-      "pos": [0.0,0.064793,0.3125],
-      "rot": [0.0,0.0,0.0],
-      "allowParentRemoval": true,
-      "maxValue": 4.0,
-      "partScale": [1.5,1.5,1.25],
-      "types": ["generic_gun_suppressor"],
-      "linkedParts": [],
-      "applyAfter": "gunModel"
-    },
-    {
-      "pos": [0.0,0.174168,-0.075],
-      "rot": [0.0,0.0,0.0],
-      "allowParentRemoval": true,
-      "maxValue": 4.0,
-      "types": ["generic_gun_scope"],
-      "linkedParts": [],
-      "applyAfter": "gunModel"
-    },
-    {
-      "pos": [0.0,-0.075832,0.205835],
-      "rot": [0.0,0.0,0.0],
-      "allowParentRemoval": true,
-      "maxValue": 4.0,
-      "defaultPart": "ivv:grip",
-      "types": ["generic_gun_grip"],
-      "linkedParts": [],
-      "applyAfter": "gunModel"
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "MP7",
-      "extraMaterialLists": [
-        []
-      ]
-    }
-  ],
-  "constantValues": {
-    "generic_gun_scope_short": 1.0,
-    "generic_gun_grip_invis": 1.0
-  },
   "rendering": {
     "textObjects": [
       {
@@ -324,10 +331,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:mp7_firing_silenced",
@@ -363,10 +370,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:bulletdistant",
@@ -397,10 +404,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:mp7_reloading",
@@ -414,10 +421,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -454,24 +461,67 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 200,
-        "transparency": 2.5,
+        "duration": 120,
+        "transparency": 10.0,
         "toTransparency": 0.01,
-        "scale": 0.5,
-        "toScale": 0.5,
-        "texture": "ivv:textures/particles/casing.png",
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/magtexture_black.png",
+        "model": "ivv:textures/particles/3d/mag_pistol.obj",
+        "color": "CCCCCC",
+        "pos": [0.0,-0.5,-0.25],
+        "rot": [0.0,0.0,90.0],
+        "rotationRandomness": [180.0,0.0,0.0],
+        "initialVelocity": [0.0,0.25,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 120,
+        "transparency": 10.0,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/casing.png",
+        "model": "ivv:textures/particles/3d/casing.obj",
         "color": "CCCCCC",
         "pos": [0.0,0.064793,-0.106665],
+        "rotationRandomness": [22.5,0.0,22.5],
+        "spreadRandomness": [0.0,0.25,0.25],
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
@@ -508,12 +558,15 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 2.0,
+        "scale": 0.2,
+        "toScale": 0.4,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/muzzleflash.png",
         "color": "FFFFFF",
         "pos": [0.0,0.06479,0.36209],
@@ -554,12 +607,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 4.0,
+        "scale": 0.2,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [0.0,0.06479,0.36209],
         "initialVelocity": [0.0,0.0,2.0],
@@ -605,7 +661,10 @@
     "description": "Model from LauraDarkez2001, original creator to be found for proper credit attribution",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:7","minecraft:stone_button:0:1"]
+      [
+        "oredict:ingotIron:7",
+        "minecraft:stone_button:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

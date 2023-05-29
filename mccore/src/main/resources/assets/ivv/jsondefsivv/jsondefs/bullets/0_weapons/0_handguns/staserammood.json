@@ -64,7 +64,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:bullethitmoblaser",
@@ -84,7 +88,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
@@ -92,12 +100,15 @@
         "type": "generic",
         "spawnEveryTick": true,
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 20,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 2.0,
-        "toScale": 0.5,
+        "scale": 0.4,
+        "toScale": 0.1,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/laser.png",
         "color": "3CFACE",
         "pos": [0.0,0.0,0.0],
@@ -111,8 +122,11 @@
       },
       {
         "type": "break",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
-        "scale": 0.3,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
         "color": "999999",
         "pos": [0.0,0.5,0.0],
         "initialVelocity": [0.0,1.5,0.0],
@@ -132,8 +146,13 @@
     "description": "12 dual-fire shots",
     "stackSize": 64,
     "materialLists": [
-      ["oredict:dustRedstone:72","minecraft:gunpowder:0:36"]
+      [
+        "oredict:dustRedstone:72",
+        "minecraft:gunpowder:0:36"
+      ]
     ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "type": "bullet"
   }
 }

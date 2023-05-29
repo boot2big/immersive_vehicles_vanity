@@ -16,7 +16,11 @@
         "defaultparts_hitch_heavy": "ivv:hitchadapterheavy",
         "defaultparts_hitch_industrial": "ivv:hitchadapterxl"
       },
-      "types": ["generic_hitch_attachment","generic_hitch_attachment_heavy","generic_hitch_attachment_industrial"],
+      "types": [
+        "generic_hitch_attachment",
+        "generic_hitch_attachment_heavy",
+        "generic_hitch_attachment_industrial"
+      ],
       "animations": [
         {
           "animationType": "scaling",
@@ -160,6 +164,19 @@
           "variableType": "increment",
           "variableValue": 0.25,
           "clampMax": 1.25
+        }
+      ]
+    }
+  ],
+  "connectionGroups": [
+    {
+      "groupName": "HOOKUP",
+      "isHookup": true,
+      "connections": [
+        {
+          "type": "tow_bumper",
+          "pos": [0.0,-0.0625,0.0],
+          "distance": 2.0
         }
       ]
     }
@@ -317,10 +334,13 @@
   },
   "general": {
     "name": "Hitch",
-    "description": "Mount for hitch attachment",
+    "description": "Mounts hitch adaptors for towing stuff",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:2"]
+      [
+        "mts:ivv.hitchnb:0:1",
+        "oredict:ingotIron:2"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

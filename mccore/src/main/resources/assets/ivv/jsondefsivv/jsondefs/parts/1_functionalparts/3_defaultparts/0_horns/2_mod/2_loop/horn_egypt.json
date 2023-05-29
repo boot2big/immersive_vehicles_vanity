@@ -1,6 +1,7 @@
 {
   "generic": {
     "type": "generic_horn",
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.375,
     "height": 0.375
   },
@@ -9,14 +10,16 @@
       "subName": "",
       "modelName": "horn_musical",
       "textureName": "horn",
-      "name": "Vehicle Horn [Musical]",
+      "name": "Musical Vehicle Horn",
       "description": "Egypt\nVehicle default part, plays music",
       "extraMaterialLists": [
         []
       ]
     }
   ],
-  "constants": ["generic_horn_rotated"],
+  "constantValues": {
+    "generic_horn_rotated": 1.0
+  },
   "rendering": {
     "lightObjects": [],
     "sounds": [
@@ -64,11 +67,11 @@
         "looping": true,
         "isExterior": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 48.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:horninterioregypt",
@@ -115,10 +118,10 @@
         "isInterior": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [],
@@ -126,11 +129,13 @@
   },
   "general": {
     "name": "Horn",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
-      ["minecraft:noteblock:0:1"]
-    ]
+      [
+        "minecraft:noteblock:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

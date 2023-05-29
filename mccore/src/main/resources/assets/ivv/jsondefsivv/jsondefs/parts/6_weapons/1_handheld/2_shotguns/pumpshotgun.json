@@ -2,6 +2,7 @@
   "generic": {
     "type": "gun_hand_shotgun",
     "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.5,
     "height": 0.375
   },
@@ -15,7 +16,7 @@
     "capacity": 5,
     "reloadTime": 12,
     "reloadDelay": 32,
-    "muzzleVelocity": 675,
+    "muzzleVelocity": 375,
     "fireDelay": 16.0,
     "bulletSpreadFactor": 2.0,
     "diameter": 16.83,
@@ -36,6 +37,31 @@
         ]
       }
     ]
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.09375,-0.007975],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "types": [
+        "generic_gun_scope"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Pump Shotgun",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "generic_gun_scope_short": 1.0
   },
   "variableModifiers": [
     {
@@ -72,29 +98,6 @@
       ]
     }
   ],
-  "parts": [
-    {
-      "pos": [0.0,0.09375,-0.007975],
-      "rot": [0.0,0.0,0.0],
-      "allowParentRemoval": true,
-      "maxValue": 4.0,
-      "types": ["generic_gun_scope"],
-      "linkedParts": [],
-      "applyAfter": "gunModel"
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Pump Shotgun",
-      "extraMaterialLists": [
-        []
-      ]
-    }
-  ],
-  "constantValues": {
-    "generic_gun_scope_short": 1.0
-  },
   "rendering": {
     "textObjects": [
       {
@@ -271,10 +274,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:bulletdistantshotgun",
@@ -305,10 +308,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:shotgun_reloading",
@@ -322,10 +325,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -362,24 +365,37 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 200,
-        "transparency": 2.5,
+        "duration": 120,
+        "transparency": 10.0,
         "toTransparency": 0.01,
-        "scale": 0.5,
-        "toScale": 0.5,
-        "texture": "ivv:textures/particles/casingshell.png",
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/casing_shotgun.png",
+        "model": "ivv:textures/particles/3d/casing_shotgun.obj",
         "color": "CCCCCC",
         "pos": [-0.023438,0.0625,0.046875],
+        "rotationRandomness": [22.5,0.0,22.5],
+        "spreadRandomness": [0.0,0.25,0.25],
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
@@ -418,12 +434,15 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 1.5,
-        "toScale": 2.5,
+        "scale": 0.3,
+        "toScale": 0.5,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/muzzleflash.png",
         "color": "FFFFFF",
         "pos": [0.0,0.070312,1.06138],
@@ -460,12 +479,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 4.0,
+        "scale": 0.2,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [0.0,0.070312,1.06138],
         "initialVelocity": [0.0,0.0,2.0],
@@ -506,7 +528,10 @@
     "name": "Some generic shotgun",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:11","minecraft:stone_button:0:1"]
+      [
+        "oredict:ingotIron:11",
+        "minecraft:stone_button:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

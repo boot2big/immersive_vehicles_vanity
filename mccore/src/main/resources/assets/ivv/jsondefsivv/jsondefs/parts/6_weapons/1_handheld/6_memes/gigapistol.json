@@ -1,7 +1,8 @@
 {
   "generic": {
     "type": "gun_hand_gigagun",
-    "canBeRemovedByHand": true
+    "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0
   },
   "gun": {
     "lockOnType": "default",
@@ -12,7 +13,7 @@
     "capacity": 8,
     "reloadTime": 45,
     "reloadDelay": 10,
-    "muzzleVelocity": 1600,
+    "muzzleVelocity": 250,
     "fireDelay": 8.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 45.0,
@@ -203,10 +204,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:explode_bullet",
@@ -237,10 +238,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:gigapistol_reloading",
@@ -254,10 +255,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -294,21 +295,54 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 120,
+        "transparency": 10.0,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 3.0,
+        "hitboxSize": 0.6,
+        "texture": "ivv:textures/particles/3d/magtexture_black.png",
+        "model": "ivv:textures/particles/3d/mag_pistol.obj",
+        "color": "CCCCCC",
+        "pos": [0.0,-0.5,-0.25],
+        "rot": [0.0,0.0,90.0],
+        "rotationRandomness": [180.0,0.0,0.0],
+        "initialVelocity": [0.0,0.25,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 200,
         "transparency": 2.5,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 1.0,
+        "scale": 0.2,
+        "toScale": 0.2,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/casing.png",
         "color": "CCCCCC",
         "pos": [0.0,0.33437,0.0],
@@ -348,13 +382,23 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
         "duration": 8,
         "transparency": 1.5,
         "toTransparency": 0.01,
-        "scale": 3.0,
-        "toScale": 8.0,
-        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png"],
+        "scale": 0.6,
+        "toScale": 1.6,
+        "hitboxSize": 0.2,
+        "textureList": [
+          "ivv:textures/particles/explosion_1.png",
+          "ivv:textures/particles/explosion_2.png",
+          "ivv:textures/particles/explosion_3.png",
+          "ivv:textures/particles/explosion_4.png",
+          "ivv:textures/particles/explosion_5.png",
+          "ivv:textures/particles/explosion_6.png"
+        ],
         "textureDelays": [1,1,1,1,1,32767],
         "color": "FFFFFF",
         "pos": [0.0,0.12441,1.425],
@@ -391,12 +435,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 2.0,
-        "toScale": 4.0,
+        "scale": 0.4,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "454545",
         "pos": [0.0,0.33437,0.98438],
         "initialVelocity": [0.0,0.0,2.0],
@@ -438,7 +485,10 @@
     "description": "For when pesky parrots get .45 ACP mixed up with 45mm..",
     "health": 100,
     "materialLists": [
-      ["minecraft:iron_block:0:7","minecraft:stone:0:1"]
+      [
+        "minecraft:iron_block:0:7",
+        "minecraft:stone:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

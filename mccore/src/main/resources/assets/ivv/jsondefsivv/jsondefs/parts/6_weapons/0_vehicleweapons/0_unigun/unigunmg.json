@@ -10,9 +10,9 @@
     "autoReload": true,
     "canLockTargets": true,
     "fireSolo": true,
-    "capacity": 500,
+    "capacity": 1000,
     "reloadTime": 10,
-    "muzzleVelocity": 900,
+    "muzzleVelocity": 375,
     "fireDelay": 2.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 7.62,
@@ -77,16 +77,16 @@
             "animationType": "translation",
             "variable": "random",
             "axis": [0.0,0.0625,0.0],
-            "offset": 0.9875
+            "offset": 0.9375
           }
         ],
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:bulletdistantmg",
@@ -117,10 +117,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:wmg_reloading",
@@ -138,10 +138,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -178,21 +178,24 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 4.0,
+        "scale": 0.2,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [0.0,0.0,0.0625],
         "initialVelocity": [0.0,0.0,2.0],
@@ -227,12 +230,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 4.0,
+        "scale": 0.2,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [-1.25,0.0,0.0625],
         "initialVelocity": [0.0,0.0,2.0],
@@ -267,16 +273,29 @@
       },
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 200,
-        "transparency": 2.5,
+        "duration": 120,
+        "transparency": 10.0,
         "toTransparency": 0.01,
-        "scale": 0.5,
-        "toScale": 0.5,
-        "texture": "ivv:textures/particles/casing.png",
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/casing.png",
+        "model": "ivv:textures/particles/3d/casing.obj",
         "color": "CCCCCC",
         "pos": [0.0,0.0,0.0625],
-        "initialVelocity": [0.5,0.0,-0.5],
+        "rotationRandomness": [22.5,0.0,22.5],
+        "spreadRandomness": [0.0,0.25,0.25],
+        "initialVelocity": [-0.5,0.0,-0.5],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
         "spawningAnimations": [
@@ -298,20 +317,6 @@
             "forwardsEasing": "easeoutcirc",
             "reverseEasing": "easeinoutsine",
             "forwardsDelay": -1
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "gun_yaw",
-            "centerPoint": [0.0,0.0,0.0625],
-            "axis": [0.0,1.0,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "gun_pitch",
-            "centerPoint": [0.0,0.0,0.0625],
-            "axis": [1.0,0.0,0.0]
           }
         ],
         "activeAnimations": [
@@ -331,15 +336,28 @@
       },
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 200,
-        "transparency": 2.5,
+        "duration": 120,
+        "transparency": 10.0,
         "toTransparency": 0.01,
-        "scale": 0.5,
-        "toScale": 0.5,
-        "texture": "ivv:textures/particles/casing.png",
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/casing.png",
+        "model": "ivv:textures/particles/3d/casing.obj",
         "color": "CCCCCC",
         "pos": [-1.25,0.0,0.0625],
+        "rotationRandomness": [22.5,0.0,22.5],
+        "spreadRandomness": [0.0,0.25,0.25],
         "initialVelocity": [0.5,0.0,-0.5],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
@@ -362,20 +380,6 @@
             "forwardsEasing": "easeoutcirc",
             "reverseEasing": "easeinoutsine",
             "forwardsDelay": -1
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "gun_yaw",
-            "centerPoint": [-1.25,0.0,0.0625],
-            "axis": [0.0,1.0,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "gun_pitch",
-            "centerPoint": [-1.25,0.0,0.0625],
-            "axis": [1.0,0.0,0.0]
           }
         ],
         "activeAnimations": [
@@ -400,7 +404,10 @@
     "description": "Fires mostly any correctly diametered bullets",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:8","oredict:dustRedstone:2"]
+      [
+        "oredict:ingotIron:8",
+        "oredict:dustRedstone:2"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0
