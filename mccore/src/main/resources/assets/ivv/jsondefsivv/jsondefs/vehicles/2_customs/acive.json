@@ -228,6 +228,7 @@
     },
     {
       "pos": [-0.6,0.0375,1.5],
+      "dismountPos": [-1.25,0.25,1.125],
       "isMirrored": true,
       "conditionalDefaultParts": {
         "kitt": "ivv:carseat_tan",
@@ -289,20 +290,16 @@
       ]
     },
     {
-      "pos": [-0.6,0.125,1.5],
+      "pos": [0.125,0.125,-0.125],
       "rot": [0.0,90.0,0.0],
       "isMirrored": true,
       "maxValue": 2.0,
       "types": [
-        "interactable_luggage"
+        "generic_disabled"
       ],
       "interactableVariables": [
         [
-          "hatch_right",
-          "t_tops_interactable"
-        ],
-        [
-          "part_present_10"
+          "bleeeh"
         ]
       ],
       "animations": [
@@ -328,6 +325,7 @@
     },
     {
       "pos": [0.6,0.0375,1.5],
+      "dismountPos": [1.25,0.25,1.125],
       "isController": true,
       "conditionalDefaultParts": {
         "kitt": "ivv:carseat_tan",
@@ -2092,7 +2090,6 @@
     "both_technologically_and_by_lore": 1.0
   },
   "initialVariables": [
-    "hatch_right",
     "hatch_left",
     "vehicle_traction_control"
   ],
@@ -2194,6 +2191,25 @@
           "animationType": "translation",
           "variable": "ace",
           "axis": [0.0,-0.125,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_odometer",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "damage_totaled"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "!electric_power"
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,1.3889E-5,0.0]
         }
       ]
     },
@@ -4191,6 +4207,11 @@
         },
         {
           "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_1",
           "axis": [0.0,-0.5,0.0]
         },
@@ -4256,6 +4277,11 @@
           "animationType": "translation",
           "variable": "turn_indicator",
           "axis": [0.0,-0.001,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
         },
         {
           "animationType": "translation",
@@ -4327,6 +4353,11 @@
         },
         {
           "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_3",
           "axis": [0.0,-0.5,0.0]
         },
@@ -4392,6 +4423,11 @@
           "animationType": "translation",
           "variable": "turn_indicator",
           "axis": [0.0,-0.001,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
         },
         {
           "animationType": "translation",
@@ -4543,6 +4579,29 @@
           "offset": 1.0,
           "duration": 10,
           "reverseDelay": 10
+        }
+      ]
+    },
+    {
+      "variable": "downForce",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "input_rudder",
+          "axis": [0.022222222,0.0,0.0],
+          "offset": 0.75,
+          "clampMin": 0.25,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [-0.005,0.0,0.0],
+          "offset": 1.12,
+          "clampMin": 0.0625,
+          "clampMax": 1.0,
+          "absolute": true
         }
       ]
     },
@@ -5413,10 +5472,6 @@
             "variable": "ace",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!15_17_0_cycle"
           }
         ]
       },
@@ -5456,56 +5511,6 @@
         "animations": []
       },
       {
-        "objectName": "scanneracealt1",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "ace",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "15_17_0_cycle"
-          }
-        ]
-      },
-      {
-        "objectName": "scanneracealt2",
-        "applyAfter": "scanneracealt1",
-        "animations": []
-      },
-      {
-        "objectName": "scanneracealt3",
-        "applyAfter": "scanneracealt1",
-        "animations": []
-      },
-      {
-        "objectName": "scanneracealt4",
-        "applyAfter": "scanneracealt1",
-        "animations": []
-      },
-      {
-        "objectName": "scanneracealt5",
-        "applyAfter": "scanneracealt1",
-        "animations": []
-      },
-      {
-        "objectName": "scanneracealt6",
-        "applyAfter": "scanneracealt1",
-        "animations": []
-      },
-      {
-        "objectName": "scanneracealt7",
-        "applyAfter": "scanneracealt1",
-        "animations": []
-      },
-      {
-        "objectName": "scanneracealt8",
-        "applyAfter": "scanneracealt1",
-        "animations": []
-      },
-      {
         "objectName": "scannerkitt1",
         "animations": [
           {
@@ -5513,10 +5518,6 @@
             "variable": "kitt",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!15_17_0_cycle"
           }
         ]
       },
@@ -5556,56 +5557,6 @@
         "animations": []
       },
       {
-        "objectName": "scannerkittalt1",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "kitt",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "15_17_0_cycle"
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkittalt2",
-        "applyAfter": "scannerkittalt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkittalt3",
-        "applyAfter": "scannerkittalt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkittalt4",
-        "applyAfter": "scannerkittalt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkittalt5",
-        "applyAfter": "scannerkittalt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkittalt6",
-        "applyAfter": "scannerkittalt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkittalt7",
-        "applyAfter": "scannerkittalt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkittalt8",
-        "applyAfter": "scannerkittalt1",
-        "animations": []
-      },
-      {
         "objectName": "scannerkarr1",
         "animations": [
           {
@@ -5613,10 +5564,6 @@
             "variable": "karr",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!15_17_0_cycle"
           }
         ]
       },
@@ -5653,56 +5600,6 @@
       {
         "objectName": "scannerkarr8",
         "applyAfter": "scannerkarr1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkarralt1",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "karr",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "15_17_0_cycle"
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkarralt2",
-        "applyAfter": "scannerkarralt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkarralt3",
-        "applyAfter": "scannerkarralt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkarralt4",
-        "applyAfter": "scannerkarralt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkarralt5",
-        "applyAfter": "scannerkarralt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkarralt6",
-        "applyAfter": "scannerkarralt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkarralt7",
-        "applyAfter": "scannerkarralt1",
-        "animations": []
-      },
-      {
-        "objectName": "scannerkarralt8",
-        "applyAfter": "scannerkarralt1",
         "animations": []
       },
       {
@@ -7251,9 +7148,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "14_2_0_cycle",
+            "variable": "14_2_16_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "16_2_14_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7279,9 +7183,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "12_2_2_cycle",
+            "variable": "12_2_18_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "18_2_12_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7307,9 +7218,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "10_2_4_cycle",
+            "variable": "10_2_20_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "20_2_10_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7335,9 +7253,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "8_2_6_cycle",
+            "variable": "8_2_22_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "22_2_8_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7363,9 +7288,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "6_2_8_cycle",
+            "variable": "6_2_24_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "24_2_6_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7391,9 +7323,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "4_2_10_cycle",
+            "variable": "4_2_26_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "26_2_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7419,9 +7358,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "2_2_12_cycle",
+            "variable": "2_2_28_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "28_2_2_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7447,233 +7393,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "0_2_14_cycle",
+            "variable": "0_2_30_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
             "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scanneracealt1",
-        "emissive": true,
-        "isElectric": true,
-        "color": "B63ACF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
           },
           {
             "animationType": "translation",
-            "variable": "14_2_0_cycle",
+            "variable": "30_2_0_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scanneracealt2",
-        "emissive": true,
-        "isElectric": true,
-        "color": "B63ACF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "12_2_2_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scanneracealt3",
-        "emissive": true,
-        "isElectric": true,
-        "color": "B63ACF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "10_2_4_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scanneracealt4",
-        "emissive": true,
-        "isElectric": true,
-        "color": "B63ACF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "8_2_6_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scanneracealt5",
-        "emissive": true,
-        "isElectric": true,
-        "color": "B63ACF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "6_2_8_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scanneracealt6",
-        "emissive": true,
-        "isElectric": true,
-        "color": "B63ACF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "4_2_10_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scanneracealt7",
-        "emissive": true,
-        "isElectric": true,
-        "color": "B63ACF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "2_2_12_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scanneracealt8",
-        "emissive": true,
-        "isElectric": true,
-        "color": "B63ACF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "0_2_14_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7699,9 +7428,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "14_2_0_cycle",
+            "variable": "14_2_16_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "16_2_14_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7727,9 +7463,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "12_2_2_cycle",
+            "variable": "12_2_18_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "18_2_12_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7755,9 +7498,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "10_2_4_cycle",
+            "variable": "10_2_20_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "20_2_10_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7783,9 +7533,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "8_2_6_cycle",
+            "variable": "8_2_22_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "22_2_8_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7811,9 +7568,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "6_2_8_cycle",
+            "variable": "6_2_24_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "24_2_6_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7839,9 +7603,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "4_2_10_cycle",
+            "variable": "4_2_26_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "26_2_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7867,9 +7638,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "2_2_12_cycle",
+            "variable": "2_2_28_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "28_2_2_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -7895,233 +7673,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "0_2_14_cycle",
+            "variable": "0_2_30_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
             "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkittalt1",
-        "emissive": true,
-        "isElectric": true,
-        "color": "C1240C",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
           },
           {
             "animationType": "translation",
-            "variable": "14_2_0_cycle",
+            "variable": "30_2_0_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkittalt2",
-        "emissive": true,
-        "isElectric": true,
-        "color": "C1240C",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "12_2_2_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkittalt3",
-        "emissive": true,
-        "isElectric": true,
-        "color": "C1240C",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "10_2_4_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkittalt4",
-        "emissive": true,
-        "isElectric": true,
-        "color": "C1240C",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "8_2_6_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkittalt5",
-        "emissive": true,
-        "isElectric": true,
-        "color": "C1240C",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "6_2_8_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkittalt6",
-        "emissive": true,
-        "isElectric": true,
-        "color": "C1240C",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "4_2_10_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkittalt7",
-        "emissive": true,
-        "isElectric": true,
-        "color": "C1240C",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "2_2_12_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkittalt8",
-        "emissive": true,
-        "isElectric": true,
-        "color": "C1240C",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "0_2_14_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -8147,9 +7708,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "14_2_0_cycle",
+            "variable": "14_2_16_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "16_2_14_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -8175,9 +7743,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "12_2_2_cycle",
+            "variable": "12_2_18_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "18_2_12_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -8203,9 +7778,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "10_2_4_cycle",
+            "variable": "10_2_20_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "20_2_10_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -8231,9 +7813,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "8_2_6_cycle",
+            "variable": "8_2_22_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "22_2_8_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -8259,9 +7848,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "6_2_8_cycle",
+            "variable": "6_2_24_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "24_2_6_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -8287,9 +7883,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "4_2_10_cycle",
+            "variable": "4_2_26_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "26_2_4_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -8315,9 +7918,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "2_2_12_cycle",
+            "variable": "2_2_28_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "28_2_2_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -8343,233 +7953,16 @@
           },
           {
             "animationType": "translation",
-            "variable": "0_2_14_cycle",
+            "variable": "0_2_30_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
             "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkarralt1",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFA60D",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
           },
           {
             "animationType": "translation",
-            "variable": "14_2_0_cycle",
+            "variable": "30_2_0_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkarralt2",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFA60D",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "12_2_2_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkarralt3",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFA60D",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "10_2_4_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkarralt4",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFA60D",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "8_2_6_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkarralt5",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFA60D",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "6_2_8_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkarralt6",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFA60D",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "4_2_10_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkarralt7",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFA60D",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "2_2_12_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
-            "skipForwardsMovement": true
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "scannerkarralt8",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFA60D",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
-          },
-          {
-            "animationType": "translation",
-            "variable": "0_2_14_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 1,
+            "duration": 4,
             "skipForwardsMovement": true
           }
         ],
@@ -9279,7 +8672,7 @@
         "pos": [0.0,0.15625,5.1875],
         "rot": [0.0,0.0,0.0],
         "fovOverride": 90.0,
-        "overlay": "ivv:textures/overlay/cars/aciveview_translucent",
+        "overlay": "ivv:textures/overlay/cars/aciveview_crosshair_translucent",
         "animations": [
           {
             "animationType": "visibility",
@@ -10130,6 +9523,14 @@
             "clampMax": 1.0
           }
         ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
         "middleDistance": 0.0,
@@ -10145,6 +9546,14 @@
             "variable": "jumping",
             "clampMin": 0.25,
             "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
           }
         ],
         "minDistance": 0.0,

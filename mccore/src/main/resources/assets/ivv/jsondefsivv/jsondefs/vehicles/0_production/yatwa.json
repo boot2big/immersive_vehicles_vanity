@@ -792,6 +792,25 @@
       ]
     },
     {
+      "variable": "vehicle_odometer",
+      "maxValue": 2147483647.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "damage_totaled"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "!electric_power"
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.000013889,0.0]
+        }
+      ]
+    },
+    {
       "variable": "throttle",
       "animations": [
         {
@@ -896,6 +915,29 @@
           "variable": "p_brake",
           "clampMin": 3.0,
           "clampMax": 3.0
+        }
+      ]
+    },
+    {
+      "variable": "downForce",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "input_rudder",
+          "axis": [0.022222222,0.0,0.0],
+          "offset": 0.75,
+          "clampMin": 0.25,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [-0.005,0.0,0.0],
+          "offset": 1.12,
+          "clampMin": 0.0625,
+          "clampMax": 1.0,
+          "absolute": true
         }
       ]
     },

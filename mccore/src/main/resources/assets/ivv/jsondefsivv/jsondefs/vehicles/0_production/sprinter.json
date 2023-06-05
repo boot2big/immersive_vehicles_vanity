@@ -122,17 +122,11 @@
       "rot": [0.0,90.0,0.0],
       "maxValue": 2.0,
       "types": [
-        "interactable_luggage"
+        "generic_this_part_slot_is_disabled_sorry"
       ],
       "interactableVariables": [
         [
-          "door_right"
-        ],
-        [
-          "part_present_8"
-        ],
-        [
-          "door_right"
+          "yeet"
         ]
       ]
     },
@@ -153,17 +147,11 @@
       "rot": [0.0,90.0,0.0],
       "maxValue": 2.0,
       "types": [
-        "interactable_luggage"
+        "generic_this_part_slot_is_disabled_sorry"
       ],
       "interactableVariables": [
         [
-          "door_left"
-        ],
-        [
-          "part_present_10"
-        ],
-        [
-          "door_left"
+          "yeet"
         ]
       ]
     },
@@ -184,17 +172,11 @@
       "rot": [0.0,90.0,0.0],
       "maxValue": 2.0,
       "types": [
-        "interactable_luggage"
+        "generic_this_part_slot_is_disabled_sorry"
       ],
       "interactableVariables": [
         [
-          "door_right"
-        ],
-        [
-          "part_present_12"
-        ],
-        [
-          "door_right"
+          "yeet"
         ]
       ]
     },
@@ -1302,6 +1284,25 @@
       ]
     },
     {
+      "variable": "vehicle_odometer",
+      "maxValue": 2147483647.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "damage_totaled"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "!electric_power"
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.000013889,0.0]
+        }
+      ]
+    },
+    {
       "variable": "throttle",
       "animations": [
         {
@@ -1365,7 +1366,6 @@
     },
     {
       "variable": "downForce",
-      "addValue": 0.05,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -1389,7 +1389,6 @@
     },
     {
       "variable": "overSteer",
-      "addValue": 1.0,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -1413,7 +1412,6 @@
     },
     {
       "variable": "underSteer",
-      "addValue": -1.0,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -1436,50 +1434,25 @@
       ]
     },
     {
-      "variable": "brakingFactor",
-      "setValue": -1.2,
+      "variable": "downForce",
       "animations": [
         {
-          "animationType": "inhibitor",
-          "variable": "p_brake",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "animationType": "translation",
+          "variable": "input_rudder",
+          "axis": [0.022222222,0.0,0.0],
+          "offset": 0.75,
+          "clampMin": 0.25,
+          "clampMax": 1.0,
+          "absolute": true
         },
         {
-          "animationType": "inhibitor",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 3.0,
-          "clampMax": 3.0
-        }
-      ]
-    },
-    {
-      "variable": "dragCoefficient",
-      "addValue": 0.25,
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "p_brake",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "gun_windup_time_1",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake",
-          "clampMin": 3.0,
-          "clampMax": 3.0
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [-0.005,0.0,0.0],
+          "offset": 1.12,
+          "clampMin": 0.0625,
+          "clampMax": 1.0,
+          "absolute": true
         }
       ]
     },

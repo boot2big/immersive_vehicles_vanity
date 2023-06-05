@@ -145,17 +145,11 @@
       "rot": [0.0,90.0,0.0],
       "maxValue": 2.0,
       "types": [
-        "interactable_luggage"
+        "generic_this_part_slot_is_disabled_sorry"
       ],
       "interactableVariables": [
         [
-          "door_rearright"
-        ],
-        [
-          "part_present_8"
-        ],
-        [
-          "door_rearright"
+          "yeet"
         ]
       ]
     },
@@ -176,17 +170,11 @@
       "rot": [0.0,90.0,0.0],
       "maxValue": 2.0,
       "types": [
-        "interactable_luggage"
+        "generic_this_part_slot_is_disabled_sorry"
       ],
       "interactableVariables": [
         [
-          "door_rearright"
-        ],
-        [
-          "part_present_10"
-        ],
-        [
-          "door_rearleft"
+          "yeet"
         ]
       ]
     },
@@ -207,17 +195,11 @@
       "rot": [0.0,90.0,0.0],
       "maxValue": 2.0,
       "types": [
-        "interactable_luggage"
+        "generic_this_part_slot_is_disabled_sorry"
       ],
       "interactableVariables": [
         [
-          "door_frontright"
-        ],
-        [
-          "part_present_12"
-        ],
-        [
-          "door_frontright"
+          "yeet"
         ]
       ]
     },
@@ -1116,10 +1098,7 @@
     }
   ],
   "initialVariables": [
-    "door_frontright",
     "door_frontleft",
-    "door_rearright",
-    "door_rearleft",
     "vehicle_traction_control"
   ],
   "variableModifiers": [
@@ -1225,6 +1204,25 @@
           "animationType": "translation",
           "variable": "!oopsie_woopsie_dwifty_wifty",
           "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_odometer",
+      "maxValue": 2147483647.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "damage_totaled"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "!electric_power"
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.000013889,0.0]
         }
       ]
     },
@@ -1383,13 +1381,18 @@
         },
         {
           "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_1",
           "axis": [0.0,-0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,3.0,0.0]
+          "axis": [0.0,4.5,0.0]
         },
         {
           "animationType": "translation",
@@ -1416,13 +1419,18 @@
         },
         {
           "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_2",
           "axis": [0.0,0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,-3.0,0.0]
+          "axis": [0.0,-4.5,0.0]
         },
         {
           "animationType": "translation",
@@ -1449,13 +1457,18 @@
         },
         {
           "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_3",
           "axis": [0.0,-0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,-3.0,0.0]
+          "axis": [0.0,-4.5,0.0]
         },
         {
           "animationType": "translation",
@@ -1482,13 +1495,18 @@
         },
         {
           "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_4",
           "axis": [0.0,0.5,0.0]
         },
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,3.0,0.0]
+          "axis": [0.0,4.5,0.0]
         },
         {
           "animationType": "translation",
@@ -1587,6 +1605,29 @@
           "variable": "HI/LOW",
           "axis": [1.0,0.0,0.0],
           "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "downForce",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "input_rudder",
+          "axis": [0.022222222,0.0,0.0],
+          "offset": 0.75,
+          "clampMin": 0.25,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [-0.005,0.0,0.0],
+          "offset": 1.12,
+          "clampMin": 0.0625,
+          "clampMax": 1.0,
+          "absolute": true
         }
       ]
     },

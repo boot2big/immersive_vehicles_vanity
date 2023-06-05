@@ -19,7 +19,9 @@
       "rot": [-90.0,0.0,0.0],
       "maxValue": 10.0,
       "defaultPart": "ivv:microjet",
-      "types": ["engine_jet"],
+      "types": [
+        "engine_jet"
+      ],
       "linkedParts": [],
       "animations": [
         {
@@ -35,7 +37,9 @@
       "rot": [-90.0,0.0,0.0],
       "maxValue": 10.0,
       "defaultPart": "ivv:microjet",
-      "types": ["engine_jet"],
+      "types": [
+        "engine_jet"
+      ],
       "linkedParts": [],
       "animations": [
         {
@@ -52,7 +56,9 @@
       "isController": true,
       "isPermanent": true,
       "defaultPart": "ivv:standingsalute",
-      "types": ["seat_invisible"],
+      "types": [
+        "seat_invisible"
+      ],
       "applyAfter": "cube",
       "animations": [
         {
@@ -69,7 +75,9 @@
       "maxValue": 1.0,
       "partScale": [0.5,0.5,0.5],
       "defaultPart": "ivv:theinvisitire",
-      "types": ["ground_wheel_invisible"],
+      "types": [
+        "ground_wheel_invisible"
+      ],
       "animations": [
         {
           "animationType": "translation",
@@ -87,7 +95,9 @@
       "maxValue": 1.0,
       "partScale": [0.5,0.5,0.5],
       "defaultPart": "ivv:theinvisitire",
-      "types": ["ground_wheel_invisible"],
+      "types": [
+        "ground_wheel_invisible"
+      ],
       "animations": [
         {
           "animationType": "translation",
@@ -103,7 +113,9 @@
       "maxValue": 1.0,
       "partScale": [0.5,0.5,0.5],
       "defaultPart": "ivv:theinvisitire",
-      "types": ["ground_wheel_invisible"],
+      "types": [
+        "ground_wheel_invisible"
+      ],
       "animations": [
         {
           "animationType": "translation",
@@ -121,7 +133,9 @@
       "maxValue": 1.0,
       "partScale": [0.5,0.5,0.5],
       "defaultPart": "ivv:theinvisitire",
-      "types": ["ground_wheel_invisible"],
+      "types": [
+        "ground_wheel_invisible"
+      ],
       "animations": [
         {
           "animationType": "translation",
@@ -505,7 +519,12 @@
     "sounds": [
       {
         "name": "ivv:generic_fuel_fluid_empty1",
-        "soundVariations": ["ivv:generic_fuel_fluid_empty1","ivv:generic_fuel_fluid_empty2","ivv:generic_fuel_fluid_empty3","ivv:generic_fuel_fluid_empty4"],
+        "soundVariations": [
+          "ivv:generic_fuel_fluid_empty1",
+          "ivv:generic_fuel_fluid_empty2",
+          "ivv:generic_fuel_fluid_empty3",
+          "ivv:generic_fuel_fluid_empty4"
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -514,7 +533,6 @@
           {
             "animationType": "visibility",
             "variable": "fuel",
-            "clampMin": 0.0,
             "clampMax": 1.125
           },
           {
@@ -526,7 +544,6 @@
           {
             "animationType": "visibility",
             "variable": "random",
-            "clampMin": 0.0,
             "clampMax": 0.05
           },
           {
@@ -548,7 +565,7 @@
           {
             "animationType": "translation",
             "variable": "fuel",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "offset": 0.9375
           },
           {
@@ -567,10 +584,10 @@
         "pos": [0.0,0.0,0.0],
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 4.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_fuel_chug",
@@ -584,14 +601,14 @@
             "variable": "fueling",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "reverseDelay": 5
+            "reverseDelay": 5
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "fueling",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "duration": 5
           }
         ],
@@ -611,10 +628,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 12.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 4.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_fuel_charging",
@@ -630,14 +647,14 @@
             "variable": "fueling",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "reverseDelay": 5
+            "reverseDelay": 5
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "fueling",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "duration": 5
           }
         ],
@@ -657,20 +674,23 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 12.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 4.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 3,
         "transparency": 0.75,
         "toTransparency": 0.25,
-        "scale": 8.0,
-        "toScale": 4.0,
+        "scale": 1.6,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [0.0,1.09852,-0.22923],
         "initialVelocity": [0.0,1.0,0.0],
@@ -691,11 +711,14 @@
       },
       {
         "type": "flame",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "transparency": 1.0,
         "toTransparency": 0.5,
-        "scale": 8.0,
-        "toScale": 6.0,
+        "scale": 1.6,
+        "toScale": 1.2,
+        "hitboxSize": 0.2,
         "pos": [0.0,1.09852,-0.22923],
         "initialVelocity": [0.0,1.0,0.0],
         "activeAnimations": [
@@ -715,11 +738,14 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "transparency": 1.0,
         "toTransparency": 0.55,
-        "scale": 16.0,
-        "toScale": 8.0,
+        "scale": 3.2,
+        "toScale": 1.6,
+        "hitboxSize": 0.2,
         "color": "111111",
         "pos": [0.0,1.09852,-0.22923],
         "initialVelocity": [0.0,2.0,0.0],
@@ -740,11 +766,14 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 3,
         "transparency": 0.75,
         "toTransparency": 0.25,
-        "scale": 8.0,
-        "toScale": 6.0,
+        "scale": 1.6,
+        "toScale": 1.2,
+        "hitboxSize": 0.2,
         "color": "111111",
         "pos": [0.0,1.09852,-0.22923],
         "initialVelocity": [0.0,1.0,0.0],
@@ -770,10 +799,17 @@
     "description": "§lSTATS:\nMax. Top Speed: 30MPH\n0-Top Speed: 0:10.43\n§lNO AVAILABLE ACCESSORIES",
     "health": 200,
     "materialLists": [
-      ["mts:ivv.tcalloy:0:8","mts:ivv.microjet:0:2","mts:ivv.fueldigital:0:1","mts:ivv.mphdigital:0:1"]
+      [
+        "mts:ivv.tcalloy:0:8",
+        "mts:ivv.microjet:0:2",
+        "mts:ivv.fueldigital:0:1",
+        "mts:ivv.mphdigital:0:1"
+      ]
     ],
     "repairMaterialLists": [
-      ["mts:ivv.tcalloy:0:4"]
+      [
+        "mts:ivv.tcalloy:0:4"
+      ]
     ],
     "radarWidth": 180.0,
     "radarRange": 256.0

@@ -14,7 +14,7 @@
     "capacity": 36,
     "reloadTime": 35,
     "reloadDelay": 10,
-    "muzzleVelocity": 250,
+    "muzzleVelocity": 125,
     "fireDelay": 3.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 11.43,
@@ -43,12 +43,21 @@
       "rot": [0.0,0.0,0.0],
       "allowParentRemoval": true,
       "maxValue": 4.0,
-      "partScale": [1.375,1.375,1.0],
+      "partScale": [1.375,1.375,1.375],
       "types": [
-        "generic_gun_suppressor"
+        "generic_gun_suppressor",
+        "generic_npc"
       ],
       "linkedParts": [],
-      "applyAfter": "cube"
+      "applyAfter": "cube",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "generic_npc_present_1",
+          "centerPoint": [0.0,0.078125,0.3125],
+          "axis": [90.0,0.0,0.0]
+        }
+      ]
     }
   ],
   "definitions": [
@@ -117,6 +126,21 @@
         "renderPosition": 2
       },
       {
+        "pos": [0.125,0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "AMMO: %01.0f/36",
+        "fontName": "ivv:digifont",
+        "defaultText": "fill me up daddy owo",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "attachedTo": "hudAmmoExtendedModel",
+        "lightsUp": true,
+        "renderPosition": 2
+      },
+      {
         "pos": [0.125,-0.0,0.375],
         "rot": [0.0,180.0,0.0],
         "scale": 0.25,
@@ -161,6 +185,29 @@
         "objectName": "hudAmmoModel",
         "applyAfter": "hudModel",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "clampMin": 0.0,
+            "clampMax": 12.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "reverseDelay": 2
+          }
+        ]
+      },
+      {
+        "objectName": "hudAmmoExtendedModel",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "clampMin": 13.0,
+            "clampMax": 36.0
+          },
           {
             "animationType": "visibility",
             "variable": "gun_reload",

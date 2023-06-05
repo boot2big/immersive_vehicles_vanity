@@ -11,7 +11,7 @@
       "isInterior": true,
       "collisions": [
         {
-          "pos": [0.0,0.015625,0.082031],
+          "pos": [0.125,0.0375,0.0],
           "width": 0.0625,
           "height": 0.0625,
           "variableName": "hitch_orientation",
@@ -20,9 +20,20 @@
       ],
       "animations": [
         {
-          "animationType": "translation",
-          "variable": "hitch_orientation",
-          "axis": [0.0,-0.019413,0.234875]
+          "animationType": "visibility",
+          "variable": "locked"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "headlight",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     },
@@ -30,16 +41,31 @@
       "isInterior": true,
       "collisions": [
         {
-          "pos": [0.0,0.0625,0.0],
+          "pos": [-0.125,0.0375,0.0],
           "width": 0.0625,
           "height": 0.0625,
           "variableName": "hitch_scale",
           "variableType": "increment",
-          "variableValue": 0.25,
-          "clampMax": 1.25
+          "variableValue": 0.25
         }
       ],
       "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "locked"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "headlight",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
         {
           "animationType": "visibility",
           "variable": "hitch_orientation",
@@ -83,8 +109,8 @@
         {
           "animationType": "visibility",
           "variable": "hitch_scale",
-          "clampMin": 1.25,
-          "clampMax": 1.25
+          "clampMin": 2.25,
+          "clampMax": 32767
         },
         {
           "animationType": "translation",
@@ -138,17 +164,6 @@
             "variable": "hitch_orientation",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "hitch_orientation",
-            "axis": [0.0,0.02125,-0.00825]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "hitch_orientation",
-            "centerPoint": [0.0,0.035156,0.273438],
-            "axis": [95.0,0.0,0.0]
           }
         ]
       },
