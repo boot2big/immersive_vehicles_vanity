@@ -6,8 +6,7 @@
     "damage": 10.0,
     "caseLength": 500.0,
     "despawnTime": 4,
-    "impactDespawnTime": 5,
-    "slowdownSpeednt": 10
+    "impactDespawnTime": 5
   },
   "definitions": [
     {
@@ -47,11 +46,20 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 4.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:bullethitmob",
-        "soundVariations": ["ivv:bullethitmob1","ivv:bullethitmob2","ivv:bullethitmob3","ivv:bullethitmob4"],
+        "soundVariations": [
+          "ivv:bullethitmob1",
+          "ivv:bullethitmob2",
+          "ivv:bullethitmob3",
+          "ivv:bullethitmob4"
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -69,14 +77,21 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 8.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "break",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
-        "scale": 0.3,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
         "color": "999999",
         "pos": [0.0,0.5,0.0],
         "initialVelocity": [0.0,1.5,0.0],
@@ -95,8 +110,12 @@
   "general": {
     "stackSize": 64,
     "materialLists": [
-      ["minecraft:stick:0:3"]
+      [
+        "minecraft:stick:0:3"
+      ]
     ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "type": "bullet"
   }
 }

@@ -72,6 +72,11 @@
           "axis": [0.1875,-0.375,0.0]
         },
         {
+          "animationType": "translation",
+          "variable": "generic_flag_small_prop_top_2",
+          "axis": [0.1875,0.625,0.0]
+        },
+        {
           "animationType": "rotation",
           "variable": "generic_flag_small_prop_2",
           "centerPoint": [0.0,0.0,0.0],
@@ -306,16 +311,17 @@
     "sounds": [
       {
         "name": "ivv:tirelandsoft",
+        "soundVariations": [
+          "ivv:tirelandsoft1",
+          "ivv:tirelandsoft2",
+          "ivv:tirelandsoft3"
+        ],
         "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
           {
             "animationType": "visibility",
             "variable": "vertical_speed",
             "clampMin": -3.0,
-            "clampMax": -1
+            "clampMax": -1.0
           },
           {
             "animationType": "visibility",
@@ -330,22 +336,28 @@
             "variable": "random",
             "axis": [0.0,0.5,0.0],
             "offset": 0.75
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.5,0.0]
           }
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 8.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:tirelandmedium",
+        "soundVariations": [
+          "ivv:tirelandmedium1",
+          "ivv:tirelandmedium2",
+          "ivv:tirelandmedium3"
+        ],
         "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
           {
             "animationType": "visibility",
             "variable": "vertical_speed",
@@ -365,22 +377,28 @@
             "variable": "random",
             "axis": [0.0,0.5,0.0],
             "offset": 0.75
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.5,0.0]
           }
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 8.0,
-        "middleDistanceVolume": 0.25
+        "middleDistance": 12.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 24.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:tirelandhard",
+        "soundVariations": [
+          "ivv:tirelandhard1",
+          "ivv:tirelandhard2",
+          "ivv:tirelandhard3"
+        ],
         "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
           {
             "animationType": "visibility",
             "variable": "vertical_speed",
@@ -400,14 +418,19 @@
             "variable": "random",
             "axis": [0.0,0.5,0.0],
             "offset": 0.75
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.5,0.0]
           }
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 8.0,
-        "middleDistanceVolume": 0.25
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:tirepop",
@@ -419,6 +442,15 @@
             "clampMax": 1.0
           }
         ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          }
+        ],
+        "isExterior": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
         "maxDistance": 32.0,
@@ -436,6 +468,15 @@
             "clampMax": 1.0
           }
         ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          }
+        ],
+        "isInterior": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
         "maxDistance": 16.0,
@@ -1270,6 +1311,12 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
+          {
+            "animationType": "rotation",
             "variable": "part_ismirrored",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,180.0,0.0]
@@ -1300,6 +1347,12 @@
         "movementVelocity": [0.0,-0.0025,0.0],
         "terminalVelocity": [1024.0,1024.0,1024.0],
         "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
           {
             "animationType": "rotation",
             "variable": "random",
@@ -1357,6 +1410,12 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
+          {
+            "animationType": "rotation",
             "variable": "part_ismirrored",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,180.0,0.0]
@@ -1374,6 +1433,12 @@
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -1396,6 +1461,12 @@
         "pos": [0.0,-0.3725,0.0],
         "initialVelocity": [0.0,1.0,-2.5],
         "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
           {
             "animationType": "rotation",
             "variable": "random",
@@ -1434,6 +1505,12 @@
             "variable": "rain_strength",
             "clampMin": -0.5,
             "clampMax": 0.5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -1447,6 +1524,7 @@
         "toTransparency": -1.0E-4,
         "scale": 2.0,
         "texture": "ivv:textures/particles/tiremark.png",
+        "distance": 0.4,
         "color": "000000",
         "pos": [0.0,-0.3725,0.0],
         "rot": [-90.0,0.0,0.0],
@@ -1454,6 +1532,12 @@
         "movementVelocity": [0.0,0.0,0.0],
         "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
         "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
           {
             "animationType": "rotation",
             "variable": "part_ismirrored",
@@ -1509,6 +1593,12 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
+          {
+            "animationType": "rotation",
             "variable": "random",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,10.0,0.0],
@@ -1545,6 +1635,12 @@
             "variable": "rain_strength",
             "clampMin": -0.5,
             "clampMax": 0.5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -1558,6 +1654,7 @@
         "toTransparency": -1.0E-4,
         "scale": 2.0,
         "texture": "ivv:textures/particles/tiremark.png",
+        "distance": 0.4,
         "color": "000000",
         "pos": [0.0,-0.3725,0.0],
         "rot": [-90.0,0.0,0.0],
@@ -1565,6 +1662,12 @@
         "movementVelocity": [0.0,0.0,0.0],
         "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
         "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
           {
             "animationType": "rotation",
             "variable": "part_ismirrored",
@@ -1620,6 +1723,12 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
+          {
+            "animationType": "rotation",
             "variable": "random",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,10.0,0.0],
@@ -1663,6 +1772,12 @@
             "clampMin": 32.0,
             "clampMax": 1024.0,
             "absolute": true
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -1676,6 +1791,7 @@
         "toTransparency": -1.0E-4,
         "scale": 2.0,
         "texture": "ivv:textures/particles/tiremark.png",
+        "distance": 0.4,
         "color": "111111",
         "pos": [0.0,-0.3725,0.0],
         "rot": [-90.0,0.0,0.0],
@@ -1683,6 +1799,12 @@
         "movementVelocity": [0.0,0.0,0.0],
         "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
         "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
           {
             "animationType": "rotation",
             "variable": "part_ismirrored",
@@ -1721,6 +1843,12 @@
             "clampMin": 24.0,
             "clampMax": 1024.0,
             "absolute": true
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -1740,6 +1868,12 @@
         "movementVelocity": [0.0,-0.005,0.0],
         "terminalVelocity": [2048.0,2048.0,2048.0],
         "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "slip",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.2,0.0]
+          },
           {
             "animationType": "rotation",
             "variable": "random",
@@ -1768,6 +1902,12 @@
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "inhibitor",

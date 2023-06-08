@@ -7,6 +7,7 @@
     "emptyMass": 2000,
     "fuelCapacity": 10000,
     "defaultFuelQty": 10000,
+    "axleRatio": 3.55,
     "brakingFactor": 1.0,
     "dragCoefficient": 0.01,
     "tailDistance": 3.0,
@@ -21,7 +22,9 @@
       "pos": [0.0,1.75,-2.3125],
       "rot": [90.0,0.0,0.0],
       "maxValue": 1000.0,
-      "types": ["gun_beam"],
+      "types": [
+        "gun_beam"
+      ],
       "linkedParts": [2,3,4,7],
       "activeAnimations": [
         {
@@ -36,25 +39,42 @@
       "pos": [-0.9,1.2,0.0],
       "rot": [0.0,0.0,0.0],
       "maxValue": 6.0,
-      "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"]
+      "types": [
+        "interactable_crate",
+        "interactable_chest",
+        "interactable_luggage",
+        "interactable_barrel"
+      ]
     },
     {
       "pos": [-0.23294,1.2,0.86933],
       "rot": [0.0,-15.0,0.0],
       "maxValue": 6.0,
-      "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"]
+      "types": [
+        "interactable_crate",
+        "interactable_chest",
+        "interactable_luggage",
+        "interactable_barrel"
+      ]
     },
     {
       "pos": [-0.23294,1.2,-0.86933],
       "rot": [0.0,15.0,0.0],
       "maxValue": 6.0,
-      "types": ["interactable_crate","interactable_chest","interactable_luggage","interactable_barrel"]
+      "types": [
+        "interactable_crate",
+        "interactable_chest",
+        "interactable_luggage",
+        "interactable_barrel"
+      ]
     },
     {
       "pos": [1.3125,0.29688,-0.06312],
       "maxValue": 10.0,
       "defaultPart": "ivv:thruster",
-      "types": ["engine_thruster"],
+      "types": [
+        "engine_thruster"
+      ],
       "linkedParts": [],
       "animations": [
         {
@@ -77,7 +97,9 @@
       "pos": [-1.3125,0.29688,-0.06312],
       "maxValue": 10.0,
       "defaultPart": "ivv:thruster",
-      "types": ["engine_thruster"],
+      "types": [
+        "engine_thruster"
+      ],
       "linkedParts": [],
       "animations": [
         {
@@ -104,7 +126,9 @@
       "isPermanent": true,
       "canDisableGun": true,
       "defaultPart": "ivv:rockseat",
-      "types": ["seat_invisible"]
+      "types": [
+        "seat_invisible"
+      ]
     },
     {
       "pos": [0.5,0.5,0.5],
@@ -112,7 +136,9 @@
       "minValue": 0.1,
       "maxValue": 1.0,
       "defaultPart": "mts:invisible_wheel",
-      "types": ["ground_wheel"],
+      "types": [
+        "ground_wheel"
+      ],
       "animations": [
         {
           "animationType": "inhibitor",
@@ -137,7 +163,9 @@
       "minValue": 0.1,
       "maxValue": 1.0,
       "defaultPart": "mts:invisible_wheel",
-      "types": ["ground_wheel"],
+      "types": [
+        "ground_wheel"
+      ],
       "animations": [
         {
           "animationType": "inhibitor",
@@ -160,7 +188,9 @@
       "minValue": 0.1,
       "maxValue": 1.0,
       "defaultPart": "mts:invisible_wheel",
-      "types": ["ground_wheel"],
+      "types": [
+        "ground_wheel"
+      ],
       "animations": [
         {
           "animationType": "inhibitor",
@@ -185,7 +215,9 @@
       "minValue": 0.1,
       "maxValue": 1.0,
       "defaultPart": "mts:invisible_wheel",
-      "types": ["ground_wheel"],
+      "types": [
+        "ground_wheel"
+      ],
       "animations": [
         {
           "animationType": "inhibitor",
@@ -308,7 +340,9 @@
       ]
     }
   ],
-  "initialVariables": ["hatch"],
+  "initialVariables": [
+    "hatch"
+  ],
   "variableModifiers": [
     {
       "variable": "ship_running",
@@ -1229,7 +1263,12 @@
     "sounds": [
       {
         "name": "ivv:generic_fuel_fluid_empty1",
-        "soundVariations": ["ivv:generic_fuel_fluid_empty1","ivv:generic_fuel_fluid_empty2","ivv:generic_fuel_fluid_empty3","ivv:generic_fuel_fluid_empty4"],
+        "soundVariations": [
+          "ivv:generic_fuel_fluid_empty1",
+          "ivv:generic_fuel_fluid_empty2",
+          "ivv:generic_fuel_fluid_empty3",
+          "ivv:generic_fuel_fluid_empty4"
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -1238,7 +1277,6 @@
           {
             "animationType": "visibility",
             "variable": "fuel",
-            "clampMin": 0.0,
             "clampMax": 1.125
           },
           {
@@ -1250,7 +1288,6 @@
           {
             "animationType": "visibility",
             "variable": "random",
-            "clampMin": 0.0,
             "clampMax": 0.05
           },
           {
@@ -1272,7 +1309,7 @@
           {
             "animationType": "translation",
             "variable": "fuel",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "offset": 0.9375
           },
           {
@@ -1291,10 +1328,10 @@
         "pos": [0.0,0.0,0.0],
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 4.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_fuel_chug",
@@ -1308,14 +1345,14 @@
             "variable": "fueling",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "reverseDelay": 5
+            "reverseDelay": 5
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "fueling",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "duration": 5
           }
         ],
@@ -1335,10 +1372,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 12.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 4.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_fuel_charging",
@@ -1354,14 +1391,14 @@
             "variable": "fueling",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "reverseDelay": 5
+            "reverseDelay": 5
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "fueling",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "duration": 5
           }
         ],
@@ -1381,10 +1418,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 12.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 4.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:rocket_stopping",
@@ -1398,10 +1435,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealert",
@@ -1415,10 +1452,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertbuzz",
@@ -1439,10 +1476,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertlooplow",
@@ -1464,10 +1501,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertloopmed",
@@ -1489,10 +1526,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertloophi",
@@ -1514,10 +1551,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilealertloopsuperhi",
@@ -1538,10 +1575,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:damagewarning",
@@ -1578,10 +1615,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:interiorwind",
@@ -1628,10 +1665,10 @@
         "pos": [0.0,0.475,1.0],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:blueboxambientshort",
@@ -1664,10 +1701,10 @@
         "pos": [0.02734,2.65625,-0.83203],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "mts:backup_beeper",
@@ -1707,10 +1744,10 @@
         "pos": [0.02734,2.65625,-0.83203],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:explode_car",
@@ -1739,20 +1776,23 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 2.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 32.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 3,
         "transparency": 0.75,
         "toTransparency": 0.25,
-        "scale": 8.0,
-        "toScale": 4.0,
+        "scale": 1.6,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [0.0,5.1,0.0],
         "initialVelocity": [0.0,1.0,0.0],
@@ -1773,11 +1813,14 @@
       },
       {
         "type": "flame",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "transparency": 1.0,
         "toTransparency": 0.5,
-        "scale": 8.0,
-        "toScale": 6.0,
+        "scale": 1.6,
+        "toScale": 1.2,
+        "hitboxSize": 0.2,
         "pos": [0.0,5.1,0.0],
         "initialVelocity": [0.0,1.0,0.0],
         "activeAnimations": [
@@ -1797,11 +1840,14 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "transparency": 1.0,
         "toTransparency": 0.55,
-        "scale": 16.0,
-        "toScale": 8.0,
+        "scale": 3.2,
+        "toScale": 1.6,
+        "hitboxSize": 0.2,
         "color": "111111",
         "pos": [0.0,0.5,0.0],
         "initialVelocity": [0.0,2.0,0.0],
@@ -1822,11 +1868,14 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 3,
         "transparency": 0.75,
         "toTransparency": 0.25,
-        "scale": 8.0,
-        "toScale": 6.0,
+        "scale": 1.6,
+        "toScale": 1.2,
+        "hitboxSize": 0.2,
         "color": "111111",
         "pos": [0.0,5.1,0.0],
         "initialVelocity": [0.0,1.0,0.0],
@@ -1850,11 +1899,15 @@
   },
   "general": {
     "description": "§lSTATS:\nMax. Top Speed: 14MPH\nMax. Altitude: 1.536km (MC Scale)\n62-Max Alt: 1:17.23\n§lACCESSORIES:\n-Crate/Chest x3\n-Ion Beam Emitter x1",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 4000,
     "materialLists": [
-      ["mts:ivv.tcblock:0:6","mts:ivv.thruster:0:2","mts:ivv.radardetector:0:1"]
-    ]
+      [
+        "mts:ivv.tcblock:0:6",
+        "mts:ivv.thruster:0:2",
+        "mts:ivv.radardetector:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

@@ -3,7 +3,13 @@
     "type": "seat",
     "width": 1.0,
     "height": 0.875,
-    "mass": 20
+    "mass": 20,
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_2"
+          }
+        ]
   },
   "seat": {},
   "parts": [
@@ -11,40 +17,60 @@
       "pos": [0.0,-0.0125,0.0],
       "maxValue": 1.0,
       "types": ["generic_npc"]
+    },
+    {
+      "pos": [0.0,-0.1,0.15],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 3.0,
+      "types": [
+        "interactable_luggage"
+      ],
+      "interactableVariables": [
+        [
+          "!seat_occupied"
+        ]
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!part_present_2",
+          "axis": [0.0,0.375,0.0]
+        }
+      ]
     }
   ],
   "definitions": [
     {
       "subName": "",
-      "name": "Car Seat [Brown]",
+      "name": "Car Seat",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_tan",
-      "name": "Car Seat [Tan]",
+      "name": "Car Seat",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_gray",
-      "name": "Car Seat [Gray]",
+      "name": "Car Seat",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_black",
-      "name": "Car Seat [Black]",
+      "name": "Car Seat",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_white",
-      "name": "Car Seat [White]",
+      "name": "Car Seat",
       "extraMaterialLists": [
         []
       ]

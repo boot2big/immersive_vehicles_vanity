@@ -1,7 +1,8 @@
 {
   "generic": {
     "type": "gun_hand_portal",
-    "canBeRemovedByHand": true
+    "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0
   },
   "gun": {
     "lockOnType": "default",
@@ -11,7 +12,7 @@
     "capacity": 10,
     "reloadTime": 30,
     "reloadDelay": 10,
-    "muzzleVelocity": 1200,
+    "muzzleVelocity": 500,
     "fireDelay": 10.0,
     "diameter": 4.0,
     "minCaseLength": 20.0,
@@ -195,10 +196,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:antigrav_reloading",
@@ -212,22 +213,25 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 4,
         "transparency": 2.0,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 2.0,
+        "scale": 0.2,
+        "toScale": 0.4,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/laser.png",
         "color": "4BF21B",
         "pos": [0.0,0.0,0.382853],
@@ -276,7 +280,10 @@
     "description": "Vvvvzwarp",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:16","minecraft:stone_button:0:1"]
+      [
+        "oredict:ingotIron:16",
+        "minecraft:stone_button:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

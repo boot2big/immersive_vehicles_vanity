@@ -1,6 +1,7 @@
 {
   "generic": {
     "type": "generic_horn",
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.375,
     "height": 0.375
   },
@@ -9,7 +10,7 @@
       "subName": "",
       "modelName": "horn",
       "textureName": "horn",
-      "name": "Vehicle Horn [ACIVE External Soundbox]",
+      "name": "ACIVE Vehicle Horn & External Speech Synthesizer",
       "extraMaterialLists": [
         []
       ]
@@ -65,7 +66,7 @@
             "animationType": "translation",
             "variable": "mood",
             "axis": [0.0,5.0E-4,0.0],
-            "offset": 1
+            "offset": 1.0
           },
           {
             "animationType": "translation",
@@ -86,11 +87,11 @@
         "looping": true,
         "isExterior": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 48.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:hornaciveangry",
@@ -144,11 +145,11 @@
         "looping": true,
         "isExterior": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 48.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:horninterioracive",
@@ -197,7 +198,7 @@
             "animationType": "translation",
             "variable": "mood",
             "axis": [0.0,5.0E-4,0.0],
-            "offset": 1
+            "offset": 1.0
           },
           {
             "animationType": "translation",
@@ -219,10 +220,10 @@
         "isInterior": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [],
@@ -231,11 +232,13 @@
   "general": {
     "name": "Horn",
     "description": "Vehicle default part, makes yelling noise",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
-      ["minecraft:noteblock:0:1"]
-    ]
+      [
+        "minecraft:noteblock:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

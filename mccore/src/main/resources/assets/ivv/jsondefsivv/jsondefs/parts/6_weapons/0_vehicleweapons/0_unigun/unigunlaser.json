@@ -1,18 +1,19 @@
 {
   "generic": {
     "type": "gun_unigun_tertiary",
+    "forwardsDamageMultiplier": 1.0,
     "forceAllLinks": true
   },
   "gun": {
     "lockOnType": "default",
     "targetType": "all",
-    "fireSolo": true,
     "autoReload": true,
+    "fireSolo": true,
     "capacity": 100,
     "reloadTime": 15,
-    "windupTime": 10,
-    "muzzleVelocity": 600,
-    "fireDelay": 4.0,
+    "windupTime": 5,
+    "muzzleVelocity": 80,
+    "fireDelay": 3.0,
     "bulletSpreadFactor": 0.25,
     "diameter": 30.0,
     "maxCaseLength": 30.0,
@@ -71,17 +72,17 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.125,0.0],
-            "offset": 0.9375
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9625
           }
         ],
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:wmg_laserreloading",
@@ -95,10 +96,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:wmg_lasercharging",
@@ -114,24 +115,31 @@
           {
             "animationType": "translation",
             "variable": "gun_windup_time",
-            "axis": [0.0,0.1,0.0]
+            "axis": [0.0,0.2,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "gun_windup_time",
-            "axis": [0.0,0.05,0.0],
+            "axis": [0.0,0.1,0.0],
             "offset": 0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,-0.0625,0.0],
+            "duration": 2,
+            "skipForwardsMovement": true
           }
         ],
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
@@ -139,12 +147,15 @@
         "type": "generic",
         "spawnEveryTick": true,
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 2.0,
-        "toScale": 5.0,
+        "scale": 0.4,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/laser.png",
         "color": "4BF21B",
         "pos": [0.25,-0.03125,0.172371],
@@ -162,12 +173,15 @@
         "type": "generic",
         "spawnEveryTick": true,
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 20,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 3.0,
-        "toScale": 1.0,
+        "scale": 0.6,
+        "toScale": 0.2,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/laser.png",
         "color": "4BF21B",
         "pos": [0.25,-0.03125,0.172371],
@@ -196,7 +210,11 @@
     "description": "Fires powerful laser burst shots",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:8","minecraft:emerald:0:1","oredict:dustRedstone:6"]
+      [
+        "oredict:ingotIron:8",
+        "minecraft:emerald:0:1",
+        "oredict:dustRedstone:6"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

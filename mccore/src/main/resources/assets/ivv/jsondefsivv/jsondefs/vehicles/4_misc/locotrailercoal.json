@@ -3,11 +3,21 @@
     "isTrailer": true,
     "hasOpenTop": true,
     "emptyMass": 2000,
+    "axleRatio": 3.55,
     "brakingFactor": 1.0,
     "dragCoefficient": 2.0,
     "litVariable": "running_light",
     "panel": "mts:default_car",
-    "hookupVariables": ["electric_power","engine_gear_1","engines_on","right_turn_signal","left_turn_signal","runninglight","headlight","emergencylight"]
+    "hookupVariables": [
+      "electric_power",
+      "engine_gear_1",
+      "engines_on",
+      "right_turn_signal",
+      "left_turn_signal",
+      "runninglight",
+      "headlight",
+      "emergencylight"
+    ]
   },
   "parts": [
     {
@@ -15,7 +25,10 @@
       "minValue": 0.4,
       "maxValue": 1.0,
       "defaultPart": "ivv:theinvisitire",
-      "types": ["ground_wheel","ground_wheel_invisible"]
+      "types": [
+        "ground_wheel",
+        "ground_wheel_invisible"
+      ]
     },
     {
       "pos": [-0.7,0.1875,-1.09375],
@@ -24,14 +37,20 @@
       "minValue": 0.4,
       "maxValue": 1.0,
       "defaultPart": "ivv:theinvisitire",
-      "types": ["ground_wheel","ground_wheel_invisible"]
+      "types": [
+        "ground_wheel",
+        "ground_wheel_invisible"
+      ]
     },
     {
       "pos": [0.7,0.1875,1.34375],
       "minValue": 0.4,
       "maxValue": 1.0,
       "defaultPart": "ivv:theinvisitire",
-      "types": ["ground_wheel","ground_wheel_invisible"]
+      "types": [
+        "ground_wheel",
+        "ground_wheel_invisible"
+      ]
     },
     {
       "pos": [-0.7,0.1875,1.34375],
@@ -40,7 +59,10 @@
       "minValue": 0.4,
       "maxValue": 1.0,
       "defaultPart": "ivv:theinvisitire",
-      "types": ["ground_wheel","ground_wheel_invisible"]
+      "types": [
+        "ground_wheel",
+        "ground_wheel_invisible"
+      ]
     }
   ],
   "collisionGroups": [
@@ -181,21 +203,21 @@
   "definitions": [
     {
       "subName": "_one",
-      "name": "Locomotive Trailer [Coalstack]",
+      "name": "Coalstack Locomotive Trailer",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_plain",
-      "name": "Locomotive Trailer [Coalstack]",
+      "name": "Coalstack Locomotive Trailer",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_red",
-      "name": "Locomotive Trailer [Coalstack]",
+      "name": "Coalstack Locomotive Trailer",
       "extraMaterialLists": [
         []
       ]
@@ -271,7 +293,12 @@
     "sounds": [
       {
         "name": "ivv:generic_fuel_fluid_empty1",
-        "soundVariations": ["ivv:generic_fuel_fluid_empty1","ivv:generic_fuel_fluid_empty2","ivv:generic_fuel_fluid_empty3","ivv:generic_fuel_fluid_empty4"],
+        "soundVariations": [
+          "ivv:generic_fuel_fluid_empty1",
+          "ivv:generic_fuel_fluid_empty2",
+          "ivv:generic_fuel_fluid_empty3",
+          "ivv:generic_fuel_fluid_empty4"
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -280,7 +307,6 @@
           {
             "animationType": "visibility",
             "variable": "fuel",
-            "clampMin": 0.0,
             "clampMax": 1.125
           },
           {
@@ -292,7 +318,6 @@
           {
             "animationType": "visibility",
             "variable": "random",
-            "clampMin": 0.0,
             "clampMax": 0.05
           },
           {
@@ -314,7 +339,7 @@
           {
             "animationType": "translation",
             "variable": "fuel",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "offset": 0.9375
           },
           {
@@ -333,10 +358,10 @@
         "pos": [0.0,0.0,0.0],
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 4.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_fuel_chug",
@@ -350,14 +375,14 @@
             "variable": "fueling",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "reverseDelay": 5
+            "reverseDelay": 5
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "fueling",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "duration": 5
           }
         ],
@@ -377,10 +402,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 12.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 4.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_fuel_charging",
@@ -396,14 +421,14 @@
             "variable": "fueling",
             "clampMin": 1.0,
             "clampMax": 1.0,
-	    "reverseDelay": 5
+            "reverseDelay": 5
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "fueling",
-            "axis": [0.0,1,0.0],
+            "axis": [0.0,1.0,0.0],
             "duration": 5
           }
         ],
@@ -423,10 +448,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 12.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 4.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:towhookon2",
@@ -440,10 +465,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:towhookoff2",
@@ -455,10 +480,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [],
@@ -467,14 +492,19 @@
   "general": {
     "name": "Trailer",
     "description": "Accessory Trailer for the Locomotive\n§lNO AVAILABLE ACCESSORIES",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 4000,
     "materialLists": [
-      ["mts:ivv.frame:0:1","oredict:blockIron:6"]
+      [
+        "mts:ivv.frame:0:1",
+        "oredict:blockIron:6"
+      ]
     ],
     "repairMaterialLists": [
-      ["oredict:blockIron:4"]
-    ]
+      [
+        "oredict:blockIron:4"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

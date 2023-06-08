@@ -8,13 +8,12 @@
     "diameter": 16.83,
     "damage": 10.0,
     "caseLength": 70.0,
-    "blastStrength": 0.666666667,
-    "airBurstDelay": 10,
-    "despawnTime": 15,
+    "blastStrength": 0.6666667,
+    "airBurstDelay": 5,
+    "despawnTime": 10,
     "impactDespawnTime": 40,
     "pellets": 6,
-    "pelletSpreadFactor": 0.25,
-    "slowdownSpeednt": 10
+    "pelletSpreadFactor": 0.25
   },
   "definitions": [
     {
@@ -66,10 +65,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 4.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:explode_bullet",
@@ -98,17 +97,20 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 1.5,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 32.0,
-        "middleDistanceVolume": 0.5
+        "middleDistanceVolume": 0.5,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "break",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
-        "scale": 0.3,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
         "color": "999999",
         "pos": [0.0,0.5,0.0],
         "initialVelocity": [0.0,1.5,0.0],
@@ -124,13 +126,23 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 8,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 4.0,
-        "toScale": 16.0,
-        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png"],
+        "scale": 0.8,
+        "toScale": 3.2,
+        "hitboxSize": 0.2,
+        "textureList": [
+          "ivv:textures/particles/explosion_1.png",
+          "ivv:textures/particles/explosion_2.png",
+          "ivv:textures/particles/explosion_3.png",
+          "ivv:textures/particles/explosion_4.png",
+          "ivv:textures/particles/explosion_5.png",
+          "ivv:textures/particles/explosion_6.png"
+        ],
         "textureDelays": [2,2,1,1,1,32767],
         "color": "FFFFFF",
         "pos": [0.5,0.5,0.5],
@@ -150,8 +162,14 @@
   "general": {
     "stackSize": 64,
     "materialLists": [
-      ["oredict:nuggetIron:4","minecraft:gunpowder:0:2","minecraft:tnt:0:2"]
+      [
+        "oredict:nuggetIron:4",
+        "minecraft:gunpowder:0:2",
+        "minecraft:tnt:0:2"
+      ]
     ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "type": "bullet"
   }
 }

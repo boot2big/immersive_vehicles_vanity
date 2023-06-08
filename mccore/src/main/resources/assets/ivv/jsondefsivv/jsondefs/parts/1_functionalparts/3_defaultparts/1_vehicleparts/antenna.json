@@ -2,8 +2,9 @@
   "generic": {
     "type": "generic_antenna",
     "mustBeRemovedByScrewdriver": true,
-    "width": 0.125,
-    "height": 0.125
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.5,
+    "height": 0.5
   },
   "definitions": [
     {
@@ -14,11 +15,143 @@
       ]
     }
   ],
+  "variableModifiers": [
+    {
+      "variable": "antennaanglex",
+      "minValue": -11.25,
+      "maxValue": 11.25,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.000125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "antennaanglex",
+          "axis": [0.0,-0.125,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "antennaangley",
+      "minValue": -11.25,
+      "maxValue": 11.25,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "antennaangley",
+          "axis": [0.0,-0.125,0.0]
+        }
+      ]
+    }
+  ],
   "rendering": {
     "animatedObjects": [
       {
         "objectName": "cube",
+        "animations": []
+      },
+      {
+        "objectName": "antenna1",
+        "applyAfter": "cube",
         "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMax": 0.125
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaanglex",
+            "centerPoint": [0.0,0.03125,0.0],
+            "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaangley",
+            "centerPoint": [0.0,0.03125,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "antenna2",
+        "applyAfter": "antenna1",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMax": 0.125
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaanglex",
+            "centerPoint": [0.0,0.15625,0.0],
+            "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaangley",
+            "centerPoint": [0.0,0.15625,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "antenna3",
+        "applyAfter": "antenna2",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMax": 0.125
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaanglex",
+            "centerPoint": [0.0,0.28125,0.0],
+            "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaangley",
+            "centerPoint": [0.0,0.28125,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "antenna4",
+        "applyAfter": "antenna3",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMax": 0.125
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaanglex",
+            "centerPoint": [0.0,0.40625,0.0],
+            "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaangley",
+            "centerPoint": [0.0,0.40625,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
         ]
       }
     ],
@@ -31,7 +164,10 @@
     "stackSize": 64,
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:1","oredict:nuggetIron:3:"]
+      [
+        "oredict:ingotIron:1",
+        "oredict:nuggetIron:2"
+      ]
     ],
     "radarWidth": 32.0,
     "radarRange": 180.0

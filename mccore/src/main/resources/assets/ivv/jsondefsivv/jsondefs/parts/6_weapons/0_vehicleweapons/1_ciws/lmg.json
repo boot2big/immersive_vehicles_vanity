@@ -1,6 +1,7 @@
 {
   "generic": {
     "type": "gun_aat",
+    "forwardsDamageMultiplier": 1.0,
     "forceAllLinks": true,
     "mass": 4762,
     "movementAnimations": [
@@ -13,26 +14,27 @@
     ]
   },
   "gun": {
-    "lockOnType": "default",
+    "lockOnType": "boresight",
     "targetType": "all",
     "autoReload": true,
     "resetPosition": true,
     "capacity": 800,
     "reloadTime": 15,
-    "windupTime": 35,
-    "muzzleVelocity": 1100,
+    "windupTime": 15,
+    "muzzleVelocity": 250,
     "fireDelay": 1.0,
-    "bulletSpreadFactor": 3.0,
+    "bulletSpreadFactor": 4.0,
     "minYaw": -180.0,
     "maxYaw": 180.0,
-    "minPitch": -22.5,
-    "maxPitch": 45.0,
+    "minPitch": -33.75,
+    "maxPitch": 67.5,
     "diameter": 30.0,
     "yawSpeed": 5.0,
     "pitchSpeed": 3.0,
     "defaultYaw": 2.0,
     "defaultPitch": -5.0,
-    "lockMaxAngle": 0.0,
+    "lockRange": 192,
+    "lockMaxAngle": 10.0,
     "handHeldNormalOffset": [0.315,0.55,0.525],
     "handHeldAimedOffset": [0.315,0.35,0.525],
     "muzzleGroups": [
@@ -114,7 +116,14 @@
     "animatedObjects": [
       {
         "objectName": "scanner",
-        "animations": []
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [1.66452,2.67441,-0.609386],
+            "axis": [1.0,0.0,0.0]
+          }
+          ]
       },
       {
         "objectName": "rotatron",
@@ -172,13 +181,46 @@
           }
         ],
         "forceSound": true,
-        "canPlayOnPartialTicks": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.5,
+        "maxDistance": 64.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:bulletdistantbrrrt",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!generic_gun_suppressor_1",
+            "axis": [0.0,1.5,0.0],
+            "offset": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:lmg_reloading",
@@ -192,10 +234,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:lmg_whir",
@@ -219,17 +261,17 @@
           {
             "animationType": "translation",
             "variable": "gun_windup_time",
-            "axis": [0.0,0.03,0.0],
+            "axis": [0.0,0.05,0.0],
             "offset": 0.5
           }
         ],
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -274,21 +316,24 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "transparency": 1.0,
         "toTransparency": 0.005,
-        "scale": 4.0,
-        "toScale": 8.0,
+        "scale": 0.8,
+        "toScale": 1.6,
+        "hitboxSize": 0.2,
         "color": "111111",
         "pos": [0.0,1.16425,3.41437],
         "initialVelocity": [0.0,0.0,5.0],
@@ -319,7 +364,10 @@
     "description": "§oRequires roof mount part\nModeled by HashimIsaPotato",
     "health": 100,
     "materialLists": [
-      ["minecraft:iron_block:-1:6","oredict:ingotIron:1"]
+      [
+        "minecraft:iron_block:-1:6",
+        "oredict:ingotIron:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

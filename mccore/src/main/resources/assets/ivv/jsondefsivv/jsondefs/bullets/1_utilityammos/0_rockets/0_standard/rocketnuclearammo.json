@@ -8,16 +8,16 @@
     "isHeat": true,
     "quantity": 1,
     "diameter": 60.0,
-    "gravitationalVelocity": 0.03,
     "damage": 2.14748365E9,
     "caseLength": 200.0,
-    "blastStrength": 40.0,
+    "blastStrength": 32.0,
     "armorPenetration": 2.14748365E9,
     "proximityFuze": 2.0,
     "airBurstDelay": 305,
+    "gravitationalVelocity": 0.03,
     "burnTime": 100,
     "accelerationTime": 10,
-    "maxVelocity": 300,
+    "maxVelocity": 30,
     "despawnTime": 310,
     "impactDespawnTime": 80,
     "effects": [
@@ -51,7 +51,7 @@
             "animationType": "rotation",
             "variable": "tick",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,1.0]
+            "axis": [0.0,0.0,90.0]
           },
           {
             "animationType": "visibility",
@@ -95,10 +95,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "maxDistance": 48.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 24.0,
-        "middleDistanceVolume": 0.25
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 48.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:explode_nuclear",
@@ -127,22 +127,25 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 3.0,
-        "maxDistance": 256.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 96.0,
-        "middleDistanceVolume": 0.5
+        "middleDistanceVolume": 0.5,
+        "maxDistance": 256.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "flame",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 3,
         "duration": 10,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 3.0,
-        "toScale": 2.0,
+        "scale": 0.6,
+        "toScale": 0.4,
+        "hitboxSize": 0.2,
         "color": "FFFFFF",
         "pos": [0.0,0.0,-0.125],
         "initialVelocity": [0.0,0.0,-1.0],
@@ -162,12 +165,15 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 4.0,
-        "toScale": 2.0,
+        "scale": 0.8,
+        "toScale": 0.4,
+        "hitboxSize": 0.2,
         "color": "222222",
         "pos": [0.0,0.0,-0.125],
         "initialVelocity": [0.0,0.0,-2.0],
@@ -192,8 +198,11 @@
       },
       {
         "type": "break",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
-        "scale": 0.3,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
         "color": "999999",
         "pos": [0.0,0.5,0.0],
         "initialVelocity": [0.0,1.5,0.0],
@@ -208,12 +217,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 6,
         "duration": 160,
         "transparency": 1.5,
         "toTransparency": 0.01,
-        "scale": 128.0,
-        "toScale": 320.0,
+        "scale": 25.6,
+        "toScale": 64.0,
+        "hitboxSize": 0.2,
         "color": "666666",
         "pos": [0.0,1.0,0.0],
         "initialVelocity": [0.0,4.0,0.0],
@@ -229,13 +241,23 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 16,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 32.0,
-        "toScale": 80.0,
-        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png"],
+        "scale": 6.4,
+        "toScale": 16.0,
+        "hitboxSize": 0.2,
+        "textureList": [
+          "ivv:textures/particles/explosion_1.png",
+          "ivv:textures/particles/explosion_2.png",
+          "ivv:textures/particles/explosion_3.png",
+          "ivv:textures/particles/explosion_4.png",
+          "ivv:textures/particles/explosion_5.png",
+          "ivv:textures/particles/explosion_6.png"
+        ],
         "textureDelays": [4,4,2,3,3,32767],
         "color": "FFFFFF",
         "pos": [0.5,0.5,0.5],
@@ -256,8 +278,14 @@
     "description": "Does not lock onto anything\n''Now we are all sons of bitches.'' -Kenneth Tompkins Bainbridge",
     "stackSize": 64,
     "materialLists": [
-      ["oredict:ingotGold:4","oredict:gunpowder:16","minecraft:nether_star:0:1"]
+      [
+        "oredict:ingotGold:4",
+        "oredict:gunpowder:16",
+        "minecraft:nether_star:0:1"
+      ]
     ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "type": "bullet"
   }
 }

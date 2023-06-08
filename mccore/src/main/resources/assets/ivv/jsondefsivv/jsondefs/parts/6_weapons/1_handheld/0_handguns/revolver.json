@@ -2,6 +2,7 @@
   "generic": {
     "type": "gun_hand_standard",
     "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.375,
     "height": 0.25
   },
@@ -14,7 +15,7 @@
     "capacity": 6,
     "reloadTime": 12,
     "reloadDelay": 20,
-    "muzzleVelocity": 900,
+    "muzzleVelocity": 125,
     "fireDelay": 5.0,
     "bulletSpreadFactor": 2.0,
     "diameter": 9.0,
@@ -37,6 +38,22 @@
       }
     ]
   },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Revolver",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_gold",
+      "name": "Golden Glory Revolver",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "isTwoHanded",
@@ -69,22 +86,6 @@
           "axis": [0.5,0.0,0.0],
           "offset": 0.5
         }
-      ]
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Revolver",
-      "extraMaterialLists": [
-        []
-      ]
-    },
-    {
-      "subName": "_gold",
-      "name": "Revolver [Golden Glory]",
-      "extraMaterialLists": [
-        []
       ]
     }
   ],
@@ -241,10 +242,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:bulletdistant",
@@ -275,10 +276,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:revolver_reloading",
@@ -292,10 +293,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -332,21 +333,24 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 200,
         "transparency": 2.5,
         "toTransparency": 0.01,
-        "scale": 0.5,
-        "toScale": 0.5,
+        "scale": 0.1,
+        "toScale": 0.1,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/casing.png",
         "color": "CCCCCC",
         "pos": [0.0,0.0625,0.09375],
@@ -399,12 +403,15 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 2.0,
+        "scale": 0.2,
+        "toScale": 0.4,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/muzzleflash.png",
         "color": "FFFFFF",
         "pos": [0.0,0.097656,0.459822],
@@ -452,12 +459,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 4.0,
+        "scale": 0.2,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [0.0,0.097656,0.459822],
         "initialVelocity": [0.0,0.0,2.0],
@@ -509,7 +519,10 @@
     "name": "Revolver",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:9","minecraft:stone_button:0:1"]
+      [
+        "oredict:ingotIron:9",
+        "minecraft:stone_button:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

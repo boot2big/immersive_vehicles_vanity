@@ -2,6 +2,7 @@
   "generic": {
     "type": "gun_hand_standard",
     "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.375,
     "height": 0.375
   },
@@ -13,7 +14,7 @@
     "capacity": 36,
     "reloadTime": 35,
     "reloadDelay": 10,
-    "muzzleVelocity": 800,
+    "muzzleVelocity": 125,
     "fireDelay": 3.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 11.43,
@@ -35,6 +36,42 @@
         ]
       }
     ]
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.078125,0.3125],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "partScale": [1.375,1.375,1.375],
+      "types": [
+        "generic_gun_suppressor",
+        "generic_npc"
+      ],
+      "linkedParts": [],
+      "applyAfter": "cube",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "generic_npc_present_1",
+          "centerPoint": [0.0,0.078125,0.3125],
+          "axis": [90.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "textureName": "pistol",
+      "name": "Pistol",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "generic_gun_suppressor_poly": 1.0
   },
   "variableModifiers": [
     {
@@ -71,31 +108,6 @@
       ]
     }
   ],
-  "parts": [
-    {
-      "pos": [0.0,0.078125,0.3125],
-      "rot": [0.0,0.0,0.0],
-      "allowParentRemoval": true,
-      "maxValue": 4.0,
-      "partScale": [1.375,1.375,1.0],
-      "types": ["generic_gun_suppressor"],
-      "linkedParts": [],
-      "applyAfter": "cube"
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "textureName": "pistol",
-      "name": "Pistol",
-      "extraMaterialLists": [
-        []
-      ]
-    }
-  ],
-  "constantValues": {
-    "generic_gun_suppressor_poly": 1.0
-  },
   "rendering": {
     "textObjects": [
       {
@@ -110,6 +122,21 @@
         "maxLength": 7,
         "color": "CCCCCC",
         "attachedTo": "hudAmmoModel",
+        "lightsUp": true,
+        "renderPosition": 2
+      },
+      {
+        "pos": [0.125,0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "AMMO: %01.0f/36",
+        "fontName": "ivv:digifont",
+        "defaultText": "fill me up daddy owo",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "attachedTo": "hudAmmoExtendedModel",
         "lightsUp": true,
         "renderPosition": 2
       },
@@ -158,6 +185,29 @@
         "objectName": "hudAmmoModel",
         "applyAfter": "hudModel",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "clampMin": 0.0,
+            "clampMax": 12.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "reverseDelay": 2
+          }
+        ]
+      },
+      {
+        "objectName": "hudAmmoExtendedModel",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "clampMin": 13.0,
+            "clampMax": 36.0
+          },
           {
             "animationType": "visibility",
             "variable": "gun_reload",
@@ -330,10 +380,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:pistol_firing_silenced",
@@ -369,10 +419,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:bulletdistant",
@@ -403,10 +453,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:pistol_reloading",
@@ -420,10 +470,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -460,24 +510,67 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 200,
-        "transparency": 2.5,
+        "duration": 120,
+        "transparency": 10.0,
         "toTransparency": 0.01,
-        "scale": 0.5,
-        "toScale": 0.5,
-        "texture": "ivv:textures/particles/casing.png",
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/magtexture_black.png",
+        "model": "ivv:textures/particles/3d/mag_pistol.obj",
+        "color": "CCCCCC",
+        "pos": [0.0,-0.5,-0.25],
+        "rot": [0.0,0.0,90.0],
+        "rotationRandomness": [180.0,0.0,0.0],
+        "initialVelocity": [0.0,0.25,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 120,
+        "transparency": 10.0,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/casing.png",
+        "model": "ivv:textures/particles/3d/casing.obj",
         "color": "CCCCCC",
         "pos": [0.0,0.07426,0.0],
+        "rotationRandomness": [22.5,0.0,22.5],
+        "spreadRandomness": [0.0,0.25,0.25],
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
@@ -514,12 +607,15 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 3,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 2.0,
+        "scale": 0.2,
+        "toScale": 0.4,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/muzzleflash.png",
         "color": "FFFFFF",
         "pos": [0.0,0.07426,0.30695],
@@ -560,12 +656,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 5,
         "duration": 40,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 4.0,
+        "scale": 0.2,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "555555",
         "pos": [0.0,0.07426,0.30695],
         "initialVelocity": [0.0,0.0,2.0],
@@ -610,7 +709,10 @@
     "name": "Glock 17",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:7","minecraft:stone_button:0:1"]
+      [
+        "oredict:ingotIron:7",
+        "minecraft:stone_button:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

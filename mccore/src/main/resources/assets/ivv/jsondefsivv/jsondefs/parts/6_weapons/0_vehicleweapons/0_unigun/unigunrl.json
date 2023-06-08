@@ -1,18 +1,19 @@
 {
   "generic": {
     "type": "gun_unigun_rl",
+    "forwardsDamageMultiplier": 1.0,
     "forceAllLinks": true
   },
   "gun": {
     "lockOnType": "default",
     "targetType": "hard",
-    "fireSolo": true,
     "autoReload": true,
     "canLockTargets": true,
     "isSemiAuto": true,
+    "fireSolo": true,
     "capacity": 20,
     "reloadTime": 5,
-    "muzzleVelocity": 100,
+    "muzzleVelocity": 25,
     "fireDelay": 10.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 60.0,
@@ -85,10 +86,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:wmg_reloadingrocket",
@@ -106,10 +107,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockactive",
@@ -129,10 +130,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockinactive",
@@ -150,17 +151,17 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockidle",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "!gun_ammo_percent"
+            "variable": "!gun_ammo_count"
           },
           {
             "animationType": "visibility",
@@ -184,17 +185,17 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockaiming",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "!gun_ammo_percent"
+            "variable": "!gun_ammo_count"
           },
           {
             "animationType": "visibility",
@@ -218,17 +219,17 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:missilelockready",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "!gun_ammo_percent"
+            "variable": "!gun_ammo_count"
           },
           {
             "animationType": "visibility",
@@ -254,10 +255,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [],
@@ -267,7 +268,11 @@
     "description": "Fires heat-seeking missiles",
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:6","oredict:ingotGold:8","oredict:dustRedstone:6"]
+      [
+        "oredict:ingotIron:6",
+        "oredict:ingotGold:8",
+        "oredict:dustRedstone:6"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

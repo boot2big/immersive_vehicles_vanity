@@ -8,12 +8,12 @@
     "diameter": 11.43,
     "damage": 2.14748365E9,
     "caseLength": 23.0,
-    "blastStrength": 32.0,
+    "blastStrength": 24.0,
     "armorPenetration": 2.14748365E9,
     "airBurstDelay": 20,
-    "accelerationTime": 5,
-    "maxVelocity": 5000,
-    "despawnTime": 25,
+    "accelerationTime": 3,
+    "maxVelocity": 32767,
+    "despawnTime": 40,
     "impactDespawnTime": 10,
     "effects": [
       {
@@ -33,7 +33,7 @@
         "duration": 300
       }
     ],
-    "pellets": 32,
+    "pellets": 24,
     "pelletSpreadFactor": 1.0E-5
   },
   "definitions": [
@@ -80,16 +80,23 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16383.5,
+        "middleDistanceVolume": 1.0,
+        "maxDistance": 32767.0,
+        "maxDistanceVolume": 1.0
       }
     ],
     "particles": [
       {
         "type": "break",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 1,
-        "scale": 1024.0,
+        "scale": 102.4,
+        "hitboxSize": 0.1,
         "color": "0000FF",
         "pos": [0.0,0.5,0.0],
         "initialVelocity": [0.0,1.5,0.0],
@@ -109,8 +116,14 @@
     "description": "Delorted!\nGoes without saying as this isn't craftable in survival, do NOT let players have this. You've been warned.",
     "stackSize": 64,
     "materialLists": [
-      ["oredict:nuggetIron:12","minecraft:gunpowder:0:12","minecraft:barrier:0:12"]
+      [
+        "oredict:nuggetIron:12",
+        "minecraft:gunpowder:0:12",
+        "minecraft:barrier:0:12"
+      ]
     ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
     "type": "bullet"
   }
 }
