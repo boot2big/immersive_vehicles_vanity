@@ -514,7 +514,7 @@
         {
           "animationType": "rotation",
           "variable": "hatch_left",
-          "centerPoint": [1.14062,0.54687,1.98438],
+          "centerPoint": [1.20312,0.546875,1.98438],
           "axis": [0.0,-55.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
@@ -527,7 +527,7 @@
         {
           "animationType": "rotation",
           "variable": "flBodyroll",
-          "centerPoint": [1.14062,0.54687,1.98438],
+          "centerPoint": [1.20312,0.546875,1.98438],
           "axis": [0.0,-8.0,0.0],
           "clampMin": -10.0,
           "clampMax": 5.0
@@ -577,7 +577,7 @@
         {
           "animationType": "rotation",
           "variable": "hatch_right",
-          "centerPoint": [-1.14062,0.54687,1.98438],
+          "centerPoint": [-1.20312,0.546875,1.98438],
           "axis": [0.0,55.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
@@ -590,7 +590,7 @@
         {
           "animationType": "rotation",
           "variable": "frBodyroll",
-          "centerPoint": [-1.14062,0.54687,1.98438],
+          "centerPoint": [-1.20312,0.546875,1.98438],
           "axis": [0.0,-8.0,0.0],
           "clampMin": -10.0,
           "clampMax": 5.0
@@ -675,7 +675,7 @@
         },
         {
           "animationType": "inhibitor",
-          "variable": "hatch_hood"
+          "variable": "hatch_trunk"
         },
         {
           "animationType": "rotation",
@@ -1352,6 +1352,11 @@
         },
         {
           "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_1",
           "axis": [0.0,-0.5,0.0]
         },
@@ -1381,6 +1386,11 @@
           "animationType": "translation",
           "variable": "slip",
           "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,-0.375,0.0]
         },
         {
           "animationType": "translation",
@@ -1416,6 +1426,11 @@
         },
         {
           "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_3",
           "axis": [0.0,-0.5,0.0]
         },
@@ -1445,6 +1460,11 @@
           "animationType": "translation",
           "variable": "slip",
           "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,-0.375,0.0]
         },
         {
           "animationType": "translation",
@@ -1588,6 +1608,12 @@
             "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:hoodopen3",
             "reverseEndSound": "ivv:hoodclose3"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "damage_totaled",
+            "centerPoint": [0.0,1.0625,2.1875],
+            "axis": [-1.5,0.0,0.0]
           },
           {
             "animationType": "inhibitor",
@@ -1913,7 +1939,7 @@
           {
             "animationType": "rotation",
             "variable": "hatch_left",
-            "centerPoint": [1.14062,0.54687,1.98438],
+            "centerPoint": [1.20312,0.546875,1.98438],
             "axis": [0.0,-55.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
@@ -1922,13 +1948,19 @@
             "reverseEndSound": "ivv:doorclose4"
           },
           {
+            "animationType": "rotation",
+            "variable": "damage_totaled",
+            "centerPoint": [-1.20312,0.546875,1.98438],
+            "axis": [-1.0,-1.0,0.0]
+          },
+          {
             "animationType": "inhibitor",
             "variable": "hatch_left"
           },
           {
             "animationType": "rotation",
             "variable": "flBodyroll",
-            "centerPoint": [1.14062,0.54687,1.98438],
+            "centerPoint": [1.20312,0.546875,1.98438],
             "axis": [0.0,-8.0,0.0],
             "clampMin": -10.0,
             "clampMax": 5.0
@@ -2035,7 +2067,7 @@
           {
             "animationType": "rotation",
             "variable": "hatch_right",
-            "centerPoint": [-1.14062,0.54687,1.98438],
+            "centerPoint": [-1.20312,0.546875,1.98438],
             "axis": [0.0,55.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
@@ -2044,13 +2076,19 @@
             "reverseEndSound": "ivv:doorclose4"
           },
           {
+            "animationType": "rotation",
+            "variable": "damage_totaled",
+            "centerPoint": [-1.20312,0.546875,1.98438],
+            "axis": [-0.5,2.0,0.0]
+          },
+          {
             "animationType": "inhibitor",
             "variable": "hatch_right"
           },
           {
             "animationType": "rotation",
             "variable": "frBodyroll",
-            "centerPoint": [-1.14062,0.54687,1.98438],
+            "centerPoint": [-1.20312,0.546875,1.98438],
             "axis": [0.0,-8.0,0.0],
             "clampMin": -10.0,
             "clampMax": 5.0
@@ -2899,12 +2937,12 @@
     ],
     "sounds": [
       {
-        "name": "ivv:generic_fuel_fluid_empty1",
+        "name": "ivv:generic_vehicle_fuel_fluid_empty1",
         "soundVariations": [
-          "ivv:generic_fuel_fluid_empty1",
-          "ivv:generic_fuel_fluid_empty2",
-          "ivv:generic_fuel_fluid_empty3",
-          "ivv:generic_fuel_fluid_empty4"
+          "ivv:generic_vehicle_fuel_fluid_empty1",
+          "ivv:generic_vehicle_fuel_fluid_empty2",
+          "ivv:generic_vehicle_fuel_fluid_empty3",
+          "ivv:generic_vehicle_fuel_fluid_empty4"
         ],
         "activeAnimations": [
           {
@@ -2964,7 +3002,7 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:generic_fuel_chug",
+        "name": "ivv:generic_vehicle_fuel_chug",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -3009,7 +3047,7 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:generic_fuel_charging",
+        "name": "ivv:generic_vehicle_fuel_charging",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -3796,6 +3834,11 @@
           {
             "animationType": "visibility",
             "variable": "damage_totaled",
+            "forwardsDelay": 200
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -3823,6 +3866,11 @@
         "pos": [0.0,0.314984,1.43942],
         "initialVelocity": [0.0,1.0,0.0],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "forwardsDelay": 100
+          },
           {
             "animationType": "visibility",
             "variable": "damage_totaled",
@@ -3936,9 +3984,9 @@
         "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 2,
-        "duration": 3,
-        "transparency": 1.0,
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
         "toTransparency": 0.01,
         "scale": 0.2,
         "toScale": 0.4,

@@ -1,7 +1,8 @@
 {
   "generic": {
     "type": "engine_thruster",
-    "useVehicleTexture": true
+    "useVehicleTexture": true,
+    "forwardsDamageMultiplier": 1.0
   },
   "engine": {
     "type": "normal",
@@ -66,7 +67,11 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:ufoengine_running",
@@ -94,7 +99,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:rocket_running",
@@ -122,13 +131,20 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 3,
+        "hitboxSize": 0.2,
         "texture": "mts:textures/rendering/lensflare.png",
         "color": "4BF21B",
         "pos": [0.0,0.0,-0.24937],
@@ -153,28 +169,20 @@
       },
       {
         "type": "flame",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 40,
         "transparency": 4.0,
         "toTransparency": 0.01,
-        "scale": 3.0,
-        "toScale": 4.0,
-        "spreadFactorHorizontal": 4,
-        "spreadFactorVertical": 1,
+        "scale": 0.6,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "FFFFFF",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.25,0.25],
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,0.375],
+        "initialVelocity": [0.0,0.0,0.375],
         "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.875,
-            "clampMax": 1.0
-          },
           {
             "animationType": "visibility",
             "variable": "2_4_2_cycle",
@@ -187,33 +195,35 @@
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 40
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.875,
+            "clampMax": 1.0
           }
         ]
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
         "duration": 60,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 4.0,
-        "toScale": 8.0,
-        "spreadFactorHorizontal": 8,
-        "spreadFactorVertical": 2,
+        "scale": 0.8,
+        "toScale": 1.6,
+        "hitboxSize": 0.2,
         "color": "555555",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.0,0.5],
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,1.0],
+        "initialVelocity": [0.0,0.0,1.5],
         "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.75,
-            "clampMax": 1.0
-          },
           {
             "animationType": "visibility",
             "variable": "1_2_1_cycle",
@@ -225,55 +235,69 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "reverseDelay": 90
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "quantity": 8,
-        "duration": 40,
-        "transparency": 0.75,
-        "toTransparency": 0.01,
-        "scale": 6.0,
-        "toScale": 12.0,
-        "spreadFactorHorizontal": 8,
-        "spreadFactorVertical": 2,
-        "color": "888888",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.0,0.75],
-        "activeAnimations": [
+            "reverseDelay": 40
+          },
           {
-            "animationType": "visibility",
-            "variable": "parent_damage_totaled"
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
           },
           {
             "animationType": "visibility",
             "variable": "parent_damage_percent",
             "clampMin": 0.75,
             "clampMax": 1.0
-          },
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 8,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 1.2,
+        "toScale": 2.4,
+        "hitboxSize": 0.2,
+        "color": "888888",
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,1.0,6.0],
+        "initialVelocity": [0.0,0.0,0.75],
+        "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_powered",
             "reverseDelay": 100
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
           }
         ]
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 10,
-        "transparency": 2.0,
+        "transparency": 5.0,
         "toTransparency": -1.0E-4,
-        "scale": 0.375,
-        "toScale": 0.625,
+        "scale": 0.025,
+        "toScale": 0.05,
+        "hitboxSize": 0.1,
         "texture": "ivv:textures/particles/pattern2.png",
         "color": "EDAC28",
-        "spreadFactorHorizontal": 10,
-        "spreadFactorVertical": 1,
         "pos": [0.0,0.25,0.375],
-        "initialVelocity": [0.0,0.625,0.375],
+        "spreadRandomness": [0.25,0.5,0.25],
+        "initialVelocity": [0.0,0.625,0.125],
         "movementVelocity": [0.0,-0.01,0.0],
         "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [
@@ -287,12 +311,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 60,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 2.0,
+        "scale": 0.2,
+        "toScale": 0.4,
+        "hitboxSize": 0.2,
         "color": "060606",
         "pos": [0.0,0.0,0.75],
         "initialVelocity": [0.0,0.0,0.5],
@@ -307,12 +334,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
         "duration": 80,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 2.0,
-        "toScale": 4.0,
+        "scale": 0.4,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "060606",
         "pos": [0.0,0.0,0.75],
         "initialVelocity": [0.0,0.0,0.75],
@@ -330,14 +360,21 @@
   },
   "general": {
     "description": "Space!",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
-      ["mts:ivv.tcalloy:0:5","oredict:dustRedstone:10","mts:ivv.microjet:0:1"]
+      [
+        "mts:ivv.tcalloy:0:5",
+        "oredict:dustRedstone:10",
+        "mts:ivv.microjet:0:1"
+      ]
     ],
     "repairMaterialLists": [
-      ["oredict:dustRedstone:5","mts:ivv.microjet:0:1"]
-    ]
+      [
+        "oredict:dustRedstone:5",
+        "mts:ivv.microjet:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

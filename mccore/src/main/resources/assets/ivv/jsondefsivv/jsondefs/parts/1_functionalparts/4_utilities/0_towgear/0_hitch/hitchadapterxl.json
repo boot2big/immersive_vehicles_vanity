@@ -4,15 +4,15 @@
     "mustBeRemovedByScrewdriver": true,
     "forwardsDamageMultiplier": 1.0,
     "forceAllLinks": true,
-    "width": 0.1875,
-    "height": 0.1875
+    "width": 0.125,
+    "height": 0.125
   },
   "collisionGroups": [
     {
       "isInterior": true,
       "collisions": [
         {
-          "pos": [0.0,0.0625,0.0],
+          "pos": [0.0,-0.0625,-0.0625],
           "width": 0.0625,
           "height": 0.0625,
           "variableName": "hitch_adapter_scale",
@@ -23,7 +23,17 @@
       "animations": [
         {
           "animationType": "visibility",
+          "variable": "locked"
+        },
+        {
+          "animationType": "visibility",
           "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "headlight",
           "clampMin": 1.0,
           "clampMax": 1.0
         }
@@ -38,23 +48,23 @@
       "connections": [
         {
           "type": "trailer_standard",
-          "pos": [0.0,0.075,0.0],
-          "distance": 1.0
+          "pos": [0.0,0.125,0.0],
+          "distance": 2.0
         },
         {
           "type": "hitch_standard",
-          "pos": [0.0,0.075,0.0],
-          "distance": 1.0
+          "pos": [0.0,0.125,0.0],
+          "distance": 2.0
         },
         {
           "type": "hitch_heavy",
-          "pos": [0.0,0.075,0.0],
-          "distance": 1.0
+          "pos": [0.0,0.125,0.0],
+          "distance": 2.0
         },
         {
           "type": "hitch_industrial",
-          "pos": [0.0,0.075,0.0],
-          "distance": 1.0
+          "pos": [0.0,0.125,0.0],
+          "distance": 2.0
         }
       ]
     }
@@ -96,18 +106,22 @@
         "objectName": "connector_industrial",
         "animations": [
           {
+            "animationType": "inhibitor",
+            "variable": "hitch_orientation"
+          },
+          {
             "animationType": "scaling",
-            "variable": "hitch_scale",
+            "variable": "parent_hitch_scale",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.5,0.5,0.5],
-            "offset": 2.0
+            "offset": 1.325
           },
           {
             "animationType": "scaling",
             "variable": "hitch_adapter_scale",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,2.0,0.0],
-            "offset": 2.0
+            "axis": [0.0,1.0,0.0],
+            "offset": 2
           }
         ]
       }
@@ -166,7 +180,7 @@
   },
   "general": {
     "name": "Hitch Attachment",
-    "description": "Can tow hitch connectors",
+    "description": "Can tow hitch connectors\nUse a screwdriver to remove this part",
     "health": 100,
     "materialLists": [
       [
