@@ -940,6 +940,14 @@
       ]
     },
     {
+      "pos": [0.0,1.28125,0.4375],
+      "maxValue": 1.0,
+      "defaultPart": "ivv:antenna_sharkfin",
+      "types": [
+        "generic_antenna"
+      ]
+    },
+    {
       "pos": [0.0,0.945312,1.96875],
       "maxValue": 1.0,
       "types": [
@@ -1342,7 +1350,7 @@
           "axis": [0.0,-65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         },
         {
           "animationType": "inhibitor",
@@ -1460,7 +1468,7 @@
           "axis": [0.0,65.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         },
         {
           "animationType": "inhibitor",
@@ -2106,6 +2114,13 @@
           "animationType": "translation",
           "variable": "p_brake",
           "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!ski_mode",
+          "axis": [1.0,0.0,0.0],
+          "forwardsDelay": 10,
+          "reverseDelay": 10
         }
       ]
     },
@@ -2205,8 +2220,8 @@
         {
           "animationType": "translation",
           "variable": "random",
-          "axis": [0.0,2,0.0],
-          "offset": -1
+          "axis": [0.0,2.0,0.0],
+          "offset": -1.0
         }
       ]
     },
@@ -2303,6 +2318,36 @@
         {
           "animationType": "translation",
           "variable": "speed",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "drive_mode",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_5"
+        },
+        {
+          "animationType": "translation",
+          "variable": "autopilot_active",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "drive_mode",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_5",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_traction_control",
           "axis": [0.0,0.0,1.0]
         }
       ]
@@ -4228,6 +4273,11 @@
         },
         {
           "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_1",
           "axis": [0.0,-0.5,0.0]
         },
@@ -4298,6 +4348,11 @@
           "animationType": "translation",
           "variable": "slip",
           "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,-0.375,0.0]
         },
         {
           "animationType": "translation",
@@ -4374,6 +4429,11 @@
         },
         {
           "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "!ground_onground_3",
           "axis": [0.0,-0.5,0.0]
         },
@@ -4444,6 +4504,11 @@
           "animationType": "translation",
           "variable": "slip",
           "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,-0.375,0.0]
         },
         {
           "animationType": "translation",
@@ -4712,7 +4777,7 @@
         "variableFormat": "MG: %01.0f",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
-        "color": "BA7C35",
+        "color": "EF931E",
         "attachedTo": "screen2",
         "lightsUp": true,
         "renderPosition": 1
@@ -4726,7 +4791,7 @@
         "variableFormat": "RL: %01.0f",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
-        "color": "BA7C35",
+        "color": "EF931E",
         "attachedTo": "screen2",
         "lightsUp": true,
         "renderPosition": 1
@@ -4740,7 +4805,7 @@
         "variableFormat": "CM: %01.0f",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
-        "color": "BA7C35",
+        "color": "EF931E",
         "attachedTo": "screen2",
         "lightsUp": true,
         "renderPosition": 1
@@ -4754,7 +4819,7 @@
         "variableFormat": "FPF: %01.2fmB/T",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
-        "color": "BA7C35",
+        "color": "EF931E",
         "attachedTo": "screen0",
         "lightsUp": true,
         "renderPosition": 1
@@ -4768,7 +4833,7 @@
         "variableFormat": "MASS: %01.0fkG",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
-        "color": "BA7C35",
+        "color": "EF931E",
         "attachedTo": "screen0",
         "lightsUp": true,
         "renderPosition": 1
@@ -4782,7 +4847,7 @@
         "variableFormat": "CPU: %01.0f`",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
-        "color": "BA7C35",
+        "color": "EF931E",
         "attachedTo": "screen0",
         "lightsUp": true,
         "renderPosition": 1
@@ -4796,7 +4861,7 @@
         "variableFormat": "RAM: %01.1fGB|4GB",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
-        "color": "BA7C35",
+        "color": "EF931E",
         "attachedTo": "screen0",
         "lightsUp": true,
         "renderPosition": 1
@@ -4810,7 +4875,7 @@
         "variableFormat": "ENGM: %01.2f`",
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
-        "color": "BA7C35",
+        "color": "EF931E",
         "attachedTo": "screen0",
         "lightsUp": true,
         "renderPosition": 1
@@ -4823,7 +4888,7 @@
         "fontName": "ivv:digifont",
         "defaultText": "ACIVE",
         "maxLength": 13,
-        "color": "BA7C35",
+        "color": "EF931E",
         "wrapWidth": 4,
         "attachedTo": "screen0",
         "lightsUp": true,
@@ -4841,19 +4906,136 @@
         "renderPosition": 1
       },
       {
-        "pos": [0.11548,0.467988,2.52312],
-        "rot": [0.0,180.0,0.0],
-        "variableName": "unused",
-        "variableFormat": "TOPIR: %01.0f`",
-        "fontName": "ivv:digifont",
-        "defaultText": "ERROR!",
-        "color": "BA7C35",
-        "attachedTo": "screen0",
-        "lightsUp": true,
-        "renderPosition": 1
+        "pos": [0.0,-100.0,0.001],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.65,
+        "fieldName": "imageURL",
+        "defaultText": "",
+        "maxLength": 400,
+        "color": "000000"
       }
     ],
     "animatedObjects": [
+      {
+        "objectName": "hood_livery_translucent",
+        "applyAfter": "hood",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "vehicle_livery_hood",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "text_1_present"
+          }
+        ]
+      },
+      {
+        "objectName": "leftdoor_livery_translucent",
+        "applyAfter": "leftdoor",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "vehicle_livery_doorfrontleft",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "text_1_present"
+          }
+        ]
+      },
+      {
+        "objectName": "rightdoor_livery_translucent",
+        "applyAfter": "rightdoor",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "vehicle_livery_doorfrontright",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "text_1_present"
+          }
+        ]
+      },
+      {
+        "objectName": "hood_livery_translucent_melancholyhill",
+        "applyAfter": "hood",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "beta_thing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "leftdoor_livery_translucent_melancholyhill",
+        "applyAfter": "leftdoor",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "beta_thing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "rightdoor_livery_translucent_melancholyhill",
+        "applyAfter": "rightdoor",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "beta_thing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "hood_livery_translucent_imageURL",
+        "applyAfter": "hood",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "text_1_present",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "leftdoor_livery_translucent_imageURL",
+        "applyAfter": "leftdoor",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "text_1_present",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "rightdoor_livery_translucent_imageURL",
+        "applyAfter": "rightdoor",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "text_1_present",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
       {
         "objectName": "springleft",
         "animations": [
@@ -5840,7 +6022,8 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "console_weapon_state",
+            "variable": "console_weapon_state_disabled",
+            "clampMin": 1.0,
             "clampMax": 1.0
           }
         ]
@@ -5851,7 +6034,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "console_weapon_state",
+            "variable": "console_weapon_state_disabled",
             "clampMin": 1.0,
             "clampMax": 2.0
           }
@@ -5863,7 +6046,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "console_weapon_state",
+            "variable": "console_weapon_state_disabled",
             "clampMin": 2.0,
             "clampMax": 3.0
           }
@@ -6049,7 +6232,7 @@
             "axis": [0.0,-65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen1",
             "reverseEndSound": "ivv:doorclose1"
           },
@@ -6170,7 +6353,7 @@
             "axis": [0.0,65.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen1",
             "reverseEndSound": "ivv:doorclose1"
           },
@@ -6638,17 +6821,17 @@
         "objectName": "light1",
         "emissive": true,
         "isElectric": true,
-        "color": "BA7C35",
+        "color": "E3A11E",
         "brightnessAnimations": [
           {
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "translation",
-            "variable": "autopilot_active",
+            "variable": "drive_mode",
             "axis": [0.0,-1.0,0.0],
             "duration": 2
           }
@@ -6664,11 +6847,11 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "translation",
-            "variable": "!autopilot_active",
+            "variable": "!drive_mode",
             "axis": [0.0,-1.0,0.0],
             "duration": 2
           }
@@ -6718,13 +6901,13 @@
         "objectName": "slotlight1",
         "emissive": true,
         "isElectric": true,
-        "color": "BA7C35",
+        "color": "EF931E",
         "brightnessAnimations": [
           {
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "translation",
@@ -6739,13 +6922,13 @@
         "objectName": "slotlight2",
         "emissive": true,
         "isElectric": true,
-        "color": "BA7C35",
+        "color": "EF931E",
         "brightnessAnimations": [
           {
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "translation",
@@ -6760,13 +6943,13 @@
         "objectName": "slotlight3",
         "emissive": true,
         "isElectric": true,
-        "color": "BA7C35",
+        "color": "EF931E",
         "brightnessAnimations": [
           {
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "translation",
@@ -6781,13 +6964,13 @@
         "objectName": "healthbar1",
         "emissive": true,
         "isElectric": true,
-        "color": "BA7C35",
+        "color": "EF931E",
         "brightnessAnimations": [
           {
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "visibility",
@@ -6811,13 +6994,13 @@
         "objectName": "healthbar2",
         "emissive": true,
         "isElectric": true,
-        "color": "BA7C35",
+        "color": "EF931E",
         "brightnessAnimations": [
           {
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "visibility",
@@ -6841,13 +7024,13 @@
         "objectName": "healthbar3",
         "emissive": true,
         "isElectric": true,
-        "color": "BA7C35",
+        "color": "EF931E",
         "brightnessAnimations": [
           {
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "visibility",
@@ -6871,13 +7054,13 @@
         "objectName": "healthbar4",
         "emissive": true,
         "isElectric": true,
-        "color": "BA7C35",
+        "color": "EF931E",
         "brightnessAnimations": [
           {
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "visibility",
@@ -6901,7 +7084,7 @@
         "objectName": "healthbar5",
         "emissive": true,
         "isElectric": true,
-        "color": "BA7C35",
+        "color": "EF931E",
         "brightnessAnimations": [
           {
             "animationType": "visibility",
@@ -6912,7 +7095,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [0.0,1.0,0.0],
-            "duration": 5
+            "duration": 2
           },
           {
             "animationType": "inhibitor",
@@ -6947,7 +7130,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [1.0,0.0,0.0],
-            "duration": 5
+            "duration": 2
           }
         ]
       },
@@ -6972,7 +7155,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [1.0,0.0,0.0],
-            "duration": 5
+            "duration": 2
           }
         ]
       },
@@ -6997,7 +7180,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [1.0,0.0,0.0],
-            "duration": 5
+            "duration": 2
           }
         ]
       },
@@ -7021,7 +7204,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [1.0,0.0,0.0],
-            "duration": 5
+            "duration": 2
           }
         ]
       },
@@ -7046,7 +7229,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [1.0,0.0,0.0],
-            "duration": 5
+            "duration": 2
           }
         ]
       },
@@ -7071,7 +7254,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [1.0,0.0,0.0],
-            "duration": 5
+            "duration": 2
           }
         ]
       },
@@ -7095,7 +7278,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [1.0,0.0,0.0],
-            "duration": 5
+            "duration": 2
           }
         ]
       },
@@ -7120,7 +7303,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [1.0,0.0,0.0],
-            "duration": 5
+            "duration": 2
           }
         ]
       },
@@ -7145,7 +7328,7 @@
             "animationType": "translation",
             "variable": "aciveOn",
             "axis": [1.0,0.0,0.0],
-            "duration": 5
+            "duration": 2
           }
         ]
       },
@@ -7158,22 +7341,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "14_2_16_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "16_2_14_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7193,22 +7376,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "12_2_18_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "18_2_12_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7228,22 +7411,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "10_2_20_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "20_2_10_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7263,22 +7446,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "8_2_22_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "22_2_8_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7298,22 +7481,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "6_2_24_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "24_2_6_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7333,22 +7516,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "4_2_26_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "26_2_4_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7368,22 +7551,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "2_2_28_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "28_2_2_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7403,22 +7586,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "0_2_30_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "30_2_0_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7438,22 +7621,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "14_2_16_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "16_2_14_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7473,22 +7656,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "12_2_18_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "18_2_12_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7508,22 +7691,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "10_2_20_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "20_2_10_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7543,22 +7726,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "8_2_22_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "22_2_8_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7578,22 +7761,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "6_2_24_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "24_2_6_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7613,22 +7796,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "4_2_26_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "26_2_4_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7648,22 +7831,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "2_2_28_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "28_2_2_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7683,22 +7866,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "0_2_30_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "30_2_0_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7718,22 +7901,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "14_2_16_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "16_2_14_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7753,22 +7936,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "12_2_18_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "18_2_12_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7788,22 +7971,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "10_2_20_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "20_2_10_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7823,22 +8006,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "8_2_22_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "22_2_8_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7858,22 +8041,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "6_2_24_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "24_2_6_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7893,22 +8076,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "4_2_26_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "26_2_4_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7928,22 +8111,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "2_2_28_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "28_2_2_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -7963,22 +8146,22 @@
           {
             "animationType": "translation",
             "variable": "scanner",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
+            "axis": [0.0,2.0,0.0],
+            "offset": -2.0,
             "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "0_2_30_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           },
           {
             "animationType": "translation",
             "variable": "30_2_0_cycle",
             "axis": [0.0,1.0,0.0],
-            "duration": 4,
+            "duration": 5,
             "skipForwardsMovement": true
           }
         ],
@@ -8685,7 +8868,7 @@
         ]
       },
       {
-        "pos": [0.0,0.15625,5.1875],
+        "pos": [0.0,0.4303,5.125],
         "rot": [0.0,0.0,0.0],
         "fovOverride": 90.0,
         "overlay": "ivv:textures/overlay/cars/aciveview_crosshair_translucent",
@@ -8699,13 +8882,13 @@
           {
             "animationType": "rotation",
             "variable": "seat_rider_yaw_5",
-            "centerPoint": [0.0,0.15625,5.1875],
+            "centerPoint": [0.0,0.4303,5.125],
             "axis": [0.0,1.0,0.0]
           },
           {
             "animationType": "rotation",
             "variable": "seat_rider_pitch_5",
-            "centerPoint": [0.0,0.15625,5.1875],
+            "centerPoint": [0.0,0.4303,5.125],
             "axis": [1.0,0.0,0.0]
           }
         ]
@@ -8745,12 +8928,12 @@
     ],
     "sounds": [
       {
-        "name": "ivv:generic_fuel_fluid_empty1",
+        "name": "ivv:generic_vehicle_fuel_fluid_empty1",
         "soundVariations": [
-          "ivv:generic_fuel_fluid_empty1",
-          "ivv:generic_fuel_fluid_empty2",
-          "ivv:generic_fuel_fluid_empty3",
-          "ivv:generic_fuel_fluid_empty4"
+          "ivv:generic_vehicle_fuel_fluid_empty1",
+          "ivv:generic_vehicle_fuel_fluid_empty2",
+          "ivv:generic_vehicle_fuel_fluid_empty3",
+          "ivv:generic_vehicle_fuel_fluid_empty4"
         ],
         "activeAnimations": [
           {
@@ -8810,7 +8993,7 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:generic_fuel_chug",
+        "name": "ivv:generic_vehicle_fuel_chug",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -8851,7 +9034,7 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:generic_fuel_charging",
+        "name": "ivv:generic_vehicle_fuel_charging",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -10293,12 +10476,17 @@
           {
             "animationType": "visibility",
             "variable": "damage_totaled",
+            "forwardsDelay": 200
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
-            "variable": "5_10_5_cycle",
+            "variable": "4_8_4_cycle",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -10323,12 +10511,17 @@
           {
             "animationType": "visibility",
             "variable": "damage_totaled",
+            "forwardsDelay": 200
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
-            "variable": "5_10_5_cycle",
+            "variable": "4_8_4_cycle",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -11117,9 +11310,9 @@
         "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 2,
-        "duration": 3,
-        "transparency": 1.0,
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
         "toTransparency": 0.01,
         "scale": 0.2,
         "toScale": 0.4,
@@ -11147,9 +11340,9 @@
         "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 2,
-        "duration": 3,
-        "transparency": 1.0,
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
         "toTransparency": 0.01,
         "scale": 0.2,
         "toScale": 0.4,
@@ -11178,9 +11371,9 @@
         "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 2,
-        "duration": 3,
-        "transparency": 1.0,
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
         "toTransparency": 0.01,
         "scale": 0.2,
         "toScale": 0.4,
@@ -11209,9 +11402,9 @@
         "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 2,
-        "duration": 3,
-        "transparency": 1.0,
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
         "toTransparency": 0.01,
         "scale": 0.2,
         "toScale": 0.4,

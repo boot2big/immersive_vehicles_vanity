@@ -12,11 +12,11 @@
     "revResistance": 2,
     "maxRPM": 34062,
     "maxSafeRPM": 29250,
+    "revlimitRPM": 22000,
+    "revlimitBounce": 4,
     "idleRPM": -1,
     "startRPM": -1,
     "stallRPM": -1,
-    "revlimitRPM": 22000,
-    "revlimitBounce": 4,
     "engineWinddownRate": 100,
     "heatingCoefficient": 0.5,
     "coolingCoefficient": 1.25,
@@ -146,7 +146,7 @@
         {
           "animationType": "translation",
           "variable": "parent_engine_rpm_percent_revlimit_1",
-          "axis": [-8,0.0,0.0],
+          "axis": [-8.0,0.0,0.0],
           "offset": 7.0,
           "clampMin": -0.125,
           "clampMax": 1.0
@@ -191,13 +191,13 @@
     },
     {
       "variable": "engine_shift_up",
-      "setValue": 1,
+      "setValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
           "variable": "engine_running",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -209,25 +209,25 @@
           "animationType": "visibility",
           "variable": "parent_engine_gear_1",
           "clampMin": 1.0,
-          "clampMax": 32767
+          "clampMax": 32767.0
         }
       ]
     },
     {
       "variable": "engine_shift_down",
-      "setValue": 1,
+      "setValue": 1.0,
       "animations": [
         {
           "animationType": "visibility",
           "variable": "engine_running",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
           "variable": "engine_gear",
           "clampMin": -0.5,
-          "clampMax": 32767
+          "clampMax": 32767.0
         },
         {
           "animationType": "visibility",
@@ -239,7 +239,7 @@
     },
     {
       "variable": "engine_shift_neutral",
-      "setValue": 1,
+      "setValue": 1.0,
       "animations": [
         {
           "animationType": "inhibitor",
@@ -249,7 +249,7 @@
           "animationType": "visibility",
           "variable": "engine_gear",
           "clampMin": 0.5,
-          "clampMax": 32767,
+          "clampMax": 32767.0,
           "absolute": true
         },
         {
@@ -277,10 +277,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:electricwhirrmedium",
@@ -316,10 +316,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:electrichum",
@@ -360,37 +360,29 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 0.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "flame",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 40,
         "transparency": 4.0,
         "toTransparency": 0.01,
-        "scale": 3.0,
-        "toScale": 4.0,
-        "spreadFactorHorizontal": 4.0,
-        "spreadFactorVertical": 1.0,
+        "scale": 0.6,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "FFFFFF",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.25,0.25],
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,0.375],
+        "initialVelocity": [0.0,0.0,0.375],
         "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.875,
-            "clampMax": 1.0
-          },
           {
             "animationType": "visibility",
             "variable": "2_4_2_cycle",
@@ -403,33 +395,35 @@
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 40
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.875,
+            "clampMax": 1.0
           }
         ]
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
         "duration": 60,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 4.0,
-        "toScale": 8.0,
-        "spreadFactorHorizontal": 8.0,
-        "spreadFactorVertical": 2.0,
+        "scale": 0.8,
+        "toScale": 1.6,
+        "hitboxSize": 0.2,
         "color": "555555",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.0,0.5],
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,1.0],
+        "initialVelocity": [0.0,0.0,1.5],
         "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.75,
-            "clampMax": 1.0
-          },
           {
             "animationType": "visibility",
             "variable": "1_2_1_cycle",
@@ -441,54 +435,68 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "reverseDelay": 90
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "quantity": 8,
-        "duration": 40,
-        "transparency": 0.75,
-        "toTransparency": 0.01,
-        "scale": 6.0,
-        "toScale": 12.0,
-        "spreadFactorHorizontal": 8.0,
-        "spreadFactorVertical": 2.0,
-        "color": "888888",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.0,0.75],
-        "activeAnimations": [
+            "reverseDelay": 40
+          },
           {
-            "animationType": "visibility",
-            "variable": "parent_damage_totaled"
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
           },
           {
             "animationType": "visibility",
             "variable": "parent_damage_percent",
             "clampMin": 0.75,
             "clampMax": 1.0
-          },
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 8,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 1.2,
+        "toScale": 2.4,
+        "hitboxSize": 0.2,
+        "color": "888888",
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,1.0,6.0],
+        "initialVelocity": [0.0,0.0,0.75],
+        "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_powered",
             "reverseDelay": 100
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
           }
         ]
       },
       {
         "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 8,
         "duration": 10,
         "transparency": 2.0,
         "toTransparency": -1.0E-4,
-        "scale": 0.375,
-        "toScale": 0.625,
-        "spreadFactorHorizontal": 10.0,
-        "spreadFactorVertical": 1.0,
+        "scale": 0.075,
+        "toScale": 0.125,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/pattern2.png",
         "color": "EDAC28",
         "pos": [0.0,0.25,0.375],
+        "spreadRandomness": [0.0,0.5,3.75],
         "initialVelocity": [0.0,0.625,0.375],
         "movementVelocity": [0.0,-0.01,0.0],
         "terminalVelocity": [2048.0,2048.0,2048.0],
@@ -503,12 +511,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 60,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 1.0,
-        "toScale": 2.0,
+        "scale": 0.2,
+        "toScale": 0.4,
+        "hitboxSize": 0.2,
         "color": "060606",
         "pos": [0.0,0.0,0.75],
         "initialVelocity": [0.0,0.0,0.5],
@@ -523,12 +534,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
         "duration": 80,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 2.0,
-        "toScale": 4.0,
+        "scale": 0.4,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "060606",
         "pos": [0.0,0.0,0.75],
         "initialVelocity": [0.0,0.0,0.75],
@@ -549,10 +563,20 @@
     "description": "677kW Experimental IVLabs Motor",
     "health": 100,
     "materialLists": [
-      ["mts:ivv.motorcase:0:1","mts:ivv.motorshaft:0:1","mts:ivv.motorbattery:0:1","mts:ivv.capacitor:0:10","mts:ivv.gearboxcvt:0:1"]
+      [
+        "mts:ivv.motorcase:0:1",
+        "mts:ivv.motorshaft:0:1",
+        "mts:ivv.motorbattery:0:1",
+        "mts:ivv.capacitor:0:10",
+        "mts:ivv.gearboxcvt:0:1"
+      ]
     ],
     "repairMaterialLists": [
-      ["mts:ivv.motorshaft:0:1","mts:ivv.capacitor:0:5","mts:ivv.tape:0:1"]
+      [
+        "mts:ivv.motorshaft:0:1",
+        "mts:ivv.capacitor:0:5",
+        "mts:ivv.tape:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0

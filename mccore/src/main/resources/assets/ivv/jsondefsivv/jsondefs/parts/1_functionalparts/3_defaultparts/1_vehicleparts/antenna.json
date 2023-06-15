@@ -6,6 +6,19 @@
     "width": 0.5,
     "height": 0.5
   },
+  "parts": [
+    {
+      "pos": [0.0,0.53125,0.0],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 3.0,
+      "partScale": [0.4875,0.4875,0.4875],
+      "types": [
+        "generic_antenna_topper",
+        "generic_shiftknob"
+      ],
+      "applyAfter": "antenna4"
+    }
+  ],
   "definitions": [
     {
       "subName": "",
@@ -23,8 +36,13 @@
       "animations": [
         {
           "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.000625,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "turn_indicator",
-          "axis": [0.0,0.000125,0.0]
+          "axis": [0.0,1.25E-4,0.0]
         },
         {
           "animationType": "translation",
@@ -41,7 +59,7 @@
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.0,0.005,0.0]
+          "axis": [0.0,0.00125,0.0]
         },
         {
           "animationType": "translation",
@@ -161,6 +179,7 @@
   },
   "general": {
     "name": "Antenna",
+    "description": "Use a screwdriver to remove this part",
     "stackSize": 64,
     "health": 100,
     "materialLists": [

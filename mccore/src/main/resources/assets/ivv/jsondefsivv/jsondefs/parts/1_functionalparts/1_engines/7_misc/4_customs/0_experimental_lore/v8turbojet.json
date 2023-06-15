@@ -192,15 +192,25 @@
         {
           "animationType": "translation",
           "variable": "engine_rpm_percent_safe",
-          "axis": [0.0,0.0,6.0],
-          "clampMax": 4.0
+          "axis": [0.0,0.0,6.66]
         },
         {
           "animationType": "translation",
           "variable": "BOOST",
-          "axis": [0.875,0.0,0.0],
-          "offset": 0.125,
+          "axis": [0.75,0.0,0.0],
+          "offset": 0.25,
           "duration": 10
+        }
+      ]
+    },
+    {
+      "variable": "turbineRPMpercent",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turbineRPM",
+          "axis": [0.0,0.0,0.37037]
         }
       ]
     },
@@ -386,8 +396,8 @@
         {
           "animationType": "visibility",
           "variable": "parent_isOnGround",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -434,8 +444,8 @@
         {
           "animationType": "visibility",
           "variable": "parent_isOnGround",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -481,8 +491,8 @@
         {
           "animationType": "visibility",
           "variable": "parent_isOnGround",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -883,23 +893,18 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_temp",
-            "clampMin": 30.0,
-            "clampMax": 1000.0
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 600
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_running",
-            "axis": [0.0,-0.75,0.0]
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_temp",
-            "axis": [0.0,0.5,0.0],
-            "offset": -15.0,
-            "clampMax": 1.0
+            "axis": [0.0,-0.75,0.0],
+            "offset": 1.0
           }
         ],
         "pitchAnimations": [
@@ -921,9 +926,9 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "middleDistance": 16.0,
-        "middleDistanceVolume": 0.5,
-        "maxDistance": 24.0,
+        "middleDistance": 12.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 32.0,
         "maxDistanceVolume": 0.0
       },
       {
@@ -931,20 +936,20 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "parent_damage_totaled"
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 100
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
           },
           {
             "animationType": "visibility",
             "variable": "parent_damage_percent",
             "clampMin": 0.75,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_powered",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 100
           }
         ],
         "volumeAnimations": [
@@ -978,18 +983,18 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "parent_damage_totaled"
+            "variable": "engine_powered",
+            "reverseDelay": 100
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
           },
           {
             "animationType": "visibility",
             "variable": "parent_damage_percent",
             "clampMin": 0.75,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_powered",
-            "reverseDelay": 100
           }
         ],
         "minDistance": 0.0,
@@ -1007,6 +1012,20 @@
             "variable": "engine_jumper_cable",
             "clampMin": 1.0,
             "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "tick_sin",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": -0.0375
           }
         ],
         "minDistance": 0.0,
@@ -1247,6 +1266,12 @@
             "variable": "engine_rpm_percent_safe",
             "axis": [0.0,0.25,0.0],
             "offset": 0.25
+          },
+          {
+            "animationType": "translation",
+            "variable": "BOOST",
+            "axis": [0.0,-0.25,0.0],
+            "duration": 5
           }
         ],
         "pitchAnimations": [
@@ -1304,6 +1329,12 @@
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
             "axis": [0.0,-0.25,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "BOOST",
+            "axis": [0.0,-0.0625,0.0],
+            "duration": 5
           }
         ],
         "pitchAnimations": [
@@ -1351,6 +1382,12 @@
             "variable": "engine_rpm_percent_safe",
             "axis": [0.0,-0.5,0.0],
             "offset": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "BOOST",
+            "axis": [0.0,-0.0625,0.0],
+            "duration": 5
           }
         ],
         "pitchAnimations": [
@@ -1403,6 +1440,12 @@
             "variable": "engine_rpm_percent_safe",
             "axis": [0.0,1.0,0.0],
             "offset": -0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "BOOST",
+            "axis": [0.0,-0.125,0.0],
+            "duration": 5
           }
         ],
         "pitchAnimations": [
@@ -1439,8 +1482,8 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "turbineRPM",
-            "axis": [0.0,0.625,0.0],
+            "variable": "turbineRPMpercent",
+            "axis": [0.0,0.875,0.0],
             "offset": -0.125
           }
         ],
@@ -1487,20 +1530,10 @@
         "toScale": 0.8,
         "hitboxSize": 0.2,
         "color": "FFFFFF",
-        "pos": [0.0,0.0,0.75],
-        "spreadRandomness": [0.0,0.5,1.0],
-        "initialVelocity": [0.0,0.25,0.25],
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,0.375],
+        "initialVelocity": [0.0,0.0,0.375],
         "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.875,
-            "clampMax": 1.0
-          },
           {
             "animationType": "visibility",
             "variable": "2_4_2_cycle",
@@ -1513,6 +1546,16 @@
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 40
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.875,
+            "clampMax": 1.0
           }
         ]
       },
@@ -1528,20 +1571,10 @@
         "toScale": 1.6,
         "hitboxSize": 0.2,
         "color": "555555",
-        "pos": [0.0,0.0,0.75],
-        "spreadRandomness": [0.0,1.0,4.0],
-        "initialVelocity": [0.0,0.0,0.5],
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,1.0],
+        "initialVelocity": [0.0,0.0,1.5],
         "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.75,
-            "clampMax": 1.0
-          },
           {
             "animationType": "visibility",
             "variable": "1_2_1_cycle",
@@ -1553,7 +1586,17 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "reverseDelay": 90
+            "reverseDelay": 40
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
           }
         ]
       },
@@ -1569,24 +1612,24 @@
         "toScale": 2.4,
         "hitboxSize": 0.2,
         "color": "888888",
-        "pos": [0.0,0.0,0.75],
+        "pos": [0.0,0.0,0.625],
         "spreadRandomness": [0.0,1.0,6.0],
         "initialVelocity": [0.0,0.0,0.75],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "parent_damage_totaled"
+            "variable": "engine_powered",
+            "reverseDelay": 100
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
           },
           {
             "animationType": "visibility",
             "variable": "parent_damage_percent",
             "clampMin": 0.75,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_powered",
-            "reverseDelay": 100
           }
         ]
       },
@@ -1596,16 +1639,16 @@
         "renderingOrientation": "player",
         "quantity": 8,
         "duration": 10,
-        "transparency": 2.0,
+        "transparency": 5.0,
         "toTransparency": -1.0E-4,
-        "scale": 0.075,
-        "toScale": 0.125,
-        "hitboxSize": 0.2,
+        "scale": 0.025,
+        "toScale": 0.05,
+        "hitboxSize": 0.1,
         "texture": "ivv:textures/particles/pattern2.png",
         "color": "EDAC28",
         "pos": [0.0,0.25,0.375],
-        "spreadRandomness": [0.0,0.5,3.75],
-        "initialVelocity": [0.0,0.625,0.375],
+        "spreadRandomness": [0.25,0.5,0.25],
+        "initialVelocity": [0.0,0.625,0.125],
         "movementVelocity": [0.0,-0.01,0.0],
         "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [

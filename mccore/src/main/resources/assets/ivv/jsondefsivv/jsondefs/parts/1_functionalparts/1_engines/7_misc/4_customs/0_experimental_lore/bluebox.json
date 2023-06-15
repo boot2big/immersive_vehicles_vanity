@@ -45,6 +45,9 @@
       ]
     }
   ],
+  "constantValues": {
+    "ivv_timerotor": 1.0
+  },
   "rendering": {
     "lightObjects": [
       {
@@ -156,7 +159,6 @@
         ]
       }
     ],
-    "constants": ["ivv_timerotor"],
     "sounds": [
       {
         "name": "ivv:blueboxambientshort",
@@ -179,7 +181,11 @@
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:enginesputter1",
@@ -201,7 +207,11 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:crankmedian2start",
@@ -214,7 +224,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:crankmedian2",
@@ -249,7 +263,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:crankmedian2stop",
@@ -260,7 +278,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:transmissionmanualgrinding",
@@ -282,7 +304,11 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:transmissionmanualshiftup",
@@ -296,7 +322,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:transmissionmanualshiftdown",
@@ -310,7 +340,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:engineoverrev",
@@ -341,7 +375,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:enginehourrattle",
@@ -392,7 +430,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:blueboxtick",
@@ -448,7 +490,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:i4load",
@@ -489,7 +535,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:blueboxgroan",
@@ -525,14 +575,21 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 0.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
+        "hitboxSize": 0.2,
         "color": "000000",
         "activeAnimations": [
           {
@@ -552,8 +609,11 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
-        "scale": 2.5,
+        "scale": 0.5,
+        "hitboxSize": 0.2,
         "color": "000000",
         "activeAnimations": [
           {
@@ -576,14 +636,22 @@
   "general": {
     "name": "IVLabs ''BlueBox'' Experimental Motor §9(Automatic)",
     "description": "1.8L12V Experimental IVLabs Motor\nExperimental ''fuel conservation'' self-propelled temporal dilation engine using human-attainable resources and engineering, while being feasibly mass-producable\nExperiment Results: Failure due to insufficient temperature management, lack of reliability in Earth-based engineering, and political sabotage",
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
-      ["mts:ivv.engineblock:0:1","minecraft:ender_pearl:0:4","minecraft:nether_star:0:1","mts:ivv.gearboxauto:0:1"]
+      [
+        "mts:ivv.engineblock:0:1",
+        "minecraft:ender_pearl:0:4",
+        "minecraft:nether_star:0:1",
+        "mts:ivv.gearboxauto:0:1"
+      ]
     ],
     "repairMaterialLists": [
-      ["mts:ivv.oilcan:0:1","mts:ivv.tape:0:1"]
-    ]
+      [
+        "mts:ivv.oilcan:0:1",
+        "mts:ivv.tape:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }
