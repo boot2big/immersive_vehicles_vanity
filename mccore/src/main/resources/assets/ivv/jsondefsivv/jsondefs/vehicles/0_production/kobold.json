@@ -51,6 +51,18 @@
       "defaultPart": "ivv:rockseat",
       "types": [
         "seat_invisible"
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 7
+        }
       ]
     },
     {
@@ -229,6 +241,15 @@
       "hudX": 345,
       "hudY": 104,
       "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 358,
+      "hudY": 106,
+      "hudScale": 0.5,
+      "placeOnPanel": true,
+      "defaultInstrument": "ivv:classicodomiles"
     }
   ],
   "definitions": [
@@ -332,12 +353,22 @@
       ]
     },
     {
+      "variable": "vehicle_canhold_seat_luggage",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!you_have_pizza_face",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "vehicle_size",
       "animations": [
         {
           "animationType": "translation",
           "variable": "!bike",
-          "axis": [0.0,0.0,-0.15]
+          "axis": [0.0,0.0,-0.5]
         }
       ]
     },
@@ -1167,7 +1198,8 @@
         "mts:ivv.v4smallfry:0:1",
         "mts:ivv.classicfuel:0:1",
         "mts:ivv.classicmphround:0:1",
-        "mts:ivv.classicgear:0:1"
+        "mts:ivv.classicgear:0:1",
+        "mts:ivv.classicodomiles:0:1"
       ]
     ],
     "repairMaterialLists": [

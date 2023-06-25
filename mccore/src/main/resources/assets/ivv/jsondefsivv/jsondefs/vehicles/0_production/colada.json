@@ -9,7 +9,6 @@
     "defaultFuelQty": 20000,
     "downForce": 0.65,
     "overSteer": 6.0,
-    "underSteer": 0.5,
     "overSteerAccel": 6.0,
     "axleRatio": 2.5,
     "brakingFactor": 3.0,
@@ -106,7 +105,7 @@
     {
       "pos": [0.0,0.2875,0.775],
       "isPermanent": true,
-      "partScale": [0.875,0.875,0.875],
+      "partScale": [0.9375,0.9375,0.9375],
       "defaultPart": "ivv:rockseat",
       "types": [
         "seat_invisible"
@@ -116,12 +115,24 @@
           "hatch_rearleft",
           "hatch_rearright"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
       "pos": [0.65625,0.2875,0.775],
       "isPermanent": true,
-      "partScale": [0.875,0.875,0.875],
+      "partScale": [0.9375,0.9375,0.9375],
       "defaultPart": "ivv:rockseat",
       "types": [
         "seat_invisible"
@@ -130,12 +141,24 @@
         [
           "hatch_rearleft"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
       "pos": [-0.65625,0.2875,0.775],
       "isPermanent": true,
-      "partScale": [0.875,0.875,0.875],
+      "partScale": [0.9375,0.9375,0.9375],
       "defaultPart": "ivv:rockseat",
       "types": [
         "seat_invisible"
@@ -144,6 +167,18 @@
         [
           "hatch_rearright"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -173,6 +208,18 @@
         [
           "hatch_frontright"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -187,7 +234,19 @@
           "hatch_frontleft"
         ]
       ],
-      "linkedParts": [5]
+      "linkedParts": [5],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
+      ]
     },
     {
       "pos": [0.0,0.2,3.6],
@@ -520,6 +579,34 @@
       "types": [
         "generic_ornament_mirror"
       ]
+    },
+    {
+      "pos": [0.59375,-0.140625,-1.40625],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 4.0,
+      "partScale": [0.32,0.32,0.32],
+      "defaultPart": "ivv:particle_exhaust",
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "engine_exhaust"
+      ]
+    },
+    {
+      "pos": [0.0,0.675,5.3],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 4.0,
+      "partScale": [0.875,0.875,0.875],
+      "defaultPart": "ivv:radiator",
+      "types": [
+        "generic_radiator"
+      ],
+      "interactableVariables": [
+        [
+          "hatch_hood"
+        ]
+      ]
     }
   ],
   "collisionGroups": [
@@ -623,8 +710,8 @@
           "variable": "flBodyroll",
           "centerPoint": [1.375,0.81255,1.8125],
           "axis": [0.0,-8.0,0.0],
-          "clampMin": -10.0,
-          "clampMax": 5.0
+          "clampMin": -20.0,
+          "clampMax": 10.0
         }
       ]
     },
@@ -721,8 +808,8 @@
           "variable": "flBodyroll",
           "centerPoint": [1.375,0.81255,3.375],
           "axis": [0.0,-8.0,0.0],
-          "clampMin": -10.0,
-          "clampMax": 5.0
+          "clampMin": -20.0,
+          "clampMax": 10.0
         }
       ]
     },
@@ -826,8 +913,8 @@
           "variable": "frBodyroll",
           "centerPoint": [-1.375,0.81255,1.8125],
           "axis": [0.0,-8.0,0.0],
-          "clampMin": -5.0,
-          "clampMax": 10.0
+          "clampMin": -10.0,
+          "clampMax": 20.0
         }
       ]
     },
@@ -924,8 +1011,8 @@
           "variable": "frBodyroll",
           "centerPoint": [-1.375,0.81255,3.375],
           "axis": [0.0,-8.0,0.0],
-          "clampMin": -5.0,
-          "clampMax": 10.0
+          "clampMin": -10.0,
+          "clampMax": 20.0
         }
       ]
     },
@@ -1227,6 +1314,166 @@
           "pos": [1.2,0.6,5.4],
           "width": 0.25,
           "height": 0.25
+        },
+        {
+          "pos": [0.5,0.0,-1.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.0,-1.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.0,-0.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.0,-0.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.0,-0.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,0.0,0.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.0,0.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.0,0.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.0,0.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.0,0.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,0.0,1.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.0,1.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.0,1.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.0,1.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.0,1.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,0.0,2.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.0,2.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.0,2.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.0,2.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.0,2.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,0.0,3.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.0,3.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.0,3.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.0,3.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.0,3.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,0.0,4.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.0,4.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [1.0,0.0,4.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.0,0.0,4.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-1.0,0.0,4.5],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [0.5,0.0,5.0],
+          "width": 0.5,
+          "height": 0.25
+        },
+        {
+          "pos": [-0.5,0.0,5.0],
+          "width": 0.5,
+          "height": 0.25
         }
       ]
     },
@@ -1281,6 +1528,116 @@
           "pos": [-0.5,1.7,2.7],
           "width": 0.5,
           "height": 0.25
+        }
+      ]
+    },
+    {
+      "collisions": [
+        {
+          "pos": [1.275,0.01,-0.0625],
+          "width": 0.375,
+          "height": 0.25
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_2"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "rBodyroll",
+          "centerPoint": [0.0,0.0,-0.0625],
+          "axis": [0.0,0.0,2.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rBodyTranslation",
+          "axis": [0.0,0.125,0.0]
+        }
+      ]
+    },
+    {
+      "collisions": [
+        {
+          "pos": [-1.275,0.01,-0.0625],
+          "width": 0.375,
+          "height": 0.25
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "rBodyroll",
+          "centerPoint": [0.0,0.0,-0.0625],
+          "axis": [0.0,0.0,2.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rBodyTranslation",
+          "axis": [0.0,0.125,0.0]
+        }
+      ]
+    },
+    {
+      "collisions": [
+        {
+          "pos": [1.275,0.01,4.3125],
+          "width": 0.375,
+          "height": 0.25
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_4"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "flBodyroll",
+          "clampMin": -0.0625,
+          "clampMax": 0.0625
+        },
+        {
+          "animationType": "rotation",
+          "variable": "flBodyroll",
+          "centerPoint": [1.0E-8,-0.1875,4.3125],
+          "axis": [0.0,0.0,4.0],
+          "clampMin": -8.0,
+          "clampMax": 4.0
+        }
+      ]
+    },
+    {
+      "collisions": [
+        {
+          "pos": [-1.275,0.01,4.3125],
+          "width": 0.375,
+          "height": 0.25
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_3"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "frBodyroll",
+          "clampMin": -0.0625,
+          "clampMax": 0.0625
+        },
+        {
+          "animationType": "rotation",
+          "variable": "frBodyroll",
+          "centerPoint": [1.0E-8,-0.1875,4.3125],
+          "axis": [0.0,0.0,4.0],
+          "clampMin": -4.0,
+          "clampMax": 8.0
         }
       ]
     }
@@ -1365,6 +1722,15 @@
       "hudX": 345,
       "hudY": 104,
       "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 358,
+      "hudY": 106,
+      "hudScale": 0.5,
+      "placeOnPanel": true,
+      "defaultInstrument": "ivv:classicodomiles"
     }
   ],
   "definitions": [
@@ -1720,7 +2086,7 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,4,0.0]
+          "axis": [0.0,4.0,0.0]
         },
         {
           "animationType": "translation",
@@ -1801,7 +2167,7 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,-4,0.0]
+          "axis": [0.0,-4.0,0.0]
         },
         {
           "animationType": "translation",
@@ -1844,7 +2210,7 @@
         {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,4,0.0]
+          "axis": [0.0,4.0,0.0]
         },
         {
           "animationType": "translation",
@@ -4174,176 +4540,6 @@
             "clampMax": 1.0
           }
         ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.59375,-0.140625,-1.40625],
-        "initialVelocity": [0.125,-0.125,-0.25],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_1_6_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.59375,-0.140625,-1.40625],
-        "initialVelocity": [0.125,-0.125,-0.25],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_2_6_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.59375,-0.140625,-1.40625],
-        "initialVelocity": [0.125,-0.125,-0.25],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_3_6_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.59375,-0.140625,-1.40625],
-        "initialVelocity": [0.125,-0.125,-0.25],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_4_6_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.59375,-0.140625,-1.40625],
-        "initialVelocity": [0.125,-0.125,-0.25],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_5_6_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.59375,-0.140625,-1.40625],
-        "initialVelocity": [0.125,-0.125,-0.25],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_6_6_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 5,
-        "scale": 0.5,
-        "hitboxSize": 0.2,
-        "color": "000000",
-        "pos": [0.59375,-0.140625,-1.40625],
-        "initialVelocity": [0.25,-0.25,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_backfired_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 2,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/muzzleflash.png",
-        "color": "FFFFFF",
-        "pos": [0.59375,-0.140625,-1.40625],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_revlimit_backfire_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
       }
     ],
     "modelType": "obj"
@@ -4361,7 +4557,8 @@
         "mts:ivv.v6:0:1",
         "mts:ivv.fueltemp:0:1",
         "mts:ivv.mph:0:1",
-        "mts:ivv.oilpower:0:1"
+        "mts:ivv.oilpower:0:1",
+        "mts:ivv.classicodomiles:0:1"
       ]
     ],
     "repairMaterialLists": [

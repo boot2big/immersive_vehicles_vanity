@@ -9,7 +9,6 @@
     "defaultFuelQty": 17500,
     "downForce": 0.65,
     "overSteer": 4.0,
-    "underSteer": 0.375,
     "overSteerAccel": 4.0,
     "axleRatio": 2.25,
     "brakingFactor": 3.0,
@@ -115,6 +114,18 @@
         [
           "door_right"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -140,6 +151,18 @@
         [
           "door_left"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -165,6 +188,18 @@
         [
           "door_right"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -191,6 +226,18 @@
         [
           "door_left"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -501,7 +548,7 @@
           "axis": [-60.0,0.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -615,7 +662,7 @@
           "axis": [80.0,0.0,0.0],
           "duration": 20,
           "forwardsEasing": "easeinoutcubic",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -673,7 +720,7 @@
           "axis": [0.0,-55.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -731,7 +778,7 @@
           "axis": [0.0,55.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -1174,6 +1221,15 @@
       "hudX": 345,
       "hudY": 104,
       "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 358,
+      "hudY": 106,
+      "hudScale": 0.5,
+      "placeOnPanel": true,
+      "defaultInstrument": "ivv:odo"
     }
   ],
   "definitions": [
@@ -1503,7 +1559,7 @@
             "axis": [-60.0,0.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutelastic",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:hoodopen3",
             "reverseEndSound": "ivv:hoodclose3"
           }
@@ -1519,7 +1575,7 @@
             "axis": [80.0,0.0,0.0],
             "duration": 20,
             "forwardsEasing": "easeinoutcubic",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:trunkopen4",
             "reverseEndSound": "ivv:trunkclose4"
           }
@@ -1535,7 +1591,7 @@
             "axis": [0.0,-55.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen4",
             "reverseEndSound": "ivv:doorclose4"
           }
@@ -1551,7 +1607,7 @@
             "axis": [0.0,55.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen4",
             "reverseEndSound": "ivv:doorclose4"
           }
@@ -3167,7 +3223,8 @@
         "mts:ivv.v4performantemanual:0:1",
         "mts:ivv.fueltempbattoil:0:1",
         "mts:ivv.tach:0:1",
-        "mts:ivv.mph:0:1"
+        "mts:ivv.mph:0:1",
+        "mts:ivv.odo:0:1"
       ]
     ],
     "repairMaterialLists": [

@@ -1,0 +1,195 @@
+{
+  "generic": {
+    "type": "generic_radiator",
+    "forwardsDamage": false,
+    "mustBeRemovedByScrewdriver": false,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.5,
+    "height": 0.5
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Radiator",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "pos": [0.25,-0.75,-0.0625],
+      "maxValue": 4.0,
+      "partScale": [0.48,0.48,0.48],
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "drip"
+      ],
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "vehicle_radiator_size"
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_radiator_size",
+          "axis": [0.0,-0.125,0.0],
+          "offset": -0.625
+        }
+       ]
+    },
+    {
+      "pos": [-0.25,-0.75,-0.0625],
+      "isMirrored": true,
+      "maxValue": 4.0,
+      "partScale": [0.48,0.48,0.48],
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "drip"
+      ],
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "vehicle_radiator_size"
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_radiator_size",
+          "axis": [0.0,-0.125,0.0],
+          "offset": -0.625
+        }
+       ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "particle_constant_halfspeed",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!i_regret_nothing",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "part_coolingCoefficientMultiplier",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.0,0.0,-0.5],
+          "offset": 1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": []
+      },
+      {
+        "objectName": "lvl1",
+        "applyAfter": "cube",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "vehicle_radiator_size"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_radiator_size",
+          "clampMin": 2.0,
+          "clampMax": 5.0
+        }
+       ]
+      },
+      {
+        "objectName": "lvl2",
+        "applyAfter": "lvl1",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "vehicle_radiator_size"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_radiator_size",
+          "clampMin": 3.0,
+          "clampMax": 5.0
+        }
+       ]
+      },
+      {
+        "objectName": "lvl3",
+        "applyAfter": "lvl2",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "vehicle_radiator_size"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_radiator_size",
+          "clampMin": 4.0,
+          "clampMax": 5.0
+        }
+       ]
+      },
+      {
+        "objectName": "lvl4",
+        "applyAfter": "lvl3",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "vehicle_radiator_size"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_radiator_size",
+          "clampMin": 5.0,
+          "clampMax": 5.0
+        }
+       ]
+      },
+      {
+        "objectName": "end",
+        "applyAfter": "cube",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "vehicle_radiator_size"
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_radiator_size",
+          "axis": [0.0,-0.125,0.0],
+          "offset": -0.625
+        }
+       ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Radiator",
+    "stackSize": 64,
+    "health": 400,
+    "materialLists": [
+      [
+        "oredict:ingotIron:4",
+        "oredict:nuggetIron:18"
+      ]
+    ],
+    "radarWidth": 32.0,
+    "radarRange": 180.0
+  }
+}

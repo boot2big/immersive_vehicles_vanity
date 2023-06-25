@@ -1,6 +1,7 @@
 {
   "generic": {
     "type": "ground_wheel",
+    "forwardsDamageMultiplier": 0.0,
     "mass": 235,
     "movementAnimations": [
       {
@@ -16,6 +17,7 @@
     "width": 0.5,
     "height": 1.975,
     "flatHeight": 1.06,
+    "climbHeight": 1.5,
     "motiveFriction": 0.6,
     "lateralFriction": 0.6,
     "extraCollisionBoxOffset": 0.15,
@@ -62,10 +64,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "mts:wheel_striking",
@@ -80,10 +82,10 @@
         "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:tirescraping",
@@ -128,10 +130,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:tirerolling",
@@ -174,10 +176,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:tirerollingrain",
@@ -226,10 +228,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "mts:wheel_skidding",
@@ -284,16 +286,19 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
+        "hitboxSize": 0.2,
         "color": "FFFFFF",
         "initialVelocity": [0.0,0.15,0.0],
         "spawningAnimations": [
@@ -316,7 +321,10 @@
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
+        "hitboxSize": 0.2,
         "color": "FFFFFF",
         "pos": [0.0,-0.987500011920929,0.0],
         "initialVelocity": [0.0,0.15,0.0],
@@ -340,8 +348,11 @@
       {
         "type": "break",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
-        "scale": 0.3,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
         "color": "999999",
         "pos": [0.0,-0.987500011920929,0.0],
         "initialVelocity": [0.0,1.5,-1.5],
@@ -365,8 +376,11 @@
       {
         "type": "break",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 4,
-        "scale": 0.3,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
         "color": "999999",
         "pos": [0.0,-0.987500011920929,0.0],
         "initialVelocity": [0.0,1.5,0.0],
@@ -394,11 +408,19 @@
     "name": "Giant Wheel (Worn)",
     "description": "Only fits on lift kits, and the Trin Gorgantom\n§r§cRisk of hydroplaning or popped tire!§r",
     "stackSize": 64,
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 470,
     "materialLists": [
-      ["mts:ivv.1gianttire:0:1","minecraft:dirt:0:2"]
-    ]
+      [
+        "mts:ivv.1gianttire:0:1",
+        "minecraft:dirt:0:2"
+      ]
+    ],
+    "repairMaterialLists": [
+      [
+        "mts:ivv.rubber:0:15"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

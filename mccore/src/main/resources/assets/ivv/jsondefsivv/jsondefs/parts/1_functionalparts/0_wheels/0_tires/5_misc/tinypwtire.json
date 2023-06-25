@@ -1,6 +1,7 @@
 {
   "generic": {
     "type": "ground_wheel",
+    "forwardsDamageMultiplier": 0.0,
     "movementAnimations": [
       {
         "animationType": "rotation",
@@ -14,6 +15,7 @@
     "isWheel": true,
     "width": 0.2,
     "height": 0.445,
+    "climbHeight": 1.5,
     "motiveFriction": 0.6,
     "lateralFriction": 0.75,
     "frictionModifiers": {
@@ -72,8 +74,11 @@
       {
         "type": "break",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 3,
-        "scale": 0.5,
+        "scale": 0.05,
+        "hitboxSize": 0.1,
         "color": "A0A0A0",
         "pos": [0.0,-0.2224999964237213,0.0],
         "initialVelocity": [0.0,1.0,-0.75],
@@ -89,8 +94,11 @@
       {
         "type": "break",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 3,
-        "scale": 0.5,
+        "scale": 0.05,
+        "hitboxSize": 0.1,
         "color": "A0A0A0",
         "pos": [0.0,-0.2224999964237213,0.0],
         "initialVelocity": [0.0,1.5,0.0],
@@ -106,8 +114,11 @@
       {
         "type": "break",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 3,
-        "scale": 0.5,
+        "scale": 0.05,
+        "hitboxSize": 0.1,
         "color": "A0A0A0",
         "pos": [0.0,-0.2224999964237213,0.0],
         "initialVelocity": [0.0,1.0,-0.75],
@@ -127,11 +138,18 @@
     "name": "Power Wheels... Wheel",
     "description": "A Power Wheel, for your Power Wheels, steered by the Power Steering Wheel\nUsed for crafting the Powerwheels Wrangler",
     "stackSize": 64,
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:4"]
-    ]
+      [
+        "oredict:ingotIron:4"
+      ]
+    ],
+    "repairMaterialLists": [
+      [
+        "oredict:ingotIron:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

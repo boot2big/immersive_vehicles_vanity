@@ -1,7 +1,7 @@
 {
   "generic": {
     "type": "engine_car",
-    "forwardsDamageMultiplier": 4.0,
+    "forwardsDamageMultiplier": 1.0,
     "width": 0.75,
     "height": 0.625,
     "mass": 120,
@@ -154,6 +154,29 @@
           "variable": "parent_bench_status",
           "clampMin": 1.0,
           "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,-0.125,0.2875],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "partScale": [0.48,0.48,0.48],
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "drip"
+      ],
+      "interactableVariables": [
+        [
+          "!parent_bench_status"
+        ]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status"
         }
       ]
     }
@@ -629,6 +652,33 @@
         "maxDistanceVolume": 0.0
       },
       {
+        "name": "ivv:enginesputterfuel",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "fuel"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_running"
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 64.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
         "name": "ivv:transmissionfailshift1",
         "soundVariations": [
           "ivv:transmissionfailshift1",
@@ -823,6 +873,75 @@
             "axis": [0.0,0.25,0.0],
             "offset": 0.75,
             "duration": 20
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:engineclunk",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 20
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.875,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_hours",
+            "clampMin": 500.0,
+            "clampMax": 999999.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_powered",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,-0.375,0.0],
+            "duration": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,-0.375,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,-0.25,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,1,0.0],
+            "offset": 0.9375
+          },
+          {
+            "animationType": "translation",
+            "variable": "tick_sin",
+            "axis": [0.0,0.0625,0.0]
           }
         ],
         "looping": true,
@@ -1094,8 +1213,7 @@
             "animationType": "visibility",
             "variable": "engine_powered",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 40
+            "clampMax": 1.0
           },
           {
             "animationType": "inhibitor",
@@ -1136,7 +1254,7 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "reverseDelay": 40
+            "reverseDelay": 100
           },
           {
             "animationType": "inhibitor",
@@ -1194,7 +1312,7 @@
         "scale": 0.025,
         "toScale": 0.05,
         "hitboxSize": 0.1,
-        "texture": "ivv:textures/particles/pattern2.png",
+        "texture": "ivv:textures/particles/pattern7.png",
         "color": "EDAC28",
         "pos": [0.0,0.25,0.375],
         "spreadRandomness": [0.25,0.5,0.25],

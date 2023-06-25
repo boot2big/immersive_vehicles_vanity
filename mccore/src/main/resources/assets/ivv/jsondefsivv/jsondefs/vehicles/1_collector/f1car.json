@@ -5,8 +5,8 @@
     "fuelCapacity": 10000,
     "defaultFuelQty": 10000,
     "downForce": 0.7,
-    "overSteer": 4.0,
-    "overSteerAccel": 8.0,
+    "overSteer": 5.0,
+    "overSteerAccel": 5.0,
     "axleRatio": 2.25,
     "brakingFactor": 2.0,
     "maxTiltAngle": -2.0,
@@ -110,6 +110,18 @@
       "defaultPart": "ivv:carseat",
       "types": [
         "seat"
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -161,6 +173,33 @@
       "partScale": [1.0,1.0,1.0],
       "types": [
         "generic_hitch_mount"
+      ]
+    },
+    {
+      "pos": [0.34375,0.05469,-0.9375],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 4.0,
+      "partScale": [0.32,0.32,0.32],
+      "defaultPart": "ivv:particle_exhaust",
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "engine_exhaust"
+      ]
+    },
+    {
+      "pos": [-0.34375,0.05469,-0.9375],
+      "rot": [0.0,180.0,0.0],
+      "isMirrored": true,
+      "maxValue": 4.0,
+      "partScale": [0.32,0.32,0.32],
+      "defaultPart": "ivv:particle_exhaust",
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "engine_exhaust"
       ]
     }
   ],
@@ -219,7 +258,7 @@
           "axis": [55.0,0.0,0.0],
           "duration": 25,
           "forwardsEasing": "easeoutcubic",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -335,6 +374,15 @@
       "hudX": 345,
       "hudY": 104,
       "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 358,
+      "hudY": 106,
+      "hudScale": 0.5,
+      "placeOnPanel": true,
+      "defaultInstrument": "ivv:classicodomiles"
     }
   ],
   "definitions": [
@@ -393,6 +441,12 @@
       ]
     }
   ],
+  "constantValues": {
+    "vehicle_size": -0.05,
+    "vehicle_intake_fc": 1.0,
+    "vehicle_hitch_offset_present": 1.0,
+    "vehicle_hitch_offset": 12.25
+  },
   "initialVariables": [],
   "variableModifiers": [
     {
@@ -416,7 +470,7 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "!remove_exclaimation_mark_if_vehicle_has_abs",
+          "variable": "!vehicle_has_abs",
           "axis": [0.0,0.0,1.0]
         },
         {
@@ -447,26 +501,6 @@
           "variable": "speed",
           "axis": [1.0,0.0,0.0],
           "clampMax": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "vehicle_hitch_offset_present",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "!uwa",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "vehicle_hitch_offset",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "!uwa",
-          "axis": [0.0,0.0,12.25]
         }
       ]
     },
@@ -1096,7 +1130,7 @@
             "axis": [55.0,0.0,0.0],
             "duration": 25,
             "forwardsEasing": "easeoutcubic",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:hoodopen1",
             "reverseEndSound": "ivv:hoodclose1"
           }
@@ -1664,273 +1698,6 @@
             "clampMax": 1.0
           }
         ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.5,
-        "toTransparency": 0.125,
-        "scale": 0.2,
-        "hitboxSize": 0.2,
-        "color": "C9C9C9",
-        "pos": [-0.34375,0.05469,-0.9375],
-        "initialVelocity": [-0.1,0.5,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_2_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.5,
-        "toTransparency": 0.125,
-        "scale": 0.2,
-        "hitboxSize": 0.2,
-        "color": "C9C9C9",
-        "pos": [-0.34375,0.05469,-0.9375],
-        "initialVelocity": [-0.1,0.5,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_4_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.5,
-        "toTransparency": 0.125,
-        "scale": 0.2,
-        "hitboxSize": 0.2,
-        "color": "C9C9C9",
-        "pos": [-0.34375,0.05469,-0.9375],
-        "initialVelocity": [-0.1,0.5,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_6_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.5,
-        "toTransparency": 0.125,
-        "scale": 0.2,
-        "hitboxSize": 0.2,
-        "color": "C9C9C9",
-        "pos": [-0.34375,0.05469,-0.9375],
-        "initialVelocity": [-0.1,0.5,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_8_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 5,
-        "scale": 0.5,
-        "hitboxSize": 0.2,
-        "color": "000000",
-        "pos": [-0.34375,0.05469,-0.9375],
-        "initialVelocity": [-0.2,1.0,-1.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_backfired_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 2,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/muzzleflash.png",
-        "color": "FFFFFF",
-        "pos": [-0.34375,0.05469,-0.9375],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "random",
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_revlimit_backfire_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.5,
-        "toTransparency": 0.125,
-        "scale": 0.2,
-        "hitboxSize": 0.2,
-        "color": "C9C9C9",
-        "pos": [0.34375,0.05469,-0.9375],
-        "initialVelocity": [0.1,0.5,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_1_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.5,
-        "toTransparency": 0.125,
-        "scale": 0.2,
-        "hitboxSize": 0.2,
-        "color": "C9C9C9",
-        "pos": [0.34375,0.05469,-0.9375],
-        "initialVelocity": [0.1,0.5,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_3_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.5,
-        "toTransparency": 0.125,
-        "scale": 0.2,
-        "hitboxSize": 0.2,
-        "color": "C9C9C9",
-        "pos": [0.34375,0.05469,-0.9375],
-        "initialVelocity": [-0.1,0.5,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_5_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.5,
-        "toTransparency": 0.125,
-        "scale": 0.2,
-        "hitboxSize": 0.2,
-        "color": "C9C9C9",
-        "pos": [0.34375,0.05469,-0.9375],
-        "initialVelocity": [-0.1,0.5,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_7_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 5,
-        "scale": 0.5,
-        "hitboxSize": 0.2,
-        "color": "000000",
-        "pos": [0.34375,0.05469,-0.9375],
-        "initialVelocity": [0.2,1.0,-1.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_backfired_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 2,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/muzzleflash.png",
-        "color": "FFFFFF",
-        "pos": [0.34375,0.05469,-0.9375],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "random",
-            "clampMin": 0.5,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_revlimit_backfire_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
       }
     ],
     "modelType": "obj"
@@ -1948,7 +1715,8 @@
         "mts:ivv.v8insolvo:0:1",
         "mts:ivv.classicfuel:0:1",
         "mts:ivv.classicmph:0:1",
-        "mts:ivv.classictemp:0:1"
+        "mts:ivv.classictemp:0:1",
+        "mts:ivv.classicodomiles:0:1"
       ]
     ],
     "repairMaterialLists": [
