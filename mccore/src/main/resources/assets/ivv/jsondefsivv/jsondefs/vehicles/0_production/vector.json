@@ -10,7 +10,6 @@
     "defaultFuelQty": 22500,
     "downForce": 0.65,
     "overSteer": 6.0,
-    "underSteer": 0.375,
     "overSteerAccel": 6.0,
     "axleRatio": 2.5,
     "brakingFactor": 3.0,
@@ -134,6 +133,18 @@
         [
           "hatch_left"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -147,6 +158,18 @@
         [
           "hatch_right"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -161,6 +184,18 @@
         [
           "hatch_right"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -188,6 +223,18 @@
         [
           "hatch_left"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -396,6 +443,75 @@
       "maxValue": 1.0,
       "types": [
         "generic_ornament_mirror"
+      ]
+    },
+    {
+      "pos": [0.84375,-0.10156,-1.5],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 4.0,
+      "partScale": [0.32,0.32,0.32],
+      "defaultPart": "ivv:particle_exhaust",
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "engine_exhaust"
+      ]
+    },
+    {
+      "pos": [0.59375,-0.10156,-1.5],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 4.0,
+      "partScale": [0.32,0.32,0.32],
+      "defaultPart": "ivv:particle_exhaust",
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "engine_exhaust"
+      ]
+    },
+    {
+      "pos": [-0.59375,-0.10156,-1.5],
+      "rot": [0.0,180.0,0.0],
+      "isMirrored": true,
+      "maxValue": 4.0,
+      "partScale": [0.32,0.32,0.32],
+      "defaultPart": "ivv:particle_exhaust",
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "engine_exhaust"
+      ]
+    },
+    {
+      "pos": [-0.84375,-0.10156,-1.5],
+      "rot": [0.0,180.0,0.0],
+      "isMirrored": true,
+      "maxValue": 4.0,
+      "partScale": [0.32,0.32,0.32],
+      "defaultPart": "ivv:particle_exhaust",
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "engine_exhaust"
+      ]
+    },
+    {
+      "pos": [0.0,0.4,4.4],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 4.0,
+      "partScale": [1.0,1.0,1.0],
+      "defaultPart": "ivv:radiator",
+      "types": [
+        "generic_radiator"
+      ],
+      "interactableVariables": [
+        [
+          "hatch_hood"
+        ]
       ]
     }
   ],
@@ -691,8 +807,8 @@
           "variable": "flBodyroll",
           "centerPoint": [1.25,0.21875,2.3125],
           "axis": [0.0,-8.0,0.0],
-          "clampMin": -10.0,
-          "clampMax": 5.0
+          "clampMin": -20.0,
+          "clampMax": 10.0
         }
       ]
     },
@@ -761,8 +877,8 @@
           "variable": "frBodyroll",
           "centerPoint": [-1.25,0.21875,2.3125],
           "axis": [0.0,-8.0,0.0],
-          "clampMin": -5.0,
-          "clampMax": 10.0
+          "clampMin": -10.0,
+          "clampMax": 20.0
         }
       ]
     },
@@ -1010,6 +1126,15 @@
       "hudX": 345,
       "hudY": 104,
       "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 358,
+      "hudY": 106,
+      "hudScale": 0.5,
+      "placeOnPanel": true,
+      "defaultInstrument": "ivv:odo"
     }
   ],
   "definitions": [
@@ -1124,6 +1249,16 @@
       ]
     },
     {
+      "variable": "vehicle_radiator_size",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!yeah",
+          "axis": [0.0,0.0,3.0]
+        }
+      ]
+    },
+    {
       "variable": "vehicle_has_ac",
       "animations": [
         {
@@ -1227,6 +1362,17 @@
       "animations": [
         {
           "animationType": "visibility",
+          "variable": "vehicle_p_brake_drift",
+          "reverseDelay": 5
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engines_on",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
           "variable": "vehicle_traction_control",
           "clampMin": 1.0,
           "clampMax": 1.0
@@ -1253,7 +1399,7 @@
         },
         {
           "animationType": "visibility",
-          "variable": "5_10_5_cycle",
+          "variable": "1_2_1_cycle",
           "clampMin": 1.0,
           "clampMax": 1.0
         }
@@ -3803,373 +3949,6 @@
             "clampMax": 1.0
           }
         ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [-0.59375,-0.10156,-1.5],
-        "initialVelocity": [0.0,-0.125,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_1_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [-0.59375,-0.10156,-1.5],
-        "initialVelocity": [0.0,-0.125,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_2_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 5,
-        "scale": 0.5,
-        "hitboxSize": 0.2,
-        "color": "000000",
-        "pos": [-0.59375,-0.10156,-1.5],
-        "initialVelocity": [0.0,0.0,-1.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_backfired_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [-0.84375,-0.10156,-1.5],
-        "initialVelocity": [0.0,-0.125,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_5_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [-0.84375,-0.10156,-1.5],
-        "initialVelocity": [0.0,-0.125,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_6_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 5,
-        "scale": 0.5,
-        "hitboxSize": 0.2,
-        "color": "000000",
-        "pos": [-0.84375,-0.10156,-1.5],
-        "initialVelocity": [0.0,0.0,-1.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_backfired_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.59375,-0.10156,-1.5],
-        "initialVelocity": [0.0,-0.125,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_3_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.59375,-0.10156,-1.5],
-        "initialVelocity": [0.0,-0.125,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_4_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 5,
-        "scale": 0.5,
-        "hitboxSize": 0.2,
-        "color": "000000",
-        "pos": [0.59375,-0.10156,-1.5],
-        "initialVelocity": [0.0,0.0,-1.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_backfired_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.84375,-0.10156,-1.5],
-        "initialVelocity": [0.0,-0.125,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_7_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [0.84375,-0.10156,-1.5],
-        "initialVelocity": [0.0,-0.125,-0.5],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_8_8_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 5,
-        "scale": 0.5,
-        "hitboxSize": 0.2,
-        "color": "000000",
-        "pos": [0.84375,-0.10156,-1.5],
-        "initialVelocity": [0.0,0.0,-1.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_backfired_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 2,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/muzzleflash.png",
-        "color": "FFFFFF",
-        "pos": [-0.59375,-0.10156,-1.5],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "random",
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_revlimit_backfire_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 2,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/muzzleflash.png",
-        "color": "FFFFFF",
-        "pos": [-0.84375,-0.10156,-1.5],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "random",
-            "clampMin": 0.5,
-            "clampMax": 0.75
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_revlimit_backfire_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 2,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/muzzleflash.png",
-        "color": "FFFFFF",
-        "pos": [0.59375,-0.10156,-1.5],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "random",
-            "clampMin": 0.25,
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_revlimit_backfire_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 2,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/muzzleflash.png",
-        "color": "FFFFFF",
-        "pos": [0.84375,-0.10156,-1.5],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "random",
-            "clampMin": 0.75,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_revlimit_backfire_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
       }
     ],
     "modelType": "obj"
@@ -4187,7 +3966,8 @@
         "mts:ivv.v8newperformante:0:1",
         "mts:ivv.classicfuel:0:1",
         "mts:ivv.classicmph:0:1",
-        "mts:ivv.classictemp:0:1"
+        "mts:ivv.classictemp:0:1",
+        "mts:ivv.odo:0:1"
       ]
     ],
     "repairMaterialLists": [

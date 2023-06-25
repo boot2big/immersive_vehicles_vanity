@@ -1,7 +1,7 @@
 {
   "generic": {
     "type": "engine_car",
-    "forwardsDamageMultiplier": 4.0,
+    "forwardsDamageMultiplier": 1.0,
     "mass": 400,
     "movementAnimations": [
       {
@@ -152,6 +152,29 @@
           "variable": "parent_bench_status",
           "clampMin": 1.0,
           "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,-0.125,0.2875],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "partScale": [0.48,0.48,0.48],
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "drip"
+      ],
+      "interactableVariables": [
+        [
+          "!parent_bench_status"
+        ]
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status"
         }
       ]
     }
@@ -383,6 +406,11 @@
       "animations": [
         {
           "animationType": "translation",
+          "variable": "parent_vehicle_intake_scfc",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "generic_engine_turbo_power_1",
           "axis": [0.0,1.0,0.0]
         }
@@ -391,6 +419,11 @@
     {
       "variable": "fuelConsumption",
       "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_intake_fc",
+          "axis": [0.0,1.0,0.0]
+        },
         {
           "animationType": "translation",
           "variable": "generic_engine_upgrade_2",
@@ -1207,8 +1240,7 @@
             "animationType": "visibility",
             "variable": "engine_powered",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 40
+            "clampMax": 1.0
           },
           {
             "animationType": "inhibitor",
@@ -1249,7 +1281,7 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "reverseDelay": 40
+            "reverseDelay": 100
           },
           {
             "animationType": "inhibitor",
@@ -1307,7 +1339,7 @@
         "scale": 0.025,
         "toScale": 0.05,
         "hitboxSize": 0.1,
-        "texture": "ivv:textures/particles/pattern2.png",
+        "texture": "ivv:textures/particles/pattern7.png",
         "color": "EDAC28",
         "pos": [0.0,0.25,0.375],
         "spreadRandomness": [0.25,0.5,0.25],

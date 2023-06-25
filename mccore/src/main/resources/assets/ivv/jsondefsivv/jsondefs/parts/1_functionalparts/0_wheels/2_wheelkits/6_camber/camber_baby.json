@@ -1,0 +1,276 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "movementAnimations": [
+      {
+        "animationType": "rotation",
+        "variable": "no_thank_you_legacy_compats_i_think_my_bttf_is_fine_this_way",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,0.0]
+      }
+    ]
+  },
+  "ground": {
+    "isWheel": true,
+    "width": 0.25,
+    "height": 0.375,
+    "frictionModifiers": {}
+  },
+  "parts": [
+    {
+      "pos": [0.0125,0.0,0.0],
+      "maxValue": 0.5,
+      "types": ["ground_wheel"],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "camber_translate",
+          "axis": [0.002777778,0.0,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "camber_value",
+          "centerPoint": [0.0125,0.0,0.0],
+          "axis": [0.0,0.0,-1.0]
+        }
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.125977,0.0,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "camber_flip_translation",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.125977,0.0,0.15625],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "camber_value",
+          "variableType": "increment",
+          "variableValue": -1.0,
+          "clampMin": -30.0,
+          "clampMax": 30.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "camber_value",
+          "clampMin": -29.5,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.125977,0.0,-0.15625],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "camber_value",
+          "variableType": "increment",
+          "variableValue": 1.0,
+          "clampMin": -30.0,
+          "clampMax": 30.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "camber_value",
+          "clampMin": -32767.0,
+          "clampMax": 29.5
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "camber",
+      "textureName": "camber",
+      "name": "Micro Camber Kit",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constants": ["ground_wheel_camber"],
+  "variableModifiers": [
+    {
+      "variable": "vehicle_wheels_locked",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "running_compat",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_running_compat",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_running_1",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "camber_value",
+          "axis": [-0.008333333,0.0,0.0],
+          "offset": 1,
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "camber_translate",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "camber_value",
+          "axis": [0.0,0.0,1.0],
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "camber_flip_translation",
+          "axis": [2.0,0.0,0.0],
+          "offset": -1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.12575,0.025,0.0],
+        "rot": [0.0,90.0,0.0],
+        "scale": 0.125,
+        "variableName": "camber_value",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 0,
+        "attachedTo": "cube"
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      },
+      {
+        "objectName": "up_on",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "camber_value",
+            "clampMin": -32767.0,
+            "clampMax": 29.5
+          }
+        ]
+      },
+      {
+        "objectName": "down_on",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "camber_value",
+            "clampMin": -29.5,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "objectName": "up_off",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "camber_value",
+            "clampMin": 29.5,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "objectName": "down_off",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "camber_value",
+            "clampMin": -32767.0,
+            "clampMax": -29.5
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Cancer Kit",
+    "description": "Slightly buggy, will not come with vehicles by default\nNot very compatible with vehicle-modeled hubs",
+    "stackSize": 64,
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "health": 100,
+    "materialLists": [
+      ["minecraft:barrier:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["minecraft:barrier:0:1"]
+    ]
+  }
+}

@@ -159,6 +159,18 @@
         [
           "door_right"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -185,6 +197,18 @@
         [
           "door_left"
         ]
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ],
       "linkedParts": [14,15]
     },
@@ -671,7 +695,7 @@
           "axis": [65.0,0.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeinoutcubic",
-          "reverseEasing": "easeinback",
+          "reverseEasing": "easeincubic",
           "forwardsDelay": 4
         }
       ]
@@ -807,7 +831,7 @@
           "axis": [55.0,0.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeinoutcubic",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -1232,6 +1256,15 @@
       "hudX": 345,
       "hudY": 104,
       "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 358,
+      "hudY": 106,
+      "hudScale": 0.5,
+      "placeOnPanel": true,
+      "defaultInstrument": "ivv:hours"
     }
   ],
   "definitions": [
@@ -1655,6 +1688,17 @@
       "animations": [
         {
           "animationType": "visibility",
+          "variable": "vehicle_p_brake_drift",
+          "reverseDelay": 5
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engines_on",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
           "variable": "vehicle_traction_control",
           "clampMin": 1.0,
           "clampMax": 1.0
@@ -1668,9 +1712,9 @@
         {
           "animationType": "translation",
           "variable": "slip",
-          "axis": [-0.004875,0.0,0.0],
+          "axis": [-0.00625,0.0,0.0],
           "offset": 1.0,
-          "clampMin": 0.375,
+          "clampMin": 0.5,
           "clampMax": 1.0,
           "absolute": true
         },
@@ -1681,7 +1725,7 @@
         },
         {
           "animationType": "visibility",
-          "variable": "5_10_5_cycle",
+          "variable": "1_2_1_cycle",
           "clampMin": 1.0,
           "clampMax": 1.0
         }
@@ -1884,7 +1928,7 @@
             "axis": [55.0,0.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeinoutcubic",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:trunkopen4",
             "reverseEndSound": "ivv:trunkclose4"
           }
@@ -1911,7 +1955,7 @@
             "axis": [65.0,0.0,0.0],
             "duration": 15,
             "forwardsEasing": "easeinoutcubic",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsDelay": 4,
             "reverseEndSound": "ivv:trunkclose2"
           }
@@ -3223,7 +3267,8 @@
         "mts:ivv.carseat_gray:0:2",
         "mts:ivv.ultra_electricmotor:0:2",
         "mts:ivv.fuelelectric:0:1",
-        "mts:ivv.screen:0:1"
+        "mts:ivv.screen:0:1",
+        "mts:ivv.hours:0:1"
       ]
     ],
     "repairMaterialLists": [

@@ -145,6 +145,12 @@
         },
         {
           "animationType": "translation",
+          "variable": "spm",
+          "axis": [0.5,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
           "variable": "parent_engine_rpm_percent_revlimit_1",
           "axis": [-8.0,0.0,0.0],
           "offset": 7.0,
@@ -161,6 +167,23 @@
           "variable": "throttle",
           "axis": [0.75,0.0,0.0],
           "offset": 0.25
+        }
+      ]
+    },
+    {
+      "variable": "currentGearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_gear_1",
+          "axis": [0.0,0.0,2.0],
+          "clampMin": -2.0,
+          "clampMax": 2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_running",
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -186,77 +209,6 @@
           "axis": [0.5,0.0,0.0],
           "offset": 0.5,
           "duration": 2
-        }
-      ]
-    },
-    {
-      "variable": "engine_shift_up",
-      "setValue": 1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_running",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "engine_gear",
-          "clampMin": -32767.0,
-          "clampMax": 0.5
-        },
-        {
-          "animationType": "visibility",
-          "variable": "parent_engine_gear_1",
-          "clampMin": 1.0,
-          "clampMax": 32767.0
-        }
-      ]
-    },
-    {
-      "variable": "engine_shift_down",
-      "setValue": 1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_running",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "engine_gear",
-          "clampMin": -0.5,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "parent_engine_gear_1",
-          "clampMin": -32767.0,
-          "clampMax": -1.0
-        }
-      ]
-    },
-    {
-      "variable": "engine_shift_neutral",
-      "setValue": 1.0,
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "engine_running"
-        },
-        {
-          "animationType": "visibility",
-          "variable": "engine_gear",
-          "clampMin": 0.5,
-          "clampMax": 32767.0,
-          "absolute": true
-        },
-        {
-          "animationType": "visibility",
-          "variable": "parent_engine_gear_1",
-          "clampMin": -0.5,
-          "clampMax": 0.5
         }
       ]
     }
@@ -393,8 +345,7 @@
             "animationType": "visibility",
             "variable": "engine_powered",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 40
+            "clampMax": 1.0
           },
           {
             "animationType": "inhibitor",
@@ -435,7 +386,7 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0,
-            "reverseDelay": 40
+            "reverseDelay": 100
           },
           {
             "animationType": "inhibitor",
@@ -493,7 +444,7 @@
         "scale": 0.075,
         "toScale": 0.125,
         "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/pattern2.png",
+        "texture": "ivv:textures/particles/pattern7.png",
         "color": "EDAC28",
         "pos": [0.0,0.25,0.375],
         "spreadRandomness": [0.0,0.5,3.75],

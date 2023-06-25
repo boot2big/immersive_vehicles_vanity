@@ -8,8 +8,8 @@
     "fuelCapacity": 8000,
     "defaultFuelQty": 8000,
     "downForce": 0.65,
-    "overSteer": 2.0,
-    "underSteer": 0.5,
+    "overSteer": 4.0,
+    "underSteer": 0.125,
     "overSteerAccel": 4.0,
     "axleRatio": 3.0,
     "brakingFactor": 2.5,
@@ -124,6 +124,18 @@
       "defaultPart": "ivv:rockseat",
       "types": [
         "seat_invisible"
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -146,6 +158,18 @@
       "defaultPart": "ivv:rockseat",
       "types": [
         "seat_invisible"
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -154,6 +178,18 @@
       "defaultPart": "ivv:rockseat",
       "types": [
         "seat_invisible"
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -175,6 +211,18 @@
       "defaultPart": "ivv:rockseat",
       "types": [
         "seat_invisible"
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
       ]
     },
     {
@@ -282,14 +330,15 @@
     {
       "pos": [-1.03,0.8,3.3],
       "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
       "maxValue": 1.0,
       "types": [
         "generic_flag_small"
       ]
     },
     {
-      "pos": [0.0,-0.101836,-1.32575],
-      "rot": [30.0,0.0,0.0],
+      "pos": [0.0,0.12,-0.502],
+      "rot": [36.0,0.0,0.0],
       "maxValue": 1.0,
       "partScale": [1.0,1.0,1.0],
       "types": [
@@ -303,6 +352,20 @@
       "defaultPart": "ivv:horn_runabout",
       "types": [
         "generic_horn"
+      ]
+    },
+    {
+      "pos": [-0.609375,0.34375,-0.9375],
+      "rot": [0.0,180.0,0.0],
+      "isMirrored": true,
+      "maxValue": 4.0,
+      "partScale": [0.32,0.32,0.32],
+      "defaultPart": "ivv:particle_exhaust_smog",
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "engine_exhaust"
       ]
     }
   ],
@@ -642,7 +705,7 @@
           "axis": [85.0,0.0,0.0],
           "duration": 20,
           "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeinback"
+          "reverseEasing": "easeincubic"
         }
       ]
     },
@@ -902,6 +965,15 @@
       "hudX": 345,
       "hudY": 104,
       "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 358,
+      "hudY": 106,
+      "hudScale": 0.5,
+      "placeOnPanel": true,
+      "defaultInstrument": "ivv:classicodomiles"
     }
   ],
   "definitions": [
@@ -948,6 +1020,12 @@
       ]
     }
   ],
+  "constantValues": {
+    "vehicle_size": 0.0,
+    "vehicle_intake_fc": 0.0,
+    "vehicle_hitch_offset_present": 1.0,
+    "vehicle_hitch_offset": 36.0
+  },
   "variableModifiers": [
     {
       "variable": "vehicle_p_brake_drift",
@@ -1462,7 +1540,7 @@
             "axis": [85.0,0.0,0.0],
             "duration": 20,
             "forwardsEasing": "easeoutelastic",
-            "reverseEasing": "easeinback",
+            "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:hoodopen3",
             "reverseEndSound": "ivv:hoodclose3"
           }
@@ -2946,98 +3024,6 @@
             "clampMax": 1.0
           }
         ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [-0.609375,0.34375,-0.9375],
-        "initialVelocity": [0.0,0.1,-1.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_2_4_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "transparency": 0.25,
-        "toTransparency": 0.25,
-        "scale": 0.16000001,
-        "hitboxSize": 0.2,
-        "color": "D9D9D9",
-        "pos": [-0.609375,0.34375,-0.9375],
-        "initialVelocity": [0.0,0.1,-1.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_piston_4_4_cam_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 5,
-        "scale": 0.5,
-        "hitboxSize": 0.2,
-        "color": "000000",
-        "pos": [-0.609375,0.34375,-0.9375],
-        "initialVelocity": [0.0,0.2,-1.25],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_backfired_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 2,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/muzzleflash.png",
-        "color": "FFFFFF",
-        "pos": [-0.609375,0.34375,-0.9375],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "random",
-            "clampMin": 0.5,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_revlimit_backfire_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
       }
     ],
     "modelType": "obj"
@@ -3055,7 +3041,8 @@
         "mts:ivv.v4inlineinsolvo:0:1",
         "mts:ivv.classicfuel:0:1",
         "mts:ivv.classicmph:0:1",
-        "mts:ivv.classictemp:0:1"
+        "mts:ivv.classictemp:0:1",
+        "mts:ivv.classicodomiles:0:1"
       ]
     ],
     "repairMaterialLists": [

@@ -1,0 +1,357 @@
+{
+  "generic": {
+    "type": "generic_licenseplate_us",
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [0.0,6.25E-4,0.0],
+      "maxValue": 3.0,
+      "types": [
+        "generic_licenseplate_euro",
+        "generic_licenseplate_us"
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.25,0.25,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_tongue_scale",
+          "variableType": "increment",
+          "variableValue": 0.0125,
+          "clampMin": -0.5,
+          "clampMax": 8.0
+        },
+        {
+          "pos": [-0.25,0.25,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_tongue_scale",
+          "variableType": "increment",
+          "variableValue": -0.0125,
+          "clampMin": -0.5,
+          "clampMax": 8.0
+        },
+        {
+          "pos": [0.25,0.0,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_tongue_x",
+          "variableType": "increment",
+          "variableValue": 0.0125,
+          "clampMin": -8.0,
+          "clampMax": 8.0
+        },
+        {
+          "pos": [-0.25,0.0,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_tongue_x",
+          "variableType": "increment",
+          "variableValue": -0.0125,
+          "clampMin": -8.0,
+          "clampMax": 8.0
+        },
+        {
+          "pos": [0.0,0.25,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_tongue_y",
+          "variableType": "increment",
+          "variableValue": 0.0125,
+          "clampMin": -8.0,
+          "clampMax": 8.0
+        },
+        {
+          "pos": [0.0,-0.25,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_tongue_y",
+          "variableType": "increment",
+          "variableValue": -0.0125,
+          "clampMin": -8.0,
+          "clampMax": 8.0
+        },
+        {
+          "pos": [0.25,-0.25,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_tongue_z",
+          "variableType": "increment",
+          "variableValue": 0.0125,
+          "clampMin": -8.0,
+          "clampMax": 8.0
+        },
+        {
+          "pos": [-0.25,-0.25,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_tongue_z",
+          "variableType": "increment",
+          "variableValue": -0.0125,
+          "clampMin": -8.0,
+          "clampMax": 8.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "locked"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "headlight",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "offset_tongue_x",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "offset_tongue_y",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "offset_tongue_z",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Car Tongue",
+      "description": "Goes on license plate slots\nBleeeh\nActivate parking brake & headlights (not running lights) to tweak part position",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_red",
+      "name": "Car Tongue",
+      "description": "Goes on license plate slots\nBleeeh\nActivate parking brake & headlights (not running lights) to tweak part position",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "initialVariables": [
+    "offset"
+  ],
+  "variableModifiers": [
+    {
+      "variable": "plate_engine_magneto",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_magneto_1",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_plate_engine_magneto",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "platecompat",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_magneto_1",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_plate_engine_magneto",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "turnSmoothed",
+      "minValue": -10.0,
+      "maxValue": 10.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.001875,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,-0.00625,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "turnSmoothed",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "accelSmoothed",
+      "minValue": -5.0,
+      "maxValue": 5.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "accelSmoothed",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "muscle1",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "offset_tongue_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 2.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_tongue_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_tongue_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_tongue_z",
+            "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "accelSmoothed",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [10.0,0.0,0.0],
+            "offset": 10.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turnSmoothed",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-1.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "muscle2",
+        "applyAfter": "muscle1",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "accelSmoothed",
+            "centerPoint": [0.0,0.0,0.1875],
+            "axis": [20.0,0.0,0.0],
+            "offset": 10.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turnSmoothed",
+            "centerPoint": [0.1875,0.0,0.1875],
+            "axis": [0.0,-0.5,0.0],
+            "clampMin": 0.125,
+            "clampMax": 45
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turnSmoothed",
+            "centerPoint": [-0.1875,0.0,0.1875],
+            "axis": [0.0,-0.5,0.0],
+            "clampMin": -45,
+            "clampMax": 0.125
+          }
+        ]
+      },
+      {
+        "objectName": "muscle3",
+        "applyAfter": "muscle2",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "accelSmoothed",
+            "centerPoint": [0.0,0.0,0.375],
+            "axis": [30.0,0.0,0.0],
+            "offset": 10.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turnSmoothed",
+            "centerPoint": [0.125,0.0,0.375],
+            "axis": [0.0,-0.5,0.0],
+            "clampMin": 0.125,
+            "clampMax": 45
+          },
+          {
+            "animationType": "rotation",
+            "variable": "turnSmoothed",
+            "centerPoint": [-0.125,0.0,0.375],
+            "axis": [0.0,-0.5,0.0],
+            "clampMin": -45,
+            "clampMax": 0.125
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "health": 20,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

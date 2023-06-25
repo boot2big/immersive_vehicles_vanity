@@ -29,8 +29,8 @@
     "minPitch": -33.75,
     "maxPitch": 67.5,
     "diameter": 30.0,
-    "yawSpeed": 5.0,
-    "pitchSpeed": 3.0,
+    "yawSpeed": 6.0,
+    "pitchSpeed": 6.0,
     "defaultYaw": 2.0,
     "defaultPitch": -5.0,
     "lockRange": 192,
@@ -121,9 +121,9 @@
             "animationType": "rotation",
             "variable": "tick",
             "centerPoint": [1.66452,2.67441,-0.609386],
-            "axis": [1.0,0.0,0.0]
+            "axis": [0.0,2.0,0.0]
           }
-          ]
+        ]
       },
       {
         "objectName": "rotatron",
@@ -148,12 +148,34 @@
             "animationType": "rotation",
             "variable": "gun_windup_rotation",
             "centerPoint": [0.0,1.15917,0.0],
-            "axis": [0.0,0.0,3.25]
+            "axis": [0.0,0.0,3]
           }
         ]
       }
     ],
     "lightObjects": [],
+    "cameraObjects": [
+      {
+        "pos": [0.0,0.4303,5.125],
+        "rot": [0.0,0.0,0.0],
+        "fovOverride": 90.0,
+        "overlay": "ivv:textures/overlay/cars/cardisview_crosshair_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "doesnt_work",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_pitch",
+            "centerPoint": [0.0,1.15917,0.0],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      }
+    ],
     "sounds": [
       {
         "name": "ivv:lmg_firing",
@@ -324,21 +346,55 @@
     ],
     "particles": [
       {
-        "type": "smoke",
+        "type": "generic",
+        "isBright": true,
         "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 1,
-        "transparency": 1.0,
-        "toTransparency": 0.005,
-        "scale": 0.8,
-        "toScale": 1.6,
+        "duration": 2,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 1,
+        "toScale": 1.5,
         "hitboxSize": 0.2,
-        "color": "111111",
+        "texture": "ivv:textures/particles/muzzleflash.png",
+        "color": "FFFFFF",
         "pos": [0.0,1.16425,3.41437],
-        "initialVelocity": [0.0,0.0,5.0],
-        "movementVelocity": [0.0,0.025,-0.0075],
-        "terminalVelocity": [9.0,9.0,9.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_pitch",
+            "centerPoint": [0.0,1.15917,0.0],
+            "axis": [1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.5,
+        "toTransparency": 0.01,
+        "scale": 1,
+        "toScale": 2,
+        "hitboxSize": 0.2,
+        "color": "555555",
+        "pos": [0.0,1.16425,3.41437],
+        "initialVelocity": [0.0,0.0,1.0],
+        "spreadRandomness": [0.375,0.375,0.25],
         "spawningAnimations": [
           {
             "animationType": "rotation",

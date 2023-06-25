@@ -2,6 +2,7 @@
   "generic": {
     "type": "generic_radio",
     "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 0.0,
     "canBePlacedOnGround": true,
     "width": 0.25,
     "height": 0.25
@@ -37,6 +38,17 @@
         {
           "animationType": "translation",
           "variable": "100_2_100_cycle",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "time",
+          "clampMin": 0000.0,
+          "clampMax": 12000.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "200_2_200_cycle",
           "axis": [0.0,0.0,1.0]
         }
       ]
@@ -80,8 +92,8 @@
           {
             "animationType": "inhibitor",
             "variable": "time",
-            "clampMin": 12000,
-            "clampMax": 24000
+            "clampMin": 12000.0,
+            "clampMax": 24000.0
           },
           {
             "animationType": "translation",
@@ -110,10 +122,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:radiointerferencemissile",
@@ -159,14 +171,30 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:radiorandom1",
-        "soundVariations": ["ivv:radiorandom1","ivv:radiorandom2","ivv:radiorandom3","ivv:radiorandom4","ivv:radiorandom5","ivv:radiorandom6","ivv:radiorandom7","ivv:radiorandom8","ivv:radiorandom9","ivv:radiorandom10","ivv:radiorandom11","ivv:radiorandom12","ivv:radiorandom13","ivv:radiorandom14","ivv:radiorandom15"],
+        "soundVariations": [
+          "ivv:radiorandom1",
+          "ivv:radiorandom2",
+          "ivv:radiorandom3",
+          "ivv:radiorandom4",
+          "ivv:radiorandom5",
+          "ivv:radiorandom6",
+          "ivv:radiorandom7",
+          "ivv:radiorandom8",
+          "ivv:radiorandom9",
+          "ivv:radiorandom10",
+          "ivv:radiorandom11",
+          "ivv:radiorandom12",
+          "ivv:radiorandom13",
+          "ivv:radiorandom14",
+          "ivv:radiorandom15"
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -188,10 +216,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [],
@@ -201,11 +229,14 @@
     "name": "Useless radio",
     "description": "Can be placed in certain vehicles\nPicks up civilian band chatter",
     "stackSize": 64,
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
-      ["oredict:ingotIron:4","oredict:dustRedstone:2"]
-    ]
+      [
+        "oredict:ingotIron:4",
+        "oredict:dustRedstone:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

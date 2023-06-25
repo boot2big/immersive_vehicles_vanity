@@ -1,0 +1,120 @@
+{
+  "components": [
+    {
+      "scale": 1.0,
+      "textureXCenter": 832,
+      "textureYCenter": 608,
+      "textureWidth": 128,
+      "textureHeight": 64,
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-46.0,14.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "variableName": "vehicle_odometer",
+        "variableFactor": 2.31633,
+        "variableFormat": "%08.0fmi",
+        "fontName": "ivv:digifont",
+        "defaultText": "00000000",
+        "color": "72FA52",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-46.0,3.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "variableName": "vehicle_odometer",
+        "variableFactor": 3.6,
+        "variableFormat": "%08.0fkm",
+        "fontName": "ivv:digifont",
+        "defaultText": "00000000",
+        "color": "72FA52",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-46.0,-8.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "variableName": "engine_hours_1",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.2fhrs",
+        "fontName": "ivv:digifont",
+        "defaultText": "0",
+        "color": "72FA52",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 832,
+      "textureYCenter": 608,
+      "textureWidth": 116,
+      "textureHeight": 52,
+      "lightUpTexture": true,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "engines_on",
+          "forwardsDelay": 20,
+          "reverseDelay": 20
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engines_on"
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 960,
+      "textureYCenter": 736,
+      "textureWidth": 116,
+      "textureHeight": 52,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "engines_on"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "electric_power",
+          "clampMin": -1.0,
+          "clampMax": 5.0
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 832,
+      "textureYCenter": 672,
+      "textureWidth": 116,
+      "textureHeight": 52
+    }
+  ],
+  "textureName": "instruments_modern.png",
+  "general": {
+    "name": "Odometer",
+    "description": "Indicates vehicle mileage and engine runtime hours",
+    "stackSize": 64,
+    "materialLists": [
+      ["oredict:dustRedstone:1","minecraft:glass_pane:0:1"]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
