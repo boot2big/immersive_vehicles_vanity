@@ -128,7 +128,7 @@
       ],
       "interactableVariables": [
         [
-          "door_right"
+          "hatch_right"
         ]
       ],
       "seatEffects": [
@@ -153,7 +153,7 @@
       ],
       "interactableVariables": [
         [
-          "door_left"
+          "hatch_left"
         ]
       ],
       "seatEffects": [
@@ -296,48 +296,60 @@
           "pos": [1.4,0.985,3.625],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_left",
+          "variableName": "hatch_left",
           "variableType": "toggle"
         },
         {
           "pos": [1.4,0.985,3.8725],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_left",
+          "variableName": "hatch_left",
           "variableType": "toggle"
         },
         {
           "pos": [1.4,0.985,4.125],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_left",
+          "variableName": "hatch_left",
           "variableType": "toggle"
         },
         {
           "pos": [1.4,0.985,4.3725],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_left",
+          "variableName": "hatch_left",
           "variableType": "toggle"
         },
         {
           "pos": [1.4,0.985,4.625],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_left",
+          "variableName": "hatch_left",
           "variableType": "toggle"
         }
       ],
       "animations": [
         {
           "animationType": "rotation",
-          "variable": "door_left",
+          "variable": "hatch_left",
           "centerPoint": [1.4375,0.57812,4.70312],
           "axis": [0.0,-50.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
           "reverseEasing": "easeincubic"
-        }
+        },
+          {
+            "animationType": "inhibitor",
+            "variable": "hatch_left"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "outdatedlBodyroll",
+            "centerPoint": [1.4375,0.57812,4.70312],
+            "axis": [0.0,-8.0,0.0],
+            "clampMin": -10.0,
+            "clampMax": 5.0
+          }
       ]
     },
     {
@@ -347,48 +359,60 @@
           "pos": [-1.4,0.985,3.625],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_right",
+          "variableName": "hatch_right",
           "variableType": "toggle"
         },
         {
           "pos": [-1.4,0.985,3.8725],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_right",
+          "variableName": "hatch_right",
           "variableType": "toggle"
         },
         {
           "pos": [-1.4,0.985,4.125],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_right",
+          "variableName": "hatch_right",
           "variableType": "toggle"
         },
         {
           "pos": [-1.4,0.985,4.3725],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_right",
+          "variableName": "hatch_right",
           "variableType": "toggle"
         },
         {
           "pos": [-1.4,0.985,4.625],
           "width": 0.25,
           "height": 1.4,
-          "variableName": "door_right",
+          "variableName": "hatch_right",
           "variableType": "toggle"
         }
       ],
       "animations": [
         {
           "animationType": "rotation",
-          "variable": "door_right",
+          "variable": "hatch_right",
           "centerPoint": [-1.4375,0.57812,4.70312],
           "axis": [0.0,50.0,0.0],
           "duration": 15,
           "forwardsEasing": "easeoutback",
           "reverseEasing": "easeincubic"
-        }
+        },
+          {
+            "animationType": "inhibitor",
+            "variable": "hatch_right"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "outdatedrBodyroll",
+            "centerPoint": [-1.4375,0.57812,4.70312],
+            "axis": [0.0,-8.0,0.0],
+            "clampMin": -10.0,
+            "clampMax": 5.0
+          }
       ]
     },
     {
@@ -1860,8 +1884,7 @@
     }
   ],
   "initialVariables": [
-    "door_right",
-    "door_left"
+    "hatch_left"
   ],
   "variableModifiers": [
     {
@@ -2011,6 +2034,98 @@
       ]
     },
     {
+      "variable": "outdatedBodyTranslation",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,4.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "outdatedBodyTranslation",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "outdatedlBodyroll",
+      "minValue": -2.0,
+      "maxValue": 2.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,-0.001,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,-3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "outdatedlBodyroll",
+          "axis": [0.0,-0.25,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "outdatedrBodyroll",
+      "minValue": -2.0,
+      "maxValue": 2.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,-0.001,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,-0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "outdatedrBodyroll",
+          "axis": [0.0,-0.25,0.0]
+        }
+      ]
+    },
+    {
       "variable": "overSteer",
       "animations": [
         {
@@ -2139,7 +2254,7 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "door_left",
+            "variable": "hatch_left",
             "centerPoint": [1.4375,0.57812,4.70312],
             "axis": [0.0,-50.0,0.0],
             "duration": 15,
@@ -2147,6 +2262,24 @@
             "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen1",
             "reverseEndSound": "ivv:doorclose1"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "damage_totaled",
+            "centerPoint": [1.4375,0.57812,4.70312],
+            "axis": [0,-4.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hatch_left"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "outdatedlBodyroll",
+            "centerPoint": [1.4375,0.57812,4.70312],
+            "axis": [0.0,-8.0,0.0],
+            "clampMin": -10.0,
+            "clampMax": 5.0
           }
         ]
       },
@@ -2155,7 +2288,7 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "door_right",
+            "variable": "hatch_right",
             "centerPoint": [-1.4375,0.57812,4.70312],
             "axis": [0.0,50.0,0.0],
             "duration": 15,
@@ -2163,6 +2296,24 @@
             "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:dooropen1",
             "reverseEndSound": "ivv:doorclose1"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "damage_totaled",
+            "centerPoint": [-1.4375,0.57812,4.70312],
+            "axis": [-0.5,2.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hatch_right"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "outdatedrBodyroll",
+            "centerPoint": [-1.4375,0.57812,4.70312],
+            "axis": [0.0,-8.0,0.0],
+            "clampMin": -10.0,
+            "clampMax": 5.0
           }
         ]
       },
@@ -3213,7 +3364,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "door_left",
+            "variable": "hatch_left",
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 15
@@ -3250,7 +3401,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "door_left",
+            "variable": "hatch_left",
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 15

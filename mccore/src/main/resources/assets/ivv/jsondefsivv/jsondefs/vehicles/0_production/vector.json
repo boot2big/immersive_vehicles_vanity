@@ -513,6 +513,75 @@
           "hatch_hood"
         ]
       ]
+    },
+    {
+      "pos": [0.375,-0.125,2.54688],
+      "rot": [90.0,0.0,0.0],
+      "maxValue": 1.0,
+      "defaultPart": "ivv:pedalgaskitt",
+      "types": [
+        "generic_pedal_gas"
+      ],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "throttle",
+          "centerPoint": [0.0,-0.15625,2.78125],
+          "axis": [-26.0,0.0,0.0],
+          "offset": 6.0
+        }
+      ]
+    },
+    {
+      "pos": [0.59375,-0.125,2.54688],
+      "rot": [90.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": [
+        "generic_pedal_brake"
+      ],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "brake",
+          "centerPoint": [0.0,-0.15625,2.78125],
+          "axis": [-26.0,0.0,0.0],
+          "offset": 6.0
+        }
+      ]
+    },
+    {
+      "pos": [0.90625,-0.125,2.54688],
+      "rot": [90.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": [
+        "generic_pedal_clutch"
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_isautomatic_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_isdualclutch_1"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "!engine_clutch_downshift_1",
+          "centerPoint": [0.0,-0.15625,2.78125],
+          "axis": [-26.0,0.0,0.0],
+          "offset": 6.0,
+          "duration": 3
+        },
+        {
+          "animationType": "rotation",
+          "variable": "!engine_clutch_upshift_1",
+          "centerPoint": [0.0,-0.15625,2.78125],
+          "axis": [-26.0,0.0,0.0],
+          "offset": 6.0,
+          "duration": 3
+        }
+      ]
     }
   ],
   "collisionGroups": [
@@ -2392,6 +2461,36 @@
             "centerPoint": [0.0,-0.15625,2.78125],
             "axis": [-26.0,0.0,0.0],
             "offset": 6.0
+          }
+        ]
+      },
+      {
+        "objectName": "gaspedal",
+        "applyAfter": "gas",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_41"
+          }
+        ]
+      },
+      {
+        "objectName": "brakepedal",
+        "applyAfter": "brake",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_42"
+          }
+        ]
+      },
+      {
+        "objectName": "clutchpedal",
+        "applyAfter": "clutch",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_43"
           }
         ]
       },
