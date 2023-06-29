@@ -1,0 +1,144 @@
+{
+  "generic": {
+    "type": "ground_wheel_invisible",
+    "forwardsDamageMultiplier": 0.0,
+    "mass": 60,
+    "movementAnimations": [
+      {
+        "animationType": "rotation",
+        "variable": "ground_rotation",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [1.0,0.0,0.0]
+      }
+    ]
+  },
+  "ground": {
+    "isWheel": true,
+    "width": 1.0,
+    "height": 1.0,
+    "climbHeight": 1.5,
+    "motiveFriction": 0.75,
+    "lateralFriction": 0.75,
+    "frictionModifiers": {
+      "snow": -0.625,
+      "ice": -0.5,
+      "dirt": -0.125,
+      "dirt_wet": -0.25,
+      "sand": -0.25,
+      "sand_wet": -0.375,
+      "normal_wet": -0.125
+    }
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "invisible",
+      "name": "Invisible Wheel",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "motiveFriction",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!ground_skidding",
+          "axis": [0.0125,0.0,0.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "brake",
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "throttle",
+          "clampMin": 0.5125,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_skidding",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "motiveFriction",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_wheel_invisible_grip_low",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_wheel_invisible_grip_high",
+          "axis": [0.25,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [-0.375,0.0,0.0],
+          "offset": 1.0,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "variable": "lateralFriction",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_wheel_invisible_grip_low",
+          "offset": 1.0,
+          "axis": [-0.5,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_wheel_invisible_grip_high",
+          "axis": [2.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 5
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "I Can't Believe It's Not Invisiwheel!",
+    "description": "Guaranteed to not pop, ever\n*Because no tire rubber exists to pop in the first place",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      [
+        "minecraft:dirt:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

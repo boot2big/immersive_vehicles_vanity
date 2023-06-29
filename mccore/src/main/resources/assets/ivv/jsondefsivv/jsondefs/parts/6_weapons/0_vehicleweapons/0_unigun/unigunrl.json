@@ -1,0 +1,324 @@
+{
+  "generic": {
+    "type": "gun_unigun_rl",
+    "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true
+  },
+  "gun": {
+    "lockOnType": "default",
+    "targetType": "hard",
+    "autoReload": true,
+    "canLockTargets": true,
+    "isSemiAuto": true,
+    "fireSolo": true,
+    "capacity": 20,
+    "reloadTime": 5,
+    "muzzleVelocity": 25,
+    "fireDelay": 10.0,
+    "bulletSpreadFactor": 1.0,
+    "diameter": 60.0,
+    "minCaseLength": 240.0,
+    "maxCaseLength": 240.0,
+    "yawSpeed": 22.5,
+    "pitchSpeed": 22.5,
+    "lockRange": 256,
+    "lockMaxAngle": 45.0,
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.25,0.0,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.25,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "muzzles": [
+          {
+            "pos": [1.0,0.0,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [1.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
+      "name": "WMG Missile Launcher",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:wmg_rlfiring",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,1.5,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:wmg_reloadingrocket",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:missilelockactive",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_controller_firstperson",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:missilelockinactive",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_controller_firstperson",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:missilelockgrowl",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "clampMin": 1.0,
+            "clampMax": 2.14748365E9
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_controller_firstperson",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_lockedon",
+            "axis": [0.0,1,0.0],
+            "offset": 1
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:missilelockidle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!gun_ammo_count"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_controller_firstperson",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_lockedon",
+            "reverseDelay": 10
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:missilelockaiming",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!gun_ammo_count"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_controller_firstperson",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_lockedon",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:missilelockready",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!gun_ammo_count"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_controller_firstperson",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_lockedon",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "none"
+  },
+  "general": {
+    "description": "Fires heat-seeking missiles",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:6",
+        "oredict:ingotGold:8",
+        "oredict:dustRedstone:6"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
