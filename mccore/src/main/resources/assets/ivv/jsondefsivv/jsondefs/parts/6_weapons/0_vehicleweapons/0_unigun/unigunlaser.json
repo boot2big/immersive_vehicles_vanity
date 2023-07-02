@@ -1,0 +1,222 @@
+{
+  "generic": {
+    "type": "gun_unigun_tertiary",
+    "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true
+  },
+  "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
+    "autoReload": true,
+    "fireSolo": true,
+    "capacity": 100,
+    "reloadTime": 15,
+    "windupTime": 5,
+    "muzzleVelocity": 80,
+    "fireDelay": 3.0,
+    "bulletSpreadFactor": 0.25,
+    "diameter": 30.0,
+    "maxCaseLength": 30.0,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.25,-0.03125,0.172371],
+            "rot": [-2.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "WMG Laser Emitter",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [
+      {
+        "objectName": "laserdiode",
+        "emissive": true,
+        "color": "4BF21B",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_windup_time",
+            "axis": [0.0,0.5,0.0],
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:wmg_laserfiring",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9625
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:wmg_laserreloading",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:wmg_lasercharging",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_windup_time",
+            "axis": [0.0,0.2,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_windup_time",
+            "axis": [0.0,0.1,0.0],
+            "offset": 0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,-0.0625,0.0],
+            "duration": 2,
+            "skipForwardsMovement": true
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 0.4,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "4BF21B",
+        "pos": [0.25,-0.03125,0.172371],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 20,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 0.6,
+        "toScale": 0.2,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "4BF21B",
+        "pos": [0.25,-0.03125,0.172371],
+        "initialVelocity": [0.0,0.0,30.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "!on",
+            "centerPoint": [0.25,-0.03125,0.172371],
+            "axis": [-3.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Fires powerful laser burst shots",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:8",
+        "minecraft:emerald:0:1",
+        "oredict:dustRedstone:6"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

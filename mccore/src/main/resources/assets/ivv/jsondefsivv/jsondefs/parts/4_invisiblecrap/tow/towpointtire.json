@@ -1,0 +1,73 @@
+{
+  "generic": {
+    "type": "generic_connection_hookup",
+    "width": 0.25,
+    "height": 0.25,
+    "forceAllLinks": true
+  },
+  "connectionGroups": [
+    {
+      "groupName": "TRAILER",
+      "canInitiateConnections": true,
+      "isHitch": true,
+      "connections": [
+        {
+          "type": "tow_wheel",
+          "pos": [0.0,0.0,0.0],
+          "distance": 1.0
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Wheel Tow Point",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:towhookon3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      },
+      {
+        "name": "ivv:towhookoff3",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected"
+          }
+        ],
+        "minDistance": 0.0,
+        "maxDistance": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "none"
+  },
+  "general": {
+    "name": "Winch",
+    "description": "Can tow convention-compatible vehicles",
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "health": 100,
+    "materialLists": [
+      ["minecraft:barrier:0:1"]
+    ]
+  }
+}

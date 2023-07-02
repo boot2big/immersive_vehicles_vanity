@@ -153,7 +153,7 @@
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "part_present_1",
+          "variable": "parent_hover_extragrip",
           "clampMin": 1.0,
           "clampMax": 1.0
         },
@@ -180,7 +180,7 @@
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "part_present_1",
+          "variable": "parent_hover_extragrip",
           "clampMin": 1.0,
           "clampMax": 1.0
         },
@@ -204,7 +204,7 @@
     },
     {
       "variable": "motiveFriction",
-      "maxValue": 8.0,
+      "maxValue": 12.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -229,7 +229,7 @@
     },
     {
       "variable": "lateralFriction",
-      "maxValue": 6.0,
+      "maxValue": 12.0,
       "animations": [
         {
           "animationType": "visibility",
@@ -246,7 +246,7 @@
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.00625,0.0,0.0],
+          "axis": [0.0125,0.0,0.0],
           "offset": 1.0,
           "absolute": true
         },
@@ -256,33 +256,6 @@
           "axis": [0.0375,0.0,0.0],
           "offset": 1.0,
           "absolute": true
-        }
-      ]
-    },
-    {
-      "variable": "hover_sway",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "ill_use_it_later",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "10_20_10_cycle",
-          "axis": [0.0,0.0,1.0],
-          "duration": 20,
-          "forwardsEasing": "easeinoutsine",
-          "reverseEasing": "easeinoutsine"
-        },
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [-0.0125,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.5,
-          "clampMax": 1.0
         }
       ]
     },
@@ -323,23 +296,23 @@
           "animationType": "translation",
           "variable": "speed",
           "axis": [0.0375,0.0,0.0],
-          "offset": 0.6125,
-          "clampMin": 0.625,
+          "offset": 0.7375,
+          "clampMin": 0.75,
           "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "10_20_10_cycle",
-          "axis": [0.125,0.0,0.0],
-          "offset": 0.9875,
-          "duration": 20,
+          "axis": [0.0625,0.0,0.0],
+          "offset": 0.9625,
+          "duration": 15,
           "forwardsEasing": "easeinoutsine",
           "reverseEasing": "easeinoutsine"
         },
         {
           "animationType": "translation",
           "variable": "parent_engine_backfired_1",
-          "axis": [-0.5,0.0,0.0],
+          "axis": [-0.125,0.0,0.0],
           "offset": 1.0,
           "duration": 6,
           "skipForwardsMovement": true
@@ -347,8 +320,8 @@
         {
           "animationType": "translation",
           "variable": "hovering",
-          "axis": [0.875,0.0,0.0],
-          "offset": 0.125,
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
           "duration": 10
         }
       ]
@@ -665,15 +638,18 @@
         "type": "generic",
         "spawnEveryTick": true,
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
-        "duration": 10,
+        "duration": 5,
         "transparency": 0.25,
         "toTransparency": -1.0E-4,
-        "scale": 3.0,
+        "scale": 0.6,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/laser.png",
         "color": "50BDD9",
         "pos": [0.0,0.0,0.0],
-        "initialVelocity": [0.0,-1.25,0.0],
+        "initialVelocity": [0.0,-0.75,0.0],
         "movementVelocity": [0.0,0.005,0.0],
         "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [

@@ -1,0 +1,106 @@
+{
+  "generic": {
+    "type": "generic_npc",
+    "forwardsDamageMultiplier": 0.0,
+    "canBePlacedOnGround": true,
+    "canBeRemovedByHand": true,
+    "width": 1.0,
+    "height": 1.0,
+    "placedOffset": 0.203125,
+    "mass": 10
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Comically Long Pillow",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "generic_npc_present": 1.0
+  },
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.0,-100.0,0.001],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.65,
+        "fieldName": "imageURL",
+        "defaultText": "",
+        "maxLength": 400,
+        "color": "000000"
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "laying",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_onvehicle"
+          }
+        ]
+      },
+      {
+        "objectName": "laying_imageURL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_onvehicle"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "text_1_present",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#sitting",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_onvehicle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#sitting_imageURL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_onvehicle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "text_1_present",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Pillow",
+    "health": 100,
+    "materialLists": [
+      [
+        "minecraft:rotten_flesh:0:12",
+        "minecraft:bone:0:8"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

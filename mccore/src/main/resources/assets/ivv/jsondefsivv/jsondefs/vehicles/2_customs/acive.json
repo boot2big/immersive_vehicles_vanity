@@ -585,7 +585,12 @@
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
       "types": [
-        "generic_ivvbumper_1"
+        "generic_disabled"
+      ],
+      "interactableVariables": [
+        [
+          "bleeeh"
+        ]
       ]
     },
     {
@@ -679,7 +684,12 @@
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
       "types": [
-        "generic_ivvbumper_1"
+        "generic_disabled"
+      ],
+      "interactableVariables": [
+        [
+          "bleeeh"
+        ]
       ]
     },
     {
@@ -687,7 +697,12 @@
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
       "types": [
-        "generic_ivvbumper_1"
+        "generic_disabled"
+      ],
+      "interactableVariables": [
+        [
+          "bleeeh"
+        ]
       ]
     },
     {
@@ -4930,7 +4945,7 @@
           "animationType": "translation",
           "variable": "speed",
           "axis": [0.0,0.125,0.0],
-          "offset": -10.792935376,
+          "offset": -10.792935,
           "clampMin": 0.00125,
           "clampMax": 0.625
         }
@@ -10069,37 +10084,44 @@
             "variable": "brake",
             "clampMin": 0.05,
             "clampMax": 1.0,
-            "reverseDelay": 80
+            "reverseDelay": 20
           },
           {
             "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.125,
-            "clampMax": 32767.0
+            "variable": "!speed"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "vehicle_wheels_locked"
           }
         ],
         "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "forwardsDelay": -5
+          },
           {
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.1,0.0],
             "offset": -1.0,
             "clampMin": -1.0,
-            "clampMax": 0.125
+            "clampMax": 0.0125
           },
           {
             "animationType": "translation",
             "variable": "brake",
-            "axis": [0.0,0.25,0.0],
-            "offset": -0.5,
-            "clampMax": 0.5
+            "axis": [0.0,0.875,0.0],
+            "offset": -0.875
           },
           {
             "animationType": "translation",
-            "variable": "brake",
-            "axis": [0.0,0.25,0.0],
-            "duration": 10,
-            "forwardsDelay": -5
+            "variable": "throttle",
+            "axis": [0.0,0.75,0.0],
+            "offset": -0.75
           }
         ],
         "pitchAnimations": [
@@ -10108,14 +10130,28 @@
             "variable": "brake",
             "axis": [0.0,-0.0625,0.0],
             "offset": 1.0625
+          },
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,-0.0625,0.0],
+            "offset": 0.0625,
+            "duration": 10,
+            "forwardsDelay": -5
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,-0.0625,0.0],
+            "offset": 0.0625
           }
         ],
         "looping": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 0.5,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 80.0,
         "maxDistanceVolume": 0.0
       },
       {
@@ -11225,6 +11261,96 @@
             "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "distance": 0.25,
+        "quantity": 8,
+        "duration": 5,
+        "transparency": 0.025,
+        "toTransparency": 1.0E-7,
+        "scale": 0.5,
+        "toScale": 2,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "777777",
+        "pos": [0.164844,0.457031,-1.58594],
+        "initialVelocity": [0.5,-0.125,-0.25],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0,0.000375]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "spm",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "aciveRunning",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 1.0,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "distance": 0.25,
+        "quantity": 8,
+        "duration": 5,
+        "transparency": 0.025,
+        "toTransparency": 1.0E-7,
+        "scale": 0.5,
+        "toScale": 2,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "777777",
+        "pos": [-0.164844,0.457031,-1.58594],
+        "initialVelocity": [-0.5,-0.125,-0.25],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.0,0.000375]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "spm",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "aciveRunning",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 1.0,
+            "clampMax": 32767.0
           }
         ]
       },
