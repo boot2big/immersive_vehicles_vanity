@@ -23,6 +23,12 @@
       ],
       "animations": [
         {
+          "animationType": "rotation",
+          "variable": "offset_hitch_rot",
+          "centerPoint": [0.0,-0.125,-0.25],
+          "axis": [1.0,0.0,0.0]
+        },
+        {
           "animationType": "translation",
           "variable": "offset_hitch_x",
           "axis": [1.0,0.0,0.0]
@@ -49,6 +55,26 @@
     {
       "isInterior": true,
       "collisions": [
+        {
+          "pos": [0.5,0.0,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hitch_rot",
+          "variableType": "increment",
+          "variableValue": 0.1,
+          "clampMin": -45.0,
+          "clampMax": 45.0
+        },
+        {
+          "pos": [-0.5,0.0,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hitch_rot",
+          "variableType": "increment",
+          "variableValue": -0.1,
+          "clampMin": -45.0,
+          "clampMax": 45.0
+        },
         {
           "pos": [0.25,0.0,0.0],
           "width": 0.25,
@@ -192,7 +218,456 @@
     "animatedObjects": [],
     "lightObjects": [],
     "sounds": [],
-    "particles": [],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_right.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert.obj",
+        "color": "FFFFFF",
+        "pos": [0.25,0.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_left.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert.obj",
+        "color": "FFFFFF",
+        "pos": [-0.25,0.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_forward.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert.obj",
+        "color": "FFFFFF",
+        "pos": [0.25,-0.25,0.0],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_backward.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert.obj",
+        "color": "FFFFFF",
+        "pos": [-0.25,-0.25,0.0],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_up.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert.obj",
+        "color": "FFFFFF",
+          "pos": [0.0,0.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_down.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert.obj",
+        "color": "FFFFFF",
+          "pos": [0.0,-0.25,0.0],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_icon_rotate_clockwise.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert.obj",
+        "color": "FFFFFF",
+        "pos": [0.5,0.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_icon_rotate_counterclockwise.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert.obj",
+        "color": "FFFFFF",
+        "pos": [-0.5,0.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hitch_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      }
+    ],
     "modelType": "obj"
   },
   "general": {
