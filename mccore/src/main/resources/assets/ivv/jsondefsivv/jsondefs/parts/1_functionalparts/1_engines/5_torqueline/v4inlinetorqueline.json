@@ -786,6 +786,82 @@
         "maxDistanceVolume": 0.0
       },
       {
+        "name": "ivv:super1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!speed"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_reversed",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 3
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.1,0.0],
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,0.0125,0.0],
+            "absolute": true,
+            "clampMax": 0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_clutching",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 3
+          },
+          {
+            "animationType": "translation",
+            "variable": "!throttle",
+            "axis": [0.0,-0.375,0.0],
+            "duration": 3
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_gear",
+            "axis": [0.0,0.05,0.0],
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.075,0.0],
+            "offset": 0.1875
+          },
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,0.0125,0.0],
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "!throttle",
+            "axis": [0.0,-0.125,0.0],
+            "duration": 3
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.5,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
         "name": "ivv:transmissionfailshift1",
         "soundVariations": [
           "ivv:transmissionfailshift1",
@@ -819,10 +895,10 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 32.0,
         "maxDistanceVolume": 0.0
       },
       {
