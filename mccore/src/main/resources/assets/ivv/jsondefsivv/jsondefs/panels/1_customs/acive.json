@@ -222,35 +222,11 @@
         "pos": [79.0,44.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [140.0,216.0,0.0],
-        "text": "SKI MODE",
-        "statusVariable": "ski_mode",
-        "visibilityVariables": [
-          [
-            "mood_blocker_badmood",
-            "seat_occupied_client_5"
-          ],
-          [
-            "seat_occupied_client_5",
-            "!mood_blocker_panel"
-          ]
-        ],
-        "clickAction": {
-          "variable": "ski_mode",
-          "action": "toggle",
-          "value": 0.0
-        }
-      },
-      {
-        "pos": [79.0,76.0,0.0],
-        "width": 20,
-        "height": 20,
         "textureStart": [320.0,216.0,0.0],
         "text": "SKI SIDE",
-        "statusVariable": "ski_side",
         "visibilityVariables": [
           [
-            "!ski_mode"
+            "!ski_side_absolute"
           ],
           [
             "mood_blocker_badmood",
@@ -261,22 +237,30 @@
             "!mood_blocker_panel"
           ]
         ],
-        "clickAction": {
+        "clickActionLeft": {
           "variable": "ski_side",
-          "action": "toggle",
-          "value": 0.0
+          "action": "increment",
+          "value": 1.0,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        },
+        "clickActionRight": {
+          "variable": "ski_side",
+          "action": "increment",
+          "value": -1.0,
+          "clampMin": -1.0,
+          "clampMax": 1.0
         }
       },
       {
-        "pos": [79.0,76.0,0.0],
+        "pos": [79.0,44.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [320.0,176.0,0.0],
+        "textureStart": [320.0,196.0,0.0],
         "text": "SKI SIDE",
-        "statusVariable": "ski_side",
         "visibilityVariables": [
           [
-            "ski_mode"
+            "skii_lazyanimation_left"
           ],
           [
             "mood_blocker_badmood",
@@ -286,10 +270,58 @@
             "seat_occupied_client_5",
             "!mood_blocker_panel"
           ]
-        ]
+        ],
+        "clickActionLeft": {
+          "variable": "ski_side",
+          "action": "increment",
+          "value": 1.0,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        },
+        "clickActionRight": {
+          "variable": "ski_side",
+          "action": "increment",
+          "value": -1.0,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        }
       },
       {
-        "pos": [79.0,108.0,0.0],
+        "pos": [79.0,44.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [320.0,236.0,0.0],
+        "text": "SKI SIDE",
+        "visibilityVariables": [
+          [
+            "skii_lazyanimation_right"
+          ],
+          [
+            "mood_blocker_badmood",
+            "seat_occupied_client_5"
+          ],
+          [
+            "seat_occupied_client_5",
+            "!mood_blocker_panel"
+          ]
+        ],
+        "clickActionLeft": {
+          "variable": "ski_side",
+          "action": "increment",
+          "value": 1.0,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        },
+        "clickActionRight": {
+          "variable": "ski_side",
+          "action": "increment",
+          "value": -1.0,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        }
+      },
+      {
+        "pos": [79.0,76.0,0.0],
         "width": 20,
         "height": 20,
         "textureStart": [100.0,156.0,0.0],
