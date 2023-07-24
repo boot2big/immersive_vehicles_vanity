@@ -16,8 +16,8 @@
           "variableName": "offset_hat_x",
           "variableType": "increment",
           "variableValue": 0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
           "pos": [-0.25,0.5,-0.25],
@@ -26,8 +26,8 @@
           "variableName": "offset_hat_x",
           "variableType": "increment",
           "variableValue": -0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
           "pos": [0.25,0.5,0.0],
@@ -36,8 +36,8 @@
           "variableName": "offset_hat_y",
           "variableType": "increment",
           "variableValue": 0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
           "pos": [-0.25,0.5,0.0],
@@ -46,8 +46,8 @@
           "variableName": "offset_hat_y",
           "variableType": "increment",
           "variableValue": -0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
           "pos": [0.0,0.5,0.25],
@@ -56,8 +56,8 @@
           "variableName": "offset_hat_z",
           "variableType": "increment",
           "variableValue": 0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
           "pos": [0.0,0.5,-0.25],
@@ -66,8 +66,8 @@
           "variableName": "offset_hat_z",
           "variableType": "increment",
           "variableValue": -0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
           "pos": [0.25,0.5,0.25],
@@ -77,7 +77,7 @@
           "variableType": "increment",
           "variableValue": 0.0125,
           "clampMin": -0.5,
-          "clampMax": 8.0
+          "clampMax": 12.0
         },
         {
           "pos": [-0.25,0.5,0.25],
@@ -87,7 +87,7 @@
           "variableType": "increment",
           "variableValue": -0.0125,
           "clampMin": -0.5,
-          "clampMax": 8.0
+          "clampMax": 12.0
         }
       ],
       "animations": [
@@ -128,9 +128,55 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Propeller Cap",
+      "name": "Giant Leaf",
       "extraMaterialLists": [
         []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "antennaanglex",
+      "minValue": -22.5,
+      "maxValue": 22.5,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.0025,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,5.0E-4,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "antennaanglex",
+          "axis": [0.0,-0.25,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "antennaangley",
+      "minValue": -22.5,
+      "maxValue": 22.5,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.00125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,3.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "antennaangley",
+          "axis": [0.0,-0.25,0.0]
+        }
       ]
     }
   ],
@@ -139,13 +185,6 @@
       {
         "objectName": "cube",
         "animations": [
-          {
-            "animationType": "scaling",
-            "variable": "offset_hat_scale",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [1.0,1.0,1.0],
-            "offset": 2.0
-          },
           {
             "animationType": "translation",
             "variable": "offset_hat_x",
@@ -160,22 +199,56 @@
             "animationType": "translation",
             "variable": "offset_hat_z",
             "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_hat_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 2.0
           }
         ]
       },
       {
-        "objectName": "propeller",
+        "objectName": "stem2",
         "applyAfter": "cube",
         "animations": [
           {
-            "animationType": "inhibitor",
-            "variable": "parent_engines_running"
+            "animationType": "rotation",
+            "variable": "antennaanglex",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.0,0.625]
           },
           {
             "animationType": "rotation",
-            "variable": "tick",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,8.0,0.0]
+            "variable": "antennaanglex",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.375,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaangley",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [-1.0,0.0,0.0],
+            "offset": 7.5
+          }
+        ]
+      },
+      {
+        "objectName": "leaf",
+        "applyAfter": "stem2",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "antennaanglex",
+            "centerPoint": [0.0,0.203125,0.0],
+            "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "antennaangley",
+            "centerPoint": [0.0,0.203125,0.0],
+            "axis": [-1.0,0.0,0.0]
           }
         ]
       }
@@ -638,7 +711,7 @@
     "health": 100,
     "materialLists": [
       [
-        "oredict:leather:6"
+        "minecraft:stick:0:2"
       ]
     ],
     "radarWidth": 0.0,

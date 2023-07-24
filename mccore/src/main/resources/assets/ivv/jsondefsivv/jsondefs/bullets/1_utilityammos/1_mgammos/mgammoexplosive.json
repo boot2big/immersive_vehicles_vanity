@@ -7,9 +7,9 @@
     "isHeat": true,
     "quantity": 100,
     "diameter": 7.62,
-    "damage": 200.0,
+    "damage": 60.0,
     "blastStrength": 1.5,
-    "armorPenetration": 250.0,
+    "armorPenetration": 18.0,
     "airBurstDelay": 5,
     "despawnTime": 10,
     "impactDespawnTime": 40
@@ -68,12 +68,39 @@
         "scale": 0.030000001,
         "hitboxSize": 0.1,
         "color": "999999",
-        "pos": [0.0,0.5,0.0],
+        "pos": [0.5,1.0,0.5],
         "initialVelocity": [0.0,1.5,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 0.5,
+        "toScale": 4.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.5,1.0,0.5],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -88,8 +115,8 @@
         "duration": 8,
         "transparency": 1.0,
         "toTransparency": 0.01,
-        "scale": 3.2,
-        "toScale": 4.8,
+        "scale": 0.5,
+        "toScale": 4,
         "hitboxSize": 0.2,
         "textureList": [
           "ivv:textures/particles/explosion_1.png",
@@ -101,7 +128,7 @@
         ],
         "textureDelays": [2,2,1,1,1,32767],
         "color": "FFFFFF",
-        "pos": [0.5,0.5,0.5],
+        "pos": [0.5,1.0,0.5],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {

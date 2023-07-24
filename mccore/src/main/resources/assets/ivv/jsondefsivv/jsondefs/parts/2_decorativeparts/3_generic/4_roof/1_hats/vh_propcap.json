@@ -10,84 +10,84 @@
       "isInterior": true,
       "collisions": [
         {
-          "pos": [0.25,1.0,-0.25],
+          "pos": [0.25,0.5,-0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_x",
           "variableType": "increment",
           "variableValue": 0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [-0.25,1.0,-0.25],
+          "pos": [-0.25,0.5,-0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_x",
           "variableType": "increment",
           "variableValue": -0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [0.25,1.0,0.0],
+          "pos": [0.25,0.5,0.0],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_y",
           "variableType": "increment",
           "variableValue": 0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [-0.25,1.0,0.0],
+          "pos": [-0.25,0.5,0.0],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_y",
           "variableType": "increment",
           "variableValue": -0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [0.0,1.0,0.25],
+          "pos": [0.0,0.5,0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_z",
           "variableType": "increment",
           "variableValue": 0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [0.0,1.0,-0.25],
+          "pos": [0.0,0.5,-0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_z",
           "variableType": "increment",
           "variableValue": -0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [0.25,1.0,0.25],
+          "pos": [0.25,0.5,0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_scale",
           "variableType": "increment",
           "variableValue": 0.0125,
           "clampMin": -0.5,
-          "clampMax": 8.0
+          "clampMax": 12.0
         },
         {
-          "pos": [-0.25,1.0,0.25],
+          "pos": [-0.25,0.5,0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_scale",
           "variableType": "increment",
           "variableValue": -0.0125,
           "clampMin": -0.5,
-          "clampMax": 8.0
+          "clampMax": 12.0
         }
       ],
       "animations": [
@@ -128,7 +128,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Tophat",
+      "name": "Propeller Cap",
       "extraMaterialLists": [
         []
       ]
@@ -139,13 +139,6 @@
       {
         "objectName": "cube",
         "animations": [
-          {
-            "animationType": "scaling",
-            "variable": "offset_hat_scale",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [1.0,1.0,1.0],
-            "offset": 2.0
-          },
           {
             "animationType": "translation",
             "variable": "offset_hat_x",
@@ -160,6 +153,29 @@
             "animationType": "translation",
             "variable": "offset_hat_z",
             "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_hat_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 2.0
+          }
+        ]
+      },
+      {
+        "objectName": "propeller",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_engines_running"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,8.0,0.0]
           }
         ]
       }
@@ -180,7 +196,7 @@
         "texture": "ivv:textures/particles/ui_arrow_right.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [0.25,1.0,-0.25],
+        "pos": [0.25,0.5,-0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -236,7 +252,7 @@
         "texture": "ivv:textures/particles/ui_arrow_left.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [-0.25,1.0,-0.25],
+        "pos": [-0.25,0.5,-0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -292,7 +308,7 @@
         "texture": "ivv:textures/particles/ui_arrow_forward.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [0.0,1.0,0.25],
+        "pos": [0.0,0.5,0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -348,7 +364,7 @@
         "texture": "ivv:textures/particles/ui_arrow_backward.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [0.0,1.0,-0.25],
+        "pos": [0.0,0.5,-0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -404,7 +420,7 @@
         "texture": "ivv:textures/particles/ui_arrow_up.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-          "pos": [0.25,1.0,0.0],
+          "pos": [0.25,0.5,0.0],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -460,7 +476,7 @@
         "texture": "ivv:textures/particles/ui_arrow_down.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-          "pos": [-0.25,1.0,0.0],
+          "pos": [-0.25,0.5,0.0],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -516,7 +532,7 @@
         "texture": "ivv:textures/particles/ui_icon_positive.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [0.25,1.0,0.25],
+        "pos": [0.25,0.5,0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -572,7 +588,7 @@
         "texture": "ivv:textures/particles/ui_icon_negative.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [-0.25,1.0,0.25],
+        "pos": [-0.25,0.5,0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],

@@ -10,7 +10,7 @@
     "defaultFuelQty": 20000,
     "downForce": 0.7,
     "overSteer": 6.0,
-    "underSteer": 0.5,
+    "underSteer": 0.25,
     "overSteerAccel": 8.0,
     "axleRatio": 2.25,
     "brakingFactor": 4.0,
@@ -198,6 +198,7 @@
           "door_left"
         ]
       ],
+      "linkedParts": [14,15],
       "seatEffects": [
         {
           "name": "weakness",
@@ -209,8 +210,7 @@
           "duration": 100,
           "amplifier": 127
         }
-      ],
-      "linkedParts": [14,15]
+      ]
     },
     {
       "pos": [0.0,-0.22391,3.16827],
@@ -2681,7 +2681,7 @@
           {
             "animationType": "visibility",
             "variable": "engine_running_1",
-            "clampMin": -1.0,
+            "clampMin": 1.0,
             "clampMax": 1.0
           }
         ],
@@ -3358,14 +3358,41 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 8.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.314984,1.43942],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 2.0,
         "toTransparency": 0.01,
-        "scale": 4.8,
-        "toScale": 9.6,
+        "scale": 2.0,
+        "toScale": 8.0,
         "hitboxSize": 0.2,
         "textureList": [
           "ivv:textures/particles/explosion_1.png",
@@ -3393,7 +3420,7 @@
   },
   "general": {
     "description": "§lSTATS:\nDrivetrain: AWD\nMax. Top Speed: 141MPH\n0-60: 4.26\n0-Top Speed: 0:16:77\nTCS equipped\n§lACCESSORIES:\n-License Plate x2",
-    "health": 4800,
+    "health": 240,
     "materialLists": [
       [
         "mts:ivv.frame:0:1",

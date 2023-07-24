@@ -184,7 +184,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Performante V10 Engine",
+      "name": "Veloticus 'Eagle' V10",
       "extraMaterialLists": [
         []
       ]
@@ -314,6 +314,17 @@
           "axis": [-1.0,0.0,0.0],
           "offset": 1.0,
           "duration": 6
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_rpm_percent_safe",
+          "clampMin": 0.375,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!p_brake",
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -341,18 +352,7 @@
         }
       ]
     },
-    {
-      "variable": "revlimitRPM",
-      "setValue": 1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_temp",
-          "clampMin": 100.0,
-          "clampMax": 1000.0
-        }
-      ]
-    },
+
     {
       "variable": "idleRPM",
       "animations": [
@@ -776,6 +776,12 @@
           {
             "animationType": "visibility",
             "variable": "!speed"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_vehicle_engine_gear_straightcut",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           },
           {
             "animationType": "visibility",
@@ -1688,29 +1694,32 @@
         ]
       },
       {
+        "spawnEveryTick": true,
         "type": "smoke",
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 2,
         "duration": 60,
-        "transparency": 0.75,
+        "transparency": 0.375,
         "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
+        "scale": 0.5,
+        "toScale": 1,
         "hitboxSize": 0.2,
-        "color": "060606",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.0,0.5],
+        "color": "f0f0f0",
+        "pos": [0.0,0.25,0.375],
+        "spreadRandomness": [0.25,0.25,0.25],
+        "initialVelocity": [0.0,0.0,0.25],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_temp",
-            "clampMin": 115.556,
-            "clampMax": 121.111
+            "clampMin": 100.0,
+            "clampMax": 110.0
           }
         ]
       },
       {
+        "spawnEveryTick": true,
         "type": "smoke",
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
@@ -1718,18 +1727,50 @@
         "duration": 80,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 0.4,
-        "toScale": 0.8,
+        "scale": 0.375,
+        "toScale": 1.5,
         "hitboxSize": 0.2,
-        "color": "060606",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.0,0.75],
+        "color": "2f2f2f",
+        "pos": [0.0,0.25,0.375],
+        "spreadRandomness": [0.25,0.25,0.25],
+        "initialVelocity": [0.0,0.0,0.25],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_temp",
-            "clampMin": 121.111,
-            "clampMax": 999.0
+            "clampMin": 110.0,
+            "clampMax": 1000.0
+          }
+        ]
+      },
+      {
+        "spawnEveryTick": true,
+        "type": "flame",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 2,
+        "duration": 40,
+        "transparency": 4.0,
+        "toTransparency": 0.01,
+        "scale": 0.6,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,0.375],
+        "initialVelocity": [0.0,0.0,0.375],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "2_4_2_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 120.0,
+            "clampMax": 1000.0
           }
         ]
       }
@@ -1737,7 +1778,7 @@
     "modelType": "obj"
   },
   "general": {
-    "name": "Performante V10 Engine §2(Manual)",
+    "name": "Veloticus V10 Engine §2(Manual)",
     "description": "5.2L50V Performance IVLabs Motor",
     "health": 100,
     "materialLists": [

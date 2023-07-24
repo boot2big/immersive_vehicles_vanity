@@ -1,8 +1,10 @@
 {
   "generic": {
     "type": "generic_roofdevice",
+    "canBeRemovedByHand": true,
     "forwardsDamageMultiplier": 0.0,
-    "width": 0.25,
+    "canBePlacedOnGround": true,
+    "width": 0.375,
     "height": 0.25
   },
   "collisionGroups": [
@@ -10,84 +12,84 @@
       "isInterior": true,
       "collisions": [
         {
-          "pos": [0.25,1.5,-0.25],
+          "pos": [0.25,0.5,-0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_x",
           "variableType": "increment",
           "variableValue": 0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [-0.25,1.5,-0.25],
+          "pos": [-0.25,0.5,-0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_x",
           "variableType": "increment",
           "variableValue": -0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [0.25,1.5,0.0],
+          "pos": [0.25,0.5,0.0],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_y",
           "variableType": "increment",
           "variableValue": 0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [-0.25,1.5,0.0],
+          "pos": [-0.25,0.5,0.0],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_y",
           "variableType": "increment",
           "variableValue": -0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [0.0,1.5,0.25],
+          "pos": [0.0,0.5,0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_z",
           "variableType": "increment",
           "variableValue": 0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [0.0,1.5,-0.25],
+          "pos": [0.0,0.5,-0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_z",
           "variableType": "increment",
           "variableValue": -0.0125,
-          "clampMin": -8.0,
-          "clampMax": 8.0
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "pos": [0.25,1.5,0.25],
+          "pos": [0.25,0.5,0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_scale",
           "variableType": "increment",
           "variableValue": 0.0125,
           "clampMin": -0.5,
-          "clampMax": 8.0
+          "clampMax": 12.0
         },
         {
-          "pos": [-0.25,1.5,0.25],
+          "pos": [-0.25,0.5,0.25],
           "width": 0.25,
           "height": 0.25,
           "variableName": "offset_hat_scale",
           "variableType": "increment",
           "variableValue": -0.0125,
           "clampMin": -0.5,
-          "clampMax": 8.0
+          "clampMax": 12.0
         }
       ],
       "animations": [
@@ -127,8 +129,50 @@
   ],
   "definitions": [
     {
-      "subName": "",
-      "name": "Bucket",
+      "subName": "_black",
+      "name": "Giant Bow",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_white",
+      "name": "Giant Bow",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_red",
+      "name": "Giant Bow",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_green",
+      "name": "Giant Bow",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_blue",
+      "name": "Giant Bow",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_yellow",
+      "name": "Giant Bow",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_pink",
+      "name": "Giant Bow",
       "extraMaterialLists": [
         []
       ]
@@ -139,13 +183,6 @@
       {
         "objectName": "cube",
         "animations": [
-          {
-            "animationType": "scaling",
-            "variable": "offset_hat_scale",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [1.0,1.0,1.0],
-            "offset": 2.0
-          },
           {
             "animationType": "translation",
             "variable": "offset_hat_x",
@@ -160,6 +197,13 @@
             "animationType": "translation",
             "variable": "offset_hat_z",
             "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_hat_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 2.0
           }
         ]
       }
@@ -180,7 +224,7 @@
         "texture": "ivv:textures/particles/ui_arrow_right.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [0.25,1.5,-0.25],
+        "pos": [0.25,0.5,-0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -236,7 +280,7 @@
         "texture": "ivv:textures/particles/ui_arrow_left.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [-0.25,1.5,-0.25],
+        "pos": [-0.25,0.5,-0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -292,7 +336,7 @@
         "texture": "ivv:textures/particles/ui_arrow_forward.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [0.0,1.5,0.25],
+        "pos": [0.0,0.5,0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -348,7 +392,7 @@
         "texture": "ivv:textures/particles/ui_arrow_backward.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [0.0,1.5,-0.25],
+        "pos": [0.0,0.5,-0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -404,7 +448,7 @@
         "texture": "ivv:textures/particles/ui_arrow_up.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-          "pos": [0.25,1.5,0.0],
+          "pos": [0.25,0.5,0.0],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -460,7 +504,7 @@
         "texture": "ivv:textures/particles/ui_arrow_down.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-          "pos": [-0.25,1.5,0.0],
+          "pos": [-0.25,0.5,0.0],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -516,7 +560,7 @@
         "texture": "ivv:textures/particles/ui_icon_positive.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [0.25,1.5,0.25],
+        "pos": [0.25,0.5,0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -572,7 +616,7 @@
         "texture": "ivv:textures/particles/ui_icon_negative.png",
         "model": "ivv:textures/particles/3d/cube.obj",
         "color": "FFFFFF",
-        "pos": [-0.25,1.5,0.25],
+        "pos": [-0.25,0.5,0.25],
         "rot": [90.0,0.0,0.0],
         "initialVelocity": [0.0,0.0,-0.01],
         "movementVelocity": [0.0,0.0,0.0],
@@ -618,11 +662,11 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "Goes on top of vehicles\nActivate parking brake & headlights (not running lights) to tweak part position",
+    "description": "Can be placed in the world or on top of vehicles\nActivate parking brake & headlights (not running lights) to tweak part position",
     "health": 100,
     "materialLists": [
       [
-        "oredict:leather:6"
+        "oredict:wool:3"
       ]
     ],
     "radarWidth": 0.0,

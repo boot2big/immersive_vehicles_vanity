@@ -435,82 +435,7 @@
         "maxDistance": 16.0,
         "maxDistanceVolume": 0.0
       },
-      {
-        "name": "ivv:super1",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "!speed"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_reversed",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 3
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.1,0.0],
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "slip",
-            "axis": [0.0,0.0125,0.0],
-            "absolute": true,
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "translation",
-            "variable": "engine_clutching",
-            "axis": [0.0,-1.0,0.0],
-            "duration": 3
-          },
-          {
-            "animationType": "translation",
-            "variable": "!throttle",
-            "axis": [0.0,-0.375,0.0],
-            "duration": 3
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "engine_gear",
-            "axis": [0.0,0.05,0.0],
-            "absolute": true
-          },
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.075,0.0],
-            "offset": 0.1875
-          },
-          {
-            "animationType": "translation",
-            "variable": "slip",
-            "axis": [0.0,0.0125,0.0],
-            "absolute": true
-          },
-          {
-            "animationType": "translation",
-            "variable": "!throttle",
-            "axis": [0.0,-0.125,0.0],
-            "duration": 3
-          }
-        ],
-        "looping": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.5,
-        "middleDistance": 8.0,
-        "middleDistanceVolume": 0.125,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
-      },
+
       {
         "name": "ivv:transmissionfailshift1",
         "soundVariations": [
@@ -559,40 +484,52 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_rpm",
+            "clampMin": 1.0,
+            "clampMax": 2147483647
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,1.0,0.0],
-            "offset": -0.5
+            "axis": [0.0,0.25,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,1.25,0.0]
+            "axis": [0.0,0.5,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,0.3,0.0],
-            "offset": -0.3
+            "axis": [0.0,0.05,0.0],
+            "offset": -0.05
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm",
-            "axis": [0.0,1.05E-4,0.0]
+            "axis": [0.0,0.000083333,0.0],
+            "offset": 0.5
           }
         ],
         "looping": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 0.5,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 32.0,
         "maxDistanceVolume": 0.0
       },
       {
@@ -603,25 +540,35 @@
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!throttle"
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,0.5,0.0]
+            "axis": [0.0,0.25,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.25,0.0],
+            "duration": 5
           },
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,-0.25,0.0]
+            "axis": [0.0,-0.5,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "engine_rpm",
-            "axis": [0.0,1.7857E-5,0.0],
+            "axis": [0.0,2.0833E-5,0.0],
             "offset": -0.25
           },
           {
@@ -633,10 +580,10 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 0.5,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 32.0,
         "maxDistanceVolume": 0.0
       }
     ],
@@ -784,18 +731,20 @@
       },
       {
         "type": "smoke",
+        "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 2,
         "duration": 60,
-        "transparency": 0.75,
+        "transparency": 0.375,
         "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
+        "scale": 0.5,
+        "toScale": 1.0,
         "hitboxSize": 0.2,
-        "color": "060606",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.0,0.5],
+        "color": "F0F0F0",
+        "pos": [0.0,0.25,0.375],
+        "spreadRandomness": [0.25,0.25,0.25],
+        "initialVelocity": [0.0,0.0,0.25],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -807,23 +756,56 @@
       },
       {
         "type": "smoke",
+        "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 4,
         "duration": 80,
         "transparency": 0.75,
         "toTransparency": 0.01,
-        "scale": 0.4,
-        "toScale": 0.8,
+        "scale": 0.375,
+        "toScale": 1.5,
         "hitboxSize": 0.2,
-        "color": "060606",
-        "pos": [0.0,0.0,0.75],
-        "initialVelocity": [0.0,0.0,0.75],
+        "color": "2F2F2F",
+        "pos": [0.0,0.25,0.375],
+        "spreadRandomness": [0.25,0.25,0.25],
+        "initialVelocity": [0.0,0.0,0.25],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_temp",
             "clampMin": 121.111,
+            "clampMax": 999.0
+          }
+        ]
+      },
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 2,
+        "duration": 40,
+        "transparency": 4.0,
+        "toTransparency": 0.01,
+        "scale": 0.6,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,0.375],
+        "initialVelocity": [0.0,0.0,0.375],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "2_4_2_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 125.5555,
             "clampMax": 999.0
           }
         ]

@@ -178,12 +178,11 @@
             "animationType": "rotation",
             "variable": "gun_reload",
             "centerPoint": [0.0,0.0,0.09375],
-            "axis": [45.0,0.0,0.0],
+            "axis": [67.5,0.0,0.0],
             "duration": 4,
             "forwardsEasing": "easeinoutcirc",
             "reverseEasing": "easeinoutcirc",
-            "forwardsDelay": 5,
-            "reverseDelay": 10
+            "reverseDelay": 5
           }
         ]
       },
@@ -208,6 +207,16 @@
             "forwardsEasing": "easeoutcirc",
             "reverseEasing": "easeinoutsine",
             "forwardsDelay": -1
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.09375],
+            "axis": [-22.5,0.0,0.0],
+            "duration": 4,
+            "forwardsEasing": "easeinoutcirc",
+            "reverseEasing": "easeinoutcirc",
+            "reverseDelay": 5
           }
         ]
       }
@@ -342,16 +351,24 @@
     "particles": [
       {
         "type": "generic",
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
         "spawningOrientation": "entity",
-        "renderingOrientation": "player",
+        "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 200,
-        "transparency": 2.5,
+        "duration": 120,
+        "transparency": 10.0,
         "toTransparency": 0.01,
-        "scale": 0.1,
-        "toScale": 0.1,
+        "scale": 1.0,
+        "toScale": 1.0,
         "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/casing.png",
+        "texture": "ivv:textures/particles/3d/casing.png",
+        "model": "ivv:textures/particles/3d/casing.obj",
         "color": "CCCCCC",
         "pos": [0.0,0.0625,0.09375],
         "initialVelocity": [-1.0,0.5,0.0],
@@ -366,8 +383,7 @@
             "duration": 4,
             "forwardsEasing": "easeinoutcirc",
             "reverseEasing": "easeinoutcirc",
-            "forwardsDelay": 5,
-            "reverseDelay": 10
+            "reverseDelay": 5
           },
           {
             "animationType": "rotation",
@@ -404,17 +420,19 @@
         "type": "generic",
         "isBright": true,
         "spawningOrientation": "entity",
-        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 2,
         "transparency": 1.5,
         "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.4,
+        "scale": 0.125,
+        "toScale": 0.25,
         "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/muzzleflash.png",
+        "renderingOrientation": "fixed",
+        "texture": "ivv:textures/particles/3d/muzzleflash.png",
+        "model": "ivv:textures/particles/3d/muzzleflash.obj",
         "color": "FFFFFF",
         "pos": [0.0,0.097656,0.459822],
+        "rotationRandomness": [0.0,0.0,180.0],
         "initialVelocity": [0.0,0.0,0.0],
         "spawningAnimations": [
           {
@@ -425,8 +443,7 @@
             "duration": 4,
             "forwardsEasing": "easeinoutcirc",
             "reverseEasing": "easeinoutcirc",
-            "forwardsDelay": 5,
-            "reverseDelay": 10
+            "reverseDelay": 5
           },
           {
             "animationType": "rotation",
@@ -461,13 +478,13 @@
         "type": "smoke",
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 5,
-        "duration": 40,
-        "transparency": 0.75,
+        "quantity": 3,
+        "duration": 20,
+        "transparency": 0.125,
         "toTransparency": 0.01,
-        "scale": 0.2,
-        "toScale": 0.8,
-        "hitboxSize": 0.2,
+        "scale": 0.25,
+        "toScale": 1.0,
+        "hitboxSize": 0.25,
         "color": "555555",
         "pos": [0.0,0.097656,0.459822],
         "initialVelocity": [0.0,0.0,2.0],
@@ -480,8 +497,7 @@
             "duration": 4,
             "forwardsEasing": "easeinoutcirc",
             "reverseEasing": "easeinoutcirc",
-            "forwardsDelay": 5,
-            "reverseDelay": 10
+            "reverseDelay": 5
           },
           {
             "animationType": "rotation",

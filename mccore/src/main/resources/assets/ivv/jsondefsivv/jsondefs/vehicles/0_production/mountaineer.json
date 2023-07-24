@@ -1,6 +1,7 @@
 {
   "motorized": {
     "hasAutopilot": true,
+    "hasSingleEngineControl": true,
     "hasRunningLights": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
@@ -8,8 +9,8 @@
     "fuelCapacity": 45000,
     "defaultFuelQty": 45000,
     "downForce": 0.65,
-    "overSteer": 6.0,
-    "underSteer": 0.5,
+    "overSteer": 2.0,
+    "underSteer": 0.25,
     "overSteerAccel": 6.0,
     "axleRatio": 2.5,
     "brakingFactor": 5.0,
@@ -450,6 +451,15 @@
         [
           "hatch_hood"
         ]
+      ]
+    },
+    {
+      "pos": [0.0,-0.30875,3.19125],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 3.0,
+      "partScale": [0.94125,0.94125,0.94125],
+      "types": [
+        "generic_fluff"
       ]
     }
   ],
@@ -1282,6 +1292,27 @@
           "clampMax": 6.0
         }
       ]
+    },
+    {
+      "isInterior": true,
+      "isForBullets": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.75,0.375],
+          "width": 3.0,
+          "height": 2.0
+        },
+        {
+          "pos": [0.0,0.75,1.875],
+          "width": 3.0,
+          "height": 2.0
+        },
+        {
+          "pos": [0.0,0.375,3.375],
+          "width": 3.0,
+          "height": 1.25
+        }
+      ]
     }
   ],
   "connectionGroups": [
@@ -1730,12 +1761,6 @@
           "animationType": "translation",
           "variable": "rlBodyroll",
           "axis": [0.0,-0.25,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },
@@ -1773,12 +1798,6 @@
           "animationType": "translation",
           "variable": "rrBodyroll",
           "axis": [0.0,-0.25,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },
@@ -1816,12 +1835,6 @@
           "animationType": "translation",
           "variable": "flBodyroll",
           "axis": [0.0,-0.25,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },
@@ -1859,12 +1872,6 @@
           "animationType": "translation",
           "variable": "frBodyroll",
           "axis": [0.0,-0.25,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },
@@ -2332,6 +2339,20 @@
             "variable": "rlBodyroll",
             "centerPoint": [1.0E-8,-0.125,0.0],
             "axis": [0.0,0.0,4.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rlBodyroll",
+            "centerPoint": [1.0E-8,-0.125,0.0],
+            "axis": [0.0,0.0,-8.0]
           }
         ]
       },
@@ -2361,6 +2382,20 @@
             "variable": "rrBodyroll",
             "centerPoint": [1.0E-8,-0.125,0.0],
             "axis": [0.0,0.0,4.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rrBodyroll",
+            "centerPoint": [1.0E-8,-0.125,0.0],
+            "axis": [0.0,0.0,-8.0]
           }
         ]
       },
@@ -2390,6 +2425,20 @@
             "variable": "flBodyroll",
             "centerPoint": [1.0E-8,-0.125,4.0],
             "axis": [0.0,0.0,4.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "flBodyroll",
+            "centerPoint": [1.0E-8,-0.125,4.0],
+            "axis": [0.0,0.0,-8.0]
           }
         ]
       },
@@ -2431,6 +2480,20 @@
             "variable": "frBodyroll",
             "centerPoint": [1.0E-8,-0.125,4.0],
             "axis": [0.0,0.0,4.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "frBodyroll",
+            "centerPoint": [1.0E-8,-0.125,4.0],
+            "axis": [0.0,0.0,-8.0]
           }
         ]
       },
@@ -3179,7 +3242,7 @@
           {
             "animationType": "visibility",
             "variable": "engine_running_1",
-            "clampMin": -1.0,
+            "clampMin": 1.0,
             "clampMax": 1.0
           }
         ],
@@ -3754,14 +3817,41 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 8.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.314984,1.43942],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 1,
-        "duration": 10,
+        "duration": 8,
         "transparency": 2.0,
         "toTransparency": 0.01,
-        "scale": 4.8,
-        "toScale": 9.6,
+        "scale": 2.0,
+        "toScale": 8.0,
         "hitboxSize": 0.2,
         "textureList": [
           "ivv:textures/particles/explosion_1.png",
@@ -3789,7 +3879,7 @@
   },
   "general": {
     "description": "§lSTATS:\nDrivetrain: AWD\nMax. Top Speed: 120MPH\n0-60: 10.58\n0-Top Speed: 0:56.04\n§lACCESSORIES:\n-License Plate x2\n-Bumper Sticker x2",
-    "health": 4000,
+    "health": 200,
     "materialLists": [
       [
         "mts:ivv.frame:0:1",

@@ -9,7 +9,7 @@
     "defaultFuelQty": 17500,
     "downForce": 0.6,
     "overSteer": 8.0,
-    "overSteerAccel": 8.0,
+    "overSteerAccel": 24.0,
     "axleRatio": 2.375,
     "brakingFactor": 4.0,
     "dragCoefficient": 0.09875,
@@ -615,18 +615,18 @@
           "forwardsEasing": "easeoutelastic",
           "reverseEasing": "easeincubic"
         },
-          {
-            "animationType": "inhibitor",
-            "variable": "hatch_hood"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "outdatedBodyTranslation",
-            "centerPoint": [0.0,0.87319,2.79627],
-            "axis": [-10.0,0.0,0.0],
-            "clampMin": -10.0,
-            "clampMax": 30.0
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_hood"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "outdatedBodyTranslation",
+          "centerPoint": [0.0,0.87319,2.79627],
+          "axis": [-10.0,0.0,0.0],
+          "clampMin": -10.0,
+          "clampMax": 30.0
+        }
       ]
     },
     {
@@ -678,18 +678,18 @@
           "forwardsEasing": "easeinoutcubic",
           "reverseEasing": "easeincubic"
         },
-          {
-            "animationType": "inhibitor",
-            "variable": "hatch_trunk"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "outdatedBodyTranslation",
-            "centerPoint": [0.0,0.94346,-0.92086],
-            "axis": [-10.0,0.0,0.0],
-            "clampMin": -30.0,
-            "clampMax": 10.0
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_trunk"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "outdatedBodyTranslation",
+          "centerPoint": [0.0,0.94346,-0.92086],
+          "axis": [-10.0,0.0,0.0],
+          "clampMin": -30.0,
+          "clampMax": 10.0
+        }
       ]
     },
     {
@@ -741,18 +741,18 @@
           "forwardsEasing": "easeoutback",
           "reverseEasing": "easeincubic"
         },
-          {
-            "animationType": "inhibitor",
-            "variable": "hatch_left"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "outdatedlBodyroll",
-            "centerPoint": [1.1875,0.46191,2.42188],
-            "axis": [0.0,-8.0,0.0],
-            "clampMin": -10.0,
-            "clampMax": 5.0
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_left"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "outdatedlBodyroll",
+          "centerPoint": [1.1875,0.46191,2.42188],
+          "axis": [0.0,-8.0,0.0],
+          "clampMin": -10.0,
+          "clampMax": 5.0
+        }
       ]
     },
     {
@@ -804,18 +804,18 @@
           "forwardsEasing": "easeoutback",
           "reverseEasing": "easeincubic"
         },
-          {
-            "animationType": "inhibitor",
-            "variable": "hatch_right"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "outdatedrBodyroll",
-            "centerPoint": [-1.1875,0.46191,2.42188],
-            "axis": [0.0,-8.0,0.0],
-            "clampMin": -10.0,
-            "clampMax": 5.0
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "hatch_right"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "outdatedrBodyroll",
+          "centerPoint": [-1.1875,0.46191,2.42188],
+          "axis": [0.0,-8.0,0.0],
+          "clampMin": -10.0,
+          "clampMax": 5.0
+        }
       ]
     },
     {
@@ -1626,7 +1626,7 @@
             "animationType": "rotation",
             "variable": "damage_totaled",
             "centerPoint": [0.0,0.87319,2.79627],
-            "axis": [-2,0.0,0.0]
+            "axis": [-2.0,0.0,0.0]
           },
           {
             "animationType": "inhibitor",
@@ -1660,7 +1660,7 @@
             "animationType": "rotation",
             "variable": "damage_totaled",
             "centerPoint": [0.0,0.94346,-0.92086],
-            "axis": [1,0.0,0.0]
+            "axis": [1.0,0.0,0.0]
           },
           {
             "animationType": "inhibitor",
@@ -1694,7 +1694,7 @@
             "animationType": "rotation",
             "variable": "damage_totaled",
             "centerPoint": [1.1875,0.46191,2.42188],
-            "axis": [0,-4.0,0.0]
+            "axis": [0.0,-4.0,0.0]
           },
           {
             "animationType": "inhibitor",
@@ -2536,7 +2536,7 @@
           {
             "animationType": "visibility",
             "variable": "engine_running_1",
-            "clampMin": -1.0,
+            "clampMin": 1.0,
             "clampMax": 1.0
           }
         ],
@@ -3082,14 +3082,41 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 8.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.470053,1.07221],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 1,
-        "duration": 10,
+        "duration": 8,
         "transparency": 2.0,
         "toTransparency": 0.01,
-        "scale": 4.8,
-        "toScale": 9.6,
+        "scale": 2.0,
+        "toScale": 8.0,
         "hitboxSize": 0.2,
         "textureList": [
           "ivv:textures/particles/explosion_1.png",
@@ -3301,7 +3328,7 @@
   },
   "general": {
     "description": "§lSTATS:\nDrivetrain: RWD\nMax. Top Speed: 106MPH\n0-60: 7.12\n0-Top Speed: 0:18:23\n§lACCESSORIES:\n-License Plate x2\n-Bumper Sticker x2\n-Lightbar/Gyrophare/Roof Device x1",
-    "health": 2800,
+    "health": 140,
     "materialLists": [
       [
         "mts:ivv.frame:0:1",

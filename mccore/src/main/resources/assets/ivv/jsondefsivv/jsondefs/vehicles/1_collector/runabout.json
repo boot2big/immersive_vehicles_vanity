@@ -1,6 +1,5 @@
 {
   "motorized": {
-    "hasOpenTop": true,
     "hasSingleEngineControl": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
@@ -366,6 +365,15 @@
       ],
       "customTypes": [
         "engine_exhaust"
+      ]
+    },
+    {
+      "pos": [0.0,-0.088125,2.381],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 3.0,
+      "partScale": [0.911875,0.911875,0.911875],
+      "types": [
+        "generic_fluff"
       ]
     }
   ],
@@ -892,6 +900,27 @@
           "height": 0.125
         }
       ]
+    },
+    {
+      "isInterior": true,
+      "isForBullets": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.625,0.5],
+          "width": 3.0,
+          "height": 1.25
+        },
+        {
+          "pos": [0.0,0.625,1.5],
+          "width": 3.0,
+          "height": 1.25
+        },
+        {
+          "pos": [0.0,0.625,2.5],
+          "width": 3.0,
+          "height": 1.25
+        }
+      ]
     }
   ],
   "connectionGroups": [
@@ -1192,12 +1221,6 @@
           "animationType": "translation",
           "variable": "rBodyTranslation",
           "axis": [0.0,-0.25,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },
@@ -1230,12 +1253,6 @@
           "animationType": "translation",
           "variable": "rBodyroll",
           "axis": [0.0,-0.25,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },
@@ -1268,12 +1285,6 @@
           "animationType": "translation",
           "variable": "fBodyTranslation",
           "axis": [0.0,-0.25,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },
@@ -1306,12 +1317,6 @@
           "animationType": "translation",
           "variable": "fBodyroll",
           "axis": [0.0,-0.25,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },
@@ -1418,21 +1423,34 @@
         "objectName": "suspensionrear",
         "animations": [
           {
-            "animationType": "inhibitor",
-            "variable": "rBodyTranslation",
-            "clampMin": -0.0625,
-            "clampMax": 0.0625
-          },
-          {
             "animationType": "translation",
             "variable": "rBodyTranslation",
             "axis": [0.0,0.2375,0.0]
           },
           {
             "animationType": "rotation",
-            "variable": "fBodyroll",
+            "variable": "rBodyroll",
             "centerPoint": [0.0,0.125,-0.1875],
             "axis": [0.0,0.0,4.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "translation",
+            "variable": "rBodyTranslation",
+            "axis": [0.0,-0.475,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rBodyroll",
+            "centerPoint": [0.0,0.125,-0.1875],
+            "axis": [0.0,0.0,-8.0]
           }
         ]
       },
@@ -1464,12 +1482,6 @@
         "objectName": "suspensionfront",
         "animations": [
           {
-            "animationType": "inhibitor",
-            "variable": "fBodyTranslation",
-            "clampMin": -0.0625,
-            "clampMax": 0.0625
-          },
-          {
             "animationType": "translation",
             "variable": "fBodyTranslation",
             "axis": [0.0,0.2375,0.0]
@@ -1479,6 +1491,25 @@
             "variable": "fBodyroll",
             "centerPoint": [0.0,0.125,3.25],
             "axis": [0.0,0.0,2.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "translation",
+            "variable": "fBodyTranslation",
+            "axis": [0.0,-0.475,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fBodyroll",
+            "centerPoint": [0.0,0.125,3.25],
+            "axis": [0.0,0.0,-4.0]
           }
         ]
       },
@@ -3016,14 +3047,41 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 8.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.793924,1.29833],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 2.0,
         "toTransparency": 0.01,
-        "scale": 4.8,
-        "toScale": 9.6,
+        "scale": 2.0,
+        "toScale": 8.0,
         "hitboxSize": 0.2,
         "textureList": [
           "ivv:textures/particles/explosion_1.png",
@@ -3051,7 +3109,7 @@
   },
   "general": {
     "description": "§lSTATS:\nDrivetrain: RWD\nMax. Top Speed: 56MPH\n0-60: N/A\n0-Top Speed: 0:26.57\n§lACCESSORIES:\n-License Plate x2\n-Bumper Sticker x4",
-    "health": 1600,
+    "health": 80,
     "materialLists": [
       [
         "mts:ivv.frame:0:1",
