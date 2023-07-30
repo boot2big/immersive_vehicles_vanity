@@ -12,7 +12,7 @@
     "caseLength": 200.0,
     "blastStrength": 32.0,
     "armorPenetration": 2.14748365E9,
-    "proximityFuze": 2.0,
+    "proximityFuze": 1.0,
     "airBurstDelay": 305,
     "gravitationalVelocity": 0.03,
     "burnTime": 100,
@@ -28,8 +28,7 @@
       },
       {
         "name": "wither",
-        "duration": 300,
-        "amplifier": 300
+        "duration": 300
       }
     ]
   },
@@ -183,12 +182,6 @@
             "variable": "bullet_hit"
           },
           {
-            "animationType": "inhibitor",
-            "variable": "5_10_5_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
             "animationType": "visibility",
             "variable": "bullet_burntime",
             "clampMin": 1.0,
@@ -208,8 +201,8 @@
         "toScale": 64.0,
         "hitboxSize": 0.01,
         "color": "666666",
-        "pos": [0.5,2,0.5],
-        "rotationRandomness": [45,180.0,45],
+        "pos": [0.5,2.0,0.5],
+        "rotationRandomness": [45.0,180.0,45.0],
         "spreadRandomness": [24.0,0.5,24.0],
         "initialVelocity": [0.0,1.0,0.0],
         "activeAnimations": [
@@ -233,7 +226,7 @@
         "toScale": 64.0,
         "hitboxSize": 0.01,
         "color": "666666",
-        "pos": [0.5,2,0.5],
+        "pos": [0.5,2.0,0.5],
         "rotationRandomness": [22.5,180.0,22.5],
         "spreadRandomness": [8.0,2.0,8.0],
         "initialVelocity": [0.0,4.0,0.0],
@@ -252,7 +245,7 @@
         "spawningOrientation": "world",
         "renderingOrientation": "fixed",
         "quantity": 1,
-        "duration": 60,
+        "duration": 80,
         "transparency": 4.0,
         "toTransparency": 0.01,
         "scale": 2.0,
@@ -271,6 +264,33 @@
         "pos": [0.5,1.0,0.5],
         "rotationRandomness": [0.0,180.0,0.0],
         "initialVelocity": [0.0,0.125,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 30,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 48.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.5,1.0,0.5],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -302,7 +322,7 @@
         ],
         "textureDelays": [4,4,2,3,3,32767],
         "color": "FFFFFF",
-        "pos": [0.5,0.5,0.5],
+        "pos": [0.5,1.0,0.5],
         "initialVelocity": [0.0,2.0,0.0],
         "activeAnimations": [
           {
@@ -321,8 +341,9 @@
     "stackSize": 64,
     "materialLists": [
       [
-        "oredict:ingotGold:4",
-        "oredict:gunpowder:16",
+        "oredict:ingotIron:2",
+        "oredict:gunpowder:4",
+        "minecraft:tnt:0:2",
         "minecraft:nether_star:0:1"
       ]
     ],

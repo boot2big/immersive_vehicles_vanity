@@ -8,8 +8,8 @@
     "fuelCapacity": 17500,
     "defaultFuelQty": 17500,
     "downForce": 0.75,
-    "overSteer": 6.0,
-    "overSteerAccel": 6.0,
+    "overSteer": 5.0,
+    "overSteerAccel": 15.0,
     "axleRatio": 2.5,
     "brakingFactor": 3.0,
     "dragCoefficient": 0.1,
@@ -332,21 +332,21 @@
     },
     {
       "pos": [0.0,1.64844,0.546875],
-      "applyAfter": "convroofback",
       "maxValue": 1.0,
       "types": [
         "generic_antenna"
-      ]
+      ],
+      "applyAfter": "convroofback"
     },
     {
       "pos": [0.0,1.64844,1.02344],
-      "applyAfter": "convrooffront",
       "maxValue": 3.0,
       "types": [
         "generic_lightbar",
         "generic_gyrophare",
         "generic_roofdevice"
-      ]
+      ],
+      "applyAfter": "convrooffront"
     },
     {
       "pos": [0.0,1.37085,1.33913],
@@ -381,6 +381,15 @@
         [
           "hatch_hood"
         ]
+      ]
+    },
+    {
+      "pos": [0.0,0.0,2.125],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 3.0,
+      "partScale": [1.0,1.0,1.0],
+      "types": [
+        "generic_fluff"
       ]
     }
   ],
@@ -1195,6 +1204,27 @@
           "axis": [0.0,0.0,3.0],
           "clampMin": -3.0,
           "clampMax": 6.0
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "isForBullets": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.625,0.4375],
+          "width": 3.0,
+          "height": 1.375
+        },
+        {
+          "pos": [0.0,0.625,1.25],
+          "width": 3.0,
+          "height": 1.375
+        },
+        {
+          "pos": [0.0,0.625,2.0625],
+          "width": 3.0,
+          "height": 1.375
         }
       ]
     }
@@ -2552,6 +2582,22 @@
             "axis": [0.0,0.0,3.0],
             "clampMin": -6.0,
             "clampMax": 3.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rlBodyroll",
+            "centerPoint": [1.0E-8,0.02344,-0.125],
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -12.0,
+            "clampMax": 6.0
           }
         ]
       },
@@ -2583,6 +2629,22 @@
             "axis": [0.0,0.0,3.0],
             "clampMin": -3.0,
             "clampMax": 6.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "rrBodyroll",
+            "centerPoint": [1.0E-8,0.02344,-0.125],
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -6.0,
+            "clampMax": 12.0
           }
         ]
       },
@@ -2614,6 +2676,22 @@
             "axis": [0.0,0.0,3.0],
             "clampMin": -6.0,
             "clampMax": 3.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "flBodyroll",
+            "centerPoint": [1.0E-8,-0.02344,2.75],
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -12.0,
+            "clampMax": 6.0
           }
         ]
       },
@@ -2657,6 +2735,22 @@
             "axis": [0.0,0.0,3.0],
             "clampMin": -3.0,
             "clampMax": 6.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_reversed_1"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "frBodyroll",
+            "centerPoint": [1.0E-8,-0.02344,2.75],
+            "axis": [0.0,0.0,-6.0],
+            "clampMin": -6.0,
+            "clampMax": 12.0
           }
         ]
       },
@@ -3588,7 +3682,7 @@
           {
             "animationType": "visibility",
             "variable": "engine_running_1",
-            "clampMin": -1.0,
+            "clampMin": 1.0,
             "clampMax": 1.0
           }
         ],
@@ -4189,14 +4283,41 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 8.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.314984,1.43942],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 1,
-        "duration": 10,
+        "duration": 8,
         "transparency": 2.0,
         "toTransparency": 0.01,
-        "scale": 4.8,
-        "toScale": 9.6,
+        "scale": 2.0,
+        "toScale": 8.0,
         "hitboxSize": 0.2,
         "textureList": [
           "ivv:textures/particles/explosion_1.png",
@@ -4224,7 +4345,7 @@
   },
   "general": {
     "description": "§lSTATS:\nDrivetrain: RWD\nMax. Top Speed: 107MPH\n0-60: 12.44\n0-Top Speed: 1:06.31\n§lACCESSORIES:\n-License Plate x2\n-Bumper Sticker x2",
-    "health": 1700,
+    "health": 85,
     "materialLists": [
       [
         "mts:ivv.frame:0:1",

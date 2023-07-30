@@ -1,16 +1,16 @@
 {
   "bullet": {
     "types": [
-      "explosive",
-      "armor_piercing"
+      "explosive"
     ],
     "guidanceType": "active",
+    "isHeat": true,
     "quantity": 1,
     "diameter": 60.0,
-    "damage": 2400.0,
+    "damage": 400.0,
     "caseLength": 240.0,
     "blastStrength": 2.0,
-    "armorPenetration": 800.0,
+    "armorPenetration": 90.0,
     "proximityFuze": 1.0,
     "airBurstDelay": 505,
     "gravitationalVelocity": 0.03,
@@ -171,12 +171,6 @@
             "variable": "bullet_hit"
           },
           {
-            "animationType": "inhibitor",
-            "variable": "5_10_5_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
             "animationType": "visibility",
             "variable": "bullet_burntime",
             "clampMin": 1.0,
@@ -192,7 +186,7 @@
         "scale": 0.030000001,
         "hitboxSize": 0.1,
         "color": "999999",
-        "pos": [0.0,0.5,0.0],
+        "pos": [0.5,1.0,0.5],
         "initialVelocity": [0.0,1.5,0.0],
         "activeAnimations": [
           {
@@ -215,8 +209,35 @@
         "toScale": 3.2,
         "hitboxSize": 0.2,
         "color": "999999",
-        "pos": [0.0,0.5,0.0],
+        "pos": [0.5,1.0,0.5],
         "initialVelocity": [0.0,1.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 16.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.5,1.0,0.5],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -248,7 +269,7 @@
         ],
         "textureDelays": [2,2,1,1,1,32767],
         "color": "FFFFFF",
-        "pos": [0.5,0.5,0.5],
+        "pos": [0.5,1.0,0.5],
         "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
@@ -267,9 +288,11 @@
     "stackSize": 64,
     "materialLists": [
       [
-        "oredict:ingotGold:4",
-        "oredict:dustRedstone:4",
-        "oredict:gunpowder:8"
+        "oredict:ingotIron:1",
+        "oredict:ingotGold:1",
+        "oredict:dustRedstone:2",
+        "oredict:gunpowder:3",
+        "minecraft:tnt:0:2"
       ]
     ],
     "radarWidth": 0.0,
