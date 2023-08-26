@@ -10,6 +10,12 @@
         "centerPoint": [0.0,0.0,0.0],
         "axis": [0.0,0.0,0.0]
       }
+    ],
+    "activeAnimations": [
+      {
+        "animationType": "visibility",
+        "variable": "part_present_3"
+      }
     ]
   },
   "ground": {
@@ -40,7 +46,7 @@
       "animations": [
         {
           "animationType": "inhibitor",
-          "variable": "parent_vehicle_wheels_locked",
+          "variable": "ground_locked",
           "clampMin": 1.0,
           "clampMax": 1.0
         },
@@ -90,7 +96,7 @@
         },
         {
           "animationType": "inhibitor",
-          "variable": "parent_vehicle_wheels_locked",
+          "variable": "ground_locked",
           "clampMin": 1.0,
           "clampMax": 1.0
         },
@@ -161,7 +167,7 @@
         },
         {
           "animationType": "visibility",
-          "variable": "parent_vehicle_wheels_locked"
+          "variable": "ground_locked"
         }
       ]
     },
@@ -176,7 +182,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "parent_vehicle_wheels_locked",
+          "variable": "ground_locked",
           "axis": [-0.375,0.0,0.0],
           "offset": 1.0,
           "duration": 5
@@ -203,7 +209,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "parent_vehicle_wheels_locked",
+          "variable": "ground_locked",
           "axis": [-1.0,0.0,0.0],
           "offset": 1.0,
           "duration": 5
@@ -227,6 +233,27 @@
       ]
     },
     {
+      "variable": "ground_locked",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMin": 0.0,
+          "clampMax": 0.125
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_present_3",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
       "variable": "ground_slipping_jankyfix",
       "animations": [
         {
@@ -236,7 +263,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "!parent_vehicle_wheels_locked",
+          "variable": "!ground_locked",
           "axis": [1.0,0.0,0.0]
         }
       ]
@@ -253,7 +280,7 @@
           },
           {
             "animationType": "inhibitor",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -274,7 +301,7 @@
           },
           {
             "animationType": "inhibitor",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -339,7 +366,7 @@
           },
           {
             "animationType": "inhibitor",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -970,7 +997,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 5
@@ -991,7 +1018,7 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "axis": [0.0,1.0,0.0],
             "duration": 5
           }
@@ -1013,7 +1040,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "axis": [0.0,-0.5,0.0],
             "offset": 0.5,
             "duration": 5
@@ -1045,7 +1072,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 5
@@ -1066,7 +1093,7 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "axis": [0.0,1.0,0.0],
             "duration": 5
           }
@@ -1088,7 +1115,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "axis": [0.0,-0.5,0.0],
             "offset": 0.5,
             "duration": 5
@@ -1558,7 +1585,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -1624,7 +1651,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "parent_vehicle_wheels_locked",
+            "variable": "ground_locked",
             "clampMin": 1.0,
             "clampMax": 1.0
           },

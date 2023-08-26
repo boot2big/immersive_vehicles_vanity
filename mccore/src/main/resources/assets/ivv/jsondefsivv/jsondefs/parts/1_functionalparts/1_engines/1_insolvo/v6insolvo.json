@@ -286,15 +286,21 @@
       "variable": "heatingCoefficient",
       "animations": [
         {
-          "animationType": "visibility",
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5
+        },
+        {
+          "animationType": "inhibitor",
           "variable": "engine_temp",
-          "clampMin": 105.0,
-          "clampMax": 1000.0
+          "clampMin": -32767.0,
+          "clampMax": 105.0
         },
         {
           "animationType": "translation",
           "variable": "!cooling",
-          "axis": [0.333,0.0,0.0]
+          "axis": [0.5,0.0,0.0]
         }
       ]
     },
@@ -302,15 +308,21 @@
       "variable": "coolingCoefficient",
       "animations": [
         {
-          "animationType": "visibility",
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.5
+        },
+        {
+          "animationType": "inhibitor",
           "variable": "engine_temp",
-          "clampMin": 105.0,
-          "clampMax": 1000.0
+          "clampMin": -32767.0,
+          "clampMax": 105.0
         },
         {
           "animationType": "translation",
           "variable": "!cooling",
-          "axis": [3.0,0.0,0.0]
+          "axis": [2.0,0.0,0.0]
         }
       ]
     },
