@@ -1,6 +1,7 @@
 {
   "generic": {
     "type": "ground_wheel",
+    "forwardsDamageMultiplier": 0.0,
     "movementAnimations": [
       {
         "animationType": "rotation",
@@ -14,18 +15,43 @@
     "isWheel": true,
     "width": 0.25,
     "height": 0.875,
+    "climbHeight": 1.5,
     "frictionModifiers": {}
   },
   "parts": [
     {
       "pos": [0.0125,0.0,0.0],
       "maxValue": 0.875,
-      "types": ["ground_wheel"],
+      "types": [
+        "ground_wheel"
+      ],
       "animations": [
         {
           "animationType": "translation",
           "variable": "camber_translate",
           "axis": [0.002777778,0.0,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "camber_value_dance",
+          "centerPoint": [0.0125,0.0,0.0],
+          "axis": [0.0,0.0,-1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!p_brake"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!headlight"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!left_turn_signal"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!right_turn_signal"
         },
         {
           "animationType": "rotation",
@@ -121,6 +147,9 @@
       ]
     }
   ],
+  "constantValues": {
+    "ground_wheel_camber": 1.0
+  },
   "variableModifiers": [
     {
       "variable": "vehicle_wheels_locked",
@@ -154,7 +183,7 @@
           "animationType": "translation",
           "variable": "camber_value",
           "axis": [-0.008333333,0.0,0.0],
-          "offset": 1,
+          "offset": 1.0,
           "absolute": true
         }
       ]
@@ -175,9 +204,51 @@
           "offset": -1.0
         }
       ]
+    },
+    {
+      "variable": "camber_value_dance",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "camber_value",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_ismirrored",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "5_10_5_cycle",
+          "axis": [-3.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "headlight",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "left_turn_signal",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "right_turn_signal",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
     }
   ],
-  "constants": ["ground_wheel_camber"],
   "rendering": {
     "textObjects": [
       {
@@ -190,9 +261,8 @@
         "fontName": "ivv:digifont",
         "defaultText": "ERROR!",
         "color": "FFFFFF",
-        "lightsUp": true,
-        "renderPosition": 0,
-        "attachedTo": "cube"
+        "attachedTo": "cube",
+        "lightsUp": true
       }
     ],
     "animatedObjects": [
@@ -263,14 +333,18 @@
     "name": "Cancer Kit",
     "description": "Slightly buggy, will not come with vehicles by default\nNot very compatible with vehicle-modeled hubs",
     "stackSize": 64,
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
-      ["minecraft:barrier:0:1"]
+      [
+        "minecraft:barrier:0:1"
+      ]
     ],
     "repairMaterialLists": [
-      ["minecraft:barrier:0:1"]
-    ]
+      [
+        "minecraft:barrier:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }
