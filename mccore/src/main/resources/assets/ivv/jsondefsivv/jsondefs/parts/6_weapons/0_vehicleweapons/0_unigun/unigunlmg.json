@@ -127,7 +127,8 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "gun_fired"
+            "variable": "gun_fired",
+            "reverseDelay": 3
           },
           {
             "animationType": "visibility",
@@ -186,6 +187,53 @@
     ],
     "particles": [
       {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 0.25,
+        "toScale": 0.5,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/muzzleflash.png",
+        "model": "ivv:textures/particles/3d/muzzleflash.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.0625],
+        "rotationRandomness": [0.0,0.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_yaw",
+            "centerPoint": [0.0,0.0,0.0625],
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_pitch",
+            "centerPoint": [0.0,0.0,0.0625],
+            "axis": [1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
         "type": "smoke",
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
@@ -219,6 +267,53 @@
             "variable": "gun_active_muzzlegroup",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 0.25,
+        "toScale": 0.5,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/muzzleflash.png",
+        "model": "ivv:textures/particles/3d/muzzleflash.obj",
+        "color": "FFFFFF",
+        "pos": [-1.25,0.0,0.0625],
+        "rotationRandomness": [0.0,0.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_yaw",
+            "centerPoint": [0.0,0.0,0.0625],
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_pitch",
+            "centerPoint": [0.0,0.0,0.0625],
+            "axis": [1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "clampMin": 2.0,
+            "clampMax": 2.0
           },
           {
             "animationType": "visibility",
