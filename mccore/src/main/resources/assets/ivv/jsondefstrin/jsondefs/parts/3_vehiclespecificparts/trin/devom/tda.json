@@ -68,10 +68,10 @@
       "rot": [0.0,0.0,0.0],
       "minValue": 1.0,
       "maxValue": 100.0,
-      "minYaw": -67.5,
-      "maxYaw": 67.5,
-      "minPitch": -67.5,
-      "maxPitch": 67.5,
+      "minYaw": -90.0,
+      "maxYaw": 90.0,
+      "minPitch": -90.0,
+      "maxPitch": 90.0,
       "types": [
         "gun_unigun_rl"
       ],
@@ -87,10 +87,10 @@
       "rot": [0.0,0.0,0.0],
       "minValue": 1.0,
       "maxValue": 100.0,
-      "minYaw": -67.5,
-      "maxYaw": 67.5,
-      "minPitch": -67.5,
-      "maxPitch": 67.5,
+      "minYaw": -90.0,
+      "maxYaw": 90.0,
+      "minPitch": -90.0,
+      "maxPitch": 90.0,
       "types": [
         "gun_unigun_mg"
       ],
@@ -112,7 +112,7 @@
       "linkedParts": []
     },
     {
-      "pos": [0.0,-1.7625,-2.675],
+      "pos": [0.0,-1.75,-2.675],
       "rot": [0.25,0.0,0.0],
       "maxValue": 1.0,
       "types": [
@@ -172,7 +172,7 @@
           "no"
         ]
       ],
-      "linkedParts": [4,5,6],
+      "linkedParts": [],
       "seatEffects": [
         {
           "name": "night_vision",
@@ -359,25 +359,50 @@
           "pos": [0.0,-0.85,-1.6],
           "width": 3.0,
           "height": 2.25,
-          "armorThickness": 6000.0,
-          "heatArmorThickness": 2000.0,
+          "armorThickness": 200.0,
+          "heatArmorThickness": 450.0,
           "damageMultiplier": 0.5
         },
         {
           "pos": [0.0,-0.85,-0.3],
           "width": 6.0,
           "height": 3.0,
-          "armorThickness": 6000.0,
-          "heatArmorThickness": 2000.0,
+          "armorThickness": 200.0,
+          "heatArmorThickness": 450.0,
           "damageMultiplier": 0.5
         },
         {
           "pos": [0.0,-0.85,1.0],
           "width": 3.0,
           "height": 2.25,
-          "armorThickness": 6000.0,
-          "heatArmorThickness": 2000.0,
+          "armorThickness": 200.0,
+          "heatArmorThickness": 450.0,
           "damageMultiplier": 0.5
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.625,-1.75,1.75],
+          "width": 0.25,
+          "height": 0.25,
+          "armorThickness": 200.0,
+          "heatArmorThickness": 450.0,
+          "damageMultiplier": 0.5,
+          "variableName": "slider_man_toggle",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-0.625,-1.75,1.75],
+          "width": 0.25,
+          "height": 0.25,
+          "armorThickness": 200.0,
+          "heatArmorThickness": 450.0,
+          "damageMultiplier": 0.5,
+          "variableName": "slider_man_toggle",
+          "variableType": "toggle"
         }
       ]
     }
@@ -866,6 +891,18 @@
           "animationType": "translation",
           "variable": "HYDRAULICS",
           "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "seat_occupied_1"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "seat_occupied_2"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake"
         }
       ]
     },
@@ -888,6 +925,18 @@
           "animationType": "translation",
           "variable": "HYDRAULICS",
           "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "seat_occupied_1"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "seat_occupied_2"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake"
         }
       ]
     },
@@ -1017,6 +1066,13 @@
           "variable": "speed",
           "axis": [0.0,0.005555556,0.0],
           "clampMax": 0.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "!running_light",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 5
         }
       ]
     },
@@ -1048,6 +1104,13 @@
           "variable": "speed",
           "axis": [0.0,0.005555556,0.0],
           "clampMax": 0.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "!running_light",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 5
         }
       ]
     },
@@ -1057,15 +1120,18 @@
       "animations": [
         {
           "animationType": "translation",
+          "variable": "slider_man_toggle",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "gun_active_1",
-          "axis": [0.0,3.0,0.0],
-          "offset": -1.0
+          "axis": [0.0,1.0,0.0]
         },
         {
           "animationType": "translation",
           "variable": "gun_active_2",
-          "axis": [0.0,3.0,0.0],
-          "offset": -1.0
+          "axis": [0.0,1.0,0.0]
         }
       ]
     },
@@ -1637,7 +1703,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "part_present_3",
+            "variable": "part_present_8",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -1649,7 +1715,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "part_present_3",
+            "variable": "part_present_8",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -1661,9 +1727,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "part_present_8",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "variable": "!disabled"
           }
         ]
       },
@@ -1673,7 +1737,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "part_present_3",
+            "variable": "part_present_8",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -1685,7 +1749,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "part_present_3",
+            "variable": "part_present_8",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -1921,6 +1985,190 @@
           }
         ],
         "blendableComponents": []
+      },
+      {
+        "objectName": "lightl1",
+        "emissive": true,
+        "covered": true,
+        "isElectric": true,
+        "color": "E60000",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_magneto_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "0_16_16_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "lightl2",
+        "emissive": true,
+        "covered": true,
+        "isElectric": true,
+        "color": "E60000",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_magneto_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "4_12_16_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "lightl3",
+        "emissive": true,
+        "covered": true,
+        "isElectric": true,
+        "color": "E60000",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_magneto_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "8_8_16_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "lightl4",
+        "emissive": true,
+        "covered": true,
+        "isElectric": true,
+        "color": "E60000",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_magneto_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "12_4_16_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "lightr1",
+        "emissive": true,
+        "covered": true,
+        "isElectric": true,
+        "color": "E60000",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_magneto_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_clutch_upshift_1",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_clutch_downshift_1",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "lightr2",
+        "emissive": true,
+        "covered": true,
+        "isElectric": true,
+        "color": "E60000",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_magneto_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_hover",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "lightr3",
+        "emissive": true,
+        "covered": true,
+        "isElectric": true,
+        "color": "E60000",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_magneto_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired_1",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "lightr4",
+        "emissive": true,
+        "covered": true,
+        "isElectric": true,
+        "color": "E60000",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_magneto_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired_2",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": []
       }
     ],
     "cameraObjects": [
@@ -2079,7 +2327,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "engines_on",
+            "variable": "engines_running",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -2240,7 +2488,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "parent_damage_percent",
+            "variable": "damage_percent",
             "clampMin": 0.25,
             "clampMax": 1.0
           },
@@ -2254,27 +2502,10 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.5,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.00625,0.0],
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.75,
-            "clampMax": 1.0
+            "variable": "damage_percent",
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5,
+            "clampMax": 0.0125
           },
           {
             "animationType": "translation",
@@ -2283,14 +2514,9 @@
             "clampMax": 0.5
           },
           {
-            "animationType": "inhibitor",
-            "variable": "parent_damage_totaled"
-          },
-          {
             "animationType": "translation",
             "variable": "speed",
-            "axis": [0.0,0.025,0.0],
-            "clampMax": 0.5
+            "axis": [0.0,0.0125,0.0]
           }
         ],
         "pitchAnimations": [
@@ -2298,8 +2524,8 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.025,0.0],
-            "offset": 0.75,
-            "clampMin": 0.75,
+            "offset": 0.5,
+            "clampMin": 0.5,
             "clampMax": 1.5
           },
           {
@@ -2311,11 +2537,11 @@
         "looping": true,
         "isInterior": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 1.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 1.0
       },
       {
         "name": "ivv:brakesqueal",
@@ -2325,37 +2551,44 @@
             "variable": "brake",
             "clampMin": 0.05,
             "clampMax": 1.0,
-            "reverseDelay": 80
+            "reverseDelay": 20
           },
           {
             "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.125,
-            "clampMax": 32767.0
+            "variable": "!speed"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "vehicle_wheels_locked"
           }
         ],
         "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "forwardsDelay": -5
+          },
           {
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.1,0.0],
             "offset": -1.0,
             "clampMin": -1.0,
-            "clampMax": 0.125
+            "clampMax": 0.0125
           },
           {
             "animationType": "translation",
             "variable": "brake",
-            "axis": [0.0,0.25,0.0],
-            "offset": -0.5,
-            "clampMax": 0.5
+            "axis": [0.0,0.875,0.0],
+            "offset": -0.875
           },
           {
             "animationType": "translation",
-            "variable": "brake",
-            "axis": [0.0,0.25,0.0],
-            "duration": 10,
-            "forwardsDelay": -5
+            "variable": "damage_percent",
+            "axis": [0.0,0.75,0.0],
+            "offset": -0.75
           }
         ],
         "pitchAnimations": [
@@ -2364,14 +2597,28 @@
             "variable": "brake",
             "axis": [0.0,-0.0625,0.0],
             "offset": 1.0625
+          },
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,-0.0625,0.0],
+            "offset": 0.0625,
+            "duration": 10,
+            "forwardsDelay": -5
+          },
+          {
+            "animationType": "translation",
+            "variable": "damage_percent",
+            "axis": [0.0,-0.0625,0.0],
+            "offset": 0.0625
           }
         ],
         "looping": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 80.0,
         "maxDistanceVolume": 0.0
       },
       {
@@ -2660,82 +2907,6 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:headlightson",
-        "activeAnimations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "headlight",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:headlightsoff",
-        "activeAnimations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "headlight"
-          }
-        ],
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:headlightson",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "running_light",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:headlightsoff",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "running_light"
-          }
-        ],
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
         "name": "ivv:alarmunlock",
         "activeAnimations": [
           {
@@ -2749,7 +2920,6 @@
             "variable": "locked"
           }
         ],
-        "pos": [0.625,0.74901,2.42227],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
         "middleDistance": 0.0,
@@ -2773,7 +2943,6 @@
             "clampMax": 1.0
           }
         ],
-        "pos": [0.625,0.74901,2.42227],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
         "middleDistance": 0.0,
