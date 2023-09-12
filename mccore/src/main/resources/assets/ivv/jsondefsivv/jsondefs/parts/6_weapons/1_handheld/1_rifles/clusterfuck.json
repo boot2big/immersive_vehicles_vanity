@@ -16,7 +16,7 @@
     "reloadTime": 65,
     "reloadDelay": 10,
     "muzzleVelocity": 188,
-    "fireDelay": 14.0,
+    "fireDelay": 9.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 10.9,
     "minCaseLength": 32.6,
@@ -184,10 +184,18 @@
         "applyAfter": "ammoModel",
         "animations": [
           {
-            "animationType": "visibility",
-            "variable": "!gun_ammo_count",
+            "animationType": "inhibitor",
+            "variable": "gun_reload",
+            "forwardsDelay": 40,
+            "reverseDelay": 5,
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "clampMin": 1.0,
+            "clampMax": 32767
           }
         ]
       },
@@ -263,51 +271,49 @@
             "animationType": "rotation",
             "variable": "!gun_reload",
             "centerPoint": [0.0,0.0625,0.117188],
-            "axis": [-45,0.0,0.0],
+            "axis": [-45.0,0.0,0.0],
             "duration": 2,
             "forwardsEasing": "easeinoutquad",
             "reverseEasing": "easeinoutquad",
-            "forwardsDelay": 2,
-            "reverseDelay": -8,
             "skipReverseMovement": true,
-            "forwardsStartSound": "ivv:pumpshotgun_boltback"
+            "forwardsStartSound": "ivv:clusterfuck_leveractionback"
           },
           {
             "animationType": "rotation",
             "variable": "!gun_reload",
             "centerPoint": [0.0,0.0625,0.117188],
-            "axis": [45,0.0,0.0],
+            "axis": [45.0,0.0,0.0],
             "duration": 2,
             "forwardsEasing": "easeinoutquad",
             "reverseEasing": "easeinoutquad",
-            "forwardsDelay": 6,
-            "reverseDelay": -12,
-            "forwardsStartSound": "ivv:pumpshotgun_boltforth"
+            "forwardsDelay": 4,
+            "reverseDelay": -4,
+            "forwardsStartSound": "ivv:clusterfuck_leveractionforth"
           },
           {
             "animationType": "rotation",
             "variable": "gun_cooldown",
             "centerPoint": [0.0,0.0625,0.117188],
-            "axis": [-45,0.0,0.0],
+            "axis": [-45.0,0.0,0.0],
             "duration": 2,
             "forwardsEasing": "easeinoutquad",
             "reverseEasing": "easeinoutquad",
-            "forwardsDelay": 6,
-            "reverseDelay": -8,
+            "forwardsDelay": 2,
+            "reverseDelay": -3,
             "skipReverseMovement": true,
-            "forwardsStartSound": "ivv:pumpshotgun_boltback"
+            "forwardsStartSound": "ivv:clusterfuck_leveractionback"
           },
           {
             "animationType": "rotation",
             "variable": "gun_cooldown",
             "centerPoint": [0.0,0.0625,0.117188],
-            "axis": [45,0.0,0.0],
+            "axis": [45.0,0.0,0.0],
             "duration": 2,
             "forwardsEasing": "easeinoutquad",
             "reverseEasing": "easeinoutquad",
-            "forwardsDelay": 10,
-            "reverseDelay": -12,
-            "forwardsStartSound": "ivv:pumpshotgun_boltforth"
+            "forwardsDelay": 6,
+            "reverseDelay": -7,
+            "forwardsStartSound": "ivv:clusterfuck_leveractionforth"
           }
         ]
       },
@@ -568,9 +574,9 @@
           {
             "animationType": "visibility",
             "variable": "gun_cooldown",
-            "forwardsDelay": 6,
             "clampMin": 1.0,
-            "clampMax": 1.0
+            "clampMax": 1.0,
+            "forwardsDelay": 3
           }
         ]
       },
