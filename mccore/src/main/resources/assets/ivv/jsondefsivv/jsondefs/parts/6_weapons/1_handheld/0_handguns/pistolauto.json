@@ -97,6 +97,23 @@
           "offset": 0.5
         }
       ]
+    },
+    {
+      "variable": "isAmmoExtended",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_reload",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 7
+        },
+        {
+          "animationType": "translation",
+          "variable": "gun_ammo_count_reloading",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -178,7 +195,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "gun_ammo_count",
+            "variable": "isAmmoExtended",
             "clampMax": 12.0
           },
           {
@@ -194,7 +211,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "gun_ammo_count",
+            "variable": "isAmmoExtended",
             "clampMin": 13.0,
             "clampMax": 36.0
           },
@@ -209,6 +226,59 @@
         "objectName": "magazine",
         "applyAfter": "cube",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "isAmmoExtended",
+            "clampMax": 12.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "gun_controller_firstperson"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,-2.0,0.0],
+            "duration": 8,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,2.0,0.0],
+            "duration": 3,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 8,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "activator",
+            "variable": "gun_controller_firstperson"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!gun_controller_firstperson"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "forwardsDelay": 2
+          }
+        ]
+      },
+      {
+        "objectName": "magazineextended",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "isAmmoExtended",
+            "clampMin": 13.0,
+            "clampMax": 36.0
+          },
           {
             "animationType": "inhibitor",
             "variable": "gun_controller_firstperson"
@@ -529,6 +599,47 @@
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "isAmmoExtended",
+            "clampMax": 12.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "stopsOnGround": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 120,
+        "transparency": 10.0,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/magtexture_gray.png",
+        "model": "ivv:textures/particles/3d/mag_pistol_extended.obj",
+        "color": "CCCCCC",
+        "pos": [0.0,-0.5,-0.25],
+        "rot": [0.0,0.0,90.0],
+        "rotationRandomness": [180.0,0.0,0.0],
+        "initialVelocity": [0.0,0.25,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "isAmmoExtended",
+            "clampMin": 13.0,
+            "clampMax": 36.0
+          },
           {
             "animationType": "visibility",
             "variable": "gun_reload",
