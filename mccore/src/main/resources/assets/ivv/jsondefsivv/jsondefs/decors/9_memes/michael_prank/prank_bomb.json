@@ -11,21 +11,183 @@
       "modelName": "siren",
       "textureName": "siren",
       "name": "Prank Block",
+      "description": "Nuke\nRight click or feed redstone signal to regret nothing\n(Will not destroy or alter nearby surroundings/entities)",
       "extraMaterialLists": [
         []
       ]
     }
   ],
+  "variableModifiers": [
+    {
+      "variable": "block_activated",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "clicked",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "redstone_active",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    }
+  ],
   "rendering": {
     "animatedObjects": [],
-    "lightObjects": [],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawningOrientation": "world",
+        "renderingOrientation": "player",
+        "quantity": 8,
+        "duration": 80,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 16.0,
+        "toScale": 64.0,
+        "hitboxSize": 0.01,
+        "color": "666666",
+        "pos": [0.0,2.0,0.0],
+        "rotationRandomness": [45.0,180.0,45.0],
+        "spreadRandomness": [24.0,0.5,24.0],
+        "initialVelocity": [0.0,1.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "world",
+        "renderingOrientation": "player",
+        "quantity": 8,
+        "duration": 80,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 16.0,
+        "toScale": 64.0,
+        "hitboxSize": 0.01,
+        "color": "666666",
+        "pos": [0.0,2.0,0.0],
+        "rotationRandomness": [22.5,180.0,22.5],
+        "spreadRandomness": [8.0,2.0,8.0],
+        "initialVelocity": [0.0,4.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 80,
+        "transparency": 4.0,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 24.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/mushroom_cloud_1.png",
+        "model": "ivv:textures/particles/3d/mushroom_cloud.obj",
+        "textureList": [
+          "ivv:textures/particles/mushroom_cloud_1.png",
+          "ivv:textures/particles/mushroom_cloud_2.png",
+          "ivv:textures/particles/mushroom_cloud_3.png",
+          "ivv:textures/particles/mushroom_cloud_4.png"
+        ],
+        "textureDelays": [5,5,5,5],
+        "color": "FFFFFF",
+        "pos": [0.0,1.0,0.0],
+        "rotationRandomness": [0.0,180.0,0.0],
+        "initialVelocity": [0.0,0.125,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 30,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 48.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,1.0,0.0],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 30,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 16.0,
+        "toScale": 64.0,
+        "hitboxSize": 0.2,
+        "textureList": [
+          "ivv:textures/particles/explosion_1.png",
+          "ivv:textures/particles/explosion_2.png",
+          "ivv:textures/particles/explosion_3.png",
+          "ivv:textures/particles/explosion_4.png",
+          "ivv:textures/particles/explosion_5.png",
+          "ivv:textures/particles/explosion_6.png"
+        ],
+        "textureDelays": [4,4,2,3,3,32767],
+        "color": "FFFFFF",
+        "pos": [0.0,1.0,0.0],
+        "initialVelocity": [0.0,2.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }],
     "sounds": [
       {
         "name": "ivv:explode_nuclear",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "activated",
+            "variable": "block_activated",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -46,19 +208,25 @@
             "offset": 0.75
           }
         ],
-        "forceSound": true,
         "minDistance": 0.0,
-        "maxDistance": 512
+        "minDistanceVolume": 1.0,
+        "middleDistance": 64.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 512.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "modelType": "obj"
   },
   "general": {
     "name": "",
-    "description": "Right click or feed redstone signal to regret nothing\n(Will not destroy or alter nearby surroundings/entities)",
     "stackSize": 64,
     "materialLists": [
-      ["minecraft:barrier:0:1"]
-    ]
+      [
+        "minecraft:barrier:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

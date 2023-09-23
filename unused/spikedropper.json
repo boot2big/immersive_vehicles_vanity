@@ -1,8 +1,7 @@
 {
   "generic": {
-    "type": "interactable_effector_spikedropper",
+    "type": "effector_spikedropper",
     "forwardsDamageMultiplier": 1.0,
-    "forceAllLinks": false,
     "width": 1.0,
     "height": 1.0,
     "mass": 1000,
@@ -17,15 +16,29 @@
   },
   "effector": {
     "type": "placer",
-    "placerDelay": 1.0
+    "placerDelay": 1
   },
-  "interactable": {
-    "interactionType": "crate",
-    "feedsVehicles": true,
-    "canBeOpenedInHand": true,
-    "inventoryUnits": 0.111111111,
-    "inventoryUnits": 3
-  },
+  "parts": [
+    {
+      "pos": [0.0,0.25,0.25],
+      "isPermanent": true,
+      "isMirrored": true,
+      "maxValue": 3.0,
+      "partScale": [3,2,3],
+      "defaultPart": "ivv:crate_tiny",
+      "types": [
+        "interactable_crate"
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "cause_theres_magic_in_my_bones",
+          "clampMin": 0.0,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
   "collisionGroups": [
     {
       "isInterior": true,
@@ -80,6 +93,14 @@
             "variable": "horn",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "interactable_percent",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "duration": 1,
+            "reverseDelay": 1
           }
         ],
         "pitchAnimations": [
@@ -92,20 +113,24 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 32.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [],
     "modelType": "obj"
   },
   "general": {
-    "description": "Can be mounted on the AgentY's Plate, which in turn can be mounted on any plated vehicle\nVery janky spike dropper",
+    "description": "Mounted using the Free Country Plate\nPress horn key to place stored blocks",
     "health": 100,
     "materialLists": [
-      ["oredict:blockIron:6","oredict:blockRedstone:2","minecraft:iron_pickaxe:0:8"]
+      [
+        "oredict:blockIron:3",
+        "oredict:blockRedstone:2",
+        "minecraft:bow:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0
