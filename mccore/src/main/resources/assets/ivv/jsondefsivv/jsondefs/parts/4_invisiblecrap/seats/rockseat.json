@@ -1,19 +1,22 @@
 {
   "generic": {
     "type": "seat_invisible",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "part_present_2"
-          }
-        ]
+    "forwardsDamageMultiplier": 0.0,
+    "activeAnimations": [
+      {
+        "animationType": "visibility",
+        "variable": "part_present_2"
+      }
+    ]
   },
   "seat": {},
   "parts": [
     {
       "pos": [0.0,0.001,0.0],
       "maxValue": 1.0,
-      "types": ["generic_npc"]
+      "types": [
+        "generic_npc"
+      ]
     },
     {
       "pos": [0.0,-0.1,0.15],
@@ -46,6 +49,23 @@
       ]
     }
   ],
+  "variableModifiers": [
+    {
+      "variable": "seat_occupied_partandrider",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_present_1",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    }
+  ],
   "rendering": {
     "lightObjects": [],
     "particles": [],
@@ -54,11 +74,13 @@
   "general": {
     "name": "Invisible Seat",
     "stackSize": 64,
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
     "health": 100,
     "materialLists": [
-      ["minecraft:dirt:0:1"]
-    ]
+      [
+        "minecraft:dirt:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

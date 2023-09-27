@@ -2,11 +2,55 @@
   "components": [
     {
       "scale": 1.0,
-      "textureXCenter": 192,
+      "textureXCenter": 319,
+      "textureYCenter": 448,
+      "textureWidth": 128,
+      "textureHeight": 128
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 447,
+      "textureYCenter": 448,
+      "textureWidth": 128,
+      "textureHeight": 128,
+      "lightUpTexture": true,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "headlight",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "running_light",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 576,
       "textureYCenter": 576,
       "textureWidth": 128,
       "textureHeight": 128,
-      "lightUpTexture": true
+      "lightUpTexture": true,
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "!mgmt",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,50.0]
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 192,
+      "textureYCenter": 448,
+      "textureWidth": 128,
+      "textureHeight": 128
     },
     {
       "scale": 1.0,
@@ -14,71 +58,80 @@
       "textureYCenter": 192,
       "textureWidth": 128,
       "textureHeight": 128,
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "engine_rpm_percent_safe",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,180.0],
+          "offset": -135.0,
+          "clampMax": 90.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_rpm_percent_safe_1",
+          "clampMax": 1.25
+        },
+        {
+          "animationType": "rotation",
+          "variable": "random",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,1.0],
+          "offset": -0.5
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 704,
+      "textureYCenter": 192,
+      "textureWidth": 128,
+      "textureHeight": 128,
       "lightUpTexture": true,
       "animations": [
         {
           "animationType": "rotation",
-          "variable": "engine_rpm_percent_safe_1",
+          "variable": "engine_rpm_percent_safe",
           "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,0.0,195.0],
-          "offset": -120.0
-        }
-      ]
-    },
-    {
-      "yCenter": 34,
-      "scale": 1.0,
-      "textureXCenter": 136,
-      "textureYCenter": 650,
-      "textureWidth": 20,
-      "textureHeight": 20,
-      "lightUpTexture": true,
-      "animations": [
+          "axis": [0.0,0.0,180.0],
+          "offset": -135.0,
+          "clampMax": 90.0
+        },
         {
-          "animationType": "visibility",
+          "animationType": "inhibitor",
           "variable": "engine_rpm_percent_safe_1",
-          "clampMin": 0.75,
-          "clampMax": 999.0
+          "clampMax": 1.25
+        },
+        {
+          "animationType": "rotation",
+          "variable": "random",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,1.0],
+          "offset": -0.5
+        },
+        {
+          "animationType": "activator",
+          "variable": "lightup"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "headlight",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
-          "variable": "1_3_1_cycle",
+          "variable": "running_light",
           "clampMin": 1.0,
           "clampMax": 1.0
         }
       ]
-    },
-    {
-      "yCenter": 34,
-      "scale": 1.0,
-      "textureXCenter": 136,
-      "textureYCenter": 650,
-      "textureWidth": 20,
-      "textureHeight": 20,
-      "lightUpTexture": true,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_rpm_percent_safe_1",
-          "clampMin": 0.95,
-          "clampMax": 999.0
-        }
-      ]
-    },
-    {
-      "scale": 1.0,
-      "textureXCenter": 960,
-      "textureYCenter": 64,
-      "textureWidth": 128,
-      "textureHeight": 128,
-      "lightUpTexture": true,
-      "overlayTexture": true
     }
   ],
   "textureName": "instruments_modern_dark.png",
   "general": {
     "name": "Tachometer",
-    "description": "Displays engine RPMs in percentage\nFeatures a shift indicator",
+    "description": "Displays engine RPM percentage",
     "stackSize": 64,
     "materialLists": [
       [

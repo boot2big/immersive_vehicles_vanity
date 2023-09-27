@@ -170,6 +170,13 @@
       "animations": [
         {
           "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 6
+        },
+        {
+          "animationType": "translation",
           "variable": "engine_rpm_percent_revlimit",
           "axis": [-3.0,0.0,0.0],
           "offset": 4.0,
@@ -178,10 +185,8 @@
         },
         {
           "animationType": "translation",
-          "variable": "throttle",
-          "axis": [0.25,0.0,0.0],
-          "offset": 0.75,
-          "duration": 6
+          "variable": "engine_powered",
+          "axis": [1.0,0.0,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -325,22 +330,6 @@
           "variable": "engine_temp",
           "clampMin": 80.0,
           "clampMax": 1000.0
-        }
-      ]
-    },
-    {
-      "variable": "revlimitRPM",
-      "setValue": 6000.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_temp",
-          "clampMin": -10.0,
-          "clampMax": 110.0
-        },
-        {
-          "animationType": "visibility",
-          "variable": "engine_gear"
         }
       ]
     },
@@ -807,16 +796,6 @@
           "animationType": "translation",
           "variable": "!downshift",
           "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "currentGearRatio",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "engine_powered",
-          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -1658,7 +1637,6 @@
         "maxDistance": 16.0,
         "maxDistanceVolume": 0.0
       },
-
       {
         "name": "ivv:engineexhaust8cyl",
         "activeAnimations": [
@@ -2103,7 +2081,7 @@
         "spreadRandomness": [0.25,0.25,0.25],
         "initialVelocity": [0.0,0.625,0.0],
         "movementVelocity": [0.0,-0.00125,0.0],
-        "terminalVelocity": [2048.0,2048,2048.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -2130,7 +2108,7 @@
         "spreadRandomness": [0.25,0.25,0.25],
         "initialVelocity": [0.0,0.625,0.0],
         "movementVelocity": [0.0,-0.00125,0.0],
-        "terminalVelocity": [2048.0,2048,2048.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
