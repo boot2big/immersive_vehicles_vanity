@@ -1,0 +1,583 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_door_650_sportcoupe_front",
+    "useVehicleTexture": true,
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "applyAfter": "$DoorFL",
+      "collisions": [
+        {
+          "pos": [-0.0625,-0.09375,-1.375],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-0.09375,-0.34375,-0.6875],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-0.1,-0.125,-0.4375],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "ventWindow",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-0.1,-0.375,-0.34375],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "window",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_ismirrored"
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "applyAfter": "$DoorFR",
+      "collisions": [
+        {
+          "pos": [0.0625,-0.09375,-1.375],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.09375,-0.34375,-0.6875],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.1,-0.125,-0.4375],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "ventWindow",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.1,-0.375,-0.34375],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "window",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_ismirrored",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "UNU 650 \"Fury\" Door",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "part_closed",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!door_internal",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-50.0,0.0],
+            "duration": 8,
+            "forwardsDelay": 2
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-10.0,0.0],
+            "duration": 2,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFL_Frame",
+        "applyAfter": "$DoorFL",
+        "animations": []
+      },
+      {
+        "objectName": "$DoorFL_Logo_Default",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_text_1_present"
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFL_Logo_URL",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_text_1_present",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFL_window",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "window",
+            "axis": [0.0621,-0.5591,0.0],
+            "duration": 20
+          },
+          {
+            "animationType": "visibility",
+            "variable": "window",
+            "forwardsDelay": 20
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFL_Crank",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "window",
+            "centerPoint": [0.0,-0.375,-0.25],
+            "axis": [720.0,0.0,0.0],
+            "duration": 20
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFL_VentWindow",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ventWindow",
+            "centerPoint": [-0.03125,0.0,-0.427675],
+            "axis": [4.9694,-44.7248,0.0],
+            "duration": 20
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFL_VentCrank",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ventWindow",
+            "centerPoint": [0.0,-0.125,-0.375],
+            "axis": [720.0,0.0,0.0],
+            "duration": 20
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFL_Handle_Inner",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [0.0625,-0.34375,-0.78125],
+            "axis": [-45.0,0.0,0.0],
+            "duration": 5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [0.0625,-0.34375,-0.78125],
+            "axis": [45.0,0.0,0.0],
+            "duration": 5,
+            "forwardsDelay": 5
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Base_DoorFL",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_trim_level",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_DeLuxe_DoorFL",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_trim_level",
+            "clampMin": 3.0,
+            "clampMax": 3.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Super_DoorFL",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_trim_level",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Christine_DoorFL",
+        "applyAfter": "$DoorFL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Christine_Body",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,50.0,0.0],
+            "duration": 8,
+            "forwardsDelay": 2
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,10.0,0.0],
+            "duration": 2,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFR_Frame",
+        "applyAfter": "$DoorFR",
+        "animations": []
+      },
+      {
+        "objectName": "$DoorFR_Logo_Default",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_text_1_present"
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFR_Logo_URL",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_text_1_present",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFR_window",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "window",
+            "axis": [0.0621,-0.5591,0.0],
+            "duration": 20
+          },
+          {
+            "animationType": "visibility",
+            "variable": "window",
+            "forwardsDelay": 20
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFR_Crank",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "window",
+            "centerPoint": [0.0,-0.375,-0.25],
+            "axis": [720.0,0.0,0.0],
+            "duration": 20
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFR_VentWindow",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ventWindow",
+            "centerPoint": [0.03125,0.0,-0.427675],
+            "axis": [-4.9694,44.7248,0.0],
+            "duration": 20
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFR_VentCrank",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ventWindow",
+            "centerPoint": [0.0,-0.125,-0.375],
+            "axis": [720.0,0.0,0.0],
+            "duration": 20
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorFR_Handle_Inner",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [-0.0625,-0.34375,-0.78125],
+            "axis": [-45.0,0.0,0.0],
+            "duration": 5
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [-0.0625,-0.34375,-0.78125],
+            "axis": [45.0,0.0,0.0],
+            "duration": 5,
+            "forwardsDelay": 5
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Base_DoorFR",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_trim_level",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_DeLuxe_DoorFR",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_trim_level",
+            "clampMin": 3.0,
+            "clampMax": 3.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Super_DoorFR",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_trim_level",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Christine_DoorFR",
+        "applyAfter": "$DoorFR",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Christine_Body_Mirrored",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_christine",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": [],
+    "sounds": [
+      {
+        "name": "unuparts:unuparts_rotation_unu_door_1_open",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "door_internal",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "unuparts:unuparts_rotation_unu_door_1_close",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "door_internal",
+            "reverseDelay": 10
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Come on, big guy. Let's go for a ride, let's cruise...\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2",
+        "minecraft:glass_pane:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
