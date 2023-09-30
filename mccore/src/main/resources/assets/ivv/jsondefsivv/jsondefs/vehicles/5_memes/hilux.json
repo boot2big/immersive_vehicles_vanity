@@ -155,6 +155,11 @@
         "gun_turret",
         "gun_observer"
       ],
+      "interactableVariables": [
+        [
+          "!part_present_8"
+        ]
+      ],
       "linkedParts": [6],
       "animations": [
         {
@@ -167,6 +172,48 @@
           "animationType": "rotation",
           "variable": "gun_pitch_1",
           "centerPoint": [0.0,1.32812,-0.46875],
+          "axis": [-1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [0.0,1.45,-0.308333],
+      "rot": [0.0,0.0,180.0],
+      "maxValue": 42069.0,
+      "minYaw": -125.0,
+      "maxYaw": 125.0,
+      "minPitch": -45.0,
+      "maxPitch": 5.0,
+      "yawSpeed": 5.0,
+      "pitchSpeed": 5.0,
+      "types": [
+        "gun_rocket",
+        "gun_pylon_standard",
+        "gun_atgm"
+      ],
+      "interactableVariables": [
+        [
+          "!part_present_7"
+        ]
+      ],
+      "linkedParts": [12],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "part_present_8",
+          "centerPoint": [0.0,1.45,-0.308333],
+          "axis": [0.0,0.0,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_yaw_2",
+          "centerPoint": [0.0,1.45,-0.308333],
+          "axis": [0.0,-1.0,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_pitch_2",
+          "centerPoint": [0.0,1.45,-0.308333],
           "axis": [-1.0,0.0,0.0]
         }
       ]
@@ -665,7 +712,8 @@
   ],
   "constantValues": {
     "vehicle_size": 0.25,
-    "vehicle_intake_scfc": -2.5
+    "vehicle_intake_scfc": -2.5,
+    "hilux": 1.0
   },
   "initialVariables": [],
   "variableModifiers": [
@@ -1157,6 +1205,17 @@
           {
             "animationType": "visibility",
             "variable": "part_present_7",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "gunmount_rocketpod",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_8",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
