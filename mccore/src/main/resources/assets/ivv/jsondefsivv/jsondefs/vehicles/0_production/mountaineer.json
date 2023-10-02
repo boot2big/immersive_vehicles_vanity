@@ -465,39 +465,39 @@
     {
       "pos": [1.26562,0.96875,2.85938],
       "rot": [0.0,90.0,0.0],
-      "partScale": [1.25,1.25,1.25],
-      "applyAfter": "doorfrontleft",
       "maxValue": 1.0,
+      "partScale": [1.25,1.25,1.25],
       "types": [
         "generic_ornament_mirror"
-      ]
+      ],
+      "applyAfter": "doorfrontleft"
     },
     {
       "pos": [-1.26562,0.96875,2.85938],
       "rot": [0.0,-90.0,0.0],
       "isMirrored": true,
-      "partScale": [1.25,1.25,1.25],
-      "applyAfter": "doorfrontright",
       "maxValue": 1.0,
+      "partScale": [1.25,1.25,1.25],
       "types": [
         "generic_ornament_mirror"
-      ]
+      ],
+      "applyAfter": "doorfrontright"
     },
     {
       "pos": [0.851822,0.969033,-0.957495],
       "maxValue": 1.0,
-      "applyAfter": "glassgate_translucent",
       "types": [
         "generic_bumpersticker"
-      ]
+      ],
+      "applyAfter": "glassgate_translucent"
     },
     {
       "pos": [-0.851822,0.969033,-0.957495],
       "maxValue": 1.0,
-      "applyAfter": "glassgate_translucent",
       "types": [
         "generic_bumpersticker"
-      ]
+      ],
+      "applyAfter": "glassgate_translucent"
     }
   ],
   "collisionGroups": [
@@ -1611,6 +1611,106 @@
       ]
     },
     {
+      "variable": "throttle_modified",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle_modified",
+          "axis": [0.0,-0.375,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "brake_modified",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake_modified",
+          "axis": [0.0,-0.375,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "rudder_modified",
+      "minValue": -45.0,
+      "maxValue": 45.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "rudder",
+          "axis": [0.0,0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rudder_modified",
+          "axis": [0.0,-0.5,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_gearshift_modified",
+      "minValue": -90.0,
+      "maxValue": 90.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_1",
+          "axis": [0.0,0.75,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_modified",
+          "axis": [0.0,-0.75,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_gearshift_hhorizontal_modified",
+      "minValue": -90.0,
+      "maxValue": 90.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_hhorizontal_1",
+          "axis": [0.0,0.75,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_hhorizontal_modified",
+          "axis": [0.0,-0.75,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_gearshift_hvertical_modified",
+      "minValue": -90.0,
+      "maxValue": 90.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_hvertical_1",
+          "axis": [0.0,0.75,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_hvertical_modified",
+          "axis": [0.0,-0.75,0.0]
+        }
+      ]
+    },
+    {
       "variable": "throttle",
       "animations": [
         {
@@ -2563,7 +2663,7 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "throttle",
+            "variable": "throttle_modified",
             "centerPoint": [0.0,0.03125,3.21875],
             "axis": [-31.0,0.0,0.0]
           }
@@ -2574,7 +2674,7 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "brake",
+            "variable": "brake_modified",
             "centerPoint": [0.0,0.03125,3.21875],
             "axis": [-29.0,0.0,0.0]
           }
@@ -2614,7 +2714,7 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "rudder",
+            "variable": "rudder_modified",
             "centerPoint": [0.5625,0.774324,3.0076],
             "axis": [0.0,-0.17,0.98]
           }
@@ -2644,7 +2744,7 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "engine_gearshift_1",
+            "variable": "engine_gearshift_modified",
             "centerPoint": [0.5625,0.774324,3.0076],
             "axis": [0.0,-0.22,1.23]
           },
@@ -2661,13 +2761,13 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "engine_gearshift_hvertical_1",
+            "variable": "engine_gearshift_hvertical_modified",
             "centerPoint": [0.0,0.171875,2.75],
             "axis": [0.8,0.0,0.0]
           },
           {
             "animationType": "rotation",
-            "variable": "engine_gearshift_hhorizontal_1",
+            "variable": "engine_gearshift_hhorizontal_modified",
             "centerPoint": [0.0,0.171875,2.75],
             "axis": [0.0,0.0,0.6]
           },
