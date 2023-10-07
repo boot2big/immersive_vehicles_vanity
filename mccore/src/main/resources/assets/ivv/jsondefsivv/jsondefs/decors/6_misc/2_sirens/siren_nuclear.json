@@ -36,7 +36,8 @@
           "animationType": "inhibitor",
           "variable": "!redstone_active",
           "clampMin": 1.0,
-          "clampMax": 1.0
+          "clampMax": 1.0,
+          "forwardsDelay": 60
         },
         {
           "animationType": "inhibitor",
@@ -75,8 +76,8 @@
           {
             "animationType": "translation",
             "variable": "siren_state",
-            "axis": [0.0,20.0,0.0],
-            "clampMax": 10.0
+            "axis": [0.0,4.0,0.0],
+            "clampMax": 1.0
           }
         ],
         "pitchAnimations": [
@@ -89,7 +90,11 @@
         ],
         "looping": true,
         "minDistance": 0.0,
-        "maxDistance": 192.0
+        "minDistanceVolume": 1.0,
+        "middleDistance": 64.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 192.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "modelType": "obj"
@@ -99,7 +104,12 @@
     "description": "Redstone controlled, plays sound on input\nRight click to switch between constant and warble",
     "stackSize": 64,
     "materialLists": [
-      ["minecraft:noteblock:0:1","oredict:dustRedstone:3"]
-    ]
+      [
+        "minecraft:noteblock:0:1",
+        "oredict:dustRedstone:3"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }
