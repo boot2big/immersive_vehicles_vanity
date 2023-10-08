@@ -1456,6 +1456,16 @@
         },
         {
           "animationType": "translation",
+          "variable": "engine_clutch_downshift_1",
+          "axis": [0.0,-0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift_1",
+          "axis": [0.0,-0.375,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "throttle_modified",
           "axis": [0.0,-0.375,0.0]
         }
@@ -2098,7 +2108,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "headlight",
+            "variable": "running_light",
             "axis": [0.0,0.01875,-0.2],
             "duration": 10,
             "forwardsEasing": "easeinoutcubic",
@@ -2107,7 +2117,7 @@
           },
           {
             "animationType": "rotation",
-            "variable": "headlight",
+            "variable": "running_light",
             "centerPoint": [0.0,0.5,5.40625],
             "axis": [-90.0,0.0,0.0],
             "duration": 10,
@@ -2128,7 +2138,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "headlight",
+            "variable": "running_light",
             "axis": [0.0,-0.01875,-0.2],
             "duration": 10,
             "forwardsEasing": "easeinoutcubic",
@@ -2137,7 +2147,7 @@
           },
           {
             "animationType": "rotation",
-            "variable": "headlight",
+            "variable": "running_light",
             "centerPoint": [0.0,0.125,5.40625],
             "axis": [90.0,0.0,0.0],
             "duration": 10,
@@ -2163,7 +2173,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "headlight",
+            "variable": "running_light",
             "axis": [0.0,0.01875,-0.2],
             "duration": 10,
             "forwardsEasing": "easeinoutcubic",
@@ -2172,7 +2182,7 @@
           },
           {
             "animationType": "rotation",
-            "variable": "headlight",
+            "variable": "running_light",
             "centerPoint": [0.0,0.5,5.40625],
             "axis": [-90.0,0.0,0.0],
             "duration": 10,
@@ -2193,7 +2203,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "headlight",
+            "variable": "running_light",
             "axis": [0.0,-0.01875,-0.2],
             "duration": 10,
             "forwardsEasing": "easeinoutcubic",
@@ -2202,7 +2212,7 @@
           },
           {
             "animationType": "rotation",
-            "variable": "headlight",
+            "variable": "running_light",
             "centerPoint": [0.0,0.125,5.40625],
             "axis": [90.0,0.0,0.0],
             "duration": 10,
@@ -2487,19 +2497,19 @@
           },
           {
             "animationType": "rotation",
-            "duration": 3,
             "variable": "engine_clutch_upshift_1",
             "centerPoint": [0.0,0.03125,3.40625],
             "axis": [-26.0,0.0,0.0],
-            "offset": 6.0
+            "offset": 6.0,
+            "duration": 3
           },
           {
             "animationType": "rotation",
-            "duration": 3,
             "variable": "engine_clutch_downshift_1",
             "centerPoint": [0.0,0.03125,3.40625],
             "axis": [-26.0,0.0,0.0],
-            "offset": 6.0
+            "offset": 6.0,
+            "duration": 3
           }
         ]
       },
@@ -2939,10 +2949,24 @@
             "duration": 5,
             "forwardsDelay": -3
           }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [1.0,0.3125,5.343775],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5
+          },
+          {
+            "pos": [-1.0,0.3125,5.343775],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5
+          }
         ]
       },
       {
-        "objectName": "lowbeams",
+        "objectName": "lowbeam",
         "isElectric": true,
         "color": "FFEEC9",
         "brightnessAnimations": [
@@ -2963,21 +2987,21 @@
         ],
         "blendableComponents": [
           {
-            "pos": [1.042968511581421,0.4843745082616806,4.542969226837158],
-            "axis": [0.0,0.0,1.0],
+            "pos": [1.0,0.3125,5.343775],
+            "axis": [-0.125,-0.125,1.0],
             "beamDiameter": 7.0,
             "beamLength": 10.0
           },
           {
-            "pos": [-1.042968511581421,0.4843745082616806,4.542969226837158],
-            "axis": [0.0,0.0,1.0],
+            "pos": [-1.0,0.3125,5.343775],
+            "axis": [0.0,-0.125,1.0],
             "beamDiameter": 7.0,
             "beamLength": 10.0
           }
         ]
       },
       {
-        "objectName": "hibeams",
+        "objectName": "hibeam",
         "isElectric": true,
         "color": "FFEEC9",
         "brightnessAnimations": [
@@ -2991,13 +3015,13 @@
         ],
         "blendableComponents": [
           {
-            "pos": [0.9023439884185791,0.484375,4.558594226837158],
-            "axis": [0.0,0.0,1.0],
+            "pos": [1.0,0.3125,5.343775],
+            "axis": [-0.125,0.0,1.0],
             "beamDiameter": 14.0,
             "beamLength": 20.0
           },
           {
-            "pos": [-0.9023439884185791,0.484375,4.558594226837158],
+            "pos": [-1.0,0.3125,5.343775],
             "axis": [0.0,0.0,1.0],
             "beamDiameter": 14.0,
             "beamLength": 20.0
