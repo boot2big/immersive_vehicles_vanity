@@ -11,7 +11,7 @@
       "modelName": "siren",
       "textureName": "siren",
       "name": "Effect Block",
-      "description": "Nuke\nRight click or feed redstone signal to regret nothing\n(Will not destroy or alter nearby surroundings/entities)",
+      "description": "Explosion\nRight click or feed redstone signal to spawn particle effects\n(Will not destroy or alter nearby surroundings/entities)",
       "extraMaterialLists": [
         []
       ]
@@ -36,154 +36,44 @@
   ],
   "rendering": {
     "animatedObjects": [],
-    "particles": [
-      {
-        "type": "smoke",
-        "spawningOrientation": "world",
-        "renderingOrientation": "player",
-        "quantity": 8,
-        "duration": 80,
-        "transparency": 0.75,
-        "toTransparency": 0.01,
-        "scale": 16.0,
-        "toScale": 64.0,
-        "hitboxSize": 0.01,
-        "color": "666666",
-        "pos": [0.0,2.0,0.0],
-        "rotationRandomness": [45.0,180.0,45.0],
-        "spreadRandomness": [24.0,0.5,24.0],
-        "initialVelocity": [0.0,1.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "block_activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "world",
-        "renderingOrientation": "player",
-        "quantity": 8,
-        "duration": 80,
-        "transparency": 0.75,
-        "toTransparency": 0.01,
-        "scale": 16.0,
-        "toScale": 64.0,
-        "hitboxSize": 0.01,
-        "color": "666666",
-        "pos": [0.0,2.0,0.0],
-        "rotationRandomness": [22.5,180.0,22.5],
-        "spreadRandomness": [8.0,2.0,8.0],
-        "initialVelocity": [0.0,4.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "block_activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "world",
-        "renderingOrientation": "fixed",
-        "quantity": 1,
-        "duration": 80,
-        "transparency": 4.0,
-        "toTransparency": 0.01,
-        "scale": 2.0,
-        "toScale": 24.0,
-        "hitboxSize": 1.0,
-        "texture": "ivv:textures/particles/3d/mushroom_cloud_1.png",
-        "model": "ivv:textures/particles/3d/mushroom_cloud.obj",
-        "textureList": [
-          "ivv:textures/particles/mushroom_cloud_1.png",
-          "ivv:textures/particles/mushroom_cloud_2.png",
-          "ivv:textures/particles/mushroom_cloud_3.png",
-          "ivv:textures/particles/mushroom_cloud_4.png"
-        ],
-        "textureDelays": [5,5,5,5],
-        "color": "FFFFFF",
-        "pos": [0.0,1.0,0.0],
-        "rotationRandomness": [0.0,180.0,0.0],
-        "initialVelocity": [0.0,0.125,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "block_activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "world",
-        "renderingOrientation": "fixed",
-        "quantity": 1,
-        "duration": 30,
-        "transparency": 0.75,
-        "toTransparency": 0.01,
-        "scale": 4.0,
-        "toScale": 48.0,
-        "hitboxSize": 1.0,
-        "texture": "ivv:textures/particles/3d/explosion.png",
-        "model": "ivv:textures/particles/3d/explosion.obj",
-        "color": "FFFFFF",
-        "pos": [0.0,1.0,0.0],
-        "rotationRandomness": [180.0,180.0,180.0],
-        "initialVelocity": [0.0,0.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "block_activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 30,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 16.0,
-        "toScale": 64.0,
-        "hitboxSize": 0.2,
-        "textureList": [
-          "ivv:textures/particles/explosion_1.png",
-          "ivv:textures/particles/explosion_2.png",
-          "ivv:textures/particles/explosion_3.png",
-          "ivv:textures/particles/explosion_4.png",
-          "ivv:textures/particles/explosion_5.png",
-          "ivv:textures/particles/explosion_6.png"
-        ],
-        "textureDelays": [4,4,2,3,3,32767],
-        "color": "FFFFFF",
-        "pos": [0.0,1.0,0.0],
-        "initialVelocity": [0.0,2.0,0.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "block_activated",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      }],
+    "lightObjects": [],
     "sounds": [
       {
-        "name": "ivv:explode_nuclear",
+        "name": "ivv:flaregun_blooddebt",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,50.0,0.0],
+            "offset": 50.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          }
+        ],
+        "pos": [0.0,2.5,0.0],
+        "minDistance": 0.0,
+        "minDistanceVolume": 2.0,
+        "middleDistance": 64.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 192.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:explode_bullet",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -208,12 +98,74 @@
             "offset": 0.75
           }
         ],
+        "pos": [0.0,2.5,0.0],
         "minDistance": 0.0,
-        "minDistanceVolume": 1.0,
+        "minDistanceVolume": 2.0,
         "middleDistance": 64.0,
         "middleDistanceVolume": 0.25,
-        "maxDistance": 512.0,
+        "maxDistance": 192.0,
         "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 12,
+        "fadeTransparencyTime": 4,
+        "transparency": 0.625,
+        "scale": 2.0,
+        "toScale": 16.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,2.5,0.0],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 12,
+        "fadeTransparencyTime": 4,
+        "transparency": 0.75,
+        "scale": 6.4,
+        "toScale": 16.0,
+        "hitboxSize": 0.2,
+        "textureList": [
+          "ivv:textures/particles/explosion_1.png",
+          "ivv:textures/particles/explosion_2.png",
+          "ivv:textures/particles/explosion_3.png",
+          "ivv:textures/particles/explosion_4.png",
+          "ivv:textures/particles/explosion_5.png",
+          "ivv:textures/particles/explosion_6.png"
+        ],
+        "textureDelays": [2,2,2,2,2,32767],
+        "color": "FFFFFF",
+        "pos": [0.0,2.5,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
       }
     ],
     "modelType": "obj"
