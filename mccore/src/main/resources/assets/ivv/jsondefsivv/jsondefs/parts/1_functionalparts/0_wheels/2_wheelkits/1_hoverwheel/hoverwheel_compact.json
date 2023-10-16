@@ -18,46 +18,28 @@
     "width": 0.25,
     "height": 0.6875,
     "climbHeight": 16.0,
-    "lateralFriction": 0.05,
+    "motiveFriction": 0.125,
+    "lateralFriction": 0.25,
     "frictionModifiers": {}
   },
   "parts": [
     {
-      "pos": [0.0125,0.0,0.0],
-      "maxValue": 0.75,
-      "types": ["ground_wheel"],
+      "pos": [0.00125,0.0,0.0],
+      "maxValue": 3.0,
+      "types": [
+        "ground_wheel"
+      ],
+      "applyAfter": "cube",
       "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "hovering",
-          "centerPoint": [0.0125,0.0,0.0],
-          "axis": [0.0,0.0,-45.0],
-          "duration": 10,
-          "forwardsEasing": "easeoutcubic",
-          "reverseEasing": "easeoutcubic",
-          "forwardsDelay": 10
-        },
-        {
-          "animationType": "translation",
-          "variable": "hovering",
-          "axis": [0.0125,-0.05,0.0],
-          "duration": 10,
-          "forwardsEasing": "easeoutcubic",
-          "reverseEasing": "easeoutcubic",
-          "reverseDelay": 10
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "hovering"
-        },
-        {
-          "animationType": "translation",
-          "variable": "!10_20_10_cycle",
-          "axis": [-0.0125,0.0125,0.0],
-          "duration": 20,
-          "forwardsEasing": "easeinoutsine",
-          "reverseEasing": "easeinoutsine"
-        }
+          {
+            "animationType": "translation",
+            "variable": "hovering",
+            "axis": [0.1,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "reverseDelay": 10
+          }
       ],
       "activeAnimations": [
         {
@@ -71,7 +53,6 @@
   "definitions": [
     {
       "subName": "",
-      "modelName": "hoverwheel",
       "textureName": "hoverwheel",
       "name": "Compact Hoverwheel",
       "extraMaterialLists": [
@@ -118,7 +99,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "parent_engine_running_1",
+          "variable": "parent_engines_running",
           "axis": [0.0,1.0,0.0]
         }
       ]
@@ -325,6 +306,84 @@
           "duration": 10
         }
       ]
+    },
+    {
+      "variable": "slide_animation",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,-0.002]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.01,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_ismirrored",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "height_animation",
+      "minValue": 0.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_distance",
+          "axis": [0.0,0.0,0.125],
+          "offset": 0.25,
+          "clampMax": 0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.025,0.0],
+          "clampMax": 0.375
+        },
+        {
+          "animationType": "translation",
+          "variable": "slide_animation",
+          "axis": [0.25,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.125,0.0,0.0],
+          "offset": 0.875
+        },
+        {
+          "animationType": "translation",
+          "variable": "10_20_10_cycle",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
+          "duration": 15,
+          "forwardsEasing": "easeinoutsine",
+          "reverseEasing": "easeinoutsine"
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_backfired_1",
+          "axis": [-0.375,0.0,0.0],
+          "offset": 1.0,
+          "duration": 6,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "hovering",
+          "axis": [1.0,0.0,0.0],
+          "duration": 10
+        }
+      ]
     }
   ],
   "rendering": {
@@ -333,29 +392,273 @@
         "objectName": "cube",
         "animations": [
           {
-            "animationType": "visibility",
-            "variable": "part_present_1"
+            "animationType": "translation",
+            "variable": "!part_present_1",
+            "axis": [0.058625,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "hovering",
+            "axis": [0.0,0.0625,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "rotation",
+            "variable": "hovering",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,-75.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "hovering",
+            "axis": [0.15,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "forwardsDelay": 10
           }
         ]
       },
       {
-        "objectName": "hover",
+        "objectName": "rotate",
         "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_1",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!part_present_1"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "extend",
+        "applyAfter": "rotate",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "hovering",
+            "axis": [0.09375,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "coil",
+        "applyAfter": "extend",
         "animations": []
       },
       {
-        "objectName": "hoverthrusterleft",
-        "applyAfter": "hover",
-        "animations": []
+        "objectName": "gloweffect1_translucent",
+        "applyAfter": "cube",
+        "blendedAnimations": true,
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "hovering",
+            "axis": [0.09375,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "scaling",
+            "variable": "height_animation",
+            "centerPoint": [-0.013672,0.0,0.0],
+            "axis": [0.5,0.0,0.0],
+            "offset": 0.5
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hovering",
+            "centerPoint": [-0.013672,0.0,0.0],
+            "axis": [0.99,0.0,0.0],
+            "offset": 0.01,
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "height_animation",
+            "clampMax": 0.75
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hovering",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "back_in_time",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
       },
       {
-        "objectName": "hoverthrusterright",
-        "applyAfter": "hover",
-        "animations": []
+        "objectName": "gloweffect2_translucent",
+        "applyAfter": "cube",
+        "blendedAnimations": true,
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "hovering",
+            "axis": [0.09375,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "scaling",
+            "variable": "height_animation",
+            "centerPoint": [-0.013672,0.0,0.0],
+            "axis": [0.625,0.0,0.0],
+            "offset": 0.375
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hovering",
+            "centerPoint": [-0.013672,0.0,0.0],
+            "axis": [0.99,0.0,0.0],
+            "offset": 0.01,
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "height_animation",
+            "clampMax": 0.8125
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hovering",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "back_in_time",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "gloweffect3_translucent",
+        "applyAfter": "cube",
+        "blendedAnimations": true,
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "hovering",
+            "axis": [0.09375,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "scaling",
+            "variable": "height_animation",
+            "centerPoint": [-0.013672,0.0,0.0],
+            "axis": [0.75,0.0,0.0],
+            "offset": 0.25
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hovering",
+            "centerPoint": [-0.013672,0.0,0.0],
+            "axis": [0.99,0.0,0.0],
+            "offset": 0.01,
+            "duration": 10,
+            "forwardsEasing": "easeoutsine",
+            "reverseEasing": "easeoutsine",
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "height_animation",
+            "clampMax": 0.875
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "part_present_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "back_in_time",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "activator",
+            "variable": "bleh"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hovering",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "back_in_time",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
       }
     ],
-    "lightObjects": [],
-    "customVariables": ["HOVER"],
+    "lightObjects": [
+      {
+        "objectName": "gloweffect1_translucent",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+        ]
+      },
+      {
+        "objectName": "gloweffect2_translucent",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+        ]
+      },
+      {
+        "objectName": "gloweffect3_translucent",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+        ]
+      }
+    ],
+    "customVariables": [
+      "HOVER"
+    ],
     "sounds": [
       {
         "name": "ivv:jackscrape",
@@ -388,8 +691,15 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.1,0.0],
-            "offset": -0.1,
-            "clampMax": 0.75
+            "offset": -0.005,
+            "clampMax": 0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,0.03,0.0],
+            "clampMax": 0.375,
+            "absolute": true
           }
         ],
         "pitchAnimations": [
@@ -397,17 +707,22 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.01,0.0],
-            "offset": 0.7,
-            "clampMax": 2.0
+            "offset": 0.7
+          },
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,0.001,0.0],
+            "absolute": true
           }
         ],
         "looping": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "middleDistance": 24.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 48.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:blueboxambientshort",
@@ -469,10 +784,10 @@
         "looping": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:explode_techno",
@@ -486,10 +801,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
-        "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:hydraulicspmon",
@@ -503,10 +818,10 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.25,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:hydraulicspmoff",
@@ -518,21 +833,24 @@
         ],
         "minDistance": 0.0,
         "minDistanceVolume": 0.25,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0,
         "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 100,
         "transparency": 1.5,
         "toTransparency": 0.01,
-        "scale": 12.0,
-        "toScale": 6.0,
+        "scale": 2.4,
+        "toScale": 1.2,
+        "hitboxSize": 0.2,
         "color": "787878",
         "pos": [0.0,0.0,0.0],
         "initialVelocity": [0.0,1.0,0.0],
@@ -554,12 +872,15 @@
       {
         "type": "flame",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 20,
         "transparency": 2.0,
         "toTransparency": 0.01,
-        "scale": 8.0,
-        "toScale": 4.0,
+        "scale": 1.6,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
         "color": "FFFFFF",
         "pos": [0.0,0.0,0.0],
         "initialVelocity": [0.0,1.0,0.0],
@@ -581,13 +902,23 @@
       {
         "type": "generic",
         "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 1,
         "duration": 10,
         "transparency": 2.0,
         "toTransparency": 0.01,
-        "scale": 4.0,
-        "toScale": 8.0,
-        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png"],
+        "scale": 0.8,
+        "toScale": 1.6,
+        "hitboxSize": 0.2,
+        "textureList": [
+          "ivv:textures/particles/explosion_1.png",
+          "ivv:textures/particles/explosion_2.png",
+          "ivv:textures/particles/explosion_3.png",
+          "ivv:textures/particles/explosion_4.png",
+          "ivv:textures/particles/explosion_5.png",
+          "ivv:textures/particles/explosion_6.png"
+        ],
         "textureDelays": [1,1,1,1,1,32767],
         "color": "FFFFFF",
         "pos": [0.0,0.0,0.0],
@@ -603,12 +934,15 @@
       },
       {
         "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 60,
         "transparency": 0.25,
         "toTransparency": 0.01,
-        "scale": 3.0,
-        "toScale": 6.0,
+        "scale": 0.6,
+        "toScale": 1.2,
+        "hitboxSize": 0.2,
         "color": "787878",
         "pos": [0.0,0.0,0.0],
         "initialVelocity": [0.0,0.5,0.0],
@@ -635,42 +969,17 @@
         ]
       },
       {
-        "type": "generic",
-        "spawnEveryTick": true,
-        "isBright": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 1,
-        "duration": 5,
-        "transparency": 0.25,
-        "toTransparency": -1.0E-4,
-        "scale": 0.6,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/laser.png",
-        "color": "50BDD9",
-        "pos": [0.0,0.0,0.0],
-        "initialVelocity": [0.0,-0.75,0.0],
-        "movementVelocity": [0.0,0.005,0.0],
-        "terminalVelocity": [2048.0,2048.0,2048.0],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "hovering",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 10
-          }
-        ]
-      },
-      {
         "type": "smoke",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 40,
         "transparency": 0.1,
         "toTransparency": 1.0E-7,
-        "scale": 2.0,
-        "toScale": 20.0,
+        "scale": 0.4,
+        "toScale": 4.0,
+        "hitboxSize": 0.2,
         "color": "999999",
         "pos": [0.0,-0.25,0.0],
         "initialVelocity": [0.0,0.5,-0.5],
@@ -700,15 +1009,19 @@
       {
         "type": "generic",
         "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
         "quantity": 2,
         "duration": 20,
-        "transparency": 2.0,
-        "toTransparency": -1.0E-4,
-        "scale": 0.25,
+        "transparency": 0.5,
+        "fadeTransparencyTime": 10,
+        "scale": 0.05,
+        "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/pattern7.png",
         "color": "EDAC28",
         "pos": [0.0,-0.25,0.0],
-        "initialVelocity": [0.0,1.0,-1.25],
+        "spreadRandomness": [1.0,0.5,1.0],
+        "initialVelocity": [0.0,1.0,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [
