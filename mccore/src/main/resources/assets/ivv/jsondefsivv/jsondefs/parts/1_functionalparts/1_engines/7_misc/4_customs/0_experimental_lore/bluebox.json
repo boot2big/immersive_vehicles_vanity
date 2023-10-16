@@ -582,16 +582,27 @@
         "maxDistanceVolume": 0.0
       }
     ],
-    "particles": [
-      {
-        "type": "smoke",
-        "spawnEveryTick": true,
+    "particles": [      {
+        "type": "flame",
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 1,
+        "quantity": 2,
+        "duration": 20,
+        "transparency": 1.0,
+        "scale": 0.6,
+        "toScale": 0.8,
         "hitboxSize": 0.2,
-        "color": "000000",
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,0.375],
+        "initialVelocity": [0.0,0.0,0.375],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "2_4_2_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
           {
             "animationType": "visibility",
             "variable": "engine_powered",
@@ -599,10 +610,115 @@
             "clampMax": 1.0
           },
           {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
+          },
+          {
             "animationType": "visibility",
-            "variable": "engine_temp",
-            "clampMin": 115.556,
-            "clampMax": 999.0
+            "variable": "parent_damage_percent",
+            "clampMin": 0.875,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 4,
+        "duration": 60,
+        "transparency": 0.75,
+        "fadeTransparencyTime": 20,
+        "scale": 0.8,
+        "toScale": 1.6,
+        "hitboxSize": 0.2,
+        "color": "555555",
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,0.25,1.0],
+        "initialVelocity": [0.0,0.0,1.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "1_2_1_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 100
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 8,
+        "duration": 40,
+        "transparency": 0.75,
+        "fadeTransparencyTime": 20,
+        "scale": 1.2,
+        "toScale": 2.4,
+        "hitboxSize": 0.2,
+        "color": "888888",
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.0,1.0,6.0],
+        "initialVelocity": [0.0,0.0,0.75],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "reverseDelay": 100
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 8,
+        "duration": 10,
+        "transparency": 0.375,
+        "fadeTransparencyTime": 5,
+        "scale": 0.025,
+        "toScale": 0.05,
+        "hitboxSize": 0.1,
+        "texture": "ivv:textures/particles/pattern7.png",
+        "color": "EDAC28",
+        "pos": [0.0,0.25,0.375],
+        "spreadRandomness": [0.25,0.5,0.25],
+        "initialVelocity": [0.0,0.625,0.125],
+        "movementVelocity": [0.0,-0.01,0.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_jumper_cable",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
@@ -611,22 +727,82 @@
         "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 1,
-        "scale": 0.5,
+        "quantity": 2,
+        "duration": 60,
+        "transparency": 0.25,
+        "fadeTransparencyTime": 20,
+        "scale": 0.75,
+        "toScale": 1.5,
         "hitboxSize": 0.2,
-        "color": "000000",
+        "color": "F0F0F0",
+        "pos": [0.0,0.25,0.375],
+        "spreadRandomness": [0.25,0.25,0.25],
+        "initialVelocity": [0.0,0.625,0.0],
+        "movementVelocity": [0.0,-0.00125,0.0],
+        "terminalVelocity": [2048.0,2048,2048.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_powered",
+            "variable": "engine_temp",
+            "clampMin": 105.0,
+            "clampMax": 115.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 3,
+        "duration": 80,
+        "transparency": 0.375,
+        "fadeTransparencyTime": 20,
+        "scale": 1.0,
+        "toScale": 2.0,
+        "hitboxSize": 0.2,
+        "color": "2F2F2F",
+        "pos": [0.0,0.25,0.375],
+        "spreadRandomness": [0.25,0.25,0.25],
+        "initialVelocity": [0.0,0.625,0.0],
+        "movementVelocity": [0.0,-0.00125,0.0],
+        "terminalVelocity": [2048.0,2048,2048.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 115.0,
+            "clampMax": 1000.0
+          }
+        ]
+      },
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 2,
+        "duration": 20,
+        "transparency": 1.0,
+        "scale": 0.6,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.625],
+        "spreadRandomness": [0.375,0.125,0.375],
+        "initialVelocity": [0.0,0.25,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "2_4_2_cycle",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "engine_temp",
-            "clampMin": 121.111,
-            "clampMax": 999.0
+            "clampMin": 125.0,
+            "clampMax": 1000.0
           }
         ]
       }
