@@ -1,0 +1,81 @@
+{
+  "generic": {
+    "type": "generic_vital_fueltank",
+    "forwardsDamageMultiplier": 0.0,
+    "canBePlacedOnGround": true,
+    "width": 1.0,
+    "height": 0.5,
+    "placedOffset": 0.1875,
+    "mass": 20
+  },
+  "definitions": [
+    {
+      "subName": "_electric",
+      "name": "EV Battery Cluster",
+      "extraMaterialLists": [
+        [
+        "mts:ivv.battery:0:3",
+        "oredict:nuggetGold:3",
+        "oredict:dustRedstone:3"
+      ]
+      ]
+    },
+    {
+      "subName": "",
+      "name": "Fuel Tank",
+      "extraMaterialLists": [
+        [
+        "minecraft:bucket:0:3",
+        "minecraft:hopper:0:1",
+        "oredict:ingotIron:2"
+      ]
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "bulge",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "parent_fuel_overfill",
+            "centerPoint": [0.0,-0.1875,0.0],
+            "axis": [0.0,0.25,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "cube_placedonground",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_onvehicle"
+          }
+        ]
+      },
+      {
+        "objectName": "#fuel_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_onvehicle"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Crafting Item",
+    "description": "Used for assembling vehicles\n§5§oCrafted in the Vehicle Parts Assembly bench",
+    "health": 20,
+    "materialLists": [
+      []
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
