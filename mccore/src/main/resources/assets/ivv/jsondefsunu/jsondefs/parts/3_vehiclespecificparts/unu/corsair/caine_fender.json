@@ -1,0 +1,209 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_fender_corsair",
+    "useVehicleTexture": true,
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [-0.10875,0.0,0.75],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 42069.0,
+      "types": [
+        "gun_fixed"
+      ],
+      "linkedParts": [],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_ismirrored",
+          "axis": [0.2175,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "GUN",
+          "axis": [0.0,0.0,0.1875],
+          "duration": 5,
+          "forwardsEasing": "easeinsine",
+          "reverseEasing": "easeoutsine",
+          "forwardsDelay": 3
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "GUN",
+          "clampMin": 1,
+          "clampMax": 1,
+          "forwardsDelay": 3
+       }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "UNU Corsair \"Caine\" Fender",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "part_useDefaultHitboxes": 1.0,
+    "nocasings": 1.0
+  },
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "$Fender_Lid_LeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "$Spring_LeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "GUN",
+            "axis": [0.0,0.0,0.1875],
+            "duration": 5,
+            "forwardsEasing": "easeinsine",
+            "reverseEasing": "easeoutsine",
+            "forwardsDelay": 3
+          }
+        ]
+      },
+      {
+        "objectName": "$Fender_HeadlightMount_LeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "GUN",
+            "centerPoint": [0.0,-0.125018,1.34375],
+            "axis": [0.2175,0.0,0.0],
+            "duration": 5,
+            "forwardsEasing": "easeinsine",
+            "reverseEasing": "easeoutsine",
+            "reverseDelay": 5
+          },
+          {
+            "animationType": "translation",
+            "variable": "GUN",
+            "axis": [0.0,0.1875,-0.09375],
+            "duration": 5,
+            "forwardsEasing": "easeinsine",
+            "reverseEasing": "easeoutsine",
+            "reverseDelay": 5
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightLeft",
+        "applyAfter": "$Fender_HeadlightMount_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "&LightTurnLeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "$Fender_Lid_RightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": []
+      },
+      {
+        "objectName": "$Spring_RightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "GUN",
+            "axis": [0.0,0.0,0.1875],
+            "duration": 5,
+            "forwardsEasing": "easeinsine",
+            "reverseEasing": "easeoutsine",
+            "forwardsDelay": 3
+          }
+        ]
+      },
+      {
+        "objectName": "$Fender_HeadlightMount_RightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "GUN",
+            "centerPoint": [0.0,-0.125018,1.34375],
+            "axis": [0.2175,0.0,0.0],
+            "duration": 5,
+            "forwardsEasing": "easeinsine",
+            "reverseEasing": "easeoutsine",
+            "reverseDelay": 5
+          },
+          {
+            "animationType": "translation",
+            "variable": "GUN",
+            "axis": [0.0,0.1875,-0.09375],
+            "duration": 5,
+            "forwardsEasing": "easeinsine",
+            "reverseEasing": "easeoutsine",
+            "reverseDelay": 5
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightRight",
+        "applyAfter": "$Fender_HeadlightMount_RightFront",
+        "animations": []
+      },
+      {
+        "objectName": "&LightTurnRightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": []
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": [
+      "GUN"
+    ],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "I'll have my ethanol shaken, not stirred.\nMounts 1x Machine Gun\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:3"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

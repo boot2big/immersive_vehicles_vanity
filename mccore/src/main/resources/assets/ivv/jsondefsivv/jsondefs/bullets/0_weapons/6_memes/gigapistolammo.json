@@ -4,6 +4,8 @@
       "explosive",
       "armor_piercing"
     ],
+    "seekerRange": 1024,
+    "seekerMaxAngle": 90.0,
     "quantity": 8,
     "diameter": 45.0,
     "damage": 90.0,
@@ -102,19 +104,60 @@
     ],
     "particles": [
       {
-        "type": "break",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 4,
-        "scale": 0.030000001,
-        "hitboxSize": 0.1,
-        "color": "999999",
-        "pos": [0.0,0.5,0.0],
-        "initialVelocity": [0.0,1.5,0.0],
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 1,
+        "toScale": 8.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.5,1.0,0.5],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "bullet_hit_block",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 3.2,
+        "toScale": 8.0,
+        "hitboxSize": 0.2,
+        "textureList": [
+          "ivv:textures/particles/explosion_1.png",
+          "ivv:textures/particles/explosion_2.png",
+          "ivv:textures/particles/explosion_3.png",
+          "ivv:textures/particles/explosion_4.png",
+          "ivv:textures/particles/explosion_5.png",
+          "ivv:textures/particles/explosion_6.png"
+        ],
+        "textureDelays": [2,2,1,1,1,32767],
+        "color": "FFFFFF",
+        "pos": [0.5,1.0,0.5],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
