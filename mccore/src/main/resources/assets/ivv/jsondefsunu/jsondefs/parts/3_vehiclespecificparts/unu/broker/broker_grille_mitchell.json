@@ -1,0 +1,833 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_grille_broker",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "constants": [
+        "alternate"
+      ],
+      "modelName": "broker_grille_mitchell",
+      "textureName": "broker_grille_mitchell",
+      "name": "UNU Broker \"Stormer\" Grille w/Headlights",
+      "description": "Modified from DKZ Custom Broker Type 1 Grille\nFlip-around",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_alt",
+      "modelName": "broker_grille_mitchell",
+      "textureName": "broker_grille_mitchell",
+      "name": "UNU Broker \"Stormer\" Grille w/Headlights",
+      "description": "Modified from DKZ Custom Broker Type 1 Grille\nFlip-up",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {},
+  "variableModifiers": [],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "RightHeadLightCover",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "false"
+          },
+          {
+            "animationType": "activator",
+            "variable": "!alternate"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "headlight",
+            "centerPoint": [-0.832031,0.0,-0.0625],
+            "axis": [-180.0,0.0,0.0],
+            "duration": 30,
+            "forwardsDelay": 5
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "false"
+          },
+          {
+            "animationType": "activator",
+            "variable": "alternate"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "headlight",
+            "centerPoint": [-0.832031,0.0,-0.148438],
+            "axis": [-45.0,0.0,0.0],
+            "duration": 15,
+            "forwardsDelay": 5
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!mitchell"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "headlight",
+            "centerPoint": [-0.832031,0.0,-0.148438],
+            "axis": [-45.0,0.0,0.0],
+            "duration": 15,
+            "forwardsDelay": 5
+          }
+        ]
+      },
+      {
+        "objectName": "LeftHeadLightCover",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "false"
+          },
+          {
+            "animationType": "activator",
+            "variable": "!alternate"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "headlight",
+            "centerPoint": [0.832031,0.0,-0.0625],
+            "axis": [-180.0,0.0,0.0],
+            "duration": 30,
+            "forwardsDelay": 5
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "false"
+          },
+          {
+            "animationType": "activator",
+            "variable": "alternate"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "headlight",
+            "centerPoint": [0.832031,0.0,-0.148438],
+            "axis": [-45.0,0.0,0.0],
+            "duration": 15,
+            "forwardsDelay": 5
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!mitchell"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "headlight",
+            "centerPoint": [0.832031,0.0,-0.148438],
+            "axis": [-45.0,0.0,0.0],
+            "duration": 15,
+            "forwardsDelay": 5
+          }
+        ]
+      },
+      {
+        "objectName": "lights",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "alternate"
+          }
+        ]
+      },
+      {
+        "objectName": "lights_left",
+        "applyAfter": "LeftHeadLightCover",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "alternate",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "lights_right",
+        "applyAfter": "RightHeadLightCover",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "alternate",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHeadLight",
+        "applyAfter": "lights_left",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell"
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHeadLight",
+        "applyAfter": "lights_right",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell"
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHighBeamLight",
+        "applyAfter": "lights_left",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.5,0.0]
+          },
+          {
+            "animationType": "visibility",
+            "variable": "mitchell"
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHighBeamLight",
+        "applyAfter": "lights_right",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.5,0.0]
+          },
+          {
+            "animationType": "visibility",
+            "variable": "mitchell"
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHeadLight_Mitchell",
+        "applyAfter": "lights_left",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHeadLightCracks_Mitchell",
+        "applyAfter": "&LeftHeadLight_Mitchell",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHeadLight_Mitchell",
+        "applyAfter": "lights_right",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHighBeamLight_Mitchell",
+        "applyAfter": "lights_left",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHighBeamLight_Mitchell",
+        "applyAfter": "lights_right",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHeadLight_Alt",
+        "applyAfter": "lights",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell"
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHeadLight_Alt",
+        "applyAfter": "lights",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell"
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHighBeamLight_Alt",
+        "applyAfter": "lights",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.5,0.0]
+          },
+          {
+            "animationType": "visibility",
+            "variable": "mitchell"
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHighBeamLight_Alt",
+        "applyAfter": "lights",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.5,0.0]
+          },
+          {
+            "animationType": "visibility",
+            "variable": "mitchell"
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHeadLight_Mitchell_Alt",
+        "applyAfter": "lights",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHeadLightCracks_Mitchell_Alt",
+        "applyAfter": "&LeftHeadLight_Mitchell_Alt",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHeadLight_Mitchell_Alt",
+        "applyAfter": "lights",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHighBeamLight_Mitchell_Alt",
+        "applyAfter": "lights",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHighBeamLight_Mitchell_Alt",
+        "applyAfter": "lights",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "&RightHeadLight",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 20,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.96875,0.0,-0.03125],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHeadLight",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 20,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.96875,0.0,-0.03125],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHighBeamLight",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "highbeams",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "!headlight",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 10,
+            "reverseDelay": 20,
+            "skipReverseMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.71875,0.0,-0.03125],
+            "axis": [-0.01,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHighBeamLight",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "highbeams",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "!headlight",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 10,
+            "reverseDelay": 20,
+            "skipReverseMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.71875,0.0,-0.03125],
+            "axis": [0.01,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHeadLight_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 20,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.96875,0.0,-0.03125],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHeadLight_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 20,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.96875,0.0,-0.03125],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHighBeamLight_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "highbeams",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "!headlight",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 10,
+            "reverseDelay": 20,
+            "skipReverseMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.71875,0.0,-0.03125],
+            "axis": [-0.01,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LeftHighBeamLight_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "highbeams",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "!headlight",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 10,
+            "reverseDelay": 20,
+            "skipReverseMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.71875,0.0,-0.03125],
+            "axis": [0.01,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&RightHeadLight_Mitchell",
+        "emissive": true,
+        "isElectric": true,
+        "color": "DB3214",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&LeftHeadLight_Mitchell",
+        "emissive": true,
+        "isElectric": true,
+        "color": "DB3214",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&LeftHeadLightCracks_Mitchell",
+        "emissive": true,
+        "isElectric": true,
+        "color": "9E0000",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&RightHighBeamLight_Mitchell",
+        "emissive": true,
+        "isElectric": true,
+        "color": "DB3214",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&LeftHighBeamLight_Mitchell",
+        "emissive": true,
+        "isElectric": true,
+        "color": "DB3214",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&RightHeadLight_Mitchell_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "DB3214",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&LeftHeadLight_Mitchell_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "DB3214",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&LeftHeadLightCracks_Mitchell_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "9E0000",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&RightHighBeamLight_Mitchell_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "DB3214",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&LeftHighBeamLight_Mitchell_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "DB3214",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.5,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&Pupils",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFDCD6",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.0,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&Pupils_Alt",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFDCD6",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "8_16_8_cycle",
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.0,
+            "duration": 16
+          }
+        ],
+        "blendableComponents": []
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 1,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
