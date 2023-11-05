@@ -191,11 +191,6 @@
         "applyAfter": "lights_left",
         "animations": [
           {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0]
-          },
-          {
             "animationType": "visibility",
             "variable": "mitchell"
           }
@@ -205,11 +200,6 @@
         "objectName": "&RightHighBeamLight",
         "applyAfter": "lights_right",
         "animations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0]
-          },
           {
             "animationType": "visibility",
             "variable": "mitchell"
@@ -277,6 +267,18 @@
         ]
       },
       {
+        "objectName": "&Pupils",
+        "applyAfter": "lights_right",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
         "objectName": "&LeftHeadLight_Alt",
         "applyAfter": "lights",
         "animations": [
@@ -301,11 +303,6 @@
         "applyAfter": "lights",
         "animations": [
           {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0]
-          },
-          {
             "animationType": "visibility",
             "variable": "mitchell"
           }
@@ -315,11 +312,6 @@
         "objectName": "&RightHighBeamLight_Alt",
         "applyAfter": "lights",
         "animations": [
-          {
-            "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,0.5,0.0]
-          },
           {
             "animationType": "visibility",
             "variable": "mitchell"
@@ -385,6 +377,18 @@
             "clampMax": 1.0
           }
         ]
+      },
+      {
+        "objectName": "&Pupils_Alt",
+        "applyAfter": "lights",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "mitchell",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
       }
     ],
     "lightObjects": [
@@ -399,14 +403,14 @@
             "variable": "headlight",
             "axis": [0.0,1.0,0.0],
             "duration": 10,
-            "forwardsDelay": 20,
+            "forwardsDelay": 35,
             "skipForwardsMovement": true
           }
         ],
         "blendableComponents": [
           {
-            "pos": [-0.96875,0.0,-0.03125],
-            "axis": [0.0,0.0,1.0],
+            "pos": [-0.96875,0.0,-0.079125],
+            "axis": [0.0,0.0,-1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5,
             "beamDiameter": 8.0,
@@ -425,14 +429,14 @@
             "variable": "headlight",
             "axis": [0.0,1.0,0.0],
             "duration": 10,
-            "forwardsDelay": 20,
+            "forwardsDelay": 35,
             "skipForwardsMovement": true
           }
         ],
         "blendableComponents": [
           {
-            "pos": [0.96875,0.0,-0.03125],
-            "axis": [0.0,0.0,1.0],
+            "pos": [0.96875,0.0,-0.079125],
+            "axis": [0.0,0.0,-1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5,
             "beamDiameter": 8.0,
@@ -458,14 +462,14 @@
             "variable": "!headlight",
             "axis": [0.0,-1.0,0.0],
             "duration": 10,
-            "reverseDelay": 20,
+            "reverseDelay": 35,
             "skipReverseMovement": true
           }
         ],
         "blendableComponents": [
           {
-            "pos": [-0.71875,0.0,-0.03125],
-            "axis": [-0.01,0.0,1.0],
+            "pos": [-0.71875,0.0,-0.079125],
+            "axis": [-0.01,0.0,-1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5,
             "beamDiameter": 8.0,
@@ -491,14 +495,14 @@
             "variable": "!headlight",
             "axis": [0.0,-1.0,0.0],
             "duration": 10,
-            "reverseDelay": 20,
+            "reverseDelay": 35,
             "skipReverseMovement": true
           }
         ],
         "blendableComponents": [
           {
-            "pos": [0.71875,0.0,-0.03125],
-            "axis": [0.01,0.0,1.0],
+            "pos": [0.71875,0.0,-0.085938],
+            "axis": [0.01,0.0,-1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5,
             "beamDiameter": 8.0,
@@ -523,7 +527,7 @@
         ],
         "blendableComponents": [
           {
-            "pos": [-0.96875,0.0,-0.03125],
+            "pos": [-0.96875,0.0,-0.0635],
             "axis": [0.0,0.0,1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5,
@@ -549,7 +553,7 @@
         ],
         "blendableComponents": [
           {
-            "pos": [0.96875,0.0,-0.03125],
+            "pos": [0.96875,0.0,-0.0635],
             "axis": [0.0,0.0,1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5,
@@ -582,7 +586,7 @@
         ],
         "blendableComponents": [
           {
-            "pos": [-0.71875,0.0,-0.03125],
+            "pos": [-0.71875,0.0,-0.0635],
             "axis": [-0.01,0.0,1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5,
@@ -615,7 +619,7 @@
         ],
         "blendableComponents": [
           {
-            "pos": [0.71875,0.0,-0.03125],
+            "pos": [0.71875,0.0,-0.0635],
             "axis": [0.01,0.0,1.0],
             "flareHeight": 0.5,
             "flareWidth": 0.5,
