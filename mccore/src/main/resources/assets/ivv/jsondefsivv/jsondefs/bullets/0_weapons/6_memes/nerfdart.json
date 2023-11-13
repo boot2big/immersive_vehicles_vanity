@@ -7,8 +7,9 @@
     "diameter": 13.0,
     "damage": 0.01,
     "caseLength": 72.0,
-    "gravitationalVelocity": 0.015,
-    "impactDespawnTime": 120
+    "gravitationalVelocity": 0.02,
+    "slowdownSpeed": 0.0125,
+    "impactDespawnTime": 2
   },
   "definitions": [
     {
@@ -21,7 +22,37 @@
   ],
   "rendering": {
     "lightObjects": [],
-    "particles": [],
+    "particles": [
+      {
+        "type": "generic",
+        "stopsOnGround": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 130,
+        "transparency": 1.0,
+        "fadeTransparencyTime": 10,
+        "scale": 1.0,
+        "hitboxSize": 0.0625,
+        "texture": "ivv:textures/bullets/nerfdart.png",
+        "model": "ivv:objmodels/bullets/nerfdart.obj",
+        "color": "FFFFFF",
+        "pos": [-0.5,1.0,-0.5],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "rotationVelocity": [22.5,22.5,22.5],
+        "initialVelocity": [0.0,0.5,-0.5],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,32.0,32.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+     ],
     "modelType": "obj"
   },
   "general": {
