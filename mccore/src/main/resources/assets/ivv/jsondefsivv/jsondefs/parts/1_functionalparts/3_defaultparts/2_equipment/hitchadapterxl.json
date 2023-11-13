@@ -20,24 +20,38 @@
         "drip"
       ],
       "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "hitch_orientation"
-          },
-          {
-            "animationType": "scaling",
-            "variable": "parent_hitch_scale",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.5,0.5,0.5],
-            "offset": 1.325
-          },
-          {
-            "animationType": "scaling",
-            "variable": "hitch_adapter_scale",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,1.0,0.0],
-            "offset": 2.0
-          }
+        {
+          "animationType": "inhibitor",
+          "variable": "hitch_orientation"
+        },
+        {
+          "animationType": "scaling",
+          "variable": "hitch_scale",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.5,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "scaling",
+          "variable": "hitch_scale",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.5,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "scaling",
+          "variable": "hitch_scale",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,0.5],
+          "offset": 1.0
+        },
+        {
+          "animationType": "scaling",
+          "variable": "hitch_adapter_scale",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,1.0,0.0],
+          "offset": 2.0
+        }
       ]
     }
   ],
@@ -51,7 +65,19 @@
           "height": 0.0625,
           "variableName": "hitch_adapter_scale",
           "variableType": "increment",
-          "variableValue": 0.25
+          "variableValue": 0.25,
+          "clampMin": 0.0,
+          "clampMax": 8.0
+        },
+        {
+          "pos": [0.0,-0.0625,-0.0625],
+          "width": 0.0625,
+          "height": 0.0625,
+          "variableName": "hitch_adapter_scale",
+          "variableType": "increment",
+          "variableValue": -0.25,
+          "clampMin": 0.0,
+          "clampMax": 8.0
         }
       ],
       "animations": [
@@ -71,6 +97,54 @@
           "clampMin": 1.0,
           "clampMax": 1.0
         }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.125,0.0],
+          "width": 0.0625,
+          "height": 0.0625,
+          "variableName": "generic_effect_particle_drip_medium",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.5,0.0,0.0],
+            "offset": 0.5
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.5
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.5],
+            "offset": 0.5
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_adapter_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "offset": 2.0
+          }
       ]
     }
   ],
@@ -158,28 +232,8 @@
     }
   ],
   "constantValues": {
-    "generic_hitch_attachment_industrial": 1.0,
-    "generic_effect_particle_drip_medium": 1.0
+    "generic_hitch_attachment_industrial": 1.0
   },
-  "variableModifiers": [
-    {
-      "variable": "hitch_adapter_scale",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "hitch_adapter_scale",
-          "clampMin": 2.25,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!yes",
-          "axis": [0.0,0.0,1.0],
-          "offset": -1.0
-        }
-      ]
-    }
-  ],
   "rendering": {
     "animatedObjects": [
       {
@@ -191,10 +245,24 @@
           },
           {
             "animationType": "scaling",
-            "variable": "parent_hitch_scale",
+            "variable": "hitch_scale",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.5,0.5,0.5],
-            "offset": 1.325
+            "axis": [0.5,0.0,0.0],
+            "offset": 0.5
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.5
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.5],
+            "offset": 0.5
           },
           {
             "animationType": "scaling",
