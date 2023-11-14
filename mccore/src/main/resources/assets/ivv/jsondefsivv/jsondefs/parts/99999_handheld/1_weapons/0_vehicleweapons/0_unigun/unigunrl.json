@@ -13,7 +13,7 @@
     "fireSolo": true,
     "capacity": 20,
     "reloadTime": 5,
-    "muzzleVelocity": 25,
+    "muzzleVelocity": 100,
     "fireDelay": 10.0,
     "bulletSpreadFactor": 1.0,
     "diameter": 60.0,
@@ -129,24 +129,17 @@
           },
           {
             "animationType": "visibility",
-            "variable": "gun_controller_firstperson",
-            "clampMin": 0.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
             "variable": "gun_active",
             "clampMin": 1.0,
-            "clampMax": 1.0,
-            "forwardsDelay": 10
+            "clampMax": 1.0
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
             "variable": "gun_controller_firstperson",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.5
+            "axis": [0.0,0.75,0.0],
+            "offset": 0.25
           }
         ],
         "pitchAnimations": [
@@ -154,7 +147,18 @@
             "animationType": "translation",
             "variable": "gun_lockedon",
             "axis": [0.0,1.0,0.0],
-            "offset": 1
+            "offset": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.02,0.0],
+            "offset": -0.01
+          },
+          {
+            "animationType": "translation",
+            "variable": "tick_cos",
+            "axis": [0.0,0.01,0.0]
           }
         ],
         "looping": true,

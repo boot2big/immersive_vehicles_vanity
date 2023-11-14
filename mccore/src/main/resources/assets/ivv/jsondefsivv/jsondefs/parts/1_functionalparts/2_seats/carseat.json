@@ -1,29 +1,126 @@
 {
   "generic": {
     "type": "seat",
-    "width": 1.0,
-    "height": 0.875,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.875,
+    "height": 0.5,
     "mass": 20,
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "part_present_2"
-          }
-        ]
+    "activeAnimations": [
+      {
+        "animationType": "visibility",
+        "variable": "part_present_2"
+      }
+    ],
+    "movementAnimations": [
+      {
+        "animationType": "translation",
+        "variable": "transz",
+        "axis": [0.0,0.0,-0.046875]
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "damage_totaled"
+      },
+      {
+        "animationType": "translation",
+        "variable": "transz",
+        "axis": [0.0,0.0,-0.046875]
+      },
+      {
+        "animationType": "activator",
+        "variable": "the_nearing_love"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "anglex",
+        "axis": [0.0,0.0,0.5],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "angley",
+        "axis": [-0.5,0.0,0.0],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "damage_totaled"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "anglex",
+        "axis": [0.0,0.0,0.5],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "angley",
+        "axis": [-0.5,0.0,0.0],
+        "centerPoint": [0.0,0.0,0.0]
+      }
+    ]
   },
   "seat": {},
   "parts": [
     {
       "pos": [0.0,-0.0125,0.0],
       "maxValue": 1.0,
-      "types": ["generic_npc"],
+      "types": [
+        "generic_npc"
+      ],
       "animations": [
         {
           "animationType": "translation",
           "variable": "!part_present_1",
           "axis": [0.0,0.25,0.0]
-        }
-      ]
+        },
+      {
+        "animationType": "translation",
+        "variable": "transz",
+        "axis": [0.0,0.0,0.046875]
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "damage_totaled"
+      },
+      {
+        "animationType": "translation",
+        "variable": "transz",
+        "axis": [0.0,0.0,0.046875]
+      },
+      {
+        "animationType": "activator",
+        "variable": "the_nearing_love"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "anglex",
+        "axis": [0.0,0.0,-0.5],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "angley",
+        "axis": [0.5,0.0,0.0],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "damage_totaled"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "anglex",
+        "axis": [0.0,0.0,-0.5],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "angley",
+        "axis": [0.5,0.0,0.0],
+        "centerPoint": [0.0,0.0,0.0]
+      }
+        ]
     },
     {
       "pos": [0.0,-0.1,0.15],
@@ -42,7 +139,53 @@
           "animationType": "translation",
           "variable": "!part_present_2",
           "axis": [0.0,0.375,0.125]
-        }
+        },
+      {
+        "animationType": "translation",
+        "variable": "transz",
+        "axis": [0.0,0.0,0.046875]
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "damage_totaled"
+      },
+      {
+        "animationType": "translation",
+        "variable": "transz",
+        "axis": [0.0,0.0,0.046875]
+      },
+      {
+        "animationType": "activator",
+        "variable": "the_nearing_love"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "anglex",
+        "axis": [0.0,0.0,-0.5],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "angley",
+        "axis": [0.5,0.0,0.0],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "damage_totaled"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "anglex",
+        "axis": [0.0,0.0,-0.5],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "angley",
+        "axis": [0.5,0.0,0.0],
+        "centerPoint": [0.0,0.0,0.0]
+      }
       ]
     }
   ],
@@ -83,10 +226,148 @@
       ]
     }
   ],
+  "constantValues": {
+    "seat_atlas_superior_safety": 1.0,
+    "yes_we_know_what_that_spells_out": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "transz",
+      "minValue": -1,
+      "maxValue": 1,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.001,0.0],
+          "clampMax": 0.0375
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "transz",
+          "axis": [0.0,-0.125,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "anglex",
+      "minValue": -5,
+      "maxValue": 45,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.0025,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,5.0E-4,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "anglex",
+          "axis": [0.0,-0.125,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "angley",
+      "minValue": -11.25,
+      "maxValue": 11.25,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.01,0.0],
+          "clampMax": 0.375
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,5.0,0.0],
+          "clampMin": -2.5,
+          "clampMax": 2.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "angley",
+          "axis": [0.0,-0.125,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "seat_atlas_carrier",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
   "rendering": {
     "animatedObjects": [
       {
+        "objectName": "cube",
+        "animations": [
+      {
+        "animationType": "translation",
+        "variable": "transz",
+        "axis": [0.0,0.0,0.046875]
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "damage_totaled"
+      },
+      {
+        "animationType": "translation",
+        "variable": "transz",
+        "axis": [0.0,0.0,0.046875]
+      },
+      {
+        "animationType": "activator",
+        "variable": "the_nearing_love"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "anglex",
+        "axis": [0.0,0.0,-0.5],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "angley",
+        "axis": [0.5,0.0,0.0],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "damage_totaled"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "anglex",
+        "axis": [0.0,0.0,-0.5],
+        "centerPoint": [0.0,0.0,0.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "angley",
+        "axis": [0.5,0.0,0.0],
+        "centerPoint": [0.0,0.0,0.0]
+      }
+        ]
+      },
+      {
         "objectName": "#damage_lvl1",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -102,6 +383,7 @@
       },
       {
         "objectName": "#damage_lvl2",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -117,6 +399,7 @@
       },
       {
         "objectName": "#damage_lvl3",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -132,6 +415,7 @@
       },
       {
         "objectName": "#damage_lvl4",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -147,6 +431,7 @@
       },
       {
         "objectName": "#damage_mirrored_lvl1",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -164,6 +449,7 @@
       },
       {
         "objectName": "#damage_mirrored_lvl2",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -181,6 +467,7 @@
       },
       {
         "objectName": "#damage_mirrored_lvl3",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -198,6 +485,7 @@
       },
       {
         "objectName": "#damage_mirrored_lvl4",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -215,7 +503,12 @@
       },
       {
         "objectName": "buckle",
+        "applyAfter": "cube",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
           {
             "animationType": "visibility",
             "variable": "part_ismirrored"
@@ -238,7 +531,12 @@
       },
       {
         "objectName": "#buckle_mirrored",
+        "applyAfter": "cube",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
           {
             "animationType": "visibility",
             "variable": "!part_ismirrored"
@@ -261,7 +559,12 @@
       },
       {
         "objectName": "belt",
+        "applyAfter": "cube",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
           {
             "animationType": "visibility",
             "variable": "part_ismirrored"
@@ -290,7 +593,12 @@
       },
       {
         "objectName": "#belt_mirrored",
+        "applyAfter": "cube",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
           {
             "animationType": "visibility",
             "variable": "!part_ismirrored"
@@ -319,6 +627,7 @@
       },
       {
         "objectName": "lever",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -328,6 +637,7 @@
       },
       {
         "objectName": "#lever_mirrored",
+        "applyAfter": "cube",
         "animations": [
           {
             "animationType": "visibility",
@@ -337,7 +647,12 @@
       },
       {
         "objectName": "mount",
+        "applyAfter": "cube",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
           {
             "animationType": "visibility",
             "variable": "part_ismirrored"
@@ -346,7 +661,12 @@
       },
       {
         "objectName": "#mount_mirrored",
+        "applyAfter": "cube",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
           {
             "animationType": "visibility",
             "variable": "!part_ismirrored"
@@ -371,7 +691,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 6.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 6.0,
+        "maxDistanceVolume": 0.0
       },
       {
         "name": "ivv:beltunbuckle",
@@ -386,7 +710,11 @@
           }
         ],
         "minDistance": 0.0,
-        "maxDistance": 6.0
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 6.0,
+        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [],
@@ -394,14 +722,19 @@
   },
   "general": {
     "stackSize": 64,
-    "radarWidth": 0.0,
-    "radarRange": 0.0,
-    "health": 100,
+    "health": 80,
     "materialLists": [
-      ["oredict:ingotIron:2","oredict:leather:3"]
+      [
+        "oredict:ingotIron:2",
+        "oredict:leather:3"
+      ]
     ],
     "repairMaterialLists": [
-      ["oredict:leather:2"]
-    ]
+      [
+        "oredict:leather:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
   }
 }

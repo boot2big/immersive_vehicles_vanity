@@ -5,12 +5,12 @@
     "hasRunningLights": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
-    "emptyMass": 1500,
-    "fuelCapacity": 26500,
-    "defaultFuelQty": 26500,
+    "emptyMass": 1600,
+    "fuelCapacity": 12500,
+    "defaultFuelQty": 9375,
     "downForce": 0.75,
     "underSteer": 0.5,
-    "axleRatio": 2.75,
+    "axleRatio": 2.5,
     "brakingFactor": 3.0,
     "dragCoefficient": 0.125,
     "litVariable": "engine_magneto_1",
@@ -481,6 +481,10 @@
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
       "partScale": [1.0,1.0,1.0],
+      "conditionalDefaultParts": {
+        "defaultparts_hitch_connector": "ivv:hitchconnector",
+        "defaultparts_hitch": "ivv:hitch"
+      },
       "types": [
         "generic_hitch_mount"
       ]
@@ -489,7 +493,16 @@
       "pos": [0.0,0.810447,3.99699],
       "rot": [0.0,90.0,0.0],
       "maxValue": 1.0,
-      "defaultPart": "ivv:horn_2",
+      "conditionalDefaultParts": {
+        "defaultparts_horn_one": "ivv:horn_1",
+        "defaultparts_horn_two": "ivv:horn_2",
+        "defaultparts_horn_three": "ivv:horn_3",
+        "defaultparts_horn_truck": "ivv:horn_truck",
+        "defaultparts_horn_emergency": "ivv:horn_emergency",
+        "defaultparts_horn_awooga": "ivv:horn_awooga",
+        "defaultparts_horn_runabout": "ivv:horn_runabout",
+        "defaultparts_horn_acive": "ivv:horn_acive"
+      },
       "types": [
         "generic_horn"
       ]
@@ -532,6 +545,62 @@
       "maxValue": 1.0,
       "types": [
         "generic_ornament_mirror"
+      ]
+    },
+    {
+      "pos": [-1.09375,-0.09375,0.625],
+      "rot": [0.0,-90.0,0.0],
+      "maxValue": 4.0,
+      "partScale": [0.32,0.32,0.32],
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "engine_exhaust"
+      ]
+    },
+    {
+      "pos": [0.0,-0.03125,1.1],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
+      "maxValue": 3.0,
+      "partScale": [1.0,0.5,1.0],
+      "conditionalDefaultParts": {
+        "defaultparts_vital_fueltank": "ivv:fueltank",
+        "defaultparts_vital_fueltank_electric": "ivv:fueltank_electric"
+      },
+      "types": [
+        "generic_vehicle_vital_fueltank"
+      ]
+    },
+    {
+      "pos": [-0.4375,0.7,4.0625],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 1.0,
+      "partScale": [1.0,1.0,1.0],
+      "conditionalDefaultParts": {
+        "defaultparts_accessory_accompressor": "ivv:climatecompressor"
+      },
+      "types": [
+        "generic_vehicle_ac"
+      ],
+      "interactableVariables": [
+        [
+          "hatch_hood"
+        ]
+      ]
+    },
+    {
+      "pos": [0.0,-0.125,0.0],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "partScale": [1.0,1.0,1.0],
+      "conditionalDefaultParts": {
+        "defaultparts_hitch_alt_connector": "ivv:hitchconnector",
+        "defaultparts_hitch_alt": "ivv:hitch"
+      },
+      "types": [
+        "generic_hitch_mount"
       ]
     }
   ],
@@ -1438,9 +1507,10 @@
     {
       "subName": "_red",
       "constants": [
-        "defaultparts_vital_fueltank",
-        "defaultparts_vital_radiator",
-        "defaultparts_engine_magnitrox_compact"
+        "defaultparts_vital_fueltank_electric",
+        "defaultparts_engine_magnitrox_compact",
+        "defaultparts_horn_two",
+        "defaultparts_accessory_accompressor"
       ],
       "name": "Carrus",
       "extraMaterialLists": [
@@ -1450,9 +1520,10 @@
     {
       "subName": "_brown",
       "constants": [
-        "defaultparts_vital_fueltank",
-        "defaultparts_vital_radiator",
-        "defaultparts_engine_magnitrox_compact"
+        "defaultparts_vital_fueltank_electric",
+        "defaultparts_engine_magnitrox_compact",
+        "defaultparts_horn_two",
+        "defaultparts_accessory_accompressor"
       ],
       "name": "Carrus",
       "extraMaterialLists": [
@@ -1462,9 +1533,10 @@
     {
       "subName": "_blue",
       "constants": [
-        "defaultparts_vital_fueltank",
-        "defaultparts_vital_radiator",
-        "defaultparts_engine_magnitrox_compact"
+        "defaultparts_vital_fueltank_electric",
+        "defaultparts_engine_magnitrox_compact",
+        "defaultparts_horn_two",
+        "defaultparts_accessory_accompressor"
       ],
       "name": "Carrus",
       "extraMaterialLists": [
@@ -1474,9 +1546,10 @@
     {
       "subName": "_white",
       "constants": [
-        "defaultparts_vital_fueltank",
-        "defaultparts_vital_radiator",
-        "defaultparts_engine_magnitrox_compact"
+        "defaultparts_vital_fueltank_electric",
+        "defaultparts_engine_magnitrox_compact",
+        "defaultparts_horn_two",
+        "defaultparts_accessory_accompressor"
       ],
       "name": "Carrus",
       "extraMaterialLists": [
@@ -1486,9 +1559,10 @@
     {
       "subName": "_tan",
       "constants": [
-        "defaultparts_vital_fueltank",
-        "defaultparts_vital_radiator",
-        "defaultparts_engine_magnitrox_compact"
+        "defaultparts_vital_fueltank_electric",
+        "defaultparts_engine_magnitrox_compact",
+        "defaultparts_horn_two",
+        "defaultparts_accessory_accompressor"
       ],
       "name": "Carrus",
       "extraMaterialLists": [
@@ -1498,9 +1572,10 @@
     {
       "subName": "_black",
       "constants": [
-        "defaultparts_vital_fueltank",
-        "defaultparts_vital_radiator",
-        "defaultparts_engine_magnitrox_compact"
+        "defaultparts_vital_fueltank_electric",
+        "defaultparts_engine_magnitrox_compact",
+        "defaultparts_horn_two",
+        "defaultparts_accessory_accompressor"
       ],
       "name": "Carrus",
       "extraMaterialLists": [
@@ -1762,8 +1837,7 @@
         {
           "animationType": "translation",
           "variable": "input_rudder",
-          "axis": [0.0,0.0,0.875],
-          "absolute": false
+          "axis": [0.0,0.0,0.875]
         }
       ]
     },
@@ -2884,6 +2958,17 @@
             "variable": "engine_gearshift_modified",
             "centerPoint": [0.5625,0.782352,3.75426],
             "axis": [0.0,-0.26,0.97]
+          }
+        ]
+      },
+      {
+        "objectName": "exhaust",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_32",
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       }
@@ -4009,8 +4094,8 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§lSTATS:\nDrivetrain: FWD\nMax. Top Speed: 107MPH\n0-60: 9.27 \n0-Top Speed: 0:21.73\nABS equipped\nTCS equipped",
-    "health": 150,
+    "description": "A family of twenty or bags of groceries, this electrically driven wagon will whisk it all to town!\nFront-wheel drive\nABS equipped\nTCS equipped",
+    "health": 160,
     "materialLists": [
       [
         "mts:ivv.frame:0:1",
