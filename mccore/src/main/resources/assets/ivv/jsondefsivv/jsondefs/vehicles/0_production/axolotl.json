@@ -13,7 +13,7 @@
     "axleRatio": 2.5,
     "brakingFactor": 3.0,
     "dragCoefficient": 0.1,
-    "litVariable": "engine_magneto_1",
+    "litVariable": "vehicle_dashboard",
     "panel": "ivv:standard",
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
     "panelTexture": "ivv:textures/guis/ivlabspanel.png"
@@ -1476,6 +1476,8 @@
     {
       "subName": "_white",
       "constants": [
+        "vehicle_has_abs",
+        "vehicle_has_autopilot",
         "defaultparts_vital_fueltank",
         "defaultparts_vital_radiator",
         "defaultparts_engine_reuleauxid_2r_manual",
@@ -1495,6 +1497,8 @@
     {
       "subName": "_red",
       "constants": [
+        "vehicle_has_abs",
+        "vehicle_has_autopilot",
         "defaultparts_vital_fueltank",
         "defaultparts_vital_radiator",
         "defaultparts_engine_reuleauxid_2r_manual",
@@ -1514,6 +1518,8 @@
     {
       "subName": "_blue",
       "constants": [
+        "vehicle_has_abs",
+        "vehicle_has_autopilot",
         "defaultparts_vital_fueltank",
         "defaultparts_vital_radiator",
         "defaultparts_engine_reuleauxid_2r_manual",
@@ -1533,6 +1539,8 @@
     {
       "subName": "_black",
       "constants": [
+        "vehicle_has_abs",
+        "vehicle_has_autopilot",
         "defaultparts_vital_fueltank",
         "defaultparts_vital_radiator",
         "defaultparts_engine_reuleauxid_2r_manual",
@@ -1552,6 +1560,8 @@
     {
       "subName": "_pink",
       "constants": [
+        "vehicle_has_abs",
+        "vehicle_has_autopilot",
         "defaultparts_vital_fueltank",
         "defaultparts_vital_radiator",
         "defaultparts_engine_reuleauxid_2r_manual",
@@ -1571,6 +1581,8 @@
     {
       "subName": "_purple",
       "constants": [
+        "vehicle_has_abs",
+        "vehicle_has_autopilot",
         "defaultparts_vital_fueltank",
         "defaultparts_vital_radiator",
         "defaultparts_engine_reuleauxid_2r_manual",
@@ -1629,7 +1641,7 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "remove_exclaimation_mark_if_vehicle_has_abs",
+          "variable": "!vehicle_has_abs",
           "axis": [0.0,0.0,1.0]
         },
         {
@@ -1684,6 +1696,27 @@
       ]
     },
     {
+      "variable": "vehicle_dashboard",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "headlight",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "running_light",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engines_on",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
       "variable": "vehicle_odometer",
       "maxValue": 2.14748365E9,
       "animations": [
@@ -1713,17 +1746,25 @@
         },
         {
           "animationType": "translation",
+          "variable": "throttle_modified",
+          "axis": [0.0,-0.375,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_isautomatic_1"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_isdualclutch_1"
+        },
+        {
+          "animationType": "translation",
           "variable": "engine_clutch_downshift_1",
           "axis": [0.0,-0.375,0.0]
         },
         {
           "animationType": "translation",
           "variable": "engine_clutch_upshift_1",
-          "axis": [0.0,-0.375,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "throttle_modified",
           "axis": [0.0,-0.375,0.0]
         }
       ]
@@ -1839,6 +1880,218 @@
       ]
     },
     {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -22.5,
+          "clampMax": 22.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": 22.5,
+          "clampMax": 67.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": -45.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": 67.5,
+          "clampMax": 112.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": -90.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": 112.5,
+          "clampMax": 157.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": -135.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": 157.5,
+          "clampMax": 180.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": -180.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -180.0,
+          "clampMax": -157.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": 180.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -157.5,
+          "clampMax": -112.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": 135.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -112.5,
+          "clampMax": -67.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": 90.0
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_lks_compass",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "yaw",
+          "clampMin": -67.5,
+          "clampMax": -22.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": 45.0
+        }
+      ]
+    },
+    {
+      "variable": "input_rudder",
+      "minValue": -10.0,
+      "maxValue": 10.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_has_autopilot_advanced",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "autopilot_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_lks_compass",
+          "axis": [0.0,0.1875,0.0],
+          "clampMin": -3.333,
+          "clampMax": 3.333
+        },
+        {
+          "animationType": "translation",
+          "variable": "!wow",
+          "axis": [1.0,0.0,0.0],
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "autopilot_active",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_has_autopilot_advanced",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "autopilot_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "input_rudder",
+          "clampMin": -9.0,
+          "clampMax": 9.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "blep",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "throttle",
       "maxValue": 1.0,
       "animations": [
@@ -1864,10 +2117,9 @@
       "variable": "autopilot_active",
       "animations": [
         {
-          "animationType": "visibility",
-          "variable": "autopilot_active",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "animationType": "translation",
+          "variable": "blep",
+          "axis": [0.0,0.0,1.0]
         },
         {
           "animationType": "visibility",
@@ -1876,15 +2128,31 @@
           "clampMax": 1.0
         },
         {
-          "animationType": "translation",
-          "variable": "blep",
-          "axis": [0.0,0.0,1.0]
+          "animationType": "inhibitor",
+          "variable": "vehicle_has_autopilot"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "autopilot_active",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     },
     {
       "variable": "input_rudder",
       "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_p_brake_drift",
+          "reverseDelay": 5
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engines_on",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
         {
           "animationType": "visibility",
           "variable": "vehicle_traction_control",
@@ -1898,24 +2166,15 @@
           "clampMax": 14.0
         },
         {
-          "animationType": "translation",
-          "variable": "slip",
-          "axis": [-0.00625,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.5,
-          "clampMax": 1.0,
-          "absolute": true
-        },
-        {
           "animationType": "inhibitor",
-          "variable": "damage_percent",
-          "clampMax": 0.5
+          "variable": "slip",
+          "clampMin": -12.0,
+          "clampMax": 12.0
         },
         {
-          "animationType": "visibility",
-          "variable": "5_10_5_cycle",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "animationType": "translation",
+          "variable": "input_rudder",
+          "axis": [0.0,0.0,0.875]
         }
       ]
     },
@@ -3393,7 +3652,7 @@
           },
           {
             "animationType": "translation",
-            "variable": "6_9_2_cycle",
+            "variable": "8_8_0_cycle",
             "axis": [0.0,1.0,0.0],
             "duration": 2
           }

@@ -45,6 +45,7 @@
   },
   "engine": {
     "type": "normal",
+    "isAutomatic": true,
     "starterPower": 35,
     "shiftSpeed": 5,
     "clutchTime": 3,
@@ -160,7 +161,17 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "!built_atlas_tough",
+          "variable": "parent_self_controlled",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "isAutomatic",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!parent_self_controlled",
           "axis": [0.0,0.0,1.0]
         }
       ]
@@ -1922,7 +1933,8 @@
         "maxDistanceVolume": 0.0
       }
     ],
-    "particles": [      {
+    "particles": [
+      {
         "type": "flame",
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
@@ -2079,7 +2091,7 @@
         "spreadRandomness": [0.25,0.25,0.25],
         "initialVelocity": [0.0,0.625,0.0],
         "movementVelocity": [0.0,-0.00125,0.0],
-        "terminalVelocity": [2048.0,2048,2048.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -2106,7 +2118,7 @@
         "spreadRandomness": [0.25,0.25,0.25],
         "initialVelocity": [0.0,0.625,0.0],
         "movementVelocity": [0.0,-0.00125,0.0],
-        "terminalVelocity": [2048.0,2048,2048.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
