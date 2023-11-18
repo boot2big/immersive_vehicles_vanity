@@ -5,8 +5,8 @@
     "hasHeadlights": true,
     "hasTurnSignals": true,
     "emptyMass": 850,
-    "fuelCapacity": 10000,
-    "defaultFuelQty": 7500,
+    "fuelCapacity": 12000,
+    "defaultFuelQty": 6000,
     "downForce": 0.75,
     "overSteer": 5.0,
     "overSteerAccel": 15.0,
@@ -669,37 +669,7 @@
           "variableType": "toggle"
         }
       ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "hatch_hood",
-          "centerPoint": [0.0,1.0625,2.1875],
-          "axis": [-60.0,0.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeincubic"
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "hatch_hood"
-        },
-        {
-          "animationType": "rotation",
-          "variable": "flBodyroll",
-          "centerPoint": [0.0,1.0625,2.1875],
-          "axis": [10.0,0.0,0.0],
-          "clampMin": -30.0,
-          "clampMax": 10.0
-        },
-        {
-          "animationType": "rotation",
-          "variable": "frBodyroll",
-          "centerPoint": [0.0,1.0625,2.1875],
-          "axis": [-10.0,0.0,0.0],
-          "clampMin": -30.0,
-          "clampMax": 10.0
-        }
-      ]
+      "applyAfter": "hood"
     },
     {
       "isInterior": true,
@@ -887,43 +857,7 @@
           "variableType": "toggle"
         }
       ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "hatch_trunk",
-          "centerPoint": [0.0,1.10938,-0.25],
-          "axis": [80.0,0.0,0.0],
-          "duration": 20,
-          "forwardsEasing": "easeinoutcubic",
-          "reverseEasing": "easeincubic"
-        },
-        {
-          "animationType": "visibility",
-          "variable": "!part_present_20",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "hatch_trunk"
-        },
-        {
-          "animationType": "rotation",
-          "variable": "flBodyroll",
-          "centerPoint": [0.0,1.10938,-0.25],
-          "axis": [10.0,0.0,0.0],
-          "clampMin": -10.0,
-          "clampMax": 30.0
-        },
-        {
-          "animationType": "rotation",
-          "variable": "frBodyroll",
-          "centerPoint": [0.0,1.10938,-0.25],
-          "axis": [-10.0,0.0,0.0],
-          "clampMin": -10.0,
-          "clampMax": 30.0
-        }
-      ]
+      "applyAfter": "trunk"
     },
     {
       "isInterior": true,
@@ -2481,9 +2415,21 @@
             "animationType": "rotation",
             "variable": "hatch_hood",
             "centerPoint": [0.0,1.0625,2.1875],
-            "axis": [-60.0,0.0,0.0],
-            "duration": 15,
+            "axis": [-5.0,0.0,0.0],
+            "reverseDelay": 10,
+            "duration": 10,
             "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeincubic",
+            "forwardsStartSound": "ivv:hoodopen4"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "hatch_hood",
+            "forwardsDelay": 5,
+            "centerPoint": [0.0,1.0625,2.1875],
+            "axis": [-55.0,0.0,0.0],
+            "duration": 20,
+            "forwardsEasing": "easeoutback",
             "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:hoodopen3",
             "reverseEndSound": "ivv:hoodclose3"
@@ -2525,7 +2471,7 @@
             "centerPoint": [0.0,1.10938,-0.25],
             "axis": [80.0,0.0,0.0],
             "duration": 20,
-            "forwardsEasing": "easeinoutcubic",
+            "forwardsEasing": "easeoutback",
             "reverseEasing": "easeincubic",
             "forwardsStartSound": "ivv:trunkopen4",
             "reverseEndSound": "ivv:trunkclose4"
