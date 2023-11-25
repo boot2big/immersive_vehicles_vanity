@@ -18,7 +18,7 @@
   },
   "parts": [
     {
-      "pos": [-1.05,0.125,-0.1875],
+      "pos": [-1.05625,0.0625,0.0],
       "rot": [0.0,180.0,0.0],
       "isMirrored": true,
       "minValue": 0.125,
@@ -27,20 +27,20 @@
       "types": [
         "ground_wheel"
       ],
-      "applyAfter": "rearsuspension"
+      "applyAfter": "steeringrearright"
     },
     {
-      "pos": [1.05,0.125,-0.1875],
+      "pos": [1.05625,0.0625,0.0],
       "minValue": 0.125,
       "maxValue": 1.5,
       "defaultPart": "ivv:smalltire",
       "types": [
         "ground_wheel"
       ],
-      "applyAfter": "rearsuspension"
+      "applyAfter": "steeringrearleft"
     },
     {
-      "pos": [-1.05,0.125,2.3125],
+      "pos": [-1.05625,0.0625,2.5],
       "rot": [0.0,180.0,0.0],
       "turnsWithSteer": true,
       "isMirrored": true,
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "pos": [1.05,0.125,2.3125],
+      "pos": [1.05625,0.0625,2.5],
       "turnsWithSteer": true,
       "minValue": 0.125,
       "maxValue": 1.5,
@@ -86,38 +86,14 @@
       "defaultPart": "ivv:handbrake",
       "types": [
         "gun_handbrake"
-      ],
-      "linkedParts": [9]
-    },
-    {
-      "pos": [-0.51562,0.4,0.7],
-      "isPermanent": true,
-      "defaultPart": "ivv:rockseat",
-      "types": [
-        "seat_invisible"
-      ],
-      "interactableVariables": [
-        [
-          "hatch_right"
-        ]
-      ],
-      "seatEffects": [
-        {
-          "name": "weakness",
-          "duration": 100,
-          "amplifier": 127
-        },
-        {
-          "name": "resistance",
-          "duration": 100,
-          "amplifier": 127
-        }
       ]
     },
     {
-      "pos": [0.51562,0.4,0.7],
+      "pos": [0.0,0.8875,1.1875],
+      "rot": [0.0,0.0,0.0],
       "isController": true,
       "isPermanent": true,
+      "partScale": [1.0,0.9,1.9],
       "defaultPart": "ivv:rockseat",
       "types": [
         "seat_invisible"
@@ -137,64 +113,9 @@
           "name": "resistance",
           "duration": 100,
           "amplifier": 127
-        }
-      ]
-    },
-    {
-      "pos": [-0.4,0.575,0.0],
-      "rot": [0.0,180.0,0.0],
-      "isPermanent": true,
-      "playerScale": [0.9,0.9,0.9],
-      "defaultPart": "ivv:rockseat",
-      "types": [
-        "seat_invisible"
-      ],
-      "interactableVariables": [
-        [
-          "hatch_right"
-        ],
-        [
-          "hatch_gate"
-        ]
-      ],
-      "seatEffects": [
-        {
-          "name": "weakness",
-          "duration": 100,
-          "amplifier": 127
         },
         {
-          "name": "resistance",
-          "duration": 100,
-          "amplifier": 127
-        }
-      ]
-    },
-    {
-      "pos": [0.4,0.575,0.0],
-      "rot": [0.0,180.0,0.0],
-      "isPermanent": true,
-      "playerScale": [0.9,0.9,0.9],
-      "defaultPart": "ivv:rockseat",
-      "types": [
-        "seat_invisible"
-      ],
-      "interactableVariables": [
-        [
-          "hatch_left"
-        ],
-        [
-          "hatch_gate"
-        ]
-      ],
-      "seatEffects": [
-        {
-          "name": "weakness",
-          "duration": 100,
-          "amplifier": 127
-        },
-        {
-          "name": "resistance",
+          "name": "invisibility",
           "duration": 100,
           "amplifier": 127
         }
@@ -226,266 +147,6 @@
     }
   ],
   "collisionGroups": [
-    {
-      "isInterior": true,
-      "collisions": [
-        {
-          "pos": [1.1,0.875,0.625],
-          "width": 0.25,
-          "height": 1.25,
-          "variableName": "hatch_left",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [1.1,0.875,0.875],
-          "width": 0.25,
-          "height": 1.25,
-          "variableName": "hatch_left",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [1.1,0.875,1.125],
-          "width": 0.25,
-          "height": 1.25,
-          "variableName": "hatch_left",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [1.1,0.875,1.375],
-          "width": 0.25,
-          "height": 1.25,
-          "variableName": "hatch_left",
-          "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "hatch_left",
-          "centerPoint": [1.125,0.5625,1.5],
-          "axis": [0.0,-65.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeincubic"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
-        {
-          "pos": [-1.1,0.875,0.625],
-          "width": 0.25,
-          "height": 1.25,
-          "variableName": "hatch_right",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-1.1,0.875,0.875],
-          "width": 0.25,
-          "height": 1.25,
-          "variableName": "hatch_right",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-1.1,0.875,1.125],
-          "width": 0.25,
-          "height": 1.25,
-          "variableName": "hatch_right",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-1.1,0.875,1.375],
-          "width": 0.25,
-          "height": 1.25,
-          "variableName": "hatch_right",
-          "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "hatch_right",
-          "centerPoint": [-1.125,0.5625,1.5],
-          "axis": [0.0,65.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutback",
-          "reverseEasing": "easeincubic"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
-        {
-          "pos": [0.0,0.5,-0.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.5,0.5,-0.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-0.5,0.5,-0.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.25,0.9,-0.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.75,0.9,-0.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-0.75,0.9,-0.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-0.25,0.9,-0.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.0,1.3,-0.6],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.5,1.3,-0.6],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-0.5,1.3,-0.6],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_gate",
-          "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "hatch_gate",
-          "centerPoint": [0.0,1.46875,-0.5625],
-          "axis": [80.0,0.0,0.0],
-          "duration": 20,
-          "forwardsEasing": "easeinoutcubic",
-          "reverseEasing": "easeincubic"
-        }
-      ]
-    },
-    {
-      "isInterior": true,
-      "collisions": [
-        {
-          "pos": [0.0,0.7,2.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.55,0.7,2.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-0.55,0.7,2.8],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-0.275,0.7,2.55],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.275,0.7,2.55],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.0,0.8,2.3],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.55,0.8,2.3],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-0.55,0.8,2.3],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [-0.275,0.8,2.5],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        },
-        {
-          "pos": [0.275,0.8,2.5],
-          "width": 0.25,
-          "height": 0.25,
-          "variableName": "hatch_hood",
-          "variableType": "toggle"
-        }
-      ],
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "hatch_hood",
-          "centerPoint": [0.0,0.9375,2.0],
-          "axis": [-70.0,0.0,0.0],
-          "duration": 15,
-          "forwardsEasing": "easeoutelastic",
-          "reverseEasing": "easeincubic"
-        }
-      ]
-    },
     {
       "isInterior": true,
       "collisions": [
@@ -814,27 +475,6 @@
           "height": 0.125
         }
       ]
-    },
-    {
-      "isInterior": true,
-      "isForBullets": true,
-      "collisions": [
-        {
-          "pos": [0.0,0.75,0.25],
-          "width": 2.5,
-          "height": 2.0
-        },
-        {
-          "pos": [0.0,0.75,0.8125],
-          "width": 2.5,
-          "height": 2.0
-        },
-        {
-          "pos": [0.0,0.375,1.875],
-          "width": 2.5,
-          "height": 1.25
-        }
-      ]
     }
   ],
   "instruments": [
@@ -926,17 +566,69 @@
   "definitions": [
     {
       "subName": "",
-      "modelName": "trombone",
       "name": "Experimental Feature Test Bed",
       "extraMaterialLists": [
         []
       ]
     }
   ],
-  "initialVariables": [
-    "hatch_left"
-  ],
   "variableModifiers": [
+    {
+      "variable": "vehicle_wriggle",
+      "minValue": -45.0,
+      "maxValue": 45.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.001,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,-0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_wriggle_subtract",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!WRIGGLE"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!zero",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_wriggle_subtract",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "vehicle_wriggle",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.375,0.0,0.0],
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!WRIGGLE"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!zero",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
     {
       "variable": "vehicle_skill_speed",
       "maxValue": 1.0,
@@ -1071,24 +763,6 @@
           "variable": "vehicle_skill_handling",
           "axis": [-1.0,0.0,0.0],
           "offset": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "vehicle_skill_intelligence",
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "INTEL",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "horn",
-          "axis": [0.0,0.0,1.0],
-          "duration": 50
         }
       ]
     },
@@ -1440,110 +1114,186 @@
   "rendering": {
     "animatedObjects": [
       {
-        "objectName": "rearsuspension",
+        "objectName": "fore3",
+        "animations": []
+      },
+      {
+        "objectName": "fore2",
+        "applyAfter": "fore3",
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "rBodyroll",
-            "centerPoint": [0.0,0.125,-0.1875],
-            "axis": [0.0,0.0,3.0]
-          },
-          {
-            "animationType": "translation",
-            "variable": "rBodyTranslation",
-            "axis": [0.0,0.125,0.0],
-            "clampMin": -1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "engine_reversed_1"
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "!damage_totaled"
+            "variable": "vehicle_wriggle",
+            "centerPoint": [1.18731,0.0,2.5],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -2.5,
+            "clampMax": 0.0625
           },
           {
             "animationType": "rotation",
-            "variable": "rBodyroll",
-            "centerPoint": [0.0,0.125,-0.1875],
-            "axis": [0.0,0.0,-6.0]
+            "variable": "vehicle_wriggle",
+            "centerPoint": [-1.18731,0.0,2.5],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -0.0625,
+            "clampMax": 2.5
+          }
+        ]
+      },
+      {
+        "objectName": "mirrorleft",
+        "applyAfter": "fore2",
+        "animations": []
+      },
+      {
+        "objectName": "mirrorright",
+        "applyAfter": "fore2",
+        "animations": []
+      },
+      {
+        "objectName": "fore1",
+        "applyAfter": "fore2",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "vehicle_wriggle",
+            "centerPoint": [1.18737,0.0,1.6875],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -2.0,
+            "clampMax": 0.0625
           },
           {
-            "animationType": "translation",
-            "variable": "rBodyTranslation",
-            "axis": [0.0,-0.25,0.0],
-            "clampMin": -1.0,
-            "clampMax": 1.0
+            "animationType": "rotation",
+            "variable": "vehicle_wriggle",
+            "centerPoint": [-1.18737,0.0,1.6875],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -0.0625,
+            "clampMax": 2.0
           }
+        ]
+      },
+      {
+        "objectName": "body",
+        "applyAfter": "fore1",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "vehicle_wriggle",
+            "centerPoint": [1.1875,0.0,1.125],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -2.5,
+            "clampMax": 0.0625
+          },
+          {
+            "animationType": "rotation",
+            "variable": "vehicle_wriggle",
+            "centerPoint": [-1.1875,0.0,1.125],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -0.0625,
+            "clampMax": 2.5
+          }
+        ]
+      },
+      {
+        "objectName": "hind1",
+        "applyAfter": "body",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "vehicle_wriggle",
+            "centerPoint": [1.18744,0.0,0.5625],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -2.5,
+            "clampMax": 0.0625
+          },
+          {
+            "animationType": "rotation",
+            "variable": "vehicle_wriggle",
+            "centerPoint": [-1.18744,0.0,0.5625],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -0.0625,
+            "clampMax": 2.5
+          }
+        ]
+      },
+      {
+        "objectName": "hind2",
+        "applyAfter": "hind1",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "vehicle_wriggle",
+            "centerPoint": [1.18737,0.0,0.0],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -2.5,
+            "clampMax": 0.0625
+          },
+          {
+            "animationType": "rotation",
+            "variable": "vehicle_wriggle",
+            "centerPoint": [-1.18737,0.0,0.0],
+            "axis": [0.0,-1.0,0.0],
+            "clampMin": -0.0625,
+            "clampMax": 2.5
+          }
+        ]
+      },
+      {
+        "objectName": "turnsignalleft",
+        "applyAfter": "hind2",
+        "animations": []
+      },
+      {
+        "objectName": "turnsignalright",
+        "applyAfter": "hind2",
+        "animations": []
+      },
+      {
+        "objectName": "taillight",
+        "applyAfter": "hind2",
+        "animations": []
+      },
+      {
+        "objectName": "reverselight",
+        "applyAfter": "hind2",
+        "animations": []
+      },
+      {
+        "objectName": "exhaust",
+        "applyAfter": "hind2",
+        "animations": []
+      },
+      {
+        "objectName": "bumperhind",
+        "applyAfter": "hind2",
+        "animations": []
+      },
+      {
+        "objectName": "steeringrearleft",
+        "applyAfter": "hind2",
+        "animations": [
+        ]
+      },
+      {
+        "objectName": "steeringrearright",
+        "applyAfter": "hind2",
+        "animations": [
         ]
       },
       {
         "objectName": "axlerearright",
-        "applyAfter": "rearsuspension",
+        "applyAfter": "steeringrearright",
         "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation_1",
-            "centerPoint": [-1.05,0.125,-0.1875],
-            "axis": [-1.0,0.0,0.0]
-          }
         ]
       },
       {
         "objectName": "axlerearleft",
-        "applyAfter": "rearsuspension",
+        "applyAfter": "steeringrearleft",
         "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation_2",
-            "centerPoint": [1.05,0.125,-0.1875],
-            "axis": [1.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "frontsuspension",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [0.0,0.125,2.3125],
-            "axis": [0.0,0.0,2.0]
-          },
-          {
-            "animationType": "translation",
-            "variable": "fBodyTranslation",
-            "axis": [0.0,-0.125,0.0],
-            "clampMin": -1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "engine_reversed_1"
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "!damage_totaled"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [0.0,0.125,2.3125],
-            "axis": [0.0,0.0,-4.0]
-          },
-          {
-            "animationType": "translation",
-            "variable": "fBodyTranslation",
-            "axis": [0.0,0.25,0.0],
-            "clampMin": -1.0,
-            "clampMax": 1.0
-          }
         ]
       },
       {
         "objectName": "steeringfrontright",
-        "applyAfter": "frontsuspension",
+        "applyAfter": "fore2",
         "animations": [
           {
             "animationType": "rotation",
@@ -1557,17 +1307,11 @@
         "objectName": "axlefrontright",
         "applyAfter": "steeringfrontright",
         "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation_3",
-            "centerPoint": [-1.05,0.125,2.3125],
-            "axis": [-1.0,0.0,0.0]
-          }
         ]
       },
       {
         "objectName": "steeringfrontleft",
-        "applyAfter": "frontsuspension",
+        "applyAfter": "fore2",
         "animations": [
           {
             "animationType": "rotation",
@@ -1581,411 +1325,6 @@
         "objectName": "axlefrontleft",
         "applyAfter": "steeringfrontleft",
         "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "ground_rotation_4",
-            "centerPoint": [1.05,0.125,2.3125],
-            "axis": [1.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "swaybar",
-        "applyAfter": "steeringfrontright",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "rudder",
-            "centerPoint": [-0.703125,0.058593,2.0],
-            "axis": [0.0,0.5,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "hood",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "hatch_hood",
-            "centerPoint": [0.0,0.9375,2.0],
-            "axis": [-70.0,0.0,0.0],
-            "duration": 15,
-            "forwardsEasing": "easeoutelastic",
-            "reverseEasing": "easeincubic",
-            "forwardsStartSound": "ivv:hoodopen3",
-            "reverseEndSound": "ivv:hoodclose3"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_totaled",
-            "centerPoint": [0.0,0.9375,2.0],
-            "axis": [-2.0,0.0,0.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "hatch_hood"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "rBodyTranslation",
-            "centerPoint": [0.0,0.9375,2.0],
-            "axis": [-10.0,0.0,0.0],
-            "clampMin": -10.0,
-            "clampMax": 30.0
-          }
-        ]
-      },
-      {
-        "objectName": "gate",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "hatch_gate",
-            "centerPoint": [0.0,1.46875,-0.5625],
-            "axis": [80.0,0.0,0.0],
-            "duration": 20,
-            "forwardsEasing": "easeinoutcubic",
-            "reverseEasing": "easeincubic",
-            "forwardsStartSound": "ivv:trunkopen4",
-            "reverseEndSound": "ivv:trunkclose4"
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "hatch_gate"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "rBodyTranslation",
-            "centerPoint": [0.0,1.46875,-0.5625],
-            "axis": [-10.0,0.0,0.0],
-            "clampMin": -30.0,
-            "clampMax": 10.0
-          }
-        ]
-      },
-      {
-        "objectName": "gateglassinside_translucent",
-        "applyAfter": "gateglass_translucent",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "config_innerwindows",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!yeet"
-          }
-        ]
-      },
-      {
-        "objectName": "glassinside_translucent",
-        "applyAfter": "glass_translucent",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "config_innerwindows",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!yeet"
-          }
-        ]
-      },
-      {
-        "objectName": "leftdoorglassinside_translucent",
-        "applyAfter": "leftdoorglass_translucent",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "config_innerwindows",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!yeet"
-          }
-        ]
-      },
-      {
-        "objectName": "rightdoorglassinside_translucent",
-        "applyAfter": "rightdoorglass_translucent",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "config_innerwindows",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!yeet"
-          }
-        ]
-      },
-      {
-        "objectName": "glass_translucent",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!yeet"
-          }
-        ]
-      },
-      {
-        "objectName": "gateglass_translucent",
-        "applyAfter": "gate",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!yeet"
-          }
-        ]
-      },
-      {
-        "objectName": "rightdoorglass_translucent",
-        "applyAfter": "rightdoor",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!yeet"
-          }
-        ]
-      },
-      {
-        "objectName": "leftdoorglass_translucent",
-        "applyAfter": "leftdoor",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          }
-        ]
-      },
-      {
-        "objectName": "leftdoorglass_translucent",
-        "applyAfter": "leftdoor",
-        "animations": [
-          {
-            "animationType": "inhibitor",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "!yeet"
-          }
-        ]
-      },
-      {
-        "objectName": "leftdoor",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "hatch_left",
-            "centerPoint": [1.125,0.5625,1.5],
-            "axis": [0.0,-65.0,0.0],
-            "duration": 15,
-            "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeincubic",
-            "forwardsStartSound": "ivv:dooropen5",
-            "reverseEndSound": "ivv:doorclose5"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_totaled",
-            "centerPoint": [1.125,0.5625,1.5],
-            "axis": [-2.0,-3.0,0.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "hatch_left"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [1.125,0.5625,1.5],
-            "axis": [0.0,8.0,0.0],
-            "clampMin": -10.0,
-            "clampMax": 5.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "rBodyTranslation",
-            "centerPoint": [1.125,0.5625,1.5],
-            "axis": [0.0,8.0,0.0],
-            "clampMin": -10.0,
-            "clampMax": 5.0
-          }
-        ]
-      },
-      {
-        "objectName": "rightdoor",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "hatch_right",
-            "centerPoint": [-1.125,0.5625,1.5],
-            "axis": [0.0,65.0,0.0],
-            "duration": 15,
-            "forwardsEasing": "easeoutback",
-            "reverseEasing": "easeincubic",
-            "forwardsStartSound": "ivv:dooropen5",
-            "reverseEndSound": "ivv:doorclose5"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "damage_totaled",
-            "centerPoint": [-1.125,0.5625,1.5],
-            "axis": [-0.5,1.0,0.0]
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "hatch_right"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "fBodyroll",
-            "centerPoint": [-1.125,0.5625,1.5],
-            "axis": [0.0,8.0,0.0],
-            "clampMin": -5.0,
-            "clampMax": 10.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "rBodyTranslation",
-            "centerPoint": [-1.125,0.5625,1.5],
-            "axis": [0.0,-8.0,0.0],
-            "clampMin": -5.0,
-            "clampMax": 10.0
-          }
-        ]
-      },
-      {
-        "objectName": "gas",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "throttle_modified",
-            "centerPoint": [0.0,0.28125,1.71875],
-            "axis": [-22.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "brake",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "p_brake",
-            "centerPoint": [0.0,0.28125,1.71875],
-            "axis": [-22.0,0.0,0.0],
-            "duration": 5,
-            "forwardsStartSound": "ivv:handbrakeengage2",
-            "reverseStartSound": "ivv:handbrakedisengage2"
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "p_brake",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "gun_windup_time_1",
-            "centerPoint": [0.0,0.28125,1.71875],
-            "axis": [-22.0,0.0,0.0],
-            "duration": 3,
-            "forwardsStartSound": "ivv:handbrakeengage2",
-            "reverseStartSound": "ivv:handbrakedisengage2"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "brake_modified",
-            "centerPoint": [0.0,0.28125,1.71875],
-            "axis": [-22.0,0.0,0.0]
-          }
-        ]
-      },
-      {
-        "objectName": "clutch",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "engine_isautomatic_1"
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_clutch_upshift_1",
-            "centerPoint": [0.0,0.28125,1.71875],
-            "axis": [-22.0,0.0,0.0],
-            "duration": 3
-          },
-          {
-            "animationType": "rotation",
-            "variable": "engine_clutch_downshift_1",
-            "centerPoint": [0.0,0.28125,1.71875],
-            "axis": [-22.0,0.0,0.0],
-            "duration": 3
-          }
-        ]
-      },
-      {
-        "objectName": "steeringwheel",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "rudder_modified",
-            "centerPoint": [0.515625,0.80638,1.57118],
-            "axis": [0.0,-0.38,1.19]
-          }
-        ]
-      },
-      {
-        "objectName": "manualshifter",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "engine_gearshift_modified",
-            "centerPoint": [0.515625,0.80638,1.57118],
-            "axis": [0.0,-0.38,1.19]
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_isautomatic_1"
-          }
-        ]
-      },
-      {
-        "objectName": "autoshifter",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "engine_gearshift_modified",
-            "centerPoint": [0.515625,0.80638,1.57118],
-            "axis": [0.0,-1.5,4.77]
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_isautomatic_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
         ]
       }
     ],
@@ -2106,7 +1445,8 @@
     "customVariables": [
       "SPEED",
       "STRENGTH",
-      "AGILITY"
+      "AGILITY",
+      "WRIGGLE"
     ],
     "sounds": [],
     "particles": [],

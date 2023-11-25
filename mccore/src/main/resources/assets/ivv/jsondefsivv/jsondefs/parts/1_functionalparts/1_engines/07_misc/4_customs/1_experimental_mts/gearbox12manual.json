@@ -1,0 +1,310 @@
+{
+  "generic": {
+    "type": "generic_transmission",
+    "customType": "ivlabs",
+    "forwardsDamageMultiplier": 0.0
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "gearbox",
+      "textureName": "gearbox",
+      "name": "12 Speed Manual Gearbox",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "generic_transmission_isautomatic": 0.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "generic_transmission_gear",
+      "minValue": -2.0,
+      "maxValue": 12.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_gear",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_restrict",
+      "minValue": -1.0,
+      "maxValue": 11.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_gear",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_math",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_gear",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_transmission_gear_restrict",
+          "axis": [0.0,-1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_restrict_upshift",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_transmission_gear_math",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_restrict_downshift",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_transmission_gear_math",
+          "axis": [0.0,0.0,-1.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_ratio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "neutral",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "false"
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": -2.0,
+          "clampMax": -2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!reverse_two",
+          "axis": [0.0,0.0,-7.5]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": -1.0,
+          "clampMax": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!reverse_one",
+          "axis": [0.0,0.0,-9.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!first",
+          "axis": [0.0,0.0,9.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 2.0,
+          "clampMax": 2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!second",
+          "axis": [0.0,0.0,7.5]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 3.0,
+          "clampMax": 3.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!third",
+          "axis": [0.0,0.0,6.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 4.0,
+          "clampMax": 4.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!fourth",
+          "axis": [0.0,0.0,4.75]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 5.0,
+          "clampMax": 5.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!fifth",
+          "axis": [0.0,0.0,3.5]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 6.0,
+          "clampMax": 6.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!sixth",
+          "axis": [0.0,0.0,2.875]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 7.0,
+          "clampMax": 7.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!seventh",
+          "axis": [0.0,0.0,2.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 8.0,
+          "clampMax": 8.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!eighth",
+          "axis": [0.0,0.0,1.5]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 9.0,
+          "clampMax": 9.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!ninth",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 10.0,
+          "clampMax": 10.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!tenth",
+          "axis": [0.0,0.0,0.875]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 11.0,
+          "clampMax": 11.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!matt_smith_is_hot",
+          "axis": [0.0,0.0,0.75]
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_gear",
+          "clampMin": 12.0,
+          "clampMax": 12.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!twelfth",
+          "axis": [0.0,0.0,0.5]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.0,1.0,0.0],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.5,
+        "variableName": "generic_transmission_gear_ratio",
+        "variableFactor": 1.0,
+        "variableFormat": "RATIO: %01.3f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.0,1.5,0.0],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.5,
+        "variableName": "generic_transmission_gear",
+        "variableFactor": 1.0,
+        "variableFormat": "MATH: %01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.0,2.0,0.0],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.5,
+        "variableName": "generic_transmission_gear_restrictor",
+        "variableFactor": 1.0,
+        "variableFormat": "GEAR: %01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Manual Gearbox",
+    "description": "Gear Ratios:\n-7.5, -9.0, 0.0, 9.0, 7.5, 6.0, 4.75, 3.5, 2.875, 2.0, 1.5, 1.0, 0.875, 0.75, 0.5\n§5§oCrafted in the Engine Hoist bench",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2",
+        "mts:ivv.gear:0:14"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

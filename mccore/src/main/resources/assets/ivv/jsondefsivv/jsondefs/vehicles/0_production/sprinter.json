@@ -244,7 +244,75 @@
       "pos": [0.0,0.32758,2.76087],
       "maxValue": 10.0,
       "intakeOffset": 2.0,
-      "defaultPart": "ivv:v4performantemanual",
+      "conditionalDefaultParts": {
+        "defaultparts_engine_insolvo_i2_auto": "ivv:v2insolvoauto",
+        "defaultparts_engine_insolvo_i2_manual": "ivv:v2insolvo",
+        "defaultparts_engine_insolvo_i3_auto": "ivv:v3insolvoauto",
+        "defaultparts_engine_insolvo_i3_manual": "ivv:v3insolvo",
+        "defaultparts_engine_insolvo_i4_auto": "ivv:v4insolvoauto",
+        "defaultparts_engine_insolvo_i4_manual": "ivv:v4insolvo",
+        "defaultparts_engine_insolvo_v6_auto": "ivv:v6insolvoauto",
+        "defaultparts_engine_insolvo_v6_manual": "ivv:v6insolvo",
+        "defaultparts_engine_insolvo_v8_auto": "ivv:v8insolvoauto",
+        "defaultparts_engine_insolvo_v8_manual": "ivv:v8insolvo",
+        "defaultparts_engine_median_i3_auto": "ivv:v3median",
+        "defaultparts_engine_median_i3_manual": "ivv:v3medianmanual",
+        "defaultparts_engine_median_i3_cvt": "ivv:v3mediancvt",
+        "defaultparts_engine_median_i4_auto": "ivv:v4",
+        "defaultparts_engine_median_i4_manual": "ivv:v4manual",
+        "defaultparts_engine_median_i4_cvt": "ivv:v4cvt",
+        "defaultparts_engine_median_v6_auto": "ivv:v6",
+        "defaultparts_engine_median_v6_manual": "ivv:v6manual",
+        "defaultparts_engine_median_v6_cvt": "ivv:v6cvt",
+        "defaultparts_engine_median_v8_auto": "ivv:v8",
+        "defaultparts_engine_median_v8_manual": "ivv:v8manual",
+        "defaultparts_engine_median_v8_cvt": "ivv:v8cvt",
+        "defaultparts_engine_median_v10_auto": "ivv:v9",
+        "defaultparts_engine_median_v10_cvt": "ivv:v9",
+        "defaultparts_engine_median_v10_manual": "ivv:v9manual",
+        "defaultparts_engine_performante_i3_auto": "ivv:v3performante",
+        "defaultparts_engine_performante_i3_manual": "ivv:v3performantemanual",
+        "defaultparts_engine_performante_i4_auto": "ivv:v4performante",
+        "defaultparts_engine_performante_i4_manual": "ivv:v4performantemanual",
+        "defaultparts_engine_performante_v6_auto": "ivv:v6performante",
+        "defaultparts_engine_performante_v6_manual": "ivv:v6performantemanual",
+        "defaultparts_engine_performante_v8_auto": "ivv:v8performante",
+        "defaultparts_engine_performante_v8_manual": "ivv:v8performantemanual",
+        "defaultparts_engine_performante_v10_auto": "ivv:v90performante",
+        "defaultparts_engine_performante_v10_manual": "ivv:v90performantemanual",
+        "defaultparts_engine_performante_v12_auto": "ivv:v91performante",
+        "defaultparts_engine_performante_v12_manual": "ivv:v91performantemanual",
+        "defaultparts_engine_performante_v16_auto": "ivv:v96performante",
+        "defaultparts_engine_performante_v16_manual": "ivv:v96performantemanual",
+        "defaultparts_engine_reuleauxid_2r_auto": "ivv:v5",
+        "defaultparts_engine_reuleauxid_2r_manual": "ivv:v5manual",
+        "defaultparts_engine_torqueline_i4_auto": "ivv:v4inlinetorqueline",
+        "defaultparts_engine_torqueline_i4_manual": "ivv:v4inlinetorquelinemanual",
+        "defaultparts_engine_torqueline_v6_auto": "ivv:v6torqueline",
+        "defaultparts_engine_torqueline_v6_manual": "ivv:v6torquelinemanual",
+        "defaultparts_engine_torqueline_v8_auto": "ivv:v8torqueline",
+        "defaultparts_engine_torqueline_v8_manual": "ivv:v8torquelinemanual",
+        "defaultparts_engine_torqueline_v10_auto": "ivv:v90torqueline",
+        "defaultparts_engine_torqueline_v10_manual": "ivv:v90torquelinemanual",
+        "defaultparts_engine_smallfry_v2_auto": "ivv:v2",
+        "defaultparts_engine_smallfry_v2_manual": "ivv:v2manual",
+        "defaultparts_engine_smallfry_v4_auto": "ivv:v4smallfry",
+        "defaultparts_engine_smallfry_v4_manual": "ivv:v4smallfrymanual",
+        "defaultparts_engine_magnitrox_nano": "ivv:nano_electricmotor",
+        "defaultparts_engine_magnitrox_compact": "ivv:compact_electricmotor",
+        "defaultparts_engine_magnitrox_standard": "ivv:standard_electricmotor",
+        "defaultparts_engine_magnitrox_ultra": "ivv:ultra_electricmotor",
+        "defaultparts_engine_magnitrox_industrial": "ivv:industrial_electricmotor",
+        "defaultparts_engine_magnitrox_industrial_heavyduty": "ivv:ultraindustrial_electricmotor",
+        "defaultparts_engine_custom_acivev8": "ivv:v8turbojet",
+        "defaultparts_engine_custom_acivemotor": "ivv:ultramotormkii",
+        "defaultparts_engine_experimental_arcade": "ivv:v6arcade",
+        "defaultparts_engine_experimental_v128": "ivv:v128",
+        "defaultparts_engine_experimental_invisible": "ivv:v8invisible",
+        "defaultparts_engine_experimental_odinusvr6auto": "ivv:vr6",
+        "defaultparts_engine_experimental_odinusvr6manual": "ivv:vr6manual",
+        "defaultparts_engine_experimental_bluebox": "ivv:bluebox"
+      },
       "types": [
         "engine_car"
       ],
@@ -1283,42 +1351,78 @@
   "definitions": [
     {
       "subName": "_white",
+      "constants": [
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
+        "defaultparts_engine_performante_i4_auto"
+      ],
       "name": "Sprinter",
+      "description": "LEGACY MODEL! Will be revamped in the future. For now, expect outdated visuals and functionality\nRear-wheel drive",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_black",
+      "constants": [
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
+        "defaultparts_engine_performante_i4_auto"
+      ],
       "name": "Sprinter",
+      "description": "LEGACY MODEL! Will be revamped in the future. For now, expect outdated visuals and functionality\nRear-wheel drive",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_panda",
+      "constants": [
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
+        "defaultparts_engine_performante_i4_auto"
+      ],
       "name": "Sprinter",
+      "description": "LEGACY MODEL! Will be revamped in the future. For now, expect outdated visuals and functionality\nRear-wheel drive",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_teal",
+      "constants": [
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
+        "defaultparts_engine_performante_i4_auto"
+      ],
       "name": "Sprinter",
+      "description": "LEGACY MODEL! Will be revamped in the future. For now, expect outdated visuals and functionality\nRear-wheel drive",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_blue",
+      "constants": [
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
+        "defaultparts_engine_performante_i4_auto"
+      ],
       "name": "Sprinter",
+      "description": "LEGACY MODEL! Will be revamped in the future. For now, expect outdated visuals and functionality\nRear-wheel drive",
       "extraMaterialLists": [
         []
       ]
     },
     {
       "subName": "_red",
+      "constants": [
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
+        "defaultparts_engine_performante_i4_auto"
+      ],
       "name": "Sprinter",
+      "description": "LEGACY MODEL! Will be revamped in the future. For now, expect outdated visuals and functionality\nRear-wheel drive",
       "extraMaterialLists": [
         []
       ]
@@ -2109,17 +2213,17 @@
           },
           {
             "animationType": "rotation",
-            "duration": 3,
             "variable": "engine_clutch_upshift_1",
             "centerPoint": [0.0,0.28125,2.65625],
-            "axis": [-20.0,0.0,0.0]
+            "axis": [-20.0,0.0,0.0],
+            "duration": 3
           },
           {
             "animationType": "rotation",
-            "duration": 3,
             "variable": "engine_clutch_downshift_1",
             "centerPoint": [0.0,0.28125,2.65625],
-            "axis": [-20.0,0.0,0.0]
+            "axis": [-20.0,0.0,0.0],
+            "duration": 3
           }
         ]
       },
@@ -3516,7 +3620,6 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "§lSTATS:\nDrivetrain: RWD\nMax. Top Speed: 132MPH\n0-60: 6.34\n0-Top Speed: 0:39.47",
     "health": 100,
     "materialLists": [
       [

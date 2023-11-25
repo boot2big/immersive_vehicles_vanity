@@ -39,15 +39,6 @@
     "superchargerEfficiency": 0.8,
     "isCrankingNotPitched": true
   },
-  "definitions": [
-    {
-      "subName": "",
-      "name": "IVLabs ''N4S-RCDE'' Experimental Motor",
-      "extraMaterialLists": [
-        []
-      ]
-    }
-  ],
   "parts": [
     {
       "pos": [-0.46847,0.11038,0.28125],
@@ -160,6 +151,15 @@
       ]
     }
   ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "IVLabs ''N4S-RCDE'' Experimental Motor",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "engine_obdiii_present",
@@ -224,6 +224,28 @@
           "axis": [-1.5E-4,0.0,0.0],
           "offset": 1.0,
           "clampMin": 0.5
+        }
+      ]
+    },
+    {
+      "variable": "revResistance",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!engine_clutching",
+          "axis": [0.0,0.0,3.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "revlimitBounce",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!engine_clutching",
+          "axis": [0.0,0.0,3.0],
+          "offset": 1.0
         }
       ]
     },

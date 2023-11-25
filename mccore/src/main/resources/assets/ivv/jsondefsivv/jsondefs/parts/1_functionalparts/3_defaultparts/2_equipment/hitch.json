@@ -280,17 +280,30 @@
   ],
   "variableModifiers": [
     {
+      "variable": "general_first_spawn",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "general_first_spawn"
+        },
+        {
+          "animationType": "translation",
+          "variable": "2_2_0_cycle",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
       "variable": "hitch_pitch",
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "vehicle_hitch_offset_present",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "variable": "general_first_spawn"
         },
         {
           "animationType": "visibility",
-          "variable": "1_2_2147483647_cycle",
+          "variable": "vehicle_hitch_offset_present",
           "clampMin": 1.0,
           "clampMax": 1.0
         },
@@ -312,9 +325,8 @@
         },
         {
           "animationType": "translation",
-          "variable": "!yes",
-          "axis": [0.0,0.0,1.0],
-          "offset": -1.0
+          "variable": "zero",
+          "axis": [0.0,0.0,1.0]
         }
       ]
     }
@@ -324,6 +336,10 @@
       {
         "objectName": "mount",
         "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation"
+          },
           {
             "animationType": "scaling",
             "variable": "hitch_scale",
@@ -451,7 +467,7 @@
       },
       {
         "objectName": "#joint_alt",
-        "applyAfter": "mount",
+        "applyAfter": "#mount_alt",
         "animations": [
           {
             "animationType": "rotation",

@@ -149,8 +149,11 @@
           "animationType": "visibility",
           "variable": "gun_reload",
           "clampMin": 1.0,
-          "clampMax": 1.0,
-          "forwardsDelay": 7
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "!gun_ammo_count_reloading"
         },
         {
           "animationType": "translation",
@@ -262,21 +265,6 @@
         "renderPosition": 2
       },
       {
-        "pos": [0.125,0.0,0.375],
-        "rot": [0.0,180.0,0.0],
-        "scale": 0.25,
-        "variableName": "gun_ammo_count",
-        "variableFactor": 1.0,
-        "variableFormat": "AMMO: %01.0f/72",
-        "fontName": "ivv:digifont",
-        "defaultText": "fill me up daddy owo",
-        "maxLength": 7,
-        "color": "CCCCCC",
-        "attachedTo": "hudAmmoExtendedModel",
-        "lightsUp": true,
-        "renderPosition": 2
-      },
-      {
         "pos": [0.125,-0.0,0.375],
         "rot": [0.0,180.0,0.0],
         "scale": 0.25,
@@ -325,28 +313,6 @@
         "objectName": "hudAmmoModel",
         "applyAfter": "hudModel",
         "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "isAmmoExtended",
-            "clampMax": 12.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "gun_reload",
-            "reverseDelay": 2
-          }
-        ]
-      },
-      {
-        "objectName": "hudAmmoExtendedModel",
-        "applyAfter": "hudModel",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "isAmmoExtended",
-            "clampMin": 13.0,
-            "clampMax": 36.0
-          },
           {
             "animationType": "visibility",
             "variable": "gun_reload",
@@ -409,7 +375,7 @@
             "animationType": "visibility",
             "variable": "isAmmoExtended",
             "clampMin": 13.0,
-            "clampMax": 36.0
+            "clampMax": 72.0
           },
           {
             "animationType": "inhibitor",
@@ -504,7 +470,7 @@
             "animationType": "visibility",
             "variable": "isAmmoExtended",
             "clampMin": 13.0,
-            "clampMax": 36.0
+            "clampMax": 72.0
           },
           {
             "animationType": "inhibitor",
