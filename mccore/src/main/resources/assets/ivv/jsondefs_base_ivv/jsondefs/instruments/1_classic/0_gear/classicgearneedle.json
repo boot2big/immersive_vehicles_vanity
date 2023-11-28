@@ -1,0 +1,83 @@
+{
+  "components": [
+    {
+      "scale": 1.0,
+      "textureXCenter": 320,
+      "textureYCenter": 32,
+      "textureWidth": 128,
+      "textureHeight": 64,
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 192,
+      "textureYCenter": 288,
+      "textureWidth": 128,
+      "textureHeight": 64
+    },
+    {
+      "yCenter": 16,
+      "scale": 1.0,
+      "textureXCenter": 408,
+      "textureYCenter": 448,
+      "textureWidth": 4,
+      "textureHeight": 50,
+      "moveComponent": true,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [-28.0,0.0,0.0],
+          "duration": 6,
+          "forwardsEasing": "easeoutback",
+          "reverseEasing": "easeoutback"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gear_1",
+          "axis": [14.0,0.0,0.0],
+          "duration": 6,
+          "forwardsEasing": "easeoutback",
+          "reverseEasing": "easeoutback"
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-14.0,0.0,0.0],
+          "duration": 6,
+          "forwardsEasing": "easeoutback",
+          "reverseEasing": "easeoutback"
+        }
+      ]
+    },
+    {
+      "yCenter": 16,
+      "scale": 1.0,
+      "textureXCenter": 192,
+      "textureYCenter": 304,
+      "textureWidth": 76,
+      "textureHeight": 4
+    }
+  ],
+  "textureName": "instruments_classic.png",
+  "general": {
+    "name": "Transmission Indicator",
+    "description": "Displays current gear in R/N/D format",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "mts:ivv.gaugebase:0:1",
+        "oredict:dustRedstone:1",
+        "mts:ivv.gaugeneedle:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
