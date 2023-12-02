@@ -2,8 +2,8 @@
   "generic": {
     "type": "gun_hand_shotgun",
     "canBeRemovedByHand": true,
-    "forceAllLinks": true,
     "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true,
     "width": 0.375,
     "height": 0.375
   },
@@ -55,7 +55,8 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Swifter Shotgun",
+      "name": "Swifter LeadJet™",
+      "description": "Not to be confused with the Swiffer Sweeper products, as this gun is slightly less efficient at cleaning.",
       "extraMaterialLists": [
         []
       ]
@@ -71,7 +72,13 @@
         {
           "animationType": "translation",
           "variable": "!gun_reload",
-          "axis": [0.0,0.0,1.0]
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "gun_reload",
+          "axis": [0.0,1.0,0.0],
+          "forwardsDelay": 7
         }
       ]
     },
@@ -232,6 +239,31 @@
       }
     ],
     "lightObjects": [],
+    "cameraObjects": [
+      {
+        "pos": [0.0,0.275,-0.5125],
+        "rot": [0.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "reverseDelay": 2
+          }
+        ]
+      }
+    ],
     "sounds": [
       {
         "name": "ivv:swiftshotgun_firing",

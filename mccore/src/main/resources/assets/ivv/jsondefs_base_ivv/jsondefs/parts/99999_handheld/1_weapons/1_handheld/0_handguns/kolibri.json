@@ -2,8 +2,8 @@
   "generic": {
     "type": "gun_hand_standard",
     "canBeRemovedByHand": true,
-    "forceAllLinks": true,
     "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true,
     "width": 0.125,
     "height": 0.125
   },
@@ -26,6 +26,7 @@
     "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.1,-0.05,0.6],
     "handHeldAimedOffset": [0.3125,0.0,0.525],
+    "handHeldModelOffset": [0.0,0.1875,0.0],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -71,7 +72,7 @@
         {
           "animationType": "translation",
           "variable": "!gun_reload",
-          "axis": [0.0,0.0,1.0]
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -140,6 +141,11 @@
       {
         "objectName": "hudModel",
         "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_inhand_aiming",
+            "axis": [0.0,-0.0625,0.0]
+          },
           {
             "animationType": "visibility",
             "variable": "part_onvehicle"
@@ -271,6 +277,30 @@
       }
     ],
     "lightObjects": [],
+    "cameraObjects": [
+      {
+        "pos": [0.0,0.225,-0.6],
+        "rot": [0.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          }
+        ]
+      }
+    ],
     "sounds": [
       {
         "name": "ivv:kolibri_firing",
@@ -493,8 +523,9 @@
         "model": "ivv:textures/particles/3d/casing.obj",
         "color": "CCCCCC",
         "pos": [0.0,0.0,0.0],
-        "rotationRandomness": [22.5,0.0,22.5],
-        "spreadRandomness": [0.0,0.25,0.25],
+        "rotationRandomness": [11.25,0.0,45.0],
+        "rotationVelocity": [0.0,0.0,90.0],
+        "spreadRandomness": [0.25,0.25,0.25],
         "initialVelocity": [-1.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
         "terminalVelocity": [32.0,6.0,32.0],

@@ -2,8 +2,8 @@
   "generic": {
     "type": "gun_hand_longarm",
     "canBeRemovedByHand": true,
-    "forceAllLinks": true,
     "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true,
     "width": 0.375,
     "height": 0.375
   },
@@ -25,7 +25,7 @@
     "pitchSpeed": Infinity,
     "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [-0.1,-0.075,0.6],
-    "handHeldAimedOffset": [0.3125,0.15,0.525],
+    "handHeldAimedOffset": [0.15625,0.15,0.525],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -395,6 +395,32 @@
     "lightObjects": [],
     "cameraObjects": [
       {
+        "pos": [0.0,0.1625,-0.5125],
+        "rot": [0.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          }
+        ]
+      },
+      {
         "pos": [0.0,0.18347,0.59699],
         "rot": [0.0,0.0,0.0],
         "fovOverride": 15.0,
@@ -556,7 +582,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "gun_reload"
+            "variable": "!gun_ammo_count"
           },
           {
             "animationType": "visibility",
@@ -720,6 +746,10 @@
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!gun_ammo_count"
+          },
           {
             "animationType": "visibility",
             "variable": "gun_cooldown",

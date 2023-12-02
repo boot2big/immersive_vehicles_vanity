@@ -2,8 +2,8 @@
   "generic": {
     "type": "gun_hand_longarm",
     "canBeRemovedByHand": true,
-    "forceAllLinks": true,
     "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true,
     "width": 0.375,
     "height": 0.375
   },
@@ -25,7 +25,7 @@
     "pitchSpeed": Infinity,
     "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [0.0,-0.125,0.5],
-    "handHeldAimedOffset": [0.3125,0.0325,0.55],
+    "handHeldAimedOffset": [0.15625,0.0325,0.55],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -83,7 +83,7 @@
         {
           "animationType": "translation",
           "variable": "!gun_reload",
-          "axis": [0.0,0.0,1.0]
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -336,6 +336,30 @@
       }
     ],
     "lightObjects": [],
+    "cameraObjects": [
+      {
+        "pos": [6.25E-4,0.2625,-0.4875],
+        "rot": [0.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          }
+        ]
+      }
+    ],
     "sounds": [
       {
         "name": "ivv:scar_firing",

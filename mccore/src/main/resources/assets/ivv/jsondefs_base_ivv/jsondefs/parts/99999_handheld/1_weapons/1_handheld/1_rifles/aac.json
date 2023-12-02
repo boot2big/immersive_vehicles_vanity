@@ -2,8 +2,8 @@
   "generic": {
     "type": "gun_hand_longarm",
     "canBeRemovedByHand": true,
-    "forceAllLinks": true,
     "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true,
     "width": 0.5,
     "height": 0.375
   },
@@ -25,7 +25,8 @@
     "pitchSpeed": Infinity,
     "lockMaxAngle": 0.0,
     "handHeldNormalOffset": [0.0,-0.125,0.5],
-    "handHeldAimedOffset": [0.3125,0.05,0.45],
+    "handHeldAimedOffset": [0.15625,0.05,0.45],
+    "handHeldModelOffset": [0.0,0.0625,0.0],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -55,7 +56,7 @@
         {
           "animationType": "translation",
           "variable": "!gun_reload",
-          "axis": [0.0,0.0,1.0]
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -216,6 +217,30 @@
       }
     ],
     "lightObjects": [],
+    "cameraObjects": [
+      {
+        "pos": [0.0,0.3,-0.4875],
+        "rot": [0.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          }
+        ]
+      }
+    ],
     "sounds": [
       {
         "name": "ivv:aac_firing_silenced",
