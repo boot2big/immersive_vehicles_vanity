@@ -1,7 +1,7 @@
 {
   "generic": {
     "type": "engine_car",
-    "forwardsDamageMultiplier": 1.0,
+    "forwardsDamageMultiplier": -0.0625,
     "width": 0.875,
     "height": 0.875
   },
@@ -18,11 +18,11 @@
     "startRPM": 600,
     "revlimitRPM": 7550,
     "revlimitBounce": 10,
-    "stallRPM": 400,
+    "stallRPM": 125,
     "engineWinddownRate": 15,
     "heatingCoefficient": 2.0,
     "coolingCoefficient": 4.0,
-    "engineWearFactor": 0.00156,
+    "engineWearFactor": 0.25,
     "fuelConsumption": 0.33,
     "gearRatios": [-0.7,-0.9,-1.2,-1.5,-2.2,-3.0,0.0,3.0,2.2,1.5,1.2,0.9,0.7],
     "upShiftRPM": [32767,32767,32767,32767,32767,32767,0,32767,32767,32767,32767,32767,32767],
@@ -30,7 +30,8 @@
     "fuelType": "gasoline",
     "superchargerFuelConsumption": 0.37,
     "superchargerEfficiency": 1.0,
-    "isCrankingNotPitched": true
+    "isCrankingNotPitched": true,
+    "forceShift": true
   },
   "collisionGroups": [
     {
@@ -218,22 +219,6 @@
         },
         {
           "animationType": "translation",
-          "variable": "engine_temp",
-          "axis": [0.0,1.0,0.0],
-          "offset": -250.0,
-          "clampMin": 1.25E-4,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_hours",
-          "axis": [0.0,1.0,0.0],
-          "offset": -110.0,
-          "clampMin": 1.25E-4,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
           "variable": "engine_oilleak",
           "axis": [0.0,1.0,0.0]
         }
@@ -328,13 +313,29 @@
       ]
     },
     {
+      "variable": "engineWearFactor",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_hours",
+          "clampMin": 500.0,
+          "clampMax": 2.14748365E9
+        },
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "heatingCoefficient",
       "setValue": 1.0E-5,
       "animations": [
         {
           "animationType": "visibility",
           "variable": "engine_temp",
-          "clampMin": 125.0,
+          "clampMin": 120.0,
           "clampMax": 9999.0
         }
       ]
@@ -346,7 +347,7 @@
         {
           "animationType": "visibility",
           "variable": "engine_temp",
-          "clampMin": 125.0,
+          "clampMin": 120.0,
           "clampMax": 9999.0
         }
       ]
@@ -358,20 +359,20 @@
           "animationType": "visibility",
           "variable": "engine_hours",
           "clampMin": 500.0,
-          "clampMax": 2147483646.0
+          "clampMax": 2.14748365E9
         },
         {
           "animationType": "visibility",
           "variable": "engine_temp",
-          "clampMin": -2147483646.0,
-          "clampMax": 125.0
+          "clampMin": -2.14748365E9,
+          "clampMax": 120.0
         },
         {
           "animationType": "translation",
           "variable": "speed",
           "axis": [-0.15,0.0,0.0],
-          "offset": 4,
-          "clampMax": 1.0,
+          "offset": 4.0,
+          "clampMin": 1.0,
           "clampMax": 4.0
         }
       ]
@@ -383,20 +384,20 @@
           "animationType": "visibility",
           "variable": "engine_hours",
           "clampMin": 500.0,
-          "clampMax": 2147483646.0
+          "clampMax": 2.14748365E9
         },
         {
           "animationType": "visibility",
           "variable": "engine_temp",
-          "clampMin": -2147483646.0,
-          "clampMax": 125.0
+          "clampMin": -2.14748365E9,
+          "clampMax": 120.0
         },
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.075,0.0,0.0],
+          "axis": [0.05,0.0,0.0],
           "offset": 0.25,
-          "clampMax": 1.0
+          "clampMax": 0.5
         }
       ]
     },
@@ -1637,7 +1638,7 @@
           {
             "animationType": "translation",
             "variable": "engine_hours",
-            "axis": [0.0,-0.0005,0.0],
+            "axis": [0.0,-5.0E-4,0.0],
             "clampMin": -0.25
           },
           {
@@ -1684,12 +1685,6 @@
             "clampMax": 1.0
           },
           {
-            "animationType": "inhibitor",
-            "variable": "parent_damage_percent",
-            "clampMin": 0.75,
-            "clampMax": 1.0
-          },
-          {
             "animationType": "visibility",
             "variable": "engine_timerotor",
             "clampMin": 1.0,
@@ -1703,9 +1698,9 @@
           },
           {
             "animationType": "visibility",
-            "variable": "engine_hours",
-            "clampMin": 500.0,
-            "clampMax": 2147483647.0
+            "variable": "parent_damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 2.14748365E9
           }
         ],
         "forceSound": true,
@@ -1926,7 +1921,8 @@
         "maxDistanceVolume": 0.0
       }
     ],
-    "particles": [      {
+    "particles": [
+      {
         "type": "flame",
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
@@ -2083,7 +2079,7 @@
         "spreadRandomness": [0.25,0.25,0.25],
         "initialVelocity": [0.0,0.625,0.0],
         "movementVelocity": [0.0,-0.00125,0.0],
-        "terminalVelocity": [2048.0,2048,2048.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -2110,7 +2106,7 @@
         "spreadRandomness": [0.25,0.25,0.25],
         "initialVelocity": [0.0,0.625,0.0],
         "movementVelocity": [0.0,-0.00125,0.0],
-        "terminalVelocity": [2048.0,2048,2048.0],
+        "terminalVelocity": [2048.0,2048.0,2048.0],
         "activeAnimations": [
           {
             "animationType": "visibility",

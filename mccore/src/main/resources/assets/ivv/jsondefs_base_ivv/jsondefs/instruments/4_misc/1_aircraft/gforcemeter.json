@@ -1,0 +1,86 @@
+{
+  "components": [
+    {
+      "scale": 1.0,
+      "textureXCenter": 534,
+      "textureYCenter": 50,
+      "textureWidth": 100,
+      "textureHeight": 100,
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 585,
+      "textureYCenter": 1,
+      "textureWidth": 2,
+      "textureHeight": 2,
+      "moveComponent": true,
+      "lightUpTexture": true,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,-100,0.0],
+          "clampMin": -49.0,
+          "clampMax": 49.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.025,0.0,0.0],
+          "clampMin": -35.0,
+          "clampMax": 35.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [-0.25,0.0,0.0],
+          "clampMin": -15.0,
+          "clampMax": 15.0
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 434,
+      "textureYCenter": 50,
+      "textureWidth": 100,
+      "textureHeight": 100,
+      "overlayTexture": true,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "engines_on"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "electric_power",
+          "clampMin": -1.0,
+          "clampMax": 5.0
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 320,
+      "textureYCenter": 64,
+      "textureWidth": 128,
+      "textureHeight": 128,
+      "lightUpTexture": true
+    }
+  ],
+  "textureName": "instruments_aircraft.png",
+  "general": {
+    "name": "Accelerometer",
+    "description": "Indicates lateral slip and longitudinal accel/decel forces",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "mts:ivv.gaugebase:0:1",
+        "oredict:dustRedstone:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

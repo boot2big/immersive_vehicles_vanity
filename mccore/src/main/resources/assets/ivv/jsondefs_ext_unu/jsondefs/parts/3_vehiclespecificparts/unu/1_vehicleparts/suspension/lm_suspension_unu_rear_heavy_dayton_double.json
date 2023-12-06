@@ -163,6 +163,35 @@
           "variable": "part_present_3"
         }
       ]
+    },
+    {
+      "collisions": [
+        {
+          "pos": [0.0,-0.25,0.5],
+          "width": 0.375,
+          "height": 0.25,
+          "variableName": "bodyroll_type_toggle",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_locked"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_headlight",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
     }
   ],
   "definitions": [
@@ -185,9 +214,18 @@
       "variable": "Forces_Pitch",
       "animations": [
         {
+          "animationType": "visibility",
+          "variable": "bodyroll_type_toggle"
+        },
+        {
+          "animationType": "translation",
+          "variable": "Forces_Pitch",
+          "axis": [0.0,-1.0,0.0]
+        },
+        {
           "animationType": "translation",
           "variable": "acceleration",
-          "axis": [0.0,0.0,5.0]
+          "axis": [0.0,5.0,0.0]
         },
         {
           "animationType": "translation",
@@ -197,17 +235,17 @@
         },
         {
           "animationType": "translation",
-          "variable": "parent_Stiffness_Pitch",
+          "variable": "Stiffness_Pitch",
           "axis": [-1.0,0.0,0.0],
           "offset": 1.0
         },
         {
           "animationType": "inhibitor",
-          "variable": "parent_transmission_reversed"
+          "variable": "transmission_reversed"
         },
         {
           "animationType": "translation",
-          "variable": "parent_transmission_reversed",
+          "variable": "transmission_reversed",
           "axis": [-1.0,0.0,0.0]
         }
       ]
@@ -216,9 +254,18 @@
       "variable": "Forces_Roll",
       "animations": [
         {
+          "animationType": "visibility",
+          "variable": "bodyroll_type_toggle"
+        },
+        {
+          "animationType": "translation",
+          "variable": "Forces_Roll",
+          "axis": [0.0,-1.0,0.0]
+        },
+        {
           "animationType": "translation",
           "variable": "rudder",
-          "axis": [0.0,0.0,-1.0]
+          "axis": [0.0,-1.0,0.0]
         },
         {
           "animationType": "translation",
@@ -227,9 +274,119 @@
         },
         {
           "animationType": "translation",
-          "variable": "parent_Stiffness_Roll",
+          "variable": "Stiffness_Roll",
           "axis": [-1.0,0.0,0.0],
           "offset": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "transmission_reversed"
+        },
+        {
+          "animationType": "translation",
+          "variable": "transmission_reversed",
+          "axis": [-1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "Forces_Pitch_Math",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "!bodyroll_type_toggle"
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,2.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "Forces_Pitch_Math",
+          "axis": [0.0,-0.125,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "Forces_Roll_Math",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "!bodyroll_type_toggle"
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.001,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,-0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "Forces_Roll_Math",
+          "axis": [0.0,-0.25,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "Forces_Pitch",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "!bodyroll_type_toggle"
+        },
+        {
+          "animationType": "translation",
+          "variable": "Forces_Pitch_Math",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "Stiffness_Pitch",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "transmission_reversed"
+        },
+        {
+          "animationType": "translation",
+          "variable": "transmission_reversed",
+          "axis": [-1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "Forces_Roll",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "!bodyroll_type_toggle"
+        },
+        {
+          "animationType": "translation",
+          "variable": "Forces_Roll_Math",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "Stiffness_Roll",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "transmission_reversed"
+        },
+        {
+          "animationType": "translation",
+          "variable": "transmission_reversed",
+          "axis": [-1.0,0.0,0.0]
         }
       ]
     },
