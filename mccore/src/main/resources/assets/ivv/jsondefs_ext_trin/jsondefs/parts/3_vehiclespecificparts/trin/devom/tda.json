@@ -4,8 +4,8 @@
     "useVehicleTexture": true,
     "forwardsDamageMultiplier": 0.25,
     "forceAllLinks": true,
-    "width": 0.00625,
-    "height": 0.00625
+    "width": 0.25,
+    "height": 0.125
   },
   "parts": [
     {
@@ -478,11 +478,27 @@
   "definitions": [
     {
       "subName": "",
-      "name": "ꖎ⚍リᔑ !¡ᔑリ↸𝙹∷ᔑ",
+      "name": "TCP Trin Devom \"TT-T42\" Kit",
+      "description": "Meant only for the Trin Devom Coupé from Trin Civil Pack V3/V4\nUnexpected behavior may occur if placed on other vehicles",
+      "extraMaterialLists": [
+        [
+          "mts:ivv.oilpump:0:2",
+          "mts:ivv.bodypanel_armor:0:4",
+          "mts:ivv.scanner_0custom:0:1"
+        ]
+      ]
+    }/*,
+    {
+      "subName": "_stock",
+      "constants": [
+        "tda_stock"
+      ],
+      "name": "TCP Trin Devom Custom Kit",
+      "description": "Meant only for the Trin Devom Coupé from Trin Civil Pack V3/V4\nUnexpected behavior may occur if placed on other vehicles",
       "extraMaterialLists": [
         []
       ]
-    }
+    }*/
   ],
   "variableModifiers": [
     {
@@ -700,16 +716,6 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "hydraulics_dip",
-          "axis": [0.0,-0.375,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "hydraulics_sway",
-          "axis": [0.0,0.375,0.0]
-        },
-        {
-          "animationType": "translation",
           "variable": "turn_indicator",
           "axis": [0.0,-3.75E-4,0.0]
         },
@@ -740,16 +746,6 @@
       "minValue": -2.0,
       "maxValue": 3.0,
       "animations": [
-        {
-          "animationType": "translation",
-          "variable": "hydraulics_dip",
-          "axis": [0.0,0.375,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "hydraulics_sway",
-          "axis": [0.0,0.375,0.0]
-        },
         {
           "animationType": "translation",
           "variable": "turn_indicator",
@@ -784,16 +780,6 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "hydraulics_dip",
-          "axis": [0.0,0.375,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "hydraulics_sway",
-          "axis": [0.0,0.375,0.0]
-        },
-        {
-          "animationType": "translation",
           "variable": "turn_indicator",
           "axis": [0.0,-3.75E-4,0.0]
         },
@@ -826,16 +812,6 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "hydraulics_dip",
-          "axis": [0.0,-0.375,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "hydraulics_sway",
-          "axis": [0.0,0.375,0.0]
-        },
-        {
-          "animationType": "translation",
           "variable": "turn_indicator",
           "axis": [0.0,-3.75E-4,0.0]
         },
@@ -858,94 +834,6 @@
           "animationType": "translation",
           "variable": "frBodyroll_tda",
           "axis": [0.0,-0.2875,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "HYDRAULICS",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "EMERLTS",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "!parent_engine_gear_1",
-          "axis": [1.0,0.0,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "hydraulics_dip",
-      "minValue": -1.0,
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "throttle",
-          "axis": [0.0,0.125,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "brake",
-          "axis": [0.0,-0.125,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "hydraulics_dip",
-          "axis": [0.0,-0.0625,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "HYDRAULICS",
-          "axis": [1.0,0.0,0.0]
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "!seat_occupied_1"
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "!seat_occupied_2"
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
-        }
-      ]
-    },
-    {
-      "variable": "hydraulics_sway",
-      "minValue": -1.0,
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "rudder",
-          "axis": [0.0,-0.005555556,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "hydraulics_sway",
-          "axis": [0.0,-0.125,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "HYDRAULICS",
-          "axis": [1.0,0.0,0.0]
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "!seat_occupied_1"
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "!seat_occupied_2"
-        },
-        {
-          "animationType": "visibility",
-          "variable": "p_brake"
         }
       ]
     },
@@ -3166,16 +3054,15 @@
     "modelType": "obj"
   },
   "general": {
-    "description": "???",
     "health": 1100,
     "materialLists": [
       [
-        "oredict:nuggetIron:63"
+        "oredict:ingotIron:6"
       ]
     ],
     "repairMaterialLists": [
       [
-        "oredict:nuggetIron:63"
+        "oredict:ingotIron:3"
       ]
     ],
     "radarWidth": 0.0,

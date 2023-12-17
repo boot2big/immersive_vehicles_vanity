@@ -6,8 +6,8 @@
     "hasHeadlights": true,
     "hasTurnSignals": true,
     "emptyMass": 3400,
-    "fuelCapacity": 45000,
-    "defaultFuelQty": 45000,
+    "fuelCapacity": 30000,
+    "defaultFuelQty": 15000,
     "downForce": 0.85,
     "overSteer": 6.0,
     "overSteerAccel": 18.0,
@@ -633,6 +633,9 @@
       "pos": [0.25,0.78438,-1.39844],
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
+      "conditionalDefaultParts": {
+        "defaultparts_body_spoiler_standard": "ivv:ivvspoiler1"
+      },
       "types": [
         "generic_ivvspoiler_1"
       ]
@@ -641,6 +644,9 @@
       "pos": [-0.25,0.78438,-1.39844],
       "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
+      "conditionalDefaultParts": {
+        "defaultparts_body_spoiler_sport": "ivv:ivvspoiler2"
+      },
       "types": [
         "generic_ivvspoiler_2"
       ]
@@ -774,7 +780,16 @@
       "pos": [0.0,0.509828,2.9],
       "rot": [0.0,90.0,0.0],
       "maxValue": 1.0,
-      "defaultPart": "ivv:horn_acive",
+      "conditionalDefaultParts": {
+        "defaultparts_horn_one": "ivv:horn_1",
+        "defaultparts_horn_two": "ivv:horn_2",
+        "defaultparts_horn_three": "ivv:horn_3",
+        "defaultparts_horn_truck": "ivv:horn_truck",
+        "defaultparts_horn_emergency": "ivv:horn_emergency",
+        "defaultparts_horn_awooga": "ivv:horn_awooga",
+        "defaultparts_horn_runabout": "ivv:horn_runabout",
+        "defaultparts_horn_acive": "ivv:horn_acive"
+      },
       "types": [
         "generic_horn"
       ]
@@ -1009,6 +1024,10 @@
     {
       "pos": [-1.12109,0.691406,3.02344],
       "maxValue": 1.0,
+      "conditionalDefaultParts": {
+        "defaultparts_accessory_antenna": "ivv:antenna",
+        "defaultparts_accessory_antenna_hf": "ivv:antenna_hf"
+      },
       "types": [
         "generic_antenna"
       ]
@@ -1016,7 +1035,9 @@
     {
       "pos": [0.0,1.28125,0.4375],
       "maxValue": 1.0,
-      "defaultPart": "ivv:antenna_sharkfin",
+      "conditionalDefaultParts": {
+        "defaultparts_accessory_antenna_sharkfin": "ivv:antenna_sharkfin"
+      },
       "types": [
         "generic_antenna"
       ]
@@ -1128,11 +1149,81 @@
       ]
     },
     {
-      "pos": [0.0,1.28125,0.4375],
+      "pos": [1.25781,0.667969,2.37891],
+      "rot": [0.0,90.0,0.0],
       "maxValue": 1.0,
-      "defaultPart": "ivv:antenna_sharkfin",
       "types": [
-        "generic_antenna"
+        "generic_ornament_mirror"
+      ]
+    },
+    {
+      "pos": [-1.25781,0.667969,2.37891],
+      "rot": [0.0,-90.0,0.0],
+      "isMirrored": true,
+      "maxValue": 1.0,
+      "types": [
+        "generic_ornament_mirror"
+      ]
+    },
+    {
+      "pos": [0.0,0.4,4.4],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 4.0,
+      "partScale": [1.0,1.0,1.0],
+      "conditionalDefaultParts": {
+        "defaultparts_vital_radiator": "ivv:radiator"
+      },
+      "types": [
+        "generic_radiator"
+      ],
+      "interactableVariables": [
+        [
+          "hatch_hood"
+        ]
+      ]
+    },
+    {
+      "pos": [0.0,-0.31875,0.8],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
+      "maxValue": 3.0,
+      "partScale": [1.0,0.625,1.0],
+      "conditionalDefaultParts": {
+        "defaultparts_vital_fueltank": "ivv:fueltank",
+        "defaultparts_vital_fueltank_electric": "ivv:fueltank_electric"
+      },
+      "types": [
+        "generic_vehicle_vital_fueltank"
+      ]
+    },
+    {
+      "pos": [-0.5,0.5,2.825],
+      "rot": [0.0,0.0,90.0],
+      "maxValue": 1.0,
+      "partScale": [0.8,0.8,0.8],
+      "conditionalDefaultParts": {
+        "defaultparts_accessory_accompressor": "ivv:climatecompressor"
+      },
+      "types": [
+        "generic_vehicle_ac"
+      ],
+      "interactableVariables": [
+        [
+          "hatch_hood"
+        ]
+      ]
+    },
+    {
+      "pos": [0.0,-0.453125,-0.18742],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "partScale": [1.0,1.0,1.0],
+      "conditionalDefaultParts": {
+        "defaultparts_hitch_alt_connector": "ivv:hitchconnector",
+        "defaultparts_hitch_alt": "ivv:hitch"
+      },
+      "types": [
+        "generic_hitch_mount"
       ]
     }
   ],
@@ -2411,27 +2502,33 @@
         "_gray"
       ],
       "constants": [
-        "scanner_magenta",
-        "scanner_sound_three",
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
         "defaultparts_engine_custom_acivev8",
+        "defaultparts_horn_acive",
+        "defaultparts_accessory_accompressor",
         "acive_ability_boost",
         "acive_ability_turboboost",
         "acive_ability_featherfallinggrace",
         "acive_ability_skii",
         "acive_hasmood",
+        "scanner_magenta",
+        "scanner_sound_three",
         "acive_defaultparts_assistmotor_hind",
         "acive_defaultparts_assistmotor_fore",
         "acive_defaultparts_pedal_gas",
         "acive_defaultparts_pedal_brake",
         "acive_defaultparts_pedal_clutch",
-        "defaultparts_hitch_connector",
         "defaultparts_rims_futuristic",
         "vehicle_speedlimit_delete"
       ],
       "name": "ACIVE",
-      "description": "§lSTATS:\nDrivetrain: Lexicon Incorporated patented microprocessor integrated quad-axle-drive system\nMax. Top Speed: 307MPH\n0-60: 2.15\n0-Top Speed: 0:49:26\nExC CPU equipped",
+      "description": "A hyper-upgraded speedster on a crusade to champion the cause of the innocent, the powerless and the helpless, all she needs is a young loner for a partner...\nLexicon Incorporated patented microprocessor integrated quad-axle-drive system\nExC CPU equipped",
       "extraMaterialLists": [
         [
+          "mts:ivv.fueltank:0:1",
+          "mts:ivv.exhaust:0:1",
+          "mts:ivv.radiator:0:1",
           "mts:ivv.scanner_ace:0:1",
           "mts:ivv.blueprint_acive:0:1"
         ],
@@ -2463,9 +2560,12 @@
         "_tan"
       ],
       "constants": [
-        "scanner_red",
-        "scanner_sound_one",
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
         "defaultparts_engine_custom_acivev8",
+        "defaultparts_horn_acive",
+        "defaultparts_accessory_accompressor",
+        "defaultparts_body_spoiler_standard",
         "acive_ability_boost",
         "acive_ability_turboboost",
         "acive_ability_superpursuitmode",
@@ -2474,16 +2574,20 @@
         "acive_ability_smokescreen",
         "acive_ability_ejectorseats",
         "acive_hasmood",
+        "scanner_red",
+        "scanner_sound_one",
         "acive_defaultparts_assistmotor_hind",
         "acive_defaultparts_assistmotor_fore",
         "acive_defaultparts_pedal_gas",
-        "defaultparts_hitch",
         "defaultparts_rims_hypnodish"
       ],
       "name": "KITT",
-      "description": "§lSTATS:\nDrivetrain: Knight Industries patented microprocessor integrated quad-axle-drive system\nMax. Top Speed: 307MPH\n0-60: 2.15\n0-Top Speed: 0:49:26\nKI2000 CPU equipped",
+      "description": "A hyper-upgraded speedster on a crusade to champion the cause of the innocent, the powerless and the helpless, all he needs is a young loner for a partner...\nKnight Industries patented microprocessor integrated quad-axle-drive system\nKI2000 CPU equipped",
       "extraMaterialLists": [
         [
+          "mts:ivv.fueltank:0:1",
+          "mts:ivv.exhaust:0:1",
+          "mts:ivv.radiator:0:1",
           "mts:ivv.scanner:0:1",
           "mts:ivv.blueprint_acive:0:1"
         ],
@@ -2515,9 +2619,12 @@
         "_gray"
       ],
       "constants": [
-        "scanner_yellow",
-        "scanner_sound_two",
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
         "defaultparts_engine_custom_acivev8",
+        "defaultparts_horn_acive",
+        "defaultparts_accessory_accompressor",
+        "defaultparts_body_spoiler_standard",
         "acive_ability_boost",
         "acive_ability_turboboost",
         "acive_ability_skii",
@@ -2525,15 +2632,20 @@
         "acive_ability_smokescreen",
         "acive_ability_ejectorseats",
         "acive_hasmood",
+        "scanner_yellow",
+        "scanner_sound_two",
         "acive_defaultparts_assistmotor_hind",
         "acive_defaultparts_assistmotor_fore",
         "acive_defaultparts_pedal_gas",
         "defaultparts_rims_hypnodish"
       ],
       "name": "KARR",
-      "description": "§lSTATS:\nDrivetrain: Knight Industries patented microprocessor integrated quad-axle-drive system\nMax. Top Speed: 307MPH\n0-60: 2.15\n0-Top Speed: 0:49:26\nKARR CPU equipped",
+      "description": "He is not evil, simply programmed differently and mismanaged...\nKnight Industries patented microprocessor integrated quad-axle-drive system\nKARR CPU equipped",
       "extraMaterialLists": [
         [
+          "mts:ivv.fueltank:0:1",
+          "mts:ivv.exhaust:0:1",
+          "mts:ivv.radiator:0:1",
           "mts:ivv.scanner_karr:0:1",
           "mts:ivv.blueprint_acive:0:1"
         ],
@@ -2562,7 +2674,33 @@
     {
       "subName": "_dkz",
       "constants": [
-        "karr",
+        "defaultparts_vital_fueltank",
+        "defaultparts_vital_radiator",
+        "defaultparts_engine_custom_acivev8",
+        "defaultparts_horn_acive",
+        "defaultparts_accessory_accompressor",
+        "defaultparts_accessory_antenna",
+        "defaultparts_accessory_antenna_hf",
+        "defaultparts_accessory_antenna_sharkfin",
+        "defaultparts_body_spoiler_standard",
+        "defaultparts_body_spoiler_sport",
+        "acive_ability_boost",
+        "acive_ability_turboboost",
+        "acive_ability_superpursuitmode",
+        "acive_ability_featherfallinggrace",
+        "acive_ability_skii",
+        "acive_ability_oilslick",
+        "acive_ability_smokescreen",
+        "acive_ability_ejectorseats",
+        "acive_hasmood",
+        "scanner_yellow",
+        "scanner_sound_three",
+        "acive_defaultparts_assistmotor_hind",
+        "acive_defaultparts_assistmotor_fore",
+        "acive_defaultparts_pedal_gas",
+        "acive_defaultparts_pedal_brake",
+        "acive_defaultparts_pedal_clutch",
+        "vehicle_speedlimit_delete",
         "defaultparts_rims_hypnodish"
       ],
       "name": "Shade Mk.4",
@@ -2598,7 +2736,6 @@
   "constantValues": {
     "kitt_is_the_coolest_car_in_mts_period": 1.0,
     "both_technologically_and_by_lore": 1.0,
-    "vehicle_has_ac": 1.0,
     "vehicle_is_convertable": 1.0
   },
   "initialVariables": [
@@ -2669,11 +2806,31 @@
       ]
     },
     {
+      "variable": "vehicle_radiator_size",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!yeah",
+          "axis": [0.0,0.0,3.0]
+        }
+      ]
+    },
+    {
       "variable": "vehicle_size",
       "animations": [
         {
           "animationType": "translation",
           "variable": "unused",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "vehicle_has_ac",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "frostie_rocks",
           "axis": [0.0,0.0,1.0]
         }
       ]
@@ -12651,96 +12808,74 @@
     "materialLists": [
       [
         "mts:ivv.frame:0:1",
-        "mts:ivv.axle:0:2",
-        "mts:ivv.bodypanel:0:4",
-        "mts:ivv.tcblock:0:6",
-        "mts:ivv.normaltiresuper:0:4",
-        "mts:ivv.carseat:0:2",
-        "mts:ivv.v8turbojet:0:1",
+        "mts:ivv.strut:0:4",
         "mts:ivv.acivebox:0:1",
+        "mts:ivv.oilpump:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
+        "mts:ivv.bodypanel_flexible:0:3",
+        "minecraft:glass_pane:0:4",
         "mts:ivv.radardetector:0:1"
       ],
       [
         "mts:ivv.vector_red:0:1",
-        "mts:ivv.tcblock:0:4",
-        "mts:ivv.normaltiresuper:0:4",
-        "mts:ivv.carseat:0:2",
-        "mts:ivv.v8turbojet:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
         "mts:ivv.acivebox:0:1",
         "mts:ivv.radardetector:0:1"
       ],
       [
         "mts:ivv.vector_blue:0:1",
-        "mts:ivv.tcblock:0:4",
-        "mts:ivv.normaltiresuper:0:4",
-        "mts:ivv.carseat:0:2",
-        "mts:ivv.v8turbojet:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
         "mts:ivv.acivebox:0:1",
         "mts:ivv.radardetector:0:1"
       ],
       [
         "mts:ivv.vector_green:0:1",
-        "mts:ivv.tcblock:0:4",
-        "mts:ivv.normaltiresuper:0:4",
-        "mts:ivv.carseat:0:2",
-        "mts:ivv.v8turbojet:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
         "mts:ivv.acivebox:0:1",
         "mts:ivv.radardetector:0:1"
       ],
       [
         "mts:ivv.vector_black:0:1",
-        "mts:ivv.tcblock:0:4",
-        "mts:ivv.normaltiresuper:0:4",
-        "mts:ivv.carseat:0:2",
-        "mts:ivv.v8turbojet:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
         "mts:ivv.acivebox:0:1",
         "mts:ivv.radardetector:0:1"
       ],
       [
         "mts:ivv.vector_white:0:1",
-        "mts:ivv.tcblock:0:4",
-        "mts:ivv.normaltiresuper:0:4",
-        "mts:ivv.carseat:0:2",
-        "mts:ivv.v8turbojet:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
         "mts:ivv.acivebox:0:1",
         "mts:ivv.radardetector:0:1"
       ]
     ],
     "repairMaterialLists": [
       [
-        "mts:ivv.axle:0:2",
-        "mts:ivv.bodypanel:0:4",
-        "mts:ivv.tcblock:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
+        "minecraft:glass_pane:0:4",
         "mts:ivv.tape:0:2"
       ],
       [
-        "mts:ivv.axle:0:2",
-        "mts:ivv.bodypanel:0:4",
-        "mts:ivv.tcblock:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
+        "minecraft:glass_pane:0:4",
         "mts:ivv.tape:0:2"
       ],
       [
-        "mts:ivv.axle:0:2",
-        "mts:ivv.bodypanel:0:4",
-        "mts:ivv.tcblock:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
+        "minecraft:glass_pane:0:4",
         "mts:ivv.tape:0:2"
       ],
       [
-        "mts:ivv.axle:0:2",
-        "mts:ivv.bodypanel:0:4",
-        "mts:ivv.tcblock:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
+        "minecraft:glass_pane:0:4",
         "mts:ivv.tape:0:2"
       ],
       [
-        "mts:ivv.axle:0:2",
-        "mts:ivv.bodypanel:0:4",
-        "mts:ivv.tcblock:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
+        "minecraft:glass_pane:0:4",
         "mts:ivv.tape:0:2"
       ],
       [
-        "mts:ivv.axle:0:2",
-        "mts:ivv.bodypanel:0:4",
-        "mts:ivv.tcblock:0:1",
+        "mts:ivv.bodypanel_armor:0:5",
+        "minecraft:glass_pane:0:4",
         "mts:ivv.tape:0:2"
       ]
     ],

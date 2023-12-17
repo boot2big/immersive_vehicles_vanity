@@ -4,8 +4,8 @@
     "canBeRemovedByHand": true,
     "forwardsDamageMultiplier": 0.0,
     "canBePlacedOnGround": true,
-    "width": 0.9,
-    "height": 0.9
+    "width": 0.75,
+    "height": 0.75
   },
   "interactable": {
     "interactionType": "crate",
@@ -17,14 +17,17 @@
   "parts": [
     {
       "pos": [0.0,0.75,0.0],
-      "maxValue": 3,
+      "maxValue": 8.0,
       "allowParentRemoval": false,
       "types": [
-        "interactable_crate"
+        "interactable_crate",
+        "interactable_barrel",
+        "interactable_luggage",
+        "generic_furniture_single"
       ],
       "interactableVariables": [
         [
-          "!part_onvehicle"
+          "remainingHeight"
         ]
       ]
     }
@@ -33,7 +36,7 @@
     {
       "subName": "",
       "name": "Crate",
-      "description": "Knock on wood, this is a box made outta the stuff.\nCan be placed in vehicles and on the ground",
+      "description": "Knock on wood, 'cause this box is made outta the stuff!\nCan be placed in vehicles and on the ground",
       "extraMaterialLists": [
         []
       ]
@@ -41,9 +44,49 @@
     {
       "subName": "_metallic",
       "name": "Metal Crate",
-      "description": "It is incapable of speech, and if you ever hear it talking you should not listen to it.\nCan be placed in vehicles and on the ground",
+      "description": "It is incapable of speech, and in the event that it does talk IVLabs recommends that you ignore its advice.\nCan be placed in vehicles and on the ground",
       "extraMaterialLists": [
         []
+      ]
+    }
+  ],
+  "constantValues": {
+    "part_height": 0.75
+  },
+  "variableModifiers": [
+    {
+      "variable": "part_stackHeight",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_part_stackHeight",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_height",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "remainingHeight",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "crateHeightLimit",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_stackHeight",
+          "axis": [0.0,-1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_height",
+          "axis": [0.0,-0.99,0.0]
+        }
       ]
     }
   ],

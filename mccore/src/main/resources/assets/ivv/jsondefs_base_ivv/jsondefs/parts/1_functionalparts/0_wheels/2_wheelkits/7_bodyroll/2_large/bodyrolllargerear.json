@@ -62,6 +62,62 @@
       ]
     }
   ],
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.125977,0.0,0.15625],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "hydraulics_stiffness",
+          "variableType": "increment",
+          "variableValue": -0.05,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hydraulics_stiffness",
+          "clampMin": -0.99,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.125977,0.0,-0.15625],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "hydraulics_stiffness",
+          "variableType": "increment",
+          "variableValue": 0.05,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hydraulics_stiffness",
+          "clampMin": -32767.0,
+          "clampMax": 0.99
+        }
+      ]
+    }
+  ],
   "definitions": [
     {
       "subName": "",
@@ -72,7 +128,7 @@
     }
   ],
   "constantValues": {
-    "ground_wheel_hydraulic": 1.0
+    "ground_wheel_bodyroll": 1.0
   },
   "variableModifiers": [
     {
@@ -129,6 +185,12 @@
         },
         {
           "animationType": "translation",
+          "variable": "hydraulics_stiffness",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
           "variable": "hydraulics_dip",
           "axis": [0.0,-0.25,0.0]
         }
@@ -148,6 +210,12 @@
           "animationType": "translation",
           "variable": "slip",
           "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_stiffness",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0
         },
         {
           "animationType": "translation",
@@ -176,12 +244,6 @@
           "animationType": "translation",
           "variable": "hydraulics_dip",
           "axis": [0.0,-1.0,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "hydraulics_stiffness",
-          "axis": [1.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },

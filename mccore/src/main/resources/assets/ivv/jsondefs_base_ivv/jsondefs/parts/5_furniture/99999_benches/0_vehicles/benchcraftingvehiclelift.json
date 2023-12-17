@@ -8,6 +8,22 @@
     "height": 2.0,
     "placedOffset": 1.0
   },
+  "interactable": {
+    "interactionType": "crafting_bench",
+    "crafting": {
+      "itemTypes": [
+        "vehicle",
+        "part"
+      ],
+      "partTypes": [
+        "crafting_vehicle",
+        "vehicle",
+        "vital",
+        "bodypart",
+        "limb"
+      ]
+    }
+  },
   "parts": [
     {
       "pos": [1.0,0.0,0.0],
@@ -23,11 +39,8 @@
         {
           "animationType": "translation",
           "variable": "part_present_1",
-          "axis": [0.0,0.0,-3]
+          "axis": [0.0,0.0,-3.0]
         }
-      ],
-      "lockingConditions": [
-        "part_present_2"
       ]
     },
     {
@@ -44,21 +57,26 @@
         {
           "animationType": "translation",
           "variable": "part_present_2",
-          "axis": [0.0,0.0,-2]
+          "axis": [0.0,0.0,-2.0]
         }
-      ],
-      "lockingConditions": [
-        "part_present_3"
       ]
     },
     {
       "pos": [0.0,0.0,-6.0],
       "rot": [0.0,-90.0,0.0],
-      "maxValue": 3.0,
       "isPermanent": true,
+      "maxValue": 3.0,
       "defaultPart": "ivv:benchcraftingmachine_mts",
       "types": [
         "interactable_bench"
+      ],
+      "interactableVariables": [
+        [
+          "part_present_1"
+        ],
+        [
+          "part_present_2"
+        ]
       ],
       "animations": [
         {
@@ -69,19 +87,15 @@
         {
           "animationType": "visibility",
           "variable": "part_present_1",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
           "variable": "part_present_2",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
-      ],
-      "interactableVariables": [
-        ["part_present_1"],
-        ["part_present_2"]
       ]
     }
   ],
@@ -152,25 +166,10 @@
       "animations": []
     }
   ],
-  "interactable": {
-    "interactionType": "crafting_bench",
-    "crafting": {
-      "itemTypes": [
-        "vehicle"
-      ],
-      "partTypes": [
-        "crafting_vehicle",
-        "vehicle",
-        "vital",
-        "bodypart",
-        "limb"
-      ]
-    }
-  },
   "definitions": [
     {
       "subName": "",
-      "name": "Fabrication Machine",
+      "name": "Vehicle Construction Lift",
       "extraMaterialLists": [
         []
       ]
@@ -185,7 +184,7 @@
     "modelType": "obj"
   },
   "general": {
-    "name": "Doctor Who food machine",
+    "name": "it's best if i don't give this one a funny name",
     "description": "MTS crafting bench\nPlaces into the world",
     "health": 20,
     "materialLists": [

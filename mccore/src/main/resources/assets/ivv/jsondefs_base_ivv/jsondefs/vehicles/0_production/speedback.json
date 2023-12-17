@@ -9,8 +9,8 @@
     "defaultFuelQty": 8000,
     "downForce": 0.7,
     "overSteer": 8.0,
-    "overSteerAccel": 24.0,
     "underSteer": 0.25,
+    "overSteerAccel": 24.0,
     "axleRatio": 2.0,
     "brakingFactor": 4.0,
     "dragCoefficient": 0.09875,
@@ -483,11 +483,11 @@
       "pos": [0.0,-0.25,-0.8],
       "rot": [20.0,0.0,0.0],
       "maxValue": 1.0,
+      "partScale": [1.0,1.0,1.0],
       "conditionalDefaultParts": {
         "defaultparts_hitch_connector": "ivv:hitchconnector",
         "defaultparts_hitch": "ivv:hitch"
       },
-      "partScale": [1.0,1.0,1.0],
       "types": [
         "generic_hitch_mount"
       ]
@@ -671,7 +671,7 @@
       ]
     },
     {
-      "pos": [0.0,-0.1,1.1],
+      "pos": [0.0,-0.10625,1.1],
       "rot": [0.0,0.0,0.0],
       "isMirrored": true,
       "maxValue": 3.0,
@@ -712,11 +712,31 @@
       "types": [
         "generic_hitch_mount"
       ]
+    },
+    {
+      "pos": [0.59375,0.702148,3.09374],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "conditionalDefaultParts": {
+        "defaultparts_dashboard_chime_tofu": "ivv:dashboardchime_tofu",
+        "defaultparts_dashboard_chime_sable": "ivv:dashboardchime_sable",
+        "defaultparts_dashboard_chime_angel": "ivv:dashboardchime_angel"
+      },
+      "types": [
+        "generic_dashboard_speaker"
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "!invisible"
+        }
+      ]
     }
   ],
   "collisionGroups": [
     {
       "isInterior": true,
+      "applyAfter": "hood",
       "collisions": [
         {
           "pos": [0.5,0.825,3.8],
@@ -753,11 +773,11 @@
           "variableName": "hatch_hood",
           "variableType": "toggle"
         }
-      ],
-      "applyAfter": "hood"
+      ]
     },
     {
       "isInterior": true,
+      "applyAfter": "trunk",
       "collisions": [
         {
           "pos": [0.25,0.625,-1.0],
@@ -773,8 +793,7 @@
           "variableName": "hatch_trunk",
           "variableType": "toggle"
         }
-      ],
-      "applyAfter": "trunk"
+      ]
     },
     {
       "isInterior": true,
@@ -2359,10 +2378,10 @@
             "variable": "hatch_hood",
             "centerPoint": [0.0,0.804687,3.59375],
             "axis": [-5.0,0.0,0.0],
-            "reverseDelay": 10,
             "duration": 10,
             "forwardsEasing": "easeoutelastic",
             "reverseEasing": "easeincubic",
+            "reverseDelay": 10,
             "forwardsStartSound": "ivv:hoodopen4"
           },
           {
@@ -2370,10 +2389,10 @@
             "variable": "hatch_hood",
             "centerPoint": [0.0,0.804687,3.59375],
             "axis": [-55.0,0.0,0.0],
-            "forwardsDelay": 5,
             "duration": 20,
             "forwardsEasing": "easeoutback",
             "reverseEasing": "easeincubic",
+            "forwardsDelay": 5,
             "reverseEndSound": "ivv:hoodclose4"
           },
           {
@@ -3759,101 +3778,6 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:chimeslow3",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "10_2_15_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "electric_power",
-            "clampMin": 5.0,
-            "clampMax": 16.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "headlight"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "running_light"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "hatch_left",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 15
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "engine_magneto_1",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "p_brake",
-            "clampMin": 3.0,
-            "clampMax": 3.0
-          }
-        ],
-        "pos": [0.5625,0.803,2.44102],
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 4.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:chimefast3",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "electric_power",
-            "clampMin": 5.0,
-            "clampMax": 16.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "hatch_frontleft",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 15
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "headlight",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "running_light",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "p_brake",
-            "clampMin": 3.0,
-            "clampMax": 3.0
-          }
-        ],
-        "looping": true,
-        "pos": [0.5625,0.803,2.44102],
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 4.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
         "name": "ivv:explode_car",
         "activeAnimations": [
           {
@@ -4025,7 +3949,7 @@
       [
         "mts:ivv.frame:0:1",
         "mts:ivv.strut:0:4",
-        "mts:ivv.brain_modern:0:1",
+        "mts:ivv.brain_old:0:1",
         "mts:ivv.oilpump:0:1",
         "mts:ivv.bodypanel:0:4",
         "mts:ivv.bodypanel_flexible:0:2",

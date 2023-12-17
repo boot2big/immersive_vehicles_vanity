@@ -852,10 +852,10 @@
         "renderingOrientation": "player",
         "quantity": 2,
         "duration": 100,
-        "transparency": 1.5,
-        "toTransparency": 0.01,
-        "scale": 2.4,
-        "toScale": 1.2,
+        "transparency": 0.5,
+        "fadeTransparencyTime": 20,
+        "scale": 6.4,
+        "toScale": 3.2,
         "hitboxSize": 0.2,
         "color": "787878",
         "pos": [0.0,0.0,0.0],
@@ -864,12 +864,17 @@
           {
             "animationType": "visibility",
             "variable": "damage_totaled",
+            "forwardsDelay": 200
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
-            "variable": "2_4_2_cycle",
+            "variable": "5_10_5_cycle",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -881,11 +886,11 @@
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 2,
-        "duration": 20,
-        "transparency": 2.0,
-        "toTransparency": 0.01,
-        "scale": 1.6,
-        "toScale": 0.8,
+        "duration": 80,
+        "transparency": 1.0,
+        "fadeTransparencyTime": 20,
+        "scale": 3.2,
+        "toScale": 1.6,
         "hitboxSize": 0.2,
         "color": "FFFFFF",
         "pos": [0.0,0.0,0.0],
@@ -894,12 +899,44 @@
           {
             "animationType": "visibility",
             "variable": "damage_totaled",
+            "forwardsDelay": 100
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
-            "variable": "2_4_2_cycle",
+            "variable": "5_10_5_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 8,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 8.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,0.0],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -911,11 +948,11 @@
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 1,
-        "duration": 10,
+        "duration": 8,
         "transparency": 2.0,
         "toTransparency": 0.01,
-        "scale": 0.8,
-        "toScale": 1.6,
+        "scale": 2.0,
+        "toScale": 8.0,
         "hitboxSize": 0.2,
         "textureList": [
           "ivv:textures/particles/explosion_1.png",
@@ -961,7 +998,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "5_10_5_cycle",
+            "variable": "2_4_2_cycle",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -1060,7 +1097,7 @@
     "name": "Hoverwheel",
     "description": "",
     "stackSize": 64,
-    "health": 300,
+    "health": 60,
     "materialLists": [
       ["mts:ivv.tcalloy:0:2","oredict:dustRedstone:6","minecraft:ender_pearl:0:1"]
     ],
