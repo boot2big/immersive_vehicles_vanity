@@ -12,7 +12,7 @@
     "targetType": "all",
     "handHeld": true,
     "isSemiAuto": true,
-    "capacity": 12,
+    "capacity": 8,
     "reloadTime": 30,
     "reloadDelay": 10,
     "muzzleVelocity": 80,
@@ -53,6 +53,22 @@
     "generic_gun_scope_invis": 1.0
   },
   "variableModifiers": [
+    {
+      "variable": "gun_empty",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_ammo_count",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "gun_reload",
+          "axis": [0.0,-1.0,0.0],
+          "forwardsDelay": 22
+        }
+      ]
+    },
     {
       "variable": "isTwoHanded",
       "animations": [
@@ -250,41 +266,31 @@
         "animations": [
           {
             "animationType": "translation",
-            "variable": "gun_fired",
+            "variable": "gun_empty",
             "axis": [0.0,0.0,-0.09375],
-            "duration": 1
+            "duration": 3,
+            "skipReverseMovement": true
           },
           {
             "animationType": "inhibitor",
-            "variable": "laser?"
+            "variable": "gun_empty",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 1,
+            "reverseDelay": 3
           },
           {
             "animationType": "translation",
-            "variable": "gun_reload",
+            "variable": "gun_fired",
             "axis": [0.0,0.0,-0.09375],
-            "duration": 3,
-            "forwardsEasing": "easeinoutcubic",
-            "reverseEasing": "easeinoutcubic",
-            "forwardsDelay": 18,
-            "skipReverseMovement": true
-          },
-          {
-            "animationType": "translation",
-            "variable": "gun_reload",
-            "axis": [0.0,0.0,0.09375],
-            "duration": 1,
-            "forwardsEasing": "easeinoutcubic",
-            "reverseEasing": "easeinoutcubic",
-            "forwardsDelay": 27,
-            "skipReverseMovement": true
+            "duration": 1
           }
         ]
       },
       {
         "objectName": "defaultScopeModel",
         "applyAfter": "slideModel",
-        "animations": [
-        ]
+        "animations": []
       },
       {
         "objectName": "defaultStockModel",
@@ -384,6 +390,12 @@
             "forwardsEasing": "easeoutcirc",
             "reverseEasing": "easeinoutsine",
             "forwardsDelay": -1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.09375],
+            "duration": 1
           }
         ]
       }

@@ -1,10 +1,19 @@
 {
   "decor": {
     "type": "generic",
-    "width": 2.0,
+    "width": 1.0,
     "height": 0.125,
-    "depth": 2.0
+    "depth": 1.0
   },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Manncapture Point",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
   "variableModifiers": [
     {
       "variable": "capture_progress",
@@ -19,13 +28,21 @@
         {
           "animationType": "translation",
           "variable": "clicked",
-          "axis": [0.0,25.0,0.0],
-          "duration": 3
+          "axis": [0.0,2.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "clicked",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "reverseDelay": 5
         },
         {
           "animationType": "translation",
-          "variable": "4_2_4_cycle",
-          "axis": [0.0,-1.0,0.0]
+          "variable": "capture_progress",
+          "axis": [0.0,-0.03125,0.0],
+          "clampMin": -1.0,
+          "clampMax": 1.0
         }
       ]
     },
@@ -42,7 +59,7 @@
           "animationType": "translation",
           "variable": "capture_progress",
           "axis": [0.0,0.0,1.0],
-          "offset": -99
+          "offset": -99.0
         }
       ]
     },
@@ -86,19 +103,10 @@
       ]
     }
   ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Manncapture Point",
-      "extraMaterialLists": [
-        []
-      ]
-    }
-  ],
   "rendering": {
     "textObjects": [
       {
-        "pos": [0,1.5,0],
+        "pos": [0.0,1.5,0.0],
         "rot": [0.0,0.0,0.0],
         "scale": 0.5,
         "variableName": "capture_progress",
@@ -111,7 +119,7 @@
         "lightsUp": true
       },
       {
-        "pos": [0,1.5,0],
+        "pos": [0.0,1.5,0.0],
         "rot": [0.0,180.0,0.0],
         "scale": 0.5,
         "variableName": "capture_progress",
@@ -124,7 +132,7 @@
         "lightsUp": true
       },
       {
-        "pos": [0,1.5,0],
+        "pos": [0.0,1.5,0.0],
         "rot": [0.0,0.0,0.0],
         "scale": 0.5,
         "variableName": "capture_progress",
@@ -137,7 +145,7 @@
         "lightsUp": true
       },
       {
-        "pos": [0,1.5,0],
+        "pos": [0.0,1.5,0.0],
         "rot": [0.0,180.0,0.0],
         "scale": 0.5,
         "variableName": "capture_progress",
@@ -170,10 +178,11 @@
         "objectName": "redpointbeam_translucent",
         "animations": [
           {
-            "animationType": "translation",
+            "animationType": "scaling",
             "variable": "capture_progress",
-            "axis": [-0.1,0.0,0.0],
-            "offset": 0.5
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,-0.0075,0.0],
+            "offset": -1.0
           },
           {
             "animationType": "visibility",
@@ -191,9 +200,14 @@
         "objectName": "redsign_translucent",
         "animations": [
           {
+            "animationType": "translation",
+            "variable": "capture_progress",
+            "axis": [0.0,-0.015625,0.0]
+          },
+          {
             "animationType": "rotation",
             "variable": "tick",
-            "centerPoint": [0,0,0],
+            "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.75,0.0]
           },
           {
@@ -243,10 +257,11 @@
         "objectName": "bluepointbeam_translucent",
         "animations": [
           {
-            "animationType": "translation",
+            "animationType": "scaling",
             "variable": "capture_progress",
-            "axis": [-0.1,0.0,0.0],
-            "offset": 0.5
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,-0.0075,0.0],
+            "offset": -1.0
           },
           {
             "animationType": "visibility",
@@ -266,9 +281,14 @@
         "objectName": "bluesign_translucent",
         "animations": [
           {
+            "animationType": "translation",
+            "variable": "capture_progress",
+            "axis": [0.0,-0.015625,0.0]
+          },
+          {
             "animationType": "rotation",
             "variable": "tick",
-            "centerPoint": [0,0,0],
+            "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.75,0.0]
           },
           {
@@ -387,7 +407,10 @@
     "name": "Mann Co Point",
     "stackSize": 64,
     "materialLists": [
-      ["minecraft:iron_block:0:9","minecraft:redstone_block:0:2"]
+      [
+        "minecraft:iron_block:0:9",
+        "minecraft:redstone_block:0:2"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0
