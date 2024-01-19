@@ -7,10 +7,9 @@
     "fuelCapacity": 10000,
     "defaultFuelQty": 10000,
     "downForce": 0.75,
-    "overSteer": 0.0,
-    "underSteer": 4.0,
+    "overSteer": 2,
     "axleRatio": 3.25,
-    "brakingFactor": 2.5,
+    "brakingFactor": 1.5,
     "dragCoefficient": 0.5,
     "litVariable": "engine_magneto_1",
     "panel": "ivv:budget",
@@ -563,63 +562,10 @@
       ]
     }
   ],
+  "constantValues": {
+    "vehicle_ivv_coolnamehere": 1.0
+  },
   "variableModifiers": [
-    {
-      "variable": "vehicle_wriggle",
-      "minValue": -45.0,
-      "maxValue": 45.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "turn_indicator",
-          "axis": [0.0,0.001,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,-0.005,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "vehicle_wriggle_subtract",
-          "axis": [0.0,-0.125,0.0]
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "!WRIGGLE"
-        },
-        {
-          "animationType": "translation",
-          "variable": "zero",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "vehicle_wriggle_subtract",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "vehicle_wriggle",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.375,0.0,0.0],
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "!WRIGGLE"
-        },
-        {
-          "animationType": "translation",
-          "variable": "!zero",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
     {
       "variable": "vehicle_skill_speed",
       "maxValue": 1.0,
@@ -709,6 +655,11 @@
           "variable": "horn",
           "axis": [0.0,0.0,1.0],
           "duration": 50
+        },
+        {
+          "animationType": "translation",
+          "variable": "TEST",
+          "axis": [0.0,0.0,1.0]
         }
       ]
     },
@@ -720,17 +671,56 @@
           "variable": "vehicle_skill_handling",
           "axis": [1.0,0.0,0.0],
           "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [-0.004166667,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.25,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [1.0,0.0,0.0],
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [0.9,0.0,0.0],
+          "offset": 0.1
         }
       ]
     },
     {
-      "variable": "downForce",
-      "maxValue": 0.9375,
+      "variable": "slip_loss",
       "animations": [
         {
           "animationType": "translation",
-          "variable": "vehicle_skill_handling",
-          "axis": [0.0,0.25,0.0]
+          "variable": "slip",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.02,0.0,0.0],
+          "offset": 0.75,
+          "clampMin": 1.0,
+          "clampMax": 4.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "TEST",
+          "axis": [-0.75,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -748,10 +738,10 @@
         },
         {
           "animationType": "translation",
-          "variable": "slip",
-          "axis": [-0.005,0.0,0.0],
-          "offset": 1.08,
-          "clampMin": 0.375,
+          "variable": "slip_loss",
+          "axis": [-0.03125,0.0,0.0],
+          "offset": 1.25,
+          "clampMin": 0.125,
           "clampMax": 1.0,
           "absolute": true
         }
@@ -762,17 +752,9 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "vehicle_skill_handling",
-          "axis": [-0.875,0.0,0.0],
+          "variable": "TEST",
+          "axis": [-1.0,0.0,0.0],
           "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [-0.015625,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.25,
-          "clampMax": 1.0
         }
       ]
     },
@@ -781,17 +763,9 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "vehicle_skill_handling",
-          "axis": [-0.875,0.0,0.0],
+          "variable": "TEST",
+          "axis": [-1.0,0.0,0.0],
           "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.015625,0.0,0.0],
-          "offset": -0.0,
-          "clampMin": 0.25,
-          "clampMax": 1.0
         }
       ]
     },
@@ -1095,30 +1069,6 @@
           "clampMin": 0.0625,
           "clampMax": 1.0,
           "absolute": true
-        }
-      ]
-    },
-    {
-      "variable": "brakingFactor",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [-0.004166667,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.25,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "p_brake",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "brake",
-          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -1469,7 +1419,7 @@
       "SPEED",
       "STRENGTH",
       "AGILITY",
-      "WRIGGLE"
+      "TEST"
     ],
     "sounds": [],
     "particles": [],
