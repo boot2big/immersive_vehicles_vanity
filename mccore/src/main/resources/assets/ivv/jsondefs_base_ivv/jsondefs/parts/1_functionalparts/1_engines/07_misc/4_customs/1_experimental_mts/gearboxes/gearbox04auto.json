@@ -2,6 +2,7 @@
   "generic": {
     "type": "generic_transmission",
     "customType": "ivlabs",
+    "mustBeRemovedByScrewdriver": true,
     "forwardsDamageMultiplier": 0.0
   },
   "definitions": [
@@ -58,17 +59,40 @@
       ]
     },
     {
-      "variable": "generic_transmission_upshift",
+      "variable": "generic_transmission_shift_throttle",
+      "maxValue": 1.0,
       "animations": [
         {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "clampMax": 0.33
+          "animationType": "translation",
+          "variable": "parent_engine_rpm_percent_safe",
+          "axis": [0.0,0.0,1.125],
+          "offset": -0.125
         },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 3.0
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_upshift",
+      "animations": [
         {
           "animationType": "translation",
           "variable": "false",
           "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "false_upshiftvalues"
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_shift_throttle",
+          "clampMin": 0.8125,
+          "clampMax": 1.0
         },
         {
           "animationType": "inhibitor",
@@ -82,88 +106,6 @@
           "clampMin": -1.0
         },
         {
-          "animationType": "inhibitor",
-          "variable": "parent_engine_rpm_percent_safe",
-          "clampMin": -32767.0,
-          "clampMax": 0.625
-        },
-        {
-          "animationType": "translation",
-          "variable": "!generic_transmission_gear_restrict_upshift",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "generic_transmission_upshift",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "clampMin": 0.33,
-          "clampMax": 0.66
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "generic_transmission_shift_cooldown",
-          "clampMin": 1.0,
-          "clampMax": 999.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "generic_transmission_gear",
-          "clampMin": -1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "parent_engine_rpm_percent_safe",
-          "clampMin": -32767.0,
-          "clampMax": 0.75
-        },
-        {
-          "animationType": "translation",
-          "variable": "!generic_transmission_gear_restrict_upshift",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "generic_transmission_upshift",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "clampMin": 0.66,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "generic_transmission_shift_cooldown",
-          "clampMin": 1.0,
-          "clampMax": 999.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "generic_transmission_gear",
-          "clampMin": -1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "parent_engine_rpm_percent_safe",
-          "clampMin": -32767.0,
-          "clampMax": 0.875
-        },
-        {
           "animationType": "translation",
           "variable": "!generic_transmission_gear_restrict_upshift",
           "axis": [0.0,0.0,1.0]
@@ -174,14 +116,19 @@
       "variable": "generic_transmission_downshift",
       "animations": [
         {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "clampMax": 0.33
-        },
-        {
           "animationType": "translation",
           "variable": "false",
           "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "false_downshiftvalues"
+        },
+        {
+          "animationType": "activator",
+          "variable": "generic_transmission_shift_throttle",
+          "clampMin": 0.0,
+          "clampMax": 0.3125
         },
         {
           "animationType": "inhibitor",
@@ -194,90 +141,6 @@
           "variable": "generic_transmission_gear",
           "clampMin": -1.0,
           "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "parent_engine_rpm_percent_safe",
-          "clampMin": 0.1875,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!generic_transmission_gear_restrict_downshift",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "generic_transmission_downshift",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "clampMin": 0.33,
-          "clampMax": 0.66
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "generic_transmission_shift_cooldown",
-          "clampMin": 1.0,
-          "clampMax": 999.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "generic_transmission_gear",
-          "clampMin": -1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "parent_engine_rpm_percent_safe",
-          "clampMin": 0.25,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!generic_transmission_gear_restrict_downshift",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "generic_transmission_downshift",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "throttle",
-          "clampMin": 0.66,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "false",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "generic_transmission_shift_cooldown",
-          "clampMin": 1.0,
-          "clampMax": 999.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "generic_transmission_gear",
-          "clampMin": -1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "parent_engine_rpm_percent_safe",
-          "clampMin": 0.28125,
-          "clampMax": 32767.0
         },
         {
           "animationType": "translation",
@@ -288,7 +151,7 @@
     },
     {
       "variable": "generic_transmission_shift_cooldown",
-      "maxValue": 30.0,
+      "maxValue": 20.0,
       "animations": [
         {
           "animationType": "translation",
@@ -303,7 +166,7 @@
         {
           "animationType": "translation",
           "variable": "!subtract",
-          "axis": [0.0,1.0,0.0]
+          "axis": [0.0,-1.0,0.0]
         }
       ]
     },
@@ -348,7 +211,7 @@
           "axis": [-1.0,0.0,0.0],
           "offset": 1.0,
           "absolute": true,
-          "duration": 2
+          "duration": 3
         }
       ]
     },

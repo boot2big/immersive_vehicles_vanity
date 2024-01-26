@@ -25,7 +25,7 @@
     "climbHeight": 3.5,
     "motiveFriction": 0.75,
     "lateralFriction": 0.75,
-    "wetFrictionPenalty": -0.0625,
+    "wetFrictionPenalty": -0.125,
     "frictionModifiers": {
       "ice": -0.5,
       "snow": -0.375,
@@ -163,16 +163,6 @@
   ],
   "variableModifiers": [
     {
-      "variable": "parent_dragCoefficient",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "horn",
-          "axis": [0.0,1.0,0.0]
-        }
-      ]
-    },
-    {
       "variable": "motiveFriction",
       "animations": [
         {
@@ -183,7 +173,7 @@
         {
           "animationType": "translation",
           "variable": "!burnout",
-          "axis": [0.03125,0.0,0.0]
+          "axis": [0.0125,0.0,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -267,6 +257,12 @@
           "animationType": "translation",
           "variable": "vehicle_handling_lvl",
           "axis": [-0.0375,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.25,0.0,0.0],
           "offset": 1.0
         },
         {
@@ -435,6 +431,12 @@
           "animationType": "translation",
           "variable": "terrain_blockmaterial_snow",
           "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [-0.0625,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -448,6 +450,12 @@
           "axis": [0.0,0.0,0.01],
           "offset": -0.02,
           "clampMax": 0.125
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
         },
         {
           "animationType": "translation",
@@ -485,26 +493,39 @@
           "animationType": "translation",
           "variable": "terrain_blockmaterial_gravel",
           "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.5,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "rain_strength",
+          "axis": [-0.25,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.75,
+          "clampMax": 1.0
         }
       ]
     },
     {
       "variable": "ground_particle_skid_pitch",
-      "minValue": 0.125,
+      "minValue": 0.4375,
       "maxValue": 64.0,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,0.0,-0.00875],
-          "offset": 1.6875,
-          "absolute": true
+          "variable": "speed",
+          "axis": [0.0,0.0,0.013500378],
+          "offset": 1.25
         },
         {
           "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.0,0.001875,0.0],
-          "clampMax": 0.75
+          "variable": "slip",
+          "axis": [0.0,-0.006666667,0.0],
+          "absolute": true
         },
         {
           "animationType": "translation",
@@ -535,6 +556,12 @@
           "animationType": "translation",
           "variable": "terrain_blockmaterial_wood",
           "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [-0.0625,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
@@ -596,6 +623,12 @@
           "axis": [0.0,0.03125,0.0],
           "clampMax": 1.0,
           "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.25,0.0,0.0],
+          "offset": 1.0
         },
         {
           "animationType": "translation",
@@ -871,8 +904,8 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.75
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
           },
           {
             "animationType": "translation",
@@ -912,8 +945,8 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.75
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
           },
           {
             "animationType": "translation",
@@ -953,8 +986,8 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.75
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
           },
           {
             "animationType": "translation",
@@ -983,8 +1016,8 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.875
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
           }
         ],
         "minDistance": 0.0,
@@ -1241,7 +1274,15 @@
           },
           {
             "animationType": "visibility",
-            "variable": "damage_totaled"
+            "variable": "damage_totaled",
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
           },
           {
             "animationType": "visibility",
@@ -1311,6 +1352,13 @@
             "clampMax": 1.0
           },
           {
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          },
+          {
             "animationType": "visibility",
             "variable": "speed",
             "clampMin": 0.25,
@@ -1326,7 +1374,7 @@
           {
             "animationType": "translation",
             "variable": "ground_particle_skid_volume",
-            "axis": [0.0,0.5,0.0]
+            "axis": [0.0,0.375,0.0]
           }
         ],
         "pitchAnimations": [
@@ -1357,10 +1405,10 @@
         "type": "generic",
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 6,
+        "quantity": 10,
         "duration": 60,
-        "transparency": 6.0,
-        "toTransparency": -1.0E-4,
+        "transparency": 0.875,
+        "fadeTransparencyTime": 40,
         "scale": 0.8,
         "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/pattern5.png",
@@ -1368,7 +1416,9 @@
         "pos": [0.0,0.0,0.0],
         "initialVelocity": [0.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
-        "terminalVelocity": [32.0,6.0,32.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
+        "spreadRandomness": [0.25,0.125,0.25],
+        "relativeInheritedVelocityFactor": [0.75,0.75,0.75],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -1399,8 +1449,8 @@
         "renderingOrientation": "player",
         "quantity": 3,
         "duration": 20,
-        "transparency": 3.0,
-        "toTransparency": 1.0E-7,
+        "transparency": 0.5,
+        "fadeTransparencyTime": 20,
         "scale": 0.4,
         "hitboxSize": 0.2,
         "textureList": [
@@ -1444,15 +1494,15 @@
           },
           {
             "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.25,
-            "clampMax": 65535.0
-          },
-          {
-            "animationType": "visibility",
             "variable": "rain_strength",
             "clampMin": 1.0,
             "clampMax": 2.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 65535.0
           }
         ]
       },
@@ -1463,7 +1513,6 @@
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 2,
-        "distance": 0.25,
         "duration": 40,
         "transparency": 0.25,
         "fadeTransparencyTime": 40,
@@ -1518,6 +1567,13 @@
             "clampMin": 45.0,
             "clampMax": 32767.0,
             "absolute": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
           },
           {
             "animationType": "visibility",
@@ -1593,6 +1649,13 @@
             "absolute": true
           },
           {
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          },
+          {
             "animationType": "visibility",
             "variable": "speed",
             "clampMin": 2.0,
@@ -1607,7 +1670,6 @@
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
         "quantity": 2,
-        "distance": 0.25,
         "duration": 40,
         "transparency": 0.5,
         "fadeTransparencyTime": 10,
@@ -1655,6 +1717,13 @@
             "clampMin": 45.0,
             "clampMax": 32767.0,
             "absolute": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
           },
           {
             "animationType": "visibility",
@@ -1755,19 +1824,19 @@
         "spawningOrientation": "entity",
         "renderingOrientation": "fixed",
         "quantity": 1,
-        "distance": 0.4,
+        "distance": 0.25,
         "duration": 100,
         "transparency": 0.5,
         "fadeTransparencyTime": 20,
-        "scale": 0.4,
+        "scale": 0.251,
         "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/tiremark.png",
         "color": "111111",
         "pos": [0.0,-0.43725,0.0],
         "rot": [-90.0,0.0,0.0],
-        "initialVelocity": [0.0,2.0E-126,0.0],
+        "initialVelocity": [0.0,0.0001,0.0],
         "movementVelocity": [0.0,0.0,0.0],
-        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "terminalVelocity": [0.001,0.001,0.001],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -1844,19 +1913,21 @@
         "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 1,
+        "quantity": 4,
         "duration": 20,
-        "transparency": 2.0,
-        "toTransparency": -1.0E-4,
-        "scale": 0.05,
-        "toScale": 0.1,
-        "hitboxSize": 0.2,
+        "transparency": 0.5,
+        "fadeTransparencyTime": 20,
+        "scale": 0.0625,
+        "toScale": 0.125,
+        "hitboxSize": 0.05,
         "texture": "ivv:textures/particles/pattern7.png",
         "color": "EDAC28",
         "pos": [0.0,-0.31225,0.0],
         "initialVelocity": [0.0,0.375,0.0],
         "movementVelocity": [0.0,-0.005,0.0],
-        "terminalVelocity": [2048.0,2048.0,2048.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
+        "spreadRandomness": [0.5,0.125,0.5],
+        "relativeInheritedVelocityFactor": [0.375,0.375,0.375],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -1888,21 +1959,15 @@
           },
           {
             "animationType": "inhibitor",
-            "variable": "speed",
-            "clampMin": 0.25,
-            "clampMax": 65535.0
-          },
-          {
-            "animationType": "inhibitor",
             "variable": "ground_particle_skid",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
-            "variable": "p_brake",
-            "clampMin": 3.0,
-            "clampMax": 3.0
+            "variable": "speed",
+            "clampMin": 0.25,
+            "clampMax": 65535.0
           }
         ]
       }
