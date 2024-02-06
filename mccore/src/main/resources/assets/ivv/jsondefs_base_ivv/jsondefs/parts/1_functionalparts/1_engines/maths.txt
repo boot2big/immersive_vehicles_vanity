@@ -1,9 +1,17 @@
-important crap
+important crap, set exactly as listed
 
-only used for part slot size, see next line for power | fuel consumption = engine displacement * 0.108695652
+fuel consumption = engine displacement * 0.108695652
 plug horsepower and torque values directly into json using constants
 
-customizable stuff
+/*
+definition.fuelConsumption is used to define this engine's part slot size, then variablemodifiers.fuelConsumption is used for the engine's power, calculated by the constants you've set
+variablemodifiers.superchargerFuelConsumption then negates vmfc and has the engine consume fuel based off of the displacement. variablemodifiers.superchargerEfficiency stays set to 0 to prevent from interfering with prior math
+other constants exist as listed:
+- engine_obdiii_fuel_efficiency, consumes less fuel at positive values and more at negative values
+- engine_obdiii_power_efficiency, works similarly to fuel efficiency but with fc power, i would consider it cheaty though as it doesn't show in the engine's horsepower value
+*/
+
+customizable stuff, guidelines rather than rules
 
 part mass in kg = engine displacement * 32.608695652 + 200
-maxsaferpm is the primary redline value, with maxrpm calculated as a damage point | maxrpm = maxsaferpm * 1.0625
+maxrpm = maxsaferpm * 1.0625

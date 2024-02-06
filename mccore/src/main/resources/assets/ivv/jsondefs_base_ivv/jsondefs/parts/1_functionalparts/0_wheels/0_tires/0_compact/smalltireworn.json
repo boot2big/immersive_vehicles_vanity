@@ -2,7 +2,7 @@
   "generic": {
     "type": "ground_wheel",
     "forwardsDamageMultiplier": 0.0,
-    "mass": 25,
+    "mass": 15,
     "movementAnimations": [
       {
         "animationType": "rotation",
@@ -154,8 +154,18 @@
         {
           "animationType": "translation",
           "variable": "!burnout",
-          "axis": [-0.9875,0.0,0.0],
-          "offset": 1.0
+          "axis": [0.0,0.0,2.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!burnout",
+          "axis": [0.0125,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_skidding",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "visibility",
@@ -175,12 +185,6 @@
           "clampMax": 4.0
         },
         {
-          "animationType": "inhibitor",
-          "variable": "ground_skidding",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
           "animationType": "visibility",
           "variable": "brake",
           "clampMin": 0.5,
@@ -193,20 +197,106 @@
       ]
     },
     {
-      "variable": "motiveFriction",
+      "variable": "vehicle_handling_lvl",
       "animations": [
         {
           "animationType": "translation",
-          "variable": "damage_totaled",
-          "axis": [-0.5,0.0,0.0],
+          "variable": "parent_vehicle_skill_handling",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_parent_vehicle_skill_handling",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_parent_vehicle_skill_handling",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_parent_parent_vehicle_skill_handling",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_parent_parent_parent_vehicle_skill_handling",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_parent_parent_parent_parent_vehicle_skill_handling",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "ground_traction_loss",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_handling_lvl",
+          "axis": [-0.0375,0.0,0.0],
           "offset": 1.0
         },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.25,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "rain_strength",
+          "axis": [0.5,0.0,0.0],
+          "offset": 1.0,
+          "clampMax": 1.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.037283333,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "motiveFriction",
+      "animations": [
         {
           "animationType": "translation",
           "variable": "ground_locked",
           "axis": [-0.375,0.0,0.0],
           "offset": 1.0,
           "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_handling_lvl",
+          "axis": [0.25,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [-0.75,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "rain_strength",
+          "axis": [-0.25,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.75,
+          "clampMax": 1.0
         }
       ]
     },
@@ -215,25 +305,39 @@
       "animations": [
         {
           "animationType": "translation",
+          "variable": "ground_locked",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_handling_lvl",
+          "axis": [0.0125,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
           "variable": "damage_totaled",
           "axis": [-0.375,0.0,0.0],
           "offset": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "slip",
-          "axis": [-0.0125,0.0,0.0],
-          "offset": 1.16,
-          "clampMin": 0.625,
-          "clampMax": 1.0,
-          "absolute": true
+          "variable": "rain_strength",
+          "axis": [-0.25,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.75,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "ground_locked",
-          "axis": [-1.0,0.0,0.0],
-          "offset": 1.0,
-          "duration": 5
+          "variable": "ground_traction_loss",
+          "axis": [-0.02,0.0,0.0],
+          "offset": 1.16,
+          "clampMin": 0.375,
+          "clampMax": 1.0,
+          "absolute": true
         }
       ]
     },
@@ -264,7 +368,6 @@
         {
           "animationType": "inhibitor",
           "variable": "speed",
-          "clampMin": 0.0,
           "clampMax": 0.125
         },
         {
@@ -275,7 +378,295 @@
       ]
     },
     {
-      "variable": "ground_slipping_jankyfix",
+      "variable": "ground_rolling_pitch",
+      "minValue": -4.0,
+      "maxValue": 64.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.0,0.05],
+          "offset": 0.2
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_ice",
+          "axis": [0.0,0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_glass",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_wood",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_metal",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_gravel",
+          "axis": [0.0,-0.625,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_snow",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [-0.0625,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "ground_rolling_volume",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.0,0.01],
+          "offset": -0.02,
+          "clampMax": 0.125
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_surface_issoft",
+          "axis": [0.25,0.0,0.0],
+          "offset": 1.0,
+          "duration": 5,
+          "reverseDelay": 3
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_snow",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_ice",
+          "axis": [0.0,-0.03125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_glass",
+          "axis": [0.0,-0.03125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_wood",
+          "axis": [0.0,0.125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_metal",
+          "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_gravel",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.5,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "rain_strength",
+          "axis": [-0.25,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.75,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "ground_particle_skid_pitch",
+      "minValue": 0.4375,
+      "maxValue": 64.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.0,0.013500378],
+          "offset": 1.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,-0.006666667,0.0],
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.001,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rain_strength",
+          "axis": [0.0,0.125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_ice",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_glass",
+          "axis": [0.0,0.75,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_metal",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_wood",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [-0.0625,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "ground_particle_skid_volume",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_locked",
+          "axis": [0.0,0.0,1.0],
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_skidding",
+          "axis": [0.0,1.0,0.0],
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_particle_chirp",
+          "axis": [0.0,1.0,0.0],
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_metal",
+          "axis": [0.0,0.125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_snow",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_ice",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_glass",
+          "axis": [0.0,-0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_sand",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_grass",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.03125,0.0],
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.25,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "rain_strength",
+          "axis": [-0.25,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.75,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "ground_particle_chirp",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_surface_issoft",
+          "axis": [0.0,0.0,1.0],
+          "reverseDelay": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_surface_issoft",
+          "axis": [0.0,-1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_contacted",
+          "axis": [0.0,5.0,0.0],
+          "duration": 5,
+          "skipForwardsMovement": true
+        }
+      ]
+    },
+    {
+      "variable": "ground_particle_skid_slipmath",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.0,10.0],
+          "offset": -80.0
+        }
+      ]
+    },
+    {
+      "variable": "ground_particle_skid",
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
@@ -284,8 +675,81 @@
         },
         {
           "animationType": "translation",
-          "variable": "!ground_locked",
-          "axis": [1.0,0.0,0.0]
+          "variable": "ground_skidding",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_locked",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_particle_skid_slipmath",
+          "axis": [0.0,1.0,0.0],
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_particle_chirp",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_skidding",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "reverseDelay": 10
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "slip",
+          "clampMin": 45.0,
+          "clampMax": 32767.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [10000.0,0.0,0.0],
+          "offset": -9999.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "ground_surface_issoft",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_grass",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_dirt",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_snow",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_clay",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_gravel",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "terrain_blockmaterial_sand",
+          "axis": [0.0,1.0,0.0]
         }
       ]
     }
@@ -427,13 +891,13 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.75
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
           },
           {
             "animationType": "translation",
             "variable": "parent_vehicle_size",
-            "axis": [0.0,-0.5,0.0]
+            "axis": [0.0,-0.375,0.0]
           }
         ],
         "minDistance": 0.0,
@@ -454,7 +918,7 @@
           {
             "animationType": "visibility",
             "variable": "vertical_speed",
-            "clampMin": -4.5,
+            "clampMin": -5.0,
             "clampMax": -3.0
           },
           {
@@ -468,13 +932,13 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.75
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
           },
           {
             "animationType": "translation",
             "variable": "parent_vehicle_size",
-            "axis": [0.0,-0.5,0.0]
+            "axis": [0.0,-0.375,0.0]
           }
         ],
         "minDistance": 0.0,
@@ -496,7 +960,7 @@
             "animationType": "visibility",
             "variable": "vertical_speed",
             "clampMin": -32767.0,
-            "clampMax": -4.5
+            "clampMax": -5.0
           },
           {
             "animationType": "visibility",
@@ -509,13 +973,13 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.75
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
           },
           {
             "animationType": "translation",
             "variable": "parent_vehicle_size",
-            "axis": [0.0,-0.5,0.0]
+            "axis": [0.0,-0.375,0.0]
           }
         ],
         "minDistance": 0.0,
@@ -526,7 +990,7 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:tirepop",
+        "name": "mts:wheel_blowout",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -539,42 +1003,15 @@
           {
             "animationType": "translation",
             "variable": "random",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.875
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
           }
         ],
-        "isExterior": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 32.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:tirepopinterior",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "random",
-            "axis": [0.0,0.25,0.0],
-            "offset": 0.875
-          }
-        ],
-        "isInterior": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 32.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 64.0,
         "maxDistanceVolume": 0.0
       },
       {
@@ -582,7 +1019,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "ground_inliquid"
+            "variable": "ground_surface_issoft"
           },
           {
             "animationType": "visibility",
@@ -591,12 +1028,33 @@
             "clampMax": 1.0
           }
         ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "ground_rolling_volume",
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75
+          },
+          {
+            "animationType": "translation",
+            "variable": "ground_rolling_pitch",
+            "axis": [0.0,0.25,0.0]
+          }
+        ],
         "forceSound": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 32.0,
         "maxDistanceVolume": 0.0
       },
       {
@@ -618,93 +1076,40 @@
           },
           {
             "animationType": "visibility",
+            "variable": "ground_surface_issoft"
+          },
+          {
+            "animationType": "visibility",
             "variable": "damage_totaled"
           },
           {
             "animationType": "visibility",
             "variable": "speed",
-            "clampMin": 0.25,
+            "clampMin": 1.5,
             "clampMax": 32767.0
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.025,0.0],
-            "offset": -0.01,
-            "clampMax": 0.1875
+            "variable": "ground_rolling_volume",
+            "axis": [0.0,1.0,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.025,0.0],
-            "offset": 0.25
+            "variable": "ground_rolling_pitch",
+            "axis": [0.0,1.0,0.0]
           }
         ],
         "looping": true,
         "isExterior": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "middleDistance": 24.0,
-        "middleDistanceVolume": 0.25,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:tirerollinginterior",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.25,
-            "clampMax": 32767.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.025,0.0],
-            "offset": -0.01,
-            "clampMax": 0.1875
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.025,0.0],
-            "offset": 0.25
-          }
-        ],
-        "looping": true,
-        "isInterior": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 64.0,
         "maxDistanceVolume": 0.0
       },
       {
@@ -715,10 +1120,8 @@
             "variable": "parent_hovering"
           },
           {
-            "animationType": "inhibitor",
-            "variable": "ground_inliquid",
-            "clampMin": 1.0,
-            "clampMax": 1.0
+            "animationType": "visibility",
+            "variable": "ground_surface_issoft"
           },
           {
             "animationType": "visibility",
@@ -765,72 +1168,9 @@
         "isExterior": true,
         "minDistance": 0.0,
         "minDistanceVolume": 1.0,
-        "middleDistance": 24.0,
-        "middleDistanceVolume": 0.25,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:tirerollingraininterior",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ground_inliquid",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.25,
-            "clampMax": 32767.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "rain_strength",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.02,0.0],
-            "offset": -0.01,
-            "clampMax": 0.125
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.03,0.0],
-            "offset": 0.2,
-            "clampMax": 3.5
-          }
-        ],
-        "looping": true,
-        "isInterior": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 32.0,
         "maxDistanceVolume": 0.0
       },
       {
@@ -838,6 +1178,16 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_surface_issoft"
+          },
+          {
+            "animationType": "visibility",
             "variable": "parent_hovering"
           },
           {
@@ -850,36 +1200,21 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_slipping_jankyfix",
+            "variable": "ground_particle_skid",
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.01,
-            "clampMax": 65535.0
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "slip",
-            "axis": [0.0,0.0875,0.0],
-            "offset": -0.125,
-            "clampMax": 0.5,
-            "absolute": true
+            "variable": "ground_particle_skid_volume",
+            "axis": [0.0,1.0,0.0]
           },
           {
             "animationType": "translation",
-            "variable": "ground_slipping_jankyfix",
+            "variable": "ground_particle_skid",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
             "duration": 5
@@ -888,24 +1223,8 @@
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "rain_strength",
-            "axis": [0.0,0.25,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.002875,0.0],
-            "clampMax": 0.75
-          },
-          {
-            "animationType": "translation",
-            "variable": "slip",
-            "axis": [0.0,-0.00875,0.0],
-            "offset": 1.6875,
-            "clampMin": 1.25,
-            "clampMax": 1.625,
-            "absolute": true
+            "variable": "ground_particle_skid_pitch",
+            "axis": [0.0,1.0,0.0]
           }
         ],
         "looping": true,
@@ -918,8 +1237,20 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:tireskiddinginterior",
+        "name": "ivv:tirerolling_soft",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_surface_issoft",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
           {
             "animationType": "visibility",
             "variable": "parent_hovering"
@@ -930,141 +1261,45 @@
           },
           {
             "animationType": "visibility",
-            "variable": "damage_totaled"
+            "variable": "damage_totaled",
+            "clampMax": 1.0
           },
           {
-            "animationType": "visibility",
-            "variable": "ground_slipping_jankyfix",
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
             "clampMin": 1.0,
             "clampMax": 1.0,
             "reverseDelay": 5
           },
           {
             "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
             "variable": "speed",
             "clampMin": 0.01,
-            "clampMax": 65535.0
+            "clampMax": 32767.0
           }
         ],
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "slip",
-            "axis": [0.0,0.0875,0.0],
-            "offset": -0.125,
-            "clampMax": 0.5,
-            "absolute": true
+            "variable": "ground_rolling_volume",
+            "axis": [0.0,1.0,0.0]
           },
           {
             "animationType": "translation",
-            "variable": "ground_slipping_jankyfix",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "duration": 5
+            "variable": "ground_particle_skid_volume",
+            "axis": [0.0,0.5,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "rain_strength",
-            "axis": [0.0,0.25,0.0],
-            "clampMax": 0.25
+            "variable": "ground_rolling_pitch",
+            "axis": [0.0,1.0,0.0]
           },
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.002875,0.0],
-            "clampMax": 0.75
-          },
-          {
-            "animationType": "translation",
-            "variable": "slip",
-            "axis": [0.0,-0.00875,0.0],
-            "offset": 1.6875,
-            "clampMin": 1.25,
-            "clampMax": 1.625,
-            "absolute": true
-          }
-        ],
-        "looping": true,
-        "isInterior": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:tiresliding",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_locked",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.01,
-            "clampMax": 65535.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "ground_locked",
-            "axis": [0.0,1.0,0.0],
-            "duration": 5
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "rain_strength",
-            "axis": [0.0,0.25,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.02875,0.0],
-            "offset": 0.875,
-            "clampMin": 1.0,
-            "clampMax": 1.5
-          },
-          {
-            "animationType": "translation",
-            "variable": "ground_locked",
-            "axis": [0.0,-0.5,0.0],
-            "offset": 0.5,
-            "duration": 5
+            "variable": "ground_particle_skid_pitch",
+            "axis": [0.0,0.75,0.0]
           }
         ],
         "looping": true,
@@ -1074,197 +1309,6 @@
         "middleDistance": 24.0,
         "middleDistanceVolume": 0.25,
         "maxDistance": 64.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:tireslidinginterior",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_locked",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.01,
-            "clampMax": 65535.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "ground_locked",
-            "axis": [0.0,1.0,0.0],
-            "duration": 5
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "rain_strength",
-            "axis": [0.0,0.25,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.02875,0.0],
-            "offset": 0.875,
-            "clampMin": 1.0,
-            "clampMax": 1.5
-          },
-          {
-            "animationType": "translation",
-            "variable": "ground_locked",
-            "axis": [0.0,-0.5,0.0],
-            "offset": 0.5,
-            "duration": 5
-          }
-        ],
-        "looping": true,
-        "isInterior": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:tireskiddingburnout",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_skidding",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "rain_strength",
-            "axis": [0.0,0.125,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "translation",
-            "variable": "ground_skidding",
-            "axis": [0.0,-1.45,0.0],
-            "offset": 3.0,
-            "duration": 8
-          },
-          {
-            "animationType": "translation",
-            "variable": "random",
-            "axis": [0.0,0.25,0.0],
-            "offset": -0.125
-          }
-        ],
-        "looping": true,
-        "isExterior": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 1.0,
-        "middleDistance": 24.0,
-        "middleDistanceVolume": 0.25,
-        "maxDistance": 64.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:tireskiddingburnoutinterior",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_skidding",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "rain_strength",
-            "axis": [0.0,0.125,0.0],
-            "clampMax": 0.25
-          },
-          {
-            "animationType": "translation",
-            "variable": "ground_skidding",
-            "axis": [0.0,-1.45,0.0],
-            "offset": 3.0,
-            "duration": 8
-          },
-          {
-            "animationType": "translation",
-            "variable": "random",
-            "axis": [0.0,0.25,0.0],
-            "offset": -0.125
-          }
-        ],
-        "looping": true,
-        "isInterior": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
         "maxDistanceVolume": 0.0
       },
       {
@@ -1286,9 +1330,20 @@
           },
           {
             "animationType": "visibility",
+            "variable": "ground_surface_issoft"
+          },
+          {
+            "animationType": "visibility",
             "variable": "damage_totaled",
             "clampMin": 1.0,
             "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
           },
           {
             "animationType": "visibility",
@@ -1300,24 +1355,26 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.06,0.0],
-            "offset": 0.2,
-            "clampMax": 0.75
+            "variable": "ground_rolling_volume",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "ground_particle_skid_volume",
+            "axis": [0.0,0.375,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.0075,0.0],
-            "offset": 0.8,
-            "clampMax": 3.5
+            "variable": "ground_rolling_pitch",
+            "axis": [0.0,0.375,0.0],
+            "offset": 0.375
           },
           {
             "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.0025,0.0]
+            "variable": "ground_particle_skid_pitch",
+            "axis": [0.0,0.25,0.0]
           }
         ],
         "looping": true,
@@ -1328,63 +1385,6 @@
         "middleDistanceVolume": 0.25,
         "maxDistance": 64.0,
         "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:tirescrapinginterior",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "speed",
-            "clampMin": 0.25,
-            "clampMax": 32767.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.06,0.0],
-            "offset": 0.2,
-            "clampMax": 0.75
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "speed",
-            "axis": [0.0,0.01,0.0],
-            "offset": 0.8,
-            "clampMax": 3.5
-          }
-        ],
-        "looping": true,
-        "isInterior": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
       }
     ],
     "particles": [
@@ -1392,18 +1392,20 @@
         "type": "generic",
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 6,
+        "quantity": 10,
         "duration": 60,
-        "transparency": 6.0,
-        "toTransparency": -1.0E-4,
+        "transparency": 0.875,
+        "fadeTransparencyTime": 40,
         "scale": 0.8,
         "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/pattern5.png",
         "color": "111111",
         "pos": [0.0,0.0,0.0],
+        "spreadRandomness": [0.25,0.125,0.25],
+        "relativeInheritedVelocityFactor": [0.75,0.75,0.75],
         "initialVelocity": [0.0,0.5,0.0],
         "movementVelocity": [0.0,-0.02,0.0],
-        "terminalVelocity": [32.0,6.0,32.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -1434,8 +1436,8 @@
         "renderingOrientation": "player",
         "quantity": 3,
         "duration": 20,
-        "transparency": 3.0,
-        "toTransparency": 1.0E-7,
+        "transparency": 0.5,
+        "fadeTransparencyTime": 20,
         "scale": 0.4,
         "hitboxSize": 0.2,
         "textureList": [
@@ -1453,19 +1455,6 @@
         "spawningAnimations": [
           {
             "animationType": "rotation",
-            "variable": "slip",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,-1.2,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "random",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,10.0,0.0],
-            "offset": -5.0
-          },
-          {
-            "animationType": "rotation",
             "variable": "part_ismirrored",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,180.0,0.0]
@@ -1474,116 +1463,61 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "ground_surface_issoft"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "inliquid"
+          },
+          {
+            "animationType": "visibility",
             "variable": "parent_hovering"
           },
           {
             "animationType": "visibility",
             "variable": "ground_inliquid"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "rain_strength",
+            "clampMin": 1.0,
+            "clampMax": 2.0
           },
           {
             "animationType": "visibility",
             "variable": "speed",
             "clampMin": 0.25,
             "clampMax": 65535.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "rain_strength",
-            "clampMin": 1.0,
-            "clampMax": 2.0
-          }
-        ]
-      },
-      {
-        "type": "smoke",
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 8,
-        "duration": 30,
-        "transparency": 0.3,
-        "toTransparency": 1.0E-7,
-        "scale": 0.4,
-        "toScale": 8.0,
-        "hitboxSize": 0.2,
-        "color": "999999",
-        "pos": [0.0,-0.3725,0.0],
-        "initialVelocity": [0.0,0.15,0.0],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "slip",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,-1.2,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "part_ismirrored",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,180.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_contacted",
-            "clampMin": 1.0,
-            "clampMax": 1.0
           }
         ]
       },
       {
         "type": "smoke",
         "spawnEveryTick": true,
+        "ignoreCollision": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 4,
-        "duration": 30,
-        "transparency": 0.125,
-        "toTransparency": 1.0E-7,
-        "scale": 0.4,
-        "toScale": 8.0,
-        "hitboxSize": 0.2,
-        "color": "999999",
+        "quantity": 2,
+        "duration": 40,
+        "transparency": 0.25,
+        "fadeTransparencyTime": 40,
+        "scale": 0.51,
+        "toScale": 1.01,
+        "hitboxSize": 0.001,
+        "color": "6E9948",
         "pos": [0.0,-0.3725,0.0],
-        "initialVelocity": [0.0,1.0,-2.5],
+        "spreadRandomness": [0.25,0.0625,0.25],
+        "relativeInheritedVelocityFactor": [0.375,0.0,0.375],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.0025,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
         "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "slip",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,-1.2,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "random",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,10.0,0.0],
-            "offset": -5.0
-          },
           {
             "animationType": "rotation",
             "variable": "part_ismirrored",
@@ -1594,6 +1528,269 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "terrain_blockmaterial_grass",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "terrain_blockmaterial_ice"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "inliquid"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_hovering"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_surface_issoft",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip",
+            "clampMin": 45.0,
+            "clampMax": 32767.0,
+            "absolute": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 2.0,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "spawnEveryTick": true,
+        "ignoreCollision": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 2,
+        "distance": 0.25,
+        "duration": 40,
+        "transparency": 0.1875,
+        "fadeTransparencyTime": 60,
+        "scale": 0.371,
+        "toScale": 1.01,
+        "hitboxSize": 0.001,
+        "color": "FFFFFF",
+        "pos": [0.0,-0.5,0.0],
+        "spreadRandomness": [0.25,0.0625,0.25],
+        "relativeInheritedVelocityFactor": [0.25,0.0,0.25],
+        "initialVelocity": [0.0,0.75,0.0],
+        "movementVelocity": [0.0,-0.0025,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "terrain_blockmaterial_grass"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "terrain_blockmaterial_snow"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "terrain_blockmaterial_ice"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "inliquid"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_hovering"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_surface_issoft",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip",
+            "clampMin": 45.0,
+            "clampMax": 32767.0,
+            "absolute": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 2.0,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "spawnEveryTick": true,
+        "ignoreCollision": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 2,
+        "duration": 40,
+        "transparency": 0.5,
+        "fadeTransparencyTime": 10,
+        "scale": 0.18751,
+        "hitboxSize": 0.001,
+        "color": "FFFFFF",
+        "pos": [0.0,-0.5,0.0],
+        "spreadRandomness": [0.375,0.0625,0.375],
+        "relativeInheritedVelocityFactor": [0.5,0.0,0.5],
+        "initialVelocity": [0.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.0025,0.0],
+        "terminalVelocity": [1024.0,1024.0,1024.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "terrain_blockmaterial_ice"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "inliquid"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_hovering"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_surface_issoft",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip",
+            "clampMin": 45.0,
+            "clampMax": 32767.0,
+            "absolute": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 2.0,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "ignoreCollision": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 2,
+        "duration": 80,
+        "transparency": 0.0625,
+        "fadeTransparencyTime": 20,
+        "scale": 0.5,
+        "toScale": 8.0,
+        "hitboxSize": 0.2,
+        "color": "999999",
+        "pos": [0.0,-0.3725,0.0],
+        "spreadRandomness": [0.375,0.0625,0.375],
+        "relativeInheritedVelocityFactor": [0.5,0.0,0.5],
+        "initialVelocity": [0.0,0.125,0.0],
+        "movementVelocity": [0.0,0.00125,0.0],
+        "terminalVelocity": [32767.0,0.25,32767.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "part_ismirrored",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "terrain_blockmaterial_ice"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_surface_issoft"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "inliquid"
+          },
+          {
+            "animationType": "visibility",
             "variable": "parent_hovering"
           },
           {
@@ -1602,289 +1799,19 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_inliquid"
+            "variable": "rain_strength",
+            "clampMin": -0.5,
+            "clampMax": 0.5
           },
           {
-            "animationType": "visibility",
+            "animationType": "inhibitor",
             "variable": "ground_skidding",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
-            "animationType": "visibility",
-            "variable": "rain_strength",
-            "clampMin": -0.5,
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "spawnEveryTick": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "fixed",
-        "quantity": 1,
-        "distance": 0.4,
-        "duration": 40,
-        "fadeTransparencyTime": 20.0,
-        "transparency": 0.5,
-        "scale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/tiremark.png",
-        "color": "000000",
-        "pos": [0.0,-0.3725,0.0],
-        "rot": [-90.0,0.0,0.0],
-        "initialVelocity": [0.0,2.0E-126,0.0],
-        "movementVelocity": [0.0,0.0,0.0],
-        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "slip",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,-1.2,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "part_ismirrored",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,180.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
+            "animationType": "inhibitor",
             "variable": "ground_locked",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "rain_strength",
-            "clampMin": -0.5,
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "axisAligned": true
-      },
-      {
-        "type": "smoke",
-        "spawnEveryTick": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 4,
-        "duration": 30,
-        "transparency": 0.125,
-        "toTransparency": 1.0E-7,
-        "scale": 0.4,
-        "toScale": 8.0,
-        "hitboxSize": 0.2,
-        "color": "999999",
-        "pos": [0.0,-0.3725,0.0],
-        "initialVelocity": [0.0,1.0,-2.5],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "slip",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,-1.2,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "random",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,10.0,0.0],
-            "offset": -5.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "part_ismirrored",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,180.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_locked",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "rain_strength",
-            "clampMin": -0.5,
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "type": "generic",
-        "spawnEveryTick": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "fixed",
-        "quantity": 1,
-        "distance": 0.4,
-        "duration": 40,
-        "fadeTransparencyTime": 20.0,
-        "transparency": 0.5,
-        "scale": 0.4,
-        "hitboxSize": 0.2,
-        "texture": "ivv:textures/particles/tiremark.png",
-        "color": "000000",
-        "pos": [0.0,-0.3725,0.0],
-        "rot": [-90.0,0.0,0.0],
-        "initialVelocity": [0.0,2.0E-126,0.0],
-        "movementVelocity": [0.0,0.0,0.0],
-        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "slip",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,-1.2,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "part_ismirrored",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,180.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_skidding",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "rain_strength",
-            "clampMin": -0.5,
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "axisAligned": true
-      },
-      {
-        "type": "smoke",
-        "spawnEveryTick": true,
-        "spawningOrientation": "entity",
-        "renderingOrientation": "player",
-        "quantity": 4,
-        "duration": 30,
-        "transparency": 0.125,
-        "toTransparency": 1.0E-7,
-        "scale": 0.4,
-        "toScale": 8.0,
-        "hitboxSize": 0.2,
-        "color": "999999",
-        "pos": [0.0,-0.3725,0.0],
-        "initialVelocity": [0.0,0.15,0.0],
-        "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "slip",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,-1.2,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "random",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,10.0,0.0],
-            "offset": -5.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "part_ismirrored",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,180.0,0.0]
-          }
-        ],
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "parent_hovering"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "damage_totaled"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "rain_strength",
-            "clampMin": -0.5,
-            "clampMax": 0.5
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_slipping_jankyfix",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -1894,34 +1821,29 @@
             "clampMin": 32.0,
             "clampMax": 1024.0,
             "absolute": true
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
           }
         ]
       },
       {
         "type": "generic",
         "spawnEveryTick": true,
+        "ignoreCollision": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "fixed",
         "quantity": 1,
-        "distance": 0.4,
+        "distance": 0.25,
         "duration": 100,
-        "fadeTransparencyTime": 20.0,
         "transparency": 0.5,
-        "scale": 0.4,
+        "fadeTransparencyTime": 20,
+        "scale": 0.251,
         "hitboxSize": 0.2,
         "texture": "ivv:textures/particles/tiremark.png",
         "color": "111111",
         "pos": [0.0,-0.3725,0.0],
         "rot": [-90.0,0.0,0.0],
-        "initialVelocity": [0.0,2.0E-126,0.0],
+        "initialVelocity": [0.0,1.0E-4,0.0],
         "movementVelocity": [0.0,0.0,0.0],
-        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "terminalVelocity": [0.001,0.001,0.001],
         "spawningAnimations": [
           {
             "animationType": "rotation",
@@ -1937,6 +1859,30 @@
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "terrain_blockmaterial_ice"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_surface_issoft"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "inliquid"
+          },
           {
             "animationType": "visibility",
             "variable": "parent_hovering"
@@ -1947,17 +1893,19 @@
           },
           {
             "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
             "variable": "rain_strength",
             "clampMin": -0.5,
             "clampMax": 0.5
           },
           {
-            "animationType": "visibility",
-            "variable": "ground_slipping_jankyfix",
+            "animationType": "inhibitor",
+            "variable": "ground_skidding",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_locked",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -1967,12 +1915,6 @@
             "clampMin": 24.0,
             "clampMax": 1024.0,
             "absolute": true
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
-            "clampMin": 1.0,
-            "clampMax": 1.0
           }
         ],
         "axisAligned": true
@@ -1982,33 +1924,22 @@
         "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 1,
+        "quantity": 4,
         "duration": 20,
-        "transparency": 2.0,
-        "toTransparency": -1.0E-4,
-        "scale": 0.05,
-        "toScale": 0.1,
-        "hitboxSize": 0.2,
+        "transparency": 0.5,
+        "fadeTransparencyTime": 20,
+        "scale": 0.0625,
+        "toScale": 0.125,
+        "hitboxSize": 0.05,
         "texture": "ivv:textures/particles/pattern7.png",
         "color": "EDAC28",
         "pos": [0.0,-0.271875,0.0],
+        "spreadRandomness": [0.5,0.125,0.5],
+        "relativeInheritedVelocityFactor": [0.375,0.375,0.375],
         "initialVelocity": [0.0,0.375,0.0],
         "movementVelocity": [0.0,-0.005,0.0],
-        "terminalVelocity": [2048.0,2048.0,2048.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
         "spawningAnimations": [
-          {
-            "animationType": "rotation",
-            "variable": "slip",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,-1.2,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "random",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,10.0,0.0],
-            "offset": -5.0
-          },
           {
             "animationType": "rotation",
             "variable": "part_ismirrored",
@@ -2017,6 +1948,20 @@
           }
         ],
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_particle_skid",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "inliquid"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_surface_issoft"
+          },
           {
             "animationType": "visibility",
             "variable": "parent_hovering"
@@ -2028,38 +1973,16 @@
             "clampMax": 1.0
           },
           {
-            "animationType": "visibility",
-            "variable": "ground_inliquid"
-          },
-          {
-            "animationType": "visibility",
-            "variable": "ground_onground",
+            "animationType": "inhibitor",
+            "variable": "ground_particle_skid",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
-            "animationType": "inhibitor",
+            "animationType": "visibility",
             "variable": "speed",
             "clampMin": 0.25,
             "clampMax": 65535.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ground_slipping_jankyfix",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "ground_skidding",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "p_brake",
-            "clampMin": 3.0,
-            "clampMax": 3.0
           }
         ]
       }

@@ -141,19 +141,6 @@
       "customTypes": [
         "ivlabs",
         "unus_transmissions_use_different_vms_sorry"
-      ],
-      "interactableVariables": [
-        [
-          "parent_bench_status"
-        ]
-      ],
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "parent_bench_status",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
       ]
     },
     {
@@ -483,50 +470,12 @@
       "variable": "heatingCoefficient",
       "animations": [
         {
-          "animationType": "visibility",
+          "animationType": "translation",
           "variable": "engine_temp",
-          "clampMin": -32767.0,
-          "clampMax": 95.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "tick_cos",
-          "axis": [0.25,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "throttle",
-          "axis": [1.0,0.0,0.0],
-          "offset": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "heatingCoefficient",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_temp",
-          "clampMin": 95.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "throttle",
-          "axis": [0.25,0.0,0.0],
-          "offset": 0.75
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "engine_temp",
-          "clampMin": -32767.0,
-          "clampMax": 110.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!cooling",
-          "axis": [0.5,0.0,0.0]
+          "axis": [-2.0,0.0,0.0],
+          "offset": 170.0,
+          "clampMin": 1.0,
+          "clampMax": 8.0
         }
       ]
     },
@@ -534,65 +483,24 @@
       "variable": "coolingCoefficient",
       "animations": [
         {
-          "animationType": "visibility",
+          "animationType": "translation",
           "variable": "engine_temp",
-          "clampMin": -32767.0,
-          "clampMax": 95.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "engine_running"
-        },
-        {
-          "animationType": "translation",
-          "variable": "throttle",
-          "axis": [-0.03125,0.0,0.0],
-          "offset": 0.0625
-        },
-        {
-          "animationType": "translation",
-          "variable": "tick_sin",
-          "axis": [0.5,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "activator",
-          "variable": "true"
+          "axis": [1.0,0.0,0.0],
+          "offset": -95.0,
+          "clampMin": 0.015625,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "!engine_running",
-          "axis": [0.75,0.0,0.0],
-          "offset": 0.25,
-          "duration": 200
-        }
-      ]
-    },
-    {
-      "variable": "coolingCoefficient",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "engine_temp",
-          "clampMin": 95.0,
-          "clampMax": 32767.0
+          "axis": [0.0,0.5,0.0],
+          "duration": 200,
+          "skipForwardsMovement": true
         },
         {
           "animationType": "translation",
-          "variable": "throttle",
-          "axis": [-0.25,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "engine_temp",
-          "clampMin": -32767.0,
-          "clampMax": 110.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!cooling",
-          "axis": [2.0,0.0,0.0]
+          "variable": "horn",
+          "axis": [0.0,60.0,0.0]
         }
       ]
     },
@@ -611,8 +519,43 @@
         },
         {
           "animationType": "translation",
+          "variable": "engine_obdiii_power_efficiency",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
           "variable": "parent_vehicle_intake_fc",
           "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.375,0.0,0.0],
+          "offset": 0.625
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.375,0.0,0.0],
+          "offset": 0.625,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "variable": "scfc_math",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_obdiii_displacement",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_obdiii_fuel_efficiency",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0
         },
         {
           "animationType": "translation",
@@ -639,21 +582,8 @@
         },
         {
           "animationType": "translation",
-          "variable": "engine_obdiii_displacement",
+          "variable": "scfc_math",
           "axis": [0.0,0.130434783,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "throttle",
-          "axis": [0.375,0.0,0.0],
-          "offset": 0.625
-        },
-        {
-          "animationType": "translation",
-          "variable": "throttle",
-          "axis": [0.375,0.0,0.0],
-          "offset": 0.625,
-          "duration": 5
         }
       ]
     },
@@ -714,9 +644,9 @@
           "animationType": "translation",
           "variable": "engine_hours",
           "axis": [-0.002666667,0.0,0.0],
-          "offset": 2.0,
+          "offset": 2.5,
           "clampMin": 0.375,
-          "clampMax": 1
+          "clampMax": 1.0
         }
       ]
     },
@@ -751,10 +681,23 @@
         {
           "animationType": "translation",
           "variable": "engine_rpm_percent_safe",
-          "axis": [-0.5,0.0,0.0],
+          "axis": [-1.0,0.0,0.0],
           "offset": 1.5,
           "clampMin": 1.0,
           "clampMax": 1.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "tick_cos",
+          "axis": [0.125,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "8_16_8_cycle",
+          "axis": [0.125,0.0,0.0],
+          "offset": 0.9375,
+          "duration": 8
         }
       ]
     },
@@ -780,16 +723,57 @@
         {
           "animationType": "translation",
           "variable": "engine_rpm_percent_safe",
-          "axis": [-3.0,0.0,0.0],
-          "offset": 4.0,
+          "axis": [-11.0,0.0,0.0],
+          "offset": 12.0,
           "clampMin": 1.0,
-          "clampMax": 4
+          "clampMax": 12.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "8_16_8_cycle",
+          "axis": [0.125,0.0,0.0],
+          "offset": 0.9375,
+          "duration": 8
+        },
+        {
+          "animationType": "translation",
+          "variable": "tick_cos",
+          "axis": [0.125,0.0,0.0],
+          "offset": 1.0
         }
       ]
     },
     {
       "variable": "idleRPM",
       "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_temp",
+          "clampMin": 80.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.875,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "true"
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,2000.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_powered",
+          "axis": [0.0,-2000.0,0.0],
+          "duration": 120,
+          "skipReverseMovement": true
+        },
         {
           "animationType": "translation",
           "variable": "2_4_2_cycle",
@@ -838,41 +822,30 @@
       ]
     },
     {
-      "variable": "idleRPM",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "engine_powered",
-          "axis": [0.0,2000.0,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_powered",
-          "axis": [0.0,-2000.0,0.0],
-          "duration": 100,
-          "skipReverseMovement": true
-        }
-      ]
-    },
-    {
       "variable": "revlimitRPM",
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "engine_amireallyautomatic",
-          "clampMin": 1,
-          "clampMax": 1
-        },
-        {
-          "animationType": "visibility",
-          "variable": "engine_gear"
+          "variable": "engine_rpm_revlimit",
+          "clampMin": 1.0,
+          "clampMax": 2.14748365E9
         },
         {
           "animationType": "translation",
           "variable": "engine_rpm_safe",
           "axis": [0.0,0.0,0.625],
-          "clampMin": 1625,
-          "clampMax": 16250
+          "clampMin": 1625.0,
+          "clampMax": 16250.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_amireallyautomatic",
+          "clampMin": 2.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear"
         }
       ]
     },
@@ -880,10 +853,26 @@
       "variable": "revlimitRPM",
       "animations": [
         {
+          "animationType": "visibility",
+          "variable": "engine_rpm_revlimit",
+          "clampMin": 1.0,
+          "clampMax": 2.14748365E9
+        },
+        {
           "animationType": "translation",
           "variable": "generic_engine_topend_4",
           "axis": [1.0,0.0,0.0],
           "offset": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_amireallyautomatic",
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "!engine_gear"
         }
       ]
     },
@@ -892,9 +881,34 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "generic_engine_topend_4",
-          "axis": [1.0,0.0,0.0],
-          "offset": 1.0
+          "variable": "engine_rpm_safe",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_rpm_percent_safe",
+          "clampMin": 1.0,
+          "clampMax": 2.14748365E9
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_safe",
+          "axis": [0.0,0.0,1.25]
+        },
+        {
+          "animationType": "activator",
+          "variable": "!unused"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_rpm_percent",
+          "clampMin": -32767.0,
+          "clampMax": 2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent_safe",
+          "axis": [0.0,0.0,1.0]
         }
       ]
     },
@@ -1149,6 +1163,28 @@
       ]
     },
     {
+      "variable": "torque_converter_slush",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_transmission_slushiness_3",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [1.0,0.0,0.0],
+          "duration": 6
+        }
+      ]
+    }
+    {
       "variable": "currentGearRatio",
       "animations": [
         {
@@ -1172,10 +1208,9 @@
         },
         {
           "animationType": "translation",
-          "variable": "throttle",
-          "axis": [0.25,0.0,0.0],
-          "offset": 0.75,
-          "duration": 6
+          "variable": "torque_converter_slush",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0
         },
         {
           "animationType": "inhibitor",

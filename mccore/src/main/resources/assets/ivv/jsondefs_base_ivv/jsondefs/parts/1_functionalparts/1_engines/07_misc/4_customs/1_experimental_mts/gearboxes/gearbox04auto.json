@@ -17,7 +17,8 @@
     }
   ],
   "constantValues": {
-    "generic_transmission_isautomatic": 1.0
+    "generic_transmission_isautomatic": 1.0,
+    "generic_transmission_slushiness": 0.25
   },
   "variableModifiers": [
     {
@@ -127,7 +128,6 @@
         {
           "animationType": "activator",
           "variable": "generic_transmission_shift_throttle",
-          "clampMin": 0.0,
           "clampMax": 0.3125
         },
         {
@@ -151,7 +151,7 @@
     },
     {
       "variable": "generic_transmission_shift_cooldown",
-      "maxValue": 20.0,
+      "maxValue": 15.0,
       "animations": [
         {
           "animationType": "translation",
@@ -341,7 +341,201 @@
       }
     ],
     "lightObjects": [],
-    "sounds": [],
+    "sounds": [
+      {
+        "name": "ivv:super1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!speed"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "generic_transmission_straightcut",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_reversed",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 3
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.1,0.0],
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,0.0125,0.0],
+            "clampMax": 0.5,
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_clutching",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 3
+          },
+          {
+            "animationType": "translation",
+            "variable": "!throttle",
+            "axis": [0.0,-0.375,0.0],
+            "duration": 3
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_gear",
+            "axis": [0.0,0.05,0.0],
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.075,0.0],
+            "offset": 0.1875
+          },
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,0.0125,0.0],
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "!throttle",
+            "axis": [0.0,-0.125,0.0],
+            "duration": 3
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.5,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoselectup",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_transmission_gear",
+            "clampMin": 1.0,
+            "clampMax": 127.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoselectneutral",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_transmission_gear"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoselectdown",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_transmission_gear",
+            "clampMin": -127.0,
+            "clampMax": -1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoshiftup",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_clutch_upshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": -0.03125
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_rpm_percent_safe",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoshiftdown",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_clutch_downshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": -0.03125
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_rpm_percent_safe",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
     "particles": [],
     "modelType": "obj"
   },
