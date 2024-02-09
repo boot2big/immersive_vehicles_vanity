@@ -36,7 +36,13 @@ tasks.register("buildCore") {
 }
 
 tasks.register("buildForge1122") {
-    doFirst { preBuild() }
+    doFirst {
+        // Run your Python script here if needed
+        //exec {
+        //    commandLine("python", "./1-12-2_1-16-5_ID_transformer.py", "--reverse")
+        //}
+        preBuild()
+    }
     doLast {
         moveToOut(mcInterfaceForge1122, "1.12.2")
     }
@@ -44,7 +50,13 @@ tasks.register("buildForge1122") {
 }
 
 tasks.register("buildForge1165") {
-    doFirst { preBuild() }
+    doFirst {
+        // Run your Python script here if needed
+        //exec {
+        //    commandLine("python", "./1-12-2_1-16-5_ID_transformer.py")
+        //}
+        preBuild()
+    }
     doLast {
         moveToOut(mcInterfaceForge1165, "1.16.5")
     }
@@ -52,6 +64,7 @@ tasks.register("buildForge1165") {
 }
 
 tasks.register("buildForgeAll") {
+    // Start by generating the 1.12.2, then run Python script, then 1.16.5
     dependsOn(tasks.getByName("buildForge1122"))
     dependsOn(tasks.getByName("buildForge1165"))
 }
@@ -65,7 +78,6 @@ fun moveToOut(subProject: Project, versionStr: String) {
 }
 
 fun preBuild() {
-    // Could probably be better somehow, but I'm not sure how
     project.projectDir.canonicalFile.walk()
         .filter { it.name == "gradle.properties" || it.name == "mcmod.info" || it.name == "InterfaceLoader.java" }
         .forEach { it.writeText(it.readText()
