@@ -133,7 +133,8 @@
         "defaultparts_transmission_8speed_manual": "ivv:gearbox08manual",
         "defaultparts_transmission_12speed_automatic": "ivv:gearbox12auto",
         "defaultparts_transmission_12speed_manual": "ivv:gearbox12manual",
-        "defaultparts_transmission_cvt_gas": "ivv:gearboxcvt_exp"
+        "defaultparts_transmission_cvt_gas": "ivv:gearboxcvt",
+        "defaultparts_transmission_cvt_electric": "ivv:gearboxcvt_electric"
       },
       "types": [
         "generic_transmission"
@@ -141,6 +142,18 @@
       "customTypes": [
         "ivlabs",
         "unus_transmissions_use_different_vms_sorry"
+      ],
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "part_present_3"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
       ]
     },
     {
@@ -202,6 +215,8 @@
     "generic_effect_particle_drip_slow": 1.0,
     "engine_obdiii_present": 1.0,
     "engine_obdiii_displacement": 6.6,
+    "engine_obdiii_neutral_revlimit_type": 1,
+    "engine_obdiii_neutral_revlimit_rpm": 3500,
     "builtatlastough_fuel_efficiency": 0.0,
     "builtatlastough_power_efficiency": 0.0,
     "builtatlastough_backfire_type": 0.0,
@@ -410,16 +425,16 @@
         {
           "animationType": "translation",
           "variable": "engine_hours",
-          "axis": [0.0,1.0,0.0],
-          "offset": -500.0,
+          "axis": [0.0,10.0,0.0],
+          "offset": -4990.0,
           "clampMin": 1.25E-4,
           "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "engine_temp",
-          "axis": [0.0,1.0,0.0],
-          "offset": -110.0,
+          "axis": [0.0,10.0,0.0],
+          "offset": -1090.0,
           "clampMin": 1.25E-4,
           "clampMax": 1.0
         },
@@ -437,7 +452,6 @@
         {
           "animationType": "visibility",
           "variable": "builtatlastough_backfire_type",
-          "clampMin": 0.0,
           "clampMax": 1.0
         },
         {
@@ -530,6 +544,21 @@
       ]
     },
     {
+      "variable": "cooling_bonus",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_radiator_cooling_coefficient",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_radiator_coolingCoefficientMultiplier",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
       "variable": "heatingCoefficient",
       "animations": [
         {
@@ -538,13 +567,15 @@
           "axis": [-2.0,0.0,0.0],
           "offset": 170.0,
           "clampMin": 1.0,
-          "clampMax": 8.0
+          "clampMax": 2.0
         },
         {
           "animationType": "translation",
-          "variable": "tick_sin",
-          "axis": [0.125,0.0,0.0],
-          "offset": 1.0
+          "variable": "engine_temp",
+          "axis": [-0.023684335,0.0,0.0],
+          "offset": 3.026336965,
+          "clampMin": 0.25,
+          "clampMax": 1.0
         }
       ]
     },
@@ -552,12 +583,33 @@
       "variable": "coolingCoefficient",
       "animations": [
         {
+          "animationType": "inhibitor",
+          "variable": "!disabled_cooling_bonus"
+        },
+        {
+          "animationType": "translation",
+          "variable": "cooling_bonus",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "true"
+        },
+        {
           "animationType": "translation",
           "variable": "engine_temp",
           "axis": [1.0,0.0,0.0],
-          "offset": -95.0,
+          "offset": -90.0,
           "clampMin": 0.015625,
           "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_temp",
+          "axis": [0.023684335,0.0,0.0],
+          "offset": -2.131590166,
+          "clampMin": 1.0,
+          "clampMax": 4.0
         },
         {
           "animationType": "translation",
@@ -572,12 +624,6 @@
           "axis": [0.0,0.5,0.0],
           "duration": 200,
           "skipForwardsMovement": true
-        },
-        {
-          "animationType": "translation",
-          "variable": "horn",
-          "axis": [0.0,100,0.0],
-          "duration": 200
         }
       ]
     },
@@ -827,7 +873,7 @@
           "animationType": "translation",
           "variable": "engine_temp",
           "axis": [-0.025,0.0,0.0],
-          "offset": 3.375,
+          "offset": 3.125,
           "clampMin": 1.0,
           "clampMax": 1.875
         },
@@ -909,8 +955,46 @@
         {
           "animationType": "visibility",
           "variable": "engine_amireallyautomatic",
-          "clampMin": 2.0,
+          "clampMin": 1.0,
           "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_obdiii_neutral_revlimit_type",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear"
+        }
+      ]
+    },
+    {
+      "variable": "revlimitRPM",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_revlimit",
+          "clampMin": 1.0,
+          "clampMax": 2.14748365E9
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_obdiii_neutral_revlimit_rpm",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_amireallyautomatic",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_obdiii_neutral_revlimit_type",
+          "clampMin": 2.0,
+          "clampMax": 2.0
         },
         {
           "animationType": "visibility",
@@ -936,8 +1020,12 @@
         {
           "animationType": "inhibitor",
           "variable": "engine_amireallyautomatic",
-          "clampMin": -1.0,
+          "clampMin": 1.0,
           "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_obdiii_neutral_revlimit_type"
         },
         {
           "animationType": "visibility",
@@ -2365,8 +2453,7 @@
         "mts:ivv.engineblockheavyduty:0:1",
         "mts:ivv.enginepiston:0:6",
         "mts:ivv.fuelfi:0:4",
-        "mts:ivv.turbo:0:1",
-        "mts:ivv.gearboxauto:0:1"
+        "mts:ivv.turbo:0:1"
       ]
     ],
     "repairMaterialLists": [

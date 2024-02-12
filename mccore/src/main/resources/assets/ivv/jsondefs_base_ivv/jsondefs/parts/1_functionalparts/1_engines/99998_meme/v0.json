@@ -1,40 +1,33 @@
 {
   "generic": {
     "type": "engine_car",
-    "forwardsDamageMultiplier": 1.0,
-    "mass": 230
+    "forwardsDamageMultiplier": 4.0
   },
   "engine": {
     "type": "normal",
     "isAutomatic": true,
-    "disableAutomaticStarter": true,
-    "shiftSpeed": 30,
-    "clutchTime": 3,
-    "revResistance": 8,
-    "maxRPM": 6300,
-    "maxSafeRPM": 4200,
-    "idleRPM": 600,
-    "startRPM": -1,
-    "stallRPM": -1,
-    "revlimitRPM": 4300,
-    "revlimitBounce": 12,
-    "engineWinddownRate": 100,
-    "heatingCoefficient": 0.75,
-    "coolingCoefficient": 1.5,
-    "engineWearFactor": 0.625,
-    "fuelConsumption": 0.725,
-    "gearRatios": [-3.0,0.0,3.0,2.0,1.0],
-    "upShiftRPM": [0,0,3200,3200,3200],
-    "downShiftRPM": [0,0,1200,1200,1200],
-    "fuelType": "diesel",
-    "superchargerFuelConsumption": 0.125,
-    "superchargerEfficiency": 0.875,
-    "isCrankingNotPitched": true
+    "starterPower": 45,
+    "shiftSpeed": 20,
+    "revResistance": 10,
+    "maxRPM": 7000,
+    "maxSafeRPM": 6000,
+    "idleRPM": 6666,
+    "startRPM": 4250,
+    "revlimitRPM": 6666,
+    "revlimitBounce": 5,
+    "stallRPM": 500,
+    "engineWinddownRate": 5,
+    "heatingCoefficient": 0.1,
+    "coolingCoefficient": 0.1,
+    "engineWearFactor": 10.0,
+    "fuelConsumption": 0.6,
+    "gearRatios": [-1.9,0.0,2.5,1.5,1.0],
+    "fuelType": "gasoline"
   },
   "definitions": [
     {
       "subName": "",
-      "name": "Vanilla I3",
+      "name": "Inutile V0 Engine",
       "extraMaterialLists": [
         []
       ]
@@ -44,13 +37,55 @@
     "lightObjects": [],
     "sounds": [
       {
-        "name": "ivv:v3vanilla_sputter",
+        "name": "ivv:v0_cranking",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "engine_backfired",
+            "variable": "engine_starter",
             "clampMin": 1.0,
             "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,2.5,0.0],
+            "offset": 0.5,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:hauntednoises",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!RUN",
+            "axis": [0.0,5.0,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,3.5,0.0],
+            "offset": 0.5
           }
         ],
         "forceSound": true,
@@ -62,7 +97,7 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:v3vanilla_idle",
+        "name": "ivv:i4insolvoidling",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -74,17 +109,17 @@
         "volumeAnimations": [
           {
             "animationType": "translation",
-            "variable": "throttle",
-            "axis": [0.0,-0.375,0.0],
-            "offset": 0.625
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,-0.699999988079071,0.0],
+            "offset": 0.9
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.625
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,80.0,0.0],
+            "offset": 0.935
           }
         ],
         "looping": true,
@@ -96,7 +131,7 @@
         "maxDistanceVolume": 0.0
       },
       {
-        "name": "ivv:v3vanilla_load",
+        "name": "ivv:v8performanteload",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -109,25 +144,48 @@
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,0.75,0.0],
-            "offset": 0.5
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,100.0,0.0]
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "throttle",
-            "axis": [0.0,0.125,0.0],
-            "offset": -0.125
+            "axis": [0.0,0.1,0.0],
+            "offset": -0.1
           },
           {
             "animationType": "translation",
-            "variable": "engine_rpm_percent_safe",
-            "axis": [0.0,2.0,0.0],
-            "offset": 0.5
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,0.3,0.0],
+            "offset": 0.2
           }
         ],
         "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:v8performante_sputter",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true,
         "minDistance": 0.0,
         "minDistanceVolume": 0.0,
         "middleDistance": 0.0,
@@ -365,20 +423,13 @@
     "modelType": "obj"
   },
   "general": {
-    "name": "Insolvo I3 Engine §9(Automatic)",
-    "description": "2L Classic Motor",
-    "health": 100,
+    "name": "Inutile V0 Engine",
+    "description": "Unpredictable behavior, use at own risk\n''Your scientists were so preoccupied with whether they could, they didn't stop to think if they should.''",
+    "health": 666,
     "materialLists": [
       [
         "mts:ivv.engineblock:0:1",
-        "mts:ivv.enginepiston:0:3",
-        "mts:ivv.fuelcarb:0:1"
-      ]
-    ],
-    "repairMaterialLists": [
-      [
-        "mts:ivv.oilcan:0:1",
-        "mts:ivv.tape:0:1"
+        "mts:ivv.fuelcarb:0:2"
       ]
     ],
     "radarWidth": 0.0,

@@ -53,7 +53,7 @@
     "idleRPM": 1100,
     "startRPM": 500,
     "revlimitRPM": 7800,
-    "revlimitBounce": 2,
+    "revlimitBounce": 1,
     "stallRPM": 400,
     "engineWinddownRate": 100,
     "heatingCoefficient": 1.0,
@@ -133,7 +133,8 @@
         "defaultparts_transmission_8speed_manual": "ivv:gearbox08manual",
         "defaultparts_transmission_12speed_automatic": "ivv:gearbox12auto",
         "defaultparts_transmission_12speed_manual": "ivv:gearbox12manual",
-        "defaultparts_transmission_cvt_gas": "ivv:gearboxcvt_exp"
+        "defaultparts_transmission_cvt_gas": "ivv:gearboxcvt",
+        "defaultparts_transmission_cvt_electric": "ivv:gearboxcvt_electric"
       },
       "types": [
         "generic_transmission"
@@ -141,6 +142,18 @@
       "customTypes": [
         "ivlabs",
         "unus_transmissions_use_different_vms_sorry"
+      ],
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "part_present_3"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_bench_status",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
       ]
     },
     {
@@ -202,6 +215,8 @@
     "generic_effect_particle_drip_slow": 1.0,
     "engine_obdiii_present": 1.0,
     "engine_obdiii_displacement": 1.3,
+    "engine_obdiii_neutral_revlimit_type": 2,
+    "engine_obdiii_neutral_revlimit_rpm": 5000,
     "builtatlastough_fuel_efficiency": -0.1,
     "builtatlastough_power_efficiency": 0.0,
     "builtatlastough_backfire_type": 0.0,
@@ -437,7 +452,6 @@
         {
           "animationType": "visibility",
           "variable": "builtatlastough_backfire_type",
-          "clampMin": 0.0,
           "clampMax": 1.0
         },
         {
@@ -576,7 +590,7 @@
         {
           "animationType": "translation",
           "variable": "horn",
-          "axis": [0.0,100,0.0],
+          "axis": [0.0,100.0,0.0],
           "duration": 200
         }
       ]
@@ -909,8 +923,46 @@
         {
           "animationType": "visibility",
           "variable": "engine_amireallyautomatic",
-          "clampMin": 2.0,
+          "clampMin": 1.0,
           "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_obdiii_neutral_revlimit_type",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear"
+        }
+      ]
+    },
+    {
+      "variable": "revlimitRPM",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_revlimit",
+          "clampMin": 1.0,
+          "clampMax": 2.14748365E9
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_obdiii_neutral_revlimit_rpm",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_amireallyautomatic",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_obdiii_neutral_revlimit_type",
+          "clampMin": 2.0,
+          "clampMax": 2.0
         },
         {
           "animationType": "visibility",
@@ -936,8 +988,12 @@
         {
           "animationType": "inhibitor",
           "variable": "engine_amireallyautomatic",
-          "clampMin": -1.0,
+          "clampMin": 1.0,
           "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_obdiii_neutral_revlimit_type"
         },
         {
           "animationType": "visibility",
@@ -1881,7 +1937,6 @@
         "maxDistance": 16.0,
         "maxDistanceVolume": 0.0
       },
-
       {
         "name": "ivv:engineexhaust2cyl",
         "activeAnimations": [
@@ -2394,8 +2449,7 @@
       [
         "mts:ivv.engineblock:0:1",
         "mts:ivv.enginerotor:0:2",
-        "mts:ivv.fuelcarb:0:2",
-        "mts:ivv.gearboxauto:0:1"
+        "mts:ivv.fuelcarb:0:2"
       ]
     ],
     "repairMaterialLists": [
