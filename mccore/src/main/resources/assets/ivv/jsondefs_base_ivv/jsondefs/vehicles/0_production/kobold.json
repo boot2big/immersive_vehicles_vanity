@@ -154,7 +154,19 @@
       ]
     }
   ],
-  "connectionGroups": [],
+  "connectionGroups": [
+    {
+      "groupName": "HOOKUP",
+      "isHookup": true,
+      "connections": [
+        {
+          "type": "tow_wheel_motorcycle",
+          "pos": [0.0,-0.4375,0.83594],
+          "distance": 1.0
+        }
+      ]
+    }
+  ],
   "instruments": [
     {
       "pos": [0.04395,0.90248,0.41429],
@@ -698,21 +710,20 @@
           "variable": "seat_occupied_1"
         },
         {
+          "animationType": "visibility",
+          "variable": "connection_1_1_connected"
+        },
+        {
           "animationType": "inhibitor",
           "variable": "speed",
           "clampMax": 0.125
         },
         {
           "animationType": "translation",
-          "variable": "10_20_10_cycle",
-          "axis": [0.0,0.0,22.5],
-          "duration": 15
-        },
-        {
-          "animationType": "translation",
-          "variable": "!10_20_10_cycle",
-          "axis": [0.0,-22.5,0.0],
-          "duration": 15
+          "variable": "20_20_0_cycle",
+          "axis": [0.0,0.0,45.0],
+          "duration": 15,
+          "offset": -22.5
         },
         {
           "animationType": "translation",
@@ -779,6 +790,12 @@
         "animations": [
           {
             "animationType": "inhibitor",
+            "variable": "connection_1_1_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
             "variable": "rBodyTranslation",
             "clampMin": -0.0625,
             "clampMax": 0.0625
@@ -808,6 +825,12 @@
         "objectName": "frontforksuspension",
         "applyAfter": "frontfork",
         "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "connection_1_1_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
           {
             "animationType": "inhibitor",
             "variable": "fBodyTranslation",
