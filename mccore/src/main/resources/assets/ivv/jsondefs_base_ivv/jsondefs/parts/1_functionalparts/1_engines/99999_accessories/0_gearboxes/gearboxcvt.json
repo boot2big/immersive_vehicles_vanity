@@ -3,7 +3,10 @@
     "type": "generic_transmission",
     "customType": "ivlabs",
     "mustBeRemovedByScrewdriver": true,
-    "forwardsDamageMultiplier": 0.0
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.375,
+    "height": 0.25,
+    "mass": 100
   },
   "definitions": [
     {
@@ -145,49 +148,16 @@
     }
   ],
   "rendering": {
-    "textObjects": [
-      {
-        "pos": [0.0,1.0,0.0],
-        "rot": [0.0,180.0,0.0],
-        "scale": 0.5,
-        "variableName": "generic_transmission_gear_ratio",
-        "variableFactor": 1.0,
-        "variableFormat": "RATIO: %01.3f",
-        "fontName": "ivv:digifont",
-        "defaultText": "ERROR!",
-        "color": "FFFFFF",
-        "lightsUp": true
-      },
-      {
-        "pos": [0.0,1.5,0.0],
-        "rot": [0.0,180.0,0.0],
-        "scale": 0.5,
-        "variableName": "generic_transmission_gear",
-        "variableFactor": 1.0,
-        "variableFormat": "MATH: %01.0f",
-        "fontName": "ivv:digifont",
-        "defaultText": "ERROR!",
-        "color": "FFFFFF",
-        "lightsUp": true
-      },
-      {
-        "pos": [0.0,2.0,0.0],
-        "rot": [0.0,180.0,0.0],
-        "scale": 0.5,
-        "variableName": "generic_transmission_gear_restrictor",
-        "variableFactor": 1.0,
-        "variableFormat": "GEAR: %01.0f",
-        "fontName": "ivv:digifont",
-        "defaultText": "ERROR!",
-        "color": "FFFFFF",
-        "lightsUp": true
-      }
-    ],
+    "textObjects": [],
     "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:super1",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_straightcut"
+          },
           {
             "animationType": "visibility",
             "variable": "!speed"
@@ -272,6 +242,10 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "parent_engine_disablesound_select"
+          },
+          {
+            "animationType": "visibility",
             "variable": "generic_transmission_gear",
             "clampMin": 1.0,
             "clampMax": 127.0
@@ -289,6 +263,10 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
+            "variable": "parent_engine_disablesound_select"
+          },
+          {
+            "animationType": "visibility",
             "variable": "generic_transmission_gear"
           }
         ],
@@ -302,6 +280,10 @@
       {
         "name": "ivv:transmissionautoselectdown",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_select"
+          },
           {
             "animationType": "visibility",
             "variable": "generic_transmission_gear",
@@ -319,6 +301,10 @@
       {
         "name": "ivv:transmissionautoshiftup",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_shift"
+          },
           {
             "animationType": "visibility",
             "variable": "parent_engine_clutch_upshift",
@@ -350,6 +336,10 @@
       {
         "name": "ivv:transmissionautoshiftdown",
         "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_shift"
+          },
           {
             "animationType": "visibility",
             "variable": "parent_engine_clutch_downshift",
@@ -384,7 +374,7 @@
   },
   "general": {
     "name": "Automatic Gearbox",
-    "description": "Gear Ratios:\n-0.625 <- -3.625, 0.0, 3.625 -> 0.625\n§5§oCrafted in the Engine Hoist bench",
+    "description": "Gear Ratios:\n-0.625 <- -3.625, 0.0, 3.625 -> 0.625\nUse a screwdriver to remove this part",
     "stackSize": 64,
     "health": 100,
     "materialLists": [

@@ -73,6 +73,17 @@
       ],
       "linkedParts": [],
       "applyAfter": "gunModel"
+    },
+    {
+      "pos": [0.0,0.0625,0.125],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "types": [
+        "generic_gun_controlmodifier"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
     }
   ],
   "definitions": [
@@ -138,6 +149,22 @@
           "variable": "!gun_inhand_aiming",
           "axis": [0.25,0.0,0.0],
           "offset": 0.75
+        }
+      ]
+    },
+    {
+      "variable": "fireDelay",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_fireDelay_modifier",
+          "clampMin": 1.0,
+          "clampMax": 2147483647.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_fireDelay_modifier",
+          "axis": [0.9,0.0,1.0]
         }
       ]
     }
@@ -276,30 +303,7 @@
       },
       {
         "objectName": "gunModel",
-        "animations": [/*
-          {
-            "animationType": "inhibitor",
-            "variable": "!gun_controller_firstperson"
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "!disabled"
-          },
-          {
-            "animationType": "translation",
-            "variable": "!gun_inhand_aiming",
-            "axis": [0.0625,0.0625,0.0]
-          },
-          {
-            "animationType": "rotation",
-            "variable": "!gun_inhand_aiming",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,-45.0]
-          },
-          {
-            "animationType": "activator",
-            "variable": "!gun_controller_firstperson"
-          },*/
+        "animations": [
           {
             "animationType": "rotation",
             "variable": "gun_reload",

@@ -53,7 +53,7 @@
     "idleRPM": 700,
     "startRPM": 400,
     "revlimitRPM": 6000,
-    "revlimitBounce": 4,
+    "revlimitBounce": 3,
     "stallRPM": 350,
     "engineWinddownRate": 100,
     "heatingCoefficient": 0.875,
@@ -266,7 +266,8 @@
         {
           "animationType": "translation",
           "variable": "engine_rpm_percent_safe",
-          "axis": [0.0,0.0,90.0],
+          "axis": [0.0,0.0,70.0],
+          "offset": 20.0,
           "clampMax": 90.0
         },
         {
@@ -289,7 +290,8 @@
         {
           "animationType": "translation",
           "variable": "engine_rpm_percent_safe",
-          "axis": [0.0,0.0,56.25],
+          "axis": [0.0,0.0,41.25],
+          "offset": 15.0,
           "clampMax": 45.0
         },
         {
@@ -584,7 +586,7 @@
       "animations": [
         {
           "animationType": "inhibitor",
-          "variable": "!disabled_cooling_bonus"
+          "variable": "disabled_cooling_bonus"
         },
         {
           "animationType": "translation",
@@ -779,6 +781,10 @@
       "maxValue": 100.0,
       "animations": [
         {
+          "animationType": "visibility",
+          "variable": "!engine_rpm_idle"
+        },
+        {
           "animationType": "translation",
           "variable": "throttle",
           "axis": [-0.5,0.0,0.0],
@@ -830,6 +836,10 @@
       "maxValue": 100.0,
       "animations": [
         {
+          "animationType": "visibility",
+          "variable": "!engine_rpm_idle"
+        },
+        {
           "animationType": "translation",
           "variable": "throttle",
           "axis": [-0.5,0.0,0.0],
@@ -869,6 +879,10 @@
     {
       "variable": "idleRPM",
       "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "!engine_rpm_idle"
+        },
         {
           "animationType": "translation",
           "variable": "engine_temp",
@@ -913,6 +927,10 @@
     {
       "variable": "idleRPM",
       "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "!engine_rpm_idle"
+        },
         {
           "animationType": "inhibitor",
           "variable": "!engine_amireallyautomatic"
