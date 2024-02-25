@@ -45,6 +45,13 @@
       ]
     }
   ],
+  "constantValues": {
+    "tune_fare_initial": 2.5,
+    "tune_fare_mile": 0.4,
+    "tune_fare_time_tick": 0.4,
+    "tune_fare_time_rush": 1.0,
+    "tune_fare_time_night": 0.5
+  },
   "variableModifiers": [
     {
       "variable": "fare_mileage",
@@ -52,7 +59,7 @@
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "EMERLTS"
+          "variable": "TAXI"
         },
         {
           "animationType": "translation",
@@ -72,7 +79,7 @@
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "EMERLTS",
+          "variable": "TAXI",
           "clampMin": 1.0,
           "clampMax": 1.0
         },
@@ -109,63 +116,14 @@
       ]
     },
     {
-      "variable": "fare_cost_multiplier",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "EMERLTS"
-        },
-        {
-          "animationType": "translation",
-          "variable": "tick_sin",
-          "axis": [0.0,0.0,0.75],
-          "offset": 2.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "blagh",
-          "axis": [1.0,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "horn",
-          "axis": [10.0,0.0,0.0],
-          "offset": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "fare_cost_initial",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "parent_damage_percent",
-          "axis": [0.0,0.0,0.75],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "fare_cost_multiplier",
-          "axis": [1.0,0.0,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "EMERLTS",
-          "axis": [1.0,0.0,0.0],
-          "duration": 10,
-          "forwardsEasing": "easeoutcubic",
-          "reverseEasing": "easeoutcubic"
-        }
-      ]
-    },
-    {
-      "variable": "fare_cost_overtime",
+      "variable": "fare_cost_time_tick",
       "maxValue": 2.14748365E9,
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "EMERLTS"
+          "variable": "TAXI",
+          "clampMin": 2.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
@@ -174,41 +132,146 @@
         },
         {
           "animationType": "translation",
-          "variable": "fare_cost_overtime",
+          "variable": "fare_cost_time",
           "axis": [0.0,-0.0625,0.0]
         }
       ]
     },
     {
-      "variable": "fare_cost_overtime",
+      "variable": "fare_cost_time_tick_math",
       "maxValue": 2.14748365E9,
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "EMERLTS",
-          "clampMin": 1.0,
+          "variable": "TAXI",
+          "clampMin": 2.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_time_tick",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "40_10_0_cycle",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost_time_tick",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "TAXI",
+          "clampMin": 2.0,
           "clampMax": 1.0
         },
         {
           "animationType": "inhibitor",
           "variable": "speed",
-          "clampMin": 2.5,
+          "clampMin": 6.70540903,
           "clampMax": 32767.0
         },
         {
           "animationType": "translation",
-          "variable": "!true",
-          "axis": [0.0,5.0E-5,0.0]
+          "variable": "fare_cost_time_tick_math",
+          "axis": [0.0,0.1,0.0]
         }
       ]
     },
     {
-      "variable": "fare_cost_total",
+      "variable": "fare_time_rushhour",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "false"
+        },
+        {
+          "animationType": "activator",
+          "variable": "time",
+          "clampMin": 1500,
+          "clampMax": 3000.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "time",
+          "clampMin": 10500,
+          "clampMax": 12500.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_time_rush",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_time_night",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "false"
+        },
+        {
+          "animationType": "activator",
+          "variable": "time",
+          "clampMin": 13000,
+          "clampMax": 23000.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_time_night",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost_multiplier",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_mile",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_time_rushhour",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_time_night",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_speed",
+          "axis": [0.0,0.0,6.945E-6]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost",
       "maxValue": 2.14748365E9,
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "EMERLTS"
+          "variable": "TAXI"
         },
         {
           "animationType": "translation",
@@ -223,34 +286,54 @@
       ]
     },
     {
-      "variable": "fare_cost_total",
+      "variable": "fare_cost",
       "maxValue": 2.14748365E9,
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "EMERLTS",
+          "variable": "TAXI",
           "clampMin": 1.0,
           "clampMax": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "fare_mileage",
-          "axis": [0.0,0.0,1.0]
+          "variable": "fare_initial",
+          "axis": [0.0,1.0,0.0]
         },
         {
           "animationType": "translation",
           "variable": "fare_cost_multiplier",
-          "axis": [1.0,0.0,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "fare_cost_initial",
           "axis": [0.0,1.0,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "fare_cost_overtime",
+          "variable": "fare_cost_time_tick",
           "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost_total",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "fare_cost",
+          "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_cost_total",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "TAXI"
+        },
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_initial",
+          "axis": [0.0,0.25,0.0]
         }
       ]
     },
@@ -259,7 +342,7 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "EMERLTS",
+          "variable": "TAXI",
           "axis": [0.0,0.0,1.0]
         },
         {
@@ -347,7 +430,7 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "EMERLTS",
+            "variable": "TAXI",
             "centerPoint": [0.15625,0.203125,0.125],
             "axis": [0.0,0.0,45.0],
             "duration": 10,
@@ -362,7 +445,7 @@
         "animations": [
           {
             "animationType": "translation",
-            "variable": "EMERLTS",
+            "variable": "TAXI",
             "axis": [0.05,0.0,0.0],
             "duration": 10,
             "forwardsEasing": "easeoutbounce",
@@ -401,7 +484,7 @@
             "animationType": "rotation",
             "variable": "fare_lucky",
             "centerPoint": [0.0,0.171875,0.0625],
-            "axis": [-252.0,0.0,0.0],
+            "axis": [-612.0,0.0,0.0],
             "duration": 10,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
@@ -425,7 +508,7 @@
             "animationType": "rotation",
             "variable": "fare_lucky",
             "centerPoint": [0.0,0.171875,0.0625],
-            "axis": [-252.0,0.0,0.0],
+            "axis": [-972.0,0.0,0.0],
             "duration": 10,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
@@ -449,7 +532,7 @@
             "animationType": "rotation",
             "variable": "fare_lucky",
             "centerPoint": [0.0,0.171875,0.0625],
-            "axis": [-252.0,0.0,0.0],
+            "axis": [-1332.0,0.0,0.0],
             "duration": 10,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
@@ -473,7 +556,7 @@
             "animationType": "rotation",
             "variable": "fare_lucky",
             "centerPoint": [0.0,0.078125,0.0625],
-            "axis": [-252.0,0.0,0.0],
+            "axis": [-972.0,0.0,0.0],
             "duration": 10,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
@@ -497,8 +580,9 @@
             "animationType": "rotation",
             "variable": "fare_lucky",
             "centerPoint": [0.0,0.078125,0.0625],
-            "axis": [-252.0,0.0,0.0],
+            "axis": [-612.0,0.0,0.0],
             "duration": 10,
+            "forwardsDelay": 1,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
           },
@@ -543,6 +627,7 @@
             "centerPoint": [0.0,0.078125,0.0625],
             "axis": [-252.0,0.0,0.0],
             "duration": 10,
+            "forwardsDelay": 3,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
           },
@@ -567,6 +652,7 @@
             "centerPoint": [0.0,0.078125,0.0625],
             "axis": [-252.0,0.0,0.0],
             "duration": 10,
+            "forwardsDelay": 4,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
           },
@@ -591,6 +677,7 @@
             "centerPoint": [0.0,0.078125,0.0625],
             "axis": [-252.0,0.0,0.0],
             "duration": 10,
+            "forwardsDelay": 5,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
           },
@@ -615,6 +702,7 @@
             "centerPoint": [0.0,0.078125,0.0625],
             "axis": [-252.0,0.0,0.0],
             "duration": 10,
+            "forwardsDelay": 6,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
           },
@@ -639,6 +727,7 @@
             "centerPoint": [0.0,0.078125,0.0625],
             "axis": [-252.0,0.0,0.0],
             "duration": 10,
+            "forwardsDelay": 7,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
           },
@@ -663,6 +752,7 @@
             "centerPoint": [0.0,0.078125,0.0625],
             "axis": [-252.0,0.0,0.0],
             "duration": 10,
+            "forwardsDelay": 8,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic"
           },
@@ -681,7 +771,7 @@
     ],
     "lightObjects": [],
     "customVariables": [
-      "EMERLTS"
+      "TAXI"
     ],
     "sounds": [
       {
@@ -689,7 +779,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "EMERLTS"
+            "variable": "TAXI"
           }
         ],
         "pitchAnimations": [
@@ -712,7 +802,7 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "EMERLTS",
+            "variable": "TAXI",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -740,7 +830,7 @@
     "name": "Useless radio",
     "description": "\"These intergalactic fares are the real money-makers!\"\nUse a screwdriver to remove this part",
     "stackSize": 64,
-    "health": 100,
+    "health": 77,
     "materialLists": [
       [
         "oredict:ingotIron:4",
