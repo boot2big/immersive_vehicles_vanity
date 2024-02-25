@@ -1,7 +1,8 @@
 import java.nio.file.Paths
 import kotlin.io.path.moveTo
 import kotlin.io.path.ExperimentalPathApi
-
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.*
 
 plugins {
     java
@@ -21,9 +22,7 @@ subprojects {
 }
 
 var modVersion: String = project.property("global_version").toString()
-
 //var modVersion: String = providers.gradleProperty("global_version")
-
 var mcCore = project(":mccore")
 var mcInterfaceForge1122 = project(":mcinterfaceforge1122")
 var mcInterfaceForge1165 = project(":mcinterfaceforge1165")
