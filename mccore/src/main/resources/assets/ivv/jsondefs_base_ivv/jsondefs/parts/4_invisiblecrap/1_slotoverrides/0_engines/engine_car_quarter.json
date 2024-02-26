@@ -3,7 +3,8 @@
     "type": "engine_car",
     "forwardsDamageMultiplier": 1.0,
     "width": 0.5,
-    "height": 0.5
+    "height": 0.5,
+    "forceAllLinks": true
   },
   "engine": {
     "type": "normal",
@@ -89,6 +90,36 @@
   ],
   "variableModifiers": [
     {
+      "variable": "engine_starter_1",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engines_starting",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!engine_running_1",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "engine_magneto_1",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engines_on",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "C_MAG",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
       "variable": "currentGearRatio",
       "animations": [
         {
@@ -100,6 +131,7 @@
     }
   ],
   "rendering": {
+    "customVariables": ["C_MAG"],
     "animatedObjects": [],
     "lightObjects": [],
     "sounds": [],
