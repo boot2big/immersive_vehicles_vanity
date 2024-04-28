@@ -1,0 +1,136 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_fascia_front_broker",
+    "useVehicleTexture": true,
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.15625,0.0],
+      "maxValue": 1.0,
+      "defaultPart": "unuparts:unuparts_bodypart_unu_grille_default",
+      "types": [
+        "generic_bodypart_unu_grille_default",
+        "generic_bodypart_unu_grille_contractor"
+      ]
+    },
+    {
+      "pos": [0.0,0.0,0.1],
+      "maxValue": 1.0,
+      "interactableVariables": [
+        [
+          "part_useDefaultModel_1"
+        ]
+      ],
+      "types": [
+        "generic_bodypart_unu_runningboard_default",
+        "generic_unused"
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "UNU Contractor Explorer \"Sport-Track\" Fascia",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "part_useDefaultAnimations": 1.0,
+    "part_useDefaultHitboxes": 1.0
+  },
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "$Grille",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_useDefaultModel_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$FoglightCase",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_useDefaultModel_2",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "&Foglight",
+        "applyAfter": "$FoglightCase",
+        "animations": []
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "&Foglight",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "FOGS",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.664062,0.0,0.1093975],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5
+          },
+          {
+            "pos": [-0.671875,0.0,0.1093975],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5,
+            "flareWidth": 0.5
+          },
+          {
+            "pos": [0.664062,0.0,0.1093975],
+            "axis": [0.0,-0.125,0.875],
+            "beamDiameter": 6.0,
+            "beamLength": 20.0
+          },
+          {
+            "pos": [-0.671875,0.0,0.1093975],
+            "axis": [0.0,-0.125,0.875],
+            "beamDiameter": 6.0,
+            "beamLength": 20.0
+          }
+        ]
+      }
+    ],
+    "customVariables": ["FOGS"],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Building a better way to... wait, Built to... which brand is this again?\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
