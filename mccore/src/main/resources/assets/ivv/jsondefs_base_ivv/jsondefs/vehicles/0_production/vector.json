@@ -8,7 +8,8 @@
     "emptyMass": 1200,
     "fuelCapacity": 15500,
     "defaultFuelQty": 7750,
-    "downForce": 0.65,
+    "steeringForceIgnoresSpeed": true,
+    "steeringForceFactor": 1.0,
     "overSteer": 6.0,
     "overSteerAccel": 18.0,
     "axleRatio": 2.5,
@@ -2204,9 +2205,31 @@
       ]
     },
     {
-      "variable": "downForce",
+      "variable": "steering_loss",
       "animations": [
         {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.0,0.44704]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.5,0.0],
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip_understeer",
+          "axis": [0.0,37.5,0.0],
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "steeringForceFactor",
+      "animations": [
+        /*{
           "animationType": "translation",
           "variable": "input_rudder",
           "axis": [0.022222222,0.0,0.0],
@@ -2217,9 +2240,24 @@
         },
         {
           "animationType": "translation",
-          "variable": "slip",
-          "axis": [-0.005,0.0,0.0],
-          "offset": 1.12,
+          "variable": "speed",
+          "axis": [-0.036079592,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.0625,
+          "clampMax": 1.0
+        },*/
+        {
+          "animationType": "translation",
+          "variable": "input_rudder",
+          "axis": [0.0,0.0,0.011111111],
+          "offset": 0.5,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "steering_loss",
+          "axis": [-0.013333333,0.0,0.0],
+          "offset": 1.0,
           "clampMin": 0.0625,
           "clampMax": 1.0,
           "absolute": true

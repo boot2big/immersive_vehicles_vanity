@@ -7,12 +7,13 @@
     "emptyMass": 850,
     "fuelCapacity": 12000,
     "defaultFuelQty": 6000,
-    "downForce": 0.75,
+    "steeringForceFactor": 0.75,
     "overSteer": 5.0,
     "overSteerAccel": 15.0,
     "axleRatio": 2.5,
     "brakingFactor": 3.0,
-    "dragCoefficient": 0.1,
+    "dragCoefficient": 0.38,
+    "rudderArea": 1,
     "litVariable": "vehicle_dashboard",
     "panel": "ivv:standard",
     "hudTexture": "ivv:textures/guis/ivlabshud.png",
@@ -2361,52 +2362,31 @@
       ]
     },
     {
-      "variable": "downForce",
-      "addValue": 0.1,
+      "variable": "waterBallastFactor",
+      "minValue": 0.25,
+      "maxValue": 3.0,
       "animations": [
         {
-          "animationType": "visibility",
-          "variable": "part_present_18",
-          "clampMin": 1.0,
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.0,0.033333333],
+          "offset": 0.75,
           "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.033333333,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "mass",
+          "axis": [0.0,-0.000125,0.0]
         }
       ]
     },
     {
-      "variable": "downForce",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "part_present_19",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "overSteer",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "vehicle_p_brake_drift",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "underSteer",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "vehicle_p_brake_drift",
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "downForce",
+      "variable": "steeringForceFactor",
       "animations": [
         {
           "animationType": "translation",
@@ -2457,14 +2437,26 @@
       "animations": [
         {
           "animationType": "translation",
+          "variable": "speed_factor",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "speed",
           "axis": [0.0125,0.0,0.0],
           "clampMax": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "damage_percent",
+          "variable": "inliquid",
           "axis": [9.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [2.0,0.0,0.0],
           "offset": 1.0
         }
       ]
@@ -3162,6 +3154,10 @@
             "variable": "!damage_totaled"
           },
           {
+            "animationType": "inhibitor",
+            "variable": "ground_onground_2"
+          },
+          {
             "animationType": "rotation",
             "variable": "rlBodyroll",
             "centerPoint": [1.0E-8,0.02344,-0.125],
@@ -3209,6 +3205,10 @@
             "variable": "!damage_totaled"
           },
           {
+            "animationType": "inhibitor",
+            "variable": "ground_onground_1"
+          },
+          {
             "animationType": "rotation",
             "variable": "rrBodyroll",
             "centerPoint": [1.0E-8,0.02344,-0.125],
@@ -3254,6 +3254,10 @@
           {
             "animationType": "inhibitor",
             "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_onground_4"
           },
           {
             "animationType": "rotation",
@@ -3313,6 +3317,10 @@
           {
             "animationType": "inhibitor",
             "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ground_onground_3"
           },
           {
             "animationType": "rotation",
