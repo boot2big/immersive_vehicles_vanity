@@ -21,18 +21,18 @@
     "capacity": 800,
     "reloadTime": 15,
     "windupTime": 15,
-    "muzzleVelocity": 250,
+    "muzzleVelocity": 110,
     "fireDelay": 1.0,
-    "bulletSpreadFactor": 1.0,
+    "bulletSpreadFactor": 1.5,
     "minYaw": -180.0,
     "maxYaw": 180.0,
     "minPitch": -33.75,
     "maxPitch": 67.5,
     "diameter": 30.0,
-    "yawSpeed": 6.0,
-    "pitchSpeed": 6.0,
-    "defaultYaw": 2.0,
-    "defaultPitch": -5.0,
+    "yawSpeed": 4.0,
+    "pitchSpeed": 4.0,
+    "defaultYaw": 0.0,
+    "defaultPitch": 0.0,
     "lockRange": 192,
     "lockMaxAngle": 10.0,
     "handHeldNormalOffset": [0.3125,0.55,0.525],
@@ -41,63 +41,42 @@
       {
         "muzzles": [
           {
-            "pos": [-0.00195,1.29486,3.41749],
+            "pos": [-0.00195,1.28125,3.4375],
             "rot": [0.0,0.0,0.0],
-            "center": [0.0,1.15917,0.0]
+            "center": [0.0,1.15625,0.819853]
+          },
+          {
+            "pos": [0.10601,1.03125,3.4375],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,1.15625,0.819853]
           }
         ]
       },
       {
         "muzzles": [
           {
-            "pos": [0.10601,1.24379,3.41749],
+            "pos": [-0.108253,1.21875,3.4375],
             "rot": [0.0,0.0,0.0],
-            "center": [0.0,1.15917,0.0]
+            "center": [0.0,1.15625,0.819853]
+          },
+          {
+            "pos": [0.108253,1.09375,3.4375],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,1.15625,0.819853]
           }
         ]
       },
       {
         "muzzles": [
           {
-            "pos": [0.13286,1.13249,3.41749],
+            "pos": [0.108253,1.21875,3.4375],
             "rot": [0.0,0.0,0.0],
-            "center": [0.0,1.15917,0.0]
-          }
-        ]
-      },
-      {
-        "muzzles": [
+            "center": [0.0,1.15625,0.819853]
+          },
           {
-            "pos": [0.0634,1.03953,3.41749],
+            "pos": [-0.108253,1.09375,3.4375],
             "rot": [0.0,0.0,0.0],
-            "center": [0.0,1.15917,0.0]
-          }
-        ]
-      },
-      {
-        "muzzles": [
-          {
-            "pos": [-0.05539,1.03562,3.41749],
-            "rot": [0.0,0.0,0.0],
-            "center": [0.0,1.15917,0.0]
-          }
-        ]
-      },
-      {
-        "muzzles": [
-          {
-            "pos": [-0.13134,1.12583,3.41749],
-            "rot": [0.0,0.0,0.0],
-            "center": [0.0,1.15917,0.0]
-          }
-        ]
-      },
-      {
-        "muzzles": [
-          {
-            "pos": [-0.10776,1.24154,3.41749],
-            "rot": [0.0,0.0,0.0],
-            "center": [0.0,1.15917,0.0]
+            "center": [0.0,1.15625,0.819853]
           }
         ]
       }
@@ -106,7 +85,7 @@
   "definitions": [
     {
       "subName": "",
-      "name": "Anti-Air Turret",
+      "name": "Goalkeeper CIWS",
       "extraMaterialLists": [
         []
       ]
@@ -120,8 +99,8 @@
           {
             "animationType": "rotation",
             "variable": "tick",
-            "centerPoint": [1.66452,2.67441,-0.609386],
-            "axis": [0.0,20.0,0.0]
+            "centerPoint": [1.625,2.64062,-0.625],
+            "axis": [0.0,6.0,0.0]
           }
         ]
       },
@@ -135,7 +114,51 @@
           {
             "animationType": "rotation",
             "variable": "gun_pitch",
-            "centerPoint": [0.0,1.15917,0.0],
+            "centerPoint": [0.0,1.15625,0.0],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dish_base",
+        "applyAfter": "aimer",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "radar_ground_1_distance"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_yaw",
+            "centerPoint": [0.0,1.82187,-0.3125],
+            "axis": [0.0,-1.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "radar_ground_1_direction",
+            "centerPoint": [0.0,1.82187,-0.3125],
+            "axis": [0.0,1.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dish",
+        "applyAfter": "dish_base",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "radar_ground_1_distance"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_pitch",
+            "centerPoint": [0.0,2.4375,-0.3125],
+            "axis": [-1.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "radar_ground_1_angle",
+            "centerPoint": [0.0,2.4375,-0.3125],
             "axis": [1.0,0.0,0.0]
           }
         ]
@@ -147,8 +170,8 @@
           {
             "animationType": "rotation",
             "variable": "gun_windup_rotation",
-            "centerPoint": [0.0,1.15917,0.0],
-            "axis": [0.0,0.0,3]
+            "centerPoint": [0.0,1.15625,0.819853],
+            "axis": [0.0,0.0,2.0]
           }
         ]
       }
@@ -156,21 +179,16 @@
     "lightObjects": [],
     "cameraObjects": [
       {
-        "pos": [0.0,0.4303,5.125],
+        "pos": [0.0,2.6875,5.125],
         "rot": [0.0,0.0,0.0],
-        "fovOverride": 90.0,
-        "overlay": "ivv:textures/overlay/cars/cardisview_crosshair_translucent",
+        "fovOverride": 30.0,
+        "nightVision": true,
+        "overlay": "ivv:textures/overlay/misc/ciws_crosshair_translucent",
         "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "doesnt_work",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
           {
             "animationType": "rotation",
             "variable": "gun_pitch",
-            "centerPoint": [0.0,1.15917,0.0],
+            "centerPoint": [0.0,2.4375,-0.3125],
             "axis": [1.0,0.0,0.0]
           }
         ]
@@ -185,13 +203,6 @@
             "variable": "gun_fired",
             "clampMin": 1.0,
             "clampMax": 1.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "!kitchen_gun",
-            "axis": [0.0,2.0,0.0]
           }
         ],
         "pitchAnimations": [
@@ -218,14 +229,6 @@
             "variable": "gun_fired",
             "clampMin": 1.0,
             "clampMax": 1.0
-          }
-        ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "!generic_gun_suppressor_1",
-            "axis": [0.0,1.5,0.0],
-            "offset": 0.5
           }
         ],
         "pitchAnimations": [
@@ -347,28 +350,28 @@
     "particles": [
       {
         "type": "generic",
-        "isBright": true,
         "spawnEveryTick": true,
+        "isBright": true,
         "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
         "quantity": 1,
         "duration": 2,
         "transparency": 1.5,
         "toTransparency": 0.01,
-        "scale": 1,
-        "toScale": 2,
+        "scale": 1.0,
+        "toScale": 2.0,
         "hitboxSize": 0.2,
-        "renderingOrientation": "fixed",
         "texture": "ivv:textures/particles/3d/muzzleflash.png",
         "model": "ivv:textures/particles/3d/muzzleflash.obj",
         "color": "FFFFFF",
-        "pos": [0.0,1.16425,3.41437],
-        "rotationRandomness": [0.0,0.0,180.0],
+        "pos": [0.0,1.21875,3.4375],
+        "rotationRandomness": [5.0,5.0,180.0],
         "initialVelocity": [0.0,0.0,0.0],
         "spawningAnimations": [
           {
             "animationType": "rotation",
             "variable": "gun_pitch",
-            "centerPoint": [0.0,1.15917,0.0],
+            "centerPoint": [0.0,1.15625,0.0],
             "axis": [1.0,0.0,0.0]
           }
         ],
@@ -394,14 +397,14 @@
         "toScale": 1.0,
         "hitboxSize": 0.25,
         "color": "555555",
-        "pos": [0.0,1.16425,3.41437],
+        "pos": [0.0,1.21875,3.4375],
+        "spreadRandomness": [0.375,0.375,0.5],
         "initialVelocity": [0.0,0.0,1.0],
-        "spreadRandomness": [0.375,0.375,0.25],
         "spawningAnimations": [
           {
             "animationType": "rotation",
             "variable": "gun_pitch",
-            "centerPoint": [0.0,1.15917,0.0],
+            "centerPoint": [0.0,1.15625,0.0],
             "axis": [1.0,0.0,0.0]
           }
         ],
@@ -427,7 +430,7 @@
         "oredict:ingotIron:1"
       ]
     ],
-    "radarWidth": 0.0,
-    "radarRange": 0.0
+    "radarWidth": 180.0,
+    "radarRange": 256.0
   }
 }

@@ -1,0 +1,217 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_backlight_contractor",
+    "useVehicleTexture": true,
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 2.5,
+    "height": 0.25,
+    "movementAnimations": [
+      {
+        "animationType": "translation",
+        "variable": "!uwu",
+        "axis": [0.0,0.0,1.25]
+      }
+    ]
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "applyAfter": "$Window_Back_Middle",
+      "collisions": [
+        {
+          "pos": [0.25,0.375,0.0],
+          "width": 0.25,
+          "height": 0.75,
+          "variableName": "window",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.0,0.375,0.0],
+          "width": 0.25,
+          "height": 0.75,
+          "variableName": "window",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-0.25,0.375,0.0],
+          "width": 0.25,
+          "height": 0.75,
+          "variableName": "window",
+          "variableType": "toggle"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_metal",
+      "constants": ["metal"],
+      "name": "UNU Contractor Explorer \"Sport-Track\" Hardtop Backlight",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_painted",
+      "constants": ["painted"],
+      "name": "UNU Contractor Explorer \"Sport-Track\" Hardtop Painted Backlight",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_metal_alt",
+      "constants": ["metal","alt"],
+      "name": "UNU Contractor Explorer \"Sport-Track\" Hardtop Backlight with Sliding Window",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_painted_alt",
+      "constants": ["painted","alt"],
+      "name": "UNU Contractor Explorer \"Sport-Track\" Hardtop Painted Backlight with Sliding Window",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {},
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "$DoorBack_Bottom",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "painted",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorBack_Bottom_alt",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "metal",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$DoorBack_Top",
+        "animations": []
+      },
+      {
+        "objectName": "$Window_Back",
+        "applyAfter": "$DoorBack_Top",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "alt"
+          }
+        ]
+      },
+      {
+        "objectName": "$Window_Back_Left",
+        "applyAfter": "$DoorBack_Top",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "alt",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Window_Back_Right",
+        "applyAfter": "$DoorBack_Top",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "alt",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$GlassFrame",
+        "applyAfter": "$DoorBack_Top",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "alt",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Window_Back_Middle",
+        "applyAfter": "$GlassFrame",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "window",
+            "axis": [-0.5625,0.0,0.0],
+            "duration": 10
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "unuparts:unuparts_rotation_unu_window_1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "window",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "unuparts:unuparts_rotation_unu_window_1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "window"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Building a better way to... wait, Built to... which brand is this again?\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:3"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

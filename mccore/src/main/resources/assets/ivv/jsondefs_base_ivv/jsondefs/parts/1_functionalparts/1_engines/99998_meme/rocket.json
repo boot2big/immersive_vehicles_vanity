@@ -2,7 +2,15 @@
   "generic": {
     "type": "engine_rocket",
     "forwardsDamageMultiplier": 1.0,
-    "mass": 135
+    "mass": 135,
+    "activeAnimations": [
+      {
+        "animationType": "visibility",
+        "variable": "RCKT",
+        "clampMin": -1,
+        "clampMax": 1
+      }
+    ]
   },
   "engine": {
     "type": "rocket",
@@ -17,13 +25,13 @@
     "revlimitBounce": 1,
     "stallRPM": 2000,
     "engineWinddownRate": 150,
-    "rocketFuel": 600,
+    "rocketFuel": 1200,
     "heatingCoefficient": 1.5,
     "coolingCoefficient": 5.0,
     "engineWearFactor": 4.0,
     "fuelConsumption": 2.0,
-    "jetPowerFactor": 1.5,
-    "bypassRatio": 5.0,
+    "jetPowerFactor": 1.0,
+    "bypassRatio": 3.0,
     "gearRatios": [-1.0,0.0,1.0],
     "fuelType": "avgas",
     "isCrankingNotPitched": true
@@ -34,6 +42,48 @@
       "name": "Rocket Engine",
       "extraMaterialLists": [
         []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "jetPowerFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.04474,0.0,0.0],
+          "offset": 0.375,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [-0.25,0.0,0.0],
+          "offset": 6.70540903,
+          "clampMin": 0.25,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "bypassRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.04474,0.0,0.0],
+          "offset": 0.375,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [-0.25,0.0,0.0],
+          "offset": 6.70540903,
+          "clampMin": 0.25,
+          "clampMax": 1.0
+        }
       ]
     }
   ],
@@ -157,7 +207,7 @@
           {
             "animationType": "translation",
             "variable": "engine_rpm_percent",
-            "axis": [0.0,2.5,0.0]
+            "axis": [0.0,1.0,0.0]
           }
         ],
         "looping": true,
@@ -175,35 +225,26 @@
         "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 4,
-        "duration": 40,
-        "transparency": 0.7,
+        "quantity": 2,
+        "duration": 20,
+        "distance": 0.8,
+        "transparency": 0.375,
         "toTransparency": 1.0E-7,
         "scale": 0.8,
-        "toScale": 0.020000001,
+        "toScale": 1.6,
         "hitboxSize": 0.2,
-        "color": "000000",
+        "color": "666666",
         "pos": [0.0,0.21875,-0.125],
+        "spreadRandomness": [0.5,0.5,0.5],
         "initialVelocity": [0.0,0.0,-1.0],
         "movementVelocity": [0.0,0.0,0.0],
-        "terminalVelocity": [128.0,128.0,128.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_powered",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "1_2_1_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_rpm_percent",
-            "clampMax": 0.5
           }
         ]
       },
@@ -212,32 +253,25 @@
         "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 4,
-        "duration": 40,
+        "quantity": 3,
+        "duration": 10,
+        "distance": 0.5,
         "transparency": 1.0,
         "toTransparency": 1.0E-7,
         "scale": 0.5,
         "toScale": 0.020000001,
         "hitboxSize": 0.2,
         "pos": [0.0,0.21875,-0.125],
+        "spreadRandomness": [0.25,0.25,0.25],
         "initialVelocity": [0.0,0.0,-1.0],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_running",
             "clampMin": 1.0,
             "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "1_2_1_cycle",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_rpm_percent",
-            "clampMax": 0.5
           }
         ]
       },
@@ -246,29 +280,24 @@
         "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 4,
-        "duration": 40,
-        "transparency": 0.7,
+        "quantity": 2,
+        "duration": 10,
+        "transparency": 0.375,
         "toTransparency": 1.0E-7,
         "scale": 0.8,
-        "toScale": 0.020000001,
+        "toScale": 1.6,
         "hitboxSize": 0.2,
-        "color": "000000",
+        "color": "666666",
         "pos": [0.0,0.21875,-0.125],
-        "initialVelocity": [0.0,0.0,-3.0],
+        "spreadRandomness": [0.5,0.5,0.5],
+        "initialVelocity": [0.0,0.0,-2.0],
         "movementVelocity": [0.0,0.0,0.0],
-        "terminalVelocity": [9.0,9.0,9.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_powered",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_rpm_percent",
-            "clampMin": 0.5,
+            "clampMin": -1.0,
             "clampMax": 1.0
           }
         ]
@@ -278,26 +307,23 @@
         "spawnEveryTick": true,
         "spawningOrientation": "entity",
         "renderingOrientation": "player",
-        "quantity": 4,
-        "duration": 40,
-        "transparency": 0.7,
+        "quantity": 3,
+        "duration": 5,
+        "transparency": 1.0,
         "toTransparency": 1.0E-7,
-        "scale": 0.4,
+        "scale": 0.5,
         "toScale": 0.020000001,
         "hitboxSize": 0.2,
         "pos": [0.0,0.21875,-0.125],
-        "initialVelocity": [0.0,0.2,-4.0],
+        "spreadRandomness": [0.25,0.25,0.25],
+        "initialVelocity": [0.0,0.0,-2.0],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "engine_running",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "engine_rpm_percent",
-            "clampMin": 0.5,
+            "clampMin": -1.0,
             "clampMax": 1.0
           }
         ]
@@ -307,13 +333,13 @@
   },
   "general": {
     "name": "Rocket Engine",
-    "description": "IVLabs is not responsible for fires caused by overdriving the rocket engine.\nWe advise using half throttle for any acceleration, as using full throttle risks overheating and explosions.\nAlso, this is a BOOSTER rocket, and does not go in any vehicles normally.\nIt goes on the side, back or top of a vehicle to provide extra power.",
+    "description": "IVLabs is not responsible for damages, injuries or death incurred by irresponsible use of rocket motors.",
     "health": 100,
     "materialLists": [
       [
-        "mts:ivv.tcalloy:0:6",
-        "mts:ivv.turbo:0:4",
-        "minecraft:fire_charge:0:6"
+        "mts:ivv.tcalloy:0:2",
+        "mts:ivv.turbo:0:1",
+        "minecraft:fire_charge:0:2"
       ]
     ],
     "repairMaterialLists": [
