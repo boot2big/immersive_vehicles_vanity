@@ -1,0 +1,166 @@
+{
+  "generic": {
+    "type": "generic_flag_small",
+    "canBeRemovedByHand": true,
+    "canBePlacedOnGround": true,
+    "width": 0.25,
+    "height": 0.375
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.125,0.0],
+          "width": 0.375,
+          "height": 0.25,
+          "variableValue": 1,
+          "clampMax": 13,
+          "variableName": "flag_size",
+          "variableType": "increment"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_onvehicle"
+        }
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "flag_size",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "flag_size",
+          "clampMin": 13,
+          "clampMax": 13
+        },
+        {
+          "animationType": "translation",
+          "variable": "!yes",
+          "axis": [0.0,0.0,1.0],
+          "offset": -1.0
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_gramados",
+      "name": "Flag [Gramados Flag]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_underwear",
+      "name": "Flag [Underwear Flag]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_usa",
+      "name": "Flag [USA Flag]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_lgbt_0",
+      "name": "Flag [Pride Flag]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_lgbt_1",
+      "name": "Flag [Gay Pride Flag]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_lgbt_2",
+      "name": "Flag [Bi Pride Flag]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_lgbt_3",
+      "name": "Flag [Non-Binary Pride Flag]",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_lgbt_4",
+      "name": "Flag [Trans Pride Flag]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "part_onvehicle",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "scaling",
+            "variable": "flag_size",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "flag",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "random",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "part_onvehicle",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "scaling",
+            "variable": "flag_size",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Flag",
+    "description": "Can be placed on convention-following vehicles or as a block\nIf placed as a block, right click the base to enlargen",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:1","oredict:paper:1"]
+    ]
+  }
+}

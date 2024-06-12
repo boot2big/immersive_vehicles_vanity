@@ -1,0 +1,166 @@
+{
+  "generic": {
+    "type": "ground_wheel"
+  },
+  "ground": {
+    "width": 0.45,
+    "height": 0.749875,
+    "frictionModifiers": {
+      "snow": -0.2,
+      "ice": -0.2,
+      "dirt_wet": -0.1,
+      "sand_wet": -0.1,
+      "normal_wet": -0.1
+    }
+  },
+  "parts": [
+    {
+      "pos": [0.004890625,0.0,0.0],
+      "minValue": 0.75,
+      "maxValue": 0.75,
+      "types": ["ground_wheel"],
+      "applyAfter": "axle",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "HYDRAULIC_TWO",
+          "axis": [0.0,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+          "centerPoint": [0.004890625,0.0,0.0],
+          "axis": [-1.0,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+          "centerPoint": [0.004890625,0.0,0.0],
+          "axis": [2.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Hydraulic Kit [Compact, Type 2]",
+      "extraMaterialLists": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "height",
+      "setValue": 1.25E-4,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "setValue": 0.125,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "piston",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "HYDRAULIC_TWO",
+            "centerPoint": [-0.03418,0.0,0.048828125],
+            "axis": [0.0,0.0,-7.5],
+            "duration": 3,
+            "forwardsEasing": "easeoutelastic"
+          },
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_TWO",
+            "axis": [0.0,-0.034296875,0.0],
+            "duration": 3,
+            "forwardsEasing": "easeoutelastic",
+            "forwardsStartSound": "ivv:hydraulicup",
+            "reverseStartSound": "ivv:hydraulicdown"
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "applyAfter": "piston",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_TWO",
+            "axis": [0.0,-0.092734375,0.0],
+            "duration": 3,
+            "forwardsEasing": "easeoutelastic"
+          }
+        ]
+      },
+      {
+        "objectName": "axle",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_TWO",
+            "axis": [0.01953125,0.0,0.0],
+            "duration": 3,
+            "forwardsEasing": "easeoutelastic"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": ["HYDRAULIC_TWO"],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Hydraulic Kit [Compact, Type 1]",
+    "description": "Jump up, jump up and get down\nHas four variants with different buttons",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:4","oredict:dustRedstone:2","minecraft:water_bucket:0:1"],
+      ["mts:ivv.hydraulicsmall1:0:1"],
+      ["mts:ivv.hydraulicsmall4:0:1"],
+      ["mts:ivv.hydraulicsmall3:0:1"]
+    ]
+  }
+}

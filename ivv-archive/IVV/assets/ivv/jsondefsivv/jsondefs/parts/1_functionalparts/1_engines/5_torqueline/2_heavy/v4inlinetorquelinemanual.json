@@ -1,0 +1,275 @@
+{
+  "generic": {
+    "type": "engine_car",
+    "mass": 340
+  },
+  "engine": {
+    "starterPower": 20,
+    "engineWinddownRate": 75,
+    "engineWearFactor": 0.75,
+    "shiftSpeed": 20,
+    "clutchTime": 10,
+    "revResistance": 9,
+    "maxRPM": 4750,
+    "maxSafeRPM": 5750,
+    "idleRPM": 500,
+    "startRPM": 350,
+    "fuelConsumption": 1.25,
+    "gearRatios": [-5.0,-8.0,-11.0,0.0,12.0,10.5,9.0,7.5,6.0,4.5,3.0,2.0,1.0,0.7],
+    "fuelType": "diesel",
+    "superchargerFuelConsumption": 1.5,
+    "superchargerEfficiency": 1,
+    "isCrankingNotPitched": true
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Torqueline Diesel I4 Engine HD §2(Manual)",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "sounds": [
+      {
+        "name": "ivv:v4inlinetorqueline_starting",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:v4inlinetorqueline_stopping",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running"
+          }
+        ]
+      },
+      {
+        "name": "ivv:v4inlinetorqueline_sputter",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_backfired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:transmissionheavygrind",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_badshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:cranktorqueline1start",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_starter",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:cranktorqueline1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_starter",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+	    "forwardsDelay": 13
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.25,0.0],
+            "offset": 1.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.0,0.0],
+            "offset": 1.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:cranktorqueline1stop",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_starter",
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:v4inlinetorquelineidle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,-0.29999998211860657,0.0],
+            "offset": 0.7
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,1.75,0.0],
+            "offset": 1
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:v4inlinetorquelineload",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,1.0,0.0],
+            "offset": -0.5
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,2.0,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.1,0.0],
+            "offset": -0.1
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent",
+            "axis": [0.0,0.75,0.0],
+            "offset": 0.175
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 115.556,
+            "clampMax": 999.0
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#000000"
+      },
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_temp",
+            "clampMin": 121.111,
+            "clampMax": 999.0
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#000000",
+        "scale": 2.5,
+        "quantity": 1
+      },
+      {
+        "type": "drip",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_oilleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "color": "#000000"
+      },
+      {
+        "type": "drip",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_fuelleak",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "cycle_10_20",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "color": "#FF0000"
+      }
+    ]
+  },
+  "prefixFolders": "2_functionalparts/1_engines/5_torqueline/2_heavy/",
+  "packID": "ivv",
+  "systemName": "v4inlinetorquelinemanual",
+  "classification": "part",
+  "general": {
+    "name": "Torqueline Diesel V6 Engine HD §2(Manual)",
+    "materials": ["mts:ivv.engineblockheavyduty:-1:1","mts:ivv.enginepiston:-1:4","minecraft:iron_ingot:-1:4","mts:ivv.gearboxmanual:-1:1"]
+  }
+}

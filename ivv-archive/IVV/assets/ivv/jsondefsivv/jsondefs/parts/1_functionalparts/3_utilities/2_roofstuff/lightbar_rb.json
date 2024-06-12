@@ -1,0 +1,121 @@
+{
+  "generic": {
+    "type": "generic_lightbar",
+    "width": 0.5,
+    "height": 0.25,
+    "hasRunningLights": true
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Police Lightbar",
+      "extraMaterials": []
+    }
+  ],
+  "rendering": {
+    "lightObjects": [
+      {
+        "objectName": "white&RunningLight_fefefe_fffff_010",
+        "emissive": true,
+        "isElectric": true,
+        "color": "#fefefe",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "running_light",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "blue&EmergencyLight_078adb_1B06C0_010",
+        "emissive": true,
+        "isElectric": true,
+        "color": "#078adb",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "EMERLTS",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "0_10_10_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "red&EmergencyLight_e61502_D81B_010",
+        "emissive": true,
+        "isElectric": true,
+        "color": "#e61502",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "EMERLTS",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "10_10_0_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "customVariables": ["SIREN", "EMERLTS"],
+    "sounds": [
+      {
+        "name": "ivv:sirenslow",
+        "activeAnimations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "electric_power",
+            "clampMax": 3.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "SIREN",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.025,0.0],
+            "clampMin": -0.2,
+            "clampMax": 1.8
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "electric_power",
+            "axis": [0.0,0.1,0.0],
+            "clampMin": -0.2,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": []
+  },
+  "prefixFolders": "1_functionalparts/2_utilities/2_roofstuff/",
+  "packID": "ivv",
+  "systemName": "lightbar_rb",
+  "classification": "part",
+  "general": {
+    "name": "Police Lightbar",
+    "description": "Comes with a working siren!",
+    "materials": ["minecraft:iron_ingot:-1:2","minecraft:redstone_lamp:-1:1","minecraft:glass:-1:1"]
+  }
+}

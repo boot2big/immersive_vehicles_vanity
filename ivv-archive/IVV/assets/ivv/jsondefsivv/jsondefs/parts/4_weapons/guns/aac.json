@@ -1,0 +1,79 @@
+{
+    "general": {
+        "name" : "AAC Honeybadger",
+        "description" : "modeled by the breathtaking HashimIsaPotato\nalso i swear it's .300 AAC it just shows it in millimeters",
+        "type" : "gun_hand_assault",
+		"materials" : ["minecraft:iron_ingot:-1:16", "minecraft:button:-1:1"]
+    },
+	"gun" : {
+  	        "capacity" : 20,
+		"fireDelay" : 2,
+		"reloadTime" : 25,
+		"muzzleVelocity" : 900,
+		"diameter" : 9.6,
+		"bulletSpreadFactor" : 0.15,
+		"handHeld": true,
+		"handHeldNormalOffset": [-0.05, -0.05, 0.5],
+		"handHeldAimedOffset": [0.315, 0.05, 0.45],
+		"muzzlePositions" : [
+		[0, 0.11745, 1.1125]
+		]
+	},
+	"rendering": {
+	"animatedObjects": [
+		{
+			"objectName": "magazine",
+			"animations": [
+				{
+				"animationType": "inhibitor",
+				"variable": "gun_reload",
+				"clampMin": 0,
+				"clampMax": 0
+				},
+				{
+					"animationType": "visibility",
+					"variable": "gun_reload",
+					"absolute": false,
+					"clampMin" : 1,
+					"clampMax" : 1
+				}
+			]
+		},
+		{
+			"objectName": "cube",
+			"animations": [
+				{
+					"animationType": "translation",
+					"variable": "gun_active",
+					"axis": [0.0, 0.0, -0.000001],
+					"duration": -1,
+					"forwardsStartSound": "ivv:gunequip5"
+				}
+			]
+		},
+		{
+			"objectName": "trigger",
+			"animations": [
+				{
+					"animationType": "rotation",
+					"variable": "gun_firing",
+					"centerPoint": [0, -0.09358, -0.03955],
+					"axis": [20, 0, 0]
+				}
+			]
+		},
+		{
+			"objectName": "bolt",
+			"animations": [
+				{
+					"animationType": "translation",
+					"axis": [0, 0, -0.3],
+					"variable": "gun_cooldown",
+					"duration": 1
+				}
+			]
+		}
+		
+	]
+  }
+}

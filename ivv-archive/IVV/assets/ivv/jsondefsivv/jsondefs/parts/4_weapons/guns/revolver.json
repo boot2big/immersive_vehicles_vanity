@@ -1,0 +1,104 @@
+{
+    "general": {
+        "name" : "Revolver",
+        "description": "it's .357 magnum i swear",
+        "type" : "gun_hand_handgun",
+		"materials" : ["minecraft:iron_ingot:-1:9", "minecraft:button:-1:1"]
+    },
+	"gun" : {
+  	        "capacity" : 6,
+		"fireDelay" : 1,
+		"reloadTime" : 56,
+		"muzzleVelocity" : 1100,
+		"diameter" : 9.0,
+		"bulletSpreadFactor" : 0.125,
+		"handHeld": true,
+		"handHeldNormalOffset": [0.05, -0.05, 0.45],
+		"handHeldAimedOffset": [0.315, 0.05, 0.4],
+		"muzzlePositions" : [
+		[0, 0, 0.42]
+		],
+		"isSemiAuto": true
+	},
+	"rendering": {
+	"animatedObjects": [
+		{
+			"objectName": "spindlething",
+			"animations": [
+				{
+				"animationType": "inhibitor",
+				"variable": "gun_reload",
+				"clampMin": 0,
+				"clampMax": 0
+				},
+				{
+				"animationType": "rotation",
+				"variable": "gun_reload",
+				"centerPoint": [0, -0.07508, 0.10363],
+				"axis": [0, 0, -32],
+				"clampMin": 32,
+				"clampMax": 32
+				},
+				{
+					"animationType": "translation",
+					"variable": "gun_reload",
+					"axis": [0.01453, -0.00109, 0],
+					"duration": -1,
+					"forwardsStartSound": "ivv:gunequip4"
+				}
+			]
+		},
+		{
+			"objectName": "spinningpart",
+			"animations": [
+				{
+				"animationType": "inhibitor",
+				"variable": "gun_reload",
+				"clampMin": 0,
+				"clampMax": 0
+				},
+				{
+				"animationType": "rotation",
+				"variable": "gun_reload",
+				"centerPoint": [0, -0.07508, 0.10363],
+				"axis": [0, 0, -32],
+				"clampMin": 32,
+				"clampMax": 32
+				},
+				{
+					"animationType": "translation",
+					"variable": "gun_reload",
+					"axis": [0.01453, -0.00109, 0],
+					"duration": -1,
+					"forwardsStartSound": "ivv:gunequip4"
+				}
+			]
+		},
+		{
+			"objectName": "cube",
+			"animations": [
+				{
+					"animationType": "translation",
+					"variable": "gun_active",
+					"axis": [0, 0, 0],
+					"duration": -1,
+					"forwardsStartSound": "ivv:gunequip4"
+				}
+			]
+		},
+		{
+			"objectName": "hammer",
+			"animations": [
+				{
+					"animationType": "rotation",
+					"centerPoint": [0, -0.02354, 0.03183],
+					"axis": [32, 0, 0],
+					"variable": "gun_cooldown",
+					"duration": 1
+				}
+			]
+		}
+		
+	]
+  }
+}

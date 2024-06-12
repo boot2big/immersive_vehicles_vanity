@@ -378,11 +378,84 @@
         "pos": [335.0,12.0,0.0],
         "width": 20,
         "height": 20,
+        "textureStart": [20.0,176.0,0.0],
+        "text": "DOWNFORCE",
+        "clickActionLeft": {
+          "variable": "vehicle_steering_downforce",
+          "action": "increment",
+          "value": -0.05,
+          "clampMin": -1.01,
+          "clampMax": 1.01
+        },
+        "clickActionRight": {
+          "variable": "vehicle_steering_downforce",
+          "action": "increment",
+          "value": 0.05,
+          "clampMin": -1.01,
+          "clampMax": 1.01
+        }
+      },
+      {
+        "pos": [335.0,44.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [20.0,176.0,0.0],
+        "text": "DF_SPEED",
+        "clickActionLeft": {
+          "variable": "vehicle_steering_downforce_factor",
+          "action": "increment",
+          "value": -0.05,
+          "clampMin": -1.01,
+          "clampMax": 1.01
+        },
+        "clickActionRight": {
+          "variable": "vehicle_steering_downforce_factor",
+          "action": "increment",
+          "value": 0.05,
+          "clampMin": -1.01,
+          "clampMax": 1.01
+        }
+      },
+      {
+        "pos": [335.0,76.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [20.0,176.0,0.0],
+        "text": "SF_FAKE",
+        "visibilityVariables": [
+          [
+            "debug_disabled"
+          ]
+        ],
+        "clickActionLeft": {
+          "variable": "speedfactor_fake",
+          "action": "increment",
+          "value": -0.05,
+          "clampMin": -1.01,
+          "clampMax": 1.01
+        },
+        "clickActionRight": {
+          "variable": "speedfactor_fake",
+          "action": "increment",
+          "value": 0.05,
+          "clampMin": -1.01,
+          "clampMax": 1.01
+        }
+      },
+      {
+        "pos": [335.0,108.0,0.0],
+        "width": 20,
+        "height": 20,
         "textureStart": [180.0,216.0,0.0],
-        "text": "BODYROLL",
-        "statusVariable": "vehicle_bodyroll",
+        "text": "SF_SWITCH",
+        "statusVariable": "speedfactor_fake_use",
+        "visibilityVariables": [
+          [
+            "debug_disabled"
+          ]
+        ],
         "clickAction": {
-          "variable": "vehicle_bodyroll",
+          "variable": "speedfactor_fake_use",
           "action": "toggle",
           "value": 0.0
         }

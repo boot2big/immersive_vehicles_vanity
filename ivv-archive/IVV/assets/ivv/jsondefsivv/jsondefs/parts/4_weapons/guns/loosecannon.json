@@ -1,0 +1,78 @@
+{
+    "definitions": [
+   	 {
+     	 "subName": "",
+     	 "name": "Loose Cannon",
+     	 "extraMaterials": []
+   	 }
+      ],
+    "general": {
+        "name" : "Loose Cannon",
+        "description" : "modeled by the breathtaking HashimIsaPotato",
+        "type" : "gun_hand_cannon",
+		"materials" : ["mts:ivv.tcalloy:-1:7", "mts:ivv.circuit:-1:2", "minecraft:button:-1:1"]
+    },
+	"gun" : {
+    "capacity" : 4,
+		"fireDelay" : 17,
+		"reloadTime" : 61,
+		"muzzleVelocity" : 350,
+		"diameter" : 35.0,
+		"bulletSpreadFactor" : 0.65,
+		"handHeld": true,
+		"handHeldNormalOffset": [-0.1, -0.15, 0.4],
+		"handHeldAimedOffset": [0.315, -0.125, 0.425],
+		"muzzlePositions" : [
+		[0, 0, 1.06791]
+		],
+		"isSemiAuto": true
+	},
+	"rendering": {
+	"animatedObjects": [
+		{
+			"objectName": "barrel",
+			"animations": [
+				{
+				"animationType": "inhibitor",
+				"variable": "gun_reload",
+				"clampMin": 0,
+				"clampMax": 0
+				},
+				{
+					"animationType": "rotation",
+					"variable": "gun_reload",
+					"absolute": true,
+					"centerPoint": [0, -0.23916, 0.18466],
+					"axis": [45.0, 0.0, 0.0],
+					"clampMin" : 45,
+					"clampMax" : 45
+				}
+			]
+		},
+		{
+			"objectName": "cube",
+			"animations": [
+				{
+					"animationType": "translation",
+					"variable": "gun_active",
+					"axis": [0.0, 0.0, -0.000001],
+					"duration": -1,
+					"forwardsStartSound": "ivv:gunequip6"
+				}
+			]
+		},
+		{
+			"objectName": "trigger",
+			"animations": [
+				{
+					"animationType": "rotation",
+					"variable": "gun_firing",
+					"centerPoint": [0, -0.07084, 0.06313],
+					"axis": [21, 0, 0]
+				}
+			]
+		}
+		
+	]
+  }
+}

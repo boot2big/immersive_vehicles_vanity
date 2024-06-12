@@ -1,0 +1,51 @@
+
+{
+    "general": {
+       	 "name" : "Chest",
+         	"description": "A CHEST, WHAT LIES WITHIN!?\n(Does NOT use the convention, until somebody starts using ''interactable_chest'')",
+        	"type" : "interactable_chest",
+		"materials" : ["minecraft:chest:-1:1"]
+    },
+    "generic": {
+    "canBeRemovedByHand": true,
+    "width": 0.9,
+    "height": 0.9
+  },
+	"interactable" : {
+        	"interactionType": "crate",
+            	"feedsVehicles": true,
+		"inventoryUnits" : 3
+	},
+  "rendering": {
+	"animatedObjects": [
+		{
+			"objectName": "chesttop",
+			"animations": [
+				{
+					"animationType": "inhibitor",
+					"variable": "speed",
+					"clampMin": 0.05,
+					"clampMax": 0.1
+				},
+				{
+					"animationType": "inhibitor",
+					"variable": "locked",
+					"clampMin": 1,
+					"clampMax": 1
+				},
+				{
+					"animationType": "rotation",
+					"centerPoint": [0, 0.1192, -0.34466],
+					"axis": [-90, 0, 0],
+					"variable": "door",
+					"duration": 5,
+					"absolute": true,
+					"forwardsStartSound": "ivv:chestopen",
+					"reverseStartSound": "ivv:chestclose"
+				}
+			]
+		}
+		
+	]
+	}
+}

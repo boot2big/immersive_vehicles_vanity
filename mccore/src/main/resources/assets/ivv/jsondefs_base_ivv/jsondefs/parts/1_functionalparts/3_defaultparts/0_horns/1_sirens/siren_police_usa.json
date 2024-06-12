@@ -1,0 +1,111 @@
+{
+  "generic": {
+    "type": "generic_siren",
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "siren",
+      "textureName": "siren",
+      "name": "Emergency Vehicle Siren",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "siren_alt",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "SIREN",
+          "forwardsDelay": 6
+        },
+        {
+          "animationType": "visibility",
+          "variable": "SIREN",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!siren_alt",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "customVariables": [
+      "SIREN"
+    ],
+    "sounds": [
+      {
+        "name": "ivv:siren_police_usa_slow",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "SIREN",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 6
+          },
+          {
+            "animationType": "visibility",
+            "variable": "siren_alt"
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:siren_police_usa_fast",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "SIREN",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 6
+          },
+          {
+            "animationType": "visibility",
+            "variable": "siren_alt",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Vehicle default part, makes a wee-yuu noise\nNorth American variant",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "minecraft:iron_ingot:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

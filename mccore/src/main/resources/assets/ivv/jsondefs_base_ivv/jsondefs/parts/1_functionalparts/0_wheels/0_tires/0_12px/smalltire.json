@@ -60,6 +60,12 @@
       ],
       "animations": [
         {
+          "animationType": "rotation",
+          "variable": "ground_rotation_locked",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [1.0,0.0,0.0]
+        },
+        {
           "animationType": "inhibitor",
           "variable": "ground_locked",
           "clampMin": 1.0,
@@ -108,6 +114,12 @@
           "variable": "generic_flag_small_prop_2",
           "clampMin": 1.0,
           "clampMax": 1.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_locked",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [1.0,0.0,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -168,9 +180,32 @@
       "maxValue": 150.0,
       "animations": [
         {
+          "animationType": "visibility",
+          "variable": "part_isonfront"
+        },
+        {
           "animationType": "translation",
           "variable": "slip",
           "axis": [0.0,0.0,1.0],
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "slip_modified",
+      "maxValue": 150.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_isonfront",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.0,2.0],
+          "offset": -75.0,
           "absolute": true
         },
         {
@@ -274,51 +309,13 @@
       ]
     },
     {
-      "variable": "ground_traction_loss",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "slip_modified",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "vehicle_handling_lvl",
-          "axis": [-0.0375,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "damage_percent",
-          "axis": [0.25,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "rain_strength",
-          "axis": [0.5,0.0,0.0],
-          "offset": 1.0,
-          "clampMax": 1.5
-        },
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.037283333,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.5,
-          "clampMax": 1.0
-        }
-      ]
-    },
-    {
       "variable": "motiveFriction",
       "animations": [
         {
           "animationType": "translation",
           "variable": "ground_locked",
-          "axis": [-0.375,0.0,0.0],
-          "offset": 1.0,
-          "duration": 5
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0
         },
         {
           "animationType": "inhibitor",
@@ -355,19 +352,12 @@
           "animationType": "translation",
           "variable": "ground_locked",
           "axis": [-1.0,0.0,0.0],
-          "offset": 1.0,
-          "duration": 5
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "!false",
-          "clampMin": 1.0,
-          "clampMax": 1.0
+          "offset": 1.0
         },
         {
           "animationType": "translation",
           "variable": "vehicle_handling_lvl",
-          "axis": [0.0125,0.0,0.0],
+          "axis": [0.125,0.0,0.0],
           "offset": 1.0
         },
         {
@@ -383,15 +373,6 @@
           "offset": 1.0,
           "clampMin": 0.75,
           "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "ground_traction_loss",
-          "axis": [-0.02,0.0,0.0],
-          "offset": 1.16,
-          "clampMin": 0.375,
-          "clampMax": 1.0,
-          "absolute": true
         }
       ]
     },
@@ -431,6 +412,28 @@
       ]
     },
     {
+      "variable": "ground_rotation_locked",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ground_locked",
+          "forwardsDelay": 1
+        },
+        {
+          "animationType": "visibility",
+          "variable": "ground_locked",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "reverseDelay": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_rotation",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "ground_locked",
       "maxValue": 1.0,
       "animations": [
@@ -447,13 +450,30 @@
         {
           "animationType": "inhibitor",
           "variable": "part_isonfront",
-          "clampMin": 1,
-          "clampMax": 1
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMin": 0.0,
+          "clampMax": 2.0
         },
         {
           "animationType": "translation",
           "variable": "p_brake",
           "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "true"
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [1000.0,0.0,0.0],
+          "offset": -100.0,
+          "clampMax": 1.0
         }
       ]
     },
@@ -843,6 +863,12 @@
             "animationType": "visibility",
             "variable": "damage_totaled"
           },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_locked",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [1.0,0.0,0.0]
+        },
           {
             "animationType": "inhibitor",
             "variable": "ground_locked",
@@ -864,6 +890,12 @@
             "animationType": "visibility",
             "variable": "damage_totaled"
           },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_locked",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [1.0,0.0,0.0]
+        },
           {
             "animationType": "inhibitor",
             "variable": "ground_locked",
@@ -929,6 +961,12 @@
             "animationType": "visibility",
             "variable": "part_present_1"
           },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_locked",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [1.0,0.0,0.0]
+        },
           {
             "animationType": "inhibitor",
             "variable": "ground_locked",
@@ -1939,7 +1977,7 @@
         "rot": [-90.0,0.0,0.0],
         "initialVelocity": [0.0,1.0E-4,0.0],
         "movementVelocity": [0.0,0.0,0.0],
-        "terminalVelocity": [0.001,0.001,0.001],
+        "terminalVelocity": [1.0E-8,1.0E-8,1.0E-8],
         "spawningAnimations": [
           {
             "animationType": "rotation",

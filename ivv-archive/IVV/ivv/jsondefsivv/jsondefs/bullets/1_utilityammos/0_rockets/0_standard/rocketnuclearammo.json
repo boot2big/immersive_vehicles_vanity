@@ -1,0 +1,282 @@
+{
+  "bullet": {
+    "types": [
+      "explosive",
+      "incendiary",
+      "armor_piercing"
+    ],
+    "isHeat": true,
+    "quantity": 1,
+    "diameter": 60.0,
+    "damage": 2.14748365E9,
+    "caseLength": 200.0,
+    "blastStrength": 40.0,
+    "armorPenetration": 2.14748365E9,
+    "proximityFuze": 2.0,
+    "airBurstDelay": 305,
+    "despawnTime": 310,
+    "burnTime": 45,
+    "accelerationTime": 10,
+    "accelerationDelay": 5,
+    "maxVelocity": 300,
+    "impactDespawnTime": 80,
+    "effects": [
+      {
+        "name": "poison",
+        "duration": 600,
+        "amplifier": 1
+      },
+      {
+        "name": "wither",
+        "duration": 300,
+        "amplifier": 300
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Generic Missile [Mini-Nuke]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:rocket_running",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 40.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:explode_nuclear",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,6.0,0.0],
+            "offset": 6.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ]
+      },
+      {
+        "name": "ivv:explode_nuclear",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_burst",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,5.0,0.0],
+            "offset": 5.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ]
+      }
+    ],
+    "particles": [
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "quantity": 3,
+        "duration": 10,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 2.0,
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,-0.125],
+        "initialVelocity": [0.0,0.0,-1.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 40.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "10_10_10_cycle",
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 2.0,
+        "color": "222222",
+        "pos": [0.0,0.0,-0.125],
+        "initialVelocity": [0.0,0.0,-2.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMax": 40.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "10_10_10_cycle",
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "quantity": 4,
+        "scale": 0.3,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 6,
+        "duration": 160,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 128.0,
+        "toScale": 320.0,
+        "color": "666666",
+        "pos": [0.0,1.0,0.0],
+        "initialVelocity": [0.0,4.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "quantity": 1,
+        "duration": 40,
+        "transparency": 2.0,
+        "toTransparency": 0.01,
+        "scale": 72.0,
+        "toScale": 256.0,
+        "textureList": ["ivv:textures/particles/explosion_1.png","ivv:textures/particles/explosion_2.png","ivv:textures/particles/explosion_3.png","ivv:textures/particles/explosion_4.png","ivv:textures/particles/explosion_5.png","ivv:textures/particles/explosion_6.png","ivv:textures/particles/explosion_7.png","ivv:textures/particles/explosion_8.png"],
+        "textureDelays": [4,4,4,4,4,4,4,32767],
+        "color": "FFFFFF",
+        "pos": [0.0,1.5,0.0],
+        "initialVelocity": [0.0,2.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Does not lock onto anything\n''Now we are all sons of bitches.'' -Kenneth Tompkins Bainbridge",
+    "stackSize": 64,
+    "materialLists": [
+      ["oredict:ingotGold:4","oredict:gunpowder:16","minecraft:nether_star:0:1"]
+    ],
+    "type": "bullet"
+  }
+}

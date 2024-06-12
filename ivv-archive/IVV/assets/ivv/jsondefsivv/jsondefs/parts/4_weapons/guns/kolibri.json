@@ -1,0 +1,57 @@
+{
+    "general": {
+        "name" : "Kolibri",
+        "type" : "gun_hand_handgun",
+		"materials" : ["minecraft:iron_ingot:-1:2", "minecraft:button:-1:1"]
+    },
+	"gun" : {
+  	        "capacity" : 6,
+		"fireDelay" : 3,
+		"reloadTime" : 20,
+		"muzzleVelocity" : 1300,
+		"diameter" : 2.7,
+		"bulletSpreadFactor" : 0.3,
+		"handHeld": true,
+		"handHeldNormalOffset": [-0.1, -0.075, 0.6],
+		"handHeldAimedOffset": [0.315, -0.015, 0.525],
+		"muzzlePositions" : [
+		[0, 0, 0.10634]
+		],
+		"isSemiAuto": true
+	},
+	"rendering": {
+	"animatedObjects": [
+		{
+			"objectName": "magazine",
+			"animations": [
+				{
+				"animationType": "inhibitor",
+				"variable": "gun_reload",
+				"clampMin": 0,
+				"clampMax": 0
+				},
+				{
+					"animationType": "visibility",
+					"variable": "gun_reload",
+					"absolute": false,
+					"clampMin" : 1,
+					"clampMax" : 1
+				}
+			]
+		},
+		{
+			"objectName": "cube",
+			"animations": [
+				{
+					"animationType": "translation",
+					"variable": "gun_active",
+					"axis": [0.0, 0.0, -0.000001],
+					"duration": -1,
+					"forwardsStartSound": "ivv:gunequip1alt"
+				}
+			]
+		}
+		
+	]
+  }
+}

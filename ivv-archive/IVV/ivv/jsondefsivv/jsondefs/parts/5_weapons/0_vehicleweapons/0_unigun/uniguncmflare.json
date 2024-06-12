@@ -1,0 +1,159 @@
+{
+  "generic": {
+    "type": "gun_unigun_defense"
+  },
+  "gun": {
+    "autoReload": true,
+    "capacity": 40,
+    "reloadTime": 8,
+    "muzzleVelocity": 250,
+    "fireDelay": 100.0,
+    "gravitationalVelocity": 0.01,
+    "bulletSpreadFactor": 3.0,
+    "diameter": 25.0,
+    "minCaseLength": 85.0,
+    "maxCaseLength": 85.0,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.75,0.0,0.0],
+            "rot": [-22.5,22.5,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [-1.25,0.0,0.0],
+            "rot": [-22.5,-22.5,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "WMG Flare Countermeasures",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:flaregun_firing",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true
+      },
+      {
+        "name": "ivv:flaregun_reloading",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          }
+        ]
+      },
+      {
+        "name": "ivv:generic_gun_hammer",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_firing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9875
+          }
+        ]
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 2.0,
+        "color": "333333",
+        "pos": [0.75,0.0,0.0],
+        "initialVelocity": [2.5,0.0,2.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 2.0,
+        "color": "333333",
+        "pos": [-1.25,0.0,0.0],
+        "initialVelocity": [-2.5,0.5,2.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "none"
+  },
+  "general": {
+    "name": "Flare Gun",
+    "description": "Fires twin flares in opposing directions\nNon-functional though, because nobody was helpful in getting missile countermeasures working",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:3"]
+    ]
+  }
+}

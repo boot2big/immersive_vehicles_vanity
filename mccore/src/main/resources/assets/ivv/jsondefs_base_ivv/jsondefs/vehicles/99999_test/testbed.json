@@ -513,7 +513,7 @@
       "hudX": 205,
       "hudY": 32,
       "hudScale": 0.5,
-      "defaultInstrument": "ivv:1gear"
+      "defaultInstrument": "ivv:testbed_gauge"
     },
     {
       "pos": [0.0,0.0,0.0],
@@ -561,7 +561,7 @@
     {
       "pos": [0.0,0.0,0.0],
       "rot": [27.0,0.0,0.0],
-      "hudX": 358,
+      "hudX": 47,
       "hudY": 106,
       "hudScale": 0.5,
       "placeOnPanel": true,
@@ -661,17 +661,6 @@
       ]
     },
     {
-      "variable": "dragCoefficient",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "vehicle_skill_speed",
-          "axis": [-0.875,0.0,0.0],
-          "offset": 1.0
-        }
-      ]
-    },
-    {
       "variable": "axleratio_modifier_speed",
       "animations": [
         {
@@ -712,6 +701,18 @@
       "animations": [
         {
           "animationType": "translation",
+          "variable": "speed_factor",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 2.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
           "variable": "axleratio_modifier_strength",
           "axis": [1.0,0.0,0.0],
           "offset": 1.0
@@ -725,8 +726,241 @@
       ]
     },
     {
+      "variable": "axleRatio",
+      "maxValue": 12.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_drivetrain_rfbias",
+          "clampMin": -1.0,
+          "clampMax": -0.5,
+          "absolute": true
+        },
+        {
+          "animationType": "visibility",
+          "variable": "slip_understeer",
+          "clampMin": 0.1,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip_understeer",
+          "axis": [3.0,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 1.0,
+          "clampMax": 3.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [1.5,0.0,0.0],
+          "offset": -0.5,
+          "clampMin": 0.0125,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent_revlimit_1",
+          "axis": [-8.0,0.0,0.0],
+          "offset": 8.5,
+          "clampMin": 0.125,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "axleRatio",
+      "maxValue": 12.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_drivetrain_rfbias",
+          "clampMin": -0.5,
+          "clampMax": 0.5,
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "slip",
+          "clampMin": 8.0,
+          "clampMax": 32767.0,
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "slip_understeer",
+          "clampMin": 0.1,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "visibility",
+          "variable": "false",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "true"
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip_understeer",
+          "axis": [3.0,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 1.0,
+          "clampMax": 3.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.04,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 1.0,
+          "clampMax": 3.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [1.5,0.0,0.0],
+          "offset": -0.5,
+          "clampMin": 0.0125,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent_revlimit_1",
+          "axis": [-8.0,0.0,0.0],
+          "offset": 8.5,
+          "clampMin": 0.125,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "axleRatio",
+      "maxValue": 12.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_drivetrain_rfbias",
+          "clampMin": 0.5,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "visibility",
+          "variable": "slip",
+          "clampMin": 8.0,
+          "clampMax": 32767.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.04,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 1.0,
+          "clampMax": 3.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [1.5,0.0,0.0],
+          "offset": -0.5,
+          "clampMin": 0.0125,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent_revlimit_1",
+          "axis": [-8.0,0.0,0.0],
+          "offset": 8.5,
+          "clampMin": 0.125,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "waterBallastFactor",
+      "minValue": 0.25,
+      "maxValue": 3.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.0,0.033333333],
+          "offset": 0.75,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.033333333,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "mass",
+          "axis": [0.0,-1.25E-4,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "dragCoefficient",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed_factor",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_skill_speed",
+          "axis": [-0.75,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "steering_downforce",
+          "axis": [1.0,0.0,0.0],
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0125,0.0,0.0],
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "inliquid",
+          "axis": [9.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [2.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
       "variable": "brakingFactor",
       "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed_factor",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 2.0
+        },
         {
           "animationType": "translation",
           "variable": "brake",
@@ -742,17 +976,40 @@
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [-0.004166667,0.0,0.0],
+          "axis": [-0.025,0.0,0.0],
           "offset": 1.0,
-          "clampMin": 0.25,
-          "clampMax": 32767.0
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.33333334,0.0,0.0],
+          "axis": [0.2,0.0,0.0],
           "clampMin": 0.125,
           "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "steering_downforce",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.0,0.0625]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_steering_downforce_factor",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_steering_downforce",
+          "axis": [1.0,0.0,0.0]
         }
       ]
     },
@@ -767,16 +1024,26 @@
         },
         {
           "animationType": "translation",
+          "variable": "steering_downforce",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
           "variable": "terrain_blockmaterial_ice",
           "axis": [0.0,0.5,0.0],
           "absolute": true
         },
         {
           "animationType": "translation",
+          "variable": "vehicle_steering_stiffness",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
           "variable": "speed",
-          "axis": [0.05,0.0,0.0],
-          "clampMin": 0.125,
-          "clampMax": 1.0
+          "axis": [0.0375,0.0,0.0],
+          "clampMax": 8.0
         },
         {
           "animationType": "translation",
@@ -790,14 +1057,23 @@
         {
           "animationType": "translation",
           "variable": "slip",
-          "axis": [0.0,0.003333333,0.0],
+          "axis": [0.0,0.002666667,0.0],
           "absolute": true
         },
         {
           "animationType": "translation",
           "variable": "vehicle_steering_stiffness",
-          "axis": [-1.0,0.0,0.0],
-          "offset": 1.0
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_locked_3",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_locked_4",
+          "axis": [0.0,0.375,0.0]
         },
         {
           "animationType": "translation",
@@ -814,13 +1090,57 @@
           "animationType": "translation",
           "variable": "turn_indicator",
           "axis": [0.0,0.0,0.001],
-          "clampMax": 1.0,
           "absolute": true
         },
         {
           "animationType": "translation",
           "variable": "vehicle_steering_responsiveness",
           "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.2,0.0,0.0],
+          "offset": -0.1,
+          "clampMin": 0.001,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,-0.2,0.0],
+          "offset": 1.01,
+          "clampMin": 0.001,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "steeringForceFactor",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "steering_loss",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "steering_responsiveness",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "clampMin": 0.0625,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "input_rudder",
+          "axis": [0.022222222,0.0,0.0],
+          "offset": 0.5,
+          "clampMin": 0.25,
+          "clampMax": 1.0,
+          "absolute": true
         }
       ]
     },
@@ -831,6 +1151,22 @@
           "animationType": "translation",
           "variable": "vehicle_steering_oversteer",
           "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_skill_handling",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_locked_3",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_locked_4",
+          "axis": [0.0,1.0,0.0]
         },
         {
           "animationType": "translation",
@@ -851,37 +1187,140 @@
         },
         {
           "animationType": "translation",
+          "variable": "vehicle_skill_handling",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.003333333,0.0,0.0],
+          "offset": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
           "variable": "slip_understeer",
-          "axis": [-0.25,0.0,0.0],
+          "axis": [-0.5,0.0,0.0],
           "offset": 1.0,
           "absolute": true
         }
       ]
     },
     {
-      "variable": "steeringForceFactor",
-      "maxValue": 1.0,
+      "variable": "p_brake",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_windup_time_1",
+          "forwardsDelay": 1
+        },
+        {
+          "animationType": "visibility",
+          "variable": "gun_windup_time_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "reverseDelay": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "gun_windup_time_1",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "oversteer_test",
       "animations": [
         {
           "animationType": "translation",
-          "variable": "steering_loss",
-          "axis": [-1.0,0.0,0.0],
+          "variable": "vehicle_steering_oversteer",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_skill_handling",
+          "axis": [-0.5,0.0,0.0],
           "offset": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "steering_responsiveness",
-          "axis": [0.5,0.0,0.0],
-          "offset": 0.5
+          "variable": "slip",
+          "axis": [-0.003333333,0.0,0.0],
+          "offset": 1.0,
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "understeer_test",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "vehicle_steering_understeer",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_skill_handling",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.003333333,0.0,0.0],
+          "offset": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip_understeer",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0,
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "input_rudder_saved",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_save_steering_onunoccupation",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "input_rudder",
-          "axis": [0.022222222,0.0,0.0],
-          "offset": 0.75,
-          "clampMin": 0.25,
-          "clampMax": 1.0,
-          "absolute": true
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "input_rudder",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "vehicle_save_steering_onunoccupation",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "input_rudder_saved",
+          "axis": [0.0,0.0,1.0]
         }
       ]
     },
@@ -967,105 +1406,117 @@
       ]
     },
     {
-      "variable": "axleRatio",
-      "maxValue": 12.0,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "slip",
-          "clampMin": 8.0,
-          "clampMax": 32767.0,
-          "absolute": true
-        },
-        {
-          "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0625,0.0,0.0],
-          "offset": 0.5,
-          "clampMin": 1.0,
-          "clampMax": 3.125,
-          "absolute": true
-        },
-        {
-          "animationType": "translation",
-          "variable": "throttle",
-          "axis": [1.5,0.0,0.0],
-          "offset": -0.5,
-          "clampMin": 0.0125,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_rpm_percent_revlimit_1",
-          "axis": [-8.0,0.0,0.0],
-          "offset": 8.5,
-          "clampMin": 0.125,
-          "clampMax": 1.0
-        }
-      ]
-    },
-    {
-      "variable": "waterBallastFactor",
-      "minValue": 0.25,
-      "maxValue": 3.0,
+      "variable": "vehicle_resting",
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.0,0.0,0.033333333],
-          "offset": 0.75,
-          "clampMax": 1.0
+          "variable": "p_brake",
+          "axis": [0.0,0.0,1.0]
         },
         {
           "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.0,0.033333333,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "mass",
-          "axis": [0.0,-1.25E-4,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "dragCoefficient",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "speed_factor",
+          "variable": "!engines_on",
           "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "bodyroll_rest",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "vehicle_resting",
+          "axis": [0.0,0.0,1.0],
+          "duration": 20,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeoutback",
+          "forwardsDelay": 60
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [0.0,1.0,0.0],
+          "duration": 10,
+          "forwardsEasing": "easeoutbounce",
+          "reverseEasing": "easeoutback"
+        }
+      ]
+    },
+    {
+      "variable": "bodyroll_force_turn_indicator",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,-0.001333333,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_steering_stiffness",
+          "axis": [-0.75,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.125,
+          "clampMax": 8.0
         },
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [0.0125,0.0,0.0],
+          "axis": [5.0,0.0,0.0],
           "clampMax": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "inliquid",
-          "axis": [9.0,0.0,0.0],
-          "offset": 1.0,
-          "duration": 5
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "bodyroll_force_acceleration",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,0.0,1.0]
         },
         {
           "animationType": "translation",
-          "variable": "damage_percent",
-          "axis": [2.0,0.0,0.0],
+          "variable": "vehicle_steering_stiffness",
+          "axis": [-0.75,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.125,
+          "clampMax": 8.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [5.0,0.0,0.0],
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
           "offset": 1.0
         }
       ]
     },
     {
       "variable": "rlBodyroll",
-      "minValue": -3.0,
+      "minValue": -2.5,
       "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
           "variable": "rlBodyroll",
-          "axis": [0.0,-0.25,0.0]
+          "axis": [0.0,-0.125,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -1075,30 +1526,13 @@
         },
         {
           "animationType": "translation",
-          "variable": "turn_indicator",
+          "variable": "bodyroll_force_turn_indicator",
           "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,0.005,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "acceleration",
-          "axis": [0.0,5.0,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "vehicle_skill_handling",
-          "axis": [-0.25,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
+          "variable": "bodyroll_force_acceleration",
+          "axis": [0.0,10.0,0.0]
         },
         {
           "animationType": "translation",
@@ -1108,19 +1542,19 @@
         {
           "animationType": "translation",
           "variable": "!ground_onground_2",
-          "axis": [0.0,-0.5,0.0]
+          "axis": [0.0,-1.0,0.0]
         }
       ]
     },
     {
       "variable": "rrBodyroll",
       "minValue": -1.0,
-      "maxValue": 3.0,
+      "maxValue": 2.5,
       "animations": [
         {
           "animationType": "translation",
           "variable": "rrBodyroll",
-          "axis": [0.0,-0.25,0.0]
+          "axis": [0.0,-0.125,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -1130,30 +1564,13 @@
         },
         {
           "animationType": "translation",
-          "variable": "turn_indicator",
+          "variable": "bodyroll_force_turn_indicator",
           "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,0.005,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "acceleration",
-          "axis": [0.0,-5.0,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "vehicle_skill_handling",
-          "axis": [-0.25,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
+          "variable": "bodyroll_force_acceleration",
+          "axis": [0.0,-10.0,0.0]
         },
         {
           "animationType": "translation",
@@ -1163,19 +1580,19 @@
         {
           "animationType": "translation",
           "variable": "!ground_onground_1",
-          "axis": [0.0,0.5,0.0]
+          "axis": [0.0,1.0,0.0]
         }
       ]
     },
     {
       "variable": "flBodyroll",
-      "minValue": -3.0,
+      "minValue": -2.5,
       "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
           "variable": "flBodyroll",
-          "axis": [0.0,-0.25,0.0]
+          "axis": [0.0,-0.125,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -1185,30 +1602,13 @@
         },
         {
           "animationType": "translation",
-          "variable": "turn_indicator",
+          "variable": "bodyroll_force_turn_indicator",
           "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,0.005,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "acceleration",
-          "axis": [0.0,-5.0,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "vehicle_skill_handling",
-          "axis": [-0.375,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
+          "variable": "bodyroll_force_acceleration",
+          "axis": [0.0,-10.0,0.0]
         },
         {
           "animationType": "translation",
@@ -1218,19 +1618,19 @@
         {
           "animationType": "translation",
           "variable": "!ground_onground_4",
-          "axis": [0.0,-0.5,0.0]
+          "axis": [0.0,-1.0,0.0]
         }
       ]
     },
     {
       "variable": "frBodyroll",
       "minValue": -1.0,
-      "maxValue": 3.0,
+      "maxValue": 2.5,
       "animations": [
         {
           "animationType": "translation",
           "variable": "frBodyroll",
-          "axis": [0.0,-0.25,0.0]
+          "axis": [0.0,-0.125,0.0]
         },
         {
           "animationType": "inhibitor",
@@ -1240,30 +1640,13 @@
         },
         {
           "animationType": "translation",
-          "variable": "turn_indicator",
+          "variable": "bodyroll_force_turn_indicator",
           "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,0.005,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "acceleration",
-          "axis": [0.0,5.0,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "vehicle_skill_handling",
-          "axis": [-0.375,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
+          "variable": "bodyroll_force_acceleration",
+          "axis": [0.0,10.0,0.0]
         },
         {
           "animationType": "translation",
@@ -1273,7 +1656,7 @@
         {
           "animationType": "translation",
           "variable": "!ground_onground_3",
-          "axis": [0.0,0.5,0.0]
+          "axis": [0.0,1.0,0.0]
         }
       ]
     }
@@ -1496,8 +1879,8 @@
           {
             "animationType": "rotation",
             "variable": "rudder",
-            "centerPoint": [0.703125,0.125,2.3125],
-            "axis": [0.0,-0.5,0.0]
+            "centerPoint": [1.05625,0.0,2.5],
+            "axis": [0.0,-1.0,0.0]
           }
         ]
       },
@@ -1524,8 +1907,8 @@
           {
             "animationType": "rotation",
             "variable": "rudder",
-            "centerPoint": [-0.703125,0.125,2.3125],
-            "axis": [0.0,-0.5,0.0]
+            "centerPoint": [-1.05625,0.0,2.5],
+            "axis": [0.0,-1.0,0.0]
           }
         ]
       },
@@ -1650,6 +2033,7 @@
       }
     ],
     "customVariables": [
+      "vehicle_bodyroll",
       "STATS"
     ],
     "sounds": [],

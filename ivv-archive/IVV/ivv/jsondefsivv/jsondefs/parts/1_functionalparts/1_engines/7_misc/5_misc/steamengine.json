@@ -1,0 +1,131 @@
+{
+  "generic": {
+    "type": "engine_train",
+    "mass": 3000
+  },
+  "engine": {
+    "type": "normal",
+    "starterPower": 3,
+    "shiftSpeed": 20,
+    "revResistance": 15,
+    "maxRPM": 900,
+    "maxSafeRPM": 600,
+    "idleRPM": 120,
+    "startRPM": 60,
+    "revlimitRPM": 500,
+    "revlimitBounce": 19,
+    "stallRPM": 30,
+    "engineWinddownRate": 50,
+    "heatingCoefficient": 0.875,
+    "coolingCoefficient": 0.75,
+    "engineWearFactor": 0.925,
+    "fuelConsumption": 3.0,
+    "gearRatios": [-1.0,-2.0,0.0,2.0,1.0],
+    "fuelType": "water",
+    "superchargerFuelConsumption": 0.5,
+    "superchargerEfficiency": 0.5,
+    "isCrankingNotPitched": true
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Locomotive Engine [§2Manual§r,§FSteam§r]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:steamengineloop",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,1.0,0.0],
+            "clampMax": 0.25
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.5,0.0],
+            "offset": -0.125,
+            "clampMin": 0.00125
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.0,0.0],
+            "duration": 5
+          },
+          {
+            "animationType": "translation",
+            "variable": "engine_rpm_percent_safe",
+            "axis": [0.0,0.75,0.0],
+            "offset": 0.25
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:steamenginehiss",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_powered",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "throttle",
+            "axis": [0.0,0.0,0.0],
+            "offset": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "engine_pressure",
+            "axis": [0.0,0.0,0.0]
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Bruh",
+    "description": "Chugga chugga chugga chugga",
+    "health": 100,
+    "materialLists": [
+      ["minecraft:iron_block:0:2","minecraft:bucket:0:4","minecraft:cauldron:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["minecraft:bucket:0:4","mts:ivv.tape:0:1"]
+    ]
+  }
+}

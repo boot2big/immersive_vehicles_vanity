@@ -1,0 +1,202 @@
+{
+  "bullet": {
+    "types": [
+      "incendiary"
+    ],
+    "quantity": 1,
+    "diameter": 25.0,
+    "damage": 7.0,
+    "caseLength": 85.0,
+    "despawnTime": 205,
+    "burnTime": 5,
+    "impactDespawnTime": 40
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Flareshot Ammo",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "lazinessThatJavaWontLike",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [
+      {
+        "objectName": "ammoModel",
+        "emissive": true,
+        "color": "CF2923",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "20_40_20_cycle",
+            "axis": [0.0,0.5,0.0],
+            "duration": 20
+          },
+          {
+            "animationType": "translation",
+            "variable": "10_20_10_cycle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.25,
+            "duration": 10
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "flareHeight": 2.0,
+            "flareWidth": 2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "flareHeight": 2.0,
+            "flareWidth": -2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0],
+            "flareHeight": 2.0,
+            "flareWidth": 2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0],
+            "flareHeight": 2.0,
+            "flareWidth": -2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 2.0,
+            "flareWidth": 2.0
+          },
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 2.0,
+            "flareWidth": -2.0
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:flaregun_crackle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "ivv:explode_flare",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+      ],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 3,
+        "duration": 20,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 0.25,
+        "color": "666666",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "0_20_300_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "quantity": 4,
+        "duration": 160,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 3.0,
+        "toScale": 1.0,
+        "color": "FF8985",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.15,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "40_160_0_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 5,
+        "duration": 100,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 1.0,
+        "color": "CF2923",
+        "pos": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "30_180_0_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "materialLists": [
+      ["minecraft:blaze_powder:0:1","oredict:nuggetIron:2","minecraft:gunpowder:0:2"]
+    ],
+    "type": "bullet"
+  }
+}

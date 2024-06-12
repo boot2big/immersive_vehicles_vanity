@@ -1,0 +1,962 @@
+{
+  "motorized": {
+    "isFrontWheelDrive": true,
+    "emptyMass": 200,
+    "fuelCapacity": 10000,
+    "defaultFuelQty": 10000,
+    "downForce": 0.3,
+    "overSteer": -8.0,
+    "axleRatio": 2.25,
+    "brakingFactor": 0.3,
+    "maxTiltAngle": -5.5,
+    "dragCoefficient": 0.1
+  },
+  "parts": [
+    {
+      "pos": [-0.14886,0.26292,2.02025],
+      "maxValue": 3000.0,
+      "defaultPart": "ivv:v3performanteturbo",
+      "types": ["engine_car"]
+    },
+    {
+      "pos": [-1.32289,0.03125,-0.20312],
+      "minValue": 0.6,
+      "maxValue": 1.0,
+      "defaultPart": "ivv:normaltireworn",
+      "types": ["ground_wheel"],
+      "additionalParts": [
+        {
+          "pos": [-1.01149,0.03125,-0.20312],
+          "minValue": 0.6,
+          "maxValue": 1.0,
+          "defaultPart": "ivv:normaltireworn",
+          "types": ["ground_wheel"],
+          "animations": [
+            {
+              "animationType": "inhibitor",
+              "variable": "speed",
+              "clampMax": 0.1
+            },
+            {
+              "animationType": "inhibitor",
+              "variable": "brake",
+              "clampMax": 0.7
+            }
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMax": 0.1
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "brake",
+          "clampMax": 0.7
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [-1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [1.32289,0.03125,-0.20312],
+      "minValue": 0.6,
+      "maxValue": 1.0,
+      "defaultPart": "ivv:normaltireworn",
+      "types": ["ground_wheel"],
+      "additionalParts": [
+        {
+          "pos": [1.01149,0.03125,-0.20312],
+          "minValue": 0.6,
+          "maxValue": 1.0,
+          "defaultPart": "ivv:normaltireworn",
+          "types": ["ground_wheel"],
+          "animations": [
+            {
+              "animationType": "inhibitor",
+              "variable": "speed",
+              "clampMax": 0.1
+            },
+            {
+              "animationType": "inhibitor",
+              "variable": "brake",
+              "clampMax": 0.7
+            },
+            {
+              "animationType": "rotation",
+              "variable": "ground_rotation_2",
+              "centerPoint": [0.0,0.0,0.0],
+              "axis": [-1.0,0.0,0.0]
+            }
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMax": 0.1
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "brake",
+          "clampMax": 0.7
+        }
+      ]
+    },
+    {
+      "pos": [-1.13888,0.03125,2.4375],
+      "turnsWithSteer": true,
+      "minValue": 0.6,
+      "maxValue": 1.0,
+      "defaultPart": "ivv:normaltireworn",
+      "types": ["ground_wheel"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,-1.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMax": 0.1
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "brake",
+          "clampMax": 0.7
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_3",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [-1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [1.13888,0.03125,2.4375],
+      "turnsWithSteer": true,
+      "minValue": 0.6,
+      "maxValue": 1.0,
+      "defaultPart": "ivv:normaltireworn",
+      "types": ["ground_wheel"],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,-1.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMax": 0.1
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "brake",
+          "clampMax": 0.7
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_4",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [-1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [0.40782,1.0375,1.2599],
+      "isController": true,
+      "isPermanent": true,
+      "defaultPart": "ivv:standingsalute",
+      "types": ["seat_invisible"]
+    }
+  ],
+  "collision": [
+    {
+      "pos": [0.0,0.175,-0.2],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.5,0.175,-0.2],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.5,0.175,-0.2],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.25,0.175,0.05],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.25,0.175,0.05],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.25,0.175,-0.45],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.25,0.175,-0.45],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.0,0.175,0.3],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.5,0.175,0.3],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.5,0.175,0.3],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.25,0.175,0.55],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.25,0.175,0.55],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.0,0.175,0.8],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.5,0.175,0.8],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.5,0.175,0.8],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.25,0.175,1.05],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.25,0.175,1.05],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.0,0.175,1.3],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.5,0.175,1.3],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.5,0.175,1.3],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.25,0.175,1.55],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.25,0.175,1.55],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.75,0.175,0.05],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.75,0.175,-0.45],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.75,0.175,0.55],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.75,0.175,1.05],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.75,0.175,1.55],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.75,0.175,0.05],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.75,0.175,-0.45],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.75,0.175,0.55],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.75,0.175,1.05],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.75,0.175,1.55],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.0,0.175,1.8],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.5,0.175,1.8],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [-0.5,0.175,1.8],
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "pos": [0.0,0.075,2.6],
+      "width": 0.25,
+      "height": 0.25,
+      "isInterior": true
+    },
+    {
+      "pos": [0.5,0.075,2.6],
+      "width": 0.25,
+      "height": 0.25,
+      "isInterior": true
+    },
+    {
+      "pos": [-0.5,0.075,2.6],
+      "width": 0.25,
+      "height": 0.25,
+      "isInterior": true
+    },
+    {
+      "pos": [0.0,0.075,-0.2],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.5,0.075,-0.2],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.5,0.075,-0.2],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.25,0.075,-0.45],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.25,0.075,-0.45],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.75,0.075,-0.45],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.75,0.075,-0.45],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.0,0.075,0.3],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.5,0.075,0.3],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.5,0.075,0.3],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.25,0.075,0.05],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.25,0.075,0.05],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.75,0.075,0.05],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.75,0.075,0.05],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.0,0.075,0.8],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.5,0.075,0.8],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.5,0.075,0.8],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.25,0.075,0.55],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.25,0.075,0.55],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.75,0.075,0.55],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.75,0.075,0.55],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.0,0.075,1.3],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.5,0.075,1.3],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.5,0.075,1.3],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.25,0.075,1.05],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.25,0.075,1.05],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.75,0.075,1.05],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.75,0.075,1.05],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.0,0.075,1.8],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.5,0.075,1.8],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.5,0.075,1.8],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.25,0.075,1.55],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.25,0.075,1.55],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [-0.75,0.075,1.55],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    },
+    {
+      "pos": [0.75,0.075,1.55],
+      "width": 0.25,
+      "height": 0.25,
+      "collidesWithLiquids": true
+    }
+  ],
+  "instruments": [],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Modified Vehicle Frame",
+      "extraMaterials": ["minecraft:planks:-1:4"]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "frontaxle",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "engine_driveshaft_rotation_1",
+            "centerPoint": [0.0,0.03125,2.4375],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "rearaxle",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_1",
+            "centerPoint": [0.0,0.03125,-0.20312],
+            "axis": [0.5,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_2",
+            "centerPoint": [0.0,0.03125,-0.20312],
+            "axis": [0.5,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "gas",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "throttle",
+            "centerPoint": [0.0,0.5,1.76562],
+            "axis": [-33.5,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "brake",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "brake",
+            "centerPoint": [0.0,0.5,1.76562],
+            "axis": [-33.5,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "steeringwheel",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [0.40782,1.65148,1.76281],
+            "axis": [0.0,0.0,1.3]
+          }
+        ]
+      },
+      {
+        "objectName": "pedalconnector",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "exhaust",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "mts:wheel_skidding",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "brake",
+            "clampMin": 0.8,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_2"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_3"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_4"
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.3,0.0],
+            "clampMax": 2.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.15,0.0],
+            "clampMin": 0.95,
+            "clampMax": 1.3
+          },
+          {
+            "animationType": "translation",
+            "variable": "brake",
+            "axis": [0.0,0.2,0.0],
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.1,
+            "clampMax": 100000.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "brake",
+            "clampMin": 0.8,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_2"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_3"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_4"
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#404040",
+        "transparency": 0.4,
+        "toTransparency": -1.0E-4,
+        "scale": 4.0,
+        "toScale": 60.0,
+        "pos": [-1.13888,-0.71875,-0.20312],
+        "initialVelocity": [0.0,0.0,0.5],
+        "quantity": 1,
+        "duration": 40
+      },
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.1,
+            "clampMax": 100000.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "brake",
+            "clampMin": 0.8,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_2"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_3"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_4"
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#404040",
+        "transparency": 0.4,
+        "toTransparency": -1.0E-4,
+        "scale": 4.0,
+        "toScale": 60.0,
+        "pos": [1.13888,-0.71875,-0.20312],
+        "initialVelocity": [0.0,0.0,0.5],
+        "quantity": 1,
+        "duration": 40
+      },
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.1,
+            "clampMax": 100000.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "brake",
+            "clampMin": 0.8,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_2"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_3"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_4"
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#404040",
+        "transparency": 0.4,
+        "toTransparency": -1.0E-4,
+        "scale": 4.0,
+        "toScale": 60.0,
+        "pos": [-1.13888,-0.71875,2.4375],
+        "initialVelocity": [0.0,0.0,0.5],
+        "quantity": 1,
+        "duration": 40
+      },
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.1,
+            "clampMax": 100000.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "brake",
+            "clampMin": 0.8,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_2"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_3"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_inliquid_4"
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#404040",
+        "transparency": 0.4,
+        "toTransparency": -1.0E-4,
+        "scale": 4.0,
+        "toScale": 60.0,
+        "pos": [1.13888,-0.71875,2.4375],
+        "initialVelocity": [0.0,0.0,0.5],
+        "quantity": 1,
+        "duration": 40
+      },
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#404040",
+        "transparency": 0.4,
+        "toTransparency": -1.0E-4,
+        "scale": 1.2,
+        "toScale": 0.1,
+        "pos": [-0.06421,-0.09375,-0.98608],
+        "initialVelocity": [0.0,-0.1,-0.5],
+        "quantity": 1,
+        "duration": 10
+      },
+      {
+        "type": "smoke",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "spawnEveryTick": true,
+        "color": "#404040",
+        "transparency": 0.4,
+        "toTransparency": -1.0E-4,
+        "scale": 1.2,
+        "toScale": 0.1,
+        "pos": [0.49585,-0.09375,-0.98608],
+        "initialVelocity": [0.0,-0.1,-0.5],
+        "quantity": 1,
+        "duration": 10
+      }
+    ]
+  },
+  "prefixFolders": "2_memes/",
+  "packID": "ivv",
+  "systemName": "framecar",
+  "classification": "vehicle",
+  "general": {
+    "description": "Eat your heart out, Bad Piggies!",
+    "materials": ["mts:ivv.frame:-1:1","mts:ivv.normaltire:-1:6","mts:ivv.v3performanteturbo:-1:1"]
+  }
+}

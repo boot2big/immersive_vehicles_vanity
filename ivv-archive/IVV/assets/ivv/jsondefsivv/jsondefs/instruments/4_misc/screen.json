@@ -1,0 +1,215 @@
+{
+  "components": [
+    {
+      "scale": 2.0,
+      "textureXCenter": 416,
+      "textureYCenter": 32,
+      "textureWidth": 64,
+      "textureHeight": 64
+    },
+    {
+      "yCenter": -5,
+      "scale": 2.0,
+      "textureXCenter": 416,
+      "textureYCenter": 91,
+      "textureWidth": 56,
+      "textureHeight": 39,
+      "lightUpTexture": true
+    },
+    {
+      "textObject": {
+        "pos": [-23.0,-44.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "fieldName": "speed",
+        "defaultText": "ERR",
+        "maxLength": 2,
+        "color": "#FFFFFF",
+        "lightsUp": true
+      },
+      "textFactor": 2.31633,
+      "lightUpTexture": true
+    },
+    {
+      "textObject": {
+        "pos": [-14.0,-30.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "fieldName": "engine_rpm_1",
+        "defaultText": "ERR",
+        "maxLength": 3,
+        "color": "#FFFFFF",
+        "lightsUp": true
+      },
+      "textFactor": 1.0,
+      "lightUpTexture": true
+    },
+    {
+      "textObject": {
+        "pos": [-18.0,-16.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "fieldName": "engine_gear_1",
+        "defaultText": "ERR",
+        "maxLength": 1,
+        "color": "#FFFFFF",
+        "lightsUp": true
+      },
+      "textFactor": 1.0,
+      "lightUpTexture": true
+    },
+    {
+      "textObject": {
+        "pos": [-14.0,-2.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "fieldName": "engine_temp_1",
+        "defaultText": "ERR",
+        "maxLength": 3,
+        "color": "#FFFFFF",
+        "lightsUp": true
+      },
+      "textFactor": 1.0,
+      "lightUpTexture": true
+    },
+    {
+      "textObject": {
+        "pos": [-9.0,12.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 1.0,
+        "fieldName": "engine_hours_1",
+        "defaultText": "ERR",
+        "maxLength": 3,
+        "color": "#FFFFFF",
+        "lightsUp": true
+      },
+      "textFactor": 1.0,
+      "lightUpTexture": true
+    },
+    {
+      "xCenter": 9,
+      "yCenter": 3,
+      "scale": 4.0,
+      "textureXCenter": 392,
+      "textureYCenter": 113,
+      "textureWidth": 8,
+      "textureHeight": 5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_hours_1",
+          "clampMin": 60.0,
+          "clampMax": 99999.0
+        }
+      ]
+    },
+    {
+      "xCenter": 9,
+      "yCenter": 3,
+      "scale": 4.0,
+      "textureXCenter": 399,
+      "textureYCenter": 114,
+      "textureWidth": 7,
+      "textureHeight": 7,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_hours_1",
+          "clampMin": -999.0,
+          "clampMax": 60.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_rpm_percent_safe_1",
+          "clampMin": 0.98,
+          "clampMax": 999.0
+        }
+      ]
+    },
+    {
+      "xCenter": 9,
+      "yCenter": -8,
+      "scale": 4.0,
+      "textureXCenter": 427,
+      "textureYCenter": 114,
+      "textureWidth": 7,
+      "textureHeight": 7,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": -999.0,
+          "clampMax": 10.0
+        }
+      ]
+    },
+    {
+      "xCenter": 9,
+      "yCenter": -8,
+      "scale": 4.0,
+      "textureXCenter": 420,
+      "textureYCenter": 114,
+      "textureWidth": 7,
+      "textureHeight": 7,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": 110.0,
+          "clampMax": 120.0
+        }
+      ]
+    },
+    {
+      "xCenter": 9,
+      "yCenter": -8,
+      "scale": 4.0,
+      "textureXCenter": 420,
+      "textureYCenter": 114,
+      "textureWidth": 7,
+      "textureHeight": 7,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_temp",
+          "clampMin": 120.0,
+          "clampMax": 99999.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "2_4_2_cycle",
+          "clampMin": 1,
+          "clampMax": 1
+        }
+      ]
+    },
+    {
+      "scale": 2.0,
+      "textureXCenter": 416,
+      "textureYCenter": 32,
+      "textureWidth": 64,
+      "textureHeight": 64,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_magneto_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "electric_power",
+          "clampMin": -1.0,
+          "clampMax": 5.0
+        }
+      ]
+    }
+  ],
+  "prefixFolders": "4_misc/",
+  "packID": "ivv",
+  "systemName": "screen",
+  "classification": "instrument",
+  "general": {
+    "name": "Screen Display",
+    "description": "The ultimate gauge, no moving needles or backfaces.\nPure, RGB capable OLED touchscreen...\n(Except it actually only has white text and isn't clickable, since it's an instrument. But y'know, marketing)",
+    "materials": ["mts:ivv.circuit:-1:2","minecraft:redstone:-1:3","minecraft:glass_pane:-1:1"]
+  }
+}

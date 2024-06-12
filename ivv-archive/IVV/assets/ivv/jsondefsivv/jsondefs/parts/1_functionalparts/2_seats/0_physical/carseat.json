@@ -1,0 +1,110 @@
+{
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Car Seat [Brown]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_gray",
+      "name": "Car Seat [Gray]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_black",
+      "name": "Car Seat [Black]",
+      "extraMaterials": []
+    },
+    {
+      "subName": "_white",
+      "name": "Car Seat [White]",
+      "extraMaterials": []
+    }
+  ],
+    "general": {
+        "description": "It holds your butt while you drive.",
+   	"stackSize": 64,
+        "type": "seat",
+		"materials" : ["minecraft:iron_ingot:-1:2", "minecraft:leather:-1:2"]
+    },
+    "subParts": [
+	{
+		"pos": [0, -0.0025, 0],
+		"types": ["generic_npc"],
+		"minValue": 0,
+		"maxValue": 1
+	}
+    ],
+  "rendering": {
+	"animatedObjects": [
+		{
+			"objectName": "beltinactive",
+			"animations": [
+				{
+					"animationType": "visibility",
+					"variable": "part_present_1",
+					"clampMin": 0,
+					"clampMax": 0
+				},
+				{
+					"animationType": "visibility",
+					"variable": "seat_occupied",
+					"clampMin": 0,
+					"clampMax": 0
+				}
+			]
+		},
+		{
+			"objectName": "beltactive",
+			"animations": [
+				{
+					"animationType": "visibility",
+					"variable": "seat_occupied",
+					"clampMin": 1,
+					"clampMax": 1
+				}
+			]
+		},
+		
+		{
+			"objectName": "npcbeltinactive",
+			"animations": [
+				{
+					"animationType": "visibility",
+					"variable": "part_present_1",
+					"clampMin": 0,
+					"clampMax": 0
+				},
+				{
+					"animationType": "visibility",
+					"variable": "seat_occupied",
+					"clampMin": 0,
+					"clampMax": 0
+				}
+			]
+		},
+		{
+			"objectName": "npcbeltactive",
+			"animations": [
+				{
+					"animationType": "visibility",
+					"variable": "part_present_1",
+					"clampMin": 1,
+					"clampMax": 1
+				}
+			]
+		},
+		{
+			"objectName": "bucklebutton",
+			"animations": [
+				{
+					"animationType": "translation",
+					"variable": "seat_occupied",
+					"axis": [0.00125, 0, 0]
+				}
+			]
+		}
+		
+	]
+  }
+}

@@ -1,0 +1,59 @@
+{  
+  "ground": {
+    "isWheel": false,
+    "isTread": false,
+    "canFloat": false,
+    "canGoFlat": false,
+    "width": 0.45,
+    "height": 0.675,
+    "motiveFriction": 0.0,
+    "lateralFriction": 0.0
+  },
+  "subParts": [
+    {
+      "isSubPart": true,
+      "pos": [0.35411,0.02648,0.0],
+      "types": ["ground_wheel"],
+      "minValue": 0.6785,
+      "maxValue": 0.75,
+      "turnsWithSteer": false,
+      
+            "animations": [
+       	{
+		"animationType": "translation",
+		"variable": "HYDRAULIC_ONE",
+		"axis": [0, -0.245, 0],
+		"duration": 3
+		}
+      ]
+    }
+  ],
+  "rendering": {"customVariables" : ["HYDRAULIC_ONE"],
+	"animatedObjects":[
+	{
+	"objectName": "piston",
+	"animations":
+		[
+		{
+		"animationType": "translation",
+		"variable": "HYDRAULIC_ONE",
+		"axis": [0, -0.245, 0],
+		"duration": 3,
+		"forwardsStartSound": "ivv:hydraulicsmallup",
+		"reverseStartSound": "ivv:hydraulicsmalldown"
+		}
+		]
+	}
+	]
+  },
+  "general": {
+    "type": "ground_wheel",
+    "disableMirroring": false,
+    "useVehicleTexture": false,
+    "materials": [
+      "mts:ivv.tcalloy:-1:4","minecraft:iron_ingot:-1:7", "minecraft:water_bucket:-1:1"
+    ],
+    "name": "Hydraulic Kit [Compact, Type 1]",
+    "description": "Allows you to dynamically lift or lower your car!\nHas four variants, to allow for up to four different wheel on/off modes."
+  }
+}

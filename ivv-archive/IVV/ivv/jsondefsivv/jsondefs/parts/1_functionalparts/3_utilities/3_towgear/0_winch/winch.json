@@ -1,0 +1,97 @@
+{
+  "generic": {
+    "type": "generic_winch",
+    "width": 1.0,
+    "height": 1.0,
+    "mass": 400
+  },
+  "connectionGroups": [
+    {
+      "groupName": "TRAILER",
+      "canInitiateConnections": true,
+      "isHitch": true,
+      "connections": [
+        {
+          "type": "tow_bumper",
+          "pos": [0.0,-0.07452,0.84836],
+          "distance": 1.0
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Winch",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "ropebig",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected"
+          }
+        ]
+      },
+      {
+        "objectName": "hookclose",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected"
+          }
+        ]
+      },
+      {
+        "objectName": "hookopen",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:towhookon1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "name": "ivv:towhookoff1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "connection_1_1_connected"
+          }
+        ]
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Winch",
+    "description": "Can tow convention-compatible vehicles\n(Requires that said vehicle have a towpoint defined in their JSON.)",
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:6","minecraft:lead:0:1"]
+    ]
+  }
+}

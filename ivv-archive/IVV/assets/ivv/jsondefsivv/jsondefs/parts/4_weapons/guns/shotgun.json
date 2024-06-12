@@ -1,0 +1,62 @@
+{
+    "general": {
+        "name" : "Double Barrel Shotgun",
+        "type" : "gun_hand_shotgun",
+		"materials" : ["minecraft:iron_ingot:-1:13", "minecraft:planks:-1:2", "minecraft:button:-1:1"]
+    },
+	"gun" : {
+  	        "capacity" : 2,
+		"fireDelay" : 5,
+		"reloadTime" : 57,
+		"muzzleVelocity" : 675,
+		"diameter" : 18.5,
+		"bulletSpreadFactor" : 0.6,
+		"handHeld": true,
+		"handHeldNormalOffset": [-0.05, -0.1, 0.65],
+		"handHeldAimedOffset": [0.315, 0.025, 0.75],
+		"muzzlePositions" : [
+		[0.02287, 0.0, 0.57166],
+		[-0.02287, 0.0, 0.57166]
+		],
+		"isSemiAuto": true
+	},
+	"rendering": {
+	"animatedObjects": [
+		{
+			"objectName": "barrel",
+			"animations": [
+				{
+				"animationType": "inhibitor",
+				"variable": "gun_reload",
+				"clampMin": 0,
+				"clampMax": 0,
+				"forwardsDelay" : 15
+				},
+				{
+					"animationType": "rotation",
+					"variable": "gun_reload",
+					"absolute": true,
+					"centerPoint": [0, -0.05488, 0],
+					"axis": [45.0, 0.0, 0.0],
+					"clampMin" : 45,
+					"clampMax" : 45,
+					"forwardsDelay" : 15
+				}
+			]
+		},
+		{
+			"objectName": "cube",
+			"animations": [
+				{
+					"animationType": "translation",
+					"variable": "gun_active",
+					"axis": [0.0, 0.0, -0.000001],
+					"duration": -1,
+					"forwardsStartSound": "ivv:gunequip2"
+				}
+			]
+		}
+		
+	]
+  }
+}
