@@ -1,0 +1,198 @@
+{
+  "generic": {
+    "type": "generic_steeringwheel",
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "definitions": [
+    {
+      "subName": "_gray",
+      "name": "Steering Wheel",
+      "description": "Standard, has airbag",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "acceleration_modified",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "acceleration_modified",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMin": -0.0625,
+          "clampMax": 0.0625
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "damage",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "damage_totaled"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "acceleration_modified",
+          "clampMin": -32767.0,
+          "clampMax": -1.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "!blow",
+          "axis": [0.0,0.0,10.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "airbag_base",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "damage_totaled",
+            "centerPoint": [0.0,0.0,-0.125],
+            "axis": [1.0,1.0,1.0],
+            "offset": 0.001,
+            "duration": 1,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeinoutsine",
+            "skipReverseMovement": true
+          }
+        ]
+      },
+      {
+        "objectName": "airbag",
+        "applyAfter": "airbag_base",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "pitch",
+            "centerPoint": [0.0,-0.0625,-0.1875],
+            "axis": [-1.0,0.0,0.0],
+            "clampMin": -180,
+            "clampMax": 10
+          },
+          {
+            "animationType": "rotation",
+            "variable": "roll",
+            "centerPoint": [0.0,0.0,-0.1875],
+            "axis": [0.0,0.0,-1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "damage_totaled",
+            "centerPoint": [0.0,0.0,-0.1875],
+            "axis": [-22.5,0.0,0.0],
+            "offset": -22.5,
+            "duration": 15,
+            "forwardsEasing": "easeoutelastic",
+            "reverseEasing": "easeinoutsine",
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "damage_totaled",
+            "centerPoint": [0.0,-0.0625,-0.1875],
+            "axis": [-80,0.0,0.0],
+            "forwardDelay": 20,
+            "duration": 80,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine",
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "scaling",
+            "variable": "damage_totaled",
+            "centerPoint": [0.0,-0.0625,-0.1875],
+            "axis": [0.0,0.0,0.25],
+            "offset": 1.0,
+            "forwardDelay": 20,
+            "duration": 80,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine",
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "scaling",
+            "variable": "damage_totaled",
+            "centerPoint": [0.0,-0.0625,-0.1875],
+            "axis": [-0.375,0.0,0.0],
+            "offset": -1.0,
+            "forwardDelay": 20,
+            "duration": 80,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine",
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "scaling",
+            "variable": "damage_totaled",
+            "centerPoint": [0.0,-0.0625,-0.1875],
+            "axis": [0.0,-0.875,0.0],
+            "offset": -1.0,
+            "forwardDelay": 20,
+            "duration": 80,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine",
+            "skipReverseMovement": true
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "mts:wheel_blowout",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "health": 10,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2",
+        "oredict:dustRedstone:1"
+      ]
+    ],
+    "repairMaterialLists": [
+      [
+        "oredict:dustRedstone:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

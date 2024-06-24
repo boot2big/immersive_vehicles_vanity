@@ -1,0 +1,558 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_turret_baron_sedan",
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [-0.001, -0.28125, 0.6125],
+      "rot": [0.0, 180.0, 0.0],
+      "applyAfter": "frame_seat_mirrored",
+      "allowParentRemoval": true,
+      "types": ["seat"],
+      "defaultPart": "unuparts:unuparts_part_unu_seat_budget_tungsten",
+      "toneIndex": 2,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_ismirrored",
+          "axis": [0.0,-0.625,0.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "part_ismirrored"
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_ismirrored"
+        }
+      ],
+      "interactableVariables": [
+        [
+          "!part_ismirrored"
+        ],
+        [
+          "parent_door_internal"
+        ]
+      ]
+    },
+    {
+      "pos": [0.001, -0.28125, 0.6125],
+      "rot": [0.0, 180.0, 0.0],
+      "applyAfter": "frame_seat",
+      "allowParentRemoval": true,
+      "types": ["seat"],
+      "defaultPart": "unuparts:unuparts_part_unu_seat_budget_tungsten",
+      "toneIndex": 2,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!part_ismirrored",
+          "axis": [0.0,-0.625,0.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "!part_ismirrored"
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "!part_ismirrored"
+        }
+      ],
+      "interactableVariables": [
+        [
+          "part_ismirrored"
+        ],
+        [
+          "parent_door_internal"
+        ]
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "click",
+        "entity",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.40625,-0.125,0.70625],
+          "width": 0.25,
+          "height": 0.3125,
+          "variableName": "gunner_lever",
+          "variableType": "toggle"
+        }
+      ],
+      "applyAfter": "lever"
+    },
+    {
+      "collisionTypes": [
+        "click",
+        "entity",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [-0.40625,-0.125,0.70625],
+          "width": 0.25,
+          "height": 0.3125,
+          "variableName": "gunner_lever",
+          "variableType": "toggle"
+        }
+      ],
+      "applyAfter": "lever_mirrored"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "UNU Baron \"Ectomobile\" Gunner Assembly",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "part_gunner_turret_open",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "gunner_lever",
+          "axis": [0.0,0.0,1.0],
+          "reverseDelay": 20
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "frame",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "lever",
+        "applyAfter": "frame",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.40625,-0.5625,0.89375],
+            "axis": [-22.5,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_1",
+        "applyAfter": "frame",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gunner_lever",
+            "axis": [0.0,0.0625,0.0],
+            "duration": 5,
+            "reverseDelay": 20,
+            "offset": -0.0625
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.25,-0.484375,0.83125],
+            "axis": [0.0,22.5,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_2",
+        "applyAfter": "scissor_1",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.174029,-0.484375,0.400397],
+            "axis": [0.0,-45.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_3",
+        "applyAfter": "scissor_2",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.174029,-0.484375,0.837897],
+            "axis": [0.0,45,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_4",
+        "applyAfter": "scissor_3",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.098058,-0.484375,0.407043],
+            "axis": [0.0,-45.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_5",
+        "applyAfter": "scissor_4",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.098058,-0.484375,0.844543],
+            "axis": [0.0,45,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_6",
+        "applyAfter": "scissor_5",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.022087,-0.484375,0.41369],
+            "axis": [0.0,-45.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_7",
+        "applyAfter": "scissor_6",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.022087,-0.484375,0.85119],
+            "axis": [0.0,45,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_8",
+        "applyAfter": "scissor_7",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.053884,-0.484375,0.420336],
+            "axis": [0.0,-45.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_9",
+        "applyAfter": "scissor_8",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.053884,-0.484375,0.857836],
+            "axis": [0.0,22.5,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "frame_seat",
+        "applyAfter": "scissor_9",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.09187,-0.484375,0.64241],
+            "axis": [0.0,180.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 20
+          }
+        ]
+      },
+      {
+        "objectName": "frame_seat_mount_turret",
+        "applyAfter": "frame_seat",
+        "animations": []
+      },
+      {
+        "objectName": "frame_mirrored",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "lever_mirrored",
+        "applyAfter": "frame_mirrored",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.40625,-0.5625,0.89375],
+            "axis": [-22.5,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_mirrored_1",
+        "applyAfter": "frame_mirrored",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gunner_lever",
+            "axis": [0.0,0.0625,0.0],
+            "duration": 5,
+            "reverseDelay": 20,
+            "offset": -0.0625
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.25,-0.484375,0.83125],
+            "axis": [0.0,-22.5,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_mirrored_2",
+        "applyAfter": "scissor_mirrored_1",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.174029,-0.484375,0.400397],
+            "axis": [0.0,45.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_mirrored_3",
+        "applyAfter": "scissor_mirrored_2",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.174029,-0.484375,0.837897],
+            "axis": [0.0,-45,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_mirrored_4",
+        "applyAfter": "scissor_mirrored_3",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.098058,-0.484375,0.407043],
+            "axis": [0.0,45.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_mirrored_5",
+        "applyAfter": "scissor_mirrored_4",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.098058,-0.484375,0.844543],
+            "axis": [0.0,-45,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_mirrored_6",
+        "applyAfter": "scissor_mirrored_5",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.022087,-0.484375,0.41369],
+            "axis": [0.0,45.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_mirrored_7",
+        "applyAfter": "scissor_mirrored_6",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [-0.022087,-0.484375,0.85119],
+            "axis": [0.0,-45,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_mirrored_8",
+        "applyAfter": "scissor_mirrored_7",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.053884,-0.484375,0.420336],
+            "axis": [0.0,45.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "scissor_mirrored_9",
+        "applyAfter": "scissor_mirrored_8",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.053884,-0.484375,0.857836],
+            "axis": [0.0,-22.5,0.0],
+            "duration": 10,
+            "forwardsDelay": 10,
+            "reverseDelay": 10
+          }
+        ]
+      },
+      {
+        "objectName": "frame_seat_mirrored",
+        "applyAfter": "scissor_mirrored_9",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gunner_lever",
+            "centerPoint": [0.09187,-0.484375,0.64241],
+            "axis": [0.0,-180.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 20
+          }
+        ]
+      },
+      {
+        "objectName": "frame_seat_mount_turret_mirrored",
+        "applyAfter": "frame_seat_mirrored",
+        "animations": []
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": [],
+    "sounds": [
+      {
+        "name": "ivv:clusterfuck_leveractionforth",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gunner_lever"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:clusterfuck_leveractionback",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gunner_lever",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "I ain't 'fraid of no ghosts!\nRequires suicide door for mounting\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:6"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

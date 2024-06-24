@@ -1,0 +1,843 @@
+{
+  "generic": {
+    "type": "generic_radio",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25,
+    "movementAnimations": [
+      {
+        "animationType": "inhibitor",
+        "variable": "!im_just_too_lazy_to_make_a_converter_or_to_force_trin_into_redoing_the_convention_thing"
+      },
+      {
+        "animationType": "inhibitor",
+        "variable": "!plus_theres_probably_no_chance_of_my_stuff_getting_conventionalized_anyways"
+      },
+      {
+        "animationType": "rotation",
+        "variable": "parent_unuisbest",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,180.0,0.0]
+      }
+    ]
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [-0.09375,0.179688,0.125],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "metric",
+          "variableType": "toggle"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Taxi Meter",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "tune_fare_initial": 2.5,
+    "tune_fare_mile": 0.4,
+    "tune_fare_time_tick": 0.4,
+    "tune_fare_time_rush": 1.0,
+    "tune_fare_time_night": 0.5
+  },
+  "variableModifiers": [
+    {
+      "variable": "fare_mileage",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "TAXI"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!subtract",
+          "axis": [0.0,-0.0625,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_mileage",
+          "axis": [0.0,-0.0625,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_mileage",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "TAXI",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_speed",
+          "axis": [0.0,6.945E-6,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_mileage_display",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "fare_mileage",
+          "axis": [0.0,0.0,2.31633]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "false"
+        },
+        {
+          "animationType": "activator",
+          "variable": "metric",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_mileage",
+          "axis": [0.0,0.0,3.6]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost_time_tick",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "TAXI",
+          "clampMin": 2.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!subtract",
+          "axis": [0.0,-0.0625,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_cost_time",
+          "axis": [0.0,-0.0625,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost_time_tick_math",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "TAXI",
+          "clampMin": 2.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_time_tick",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "40_10_0_cycle",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost_time_tick",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "TAXI",
+          "clampMin": 2.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMin": 6.70540903,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_cost_time_tick_math",
+          "axis": [0.0,0.1,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_time_rushhour",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "false"
+        },
+        {
+          "animationType": "activator",
+          "variable": "time",
+          "clampMin": 1500,
+          "clampMax": 3000.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "time",
+          "clampMin": 10500,
+          "clampMax": 12500.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_time_rush",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_time_night",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "false"
+        },
+        {
+          "animationType": "activator",
+          "variable": "time",
+          "clampMin": 13000,
+          "clampMax": 23000.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_time_night",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost_multiplier",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_mile",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_time_rushhour",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_time_night",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_speed",
+          "axis": [0.0,0.0,6.945E-6]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "TAXI"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!subtract",
+          "axis": [0.0,-0.0625,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_cost_total",
+          "axis": [0.0,-0.0625,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "TAXI",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_initial",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_cost_multiplier",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_cost_time_tick",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_cost_total",
+      "maxValue": 2.14748365E9,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "fare_cost",
+          "axis": [0.0,0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fare_cost_total",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "TAXI"
+        },
+        {
+          "animationType": "translation",
+          "variable": "tune_fare_initial",
+          "axis": [0.0,0.25,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "fare_lucky",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "TAXI",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_totaled",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.023438,0.4,0.17185],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.075,
+        "fontName": "ivv:digifont",
+        "defaultText": "EMPTY",
+        "maxLength": 32,
+        "color": "090909",
+        "wrapWidth": 3,
+        "attachedTo": "flareflag_body",
+        "autoScale": true
+      },
+      {
+        "pos": [0.023438,0.4,0.1719],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.075,
+        "fontName": "ivv:digifont",
+        "defaultText": "EMPTY",
+        "maxLength": 32,
+        "color": "090909",
+        "wrapWidth": 3,
+        "attachedTo": "flareflag_body",
+        "autoScale": true
+      },
+      {
+        "pos": [-0.09375,0.19375,0.125075],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.075,
+        "variableName": "fare_mileage_display",
+        "variableFactor": 1.0,
+        "variableFormat": "MILES",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "090909",
+        "attachedTo": "fare_mileage_imperial"
+      },
+      {
+        "pos": [-0.09375,0.19375,0.125075],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.075,
+        "variableName": "fare_mileage_display",
+        "variableFactor": 1.0,
+        "variableFormat": "KMTRS",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "090909",
+        "attachedTo": "fare_mileage_metric"
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "fare_mileage_imperial",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "metric"
+          }
+        ]
+      },
+      {
+        "objectName": "fare_mileage_metric",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "metric",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "flareflag_arm",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "TAXI",
+            "centerPoint": [0.15625,0.203125,0.125],
+            "axis": [0.0,0.0,45.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutbounce",
+            "reverseEasing": "easeoutelastic"
+          }
+        ]
+      },
+      {
+        "objectName": "flareflag_body",
+        "applyAfter": "flareflag_arm",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "TAXI",
+            "axis": [0.05,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutbounce",
+            "reverseEasing": "easeoutelastic"
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_mileage1",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.171875,0.0625],
+            "axis": [-252.0,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_mileage_display",
+            "centerPoint": [0.0,0.171875,0.0625],
+            "axis": [-36.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_mileage2",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.171875,0.0625],
+            "axis": [-612.0,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_mileage_display",
+            "centerPoint": [0.0,0.171875,0.0625],
+            "axis": [-3.6,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_mileage3",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.171875,0.0625],
+            "axis": [-972.0,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_mileage_display",
+            "centerPoint": [0.0,0.171875,0.0625],
+            "axis": [-0.36,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_mileage4",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.171875,0.0625],
+            "axis": [-1332.0,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_mileage_display",
+            "centerPoint": [0.0,0.171875,0.0625],
+            "axis": [-0.036,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost1",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-972.0,0.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_cost_total",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-3600.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost2",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-612.0,0.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 1,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_cost_total",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-360.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost3",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "cbcfyam",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost3alt",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!whenpigsfly"
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost4",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-252.0,0.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 3,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_cost_total",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-36.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost5",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-252.0,0.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 4,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_cost_total",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-3.6,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost6",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-252.0,0.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 5,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_cost_total",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-0.36,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost7",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-252.0,0.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 6,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_cost_total",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-0.036,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost8",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-252.0,0.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 7,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_cost_total",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-0.0036,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dial_fare_cost9",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fare_lucky",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-252.0,0.0,0.0],
+            "duration": 10,
+            "forwardsDelay": 8,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!damage_totaled"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "fare_cost_total",
+            "centerPoint": [0.0,0.078125,0.0625],
+            "axis": [-3.6E-4,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": [
+      "TAXI"
+    ],
+    "sounds": [
+      {
+        "name": "ivv:taximeter_off",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "TAXI"
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:taximeter_on",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "TAXI",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Useless radio",
+    "description": "\"These intergalactic fares are the real money-makers!\"\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "health": 77,
+    "materialLists": [
+      [
+        "oredict:ingotIron:4",
+        "oredict:dustRedstone:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
