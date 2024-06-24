@@ -1,0 +1,237 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "forwardsDamageMultiplier": 0.0,
+    "movementAnimations": [
+      {
+        "animationType": "rotation",
+        "variable": "ground_rotation",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [1.0,0.0,0.0],
+        "offset": -45.0
+      }
+    ]
+  },
+  "ground": {
+    "isWheel": true,
+    "width": 0.45,
+    "height": 0.875,
+    "climbHeight": 1.5,
+    "motiveFriction": 0.5,
+    "lateralFriction": 0.375,
+    "frictionModifiers": {}
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Square Wheel",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "slip_modified",
+      "maxValue": 150,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.0,1.0],
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip_understeer",
+          "axis": [0.0,100,0.0],
+          "absolute": true,
+          "offset": -25,
+          "clampMin": -0.001,
+          "clampMax": 75
+        }
+      ]
+    },
+    {
+      "variable": "bleck",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_rotation_normalized",
+          "axis": [0.0,0.0,1.0],
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_rotation_normalized",
+          "clampMax": 90.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!yeet",
+          "axis": [0.0,-90.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_rotation_normalized",
+          "clampMax": 180.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!yeet",
+          "axis": [0.0,-90.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_rotation_normalized",
+          "clampMax": 270.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!yeet",
+          "axis": [0.0,-90.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_rotation_normalized",
+          "clampMax": 360.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!yeet",
+          "axis": [0.0,-90.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "bleck",
+          "axis": [0.0,0.0,0.002777778],
+          "offset": 0.875
+        },
+        {
+          "animationType": "translation",
+          "variable": "1_2_1_cycle",
+          "axis": [0.0125,0.0,0.0],
+          "offset": 0.9875,
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "variable": "motiveFriction",
+      "setValue": 1.0E-5,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "brake",
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "throttle",
+          "clampMin": 0.625,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:tirelandsoft",
+        "soundVariations": [
+          "ivv:tirelandsoft1",
+          "ivv:tirelandsoft2",
+          "ivv:tirelandsoft3"
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 0.5,
+            "clampMax": 32767.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "speed",
+            "clampMin": 5.0,
+            "clampMax": 32767.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "slip_modified",
+            "clampMin": 16.0,
+            "clampMax": 32767.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bleck",
+            "clampMin": 80.0,
+            "clampMax": 90.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.5,0.0]
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Square Wheel",
+    "description": "R.I.P Grant o7",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:woolBlack:1"
+      ]
+    ],
+    "repairMaterialLists": [
+      [
+        "oredict:woolBlack:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

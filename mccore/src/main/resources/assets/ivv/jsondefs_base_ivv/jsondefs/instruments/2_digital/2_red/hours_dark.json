@@ -1,0 +1,153 @@
+{
+  "components": [
+    {
+      "scale": 1.0,
+      "textureXCenter": 960,
+      "textureYCenter": 864,
+      "textureWidth": 128,
+      "textureHeight": 64,
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-32.0,23.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 2.0,
+        "variableName": "engine_temp_1",
+        "variableFactor": 1.0,
+        "variableFormat": "%03.0f",
+        "fontName": "ivv:ledfont",
+        "defaultText": "ERR",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-32.0,7.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 2.0,
+        "variableName": "engine_hours_1",
+        "variableFactor": 1.0,
+        "variableFormat": "%03.0f",
+        "fontName": "ivv:ledfont",
+        "defaultText": "ERR",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [-32.0,-9.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 2.0,
+        "variableName": "engine_pressure_1",
+        "variableFactor": 1.0,
+        "variableFormat": "%03.0f",
+        "fontName": "ivv:ledfont",
+        "defaultText": "ERR",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [32.0,23.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 2.0,
+        "variableName": "electric_power",
+        "variableFactor": 10.0,
+        "variableFormat": "%03.0f",
+        "fontName": "ivv:ledfont",
+        "defaultText": "ERR",
+        "color": "FFFFFF",
+        "lightsUp": true
+      },
+      "lightUpTexture": true
+    },
+    {
+      "scale": 1.0,
+      "textObject": {
+        "pos": [32.0,-9.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "scale": 2.0,
+        "variableName": "fuel",
+        "variableFactor": 100.0,
+        "variableFormat": "%03.0f",
+        "fontName": "ivv:ledfont",
+        "defaultText": "ERR",
+        "color": "FFFFFF",
+        "lightsUp": true
+      },
+      "lightUpTexture": true
+    },
+    {
+      "xCenter": -44,
+      "yCenter": -13,
+      "scale": 2.5,
+      "textureXCenter": 392,
+      "textureYCenter": 113,
+      "textureWidth": 8,
+      "textureHeight": 5,
+      "lightUpTexture": true,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_hours_1",
+          "clampMin": 200.0,
+          "clampMax": 99999.0
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 960,
+      "textureYCenter": 800,
+      "textureWidth": 116,
+      "textureHeight": 52,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "engines_on"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "electric_power",
+          "clampMin": -1.0,
+          "clampMax": 5.0
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "textureXCenter": 960,
+      "textureYCenter": 672,
+      "textureWidth": 116,
+      "textureHeight": 52
+    }
+  ],
+  "textureName": "instruments_modern_dark.png",
+  "general": {
+    "name": "Engine Informational Unit",
+    "description": "Indicates engine temperature, pressure, fuel tank fullness, battery voltage and hours",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:dustRedstone:1",
+        "minecraft:glass_pane:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

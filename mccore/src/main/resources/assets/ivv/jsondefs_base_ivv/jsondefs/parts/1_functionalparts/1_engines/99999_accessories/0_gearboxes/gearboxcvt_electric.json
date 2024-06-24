@@ -1,0 +1,346 @@
+{
+  "generic": {
+    "type": "generic_transmission",
+    "customType": "ivlabs",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.375,
+    "mass": 100
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "gearbox",
+      "textureName": "gearbox",
+      "name": "Advanced Continuously Variable Gearbox",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "generic_transmission_isautomatic": 1.0,
+    "generic_transmission_slushiness": 0.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "generic_transmission_gear",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_gear",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_restrict",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_gear",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_math",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_gear",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_transmission_gear_restrict",
+          "axis": [0.0,-1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_restrict_upshift",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_transmission_gear_math",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_restrict_downshift",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_transmission_gear_math",
+          "axis": [0.0,0.0,-1.0]
+        }
+      ]
+    },
+    {
+      "variable": "generic_transmission_gear_ratio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "generic_transmission_gear",
+          "axis": [0.0,0.0,3.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent_safe",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.125,
+          "clampMin": 0.25,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:super1",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_straightcut"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!speed"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "generic_transmission_straightcut",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_reversed",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 3
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.1,0.0],
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,0.0125,0.0],
+            "clampMax": 0.5,
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_clutching",
+            "axis": [0.0,-1.0,0.0],
+            "duration": 3
+          },
+          {
+            "animationType": "translation",
+            "variable": "!throttle",
+            "axis": [0.0,-0.375,0.0],
+            "duration": 3
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_gear",
+            "axis": [0.0,0.05,0.0],
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "speed",
+            "axis": [0.0,0.075,0.0],
+            "offset": 0.1875
+          },
+          {
+            "animationType": "translation",
+            "variable": "slip",
+            "axis": [0.0,0.0125,0.0],
+            "absolute": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "!throttle",
+            "axis": [0.0,-0.125,0.0],
+            "duration": 3
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.5,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoselectup",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_select"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "generic_transmission_gear",
+            "clampMin": 1.0,
+            "clampMax": 127.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoselectneutral",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_select"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "generic_transmission_gear"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoselectdown",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_select"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "generic_transmission_gear",
+            "clampMin": -127.0,
+            "clampMax": -1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoshiftup",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_shift"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_clutch_upshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": -0.03125
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_rpm_percent_safe",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:transmissionautoshiftdown",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_disablesound_shift"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_engine_clutch_downshift",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": -0.03125
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_engine_rpm_percent_safe",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Automatic Gearbox",
+    "description": "Gear Ratios:\n-0.75 <- -3.0, 0.0, 3.0 -> 0.75\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2",
+        "oredict:ingotGold:1",
+        "mts:ivv.gear:0:2",
+        "oredict:dustRedstone:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
