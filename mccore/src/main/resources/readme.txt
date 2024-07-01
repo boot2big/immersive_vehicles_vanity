@@ -1,3 +1,6 @@
+
+GNU General Public License v3.0 applicable as of June 28th 2024 to present, prior and subsequent releases unless otherwise stated
+
 ____    __    ____  ___      ._______   .__   __.  __  .__   __.   _______  __  
 \   \  /  \  /   / /   \     |   __  \  |  \ |  | |  | |  \ |  |  /  _____||  | 
  \   \/    \/   / /  ^  \    |  |__)  | |   \|  | |  | |   \|  | |  |  __  |  | 
@@ -7,6 +10,5 @@ ____    __    ____  ___      ._______   .__   __.  __  .__   __.   _______  __
                                                                                   
 If you can read this, you'd better know what you're doing in here!
 We do not take responsibility for game crashes, corrupted worlds, lost items or general misfortune caused by modification of IVV's (or other packs/mods) assets.
-
-Aside from that I'm not gonna be one of those snooty pack authors who tell you not to rummage through my pack. In fact aside from the legally-absolving disclaimer seen above, I *dare* you to look through it and see what makes my creation tick!
-I hope it sparks some inspiration and leads you to create your own pack, in which case you're entirely free to take inspiration, reverse-engineer or outright copy any JSONs from my pack. (Maybe come up with'cher own models though so it isn't *too* obvious, you get me? Eheh.)
+However I'm not one of those snooty pack authors who doesn't want you seeing what makes my pack tick. If you find a feature that interests you then you're free to take inspiration from, reverse-engineer or outright copy it from this pack.
+I hope it sparks some inspiration and leads you to create your own pack, as I believe doing so is the core of community-driven content.

@@ -7,7 +7,7 @@ Rumors have always circulated in regards to the initial founder of IVLabs, espec
 A risky attempt by IVLabs to expand itself into the vehicular market which soon proved to be worthwhile, having become the second-largest North American and second-largest worldwide automotive brand in Minecraft.
 $write more crap
 
-### Tyrius Offroad Solutions
+### Caenum Offroad Solutions
 Subsidiary of A.M.P. as its over-land division, specializing in rugged off-road trucks and light, nimble all-terrain vehicles for emergency, commercial and military use.
 $write more crap
 

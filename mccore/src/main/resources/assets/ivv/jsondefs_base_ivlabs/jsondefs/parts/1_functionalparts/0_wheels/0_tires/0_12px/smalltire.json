@@ -42,6 +42,7 @@
   "parts": [
     {
       "pos": [0.132375,0.0,0.0],
+      "allowParentRemoval": true,
       "maxValue": 1.0,
       "partScale": [0.875,0.875,0.875],
       "conditionalDefaultParts": {
@@ -176,6 +177,27 @@
   ],
   "variableModifiers": [
     {
+      "variable": "acceleration_modified",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "acceleration_modified",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "clampMin": -0.0625,
+          "clampMax": 0.0625
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
       "variable": "slip_modified",
       "maxValue": 150.0,
       "animations": [
@@ -206,6 +228,8 @@
           "variable": "slip",
           "axis": [0.0,0.0,2.0],
           "offset": -75.0,
+          "clampMin": -0.001,
+          "clampMax": 75.0,
           "absolute": true
         },
         {
@@ -223,8 +247,8 @@
       "variable": "motiveFriction",
       "animations": [
         {
-          "animationType": "inhibitor",
-          "variable": "!false",
+          "animationType": "visibility",
+          "variable": "false",
           "clampMin": 1.0,
           "clampMax": 1.0
         },
@@ -316,12 +340,6 @@
           "variable": "ground_locked",
           "axis": [-0.5,0.0,0.0],
           "offset": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "!false",
-          "clampMin": 1.0,
-          "clampMax": 1.0
         },
         {
           "animationType": "translation",
@@ -456,7 +474,6 @@
         {
           "animationType": "inhibitor",
           "variable": "speed",
-          "clampMin": 0.0,
           "clampMax": 2.0
         },
         {
@@ -863,12 +880,12 @@
             "animationType": "visibility",
             "variable": "damage_totaled"
           },
-        {
-          "animationType": "rotation",
-          "variable": "ground_rotation_locked",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [1.0,0.0,0.0]
-        },
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_locked",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0]
+          },
           {
             "animationType": "inhibitor",
             "variable": "ground_locked",
@@ -890,12 +907,12 @@
             "animationType": "visibility",
             "variable": "damage_totaled"
           },
-        {
-          "animationType": "rotation",
-          "variable": "ground_rotation_locked",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [1.0,0.0,0.0]
-        },
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_locked",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0]
+          },
           {
             "animationType": "inhibitor",
             "variable": "ground_locked",
@@ -961,12 +978,12 @@
             "animationType": "visibility",
             "variable": "part_present_1"
           },
-        {
-          "animationType": "rotation",
-          "variable": "ground_rotation_locked",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [1.0,0.0,0.0]
-        },
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation_locked",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0]
+          },
           {
             "animationType": "inhibitor",
             "variable": "ground_locked",
@@ -985,6 +1002,111 @@
     "lightObjects": [],
     "sounds": [
       {
+        "name": "ivv:crashsmall",
+        "soundVariations": [
+          "ivv:crashsmall1",
+          "ivv:crashsmall2",
+          "ivv:crashsmall3"
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "acceleration_modified",
+            "clampMin": -1.0,
+            "clampMax": -0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.375,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:crashmed",
+        "soundVariations": [
+          "ivv:crashmed1",
+          "ivv:crashmed2",
+          "ivv:crashmed3"
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "acceleration_modified",
+            "clampMin": -1.5,
+            "clampMax": -1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.375,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:crashlarge",
+        "soundVariations": [
+          "ivv:crashlarge1",
+          "ivv:crashlarge2",
+          "ivv:crashlarge3"
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "acceleration_modified",
+            "clampMin": -99999.0,
+            "clampMax": -1.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.875
+          },
+          {
+            "animationType": "translation",
+            "variable": "parent_vehicle_size",
+            "axis": [0.0,-0.375,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
         "name": "ivv:tirelandsoft",
         "soundVariations": [
           "ivv:tirelandsoft1",
@@ -996,7 +1118,7 @@
             "animationType": "visibility",
             "variable": "vertical_speed",
             "clampMin": -3.0,
-            "clampMax": -1.0
+            "clampMax": -2.0
           },
           {
             "animationType": "inhibitor",
@@ -1008,7 +1130,12 @@
             "animationType": "visibility",
             "variable": "ground_onground",
             "clampMin": 1.0,
-            "clampMax": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "forwardsDelay": 30,
             "reverseDelay": 30
           }
         ],
@@ -1056,7 +1183,12 @@
             "animationType": "visibility",
             "variable": "ground_onground",
             "clampMin": 1.0,
-            "clampMax": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "forwardsDelay": 30,
             "reverseDelay": 30
           }
         ],
@@ -1104,7 +1236,12 @@
             "animationType": "visibility",
             "variable": "ground_onground",
             "clampMin": 1.0,
-            "clampMax": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "ground_onground",
+            "forwardsDelay": 30,
             "reverseDelay": 30
           }
         ],

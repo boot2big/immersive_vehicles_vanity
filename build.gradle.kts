@@ -28,6 +28,14 @@ var mcInterfaceForge1122 = project(":mcinterfaceforge1122")
 var mcInterfaceForge1165 = project(":mcinterfaceforge1165")
 
 tasks.register("buildCore") {
+    doFirst {
+        // Run your Python script here if needed
+        //exec {
+        //    commandLine("python", "./transformers/1-12-2_1-16-5_ID_transformer.py")
+        //    commandLine("python3", "./transformers/json_univ_transformer.py")
+        //}
+        preBuild()
+    }
     dependsOn(mcCore.tasks.build)
     doLast {
         moveToOut(mcCore, "core")
@@ -37,29 +45,31 @@ tasks.register("buildCore") {
 tasks.register("buildForge1122") {
     doFirst {
         // Run your Python script here if needed
-        //exec {
-        //    commandLine("python", "./1-12-2_1-16-5_ID_transformer.py", "--reverse")
-        //}
+        exec {
+        //    commandLine("python", "./transformers/1-12-2_1-16-5_ID_transformer.py", "--reverse")
+            commandLine("python3", "./transformers/json_univ_transformer.py")
+        }
         preBuild()
     }
+    dependsOn(mcInterfaceForge1122.tasks.build)
     doLast {
         moveToOut(mcInterfaceForge1122, "1.12.2")
     }
-    dependsOn(mcInterfaceForge1122.tasks.build)
 }
 
 tasks.register("buildForge1165") {
     doFirst {
         // Run your Python script here if needed
-        //exec {
-        //    commandLine("python", "./1-12-2_1-16-5_ID_transformer.py")
-        //}
+        exec {
+        //    commandLine("python", "./transformers/1-12-2_1-16-5_ID_transformer.py")
+            commandLine("python3", "./transformers/json_univ_transformer.py")
+        }
         preBuild()
     }
+    dependsOn(mcInterfaceForge1165.tasks.build)
     doLast {
         moveToOut(mcInterfaceForge1165, "1.16.5")
     }
-    dependsOn(mcInterfaceForge1165.tasks.build)
 }
 
 tasks.register("buildForgeAll") {
@@ -78,9 +88,10 @@ fun moveToOut(subProject: Project, versionStr: String) {
 
 fun preBuild() {
     project.projectDir.canonicalFile.walk()
-        .filter { it.name == "gradle.properties" || it.name == "mcmod.info" || it.name == "InterfaceLoader.java" }
+        .filter { it.name == "gradle.properties" || it.name == "mcmod.info" || it.name == "ForgePackLoader.java" || it.name == "mods.toml"}
         .forEach { it.writeText(it.readText()
             .replace(Regex("mod_version=(.+)"), "mod_version=$modVersion")
             .replace(Regex("\"version\": \"[^\"]*\""), "\"version\": \"$modVersion\"")
+            .replace(Regex("\"version\"=\"[^\"]*\""), "\"version\"=\"$modVersion\"")
             .replace(Regex("MODVER = \"[^\"]*\";"), "MODVER = \"$modVersion\";")) }
 }
