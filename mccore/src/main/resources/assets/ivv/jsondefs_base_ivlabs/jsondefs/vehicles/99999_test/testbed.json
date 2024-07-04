@@ -3,7 +3,7 @@
     "hasSingleEngineControl": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
-    "emptyMass": 1200,
+    "emptyMass": 1600,
     "fuelCapacity": 10000,
     "defaultFuelQty": 10000,
     "steeringForceIgnoresSpeed": true,
@@ -588,7 +588,8 @@
     }
   ],
   "constantValues": {
-    "vehicle_ivv_coolnamehere": 1.0
+    "vehicle_ivv_coolnamehere": 1.0,
+    "vehicle_drivetrain_driftrevup": 1.0
   },
   "variableModifiers": [
     {
@@ -747,15 +748,16 @@
         },
         {
           "animationType": "visibility",
-          "variable": "engine_rpm_percent_revlimit_1",
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "visibility",
           "variable": "slip_understeer",
           "clampMin": 0.1,
           "clampMax": 1.0,
           "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_rpm_percent_revlimit_1",
+          "clampMin": 0.9375,
+          "clampMax": 32767.0
         },
         {
           "animationType": "translation",
@@ -822,6 +824,12 @@
           "variable": "true"
         },
         {
+          "animationType": "inhibitor",
+          "variable": "engine_rpm_percent_revlimit_1",
+          "clampMin": 0.9375,
+          "clampMax": 32767.0
+        },
+        {
           "animationType": "translation",
           "variable": "slip_understeer",
           "axis": [3.0,0.0,0.0],
@@ -876,6 +884,12 @@
           "clampMin": 8.0,
           "clampMax": 32767.0,
           "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_rpm_percent_revlimit_1",
+          "clampMin": 0.9375,
+          "clampMax": 32767.0
         },
         {
           "animationType": "translation",
@@ -1059,7 +1073,6 @@
           "animationType": "translation",
           "variable": "input_rudder",
           "axis": [0.022222222,0.0,0.0],
-          "offset": 0.0,
           "clampMin": 0.5,
           "clampMax": 1.0,
           "absolute": true
