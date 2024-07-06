@@ -19,7 +19,47 @@
       "pos": [0.0,0.15625,-0.125],
       "isPermanent": true,
       "maxValue": 1.0,
+      "partScale": [1.0,1.0,1.0],
       "playerScale": [0.5,0.5,0.5],
+      "defaultPart": "ivv:rockseat",
+      "types": [
+        "seat_invisible"
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_atlas_carrier_swap",
+          "axis": [0.0,-0.15625,0.0]
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "seat_atlas_carrier_swap"
+        }
+      ],
+      "interactableVariables": [
+        [
+          "!seat_atlas_carrier_swap"
+        ]
+      ]
+    },
+    {
+      "pos": [0.0,0.0,-0.125],
+      "isPermanent": true,
+      "maxValue": 1.0,
       "partScale": [1.0,1.0,1.0],
       "defaultPart": "ivv:rockseat",
       "types": [
@@ -40,8 +80,51 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "disabled",
-          "axis": [0.0,0.0625,0.0]
+          "variable": "seat_atlas_carrier_swap",
+          "axis": [0.0,0.15625,0.0]
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "seat_atlas_carrier_swap",
+          "clampMin": 1,
+          "clampMax": 1
+        }
+      ],
+      "interactableVariables": [
+        [
+          "seat_atlas_carrier_swap"
+        ]
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "click",
+        "entity"
+      ],
+      "collisions": [
+        {
+          "pos": [0.25,0.625,-0.25],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "carrier_swap",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-0.25,0.625,-0.25],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "carrier_swap",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "seated_combined"
         }
       ]
     }
@@ -197,6 +280,31 @@
           "axis": [0.0,0.0,1.0]
         }
       ]
+    },
+    {
+      "variable": "seat_atlas_carrier_swap",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "carrier_swap",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "seated_combined",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_1",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_2",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
     }
   ],
   "rendering": {
@@ -206,7 +314,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "seat_occupied_partandrider_1"
+            "variable": "seated_combined"
           }
         ]
       },
@@ -215,7 +323,7 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "!seat_occupied_partandrider_1"
+            "variable": "!seated_combined"
           }
         ]
       }
@@ -231,7 +339,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "seat_occupied_client_1",
+            "variable": "seated_combined",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -252,7 +360,7 @@
           },
           {
             "animationType": "visibility",
-            "variable": "seat_occupied_client_1"
+            "variable": "seated_combined"
           }
         ],
         "minDistance": 0.0,
