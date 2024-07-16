@@ -45,10 +45,10 @@ tasks.register("buildCore") {
 tasks.register("buildForge1122") {
     doFirst {
         // Run your Python script here if needed
-        exec {
+        //exec {
         //    commandLine("python", "./transformers/1-12-2_1-16-5_ID_transformer.py", "--reverse")
-            commandLine("python3", "./transformers/json_univ_transformer.py")
-        }
+        //    commandLine("python3", "./transformers/json_univ_transformer.py")
+        //}
         preBuild()
     }
     dependsOn(mcInterfaceForge1122.tasks.build)
@@ -60,10 +60,10 @@ tasks.register("buildForge1122") {
 tasks.register("buildForge1165") {
     doFirst {
         // Run your Python script here if needed
-        exec {
+        //exec {
         //    commandLine("python", "./transformers/1-12-2_1-16-5_ID_transformer.py")
-            commandLine("python3", "./transformers/json_univ_transformer.py")
-        }
+        //    commandLine("python3", "./transformers/json_univ_transformer.py")
+        //}
         preBuild()
     }
     dependsOn(mcInterfaceForge1165.tasks.build)
