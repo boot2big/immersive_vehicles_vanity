@@ -1,19 +1,41 @@
 {
   "generic": {
     "type": "generic_lightbar",
-    "useVehicleTexture": true,
     "forwardsDamageMultiplier": 0.25,
     "forceAllLinks": true,
     "width": 0.25,
-    "height": 0.125
+    "height": 0.125,
+    "useVehicleTexture": true
   },
   "parts": [
     {
-      "pos": [0.0,6.25E-4,0.0],
-      "minValue": 0.0625,
+      "pos": [0.0,-0.0375,0.375],
+      "partScale": [0.878,0.878,0.878],
       "maxValue": 3.0,
       "types": [
-        "generic_lightbar"
+        "generic_lightbar",
+        "generic_gyrophare",
+        "generic_roofdevice"
+      ]
+    },
+    {
+      "pos": [0.0,0.03375,-0.25],
+      "partScale": [0.878,0.878,0.878],
+      "maxValue": 3.0,
+      "types": [
+        "generic_lightbar",
+        "generic_gyrophare",
+        "generic_roofdevice"
+      ]
+    },
+    {
+      "pos": [0.0,0.03375,-0.375],
+      "partScale": [0.878,0.878,0.878],
+      "maxValue": 3.0,
+      "types": [
+        "generic_lightbar",
+        "generic_gyrophare",
+        "generic_roofdevice"
       ]
     },
     {
@@ -64,8 +86,8 @@
       ]
     },
     {
-      "pos": [0.0,-1.40625,-0.2],
-      "rot": [0.0,0.0,0.0],
+      "pos": [0.3,-1.375,-0.3],
+      "rot": [0.0,90.0,0.0],
       "isMirrored": true,
       "maxValue": 3.0,
       "types": [
@@ -73,8 +95,8 @@
       ]
     },
     {
-      "pos": [0.0,-1.60625,-1.3],
-      "rot": [0.25,0.0,0.0],
+      "pos": [0.0,-1.71,-1.625],
+      "rot": [0.0,0.0,0.0],
       "maxValue": 1.0,
       "types": [
         "generic_hitch_mount"
@@ -84,14 +106,14 @@
       "pos": [0.0,-1.511,1.57976],
       "rot": [0.0,0.0,0.0],
       "maxValue": 3.0,
-      "partScale": [0.831,0.831,0.831],
+      "partScale": [0.8,0.8,0.8],
       "types": [
         "generic_fluff"
       ]
     },
     {
-      "pos": [0.0,-0.5875,1.025],
-      "rot": [0.0,180.0,0.0],
+      "pos": [0.0,-0.58,0.853],
+      "rot": [10.0,180.0,0.0],
       "maxValue": 1.0,
       "partScale": [1.0,1.0,1.0],
       "types": [
@@ -99,7 +121,7 @@
       ]
     },
     {
-      "pos": [-0.597803,-0.79119,0.800333],
+      "pos": [-0.465309,-0.984495,0.86647],
       "rot": [0.0,0.0,0.0],
       "isPermanent": true,
       "maxValue": 1.0,
@@ -307,6 +329,7 @@
   "definitions": [
     {
       "subName": "",
+      "useVehicleTexture": true,
       "name": "GGVP Mercury Mountaineer Custom Kit",
       "description": "Meant only for the 2004 Mercury Mountaineer Premier from General's General Vehicle Pack\nUnexpected behavior may occur if placed on other vehicles",
       "extraMaterialLists": [
@@ -314,135 +337,38 @@
       ]
     }
   ],
-  "variableModifiers": [
-    {
-      "variable": "parent_self_controlled",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "seat_occupied_1",
-          "axis": [0.0,0.0,1.0]
-        }
-      ]
-    },
-    {
-      "variable": "doorchime",
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "parent_doorl",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "parent_doorr",
-          "centerPoint": [0.0,0.0,0.0],
-          "axis": [0.0,1.0,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "tda_eyelid_left",
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "resting",
-          "axis": [0.0,0.0,1.0],
-          "duration": 20,
-          "forwardsEasing": "easeoutcubic",
-          "reverseEasing": "easeoutquint"
-        },
-        {
-          "animationType": "translation",
-          "variable": "240_4_0_cycle",
-          "axis": [0.0,1.0,0.0],
-          "duration": 2
-        },
-        {
-          "animationType": "translation",
-          "variable": "hitch_n",
-          "axis": [0.0,0.375,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.0,0.005555556,0.0],
-          "clampMax": 0.5
-        },
-        {
-          "animationType": "translation",
-          "variable": "!running_light",
-          "axis": [0.25,0.0,0.0],
-          "offset": 0.75,
-          "duration": 5
-        }
-      ]
-    },
-    {
-      "variable": "tda_eyelid_right",
-      "maxValue": 1.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "resting",
-          "axis": [0.0,0.0,1.0],
-          "duration": 20,
-          "forwardsEasing": "easeoutcubic",
-          "reverseEasing": "easeoutquint"
-        },
-        {
-          "animationType": "translation",
-          "variable": "240_4_0_cycle",
-          "axis": [0.0,1.0,0.0],
-          "duration": 2
-        },
-        {
-          "animationType": "translation",
-          "variable": "hitch_n",
-          "axis": [0.0,0.5,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.0,0.005555556,0.0],
-          "clampMax": 0.5
-        },
-        {
-          "animationType": "translation",
-          "variable": "!running_light",
-          "axis": [0.25,0.0,0.0],
-          "offset": 0.75,
-          "duration": 5
-        }
-      ]
-    },
-    {
-      "variable": "resting",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "!parent_engines_on",
-          "axis": [0.0,0.0,1.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "!parent_engine_gearshift_1",
-          "axis": [1.0,0.0,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "p_brake",
-          "axis": [1.0,0.0,0.0]
-        }
-      ]
-    }
-  ],
+  "variableModifiers": [],
   "rendering": {
     "textObjects": [],
-    "animatedObjects": [],
+    "animatedObjects": [
+      {
+        "objectName": "sunroof",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "SUNROOF",
+            "axis": [0.0,0.0,-0.4875],
+            "duration": 40,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "SUNROOF",
+            "centerPoint": [0.0,0.023823,-0.122041],
+            "axis": [-3.75,0.0,0.0],
+            "duration": 40,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic"
+          }
+        ]
+      },
+      {
+        "objectName": "sunroof_translucent",
+        "applyAfter": "sunroof",
+        "animations": []
+      }
+    ],
     "lightObjects": [],
     "cameraObjects": [
       {
@@ -520,6 +446,9 @@
         ]
       }
     ],
+    "customVariables": [
+      "SUNROOF"
+    ],
     "sounds": [
       {
         "name": "ivv:generic_vehicle_purr",
@@ -552,7 +481,7 @@
           {
             "animationType": "translation",
             "variable": "!bigger",
-            "axis": [0.0,0.875,0.0]
+            "axis": [0.0,0.9375,0.0]
           },
           {
             "animationType": "translation",
