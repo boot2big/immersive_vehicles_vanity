@@ -1,15 +1,59 @@
 {
   "generic": {
     "type": "generic_bodypart_unu_hood_contractor",
-    "useVehicleTexture": true,
     "mustBeRemovedByScrewdriver": true,
     "forwardsDamageMultiplier": 1.0,
     "width": 0.25,
-    "height": 0.25
+    "height": 0.25,
+    "useVehicleTexture": true
   },
+  "parts": [
+    {
+      "pos": [0.0,0.125,0.25],
+      "isPermanent": true,
+      "defaultPart": "ivv:rockseat",
+      "types": [
+        "seat_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_1",
+          "axis": [0.0,0.0,0.25]
+        }
+      ],
+      "interactableVariables": [
+        [
+          "!seat_occupied_2"
+        ]
+      ]
+    },
+    {
+      "pos": [0.9375,0.125,0.375],
+      "rot": [-90.0,90.0,0.0],
+      "isPermanent": true,
+      "defaultPart": "ivv:standingsalute",
+      "types": [
+        "seat_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_2",
+          "axis": [-0.9375,0.0,0.125]
+        }
+      ],
+      "interactableVariables": [
+        [
+          "seat_occupied_1"
+        ]
+      ]
+    }
+  ],
   "definitions": [
     {
       "subName": "_cut",
+      "useVehicleTexture": true,
       "modelName": "sporttrack_hood_cut",
       "name": "UNU Contractor \"Sport-Track\" Cut Hood",
       "description": "Building a better way to... wait, Built to... which brand is this again?\nUse a screwdriver to remove this part",
@@ -19,6 +63,7 @@
     },
     {
       "subName": "_scoop",
+      "useVehicleTexture": true,
       "modelName": "sporttrack_hood_scoop",
       "name": "UNU Contractor \"Sport-Track\" Scooped Hood",
       "description": "Building a better way to... wait, Built to... which brand is this again?\nUse a screwdriver to remove this part",

@@ -3,14 +3,14 @@
     "hasSingleEngineControl": true,
     "hasHeadlights": true,
     "hasTurnSignals": true,
-    "emptyMass": 1600,
+    "emptyMass": 1000,
     "fuelCapacity": 10000,
     "defaultFuelQty": 10000,
     "steeringForceIgnoresSpeed": true,
     "steeringForceFactor": 1.0,
-    "axleRatio": 3.5,
+    "axleRatio": 3.55,
     "brakingFactor": 1.0,
-    "dragCoefficient": 0.5,
+    "dragCoefficient": 0.4,
     "litVariable": "engine_magneto_1",
     "panel": "ivv:testbed"
   },
@@ -79,7 +79,6 @@
     },
     {
       "pos": [0.0,0.0,0.0],
-      "isPermanent": true,
       "maxValue": 42069.0,
       "defaultPart": "ivv:handbrake",
       "types": [
@@ -90,7 +89,6 @@
       "pos": [0.0,0.8875,1.1875],
       "rot": [0.0,0.0,0.0],
       "isController": true,
-      "isPermanent": true,
       "partScale": [1.0,0.9,1.9],
       "defaultPart": "ivv:rockseat",
       "types": [
@@ -148,6 +146,20 @@
           "forwardsEasing": "easeinoutsine",
           "reverseEasing": "easeinoutsine"
         }
+      ]
+    },
+    {
+      "pos": [0.0,1.75,1.25],
+      "maxValue": 10.0,
+      "types": [
+        "interactable_crate"
+      ]
+    },
+    {
+      "pos": [0.0,1.75,0.25],
+      "maxValue": 10.0,
+      "types": [
+        "interactable_crate"
       ]
     }
   ],
@@ -569,8 +581,9 @@
       "hudScale": 0.5
     },
     {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
+      "pos": [0.0,2.25,2.5],
+      "rot": [10.0,0.0,0.0],
+      "scale": 0.2,
       "hudX": 47,
       "hudY": 106,
       "hudScale": 0.5,
@@ -589,7 +602,9 @@
   ],
   "constantValues": {
     "vehicle_ivv_coolnamehere": 1.0,
-    "vehicle_drivetrain_driftrevup": 1.0
+    "vehicle_drivetrain_driftrevup": 0.0,
+    "vehicle_drivetrain_rfbias": 1.0,
+    "crateHeightLimit": 6.0
   },
   "variableModifiers": [
     {
@@ -713,8 +728,8 @@
         {
           "animationType": "translation",
           "variable": "speed_factor",
-          "axis": [-1.0,0.0,0.0],
-          "offset": 2.0
+          "axis": [0.625,0.0,0.0],
+          "offset": 0.375
         },
         {
           "animationType": "translation",
@@ -1072,21 +1087,21 @@
         {
           "animationType": "translation",
           "variable": "input_rudder",
-          "axis": [0.022222222,0.0,0.0],
-          "clampMin": 0.5,
+          "axis": [0.044444444,0.0,0.0],
+          "offset": 0.0625,
           "clampMax": 1.0,
-          "absolute": true
-        },
-        {
-          "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.0,0.002666667,0.0],
           "absolute": true
         },
         {
           "animationType": "translation",
           "variable": "vehicle_steering_stiffness",
           "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.006666667,0.0],
+          "absolute": true
         },
         {
           "animationType": "translation",
@@ -1467,7 +1482,7 @@
       ]
     },
     {
-      "variable": "bodyroll_force_turn_indicator",
+      "variable": "bodyroll_turn_indicator_slip",
       "animations": [
         {
           "animationType": "translation",
@@ -1478,34 +1493,21 @@
           "animationType": "translation",
           "variable": "slip",
           "axis": [0.0,-0.001333333,0.0]
-        },
-        {
-          "animationType": "translation",
-          "variable": "vehicle_suspension_stiffness",
-          "axis": [-1.0,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [5.0,0.0,0.0],
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "engine_reversed_1",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
         }
       ]
     },
     {
-      "variable": "bodyroll_force_acceleration",
+      "variable": "bodyroll_force_roll",
       "animations": [
         {
           "animationType": "translation",
-          "variable": "acceleration",
-          "axis": [0.0,0.0,1.0]
+          "variable": "mass",
+          "axis": [0.0,0.0,3.75E-4]
+        },
+        {
+          "animationType": "translation",
+          "variable": "bodyroll_turn_indicator_slip",
+          "axis": [1.0,0.0,0.0]
         },
         {
           "animationType": "translation",
@@ -1516,14 +1518,49 @@
         {
           "animationType": "translation",
           "variable": "speed",
-          "axis": [5.0,0.0,0.0],
+          "axis": [0.25,0.0,0.0],
           "clampMax": 1.0
         },
         {
           "animationType": "translation",
           "variable": "engine_reversed_1",
           "axis": [-2.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "variable": "bodyroll_force_pitch",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "mass",
+          "axis": [0.0,0.0,3.75E-4]
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_suspension_stiffness",
+          "axis": [-1.0,0.0,0.0],
           "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [2.0,0.0,0.0],
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 5
         }
       ]
     },
@@ -1545,12 +1582,12 @@
         },
         {
           "animationType": "translation",
-          "variable": "bodyroll_force_turn_indicator",
+          "variable": "bodyroll_force_roll",
           "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "bodyroll_force_acceleration",
+          "variable": "bodyroll_force_pitch",
           "axis": [0.0,10.0,0.0]
         },
         {
@@ -1589,12 +1626,12 @@
         },
         {
           "animationType": "translation",
-          "variable": "bodyroll_force_turn_indicator",
+          "variable": "bodyroll_force_roll",
           "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "bodyroll_force_acceleration",
+          "variable": "bodyroll_force_pitch",
           "axis": [0.0,-10.0,0.0]
         },
         {
@@ -1633,12 +1670,12 @@
         },
         {
           "animationType": "translation",
-          "variable": "bodyroll_force_turn_indicator",
+          "variable": "bodyroll_force_roll",
           "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "bodyroll_force_acceleration",
+          "variable": "bodyroll_force_pitch",
           "axis": [0.0,-10.0,0.0]
         },
         {
@@ -1677,12 +1714,12 @@
         },
         {
           "animationType": "translation",
-          "variable": "bodyroll_force_turn_indicator",
+          "variable": "bodyroll_force_roll",
           "axis": [0.0,-0.001,0.0]
         },
         {
           "animationType": "translation",
-          "variable": "bodyroll_force_acceleration",
+          "variable": "bodyroll_force_pitch",
           "axis": [0.0,10.0,0.0]
         },
         {

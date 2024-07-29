@@ -1,0 +1,109 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_hood_default",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.125,0.25],
+      "isPermanent": true,
+      "defaultPart": "ivv:rockseat",
+      "types": [
+        "seat_invisible"
+      ],
+      "interactableVariables": [
+        [
+          "!seat_occupied_2"
+        ]
+      ],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "!part_isonfront",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,180.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_1",
+          "axis": [0.0,0.0,0.25]
+        }
+      ]
+    },
+    {
+      "pos": [0.9375,0.125,0.375],
+      "rot": [-90.0,90.0,0.0],
+      "isPermanent": true,
+      "defaultPart": "ivv:standingsalute",
+      "types": [
+        "seat_invisible"
+      ],
+      "interactableVariables": [
+        [
+          "seat_occupied_1"
+        ]
+      ],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "!part_isonfront",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,180.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_2",
+          "axis": [-0.9375,0.0,0.125]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "seat_rider_pitch_2",
+          "clampMin": -22.5,
+          "clampMax": 90.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "!true",
+          "centerPoint": [0.0,0.125,0.375],
+          "axis": [180.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
+      "name": "UNU Default Hood w/Invisible Seat",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "unuisbest": 1.0,
+    "part_useDefaultModel": 1.0,
+    "part_useDefaultHitboxes": 1.0,
+    "part_useDefaultSounds": 1.0,
+    "part_useDefaultAnimations": 1.0,
+    "part_closed": 1.0
+  },
+  "rendering": {
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "mts:unuparts.unuparts_bodypart_unu_hood_default:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
