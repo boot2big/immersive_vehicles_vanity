@@ -217,8 +217,8 @@
     "generic_effect_particle_drip_slow": 1.0,
     "engine_obdiii_present": 1.0,
     "engine_obdiii_displacement": 4.0,
-    "engine_obdiii_neutral_revlimit_type": 1,
-    "engine_obdiii_neutral_revlimit_rpm": 3500,
+    "engine_obdiii_neutral_revlimit_type": 1.0,
+    "engine_obdiii_neutral_revlimit_rpm": 3500.0,
     "builtatlastough_fuel_efficiency": 0.0,
     "builtatlastough_power_efficiency": 0.0,
     "builtatlastough_backfire_type": 0.0,
@@ -739,7 +739,7 @@
           "animationType": "translation",
           "variable": "engine_temp",
           "axis": [-0.023684335,0.0,0.0],
-          "offset": 3.026336965,
+          "offset": 3.026337,
           "clampMin": 0.25,
           "clampMax": 1.0
         }
@@ -773,7 +773,7 @@
           "animationType": "translation",
           "variable": "engine_temp",
           "axis": [0.023684335,0.0,0.0],
-          "offset": -2.131590166,
+          "offset": -2.1315901,
           "clampMin": 1.0,
           "clampMax": 4.0
         },
@@ -839,6 +839,22 @@
       ]
     },
     {
+      "variable": "scfc_math_coast",
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm",
+          "axis": [0.0,0.0,-0.001]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_target",
+          "axis": [0.0,0.001,0.0]
+        }
+      ]
+    },
+    {
       "variable": "scfc_math",
       "animations": [
         {
@@ -848,21 +864,23 @@
         },
         {
           "animationType": "translation",
-          "variable": "builtatlastough_fuel_efficiency",
-          "axis": [-1.0,0.0,0.0],
-          "offset": 1.0
+          "variable": "scfc_math_coast",
+          "axis": [0.75,0.0,0.0],
+          "offset": 0.25,
+          "clampMin": 0.05,
+          "clampMax": 32767.0
         },
         {
           "animationType": "translation",
           "variable": "throttle",
-          "axis": [0.375,0.0,0.0],
-          "offset": 0.625
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75
         },
         {
           "animationType": "translation",
           "variable": "throttle",
-          "axis": [0.375,0.0,0.0],
-          "offset": 0.625,
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75,
           "duration": 5
         }
       ]

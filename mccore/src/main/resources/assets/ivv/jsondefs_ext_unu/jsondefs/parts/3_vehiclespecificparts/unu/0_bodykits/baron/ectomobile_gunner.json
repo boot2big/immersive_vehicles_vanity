@@ -7,13 +7,23 @@
   },
   "parts": [
     {
-      "pos": [-0.001, -0.28125, 0.6125],
-      "rot": [0.0, 180.0, 0.0],
-      "applyAfter": "frame_seat_mirrored",
+      "pos": [-0.001,-0.28125,0.6125],
+      "rot": [0.0,180.0,0.0],
       "allowParentRemoval": true,
-      "types": ["seat"],
-      "defaultPart": "unuparts:unuparts_part_unu_seat_budget_tungsten",
       "toneIndex": 2,
+      "defaultPart": "unuparts:unuparts_part_unu_seat_budget_tungsten",
+      "types": [
+        "seat"
+      ],
+      "interactableVariables": [
+        [
+          "!part_ismirrored"
+        ],
+        [
+          "parent_door_internal"
+        ]
+      ],
+      "applyAfter": "frame_seat_mirrored",
       "animations": [
         {
           "animationType": "translation",
@@ -30,24 +40,26 @@
           "animationType": "visibility",
           "variable": "part_ismirrored"
         }
+      ]
+    },
+    {
+      "pos": [0.001,-0.28125,0.6125],
+      "rot": [0.0,180.0,0.0],
+      "allowParentRemoval": true,
+      "toneIndex": 2,
+      "defaultPart": "unuparts:unuparts_part_unu_seat_budget_tungsten",
+      "types": [
+        "seat"
       ],
       "interactableVariables": [
         [
-          "!part_ismirrored"
+          "part_ismirrored"
         ],
         [
           "parent_door_internal"
         ]
-      ]
-    },
-    {
-      "pos": [0.001, -0.28125, 0.6125],
-      "rot": [0.0, 180.0, 0.0],
+      ],
       "applyAfter": "frame_seat",
-      "allowParentRemoval": true,
-      "types": ["seat"],
-      "defaultPart": "unuparts:unuparts_part_unu_seat_budget_tungsten",
-      "toneIndex": 2,
       "animations": [
         {
           "animationType": "translation",
@@ -64,19 +76,12 @@
           "animationType": "visibility",
           "variable": "!part_ismirrored"
         }
-      ],
-      "interactableVariables": [
-        [
-          "part_ismirrored"
-        ],
-        [
-          "parent_door_internal"
-        ]
       ]
     }
   ],
   "collisionGroups": [
     {
+      "applyAfter": "lever",
       "collisionTypes": [
         "click",
         "entity",
@@ -90,10 +95,10 @@
           "variableName": "gunner_lever",
           "variableType": "toggle"
         }
-      ],
-      "applyAfter": "lever"
+      ]
     },
     {
+      "applyAfter": "lever_mirrored",
       "collisionTypes": [
         "click",
         "entity",
@@ -107,8 +112,7 @@
           "variableName": "gunner_lever",
           "variableType": "toggle"
         }
-      ],
-      "applyAfter": "lever_mirrored"
+      ]
     }
   ],
   "definitions": [
@@ -167,9 +171,9 @@
             "animationType": "translation",
             "variable": "gunner_lever",
             "axis": [0.0,0.0625,0.0],
+            "offset": -0.0625,
             "duration": 5,
-            "reverseDelay": 20,
-            "offset": -0.0625
+            "reverseDelay": 20
           },
           {
             "animationType": "rotation",
@@ -205,7 +209,7 @@
             "animationType": "rotation",
             "variable": "gunner_lever",
             "centerPoint": [0.174029,-0.484375,0.837897],
-            "axis": [0.0,45,0.0],
+            "axis": [0.0,45.0,0.0],
             "duration": 10,
             "forwardsDelay": 10,
             "reverseDelay": 10
@@ -235,7 +239,7 @@
             "animationType": "rotation",
             "variable": "gunner_lever",
             "centerPoint": [0.098058,-0.484375,0.844543],
-            "axis": [0.0,45,0.0],
+            "axis": [0.0,45.0,0.0],
             "duration": 10,
             "forwardsDelay": 10,
             "reverseDelay": 10
@@ -265,7 +269,7 @@
             "animationType": "rotation",
             "variable": "gunner_lever",
             "centerPoint": [0.022087,-0.484375,0.85119],
-            "axis": [0.0,45,0.0],
+            "axis": [0.0,45.0,0.0],
             "duration": 10,
             "forwardsDelay": 10,
             "reverseDelay": 10
@@ -350,9 +354,9 @@
             "animationType": "translation",
             "variable": "gunner_lever",
             "axis": [0.0,0.0625,0.0],
+            "offset": -0.0625,
             "duration": 5,
-            "reverseDelay": 20,
-            "offset": -0.0625
+            "reverseDelay": 20
           },
           {
             "animationType": "rotation",
@@ -388,7 +392,7 @@
             "animationType": "rotation",
             "variable": "gunner_lever",
             "centerPoint": [-0.174029,-0.484375,0.837897],
-            "axis": [0.0,-45,0.0],
+            "axis": [0.0,-45.0,0.0],
             "duration": 10,
             "forwardsDelay": 10,
             "reverseDelay": 10
@@ -418,7 +422,7 @@
             "animationType": "rotation",
             "variable": "gunner_lever",
             "centerPoint": [-0.098058,-0.484375,0.844543],
-            "axis": [0.0,-45,0.0],
+            "axis": [0.0,-45.0,0.0],
             "duration": 10,
             "forwardsDelay": 10,
             "reverseDelay": 10
@@ -448,7 +452,7 @@
             "animationType": "rotation",
             "variable": "gunner_lever",
             "centerPoint": [-0.022087,-0.484375,0.85119],
-            "axis": [0.0,-45,0.0],
+            "axis": [0.0,-45.0,0.0],
             "duration": 10,
             "forwardsDelay": 10,
             "reverseDelay": 10

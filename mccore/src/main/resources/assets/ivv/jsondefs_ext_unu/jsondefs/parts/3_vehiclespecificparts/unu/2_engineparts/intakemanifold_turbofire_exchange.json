@@ -1,0 +1,167 @@
+{
+  "generic": {
+    "type": "generic_enginepart_unu_intakemanifold",
+    "customType": "v08_standard",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.28125,0.015625],
+      "maxValue": 1.0,
+      "types": [
+        "generic_enginepart_unu_aircleaner"
+      ],
+      "customTypes": [
+        "v08_standard_supercharger"
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Electronic Fuel-Injection Manifold for UNU Turbo-Fire V8",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "unuhascutelms": 1.0,
+    "part_complete": 1.0,
+    "part_heatingCoefficientMultiplier": 0.85,
+    "fc_addition_base": 0.7,
+    "fc_addition_sc": 1.4
+  },
+  "variableModifiers": [
+    {
+      "variable": "rpm_math",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm",
+          "axis": [0.0,0.0,-1.75439E-4]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_target",
+          "axis": [0.0,1.75439E-4,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "part_fuelConsumptionAddition",
+      "minValue": -0.6,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "fc_addition_sc",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_present_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "fc_addition_base",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rpm_math",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "intake",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      },
+      {
+        "objectName": "cs_pulley",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_rotation",
+            "centerPoint": [0.0,-0.40625,0.4375],
+            "axis": [0.0,0.0,-1.0]
+          }
+        ]
+      },
+      {
+        "objectName": "belt",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "supercharger",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "sc_pulley",
+        "applyAfter": "supercharger",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_rotation",
+            "centerPoint": [0.0625,0.10938,0.4375],
+            "axis": [0.0,0.0,-2.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Additional fuel efficiency when coasting\n+0.7 Fuel consumption\n-15% Heating coefficient",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:3",
+        "oredict:dustRedstone:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
