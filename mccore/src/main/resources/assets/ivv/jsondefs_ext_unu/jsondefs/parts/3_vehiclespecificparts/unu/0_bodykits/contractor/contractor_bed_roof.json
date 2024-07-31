@@ -1,0 +1,165 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_stakeside_contractor_fleetside",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "collisionGroups": [
+    {
+      "applyAfter": "gate",
+      "collisionTypes": [
+        "entity",
+        "attack",
+        "click"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,0.001733,-2.86356],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "door_liftgate",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_part_useDefaultHitboxes_2"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_plastic",
+      "name": "UNU Contractor Fleetside Bed Cap",
+      "description": "Planet pizza!\nUse a screwdriver to remove this part",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "i_regret_nothing": 1.0,
+    "part_crateHeightLimitAddition": 1.0
+  },
+  "variableModifiers": [],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "glass_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "i_regret_nothing",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "glass_inside_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "i_regret_nothing",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "gate",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_part_useDefaultAnimations_2"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_liftgate",
+            "centerPoint": [0.0,0.875,-2.64062],
+            "axis": [80.0,0.0,0.0],
+            "duration": 8,
+            "forwardsDelay": 2
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_liftgate",
+            "centerPoint": [0.0,0.875,-2.64062],
+            "axis": [10.0,0.0,0.0],
+            "duration": 2,
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "i_regret_nothing"
+          },
+          {
+            "animationType": "activator",
+            "variable": "parent_part_useDefaultAnimations_2",
+            "clampMin": 1,
+            "clampMax": 1
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_Tailgate",
+            "centerPoint": [0.0,0.875,-2.64062],
+            "axis": [80.0,0.0,0.0],
+            "duration": 8,
+            "forwardsDelay": 2,
+            "reverseDelay": 10
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_Tailgate",
+            "centerPoint": [0.0,0.875,-2.64062],
+            "axis": [10.0,0.0,0.0],
+            "duration": 2,
+            "reverseDelay": 20
+          }
+        ]
+      },
+      {
+        "objectName": "gate_glass_translucent",
+        "applyAfter": "gate",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "i_regret_nothing",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      },
+      {
+        "objectName": "gate_glass_inside_translucent",
+        "applyAfter": "gate_glass_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "i_regret_nothing",
+            "clampMin": 1,
+            "clampMax": 1
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:4"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
