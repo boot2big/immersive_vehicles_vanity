@@ -1,0 +1,511 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "movementAnimations": [
+      {
+        "animationType": "translation",
+        "variable": "1_2_1_cycle",
+        "axis": [0.0,0.0,0.00125],
+        "duration": 1
+      },
+      {
+        "animationType": "translation",
+        "variable": "jumping",
+        "axis": [0.0,-4.0,0.0],
+        "clampMax": 8.0,
+        "duration": 4,
+        "forwardsEasing": "easeinoutsine",
+        "reverseEasing": "easeinoutsine",
+        "skipReverseMovement": true
+      },
+      {
+        "animationType": "rotation",
+        "variable": "no_thank_you_legacy_compats_i_think_my_bttf_is_fine_this_way",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,0.0]
+      }
+    ]
+  },
+  "ground": {
+    "isWheel": true,
+    "width": 0.25,
+    "height": 0.375,
+    "climbHeight": 16,
+    "frictionModifiers": {}
+  },
+  "parts": [
+    {
+      "pos": [0.0125,0.0,0.0],
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "types": [
+        "ground_wheel",
+        "ground_wheel_budd"
+      ],
+      "customTypes": [
+        "budd",
+        ""
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "1_2_1_cycle",
+          "axis": [0.0,0.00125,0.0],
+          "duration": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "jumping",
+          "axis": [0.0,4.0,0.0],
+          "clampMax": 8.0,
+          "duration": 4,
+          "forwardsEasing": "easeinoutsine",
+          "reverseEasing": "easeinoutsine",
+          "skipReverseMovement": true
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "jumping",
+          "clampMax": 0.25
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "hydraulic1",
+      "textureName": "hydraulic1",
+      "name": "Micro Turbo Boost Kit",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "ground_wheel_turbo": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "vehicle_wheels_locked",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "running_compat",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_running_compat",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_running_1",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "parent_kitt_is_the_coolest_car_in_mts_period",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!ding_bing_ding_ding",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "isOnGround",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "no",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_onground_1",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "jumpCharge",
+      "maxValue": 100.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "kitt_is_the_coolest_car_in_mts_period",
+          "axis": [0.0,-20.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!jumping"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_engines_running"
+        }
+      ]
+    },
+    {
+      "variable": "jumpCharge",
+      "maxValue": 100.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "kitt_is_the_coolest_car_in_mts_period",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "isOnGround",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "parent_engines_running"
+        }
+      ]
+    },
+    {
+      "variable": "jumpCharged",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "jumpCharge",
+          "clampMax": 99.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!no",
+          "axis": [0.0,0.0,1.0],
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "jumpCharged",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "jumpCharge",
+          "clampMin": 99.0,
+          "clampMax": 100.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!yes",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "jumping",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "horn",
+          "axis": [0.0,0.0,1.0],
+          "reverseDelay": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "jumpCharged",
+          "axis": [1.0,0.0,0.0],
+          "reverseDelay": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "isOnGround",
+          "axis": [1.0,0.0,0.0],
+          "forwardsDelay": 60,
+          "reverseDelay": 8
+        },
+        {
+          "animationType": "translation",
+          "variable": "BOOST",
+          "axis": [1.0,0.0,0.0],
+          "forwardsDelay": 10,
+          "reverseDelay": 10
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "minValue": 0.125,
+      "maxValue": 10.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "1_2_1_cycle",
+          "axis": [0.05,0.0,0.0],
+          "offset": 0.95,
+          "duration": 1
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "jumping",
+          "reverseDelay": 4
+        },
+        {
+          "animationType": "translation",
+          "variable": "jumping",
+          "axis": [0.0,0.0,4.0],
+          "clampMax": 8.0,
+          "duration": 4,
+          "forwardsEasing": "easeinoutsine",
+          "reverseEasing": "easeinoutsine",
+          "skipReverseMovement": true
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "piston",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "applyAfter": "piston",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      },
+      {
+        "objectName": "axle",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": ["BOOST"],
+    "sounds": [
+      {
+        "name": "ivv:hydraulicsupercharge",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "parent_engines_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "isOnGround",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "jumpCharged",
+            "forwardsDelay": 30
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_seat_occupied_client_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_seat_occupied_client_2",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_seat_occupied_client_3",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_seat_occupied_client_4",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_seat_occupied_client_5",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!the_knight_rider_is_real"
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!jumpCharged",
+            "axis": [0.0,0.25,0.0],
+            "duration": 20,
+            "forwardsDelay": 10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "jumpCharge",
+            "axis": [0.0,0.0075,0.0],
+            "offset": 0.25,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:hydraulicsuperjump",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "jumping",
+            "clampMin": 0.25,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,0.25,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:hydraulicsuperjumpboom",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "jumping",
+            "clampMin": 0.25,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,0.25,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:hydraulicsuperjumpvwaou",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "speed",
+            "clampMin": 10.0,
+            "clampMax": 32767.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "jumping",
+            "clampMin": 0.25,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,0.25,0.0]
+          }
+        ],
+        "blockDoppler": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "quantity": 3,
+        "duration": 20,
+        "toTransparency": 1.0E-7,
+        "scale": 10.0,
+        "toScale": 20.0,
+        "color": "999999",
+        "pos": [-0.25,0.0,0.0],
+        "initialVelocity": [0.0,-0.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "jumping",
+            "clampMin": 0.125,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Turbo Boost Kit",
+    "description": "Slightly buggy, will not come with vehicles by default\nWorks better if climbSpeed in mtsconfig.json is higher",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      ["minecraft:barrier:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["minecraft:barrier:0:1"]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

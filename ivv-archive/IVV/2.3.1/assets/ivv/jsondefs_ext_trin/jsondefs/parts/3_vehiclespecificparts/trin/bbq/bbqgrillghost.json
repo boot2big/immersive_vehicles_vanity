@@ -1,0 +1,151 @@
+{
+  "generic": {
+    "type": "seat_bbq",
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.5,
+    "height": 0.5,
+    "activeAnimations": [
+      {
+        "animationType": "visibility",
+        "variable": "seat_occupied"
+      }
+    ]
+  },
+  "seat": {},
+  "variableModifiers": [
+    {
+      "variable": "ghost",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "2_2147483647_1_cycle",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_bbq_door",
+          "axis": [1.0,0.0,0.0],
+          "forwardsDelay": 5,
+          "reverseDelay": 15
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Suspicious BBQ grill",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "ghost_translucent",
+        "blendedAnimations": true,
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "10_20_10_cycle",
+            "clampMin": -2.0,
+            "clampMax": 4.0,
+            "duration": 20,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ghost",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "livin_in_the_new_world",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:ghostbast",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ghost",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.96875
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 1.0,
+        "maxDistance": 72.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawningOrientation": "world",
+        "renderingOrientation": "player",
+        "quantity": 3,
+        "duration": 40,
+        "transparency": 0.5,
+        "fadeTransparencyTime": 20,
+        "scale": 0.5,
+        "toScale": 1.0,
+        "hitboxSize": 0.5,
+        "color": "9F9F9F",
+        "spreadRandomness": [0.5,0.25,0.5],
+        "initialVelocity": [0.0,0.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ghost",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "parent_engines_running",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "4_2_4_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Something's not quite right about it...",
+    "health": 100,
+    "materialLists": [
+      [
+        "minecraft:iron_ingot:0:4"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

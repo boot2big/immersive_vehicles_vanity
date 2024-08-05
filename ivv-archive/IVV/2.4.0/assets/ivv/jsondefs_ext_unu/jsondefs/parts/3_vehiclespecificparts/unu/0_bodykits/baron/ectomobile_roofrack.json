@@ -1,0 +1,288 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_roofrack_baron",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [0.5625,0.18125,2.5125],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "partScale": [1.5,1.5,1.5],
+      "types": [
+        "generic_ledlight"
+      ]
+    },
+    {
+      "pos": [-0.5625,0.21875,2.53125],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
+      "maxValue": 1.0,
+      "types": [
+        "generic_siren"
+      ]
+    },
+    {
+      "pos": [0.0,0.0,-1.0625],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 1.0,
+      "types": [
+        "generic_roofdevice",
+        "generic_lightbar"
+      ]
+    },
+    {
+      "pos": [0.0,0.0,2.9],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": [
+        "generic_roofdevice",
+        "generic_lightbar"
+      ]
+    },
+    {
+      "pos": [0.875,0.0,-1.375],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 1.0,
+      "types": [
+        "generic_ledlight"
+      ]
+    },
+    {
+      "pos": [-0.875,0.0,-1.375],
+      "rot": [0.0,180.0,0.0],
+      "isMirrored": true,
+      "maxValue": 1.0,
+      "types": [
+        "generic_ledlight"
+      ]
+    },
+    {
+      "pos": [0.875,0.0,3.25],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 1.0,
+      "types": [
+        "generic_ledlight"
+      ]
+    },
+    {
+      "pos": [-0.875,0.0,3.25],
+      "rot": [0.0,0.0,0.0],
+      "isMirrored": true,
+      "maxValue": 1.0,
+      "types": [
+        "generic_ledlight"
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "attack",
+        "entity"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,0.125,0.1875],
+          "width": 1.75,
+          "height": 0.0625
+        },
+        {
+          "pos": [0.0,0.125,1.4375],
+          "width": 1.75,
+          "height": 0.0625
+        }
+      ],
+      "animations": []
+    },
+    {
+      "applyAfter": "ladder",
+      "collisionTypes": [
+        "attack",
+        "entity"
+      ],
+      "collisions": [
+        {
+          "pos": [-1.375,-1.07812,-0.3125],
+          "width": 0.375,
+          "height": 0.0625
+        },
+        {
+          "pos": [-1.3125,-0.796875,-0.3125],
+          "width": 0.375,
+          "height": 0.0625
+        },
+        {
+          "pos": [-1.25,-0.546875,-0.3125],
+          "width": 0.375,
+          "height": 0.0625
+        },
+        {
+          "pos": [-1.1875,-0.296875,-0.3125],
+          "width": 0.375,
+          "height": 0.0625
+        },
+        {
+          "pos": [-1.125,-0.046875,-0.3125],
+          "width": 0.375,
+          "height": 0.0625
+        },
+        {
+          "pos": [-1.0625,0.203125,-0.3125],
+          "width": 0.375,
+          "height": 0.0625
+        },
+        {
+          "pos": [-1.0,0.453125,-0.3125],
+          "width": 0.375,
+          "height": 0.0625
+        }
+      ],
+      "animations": []
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "UNU Baron \"Ectomobile\" Roof Equipment",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "part_useDefaultHitboxes": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "rot_sniffer_random",
+      "minValue": -360.0,
+      "maxValue": 360.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "tick_sin",
+          "axis": [0.0,0.0,185.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "123_4_56_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "rot_sniffer",
+      "minValue": -360.0,
+      "maxValue": 360.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "rot_sniffer",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rot_sniffer_random",
+          "axis": [0.0,0.125,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "sniffer",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rot_sniffer",
+            "centerPoint": [0.59375,0.96875,1.0],
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "0_16_15_cycle",
+            "centerPoint": [0.59375,0.96875,1.0],
+            "axis": [0.0,90.0,0.0],
+            "offset": -45.0,
+            "duration": 16,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic"
+          }
+        ]
+      },
+      {
+        "objectName": "fan",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_engines_running"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [-0.40625,0.4375,1.59375],
+            "axis": [0.0,32.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dome",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_engines_on"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.59375,-0.78125],
+            "axis": [0.0,-16.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "dome_glass_translucent",
+        "applyAfter": "dome",
+        "animations": []
+      },
+      {
+        "objectName": "dome_glass_inside_translucent",
+        "applyAfter": "dome_glass_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "config_innerwindows",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "ladder",
+        "animations": []
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "You can tell he's the evil one because he has a goatee!\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

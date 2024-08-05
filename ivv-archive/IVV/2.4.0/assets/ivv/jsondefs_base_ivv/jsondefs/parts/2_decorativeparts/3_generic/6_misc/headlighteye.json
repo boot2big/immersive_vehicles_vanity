@@ -1,0 +1,1858 @@
+{
+  "generic": {
+    "type": "generic_headlight",
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.0,0.375,0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_eye_visible",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.5,0.125,0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_eye_scale",
+          "variableType": "increment",
+          "variableValue": 0.0125,
+          "clampMin": -4.0,
+          "clampMax": 4.0
+        },
+        {
+          "pos": [-0.5,0.125,0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_eye_scale",
+          "variableType": "increment",
+          "variableValue": -0.0125,
+          "clampMin": -4.0,
+          "clampMax": 4.0
+        },
+        {
+          "pos": [0.5,-0.125,0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_eye_color",
+          "variableType": "increment",
+          "variableValue": 1.0,
+          "clampMax": 15.0
+        },
+        {
+          "pos": [-0.5,-0.125,0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_eye_color",
+          "variableType": "increment",
+          "variableValue": -1.0,
+          "clampMax": 15.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "locked"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "headlight",
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "offset_eye_x",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "offset_eye_y",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "offset_eye_z",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_square",
+      "constants": [
+        "headlight_square"
+      ],
+      "textureName": "headlighteye",
+      "name": "Ocular Headlight",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_octagon",
+      "constants": [
+        "headlight_octagon"
+      ],
+      "textureName": "headlighteye",
+      "name": "Ocular Headlight",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_rectangle",
+      "constants": [
+        "headlight_rectangle"
+      ],
+      "textureName": "headlighteye",
+      "name": "Ocular Headlight",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "parent_vehicle_has_eyes",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!offset_eye_visible",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "headlight_on",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "headlight",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "running_light",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_headlight",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_running_light",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "resting",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!parent_engines_on",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_engine_gearshift_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "p_brake",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "eyelid_left",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "resting",
+          "axis": [0.0,0.0,1.0],
+          "duration": 20,
+          "forwardsEasing": "easeoutcubic",
+          "reverseEasing": "easeoutquint"
+        },
+        {
+          "animationType": "translation",
+          "variable": "300_4_0_cycle",
+          "axis": [0.0,1.0,0.0],
+          "duration": 2
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_n",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.005555556,0.0],
+          "clampMax": 0.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "!headlight_on",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "variable": "eyelid_right",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "resting",
+          "axis": [0.0,0.0,1.0],
+          "duration": 20,
+          "forwardsEasing": "easeoutcubic",
+          "reverseEasing": "easeoutquint"
+        },
+        {
+          "animationType": "translation",
+          "variable": "300_4_0_cycle",
+          "axis": [0.0,1.0,0.0],
+          "duration": 2
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_n",
+          "axis": [0.0,0.375,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.005555556,0.0],
+          "clampMax": 0.25
+        },
+        {
+          "animationType": "translation",
+          "variable": "!headlight_on",
+          "axis": [0.5,0.0,0.0],
+          "offset": 0.5,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "variable": "eyelid",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_ismirrored"
+        },
+        {
+          "animationType": "translation",
+          "variable": "eyelid_left",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!vehicle_has_popups",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "eyelid",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_ismirrored",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "eyelid_right",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!vehicle_has_popups",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "pupil_x",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_headlight_pupil_x",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "pupil_y",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_headlight_pupil_y",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "headlight_rectangle",
+          "axis": [-0.6666667,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "eyelid",
+          "axis": [-0.875,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [],
+    "animatedObjects": [
+      {
+        "objectName": "case_square",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_visible"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_square",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0],
+            "offset": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "headlight_square",
+        "applyAfter": "case_square",
+        "animations": []
+      },
+      {
+        "objectName": "eyelid_square_top",
+        "applyAfter": "case_square",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,0.125,0.0],
+            "axis": [0.0,0.99999,0.0],
+            "offset": 1.0E-5
+          }
+        ]
+      },
+      {
+        "objectName": "eyelid_square_bottom",
+        "applyAfter": "case_square",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,-0.125,0.0],
+            "axis": [0.0,0.99999,0.0],
+            "offset": 1.0E-5
+          }
+        ]
+      },
+      {
+        "objectName": "case_rectangle",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_visible"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_rectangle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0],
+            "offset": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "headlight_rectangle",
+        "applyAfter": "case_rectangle",
+        "animations": []
+      },
+      {
+        "objectName": "eyelid_rectangle_top",
+        "applyAfter": "case_rectangle",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.99999,0.0],
+            "offset": 1.0E-5
+          }
+        ]
+      },
+      {
+        "objectName": "eyelid_rectangle_bottom",
+        "applyAfter": "case_rectangle",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,-0.0625,0.0],
+            "axis": [0.0,0.99999,0.0],
+            "offset": 1.0E-5
+          }
+        ]
+      },
+      {
+        "objectName": "case_octagon",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_visible"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_octagon",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0],
+            "offset": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "headlight_octagon",
+        "applyAfter": "case_octagon",
+        "animations": []
+      },
+      {
+        "objectName": "eyelid_octagon_top1",
+        "applyAfter": "case_octagon",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,0.125,0.0],
+            "axis": [0.0,2.99999,0.0],
+            "offset": 1.0E-5,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,0.125,0.0],
+            "axis": [1.49999,0.0,0.0],
+            "offset": 0.50001,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "eyelid_octagon_top2",
+        "applyAfter": "eyelid_octagon_top1",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,2.99999,0.0],
+            "offset": -1.00001,
+            "clampMin": 1.0E-5,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "eyelid_octagon_bottom1",
+        "applyAfter": "case_octagon",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,-0.125,0.0],
+            "axis": [0.0,2.99999,0.0],
+            "offset": 1.0E-5,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,-0.125,0.0],
+            "axis": [1.49999,0.0,0.0],
+            "offset": 0.50001,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "eyelid_octagon_bottom2",
+        "applyAfter": "eyelid_octagon_bottom1",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "eyelid",
+            "centerPoint": [0.0,-0.0625,0.0],
+            "axis": [0.0,2.99999,0.0],
+            "offset": -1.00001,
+            "clampMin": 1.0E-5,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "hudModel",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0],
+            "offset": 1.25
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.25
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_eye_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0],
+            "offset": 1.25
+          },
+          {
+            "animationType": "translation",
+            "variable": "pupil_x",
+            "axis": [0.093625,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "pupil_y",
+            "axis": [0.0,0.093625,0.0]
+          },
+          {
+            "animationType": "scaling",
+            "variable": "parent_headlight_pupil_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "parent_headlight_pupil_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "parent_headlight_pupil_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,1.0],
+            "offset": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_white",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 15.0,
+            "clampMax": 15.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_lightgray",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 14.0,
+            "clampMax": 14.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_darkgray",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 13.0,
+            "clampMax": 13.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_black",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_red",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_orange",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_yellow",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 3.0,
+            "clampMax": 3.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_lime",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 4.0,
+            "clampMax": 4.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_green",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 5.0,
+            "clampMax": 5.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_cyan",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 6.0,
+            "clampMax": 6.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_lightblue",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 7.0,
+            "clampMax": 7.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_darkblue",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 8.0,
+            "clampMax": 8.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_purple",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 9.0,
+            "clampMax": 9.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_magenta",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 10.0,
+            "clampMax": 10.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_pink",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 11.0,
+            "clampMax": 11.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_dark_brown",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 12.0,
+            "clampMax": 12.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on"
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_white",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 15.0,
+            "clampMax": 15.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_lightgray",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 14.0,
+            "clampMax": 14.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_darkgray",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 13.0,
+            "clampMax": 13.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_black",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_red",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_orange",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_yellow",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 3.0,
+            "clampMax": 3.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_lime",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 4.0,
+            "clampMax": 4.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_green",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 5.0,
+            "clampMax": 5.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_cyan",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 6.0,
+            "clampMax": 6.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_lightblue",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 7.0,
+            "clampMax": 7.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_darkblue",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 8.0,
+            "clampMax": 8.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_purple",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 9.0,
+            "clampMax": 9.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_magenta",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 10.0,
+            "clampMax": 10.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_pink",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 11.0,
+            "clampMax": 11.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_brown",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "offset_eye_color",
+            "clampMin": 12.0,
+            "clampMax": 12.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight_on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "headlight_square",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "headlight_rectangle",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "headlight_octagon",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_white",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_lightgray",
+        "emissive": true,
+        "isElectric": true,
+        "color": "AAAAAA",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_darkgray",
+        "emissive": true,
+        "isElectric": true,
+        "color": "555555",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_black",
+        "emissive": true,
+        "isElectric": true,
+        "color": "080808",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_red",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FF5555",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_orange",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFAA00",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_yellow",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFF55",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_lime",
+        "emissive": true,
+        "isElectric": true,
+        "color": "AAFFAA",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_green",
+        "emissive": true,
+        "isElectric": true,
+        "color": "55FF55",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_cyan",
+        "emissive": true,
+        "isElectric": true,
+        "color": "00AAAA",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_lightblue",
+        "emissive": true,
+        "isElectric": true,
+        "color": "55FFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_darkblue",
+        "emissive": true,
+        "isElectric": true,
+        "color": "5555FF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_purple",
+        "emissive": true,
+        "isElectric": true,
+        "color": "AA00AA",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_magenta",
+        "emissive": true,
+        "isElectric": true,
+        "color": "AA00AA",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_pink",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FF55FF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "pupil_lit_brown",
+        "emissive": true,
+        "isElectric": true,
+        "color": "B4684D",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight_on",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "customVariables": [],
+    "sounds": [],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_icon_gear.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.375,0.25],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_icon_positive.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [0.5,0.125,0.25],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_icon_negative.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [-0.5,0.125,0.25],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_icon_positive.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [0.5,-0.125,0.25],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_icon_negative.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [-0.5,-0.125,0.25],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_eye_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Goes on license plate slots\nActivate parking brake & headlights (not running lights) to customize color",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:nuggetIron:3",
+        "oredict:dustRedstone:1",
+        "minecraft:glass_pane:0:1"
+      ]
+    ],
+    "radarWidth": 180.0,
+    "radarRange": 256.0
+  }
+}

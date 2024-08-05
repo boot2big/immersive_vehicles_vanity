@@ -1,0 +1,173 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_truckbed_bench",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [-0.5625,-0.5,0.125],
+      "rot": [-90.0,180.0,0.0],
+      "isPermanent": true,
+      "defaultPart": "ivv:rockseat",
+      "types": [
+        "seat_invisible"
+      ],
+      "interactableVariables": [
+        [
+          "!part_closed"
+        ]
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_1",
+          "axis": [0.0,0.0625,-0.25]
+        }
+      ]
+    },
+    {
+      "pos": [0.5625,-0.5,0.125],
+      "rot": [-90.0,180.0,0.0],
+      "isPermanent": true,
+      "defaultPart": "ivv:rockseat",
+      "types": [
+        "seat_invisible"
+      ],
+      "interactableVariables": [
+        [
+          "!part_closed"
+        ]
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_2",
+          "axis": [0.0,0.0625,-0.25]
+        }
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "applyAfter": "bench_pullstrap",
+      "collisionTypes": [
+        "click",
+        "block",
+        "entity",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,0.0625,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "door_bench",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_door_Tailgate",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_2"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "UNU Contractor Bed Bench",
+      "description": "A loveseat for two ♥\nUse a screwdriver to remove this part",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {},
+  "variableModifiers": [
+    {
+      "variable": "part_closed",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!door_bench",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "bench_rest",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "door_bench",
+            "centerPoint": [0.0,-0.625,-0.0625],
+            "axis": [80.0,0.0,0.0],
+            "duration": 8,
+            "forwardsDelay": 3,
+            "reverseDelay": 2
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_bench",
+            "centerPoint": [0.0,-0.625,-0.0625],
+            "axis": [10.0,0.0,0.0],
+            "duration": 2,
+            "forwardsDelay": 13
+          }
+        ]
+      },
+      {
+        "objectName": "bench_pullstrap",
+        "applyAfter": "bench_rest",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "door_bench",
+            "centerPoint": [0.0,0.1875,0.0],
+            "axis": [-30.0,0.0,0.0],
+            "duration": 3
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_bench",
+            "centerPoint": [0.0,0.1875,0.0],
+            "axis": [30.0,0.0,0.0],
+            "duration": 3,
+            "forwardsDelay": 10
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:slabWood:4"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

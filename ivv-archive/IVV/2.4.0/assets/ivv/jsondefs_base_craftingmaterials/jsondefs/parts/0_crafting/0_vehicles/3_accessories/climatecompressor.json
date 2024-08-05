@@ -1,0 +1,115 @@
+{
+  "generic": {
+    "type": "generic_vehicle_ac",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "canBePlacedOnGround": true,
+    "width": 0.5,
+    "height": 0.5,
+    "placedOffset": 0.4375,
+    "mass": 15
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "A/C Compressor",
+      "extraMaterialLists": [
+        [],
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "parent_vehicle_has_ac",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!present",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:airconditioner",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "A/C",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 5
+          },
+          {
+            "animationType": "visibility",
+            "variable": "electric_power",
+            "clampMin": 3.0,
+            "clampMax": 16.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "A/C",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "A/C",
+            "axis": [0.0,1.0,0.0],
+            "duration": 5
+          },
+          {
+            "animationType": "translation",
+            "variable": "damage_percent",
+            "axis": [0.0,-0.25,0.0]
+          }
+        ],
+        "looping": true,
+        "isInterior": true,
+        "pos": [0.0,0.475,1.0],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 1.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Crafting Item",
+    "description": "Coolness for the soul, and heat for passion in the heart\nUse a screwdriver to remove this part\n§5§oCrafted in the Vehicle Parts Assembly bench",
+    "health": 15,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2",
+        "oredict:dustRedstone:3",
+        "minecraft:ice:0:2",
+        "minecraft:blaze_rod:0:1"
+      ],
+      [
+        "oredict:ingotIron:2",
+        "oredict:dustRedstone:6",
+        "minecraft:ice:0:2",
+        "minecraft:flint_and_steel:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

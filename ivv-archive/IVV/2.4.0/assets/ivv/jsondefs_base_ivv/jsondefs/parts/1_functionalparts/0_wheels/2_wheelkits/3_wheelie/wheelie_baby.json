@@ -1,0 +1,183 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "movementAnimations": [
+      {
+        "animationType": "translation",
+        "variable": "1_2_1_cycle",
+        "axis": [0.0,0.0,0.00125],
+        "duration": 1
+      },
+      {
+        "animationType": "rotation",
+        "variable": "no_thank_you_legacy_compats_i_think_my_bttf_is_fine_this_way",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,0.0]
+      }
+    ]
+  },
+  "ground": {
+    "isWheel": true,
+    "width": 0.25,
+    "height": 0.375,
+    "frictionModifiers": {}
+  },
+  "parts": [
+    {
+      "pos": [0.0125,0.0,0.0],
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "types": [
+        "ground_wheel",
+        "ground_wheel_budd"
+      ],
+      "customTypes": [
+        "budd",
+        ""
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "1_2_1_cycle",
+          "axis": [0.0,0.00125,0.0],
+          "duration": 1
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "acceleration",
+          "clampMin": -32767.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "acceleration",
+          "centerPoint": [0.0125,0.0,0.0],
+          "axis": [0.0,5.0,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "hydraulic1",
+      "textureName": "hydraulic1",
+      "name": "Micro Wheelie Physics Simulator",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constants": ["ground_wheel_wheelie"],
+  "variableModifiers": [
+    {
+      "variable": "vehicle_wheels_locked",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "running_compat",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_running_compat",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_running_1",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "minValue": 0.125,
+      "maxValue": 3.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "1_2_1_cycle",
+          "axis": [0.05,0.0,0.0],
+          "offset": 0.95,
+          "duration": 1
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "parent_engine_gear_1",
+          "clampMin": 1.5,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "parent_engine_gear_1",
+          "clampMin": -32767.0,
+          "clampMax": 0.5
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,0.0,20.0],
+          "offset": -0.1,
+          "clampMax": 3.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "piston",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "applyAfter": "piston",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      },
+      {
+        "objectName": "axle",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Wheelie Physics Simulator",
+    "description": "Slightly buggy, will not come with vehicles by default\nRecommended to use only on front wheels",
+    "stackSize": 64,
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "health": 100,
+    "materialLists": [
+      ["minecraft:barrier:0:1"]
+    ],
+    "repairMaterialLists": [
+      ["minecraft:barrier:0:1"]
+    ]
+  }
+}

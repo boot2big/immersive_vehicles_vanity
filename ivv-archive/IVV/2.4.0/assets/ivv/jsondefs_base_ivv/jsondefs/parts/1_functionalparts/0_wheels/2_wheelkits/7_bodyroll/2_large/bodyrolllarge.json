@@ -1,0 +1,627 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "forwardsDamageMultiplier": 0.0
+  },
+  "ground": {
+    "width": 0.25,
+    "height": 1.0,
+    "climbHeight": 1.5,
+    "frictionModifiers": {}
+  },
+  "parts": [
+    {
+      "pos": [0.007825,0.0,0.0],
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "types": [
+        "ground_wheel",
+        "ground_wheel_budd"
+      ],
+      "customTypes": [
+        "budd",
+        ""
+      ],
+      "applyAfter": "axle",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_roll_absolute",
+          "axis": [0.03125,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+          "centerPoint": [0.007825,0.0,0.0],
+          "axis": [-2.0,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+          "centerPoint": [0.007825,0.0,0.0],
+          "axis": [2.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "click",
+        "entity",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.125977,0.0625,0.15625],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "hydraulics_stiffness",
+          "variableType": "increment",
+          "variableValue": -0.05,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hydraulics_stiffness",
+          "clampMin": -0.99,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "click",
+        "entity",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.125977,0.0625,-0.15625],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "hydraulics_stiffness",
+          "variableType": "increment",
+          "variableValue": 0.05,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hydraulics_stiffness",
+          "clampMin": -32767.0,
+          "clampMax": 0.99
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "click",
+        "entity",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.125977,-0.0625,0.15625],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "hydraulics_travel",
+          "variableType": "increment",
+          "variableValue": -0.05,
+          "clampMin": -2.0,
+          "clampMax": 2.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hydraulics_travel",
+          "clampMin": -1.99,
+          "clampMax": 32767.0
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "click",
+        "entity",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.125977,-0.0625,-0.15625],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "hydraulics_travel",
+          "variableType": "increment",
+          "variableValue": 0.05,
+          "clampMin": -2.0,
+          "clampMax": 2.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hydraulics_travel",
+          "clampMin": -32767.0,
+          "clampMax": 1.99
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Large Bodyroll Kit Rear",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "ground_wheel_bodyroll": 1.0,
+    "ground_bodyroll_disable": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "vehicle_wheels_locked",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "running_compat",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_running_compat",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_running_1",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engines_running",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "setValue": 1.25E-4,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "bodyroll_force_turn_indicator",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,-0.001333333,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!part_ismirrored",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_stiffness",
+          "axis": [-0.875,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.2,0.0,0.0],
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "bodyroll_force_acceleration",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_isonfront",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_stiffness",
+          "axis": [-0.875,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.5,0.0,0.0],
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_dip",
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_dip",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "bodyroll_force_acceleration",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_travel",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 0.5
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_sway",
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_sway",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "bodyroll_force_turn_indicator",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_travel",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 0.5
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_roll",
+      "minValue": -0.5,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_roll",
+          "axis": [0.0,-0.25,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_sway",
+          "axis": [0.0,-5.0E-4,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_dip",
+          "axis": [0.0,-2.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!ground_onground_1",
+          "axis": [0.0,0.5,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_roll_absolute",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_roll",
+          "axis": [0.0,0.0,1.0],
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "setValue": 0.125,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.12575,0.0875,0.0],
+        "rot": [0.0,90.0,0.0],
+        "scale": 0.125,
+        "variableName": "hydraulics_stiffness",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.2f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "attachedTo": "menu1",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.12575,-0.0375,0.0],
+        "rot": [0.0,90.0,0.0],
+        "scale": 0.125,
+        "variableName": "hydraulics_travel",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.2f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "attachedTo": "menu2",
+        "lightsUp": true
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "menu1",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      },
+      {
+        "objectName": "up_on1",
+        "applyAfter": "menu1",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hydraulics_stiffness",
+            "clampMin": -32767.0,
+            "clampMax": 0.99
+          }
+        ]
+      },
+      {
+        "objectName": "down_on1",
+        "applyAfter": "menu1",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hydraulics_stiffness",
+            "clampMin": -0.99,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "objectName": "up_off1",
+        "applyAfter": "menu1",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hydraulics_stiffness",
+            "clampMin": 0.99,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "objectName": "down_off1",
+        "applyAfter": "menu1",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hydraulics_stiffness",
+            "clampMin": -32767.0,
+            "clampMax": -0.99
+          }
+        ]
+      },
+      {
+        "objectName": "menu2",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          }
+        ]
+      },
+      {
+        "objectName": "up_on2",
+        "applyAfter": "menu2",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hydraulics_travel",
+            "clampMin": -32767.0,
+            "clampMax": 1.99
+          }
+        ]
+      },
+      {
+        "objectName": "down_on2",
+        "applyAfter": "menu2",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hydraulics_travel",
+            "clampMin": -1.99,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "objectName": "up_off2",
+        "applyAfter": "menu2",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hydraulics_travel",
+            "clampMin": 1.99,
+            "clampMax": 32767.0
+          }
+        ]
+      },
+      {
+        "objectName": "down_off2",
+        "applyAfter": "menu2",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hydraulics_travel",
+            "clampMin": -32767.0,
+            "clampMax": -1.99
+          }
+        ]
+      },
+      {
+        "objectName": "piston",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "hydraulics_roll",
+            "centerPoint": [-0.054688,0.0,0.078125],
+            "axis": [0.0,0.0,-3.75]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_ground_wheel_hydraulic"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "hydraulics_roll",
+            "centerPoint": [-0.054688,0.0,0.078125],
+            "axis": [0.0,0.0,-3.75]
+          },
+          {
+            "animationType": "translation",
+            "variable": "hydraulics_roll",
+            "axis": [0.0,-0.054875,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "applyAfter": "piston",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "hydraulics_roll",
+            "axis": [0.0,-0.148375,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "axle",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "hydraulics_roll_absolute",
+            "axis": [0.03125,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Hydraulic Kit [Standard, Type 1]",
+    "description": "Adds IVLabs Top-Quality bodyroll to any vehicle!",
+    "health": 100,
+    "materialLists": [
+      [
+        "mts:ivv.strut:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

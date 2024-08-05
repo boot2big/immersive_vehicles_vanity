@@ -1,0 +1,861 @@
+{
+  "generic": {
+    "type": "generic_tv",
+    "forwardsDamageMultiplier": 1.0,
+    "canBePlacedOnGround": true,
+    "width": 1.0,
+    "height": 1.0
+  },
+  "parts": [],
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "attack",
+        "entity",
+        "block",
+        "click"
+      ],
+      "collisions": [
+        {
+          "pos": [0.25,0.375,0.0],
+          "width": 1.0,
+          "height": 0.75
+        },
+        {
+          "pos": [-0.25,0.375,0.0],
+          "width": 1.0,
+          "height": 0.75
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "attack",
+        "entity",
+        "block",
+        "click"
+      ],
+      "collisions": [
+        {
+          "pos": [-0.5375,0.75,-0.0375],
+          "width": 0.25,
+          "height": 0.125,
+          "variableName": "button_playerone_up",
+          "variableType": "button",
+          "variableValue": 1.0
+        },
+        {
+          "pos": [-0.5375,0.75,0.275],
+          "width": 0.25,
+          "height": 0.125,
+          "variableName": "button_playerone_down",
+          "variableType": "button",
+          "variableValue": 1.0
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "attack",
+        "entity",
+        "block",
+        "click"
+      ],
+      "collisions": [
+        {
+          "pos": [0.525,0.75,-0.0375],
+          "width": 0.25,
+          "height": 0.125,
+          "variableName": "button_playertwo_up",
+          "variableType": "button",
+          "variableValue": 1.0
+        },
+        {
+          "pos": [0.525,0.75,0.275],
+          "width": 0.25,
+          "height": 0.125,
+          "variableName": "button_playertwo_down",
+          "variableType": "button",
+          "variableValue": 1.0
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "attack",
+        "entity",
+        "block",
+        "click"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,0.75,0.125],
+          "width": 0.1875,
+          "height": 0.125,
+          "variableName": "button_fire",
+          "variableType": "button",
+          "variableValue": 1.0
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Arcade Machine - Paddle'n'Ball",
+      "description": "Gaming classic!",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "scale_factor": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "paddle_playerone_y",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "button_playerone_up",
+          "axis": [0.0,0.125,0.0],
+          "duration": 12
+        },
+        {
+          "animationType": "translation",
+          "variable": "button_playerone_down",
+          "axis": [0.0,-0.125,0.0],
+          "duration": 12
+        }
+      ]
+    },
+    {
+      "variable": "paddle_playertwo_y",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "button_playertwo_up",
+          "axis": [0.0,0.125,0.0],
+          "duration": 12
+        },
+        {
+          "animationType": "translation",
+          "variable": "button_playertwo_down",
+          "axis": [0.0,-0.125,0.0],
+          "duration": 12
+        }
+      ]
+    },
+    {
+      "variable": "ball_x",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ball_velocity_x",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_wall",
+          "reverseDelay": 15,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "zero",
+          "axis": [0.0,0.0,0.81875]
+        },
+        {
+          "animationType": "activator",
+          "variable": "weh"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_x"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_x",
+          "clampMin": -1.0,
+          "clampMax": 0.81875
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,0.8]
+        },
+        {
+          "animationType": "activator",
+          "variable": "weh"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_x"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_x",
+          "clampMin": -0.81875,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,-0.8]
+        }
+      ]
+    },
+    {
+      "variable": "ball_y",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ball_velocity_y",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_wall",
+          "reverseDelay": 15,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "zero",
+          "axis": [0.0,0.0,0.81875]
+        },
+        {
+          "animationType": "activator",
+          "variable": "weh"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_y"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_y",
+          "clampMin": -1.0,
+          "clampMax": 0.98125
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,0.98]
+        },
+        {
+          "animationType": "activator",
+          "variable": "weh"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_y"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_y",
+          "clampMin": -0.98125,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,-0.98]
+        }
+      ]
+    },
+    {
+      "variable": "ball_velocity_x",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "playfield_shoot_fire",
+          "axis": [0.0,0.0125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ball_collide_x",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "weh"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_x"
+        },
+        {
+          "animationType": "translation",
+          "variable": "ball_velocity_x",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "weh"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_wall",
+          "reverseDelay": 15,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "stop",
+          "axis": [0.0,0.0,0.81875]
+        }
+      ]
+    },
+    {
+      "variable": "ball_velocity_y",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "playfield_shoot_y",
+          "axis": [0.0,0.0125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "debug_ball_up",
+          "axis": [0.0,0.0125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "debug_ball_down",
+          "axis": [0.0,-0.0125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "ball_collide_y",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_x"
+        },
+        {
+          "animationType": "translation",
+          "variable": "ball_relative_y",
+          "axis": [0.0,0.0625,0.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "weh"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_wall",
+          "reverseDelay": 15,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "stop",
+          "axis": [0.0,0.0,0.81875]
+        }
+      ]
+    },
+    {
+      "variable": "ball_relative_y",
+      "minValue": -0.5,
+      "maxValue": 0.5,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ball_y",
+          "axis": [0.0,0.0,-1.25]
+        },
+        {
+          "animationType": "translation",
+          "variable": "paddle_playerone_y",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "ball_x",
+          "clampMin": -1.0
+        }
+      ]
+    },
+    {
+      "variable": "ball_relative_y",
+      "minValue": -0.5,
+      "maxValue": 0.5,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ball_y",
+          "axis": [0.0,0.0,1.25]
+        },
+        {
+          "animationType": "translation",
+          "variable": "paddle_playertwo_y",
+          "axis": [0.0,-1.0,0.0]
+        },
+        {
+          "animationType": "visibility",
+          "variable": "ball_x",
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "ball_collide_x",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_relative_y",
+          "clampMin": 0.4,
+          "clampMax": 2.0,
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_x",
+          "clampMin": -0.81875,
+          "clampMax": 0.81875
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ball_collide_y",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_y",
+          "clampMin": -0.98125,
+          "clampMax": 0.98125
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "ball_collide_wall",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_x",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_x",
+          "clampMin": -0.9375,
+          "clampMax": 0.9375
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "playfield_shoot_dir",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_wall"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_x",
+          "clampMin": -1.0,
+          "clampMax": 0.9375
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "weh"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_wall"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_x",
+          "clampMin": -0.9375,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "playfield_shoot_y",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "10_10_0_cycle",
+          "axis": [0.0,0.0,2.0],
+          "offset": -1.0,
+          "duration": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "playfield_shoot_fire",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "playfield_shoot_fire",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_x",
+          "clampMin": 0.015625,
+          "clampMax": 32767.0,
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_y",
+          "clampMin": 0.015625,
+          "clampMax": 32767.0,
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_velocity_x",
+          "clampMin": 0.015625,
+          "clampMax": 32767.0,
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_velocity_y",
+          "clampMin": 0.015625,
+          "clampMax": 32767.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "playfield_shoot_dir",
+          "axis": [0.0,0.0,-2.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "button_fire",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "playfield_score_playerone",
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_wall"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_x",
+          "clampMin": -1.0,
+          "clampMax": 0.9375
+        },
+        {
+          "animationType": "translation",
+          "variable": "ball_collide_wall",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "playfield_score_playertwo",
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_collide_wall"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ball_x",
+          "clampMin": -0.9375,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "ball_collide_wall",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [-0.5,1.93125,-0.30625],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.25,
+        "variableName": "playfield_score_playerone",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "000000",
+        "attachedTo": "playfield_score",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.5,1.93125,-0.30625],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.25,
+        "variableName": "playfield_score_playertwo",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "000000",
+        "attachedTo": "playfield_score",
+        "lightsUp": true
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": []
+      },
+      {
+        "objectName": "playfield",
+        "applyAfter": "cube",
+        "animations": []
+      },
+      {
+        "objectName": "playfield_score",
+        "applyAfter": "playfield",
+        "animations": []
+      },
+      {
+        "objectName": "paddle_p1",
+        "applyAfter": "playfield_score",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "paddle_playerone_y",
+            "axis": [0.0,0.375,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "paddle_p2",
+        "applyAfter": "playfield_score",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "paddle_playertwo_y",
+            "axis": [0.0,0.375,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "ball",
+        "applyAfter": "playfield_score",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "ball_x",
+            "axis": [0.6875,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "ball_y",
+            "axis": [0.0,0.46875,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "!ball_z",
+            "axis": [0.0,0.0,0.03125]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "playfield",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          }
+        ]
+      },
+      {
+        "objectName": "playfield_score",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          }
+        ]
+      },
+      {
+        "objectName": "paddle_p1",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          }
+        ]
+      },
+      {
+        "objectName": "paddle_p2",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          }
+        ]
+      },
+      {
+        "objectName": "ball",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:raw_square_1000",
+        "activeAnimations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "ball_collide_wall",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 15,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ball_collide_x",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "ball_collide_y",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "dont_bite_my_bumper",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "ball_x",
+            "clampMin": 0.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "ball_collide_x",
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0
+          }
+        ],
+        "looping": true,
+        "blockDoppler": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Television & Stereo",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:plankWood:3",
+        "oredict:gemDiamond:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

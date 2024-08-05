@@ -1,0 +1,314 @@
+{
+  "bullet": {
+    "types": [
+      "explosive"
+    ],
+    "quantity": 1,
+    "diameter": 150.0,
+    "damage": 200.0,
+    "caseLength": 300.0,
+    "blastStrength": 12.0,
+    "armorPenetration": 800.0,
+    "proximityFuze": 1.5,
+    "airBurstDelay": 283,
+    "gravitationalVelocity": 0.0075,
+    "burnTime": 40,
+    "accelerationTime": 20,
+    "maxVelocity": 15,
+    "despawnTime": 300,
+    "impactDespawnTime": 200
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Pineapple",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "pineapple",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:pinacollider_music",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:explode_fruit",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:explode_nuclear",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,4.0,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 3.0,
+        "middleDistance": 96.0,
+        "middleDistanceVolume": 0.5,
+        "maxDistance": 256.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 3,
+        "duration": 20,
+        "transparency": 2.0,
+        "toTransparency": 0.01,
+        "scale": 0.4,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/bulletpath.png",
+        "color": "FFFFFF",
+        "pos": [0.0,0.0,-0.125],
+        "initialVelocity": [0.0,0.0,-1.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 60.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "world",
+        "renderingOrientation": "player",
+        "quantity": 8,
+        "duration": 80,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 16.0,
+        "toScale": 64.0,
+        "hitboxSize": 0.01,
+        "color": "666666",
+        "pos": [0.5,2.0,0.5],
+        "rotationRandomness": [45.0,180.0,45.0],
+        "spreadRandomness": [24.0,0.5,24.0],
+        "initialVelocity": [0.0,1.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "world",
+        "renderingOrientation": "player",
+        "quantity": 8,
+        "duration": 80,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 16.0,
+        "toScale": 64.0,
+        "hitboxSize": 0.01,
+        "color": "666666",
+        "pos": [0.5,2.0,0.5],
+        "rotationRandomness": [22.5,180.0,22.5],
+        "spreadRandomness": [8.0,2.0,8.0],
+        "initialVelocity": [0.0,4.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 80,
+        "transparency": 4.0,
+        "toTransparency": 0.01,
+        "scale": 2.0,
+        "toScale": 24.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/mushroom_cloud_1.png",
+        "model": "ivv:textures/particles/3d/mushroom_cloud.obj",
+        "textureList": [
+          "ivv:textures/particles/mushroom_cloud_1.png",
+          "ivv:textures/particles/mushroom_cloud_2.png",
+          "ivv:textures/particles/mushroom_cloud_3.png",
+          "ivv:textures/particles/mushroom_cloud_4.png"
+        ],
+        "textureDelays": [5,5,5,5],
+        "color": "FFFFFF",
+        "pos": [0.5,1.0,0.5],
+        "rotationRandomness": [0.0,180.0,0.0],
+        "initialVelocity": [0.0,0.125,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 30,
+        "transparency": 0.75,
+        "toTransparency": 0.01,
+        "scale": 4.0,
+        "toScale": 48.0,
+        "hitboxSize": 1.0,
+        "texture": "ivv:textures/particles/3d/explosion.png",
+        "model": "ivv:textures/particles/3d/explosion.obj",
+        "color": "FFFFFF",
+        "pos": [0.5,1.0,0.5],
+        "rotationRandomness": [180.0,180.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 30,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 16.0,
+        "toScale": 64.0,
+        "hitboxSize": 0.2,
+        "textureList": [
+          "ivv:textures/particles/explosion_1.png",
+          "ivv:textures/particles/explosion_2.png",
+          "ivv:textures/particles/explosion_3.png",
+          "ivv:textures/particles/explosion_4.png",
+          "ivv:textures/particles/explosion_5.png",
+          "ivv:textures/particles/explosion_6.png"
+        ],
+        "textureDelays": [4,4,2,3,3,32767],
+        "color": "FFFFFF",
+        "pos": [0.5,0.5,0.5],
+        "initialVelocity": [0.0,2.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Does not lock onto anything\nNo turn radius, galactic guardian damage/explosive power",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "minecraft:log:0:1",
+        "minecraft:apple:0:1",
+        "minecraft:tnt:0:4"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "type": "bullet"
+  }
+}

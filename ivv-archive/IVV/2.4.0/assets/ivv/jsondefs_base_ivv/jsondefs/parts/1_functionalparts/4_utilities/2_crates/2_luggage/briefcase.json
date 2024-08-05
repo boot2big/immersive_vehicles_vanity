@@ -1,0 +1,163 @@
+{
+  "generic": {
+    "type": "interactable_luggage",
+    "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 0.0,
+    "canBePlacedOnGround": true
+  },
+  "interactable": {
+    "interactionType": "crate",
+    "feedsVehicles": true,
+    "hasBlowoutPanels": true,
+    "canBeOpenedInHand": true,
+    "inventoryUnits": 1.0
+  },
+  "definitions": [
+    {
+      "subName": "_ivlabs",
+      "name": "Briefcase",
+      "description": "Bizcasfri!\nCan be placed in vehicle seats and on the ground",
+      "extraMaterialLists": [
+        [
+          "oredict:ingotIron:2"
+        ]
+      ]
+    },
+    {
+      "subName": "_red",
+      "name": "Briefcase",
+      "description": "You'd better protect it!\nCan be placed in vehicle seats and on the ground",
+      "extraMaterialLists": [
+        [
+          "oredict:ingotIron:2"
+        ]
+      ]
+    },
+    {
+      "subName": "_blue",
+      "name": "Briefcase",
+      "description": "You'd better protect it!\nCan be placed in vehicle seats and on the ground",
+      "extraMaterialLists": [
+        [
+          "oredict:ingotIron:2"
+        ]
+      ]
+    },
+    {
+      "subName": "",
+      "name": "Briefcase",
+      "description": "Bizcasfri!\nCan be placed in vehicle seats and on the ground",
+      "extraMaterialLists": [
+        [
+          "oredict:leather:2"
+        ]
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "brand_association",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!boobs",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_onvehicle",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!seat_atlas_superior_safety",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!unuisbest",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "brand_association",
+            "axis": [0.25,0.125,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "unuisbest",
+            "axis": [0.25,0.125,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "seat_atlas_superior_safety",
+            "axis": [0.25,0.09375,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "part_onvehicle",
+            "centerPoint": [0.0,0.0,-0.0],
+            "axis": [0.0,90.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "part_onvehicle",
+            "centerPoint": [0.0,0.0,-0.0],
+            "axis": [-90.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "lid",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "player_interacting",
+            "centerPoint": [0.0,0.0,0.03125],
+            "axis": [45.0,0.0,0.0],
+            "duration": 3,
+            "forwardsEasing": "easeincubic",
+            "reverseEasing": "easeoutcubic",
+            "forwardsStartSound": "ivv:clusterfuck_leveractionback",
+            "reverseEndSound": "ivv:clusterfuck_leveractionforth"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "part_onvehicle"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "player_interacting",
+            "centerPoint": [0.0,0.0,0.03125],
+            "axis": [45.0,0.0,0.0],
+            "duration": 3,
+            "forwardsEasing": "easeincubic",
+            "reverseEasing": "easeoutcubic"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Briefcase",
+    "health": 100,
+    "materialLists": [
+      []
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

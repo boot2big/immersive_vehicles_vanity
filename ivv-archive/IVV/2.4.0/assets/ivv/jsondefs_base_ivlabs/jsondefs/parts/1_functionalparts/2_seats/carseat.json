@@ -1,0 +1,652 @@
+{
+  "generic": {
+    "type": "seat",
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.75,
+    "height": 0.5,
+    "mass": 20,
+    "movementAnimations": [
+      {
+        "animationType": "translation",
+        "variable": "transz",
+        "axis": [0.0,0.0,-0.09375]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "anglex",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [0.0,0.0,1.0]
+      },
+      {
+        "animationType": "rotation",
+        "variable": "angley",
+        "centerPoint": [0.0,0.0,0.0],
+        "axis": [-1.0,0.0,0.0]
+      }
+    ],
+    "activeAnimations": [
+      {
+        "animationType": "visibility",
+        "variable": "part_present_2"
+      }
+    ]
+  },
+  "seat": {},
+  "parts": [
+    {
+      "pos": [0.0,-0.0125,0.0],
+      "maxValue": 1.0,
+      "types": [
+        "generic_npc"
+      ],
+      "animations": [
+          {
+            "animationType": "translation",
+            "variable": "transz",
+            "axis": [0.0,0.0,0.09375]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "anglex",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,-1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "angley",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0]
+          }
+      ]
+    },
+    {
+      "pos": [0.0,-0.1,0.15],
+      "rot": [0.0,90.0,0.0],
+      "maxValue": 3.0,
+      "types": [
+        "interactable_luggage"
+      ],
+      "interactableVariables": [
+        [
+          "!seat_occupied"
+        ]
+      ],
+      "animations": [
+          {
+            "animationType": "translation",
+            "variable": "transz",
+            "axis": [0.0,0.0,0.09375]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "anglex",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,-1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "angley",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0]
+          }
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.417969,-0.164063,0.125],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "seat_belt",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_ismirrored",
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_beltnt",
+          "axis": [-0.835938,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Car Seat",
+      "description": "Comes with a seatbelt, it's like your car is hugging you!",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_tan",
+      "name": "Car Seat",
+      "description": "Comes with a seatbelt, it's like your car is hugging you!",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_gray",
+      "name": "Car Seat",
+      "description": "Comes with a seatbelt, it's like your car is hugging you!",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_black",
+      "name": "Car Seat",
+      "description": "Comes with a seatbelt, it's like your car is hugging you!",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_white",
+      "name": "Car Seat",
+      "description": "Comes with a seatbelt, it's like your car is hugging you!",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "seat_atlas_superior_safety": 1.0,
+    "yes_we_know_what_that_spells_out": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "transz",
+      "minValue": -1.0,
+      "maxValue": 0.5,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "transz",
+          "axis": [0.0,-0.05,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.0005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_belt",
+          "axis": [-0.20,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "anglex",
+      "minValue": -22.5,
+      "maxValue": 22.5,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "anglex",
+          "axis": [0.0,-0.05,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "slip",
+          "axis": [0.0,0.013333333,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,0.001,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_belt",
+          "axis": [-0.20,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "angley",
+      "minValue": -45.0,
+      "maxValue": 5.125,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "angley",
+          "axis": [0.0,-0.05,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.005,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,5.0,0.0],
+          "clampMin": -5.0,
+          "clampMax": 5.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_belt",
+          "axis": [-0.20,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "seat_atlas_carrier",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "seat_belt",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "!seat_occupiednt"
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "seat_belt",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied",
+          "clampMin": 1,
+          "clampMax": 1,
+          "reverseDelay": 1
+        },
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": -2,
+          "clampMax": 2
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied",
+          "axis": [0.0,0.0,1.0],
+          "forwardsDelay": 20
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "transz",
+            "axis": [0.0,0.0,0.09375]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "anglex",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,-1.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "angley",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "#damage_lvl1",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.25,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#damage_lvl2",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.5,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#damage_lvl3",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#damage_lvl4",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#damage_mirrored_lvl1",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.25,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#damage_mirrored_lvl2",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.5,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#damage_mirrored_lvl3",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_percent",
+            "clampMin": 0.75,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#damage_mirrored_lvl4",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "buckle",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "seat_belt"
+          }
+        ]
+      },
+      {
+        "objectName": "#buckle_mirrored",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "seat_belt"
+          }
+        ]
+      },
+      {
+        "objectName": "belt",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "seat_belt",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#belt_mirrored",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!part_ismirrored"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "seat_belt",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "lever",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "#lever_mirrored",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "#mount_mirrored",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_atlas_carrier"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "!part_ismirrored"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:beltbuckle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_belt",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 6.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:beltunbuckle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_belt"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 6.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "health": 80,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2",
+        "oredict:leather:3"
+      ]
+    ],
+    "repairMaterialLists": [
+      [
+        "oredict:leather:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

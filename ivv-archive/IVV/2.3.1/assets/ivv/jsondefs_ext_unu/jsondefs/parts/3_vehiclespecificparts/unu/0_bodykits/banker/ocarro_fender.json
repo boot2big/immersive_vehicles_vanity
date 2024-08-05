@@ -1,0 +1,144 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_fender_banker",
+    "useVehicleTexture": true,
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [-0.640625,0.031234,1.8125],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 3.0,
+      "partScale": [1.0,1.0,1.0],
+      "types": [
+        "generic_headlight"
+      ],
+      "linkedParts": [],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_ismirrored",
+          "axis": [1.28125,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "UNU Banker \"Ocarro\" Fender",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "part_useDefaultHitboxes": 1.0
+  },
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightLeft",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "$Battery",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightRight",
+        "applyAfter": "$Fender_RightFront",
+        "animations": []
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "&HeadlightLeft",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,2.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.640625,0.031234,1.812],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.4875,
+            "flareWidth": 0.4875,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightRight",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,2.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.640625,0.031234,1.812],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.4875,
+            "flareWidth": 0.4875,
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      }
+    ],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "It's alive!\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:3"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

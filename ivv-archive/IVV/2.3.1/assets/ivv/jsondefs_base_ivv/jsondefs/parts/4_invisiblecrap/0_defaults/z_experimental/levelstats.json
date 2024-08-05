@@ -1,0 +1,299 @@
+{
+  "generic": {
+    "type": "generic_ivv_superencabulator",
+    "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true,
+    "width": 0.5,
+    "height": 0.25
+  },
+  "parts": [],
+  "collisionGroups": [],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Statistics Popup",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [-0.6375,1.0625,-0.003125],
+        "scale": 0.125,
+        "variableName": "vehicle_skill_speed",
+        "variableFactor": 20.0,
+        "variableFormat": "SPD: %02.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      {
+        "pos": [-0.6375,0.921875,-0.003125],
+        "scale": 0.125,
+        "variableName": "vehicle_skill_strength",
+        "variableFactor": 20.0,
+        "variableFormat": "STR: %02.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      {
+        "pos": [-0.6375,0.78125,-0.003125],
+        "scale": 0.125,
+        "variableName": "vehicle_skill_handling",
+        "variableFactor": 20.0,
+        "variableFormat": "AGL: %02.0f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true,
+        "renderPosition": 1
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "fake",
+        "animations": []
+      },
+      {
+        "objectName": "cuboid_translucent",
+        "blendedAnimations": true,
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "0_40_40_cycle",
+            "clampMin": -4.0,
+            "clampMax": 2.0,
+            "duration": 40,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "blep",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "livin_in_the_new_world",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_empty_1_translucent",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "vehicle_skill_speed",
+            "centerPoint": [0.5625,0.0,-0.001953],
+            "axis": [-1.0,0.0,0.0],
+            "offset": -1.0001,
+            "absolute": true
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_full_1_translucent",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "vehicle_skill_speed",
+            "centerPoint": [-0.328125,0.0,-0.001953],
+            "axis": [1.0,0.0,0.0],
+            "offset": 0.0001,
+            "absolute": true
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_empty_2_translucent",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "vehicle_skill_strength",
+            "centerPoint": [0.5625,0.0,-0.001953],
+            "axis": [-1.0,0.0,0.0],
+            "offset": -1.0001,
+            "absolute": true
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_full_2_translucent",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "vehicle_skill_strength",
+            "centerPoint": [-0.328125,0.0,-0.001953],
+            "axis": [1.0,0.0,0.0],
+            "offset": 0.0001,
+            "absolute": true
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_empty_3_translucent",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "vehicle_skill_handling",
+            "centerPoint": [0.5625,0.0,-0.001953],
+            "axis": [-1.0,0.0,0.0],
+            "offset": -1.0001,
+            "absolute": true
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_full_3_translucent",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "vehicle_skill_handling",
+            "centerPoint": [-0.328125,0.0,-0.001953],
+            "axis": [1.0,0.0,0.0],
+            "offset": 0.0001,
+            "absolute": true
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "cuboid_translucent",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "0_40_40_cycle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 40,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_empty_1_translucent",
+        "emissive": true,
+        "color": "3F3F3F",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "0_40_40_cycle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 40,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_full_1_translucent",
+        "emissive": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "0_40_40_cycle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 40,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_empty_2_translucent",
+        "emissive": true,
+        "color": "3F3F3F",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "0_40_40_cycle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 40,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_full_2_translucent",
+        "emissive": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "0_40_40_cycle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 40,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_empty_3_translucent",
+        "emissive": true,
+        "color": "3F3F3F",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "0_40_40_cycle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 40,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      },
+      {
+        "objectName": "lvl_bar_full_3_translucent",
+        "emissive": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "0_40_40_cycle",
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.75,
+            "duration": 40,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "TAPOTD Reference",
+    "description": "Mounts hitch adapters for towing stuff",
+    "health": 100,
+    "materialLists": [
+      [
+        "minecraft:dirt:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

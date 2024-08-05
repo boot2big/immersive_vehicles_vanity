@@ -1,0 +1,122 @@
+{
+  "decor": {
+    "type": "generic",
+    "width": 1.0,
+    "height": 1.875,
+    "depth": 1.0
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Type 42 TT Capsule",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_decrepit",
+      "name": "Decrepit Type 42 TT Capsule",
+      "constants": ["decrepit"],
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "doorleft",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "redstone_active"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "activated",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,-40.0,0.0],
+            "duration": 40,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic",
+            "forwardsStartSound": "ivv:dooropen6",
+            "reverseStartSound": "ivv:doorclose6"
+          }
+        ]
+      },
+      {
+        "objectName": "doorright",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "redstone_active"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "activated",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,40.0,0.0],
+            "duration": 40,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic",
+            "forwardsStartSound": "ivv:dooropen6",
+            "reverseStartSound": "ivv:doorclose6"
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:blueboxbell",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "80_2_0_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!gamerule_doDaylightCycle"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "time",
+            "clampMin": 17960.0,
+            "clampMax": 18040.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "decrepit",
+            "axis": [0.0,-0.0375,0.0],
+            "offset": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 80.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "lightObjects": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Abandoned Type 42 TT Capsule",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "minecraft:quartz_block:0:1",
+        "minecraft:iron_door:0:1",
+        "mts:ivv.core:0:1",
+        "mts:ivv.circuit:0:6"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

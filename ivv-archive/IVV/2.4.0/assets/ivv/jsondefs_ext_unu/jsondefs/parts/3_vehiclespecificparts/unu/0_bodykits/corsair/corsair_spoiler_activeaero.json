@@ -1,0 +1,280 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_trunklid_corsair",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25,
+    "useVehicleTexture": true
+  },
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "attack",
+        "entity",
+        "click"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,-0.125,-0.84375],
+          "width": 0.25,
+          "height": 0.25
+        }
+      ],
+      "animations": []
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "useVehicleTexture": true,
+      "name": "UNU Corsair Trunklid with Active Aero Wing",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "part_useDefaultAnimations": 1.0,
+    "part_useDefaultModel": 1.0,
+    "part_useDefaultSounds": 1.0,
+    "part_useDefaultHitboxes": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "brake_modified",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "brake_modified",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [0.0,0.5,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "rudder_modified",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "rudder_modified",
+          "axis": [0.0,-0.5,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "rudder",
+          "axis": [0.0,0.5,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "piston_length_left",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "rudder_modified",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.066666667,0.0,0.0],
+          "offset": -0.33333334,
+          "clampMin": 0.001,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake_modified",
+          "axis": [0.0,-20.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.2,0.0,0.0],
+          "clampMin": 0.001,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_engine_reversed_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engines_on",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "piston_length_right",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "rudder_modified",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.066666667,0.0,0.0],
+          "offset": -0.33333334,
+          "clampMin": 0.001,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake_modified",
+          "axis": [0.0,20.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.2,0.0,0.0],
+          "clampMin": 0.001,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!parent_engine_reversed_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engines_on",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "wing_front_angle",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "piston_length_left",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "piston_length_right",
+          "axis": [0.0,-1.0,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "$SolenoidLeft",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "!laziness",
+            "centerPoint": [0.4375,-0.21875,-1.09375],
+            "axis": [5.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "piston_length_left",
+            "centerPoint": [0.4375,-0.21875,-1.09375],
+            "axis": [0.033333333,0.0,-0.066666667]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "wing_front_angle",
+            "centerPoint": [0.4375,-0.21875,-1.09375],
+            "axis": [-0.033333333,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "$PistonLeft",
+        "applyAfter": "$SolenoidLeft",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "piston_length_left",
+            "axis": [0.0,-0.002777778,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "$SolenoidRight",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "!laziness",
+            "centerPoint": [-0.4375,-0.21875,-1.09375],
+            "axis": [5.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "piston_length_right",
+            "centerPoint": [-0.4375,-0.21875,-1.09375],
+            "axis": [-0.033333333,0.0,-0.066666667]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "wing_front_angle",
+            "centerPoint": [-0.4375,-0.21875,-1.09375],
+            "axis": [-0.033333333,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "$PistonRight",
+        "applyAfter": "$SolenoidRight",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "piston_length_right",
+            "axis": [0.0,0.002777778,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "$Spoiler",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "piston_length_left",
+            "centerPoint": [0.0,0.1875,-0.890625],
+            "axis": [0.0,0.0,-0.166666667]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "piston_length_right",
+            "centerPoint": [0.0,0.1875,-0.890625],
+            "axis": [0.0,0.0,-0.166666667]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "wing_front_angle",
+            "centerPoint": [0.0,0.1875,-0.890625],
+            "axis": [-0.333333334,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "For the active racing scene\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

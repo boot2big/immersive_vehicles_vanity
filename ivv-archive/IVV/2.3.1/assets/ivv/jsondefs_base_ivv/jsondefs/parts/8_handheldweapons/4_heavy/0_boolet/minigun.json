@@ -1,0 +1,1034 @@
+{
+  "generic": {
+    "type": "gun_hand_heavy",
+    "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true,
+    "activeAnimations": [
+      {
+        "animationType": "visibility",
+        "variable": "gun_overheating",
+        "clampMin": -1.0
+      }
+    ]
+  },
+  "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
+    "handHeld": true,
+    "isTwoHanded": true,
+    "capacity": 1000,
+    "reloadTime": 100,
+    "reloadDelay": 25,
+    "muzzleVelocity": 188,
+    "fireDelay": 1.0,
+    "bulletSpreadFactor": 8.0,
+    "diameter": 7.62,
+    "minCaseLength": 51.0,
+    "maxCaseLength": 52.0,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
+    "handHeldNormalOffset": [-0.1,-0.1,0.4],
+    "handHeldAimedOffset": [-0.1,-0.1,0.4],
+    "handHeldModelOffset": [0.0,0.0,-0.375],
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [-0.030494,-0.45007,2.27502],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [0.030494,-0.45007,2.27502],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [-0.078125,-0.35625,2.27502],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "muzzles": [
+          {
+            "pos": [0.078125,-0.35625,2.27502],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [-0.030936,-0.263128,2.27502],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          },
+          {
+            "pos": [0.030936,-0.263128,2.27502],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Minigun",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "isTwoHanded",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_reload",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "bulletSpreadFactor",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "!part_onvehicle"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_sneaking",
+          "axis": [0.0,0.0,4.0],
+          "offset": 4.0
+        }
+      ]
+    },
+    {
+      "variable": "fireDelay",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_barrel_windup",
+          "axis": [0.0,0.0,2.0],
+          "offset": 1.0,
+          "duration": 10
+        }
+      ]
+    },
+    {
+      "variable": "gun_overheating",
+      "setValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "tick_sin",
+          "clampMin": -0.95,
+          "clampMax": 0.95
+        },
+        {
+          "animationType": "visibility",
+          "variable": "2_4_2_cycle",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "gun_heat",
+          "clampMin": 600.0,
+          "clampMax": 700.0
+        }
+      ]
+    },
+    {
+      "variable": "gun_overheating",
+      "setValue": -1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_heat",
+          "clampMin": -10.0,
+          "clampMax": 450.0
+        }
+      ]
+    },
+    {
+      "variable": "gun_barrel_windup",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "gun_firing",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "gun_inhand_aiming",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_reload",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_overheating",
+          "clampMin": -1.0,
+          "clampMax": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_overheating",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "gun_barrel_rotation",
+      "setValue": -360.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_barrel_rotation",
+          "clampMin": 359.5,
+          "clampMax": 360.0
+        }
+      ]
+    },
+    {
+      "variable": "gun_barrel_rotation",
+      "minValue": -360.0,
+      "maxValue": 360.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "gun_barrel_windup",
+          "axis": [0.0,15.0,0.0],
+          "duration": 10
+        }
+      ]
+    },
+    {
+      "variable": "gun_heat",
+      "minValue": 10.0,
+      "maxValue": 700.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "gun_fired",
+          "axis": [0.0,1.0,0.0],
+          "duration": 2,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_fired",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "reverseDelay": 2
+        },
+        {
+          "animationType": "translation",
+          "variable": "2_4_2_cycle",
+          "axis": [0.0,-0.25,0.0],
+          "duration": 2,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "!2_4_2_cycle",
+          "axis": [0.0,-0.25,0.0],
+          "duration": 2,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_heat",
+          "clampMin": 300.0,
+          "clampMax": 600.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "2_4_2_cycle",
+          "axis": [0.0,-0.25,0.0],
+          "duration": 2,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "!2_4_2_cycle",
+          "axis": [0.0,-0.25,0.0],
+          "duration": 2,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "activator",
+          "variable": "cooldown"
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_barrel_windup"
+        },
+        {
+          "animationType": "translation",
+          "variable": "2_4_2_cycle",
+          "axis": [0.0,-0.25,0.0],
+          "duration": 2,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "!2_4_2_cycle",
+          "axis": [0.0,-0.25,0.0],
+          "duration": 2,
+          "skipForwardsMovement": true
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.343185,0.125,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_heat",
+        "variableFactor": 2.0,
+        "variableFormat": "HEAT: %01.0fc",
+        "fontName": "ivv:digifont",
+        "defaultText": "uwu im in heat",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "attachedTo": "hudModel",
+        "lightsUp": true,
+        "renderPosition": 2
+      },
+      {
+        "pos": [0.343185,0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "AMMO: %01.0f/1000",
+        "fontName": "ivv:digifont",
+        "defaultText": "fill me up daddy owo",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "attachedTo": "hudAmmoModel",
+        "lightsUp": true,
+        "renderPosition": 2
+      },
+      {
+        "pos": [0.343185,0.0,0.377869],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "RELOADING",
+        "fontName": "ivv:digifont",
+        "defaultText": "uwwaaaaa~",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "attachedTo": "hudReloadModel",
+        "lightsUp": true,
+        "renderPosition": 2
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_onvehicle"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_controller_firstperson",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_controller_firstperson",
+            "axis": [0.0,0.0,0.375]
+          }
+        ]
+      },
+      {
+        "objectName": "hudReloadModel",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 2
+          }
+        ]
+      },
+      {
+        "objectName": "hudAmmoModel",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "reverseDelay": 2
+          }
+        ]
+      },
+      {
+        "objectName": "minigunBarrelModel",
+        "applyAfter": "barrelModel",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_barrel_rotation",
+            "centerPoint": [0.03125,-0.35625,1.81409],
+            "axis": [0.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "barrelModel",
+        "applyAfter": "gunModel",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_barrel_rotation",
+            "centerPoint": [0.03125,-0.35625,1.81409],
+            "axis": [0.0,0.0,3.25]
+          }
+        ]
+      },
+      {
+        "objectName": "gunModel",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-22.5,0.0,-22.5],
+            "duration": 20,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": 2,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [22.5,0.0,22.5],
+            "duration": 10,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": 80,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_muzzleflash",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0375],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_muzzleflash",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_barrel_windup",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [11.25,0.0,0.0],
+            "offset": -11.25,
+            "duration": 5,
+            "forwardsEasing": "easeinoutsine",
+            "reverseEasing": "easeinoutsine"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "minigunBarrelModel",
+        "emissive": true,
+        "color": "F06F13",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_heat",
+            "axis": [0.0,0.005,0.0],
+            "offset": -2.25
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:minigun_firing",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,3.0,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.5,
+        "maxDistance": 64.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:bulletdistantbrrrt",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!generic_gun_suppressor_1",
+            "axis": [0.0,1.5,0.0],
+            "offset": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:minigun_reloading",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:lmg_whir",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_barrel_windup",
+            "axis": [0.0,0.375,0.0],
+            "clampMax": 0.75,
+            "duration": 10
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_barrel_windup",
+            "axis": [0.0,0.9375,0.0],
+            "offset": 0.875,
+            "duration": 10
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:generic_gun_hammer",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_percent"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_barrel_windup",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_firing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "1_2_1_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,0.75,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9875
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "stopsOnGround": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 120,
+        "transparency": 10.0,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/magtexture_gray.png",
+        "model": "ivv:textures/particles/3d/mag_minigun.obj",
+        "color": "CCCCCC",
+        "pos": [0.0,-0.5,-0.25],
+        "rot": [0.0,0.0,90.0],
+        "rotationRandomness": [180.0,0.0,0.0],
+        "initialVelocity": [0.0,0.25,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 2,
+        "duration": 200,
+        "transparency": 2.5,
+        "toTransparency": 0.01,
+        "scale": 0.1,
+        "toScale": 0.1,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/casingmachinegun.png",
+        "color": "CCCCCC",
+        "pos": [-0.2125,-0.46875,0.483356],
+        "initialVelocity": [-0.5,0.0,-0.5],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_muzzleflash",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0375],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_muzzleflash",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 2,
+        "duration": 120,
+        "transparency": 10.0,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/casing.png",
+        "model": "ivv:textures/particles/3d/casing.obj",
+        "color": "CCCCCC",
+        "pos": [0.2,-0.3875,0.56669],
+        "rotationRandomness": [22.5,0.0,22.5],
+        "spreadRandomness": [0.0,0.25,0.25],
+        "initialVelocity": [1.0,0.0,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_muzzleflash",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0375],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_muzzleflash",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 0.5,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/muzzleflash.png",
+        "model": "ivv:textures/particles/3d/muzzleflash.obj",
+        "color": "FFFFFF",
+        "pos": [0.03125,-0.35625,2.27502],
+        "rotationRandomness": [0.0,0.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_muzzleflash",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0375],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_muzzleflash",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 3,
+        "duration": 20,
+        "transparency": 0.125,
+        "toTransparency": 0.01,
+        "scale": 0.5,
+        "toScale": 2.0,
+        "hitboxSize": 0.25,
+        "color": "555555",
+        "pos": [0.03125,-0.35625,2.27502],
+        "initialVelocity": [0.0,0.0,2.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_muzzleflash",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-2.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0375],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_muzzleflash",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine"
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.375,
+        "toTransparency": 0.01,
+        "scale": 0.4,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
+        "color": "9A9A9A",
+        "pos": [0.03125,-0.35625,1.875],
+        "initialVelocity": [0.0,0.125,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "5_2_5_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_overheating",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 5,
+        "duration": 40,
+        "transparency": 0.375,
+        "toTransparency": 0.01,
+        "scale": 0.4,
+        "toScale": 0.8,
+        "hitboxSize": 0.2,
+        "color": "9A9A9A",
+        "pos": [0.03125,-0.35625,1.375],
+        "initialVelocity": [0.0,0.125,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!5_2_5_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_overheating",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "M134 Minigun",
+    "description": "Model from LauraDarkez2001, original creator to be found for proper credit attribution\nHold RMB to spin barrel without firing, will overheat with sustained fire",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:27",
+        "oredict:dustRedstone:6",
+        "minecraft:stone_button:0:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

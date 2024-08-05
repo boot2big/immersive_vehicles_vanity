@@ -1,0 +1,325 @@
+{
+  "decor": {
+    "type": "generic",
+    "width": 0.375,
+    "height": 0.375,
+    "depth": 0.375
+  },
+  "definitions": [
+    {
+      "subName": "_washwater",
+      "name": "Gamer Car Wash Water",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_blood",
+      "name": "Mitchell's Blood Collection",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "logic_firstclick",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "logic_firstclick"
+        },
+        {
+          "animationType": "translation",
+          "variable": "clicked",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "logic_lid_open",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "logic_click_sequential",
+          "clampMax": 8.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "logic_firstclick",
+          "forwardsDelay": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "logic_firstclick",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "logic_lid_open",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "logic_click_sequential",
+          "clampMin": 8.0,
+          "clampMax": 8.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "close",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "logic_click",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "logic_firstclick",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 40
+        },
+        {
+          "animationType": "visibility",
+          "variable": "clicked",
+          "forwardsDelay": 1,
+          "reverseDelay": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "clicked",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "logic_click_sequential",
+      "maxValue": 8.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "logic_firstclick",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 40
+        },
+        {
+          "animationType": "visibility",
+          "variable": "clicked",
+          "forwardsDelay": 1,
+          "reverseDelay": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "clicked",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "scaling_pains_me_greatly_in_unforeseen_ways",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "logic_click_sequential",
+          "axis": [0.0,0.0,-0.142857143],
+          "offset": 1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "bowtop",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "logic_firstclick",
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "logic_firstclick",
+            "axis": [0.0,0.25,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          }
+        ]
+      },
+      {
+        "objectName": "bow",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "logic_firstclick",
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "!laziness",
+            "axis": [0.0,0.0015625,0.0]
+          },
+          {
+            "animationType": "scaling",
+            "variable": "!logic_firstclick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "scaling",
+            "variable": "logic_firstclick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.5,0.0,0.0],
+            "offset": 1.0,
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          },
+          {
+            "animationType": "scaling",
+            "variable": "logic_firstclick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.5],
+            "offset": 1.0,
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic"
+          }
+        ]
+      },
+      {
+        "objectName": "lid",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "logic_lid_open",
+            "centerPoint": [0.0,0.25,0.0],
+            "axis": [0.0,180.0,0.0],
+            "duration": 20,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "logic_lid_open",
+            "axis": [0.0,0.015625,0.0],
+            "duration": 20,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 10
+          },
+          {
+            "animationType": "translation",
+            "variable": "logic_lid_open",
+            "axis": [-0.10625,0.0,0.0],
+            "duration": 20,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 20
+          },
+          {
+            "animationType": "translation",
+            "variable": "logic_lid_open",
+            "axis": [0.0,-0.25,0.0],
+            "duration": 20,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 30
+          },
+          {
+            "animationType": "rotation",
+            "variable": "logic_lid_open",
+            "centerPoint": [-0.1875,0.25,0.0],
+            "axis": [0.0,0.0,67.5],
+            "duration": 20,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 30
+          }
+        ]
+      },
+      {
+        "objectName": "fluid_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "logic_click_sequential",
+            "clampMax": 6.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "scaling_pains_me_greatly_in_unforeseen_ways",
+            "centerPoint": [0.0,0.005,0.0],
+            "axis": [0.0,1.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:generic_consume_slurp",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "logic_click",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "logic_firstclick",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 40
+          },
+          {
+            "animationType": "visibility",
+            "variable": "logic_click_sequential",
+            "clampMax": 7.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 8.0,
+        "middleDistanceVolume": 0.5,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Suspicious jar",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "minecraft:glass_bottle:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

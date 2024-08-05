@@ -1,0 +1,230 @@
+{
+  "generic": {
+    "type": "generic_seat_furniture",
+    "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0,
+    "canBePlacedOnGround": true,
+    "width": 1.0,
+    "height": 1.0
+  },
+  "parts": [
+    {
+      "pos": [0.0,1.35,-0.125],
+      "isPermanent": true,
+      "defaultPart": "ivv:rockseat",
+      "types": [
+        "seat_invisible"
+      ],
+      "applyAfter": "bronco",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "furniture_bronco_buck",
+          "axis": [0.0,0.0,0.25],
+          "clampMin": -0.25,
+          "clampMax": 0.0125
+        },
+        {
+          "animationType": "rotation",
+          "variable": "furniture_bronco_buck",
+          "centerPoint": [0.0,1.2,-0.125],
+          "axis": [-33.75,0.0,0.0],
+          "clampMin": -22.5,
+          "clampMax": 37.75
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Bucking Bronco",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "furniture_bronco_sway",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "20_40_20_cycle",
+          "axis": [0.0,0.05,0.0],
+          "offset": -0.025
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_partandrider_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "furniture_bronco_buck",
+          "axis": [0.0,-0.0625,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "furniture_bronco_buck",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "10_20_10_cycle",
+          "axis": [0.0,0.05,0.0],
+          "offset": -0.025
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_partandrider_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "furniture_bronco_buck",
+          "axis": [0.0,-0.0625,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "furniture_bronco_bray",
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "40_80_40_cycle",
+          "axis": [0.0,0.05,0.0],
+          "offset": -0.025
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_partandrider_1",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "furniture_bronco_bray",
+          "axis": [0.0,-0.0125,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "piston",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "furniture_bronco_bray",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,120.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "bronco",
+        "applyAfter": "piston",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "seat_occupied_partandrider_1"
+          },
+          {
+            "animationType": "translation",
+            "variable": "10_20_10_cycle",
+            "axis": [0.0,0.0625,0.0],
+            "duration": 20
+          },
+          {
+            "animationType": "activator",
+            "variable": "active"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "furniture_bronco_buck",
+            "centerPoint": [0.0,0.5625,0.0],
+            "axis": [30.0,0.0,0.0]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "furniture_bronco_sway",
+            "centerPoint": [0.0,0.5625,0.0],
+            "axis": [0.0,0.0,-11.25]
+          }
+        ]
+      },
+      {
+        "objectName": "broncohead",
+        "applyAfter": "bronco",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_occupied_partandrider_1"
+          }
+        ]
+      },
+      {
+        "objectName": "broncohead_evil",
+        "applyAfter": "bronco",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!seat_occupied_partandrider_1"
+          }
+        ]
+      },
+      {
+        "objectName": "broncohorn",
+        "applyAfter": "bronco",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!on",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:broncoangry",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!seat_occupied_partandrider_1"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.5,
+        "middleDistance": 4.0,
+        "middleDistanceVolume": 1.0,
+        "maxDistance": 36.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Angry Cow Chair",
+    "description": "What do you mean, it doesn't have wheels? It's a Bronco!!",
+    "health": 20,
+    "materialLists": [
+      [
+        "minecraft:piston:0:1",
+        "minecraft:saddle:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

@@ -1,0 +1,753 @@
+{
+  "generic": {
+    "type": "gun_hand_standard",
+    "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true,
+    "width": 0.375,
+    "height": 0.25
+  },
+  "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
+    "handHeld": true,
+    "capacity": 40,
+    "reloadTime": 40,
+    "reloadDelay": 10,
+    "muzzleVelocity": 125,
+    "fireDelay": 2.0,
+    "bulletSpreadFactor": 3.0,
+    "diameter": 4.6,
+    "minCaseLength": 30.0,
+    "maxCaseLength": 30.0,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
+    "handHeldNormalOffset": [-0.0625,-0.125,0.55],
+    "handHeldAimedOffset": [0.15625,0.05,0.55],
+    "handHeldModelOffset": [0.0,0.125,-0.0625],
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.0,0.064793,0.362085],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.064793,0.3125],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "partScale": [1.5,1.5,1.25],
+      "types": [
+        "generic_gun_suppressor"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
+    },
+    {
+      "pos": [0.0,0.174168,-0.075],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "types": [
+        "generic_gun_scope"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
+    },
+    {
+      "pos": [0.0,-0.075832,0.205835],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 4.0,
+      "defaultPart": "ivv:grip",
+      "types": [
+        "generic_gun_grip"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
+    },
+    {
+      "pos": [0.0,0.0625,0.125],
+      "rot": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "types": [
+        "generic_gun_controlmodifier"
+      ],
+      "linkedParts": [],
+      "applyAfter": "gunModel"
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "MP7",
+      "description": "Three steps above an MPEG-4!",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "generic_gun_scope_short": 1.0,
+    "generic_gun_grip_invis": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "isTwoHanded",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!gun_reload",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "bulletSpreadFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "gun_fired",
+          "axis": [0.9,0.0,0.0],
+          "offset": 0.1,
+          "duration": 2,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_gun_muzzle_recoil_1",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "generic_gun_grip_recoil_3",
+          "axis": [1.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!part_onvehicle"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_sneaking",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_inhand_aiming",
+          "axis": [0.25,0.0,0.0],
+          "offset": 0.75
+        }
+      ]
+    },
+    {
+      "variable": "fireDelay",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_fireDelay_modifier",
+          "clampMin": 1.0,
+          "clampMax": 2.14748365E9
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_fireDelay_modifier",
+          "axis": [0.9,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.125,0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "AMMO: %01.0f/40",
+        "fontName": "ivv:digifont",
+        "defaultText": "fill me up daddy owo",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "attachedTo": "hudAmmoModel",
+        "lightsUp": true,
+        "renderPosition": 2
+      },
+      {
+        "pos": [0.125,-0.0,0.375],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "gun_ammo_count",
+        "variableFactor": 1.0,
+        "variableFormat": "RELOADING",
+        "fontName": "ivv:digifont",
+        "defaultText": "uwwaaaaa~",
+        "maxLength": 7,
+        "color": "CCCCCC",
+        "attachedTo": "hudReloadModel",
+        "lightsUp": true,
+        "renderPosition": 2
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "hudModel",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_inhand_aiming",
+            "axis": [0.125,0.0,0.0]
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_onvehicle"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_controller_firstperson",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "hudReloadModel",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 2
+          }
+        ]
+      },
+      {
+        "objectName": "hudAmmoModel",
+        "applyAfter": "hudModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "reverseDelay": 2
+          }
+        ]
+      },
+      {
+        "objectName": "ammoModel",
+        "applyAfter": "gunModel",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "gun_controller_firstperson"
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,-2.0,0.0],
+            "duration": 8,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,2.0,0.0],
+            "duration": 3,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 11,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "activator",
+            "variable": "gun_controller_firstperson"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!gun_controller_firstperson"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "forwardsDelay": 2
+          }
+        ]
+      },
+      {
+        "objectName": "defaultGripModel",
+        "applyAfter": "gunModel",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_gun_grip_3",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "gunModel",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,22.5],
+            "duration": 10,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": 2,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,-22.5],
+            "duration": 10,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeoutcubic",
+            "forwardsDelay": 20,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-3.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -1
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "cameraObjects": [
+      {
+        "pos": [0.0,0.2125,-0.75],
+        "rot": [0.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_2"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand_aiming",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_inhand",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:mp7_firing",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_gun_suppressor_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,2.0,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:mp7_firing_silenced",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_gun_suppressor_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,1.25,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:bulletdistant",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!generic_gun_suppressor_1",
+            "axis": [0.0,1.5,0.0],
+            "offset": 0.5
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.9375
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 128.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:mp7_reloading",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:generic_gun_hammer",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_firing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!kitchen_gun",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0625,0.0],
+            "offset": 0.9875
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "stopsOnGround": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 120,
+        "transparency": 10.0,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/magtexture_black.png",
+        "model": "ivv:textures/particles/3d/mag_pistol.obj",
+        "color": "CCCCCC",
+        "pos": [0.0,-0.5,-0.25],
+        "rot": [0.0,0.0,90.0],
+        "rotationRandomness": [180.0,0.0,0.0],
+        "initialVelocity": [0.0,0.25,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "stopsOnGround": true,
+        "groundSounds": [
+          "ivv:bulletcasing1",
+          "ivv:bulletcasing2",
+          "ivv:bulletcasing3",
+          "ivv:bulletcasing4"
+        ],
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 120,
+        "transparency": 10.0,
+        "toTransparency": 0.01,
+        "scale": 1.0,
+        "toScale": 1.0,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/casing.png",
+        "model": "ivv:textures/particles/3d/casing.obj",
+        "color": "CCCCCC",
+        "pos": [0.0,0.064793,-0.106665],
+        "rotationRandomness": [22.5,0.0,22.5],
+        "spreadRandomness": [0.0,0.25,0.25],
+        "initialVelocity": [-1.0,0.5,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32.0,6.0,32.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-5.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -1
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 1.5,
+        "toTransparency": 0.01,
+        "scale": 0.125,
+        "toScale": 0.25,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/3d/muzzleflash.png",
+        "model": "ivv:textures/particles/3d/muzzleflash.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.06479,0.36209],
+        "rotationRandomness": [0.0,0.0,180.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-5.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -1
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_gun_suppressor_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 3,
+        "duration": 20,
+        "transparency": 0.125,
+        "toTransparency": 0.01,
+        "scale": 0.25,
+        "toScale": 1.0,
+        "hitboxSize": 0.25,
+        "color": "555555",
+        "pos": [0.0,0.06479,0.36209],
+        "initialVelocity": [0.0,0.0,2.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_fired",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-5.0,0.0,0.0],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -1
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,0.0,-0.0625],
+            "duration": 1,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "forwardsDelay": -1
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "generic_gun_suppressor_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "MP7",
+    "description": "Model from LauraDarkez2001, original creator to be found for proper credit attribution",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:7",
+        "minecraft:stone_button:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

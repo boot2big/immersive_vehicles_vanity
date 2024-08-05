@@ -1,0 +1,347 @@
+{
+  "generic": {
+    "type": "gun_hand_generic_boombox",
+    "canBeRemovedByHand": true,
+    "canBePlacedOnGround": true,
+    "width": 0.5,
+    "height": 0.375,
+      "movementAnimations": [
+        {
+          "animationType": "translation",
+          "variable": "gun_inhand_sneaking",
+          "axis": [0.0,-0.1875,0.0]
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_inhand",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,90.0,0.0],
+          "duration": 1
+        }
+      ]
+  },
+  "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
+    "handHeld": true,
+    "capacity": 1,
+    "reloadTime": 1,
+    "muzzleVelocity": 1,
+    "fireDelay": 3.0,
+    "diameter": 9.0,
+    "minCaseLength": 2.0,
+    "maxCaseLength": 2.0,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
+    "handHeldNormalOffset": [0.0,0.0,0.25],
+    "handHeldAimedOffset": [0.0,0.0,0.25],
+    "handHeldModelOffset": [-0.125,0.125,0.0],
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.0,0.0,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.3125,0.125],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "types": ["generic_music_cassette"],
+      "applyAfter": "lid"
+    }
+  ],
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [-0.25,0.2,0.0625],
+          "width": 0.25,
+          "height": 0.375,
+          "variableName": "power_button",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.25,0.2,0.0625],
+          "width": 0.25,
+          "height": 0.375,
+          "variableName": "power_button",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_inhand"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Boombox",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "power_button",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_inhand_aiming",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "gun_inhand_sneaking"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!lighty_wighty_uwu",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "power_button",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "gun_inhand_aiming",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "gun_inhand_sneaking",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "lighty_wighty_uwu",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "cassette_playing",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_present_1",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "power_button",
+          "axis": [1.0,0.0,0.0],
+          "reverseDelay": 100
+        }
+      ]
+    },
+    {
+      "variable": "cassette_volume",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "power_button",
+          "axis": [0.0,0.0,1.0],
+          "duration": 10
+        }
+      ]
+    },
+    {
+      "variable": "cassette_speed",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "power_button",
+          "axis": [0.0,0.0,1.0],
+          "duration": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "random",
+          "axis": [0.0,0.0625,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [0.0,-0.0625,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "lid",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "!part_present_1",
+            "centerPoint": [0.0,0.125,0.15625],
+            "axis": [45.0,0.0,0.0],
+            "duration": 5
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:niconiconii",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_fired",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:preeeeow",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "quantity": 1,
+        "scale": 4.0,
+        "texture": "ivv:textures/particles/musicalnote.png",
+        "color": "0000FF",
+        "pos": [-0.25,0.25,-0.25],
+        "initialVelocity": [0.0,0.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "cassette_playing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "30_10_10_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "quantity": 1,
+        "scale": 4.0,
+        "texture": "ivv:textures/particles/musicalnote.png",
+        "color": "00FF00",
+        "pos": [-0.25,0.25,0.25],
+        "initialVelocity": [0.0,0.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "cassette_playing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "20_10_20_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "quantity": 1,
+        "scale": 4.0,
+        "texture": "ivv:textures/particles/musicalnote.png",
+        "color": "FFFF00",
+        "pos": [0.25,0.25,-0.25],
+        "initialVelocity": [0.0,0.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "cassette_playing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "10_10_30_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "quantity": 1,
+        "scale": 4.0,
+        "texture": "ivv:textures/particles/musicalnote.png",
+        "color": "FF0000",
+        "pos": [0.25,0.25,0.25],
+        "initialVelocity": [0.0,0.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "cassette_playing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "0_10_40_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Boombox",
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "health": 20,
+    "materialLists": [
+      ["oredict:ingotIron:6","oredict:dustRedstone:3"]
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "generic": {
+    "type": "ground_wheel"
+  },
+  "ground": {
+    "width": 0.25,
+    "height": 0.875,
+    "frictionModifiers": {
+    }
+  },
+  "parts": [
+    {
+      "pos": [0.007825,0.0,0.0],
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "types": [
+        "ground_wheel",
+        "ground_wheel_budd"
+      ],
+      "customTypes": [
+        "budd",
+        ""
+      ],
+      "applyAfter": "axle",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "HYDRAULIC_FOUR",
+          "axis": [0.03125,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+          "centerPoint": [0.007825,0.0,0.0],
+          "axis": [-2.0,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+          "centerPoint": [0.007825,0.0,0.0],
+          "axis": [2.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Hydraulic Kit Type 4",
+      "extraMaterialLists": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "vehicle_wheels_locked",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "running_compat",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_running_compat",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_running_1",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "setValue": 1.25E-4,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "setValue": 0.125,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        }
+      ]
+    }
+  ],
+  "constants": ["ground_wheel_hydraulic"],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "piston",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "HYDRAULIC_FOUR",
+            "centerPoint": [-0.054688,0.0,0.078125],
+            "axis": [0.0,0.0,-3.75],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcirc"
+          },
+        {
+          "animationType": "inhibitor",
+          "variable": "!parent_ground_wheel_hydraulic"
+        },
+          {
+            "animationType": "rotation",
+            "variable": "HYDRAULIC_FOUR",
+            "centerPoint": [-0.054688,0.0,0.078125],
+            "axis": [0.0,0.0,-3.75],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcirc"
+          },
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_FOUR",
+            "axis": [0.0,-0.054875,0.0],
+            "duration": 5,
+            "forwardsEasing": "easeoutelastic",
+            "forwardsStartSound": "ivv:hydraulicup",
+            "reverseStartSound": "ivv:hydraulicdown"
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "applyAfter": "piston",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_FOUR",
+            "axis": [0.0,-0.148375,0.0],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcirc"
+          }
+        ]
+      },
+      {
+        "objectName": "axle",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "HYDRAULIC_FOUR",
+            "axis": [0.03125,0.0,0.0],
+            "duration": 5,
+            "forwardsEasing": "easeoutback",
+            "reverseEasing": "easeoutcirc"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": ["HYDRAULIC_FOUR"],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Hydraulic Kit [Standard, Type 1]",
+    "description": "Jump up, jump up and get down\nHas four variants with different buttons",
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:4","oredict:dustRedstone:2","minecraft:water_bucket:0:1"],
+      ["mts:ivv.hydraulic1:0:1"],
+      ["mts:ivv.hydraulic2:0:1"],
+      ["mts:ivv.hydraulic3:0:1"]
+    ]
+  }
+}

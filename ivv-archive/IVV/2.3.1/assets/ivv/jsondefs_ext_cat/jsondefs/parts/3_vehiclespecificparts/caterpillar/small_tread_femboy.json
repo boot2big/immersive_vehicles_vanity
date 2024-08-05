@@ -1,0 +1,233 @@
+{
+  "generic": {
+    "type": "ground_tread",
+    "forwardsDamageMultiplier": 0.0
+  },
+  "ground": {
+    "isTread": true,
+    "width": 0.58375,
+    "height": 0.58375,
+    "climbHeight": 1.5,
+    "motiveFriction": 1.0,
+    "lateralFriction": 1.0,
+    "extraCollisionBoxOffset": 2.25,
+    "spacing": 0.1875,
+    "treadOrder": [
+      "trackcolor1",
+      "trackcolor2"
+    ],
+    "frictionModifiers": {
+      "snow": -0.2,
+      "ice": -0.2
+    }
+  },
+  "definitions": [
+    {
+      "subName": "pink",
+      "name": "Small Tread - Thighhigh Pattern Pink",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "blue",
+      "name": "Small Tread - Thighhigh Pattern Blue",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "orange",
+      "name": "Small Tread - Thighhigh Pattern Orange Creamsicle",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "black",
+      "name": "Small Tread - Thighhigh Pattern Black",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "mts:wheel_blowout",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_isflat",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "mts:wheel_striking",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_contacted",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "forceSound": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "mts:wheel_skidding",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 4,
+        "hitboxSize": 0.2,
+        "color": "FFFFFF",
+        "initialVelocity": [0.0,0.15,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_contacted",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 4,
+        "hitboxSize": 0.2,
+        "color": "FFFFFF",
+        "pos": [0.0,-0.2918750047683716,0.0],
+        "initialVelocity": [0.0,0.15,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 4,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
+        "color": "999999",
+        "pos": [0.0,-0.2918750047683716,0.0],
+        "initialVelocity": [0.0,1.5,-1.5],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_skidding",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "spawnEveryTick": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 4,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
+        "color": "999999",
+        "pos": [0.0,-0.2918750047683716,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "spawningAnimations": [
+          {
+            "animationType": "rotation",
+            "variable": "ground_rotation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [-1.0,0.0,0.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "ground_slipping",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Small Tread",
+    "materialLists": [
+      [
+        "minecraft:iron_ingot:0:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

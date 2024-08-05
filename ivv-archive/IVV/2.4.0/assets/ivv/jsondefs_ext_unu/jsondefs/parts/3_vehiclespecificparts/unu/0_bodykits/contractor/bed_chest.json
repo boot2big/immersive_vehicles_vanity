@@ -1,0 +1,177 @@
+{
+  "generic": {
+    "type": "interactable_bed_chest",
+    "canBeRemovedByHand": true,
+    "forwardsDamageMultiplier": 0.0,
+    "canBePlacedOnGround": true,
+    "width": 0.75,
+    "height": 0.375
+  },
+  "interactable": {
+    "interactionType": "crate",
+    "hasBlowoutPanels": true,
+    "inventoryUnits": 1.5
+  },
+  "definitions": [
+    {
+      "subName": "_iron",
+      "name": "Bed Chest",
+      "description": "T'row it in 'da back!\nCan be placed in truck beds and on the ground",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "lid",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "unu_style",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "player_interacting",
+            "centerPoint": [0.0,0.0,-0.03125],
+            "axis": [90.0,0.0,0.0],
+            "duration": 15,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeincubic"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "unu_style"
+          },
+          {
+            "animationType": "activator",
+            "variable": "unu_style",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "player_interacting",
+            "centerPoint": [0.0,0.0,-0.03125],
+            "axis": [75.0,0.0,0.0],
+            "duration": 8,
+            "forwardsDelay": 2
+          },
+          {
+            "animationType": "rotation",
+            "variable": "player_interacting",
+            "centerPoint": [0.0,0.0,-0.03125],
+            "axis": [15.0,0.0,0.0],
+            "duration": 2,
+            "reverseDelay": 10
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:crate_open",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "unu_style"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_interacting",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:crate_close",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "unu_style"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_interacting",
+            "reverseDelay": 9
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "unuparts:unuparts_rotation_unu_trunk_1_open",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "unu_style",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_interacting",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "unuparts:unuparts_rotation_unu_trunk_1_close",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "unu_style",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_interacting",
+            "reverseDelay": 10
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Crate",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:6"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

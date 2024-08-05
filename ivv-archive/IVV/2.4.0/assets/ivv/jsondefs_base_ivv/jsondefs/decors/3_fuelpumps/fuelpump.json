@@ -1,0 +1,191 @@
+{
+  "decor": {
+    "type": "fuel_pump",
+    "width": 1.0,
+    "height": 2.0,
+    "depth": 0.7,
+    "fuelCapacity": 30000,
+    "pumpRate": 20.0
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Fuel Pump",
+      "secondaryTextColors": [
+        "111111",
+        "EF931E"
+      ],
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_st",
+      "name": "Fuel Pump",
+      "secondaryTextColors": [
+        "111111",
+        "EF931E"
+      ],
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_bell",
+      "name": "Fuel Pump",
+      "secondaryTextColors": [
+        "841414",
+        "EF931E"
+      ],
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_ivl",
+      "name": "Fuel Pump",
+      "secondaryTextColors": [
+        "111111",
+        "EF931E"
+      ],
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.0,1.85938,0.316868],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.25,
+        "variableName": "fuelpump_fluid",
+        "variableFormat": "%s",
+        "defaultText": "",
+        "color": "111111",
+        "inheritedColorIndex": 1,
+        "wrapWidth": 8,
+        "autoScale": true
+      },
+      {
+        "pos": [-0.14875,1.3921875,0.16455],
+        "rot": [0.0,0.0,0.0],
+        "variableName": "fuelpump_purchased",
+        "variableFactor": 0.001,
+        "variableFormat": " PAY %04.1fb",
+        "fontName": "ivv:digifont",
+        "defaultText": "",
+        "color": "EF931E",
+        "inheritedColorIndex": 2,
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      {
+        "pos": [-0.14875,1.33125,0.16455],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.0875,
+        "variableName": "fuelpump_stored",
+        "variableFactor": 0.001,
+        "variableFormat": " LVL %01.1fb",
+        "fontName": "ivv:digifont",
+        "defaultText": "",
+        "color": "EF931E",
+        "inheritedColorIndex": 2,
+        "lightsUp": true,
+        "renderPosition": 1
+      },
+      {
+        "pos": [-0.14875,1.2703125,0.16455],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.0875,
+        "variableName": "fuelpump_dispensed",
+        "variableFactor": 0.001,
+        "variableFormat": "DISP %01.1fb",
+        "fontName": "ivv:digifont",
+        "defaultText": "",
+        "color": "EF931E",
+        "inheritedColorIndex": 2,
+        "lightsUp": true,
+        "renderPosition": 1
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "button4",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "fuelpump_active",
+            "centerPoint": [0.0,0.85075,0.28176],
+            "axis": [5.0,0.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "hose_inactive",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "fuelpump_active"
+          }
+        ]
+      },
+      {
+        "objectName": "#hose_active_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "fuelpump_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "fuel_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!fuelpump_stored"
+          },
+          {
+            "animationType": "scaling",
+            "variable": "fuelpump_stored",
+            "centerPoint": [0,0.125,0.0],
+            "axis": [0.0,0.000033333,0.0],
+            "absolute": true,
+            "clampMin": -1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "screen",
+        "brightnessAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "uwu",
+            "clampMin": -9999999.0,
+            "clampMax": 9999999.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Fuel Pump",
+    "description": "Can be used to fuel vehicles or jerrycans.\nRight click with bucket of valid fuel to fill by 1000mb (Alternatively, connect to the bottom of the pump with a fluid pipe)\nRight click by hand to fuel the nearest vehicle to this pump",
+    "materialLists": [
+      [
+        "oredict:ingotIron:4",
+        "oredict:dustRedstone:1",
+        "minecraft:bucket:-1:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

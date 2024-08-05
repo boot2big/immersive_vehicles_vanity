@@ -1,0 +1,143 @@
+{
+  "decor": {
+    "type": "generic",
+    "width": 1.0,
+    "height": 2.0,
+    "depth": 1.0
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Police Box",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [
+      {
+        "objectName": "cylinder",
+        "emissive": true,
+        "color": "F2E4B3",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "30_30_0_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "forwardsEasing": "easeoutquad",
+            "reverseEasing": "easeoutquad"
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.0,2.03125,0.04297],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.25
+          },
+          {
+            "pos": [0.0,2.03125,-0.04297],
+            "axis": [0.0,0.0,-1.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.25
+          },
+          {
+            "pos": [0.04297,2.03125,0.0],
+            "axis": [1.0,0.0,0.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.25
+          },
+          {
+            "pos": [-0.04297,2.03125,0.0],
+            "axis": [-1.0,0.0,0.0],
+            "flareHeight": 0.25,
+            "flareWidth": 0.25
+          }
+        ]
+      },
+      {
+        "objectName": "signlight",
+        "color": "FFFFFF",
+        "brightnessAnimations": []
+      },
+      {
+        "objectName": "glass",
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "redstone_active",
+            "axis": [0.0,1.0,0.0]
+          }
+        ]
+      }
+    ],
+    "sounds": [
+      {
+        "name": "ivv:blueboxbell",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "80_2_0_cycle",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "redstone_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!gamerule_doDaylightCycle"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "time",
+            "clampMin": 17960.0,
+            "clampMax": 18040.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 80.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:policeboxjiggle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "clicked",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 16.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Police Box",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:plankWood:3",
+        "minecraft:redstone_lamp:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

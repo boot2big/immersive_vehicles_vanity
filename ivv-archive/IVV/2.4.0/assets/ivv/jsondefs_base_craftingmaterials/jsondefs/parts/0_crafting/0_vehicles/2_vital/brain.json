@@ -1,0 +1,80 @@
+{
+  "generic": {
+    "type": "generic_vehicle_vital_brain",
+    "forwardsDamageMultiplier": 0.0,
+    "canBePlacedOnGround": true,
+    "width": 1.0,
+    "height": 0.5,
+    "placedOffset": 0.0725,
+    "mass": 30
+  },
+  "definitions": [
+    {
+      "subName": "_old",
+      "modelName": "brain_old",
+      "name": "Vintage CAN-bus Controller",
+      "extraMaterialLists": [
+        [
+          "oredict:nuggetGold:3",
+          "mts:ivv.gear:0:2",
+          "oredict:dustRedstone:1",
+          "minecraft:quartz:0:1",
+          "minecraft:redstone_lamp:0:2"
+        ]
+      ]
+    },
+    {
+      "subName": "_modern",
+      "modelName": "brain_modern",
+      "name": "Modern CAN-bus Controller",
+      "extraMaterialLists": [
+        [
+          "oredict:nuggetGold:3",
+          "mts:ivv.circuit:0:2",
+          "oredict:dustRedstone:1",
+          "minecraft:redstone_torch:0:1",
+          "oredict:ingotGold:2"
+        ]
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "!part_onvehicle",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [10.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "!part_onvehicle",
+            "axis": [0.0,0.0,-0.21875]
+          }
+        ]
+      },
+      {
+        "objectName": "cube_translucent",
+        "applyAfter": "cube",
+        "animations": []
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Crafting Item",
+    "description": "Used for assembling vehicles\n§5§oCrafted in the Vehicle Parts Assembly bench",
+    "stackSize": 64,
+    "health": 20,
+    "materialLists": [
+      []
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

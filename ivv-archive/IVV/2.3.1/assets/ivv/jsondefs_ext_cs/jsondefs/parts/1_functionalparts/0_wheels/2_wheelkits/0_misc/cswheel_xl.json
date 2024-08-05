@@ -1,0 +1,131 @@
+{
+  "generic": {
+    "type": "ground_wheel"
+  },
+  "ground": {
+    "width": 0.25,
+    "height": 1,
+    "frictionModifiers": {    }
+  },
+  "parts": [
+    {
+      "pos": [0.033454,0.0,0.0],
+      "rot": [0,0,0],
+      "partScale": [1.455,1.455,1.455],
+      "minValue": 0.625,
+      "maxValue": 0.6875,
+      "types": ["ground_wheel"],
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+	        "centerPoint": [0.033454,0.0,0.0],
+          "axis": [-2,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+	      {
+	        "animationType": "rotation",
+	        "variable": "ground_rotation_1",
+	        "centerPoint": [0.033454,0.0,0.0],
+	        "axis": [2.0,0.0,0.0]
+	      }
+    ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Craftspeed Wheel Kit [Large]",
+      "extraMaterialLists": [
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "vehicle_wheels_locked",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "running_compat",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_running_compat",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_running_1",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "setValue": 0.000125,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1,
+          "clampMax": 1
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "setValue": 0.125,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "none"
+  },
+  "general": {
+    "name": "uwu cwaftspeed >w<",
+    "description": "Resizes CraftSpeed wheels to fit on non-CS vehicles\nBecause they have an amazing rim selection, I tell you what",
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:1"],
+      ["mts:ivv.cswheel_compact:0:1"],
+      ["mts:ivv.cswheel_standard:0:1"]
+    ]
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_trunklid_corsair",
+    "useVehicleTexture": true,
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "applyAfter": "$Trunk",
+      "collisions": [
+        {
+          "pos": [0.0,-0.125,-0.84375],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": []
+    },
+    {
+      "applyAfter": "$Trunk",
+      "collisions": [
+        {
+          "pos": [-0.5,0.1875,-0.6875],
+          "width": 0.5,
+          "height": 0.125,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-0.5,0.1875,-0.1875],
+          "width": 0.5,
+          "height": 0.125,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.0,0.1875,-0.1875],
+          "width": 0.5,
+          "height": 0.125,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.5,0.1875,-0.1875],
+          "width": 0.5,
+          "height": 0.125,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.5,0.1875,-0.6875],
+          "width": 0.5,
+          "height": 0.125,
+          "variableName": "door_internal",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": []
+    },
+    {
+      "isInterior": true,
+      "isForBullets": true,
+      "collisions": [
+        {
+          "pos": [0.5,-0.0171875,0.15625],
+          "width": 0.5,
+          "height": 0.5,
+          "armorThickness": 12.0
+        },
+        {
+          "pos": [0.0,-0.0171875,0.15625],
+          "width": 0.5,
+          "height": 0.5,
+          "armorThickness": 12.0
+        },
+        {
+          "pos": [-0.5,-0.0171875,0.15625],
+          "width": 0.5,
+          "height": 0.5,
+          "armorThickness": 12.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ARMOR",
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "reverseDelay": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "ARMOR",
+          "axis": [0.0,0.5,0.0],
+          "duration": 5,
+          "forwardsEasing": "easeinsine",
+          "reverseEasing": "easeoutsine"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "UNU Corsair \"Caine\" Trunk",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "part_useDefaultAnimations": 0.0,
+    "part_useDefaultModel": 0.0,
+    "part_useDefaultSounds": 0.0,
+    "part_useDefaultHitboxes": 0.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "part_closed",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!door_internal",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "door_internal",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "clampMin": 5.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "uwaa_close_my_door_for_me_pwease",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "$Trunk",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [0.0,0.125,0.0],
+            "axis": [50.0,0.0,0.0],
+            "duration": 12,
+            "forwardsDelay": 2
+          },
+          {
+            "animationType": "rotation",
+            "variable": "door_internal",
+            "centerPoint": [0.0,0.125,0.0],
+            "axis": [10.0,0.0,0.0],
+            "duration": 2,
+            "reverseDelay": 14
+          }
+        ]
+      },
+      {
+        "objectName": "$Shield_Bottom",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "ARMOR",
+            "axis": [0.0,0.25,0.0],
+            "duration": 5,
+            "forwardsEasing": "easeinsine",
+            "reverseEasing": "easeoutsine"
+          }
+        ]
+      },
+      {
+        "objectName": "$Shield_Top",
+        "applyAfter": "$Shield_Bottom",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "ARMOR",
+            "axis": [0.0,0.25,0.0],
+            "duration": 5,
+            "forwardsEasing": "easeinsine",
+            "reverseEasing": "easeoutsine"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": [
+      "ARMOR"
+    ],
+    "sounds": [
+      {
+        "name": "unuparts:unuparts_rotation_unu_trunk_1_open",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "door_internal",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "unuparts:unuparts_rotation_unu_trunk_1_close",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "door_internal",
+            "reverseDelay": 10
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "I'll have my ethanol shaken, not stirred.\nHas activatable hidden armor\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:2",
+        "minecraft:glass_pane:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

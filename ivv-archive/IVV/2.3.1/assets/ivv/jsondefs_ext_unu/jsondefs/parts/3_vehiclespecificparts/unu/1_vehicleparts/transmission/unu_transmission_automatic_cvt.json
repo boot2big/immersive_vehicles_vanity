@@ -1,0 +1,157 @@
+{
+  "generic": {
+    "type": "generic_transmission",
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.5,
+    "height": 0.5
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
+      "name": "UNU-Compatible Transmission [CVT]",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "part_transmission_isautomatic": 1.0,
+    "part_transmission_hasoverdrive": 0.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "part_transmission_reversed",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!true",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_transmission_gear",
+          "clampMin": -1.0,
+          "clampMax": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "unuisbest",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "part_transmission_gearshift",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_transmission_gear",
+          "axis": [0.0,5.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "part_transmission_gearshift_hvertical",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_transmission_gear",
+          "axis": [0.0,0.0,-15.0]
+        }
+      ]
+    },
+    {
+      "variable": "part_transmission_gearshift_hhorizontal",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!what",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "part_transmission_park",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!unuisbest",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "part_transmission_gear",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "!transmission_shifted"
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gear",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "transmission_shifted",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_gear",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "part_transmissionRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_transmission_gear",
+          "axis": [0.0,0.0,3.5]
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_rpm_percent_safe",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.875,
+          "clampMin": 0.03125,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "§7Transmission Type: Continuously Variable\n§7Gear Ratios: [-0.109375 <- -3.5, 0.0, 3.5 -> 0.109375]\nShift Pattern: [R §lN§r§7 D]",
+    "stackSize": 1,
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:10"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

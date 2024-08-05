@@ -1,0 +1,234 @@
+{
+  "decor": {
+    "type": "generic",
+    "width": 1.0,
+    "height": 1.0,
+    "depth": 1.0
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "textureName": "vent",
+      "name": "Vent Block",
+      "constants": [
+        "steam"
+      ],
+      "description": "Steam\nApply redstone signal and right-click to toggle",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_smoke",
+      "textureName": "vent",
+      "name": "Vent Block",
+      "constants": [
+        "smoke"
+      ],
+      "description": "Smoke\nApply redstone signal and right-click to toggle",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_flame",
+      "textureName": "vent",
+      "name": "Vent Block",
+      "constants": [
+        "flame"
+      ],
+      "description": "Flame\nApply redstone signal and right-click to toggle",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "block_activated",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "redstone_active",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "bottom_slab",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "solid_present_down",
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 60,
+        "transparency": 0.25,
+        "fadeTransparencyTime": 20,
+        "scale": 1.0,
+        "toScale": 2.0,
+        "hitboxSize": 0.0625,
+        "color": "afafaf",
+        "pos": [0.0,1.125,0.0],
+        "spreadRandomness": [1.0,0.5,1.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "steam",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 80,
+        "transparency": 0.375,
+        "fadeTransparencyTime": 20,
+        "scale": 1.0,
+        "toScale": 2.0,
+        "hitboxSize": 0.0625,
+        "color": "666666",
+        "pos": [0.0,1.125,0.0],
+        "spreadRandomness": [1.0,0.5,1.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "smoke",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "player",
+        "quantity": 3,
+        "duration": 50,
+        "transparency": 0.75,
+        "fadeTransparencyTime": 10,
+        "scale": 0.625,
+        "toScale": 0.625,
+        "hitboxSize": 0.0625,
+        "color": "FFFFFF",
+        "pos": [0.0,1.125,0.0],
+        "spreadRandomness": [1.0,0.5,1.0],
+        "initialVelocity": [0.0,3.0,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "flame",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "subParticles": [
+          {
+            "particle": {
+              "type": "smoke",
+              "spawningOrientation": "world",
+              "renderingOrientation": "player",
+              "quantity": 1,
+              "duration": 20,
+              "transparency": 0.75,
+              "fadeTransparencyTime": 20,
+              "scale": 1.0,
+              "toScale": 2.0,
+              "hitboxSize": 0.125,
+              "color": "333333",
+              "pos": [0.0,0.0,0.0],
+              "activeAnimations": []
+            },
+            "time": 40
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "spawningOrientation": "world",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 80,
+        "transparency": 0.75,
+        "fadeTransparencyTime": 20,
+        "scale": 2.0,
+        "toScale": 4.0,
+        "hitboxSize": 0.0625,
+        "color": "666666",
+        "pos": [0.0,1.125,0.0],
+        "spreadRandomness": [1.0,0.5,1.0],
+        "initialVelocity": [0.0,0.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "flame",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "block_activated",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

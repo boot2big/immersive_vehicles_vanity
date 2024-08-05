@@ -1,0 +1,445 @@
+{
+  "generic": {
+    "type": "generic_tv",
+    "forwardsDamageMultiplier": 1.0,
+    "canBePlacedOnGround": true,
+    "width": 1.0,
+    "height": 1.0
+  },
+  "parts": [
+    {
+      "pos": [1.125,0.84875,-0.0625],
+      "maxValue": 1.0,
+      "types": [
+        "generic_record"
+      ],
+      "customTypes": [
+        "vinyl",
+        ""
+      ],
+      "interactableVariables": [
+        [
+          "panel_right"
+        ]
+      ],
+      "applyAfter": "turntable"
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisions": [
+        {
+          "pos": [1.0,0.375,0.0],
+          "width": 1.0,
+          "height": 0.75
+        },
+        {
+          "pos": [0.0,0.5,0.0],
+          "width": 1.0,
+          "height": 1.0,
+          "variableName": "panel_television",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-1.0,0.375,0.0],
+          "width": 1.0,
+          "height": 0.75
+        }
+      ]
+    },
+    {
+      "applyAfter": "lidright",
+      "collisions": [
+        {
+          "pos": [0.75,0.875,0.25],
+          "width": 0.5,
+          "height": 0.25,
+          "variableName": "panel_right",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [0.75,0.875,-0.25],
+          "width": 0.5,
+          "height": 0.25,
+          "variableName": "panel_right",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [1.25,0.875,0.25],
+          "width": 0.5,
+          "height": 0.25,
+          "variableName": "panel_right",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [1.25,0.875,-0.25],
+          "width": 0.5,
+          "height": 0.25,
+          "variableName": "panel_right",
+          "variableType": "toggle"
+        }
+      ]
+    },
+    {
+      "applyAfter": "lidleft",
+      "collisions": [
+        {
+          "pos": [-0.75,0.875,0.25],
+          "width": 0.5,
+          "height": 0.25,
+          "variableName": "panel_left",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-0.75,0.875,-0.25],
+          "width": 0.5,
+          "height": 0.25,
+          "variableName": "panel_left",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-1.25,0.875,0.25],
+          "width": 0.5,
+          "height": 0.25,
+          "variableName": "panel_left",
+          "variableType": "toggle"
+        },
+        {
+          "pos": [-1.25,0.875,-0.25],
+          "width": 0.5,
+          "height": 0.25,
+          "variableName": "panel_left",
+          "variableType": "toggle"
+        }
+      ]
+    },
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [1.39062,0.882813,-0.072917],
+          "width": 0.1875,
+          "height": 0.125,
+          "variableName": "PlayerOn",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "panel_right",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Television & Stereo",
+      "description": "Double distraction for dumbing down dopes",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "allunusarelms": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "tv_active",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "panel_television",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "text_1_present",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "Playing",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_present_1",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "PlayerOn",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!part_complete_1",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "turntable",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "Playing",
+          "axis": [0.0,5.0,0.0],
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "variable": "tone_arm",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "allunusarelms",
+          "axis": [0.0,0.0,16.5]
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_percentcomplete_1",
+          "axis": [0.0,23.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "Playing",
+          "axis": [1.0,0.0,0.0],
+          "duration": 10,
+          "forwardsEasing": "easeinoutcubic",
+          "reverseEasing": "easeinoutcubic"
+        }
+      ]
+    },
+    {
+      "variable": "track_progress",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_tracklength_1",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!reset_counter",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "PlayerOn",
+          "axis": [1.0,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "Track",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "track_progress",
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "allunusarelms",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "allunusarelms",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "PlayerOn",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "part_complete_1"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_present_1"
+        },
+        {
+          "animationType": "translation",
+          "variable": "allunusarelms",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "reset_counter",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "false",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "track_progress",
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.0,0.0,0.0],
+        "rot": [0.0,0.0,0.0],
+        "fieldName": "imageURL",
+        "defaultText": "",
+        "maxLength": 140,
+        "color": "000000"
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "screen_off",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "tv_active"
+          }
+        ]
+      },
+      {
+        "objectName": "screen_imageURL",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "tv_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "scanlines_translucent",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "tv_active",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "2_2_0_cycle",
+            "centerPoint": [0.0,0.1875,0.390625],
+            "axis": [0.0,0.625,0.0],
+            "offset": 1.0,
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "2_2_0_cycle",
+            "axis": [0.0,-0.125,0.0],
+            "duration": 1
+          },
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.0125,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "lidleft",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "panel_left",
+            "centerPoint": [0.0,0.9375,-0.46875],
+            "axis": [-90.0,0.0,0.0],
+            "duration": 15,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeincubic"
+          }
+        ]
+      },
+      {
+        "objectName": "lidright",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "panel_right",
+            "centerPoint": [0.0,0.9375,-0.46875],
+            "axis": [-90.0,0.0,0.0],
+            "duration": 15,
+            "forwardsEasing": "easeoutcubic",
+            "reverseEasing": "easeincubic"
+          }
+        ]
+      },
+      {
+        "objectName": "turntable",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "turntable",
+            "centerPoint": [1.125,0.859375,-0.0625],
+            "axis": [0.0,-1.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "spinnerthing",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "tone_arm",
+            "centerPoint": [1.39062,0.828125,-0.203125],
+            "axis": [0.0,-1.0,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "readhead",
+        "applyAfter": "spinnerthing",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "!Playing",
+            "centerPoint": [1.39062,0.84375,-0.1875],
+            "axis": [-10.0,0.0,0.0],
+            "reverseDelay": 5,
+            "duration": 10,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Television & Stereo",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      ["oredict:plankWood:3","oredict:gemDiamond:1"]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "generic": {
+    "type": "gun_hand_lighter",
+    "canBeRemovedByHand": true,
+    "width": 0.125,
+    "height": 0.125
+  },
+  "gun": {
+    "lockOnType": "default",
+    "targetType": "all",
+    "handHeld": true,
+    "capacity": 2000,
+    "reloadTime": 1,
+    "muzzleVelocity": 250,
+    "fireDelay": 5.0,
+    "diameter": 6.0,
+    "yawSpeed": Infinity,
+    "pitchSpeed": Infinity,
+    "lockMaxAngle": 0.0,
+    "handHeldNormalOffset": [0.0,0.125,0.5875],
+    "handHeldAimedOffset": [0.325,0.0625,0.5625],
+    "muzzleGroups": [
+      {
+        "muzzles": [
+          {
+            "pos": [0.0,0.125,0.0],
+            "rot": [0.0,0.0,0.0],
+            "center": [0.0,0.0,0.0]
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Lighter",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_atlas",
+      "name": "Lighter",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_skull",
+      "name": "Lighter",
+      "extraMaterialLists": [
+        []
+      ]
+    },
+    {
+      "subName": "_trin",
+      "name": "Lighter",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "lid",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_firing",
+            "centerPoint": [-0.070312,0.0625,0.0],
+            "axis": [0.0,0.0,105.0],
+            "duration": 1
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:steamenginehiss",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_firing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!uwu",
+            "axis": [0.0,-0.25,0.0],
+            "offset": 2.0,
+            "duration": 4
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.25,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0,
+        "middleDistance": 2.0,
+        "middleDistanceVolume": 0.125
+      }
+    ],
+    "particles": [
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "duration": 3,
+        "transparency": 3.0,
+        "toTransparency": -1.0E-4,
+        "scale": 0.75,
+        "color": "FFFFFF",
+        "pos": [0.0,0.125,0.0],
+        "initialVelocity": [1.0E-4,1.0E-4,1.0E-4],
+        "movementVelocity": [1.0E-4,1.0E-4,1.0E-4],
+        "terminalVelocity": [1.0E-4,1.0E-4,1.0E-4],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_firing",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:1","minecraft:stone_button:0:1"]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

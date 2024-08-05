@@ -1,0 +1,647 @@
+{
+  "generic": {
+    "type": "generic_roofdevice",
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "collisionGroups": [
+    {
+      "isInterior": true,
+      "collisions": [
+        {
+          "pos": [0.25,0.5,-0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hat_x",
+          "variableType": "increment",
+          "variableValue": 0.0125,
+          "clampMin": -12.0,
+          "clampMax": 12.0
+        },
+        {
+          "pos": [-0.25,0.5,-0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hat_x",
+          "variableType": "increment",
+          "variableValue": -0.0125,
+          "clampMin": -12.0,
+          "clampMax": 12.0
+        },
+        {
+          "pos": [0.25,0.5,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hat_y",
+          "variableType": "increment",
+          "variableValue": 0.0125,
+          "clampMin": -12.0,
+          "clampMax": 12.0
+        },
+        {
+          "pos": [-0.25,0.5,0.0],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hat_y",
+          "variableType": "increment",
+          "variableValue": -0.0125,
+          "clampMin": -12.0,
+          "clampMax": 12.0
+        },
+        {
+          "pos": [0.0,0.5,0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hat_z",
+          "variableType": "increment",
+          "variableValue": 0.0125,
+          "clampMin": -12.0,
+          "clampMax": 12.0
+        },
+        {
+          "pos": [0.0,0.5,-0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hat_z",
+          "variableType": "increment",
+          "variableValue": -0.0125,
+          "clampMin": -12.0,
+          "clampMax": 12.0
+        },
+        {
+          "pos": [0.25,0.5,0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hat_scale",
+          "variableType": "increment",
+          "variableValue": 0.0125,
+          "clampMin": -0.5,
+          "clampMax": 12.0
+        },
+        {
+          "pos": [-0.25,0.5,0.25],
+          "width": 0.25,
+          "height": 0.25,
+          "variableName": "offset_hat_scale",
+          "variableType": "increment",
+          "variableValue": -0.0125,
+          "clampMin": -0.5,
+          "clampMax": 12.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "locked"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "headlight",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "offset_hat_x",
+          "axis": [1.0,0.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "offset_hat_y",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "offset_hat_z",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Clockwork Key",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_z",
+            "axis": [0.0,0.0,1.0]
+          },
+          {
+            "animationType": "scaling",
+            "variable": "offset_hat_scale",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [1.0,1.0,1.0],
+            "offset": 2.0
+          }
+        ]
+      },
+      {
+        "objectName": "key",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "parent_engines_running"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "tick",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,4.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_right.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [0.25,0.5,-0.25],
+        "rot": [90.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_left.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [-0.25,0.5,-0.25],
+        "rot": [90.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_forward.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.5,0.25],
+        "rot": [90.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_backward.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [0.0,0.5,-0.25],
+        "rot": [90.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_up.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+          "pos": [0.25,0.5,0.0],
+        "rot": [90.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_arrow_down.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+          "pos": [-0.25,0.5,0.0],
+        "rot": [90.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_icon_positive.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [0.25,0.5,0.25],
+        "rot": [90.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.25,
+        "hitboxSize": 0.25,
+        "texture": "ivv:textures/particles/ui_icon_negative.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [-0.25,0.5,0.25],
+        "rot": [90.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "spawningAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_x",
+            "axis": [1.0,0.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_y",
+            "axis": [0.0,1.0,0.0]
+          },
+          {
+            "animationType": "translation",
+            "variable": "offset_hat_z",
+            "axis": [0.0,0.0,1.0]
+          }
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Goes on top of vehicles\nActivate parking brake & headlights (not running lights) to tweak part position",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:leather:6"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "generic": {
+    "type": "generic_licenseplate_us",
+    "forceAllLinks": true,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.001975,2.5E-5],
+      "types": ["generic_bullbar","generic_winch","generic_lightbar","generic_roofdevice","effector_spikedropper"]
+    },
+    {
+      "pos": [0.0,0.001975,0.4],
+      "rot": [0.0,180.0,0.0],
+      "minValue": -1.0,
+      "maxValue": 65536.0,
+      "types": ["engine_rocket"],
+      "linkedParts": []
+    },
+    {
+      "pos": [0.0,-0.025,-0.0025],
+      "rot": [2.5,0.0,0.0],
+      "minValue": -1.0,
+      "maxValue": 65536.0,
+      "types": ["generic_ram","effector_drill","interactable_effector_spikedropper"]
+    },
+    {
+      "pos": [0.0,6.25E-4,0.0],
+      "maxValue": 3.0,
+      "types": [
+        "generic_licenseplate_euro",
+        "generic_licenseplate_us",
+        "generic_bullbar",
+        "generic_winch",
+        "engine_rocket"
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "licenseplate",
+      "name": "Free Country Plate",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.005,0.025,0.00215],
+        "rot": [0.0,0.0,0.0],
+        "scale": 0.11,
+        "fieldName": "License Plate",
+        "defaultText": "ABC-1234",
+        "maxLength": 8,
+        "color": "040404",
+        "attachedTo": "cube"
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_2"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_3"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_4"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Allows for mounting plate-specific parts onto vehicles",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      ["oredict:ingotIron:1","minecraft:emerald_block:0:1"]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

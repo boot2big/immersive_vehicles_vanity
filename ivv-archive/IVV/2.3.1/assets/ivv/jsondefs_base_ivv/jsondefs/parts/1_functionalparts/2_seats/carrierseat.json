@@ -1,0 +1,158 @@
+{
+  "generic": {
+    "type": "generic_npc",
+    "forwardsDamageMultiplier": 0.0,
+    "canBePlacedOnGround": true,
+    "width": 1.0,
+    "height": 0.25,
+    "mass": 10,
+    "movementAnimations": [
+      {
+        "animationType": "translation",
+        "variable": "parent_seat_atlas_superior_safety",
+        "axis": [0.0,-0.15625,0.125]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.15625,-0.125],
+      "isPermanent": true,
+      "maxValue": 1.0,
+      "playerScale": [0.5,0.5,0.5],
+      "partScale": [1.0,1.0,1.0],
+      "defaultPart": "ivv:rockseat",
+      "types": [
+        "seat_invisible"
+      ],
+      "seatEffects": [
+        {
+          "name": "weakness",
+          "duration": 100,
+          "amplifier": 127
+        },
+        {
+          "name": "resistance",
+          "duration": 100,
+          "amplifier": 127
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "disabled",
+          "axis": [0.0,0.0625,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Carrier Seat",
+      "description": "A seat for the little ones!",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "atlas_carrier": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "parent_seat_atlas_carrier",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "seatbelt_unbuckled",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "seat_occupied_partandrider_1"
+          }
+        ]
+      },
+      {
+        "objectName": "seatbelt_buckled",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!seat_occupied_partandrider_1"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:beltbuckle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "seat_occupied_client_1",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 6.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:beltunbuckle",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "seat_occupied_client_1"
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 6.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:1",
+        "oredict:leather:2"
+      ]
+    ],
+    "repairMaterialLists": [
+      [
+        "oredict:leather:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

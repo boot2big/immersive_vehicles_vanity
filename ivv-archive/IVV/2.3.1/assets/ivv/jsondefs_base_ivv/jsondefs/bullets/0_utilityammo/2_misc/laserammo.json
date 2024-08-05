@@ -1,0 +1,111 @@
+{
+  "bullet": {
+    "types": [
+      "armor_piercing"
+    ],
+    "quantity": 20,
+    "diameter": 30.0,
+    "damage": 100.0,
+    "armorPenetration": 10.0,
+    "despawnTime": 80,
+    "impactDespawnTime": 40
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Laser Power Pack",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:bullethitmoblaser",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 20,
+        "transparency": 1.0,
+        "toTransparency": 0.01,
+        "scale": 0.6,
+        "toScale": 0.2,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/laser.png",
+        "color": "4BF21B",
+        "pos": [0.0,0.0,6.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!on",
+            "clampMin": -1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 4,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:nuggetIron:1",
+        "oredict:gunpowder:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "type": "bullet"
+  }
+}

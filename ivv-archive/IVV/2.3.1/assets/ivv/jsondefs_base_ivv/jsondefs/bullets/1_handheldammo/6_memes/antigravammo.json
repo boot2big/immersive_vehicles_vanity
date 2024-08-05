@@ -1,0 +1,99 @@
+{
+  "bullet": {
+    "types": [
+      "explosive"
+    ],
+    "quantity": 10,
+    "diameter": 4.0,
+    "damage": 1,
+    "caseLength": 20.0,
+    "blastStrength": -1.0,
+    "despawnTime": 10,
+    "impactDespawnTime": 40,
+    "pellets": 4,
+    "pelletSpreadFactor": 0.25
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Negative Gravity Ammo",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "&GenericLight_FFFFFF_FFFFF_000",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:explode_techno",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.5,0.0]
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 0.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "break",
+        "spawningOrientation": "entity",
+        "renderingOrientation": "player",
+        "quantity": 4,
+        "scale": 0.030000001,
+        "hitboxSize": 0.1,
+        "color": "999999",
+        "pos": [0.0,0.5,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "minecraft:ender_pearl:0:10",
+        "minecraft:gunpowder:0:5"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "type": "bullet"
+  }
+}

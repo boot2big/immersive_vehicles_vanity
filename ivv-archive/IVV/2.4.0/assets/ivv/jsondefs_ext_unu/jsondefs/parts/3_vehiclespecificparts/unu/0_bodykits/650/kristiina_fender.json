@@ -1,0 +1,624 @@
+{
+  "generic": {
+    "type": "generic_bodypart_unu_fender_650",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25,
+    "useVehicleTexture": true
+  },
+  "parts": [
+    {
+      "pos": [-0.09375,0.203103,1.63281],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 3.0,
+      "partScale": [1.0,1.0,1.0],
+      "types": [
+        "generic_headlight"
+      ],
+      "linkedParts": [],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_ismirrored",
+          "axis": [0.1875,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [-0.34375,0.203103,1.63281],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 3.0,
+      "partScale": [1.0,1.0,1.0],
+      "types": [
+        "generic_headlight"
+      ],
+      "linkedParts": [],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_ismirrored",
+          "axis": [0.6875,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "attack",
+        "entity",
+        "click"
+      ],
+      "collisions": [
+        {
+          "pos": [-0.2375,-0.4,-0.356351],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "HIBEAMS",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_RHD_Mode"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "part_ismirrored"
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "attack",
+        "entity",
+        "click"
+      ],
+      "collisions": [
+        {
+          "pos": [0.2375,-0.4,-0.356351],
+          "width": 0.125,
+          "height": 0.125,
+          "variableName": "HIBEAMS",
+          "variableType": "toggle"
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "parent_RHD_Mode",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "part_ismirrored",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "useVehicleTexture": true,
+      "name": "UNU 650 \"Fury\" Fender",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "part_useDefaultHitboxes": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "hibeams_internal",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "HIBEAMS",
+          "axis": [0.0,0.0,1.0],
+          "duration": 5,
+          "skipForwardsMovement": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "headlight",
+          "axis": [1.0,0.0,0.0],
+          "duration": 10,
+          "skipForwardsMovement": true
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "$FenderLiner_LeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "&HeadlightLeftLeft",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "&HeadlightLeftRight",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "&HeadlightLeftInvis",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "&LightTurnLeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": []
+      },
+      {
+        "objectName": "$Trim_Base_Fender_LeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "trim_level",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_DeLuxe_Fender_LeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "trim_level",
+            "clampMin": 3.0,
+            "clampMax": 3.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Super_Fender_LeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "trim_level",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Christine_Fender_LeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Badge_Fender_LeftFront",
+        "applyAfter": "$Fender_LeftFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine"
+          }
+        ]
+      },
+      {
+        "objectName": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!part_ismirrored"
+          }
+        ]
+      },
+      {
+        "objectName": "$FenderLiner_RightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": []
+      },
+      {
+        "objectName": "&HeadlightRightLeft",
+        "applyAfter": "$Fender_RightFront",
+        "animations": []
+      },
+      {
+        "objectName": "&HeadlightRightRight",
+        "applyAfter": "$Fender_RightFront",
+        "animations": []
+      },
+      {
+        "objectName": "&HeadlightRightInvis",
+        "applyAfter": "$Fender_RightFront",
+        "animations": []
+      },
+      {
+        "objectName": "&LightTurnRightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": []
+      },
+      {
+        "objectName": "$Trim_Base_Fender_RightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "trim_level",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_DeLuxe_Fender_RightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "trim_level",
+            "clampMin": 3.0,
+            "clampMax": 3.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Super_Fender_RightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "trim_level",
+            "clampMin": 2.0,
+            "clampMax": 2.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Trim_Christine_Fender_RightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "$Badge_Fender_RightFront",
+        "applyAfter": "$Fender_RightFront",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "christine"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "&HeadlightLeftRight",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "hibeams_internal",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.34375,0.203103,1.640625],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.4875,
+            "flareWidth": 0.4875
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightRightLeft",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "hibeams_internal",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.34375,0.203103,1.640625],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.4875,
+            "flareWidth": 0.4875
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightLeftInvis",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "!hibeams_internal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 5,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.34375,0.203103,1.640625],
+            "axis": [0.0,-0.125,1.0],
+            "beamDiameter": 8.0,
+            "beamLength": 16.0
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightRightInvis",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,1.0,0.0],
+            "duration": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "!hibeams_internal",
+            "axis": [0.0,1.0,0.0],
+            "offset": -1.0,
+            "duration": 5,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.34375,0.203103,1.640625],
+            "axis": [0.0,-0.125,1.0],
+            "beamDiameter": 8.0,
+            "beamLength": 16.0
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightLeftLeft",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "hibeams_internal",
+            "axis": [0.0,2.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.09375,0.203103,1.640625],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5625,
+            "flareWidth": 0.5625
+          },
+          {
+            "pos": [-0.09375,0.203103,1.5375],
+            "axis": [0.0,0.0,1.0],
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&HeadlightRightRight",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FFFFFF",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "hibeams_internal",
+            "axis": [0.0,2.0,0.0]
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.09375,0.203103,1.640625],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.5625,
+            "flareWidth": 0.5625
+          },
+          {
+            "pos": [0.09375,0.203103,1.5375],
+            "axis": [0.0,0.0,1.0],
+            "beamDiameter": 8.0,
+            "beamLength": 24.0
+          }
+        ]
+      },
+      {
+        "objectName": "&LightTurnRightFront",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FF8000",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "running_light",
+            "axis": [0.0,0.5,0.0],
+            "duration": 2,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,-0.5,0.0],
+            "duration": 2,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "right_turn_signal"
+          },
+          {
+            "animationType": "translation",
+            "variable": "0_5_15_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [0.09375,0.007789,1.56641],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.375,
+            "flareWidth": 0.375
+          }
+        ]
+      },
+      {
+        "objectName": "&LightTurnLeftFront",
+        "emissive": true,
+        "isElectric": true,
+        "color": "FF8000",
+        "brightnessAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "running_light",
+            "axis": [0.0,0.5,0.0],
+            "duration": 2,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "translation",
+            "variable": "headlight",
+            "axis": [0.0,-0.5,0.0],
+            "duration": 2,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "left_turn_signal"
+          },
+          {
+            "animationType": "translation",
+            "variable": "0_5_15_cycle",
+            "axis": [0.0,1.0,0.0],
+            "duration": 2,
+            "skipForwardsMovement": true
+          }
+        ],
+        "blendableComponents": [
+          {
+            "pos": [-0.09375,0.007789,1.56641],
+            "axis": [0.0,0.0,1.0],
+            "flareHeight": 0.375,
+            "flareWidth": 0.375
+          }
+        ]
+      }
+    ],
+    "customVariables": [
+      "HIBEAMS"
+    ],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Come on, big guy. Let's go for a ride, let's cruise...\nUse a screwdriver to remove this part",
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:ingotIron:3"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "generic": {
+    "type": "seat",
+    "forwardsDamageMultiplier": 0.0,
+    "forceAllLinks": true,
+    "width": 0.375,
+    "height": 0.375,
+    "movementAnimations": [
+      {
+        "animationType": "translation",
+        "variable": "part_present_1",
+        "axis": [0.0,-0.0001,0.0]
+      }
+    ]
+  },
+  "seat": {},
+  "parts": [
+    {
+      "pos": [0.5,6.25E-4,0.0],
+      "isController": true,
+      "maxValue": 3.0,
+      "types": [
+        "seat",
+        "seat_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_present_1",
+          "axis": [-0.5,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [-0.5,6.25E-4,0.0],
+      "maxValue": 3.0,
+      "types": [
+        "seat",
+        "seat_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_present_1",
+          "axis": [0.5,0.0,0.0]
+        }
+      ]
+    },
+    {
+      "pos": [0.0,-0.025,0.0],
+      "maxValue": 3.0,
+      "types": [
+        "generic_npc"
+      ]
+    },
+    {
+      "pos": [0.0,0.25,-0.5],
+      "rot": [0.0,180.0,0.0],
+      "maxValue": 3.0,
+      "types": [
+        "generic_licenseplate_us",
+        "generic_bullbar",
+        "generic_winch",
+        "engine_rocket"
+      ],
+      "linkedParts": []
+    },
+    {
+      "pos": [0.0,0.25,0.5],
+      "maxValue": 3.0,
+      "types": [
+        "generic_licenseplate_us",
+        "generic_bullbar",
+        "generic_winch",
+        "engine_rocket"
+      ],
+      "linkedParts": []
+    },
+    {
+      "pos": [0.0,1.75,0.0],
+      "maxValue": 3.0,
+      "types": [
+        "generic_lightbar",
+        "generic_roofdevice",
+        "generic_gyrophare"
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
+      "name": "Part Slot Override",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "plate_engine_magneto",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engines_on",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_plate_engine_magneto",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "platecompat",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engines_on",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_plate_engine_magneto",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "headlight",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_headlight",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "navigation_light",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "taxi_light",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "seat -> seat + generic_npc\nLeft seat is controller, right is standard",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:nuggetIron:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

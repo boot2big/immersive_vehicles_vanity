@@ -1,0 +1,317 @@
+{
+  "generic": {
+    "type": "ground_wheel",
+    "forwardsDamageMultiplier": 0.0
+  },
+  "ground": {
+    "width": 0.25,
+    "height": 0.6875,
+    "climbHeight": 1.5,
+    "frictionModifiers": {}
+  },
+  "parts": [
+    {
+      "pos": [0.004890625,0.0,0.0],
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "types": [
+        "ground_wheel",
+        "ground_wheel_budd"
+      ],
+      "customTypes": [
+        "budd",
+        ""
+      ],
+      "applyAfter": "axle",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_roll_absolute",
+          "axis": [0.03125,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored"
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+          "centerPoint": [0.004890625,0.0,0.0],
+          "axis": [-2.0,0.0,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!reeeeee"
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_ismirrored",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "ground_rotation_1",
+          "centerPoint": [0.004890625,0.0,0.0],
+          "axis": [2.0,0.0,0.0]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Compact Hydraulic Kit CS-Controlled Lowrider",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "ground_wheel_hydraulic": 1.0,
+    "ground_bodyroll_disable": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "vehicle_wheels_locked",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_wheels_locked",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "running_compat",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_running_compat",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_running_1",
+          "axis": [0.0,1.0,0.0]
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "setValue": 1.25E-4,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_dip",
+      "minValue": -2.0,
+      "maxValue": 2.0,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "HYDRAULICS"
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.125,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [0.0,-0.125,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake"
+        },
+        {
+          "animationType": "translation",
+          "variable": "reset",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_sway",
+      "minValue": -2.0,
+      "maxValue": 2.0,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "HYDRAULICS"
+        },
+        {
+          "animationType": "translation",
+          "variable": "rudder",
+          "axis": [0.0,-0.005555556,0.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake"
+        },
+        {
+          "animationType": "translation",
+          "variable": "reset",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_roll",
+      "minValue": -0.75,
+      "maxValue": 2.0,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "HYDRAULICS"
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_sway",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!part_isonfront",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_ismirrored",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_dip",
+          "axis": [0.0,1.0,0.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "!part_isonfront",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake"
+        },
+        {
+          "animationType": "translation",
+          "variable": "reset",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
+      "variable": "hydraulics_roll_absolute",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hydraulics_roll",
+          "axis": [0.0,0.0,1.0],
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "height",
+      "setValue": 0.125,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "piston",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "hydraulics_roll",
+            "centerPoint": [-0.03418,0.0,0.048828125],
+            "axis": [0.0,0.0,-3.75]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!parent_ground_wheel_hydraulic"
+          },
+          {
+            "animationType": "rotation",
+            "variable": "hydraulics_roll",
+            "centerPoint": [-0.03418,0.0,0.048828125],
+            "axis": [0.0,0.0,-3.75]
+          },
+          {
+            "animationType": "translation",
+            "variable": "hydraulics_roll",
+            "axis": [0.0,-0.034296875,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "applyAfter": "piston",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "hydraulics_roll",
+            "axis": [0.0,-0.092734375,0.0]
+          }
+        ]
+      },
+      {
+        "objectName": "axle",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "hydraulics_roll_absolute",
+            "axis": [0.01953125,0.0,0.0]
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "customVariables": [
+      "HYDRAULICS",
+      "FRONT_FREEZE"
+    ],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Hydraulic Kit [Compact, Type 1]",
+    "description": "You gotta get with it!\nHas two variants both controlled by the Brake, Throttle and Rudder control surfaces",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:4",
+        "oredict:dustRedstone:2",
+        "minecraft:water_bucket:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
