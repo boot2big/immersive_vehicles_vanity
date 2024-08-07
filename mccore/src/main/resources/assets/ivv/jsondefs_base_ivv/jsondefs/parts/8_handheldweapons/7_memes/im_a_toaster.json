@@ -11,15 +11,16 @@
     "handHeld": true,
     "isTwoHanded": true,
     "isSemiAuto": true,
+    "autoReload": true,
     "capacity": 2,
-    "reloadTime": 45,
+    "reloadTime": 15,
     "reloadDelay": 10,
     "muzzleVelocity": 50,
     "fireDelay": 16.0,
-    "bulletSpreadFactor": 1.0,
-    "diameter": 45.0,
-    "minCaseLength": 90.0,
-    "maxCaseLength": 90.0,
+    "bulletSpreadFactor": 4.0,
+    "diameter": 114.3,
+    "minCaseLength": 114.3,
+    "maxCaseLength": 114.3,
     "yawSpeed": Infinity,
     "pitchSpeed": Infinity,
     "knockback": 0.25,
@@ -139,7 +140,7 @@
             "animationType": "rotation",
             "variable": "gun_fired",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [-8.0,0.0,0.0],
+            "axis": [-6.0,0.0,0.0],
             "duration": 4,
             "forwardsEasing": "easeoutcirc",
             "reverseEasing": "easeinoutsine",
@@ -148,7 +149,22 @@
           {
             "animationType": "translation",
             "variable": "gun_fired",
-            "axis": [0.0,0.0,-0.156],
+            "axis": [0.0,0.0,-0.1875],
+            "duration": 4,
+            "forwardsEasing": "easeoutcirc",
+            "reverseEasing": "easeinoutsine",
+            "skipForwardsMovement": true
+          }
+        ]
+      },
+      {
+        "objectName": "handle",
+        "applyAfter": "cube",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "gun_fired",
+            "axis": [0.0,-0.2,0.0],
             "duration": 4,
             "forwardsEasing": "easeoutcirc",
             "reverseEasing": "easeinoutsine",
@@ -160,40 +176,12 @@
     "lightObjects": [],
     "sounds": [
       {
-        "name": "ivv:gigapistol_firing",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "gun_fired",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
+        "name": "ivv:toaster_firing1",
+        "soundVariations": [
+          "ivv:toaster_firing1",
+          "ivv:toaster_firing2",
+          "ivv:toaster_firing3"
         ],
-        "volumeAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "!kitchen_gun",
-            "axis": [0.0,3.0,0.0]
-          }
-        ],
-        "pitchAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "random",
-            "axis": [0.0,0.125,0.0],
-            "offset": 0.9375
-          }
-        ],
-        "forceSound": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
-      },
-      {
-        "name": "ivv:explode_bullet",
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -212,14 +200,21 @@
         ],
         "forceSound": true,
         "minDistance": 0.0,
-        "minDistanceVolume": 0.0,
-        "middleDistance": 0.0,
-        "middleDistanceVolume": 0.0,
-        "maxDistance": 128.0,
-        "maxDistanceVolume": 0.0
+        "minDistanceVolume": 1.0,
+        "middleDistance": 16.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 24.0,
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       },
       {
-        "name": "ivv:gigapistol_reloading",
+        "name": "ivv:toaster_reload1",
+        "soundVariations": [
+          "ivv:toaster_reload1",
+          "ivv:toaster_reload2",
+          "ivv:toaster_reload3",
+          "ivv:toaster_reload4"
+        ],
         "activeAnimations": [
           {
             "animationType": "visibility",
@@ -233,7 +228,8 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0,
         "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       },
       {
         "name": "ivv:generic_gun_hammer",
@@ -273,7 +269,8 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0,
         "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       }
     ],
     "particles": [],

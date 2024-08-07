@@ -1,18 +1,16 @@
 {
   "bullet": {
-    "types": [
-      "explosive"
-    ],
+    "types": [],
     "seekerRange": 1024,
     "seekerMaxAngle": 90.0,
-    "quantity": 2,
+    "quantity": 1,
     "diameter": 114.3,
     "damage": 90.0,
     "caseLength": 114.3,
-    "blastStrength": 1.0,
     "armorPenetration": 2.0,
+    "gravitationalVelocity": 0.04,
     "despawnTime": 100,
-    "impactDespawnTime": 10
+    "impactDespawnTime": 100
   },
   "definitions": [
     {
@@ -27,11 +25,26 @@
   "rendering": {
     "animatedObjects": [
       {
-        "objectName": "cone",
+        "objectName": "cube",
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "!bullet_hit",
+            "variable": "bullet_hit_entity"
+          },
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.0,0.0625]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "!true",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,90.0]
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "bullet_hit",
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -39,7 +52,7 @@
             "animationType": "rotation",
             "variable": "tick",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [22.5,0.0,0.0]
+            "axis": [0.0,-22.5,0.0]
           }
         ]
       }
@@ -76,7 +89,8 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0,
         "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       },
       {
         "name": "ivv:bullethitmob",
@@ -99,32 +113,30 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0,
         "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       }
     ],
     "particles": [
       {
-        "type": "generic",
-        "isBright": true,
-        "spawningOrientation": "world",
-        "renderingOrientation": "fixed",
-        "quantity": 1,
-        "duration": 8,
-        "transparency": 0.75,
-        "toTransparency": 0.01,
-        "scale": 1,
-        "toScale": 8.0,
-        "hitboxSize": 1.0,
-        "texture": "ivv:textures/particles/3d/explosion.png",
-        "model": "ivv:textures/particles/3d/explosion.obj",
-        "color": "FFFFFF",
-        "pos": [0.5,1.0,0.5],
-        "rotationRandomness": [180.0,180.0,180.0],
-        "initialVelocity": [0.0,0.0,0.0],
+        "type": "break",
+        "ignoreCollision": true,
+        "spawningOrientation": "facing",
+        "renderingOrientation": "player",
+        "quantity": 3,
+        "duration": 20,
+        "scale": 0.125,
+        "hitboxSize": 0.1,
+        "color": "999999",
+        "pos": [0.0,0.0,0.0],
+        "spreadRandomness": [0.5,0.5,0.5],
+        "initialVelocity": [0.0,1.0,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "bullet_hit",
+            "variable": "bullet_hit_block",
             "clampMin": 1.0,
             "clampMax": 1.0
           }
