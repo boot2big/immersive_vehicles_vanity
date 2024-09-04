@@ -1,0 +1,125 @@
+{
+  "generic": {
+    "type": "seat",
+    "forwardsDamageMultiplier": 0.0,
+    "width": 1.0625,
+    "height": 1.0625
+  },
+  "seat": {},
+  "parts": [
+    {
+      "pos": [0.0,0.5,0.0],
+      "isController": true,
+      "maxValue": 3.0,
+      "types": [
+        "seat",
+        "seat_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_present_1",
+          "axis": [0.0,-0.5,0.0]
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1"
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
+      "name": "Experimental Seat",
+      "description": "Simulates mouse yoke for ground vehicles.\nUse at your own risk, and ensure this is placed into a controller seat position!",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "rider_yaw_modified",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_rider_yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": 2.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "seat_rider_yaw",
+          "clampMin": 180.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_rider_yaw",
+          "axis": [0.0,0.0,1.0],
+          "offset": -2.0
+        }
+      ]
+    },
+    {
+      "variable": "parent_input_rudder",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "seat_rider_yaw",
+          "clampMin": 2.0,
+          "clampMax": 180.0,
+          "absolute": true
+        },
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied",
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "rider_yaw_modified",
+          "axis": [0.0,0.0,-2.0],
+          "clampMin": -45.0,
+          "clampMax": 45.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "seat_rider_yaw",
+          "clampMin": 90.0,
+          "clampMax": 180.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0,
+          "duration": 10
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Invisible Seat",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      [
+        "minecraft:dirt:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

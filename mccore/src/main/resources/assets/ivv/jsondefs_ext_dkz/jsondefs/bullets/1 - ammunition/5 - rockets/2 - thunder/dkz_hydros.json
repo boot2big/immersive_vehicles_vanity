@@ -1,0 +1,97 @@
+{
+  "bullet": {
+    "types": [
+      "explosive"
+    ],
+    "quantity": 1,
+    "diameter": 70.0,
+    "damage": 80.0,
+    "gravitationalVelocity": 0.001,
+    "blastStrength": 2.5,
+    "burnTime": 22,
+    "accelerationTime": 5,
+    "maxVelocity": 739
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "70mm Thunder Rocket",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "lightObjects": [],
+	"sounds": [
+      {
+        "name": "dkzpartspack:rpgrocketsound",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 90.0
+          }
+        ],
+        "looping": true
+      }
+	],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 2,
+        "transparency": 0.5,
+        "toTransparency": 0.05,
+        "scale": 1.0,
+        "toScale": 10.0,
+        "color": "D87449",
+        "toColor": "AAAAAA",
+        "pos": [0.0,0.0,-0.5625],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 22.0,
+            "reverseDelay": 2
+          }
+        ]
+      },
+      {
+        "type": "flame",
+        "spawnEveryTick": true,
+        "quantity": 2,
+        "scale": 1.0,
+        "toScale": 0.5,
+        "pos": [0.0,0.0,-0.5625],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 22.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "70mm Thunder Rocket",
+    "materialLists": [
+      ["oredict:ingotIron:25","minecraft:gold_ingot:0:10","minecraft:gunpowder:0:70","minecraft:blaze_powder:0:24"]
+    ]
+  }
+}

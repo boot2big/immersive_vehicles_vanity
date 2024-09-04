@@ -7,6 +7,7 @@
     "width": 0.25,
     "height": 0.6875,
     "climbHeight": 1.5,
+    "wetFrictionPenalty": -0.1,
     "frictionModifiers": {}
   },
   "parts": [
@@ -114,6 +115,26 @@
       ]
     },
     {
+      "variable": "hydraulics_disable",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "FRONT_BACK",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "part_isonfront"
+        },
+        {
+          "animationType": "translation",
+          "variable": "!FRONT_BACK",
+          "axis": [0.0,0.0,1.0]
+        }
+      ]
+    },
+    {
       "variable": "hydraulics_dip",
       "minValue": -2.0,
       "maxValue": 2.0,
@@ -133,12 +154,6 @@
           "axis": [0.0,-0.125,0.0]
         },
         {
-          "animationType": "translation",
-          "variable": "FRONT_FREEZE",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
-        },
-        {
           "animationType": "inhibitor",
           "variable": "p_brake"
         },
@@ -146,6 +161,14 @@
           "animationType": "translation",
           "variable": "reset",
           "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "true"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hydraulics_disable"
         }
       ]
     },
@@ -164,12 +187,6 @@
           "axis": [0.0,-0.005555556,0.0]
         },
         {
-          "animationType": "translation",
-          "variable": "FRONT_FREEZE",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
-        },
-        {
           "animationType": "inhibitor",
           "variable": "p_brake"
         },
@@ -177,6 +194,14 @@
           "animationType": "translation",
           "variable": "reset",
           "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "true"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hydraulics_disable"
         }
       ]
     },
@@ -196,12 +221,6 @@
         },
         {
           "animationType": "translation",
-          "variable": "!part_isonfront",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "translation",
           "variable": "part_ismirrored",
           "axis": [-2.0,0.0,0.0],
           "offset": 1.0
@@ -212,12 +231,6 @@
           "axis": [0.0,0.5,0.0]
         },
         {
-          "animationType": "translation",
-          "variable": "!part_isonfront",
-          "axis": [-2.0,0.0,0.0],
-          "offset": 1.0
-        },
-        {
           "animationType": "inhibitor",
           "variable": "p_brake"
         },
@@ -225,6 +238,14 @@
           "animationType": "translation",
           "variable": "reset",
           "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "activator",
+          "variable": "true"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hydraulics_disable"
         }
       ]
     },
@@ -306,7 +327,7 @@
     "lightObjects": [],
     "customVariables": [
       "HYDRAULICS",
-      "FRONT_FREEZE"
+      "FRONT_BACK"
     ],
     "sounds": [],
     "particles": [],

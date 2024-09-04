@@ -1,0 +1,233 @@
+{
+  "bullet": {
+    "types": [
+      "explosive"
+    ],
+    "quantity": 1,
+    "diameter": 55.0,
+    "damage": 70.0,
+    "gravitationalVelocity": 0.001,
+    "caseLength": 812.0,
+    "blastStrength": 1.7,
+    "burnTime": 15,
+    "accelerationTime": 15,
+    "maxVelocity": 1050,
+    "impactDespawnTime": 2
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "textureName": "30x173_universaltexture",
+      "name": "4 kg Blitz Rocket",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "&flamei",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!bullet_burntime"
+          },
+          {
+            "animationType": "scaling",
+            "variable": "!2_2_0_cycle",
+            "centerPoint": [0.0,0.0,-0.551055],
+            "axis": [1.05,1.05,1.05],
+            "duration": 6
+          },
+          {
+            "animationType": "translation",
+            "variable": "2_2_0_cycle",
+            "axis": [0.0,0.0,0.070307]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "2_2_0_cycle",
+            "centerPoint": [0.0,0.0,-0.551055],
+            "axis": [0.0,0.0,350.0],
+            "duration": 4
+          }
+        ]
+      },
+      {
+        "objectName": "&flame",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "!bullet_burntime"
+          },
+          {
+            "animationType": "scaling",
+            "variable": "!0_0_2_cycle",
+            "centerPoint": [0.0,0.0,-0.551055],
+            "axis": [1.05,1.05,1.05],
+            "duration": 4
+          },
+          {
+            "animationType": "translation",
+            "variable": "2_2_0_cycle",
+            "axis": [0.0,0.0,-0.070307]
+          },
+          {
+            "animationType": "rotation",
+            "variable": "2_2_0_cycle",
+            "centerPoint": [0.0,0.0,-0.551055],
+            "axis": [0.0,0.0,-320.0],
+            "duration": 4
+          }
+        ]
+      }
+    ],
+    "lightObjects": [
+      {
+        "objectName": "&flamei",
+        "emissive": true,
+        "color": "FEFEFE",
+        "brightnessAnimations": [],
+        "blendableComponents": []
+      },
+      {
+        "objectName": "&flame",
+        "emissive": true,
+        "color": "FAB774",
+        "brightnessAnimations": [],
+        "blendableComponents": []
+      }
+    ],
+    "sounds": [
+      {
+        "name": "dkzpartspack:rpgrocketsound",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "bullet_burntime",
+            "clampMin": 1.0,
+            "clampMax": 90.0
+          }
+        ],
+        "looping": true
+      },
+      {
+        "name": "dkzpartspack:rpgexplosion",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+		"volumeAnimations": [
+		  {
+			"animationType": "translation",
+			"variable": "bullet_hit",
+			"axis": [0.0,2.0,0.0],
+			"offset": 1.0
+		  }
+		]
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 1,
+        "duration": 84,
+        "transparency": 0.7,
+        "scale": 3.1,
+        "toScale": 8.0,
+        "pos": [0.0,0.0,-0.551055],
+        "initialVelocity": [0.0,0.1,-0.5],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!bullet_burntime"
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "quantity": 2,
+        "duration": 40,
+        "transparency": 1.0,
+        "toTransparency": 0.4,
+        "scale": 32.0,
+        "toScale": 64.0,
+        "texture": "dkzpartspack:textures/exhaust.png",
+        "color": "808080",
+        "pos": [0.0,3.5,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "spawnEveryTick": true,
+        "quantity": 2,
+        "duration": 48,
+        "transparency": 1.0,
+        "toTransparency": 0.4,
+        "scale": 16.0,
+        "toScale": 32.0,
+        "color": "F4F4F4",
+        "pos": [0.0,2.5,0.0],
+        "initialVelocity": [0.0,10.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "quantity": 1,
+        "duration": 5,
+        "scale": 8.0,
+        "toScale": 64.0,
+        "texture": "dkzpartspack:textures/shockwave.png",
+        "color": "E0E0E0",
+        "pos": [0.0,1.0,0.0],
+        "initialVelocity": [0.0,1.5,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "materialLists": [
+      ["oredict:ingotIron:16","oredict:ingotGold:8","minecraft:gunpowder:0:60","minecraft:blaze_powder:0:24"]
+    ]
+  }
+}

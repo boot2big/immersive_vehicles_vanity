@@ -21,12 +21,130 @@
   "rendering": {
     "lightObjects": [],
     "sounds": [
-      //hsgg_sound_bullet_whizz,
-      //hsgg_sound_bullet_stab_mob
+      {
+        "name": "ivv:bulletwoosh",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.25,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 6.0,
+        "middleDistanceVolume": 0.125,
+        "maxDistance": 12.0,
+        "maxDistanceVolume": 0.0
+      },
+      {
+        "name": "ivv:bullethitmob",
+        "soundVariations": [
+          "ivv:bullethitmob1",
+          "ivv:bullethitmob2",
+          "ivv:bullethitmob3",
+          "ivv:bullethitmob4"
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_entity",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.5,0.0],
+            "offset": 0.75
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 8.0,
+        "maxDistanceVolume": 0.0
+      }
     ],
     "particles": [
-      //hsgg_particle_bullet_bullethole,
-      //hsgg_particle_bullet_dustsmall
+      {
+        "type": "generic",
+        "ignoreCollision": true,
+        "spawningOrientation": "facing",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 500,
+        "transparency": 0.75,
+        "fadeTransparencyTime": 100,
+        "scale": 0.125,
+        "hitboxSize": 0.0625,
+        "texture": "ivv:textures/particles/bullethole.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert.obj",
+        "color": "030108",
+        "pos": [0.0,0.011,0.0],
+        "rot": [-90.0,0.0,0.0],
+        "rotationRandomness": [0.0,0.0,180.0],
+        "initialVelocity": [0.0,0.0,0.00000001],
+        "movementVelocity": [0.0,0.0,0.00000001],
+        "terminalVelocity": [1.0E-8,1.0E-8,1.0E-8],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "blockmaterial_glass"
+          },
+          {
+            "animationType": "visibility",
+            "variable": "blockmaterial_ice"
+          }
+        ]
+      },
+      {
+        "type": "break",
+        "ignoreCollision": true,
+        "spawningOrientation": "facing",
+        "renderingOrientation": "player",
+        "quantity": 3,
+        "duration": 20,
+        "scale": 0.125,
+        "hitboxSize": 0.1,
+        "color": "999999",
+        "pos": [0.0,0.0,0.0],
+        "spreadRandomness": [0.5,0.5,0.5],
+        "initialVelocity": [0.0,1.0,0.0],
+        "movementVelocity": [0.0,-0.02,0.0],
+        "terminalVelocity": [32767.0,32767.0,32767.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit_block",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
     ],
     "modelType": "obj"
   },
