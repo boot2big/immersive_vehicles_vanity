@@ -1,0 +1,88 @@
+{
+  "bullet": {
+    "types": [
+      "incendiary"
+    ],
+    "quantity": 1,
+    "diameter": 16.83,
+    "damage": 1.0,
+    "caseLength": 70.0,
+    "airBurstDelay": 5,
+    "despawnTime": 10,
+    "impactDespawnTime": 40,
+    "pellets": 24,
+    "pelletSpreadFactor": 4
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Explosive Shotgun Shell",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "bullet_hit"
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [
+      {
+        "name": "ivv:bulletwoosh",
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!bullet_hit",
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "volumeAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.25,0.0]
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,1.0,0.0]
+          }
+        ],
+        "looping": true,
+        "minDistance": 0.0,
+        "minDistanceVolume": 0.0,
+        "middleDistance": 0.0,
+        "middleDistanceVolume": 0.0,
+        "maxDistance": 4.0,
+        "maxDistanceVolume": 0.0
+      }
+    ],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "stackSize": 64,
+    "materialLists": [
+      [
+        "oredict:nuggetIron:4",
+        "minecraft:gunpowder:0:2",
+        "minecraft:tnt:0:2"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0,
+    "type": "bullet"
+  }
+}

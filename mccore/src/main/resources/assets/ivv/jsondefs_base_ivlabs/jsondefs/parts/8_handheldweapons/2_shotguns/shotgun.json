@@ -15,7 +15,6 @@
     "isTwoHanded": true,
     "isSemiAuto": true,
     "capacity": 2,
-    "comment": "the fish was delish",
     "reloadTime": 6,
     "reloadStartTime": 10,
     "reloadEndTime": 10,
@@ -186,28 +185,40 @@
     },
     {
       "variable": "firedLeftSide",
-      "maxValue": 1,
       "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "!gun_fired",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
         {
           "animationType": "translation",
           "variable": "!gun_ammo_1_loaded",
-          "axis": [0.0,1.0,0.0],
+          "axis": [0.0,0.0,1.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
         },
         {
-          "animationType": "inhibitor",
-          "variable": "gun_ammo_1_loaded",
+          "animationType": "activator",
+          "variable": "#1",
           "offset": 0.0,
           "clampMin": 1.0,
-          "clampMax": 1.0,
-          "forwardsDelay": 1
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!gun_reload_winddown",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "gun_ammo_1_loaded",
-          "axis": [0.0,-1.0,0.0],
+          "variable": "#0",
+          "axis": [0.0,0.0,1.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
@@ -216,28 +227,47 @@
     },
     {
       "variable": "firedRightSide",
-      "maxValue": 1,
       "animations": [
         {
-          "animationType": "translation",
-          "variable": "!gun_ammo_2_loaded",
-          "axis": [0.0,1.0,0.0],
+          "animationType": "inhibitor",
+          "variable": "!gun_fired",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_ammo_1_loaded",
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
         },
         {
-          "animationType": "inhibitor",
-          "variable": "gun_ammo_2_loaded",
+          "animationType": "translation",
+          "variable": "gun_ammo_1_loaded",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "#1",
           "offset": 0.0,
           "clampMin": 1.0,
-          "clampMax": 1.0,
-          "forwardsDelay": 1
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!gun_reload_winddown",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "gun_ammo_2_loaded",
-          "axis": [0.0,-1.0,0.0],
+          "variable": "#0",
+          "axis": [0.0,0.0,1.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
@@ -262,7 +292,7 @@
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0,
-          "forwardsDelay": 5.0
+          "forwardsDelay": 5
         },
         {
           "animationType": "translation",
@@ -279,7 +309,7 @@
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0,
-          "forwardsDelay": 5.0
+          "forwardsDelay": 5
         }
       ]
     }

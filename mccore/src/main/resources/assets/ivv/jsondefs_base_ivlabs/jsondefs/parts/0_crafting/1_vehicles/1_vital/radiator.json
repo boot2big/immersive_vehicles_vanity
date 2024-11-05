@@ -1,0 +1,196 @@
+{
+  "generic": {
+    "type": "generic_radiator",
+    "forwardsDamage": false,
+    "mustBeRemovedByScrewdriver": false,
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.5,
+    "height": 0.5
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Radiator",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "pos": [0.25,-0.75,-0.0625],
+      "maxValue": 4.0,
+      "partScale": [0.48,0.48,0.48],
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "drip"
+      ],
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "frame_radiator_size"
+        },
+        {
+          "animationType": "translation",
+          "variable": "frame_radiator_size",
+          "axis": [0.0,-0.125,0.0],
+          "offset": -0.625
+        }
+       ]
+    },
+    {
+      "pos": [-0.25,-0.75,-0.0625],
+      "isMirrored": true,
+      "maxValue": 4.0,
+      "partScale": [0.48,0.48,0.48],
+      "types": [
+        "generic_effect_particle"
+      ],
+      "customTypes": [
+        "drip"
+      ],
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "frame_radiator_size"
+        },
+        {
+          "animationType": "translation",
+          "variable": "frame_radiator_size",
+          "axis": [0.0,-0.125,0.0],
+          "offset": -0.625
+        }
+       ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "part_radiator_cooling_coefficient",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "builtatlastough_radiator_power",
+          "axis": [0.0,0.0,1.0]
+        },
+        {
+          "animationType": "translation",
+          "variable": "damage_percent",
+          "axis": [-0.5,0.0,0.0],
+          "offset": 1.0
+        }
+      ]
+    }
+  ],
+  "constantValues": {
+    "generic_effect_particle_drip_slow": 1.0,
+    "builtatlastough_radiator_power": 1.25
+  },
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "cube",
+        "animations": []
+      },
+      {
+        "objectName": "lvl1",
+        "applyAfter": "cube",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "frame_radiator_size"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "frame_radiator_size",
+          "clampMin": 2.0,
+          "clampMax": 5.0
+        }
+       ]
+      },
+      {
+        "objectName": "lvl2",
+        "applyAfter": "lvl1",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "frame_radiator_size"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "frame_radiator_size",
+          "clampMin": 3.0,
+          "clampMax": 5.0
+        }
+       ]
+      },
+      {
+        "objectName": "lvl3",
+        "applyAfter": "lvl2",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "frame_radiator_size"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "frame_radiator_size",
+          "clampMin": 4.0,
+          "clampMax": 5.0
+        }
+       ]
+      },
+      {
+        "objectName": "lvl4",
+        "applyAfter": "lvl3",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "frame_radiator_size"
+        },
+        {
+          "animationType": "visibility",
+          "variable": "frame_radiator_size",
+          "clampMin": 5.0,
+          "clampMax": 5.0
+        }
+       ]
+      },
+      {
+        "objectName": "end",
+        "applyAfter": "cube",
+        "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "frame_radiator_size"
+        },
+        {
+          "animationType": "translation",
+          "variable": "frame_radiator_size",
+          "axis": [0.0,-0.125,0.0],
+          "offset": -0.625
+        }
+       ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Radiator",
+    "description": "Used for assembling vehicles\n§5§oCrafted in the Vehicle Parts Assembly bench",
+    "stackSize": 64,
+    "health": 400,
+    "materialLists": [
+      [
+        "mts:mtsofficialpack.plating:0:2",
+        "mts:mtsofficialpack.metaltube:0:2",
+        "oredict:ingotIron:3"
+      ]
+    ],
+    "radarWidth": 32.0,
+    "radarRange": 180.0
+  }
+}

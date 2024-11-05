@@ -1,0 +1,125 @@
+{
+  "generic": {
+    "type": "generic_enginepart_fan",
+    "mustBeRemovedByScrewdriver": true,
+    "forwardsDamageMultiplier": 0.0,
+    "width": 0.25,
+    "height": 0.25
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Engine Fan",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "tsaotsah": 1.0,
+    "part_assembled": 1.0,
+    "part_engine_fan_efficiency": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "motor_rpm_inverted",
+      "maxValue": 32767.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_rpm",
+          "axis": [0.0,0.0,-1.0],
+          "offset": 1200.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "blades",
+        "blendedAnimations": true,
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "motor_rpm_inverted",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 1200.0
+          }
+        ]
+      },
+      {
+        "objectName": "blades_motionblur_translucent",
+        "blendedAnimations": true,
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "engine_rpm",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 900.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_invert_fan",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_rot",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.75],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "engine_invert_fan",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "activator",
+            "variable": "engine_invert_fan",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "engine_rot",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.75],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Used for assembling combustion engines\n§5§oCrafted in the Engine Hoist bench",
+    "stackSize": 64,
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:ingotIron:6",
+        "oredict:dustRedstone:3"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
