@@ -24,41 +24,54 @@
   ],
   "collisionGroups": [
     {
-      "isInterior": true,
+      "collisionTypes": [
+        "entity",
+        "click",
+        "attack"
+      ],
       "collisions": [
         {
           "pos": [0.0625,-0.0625,-0.0625],
           "width": 0.0625,
           "height": 0.0625,
-          "variableName": "hitch_adapter_scale",
-          "variableType": "increment",
-          "variableValue": 0.25,
-          "clampMax": 8.0
+          "action": {
+            "action": "increment",
+            "variable": "hitch_adapter_scale",
+            "value": 0.25,
+            "clampMax": 8.0
+          }
         },
         {
           "pos": [-0.0625,-0.0625,-0.0625],
           "width": 0.0625,
           "height": 0.0625,
-          "variableName": "hitch_adapter_scale",
-          "variableType": "increment",
-          "variableValue": -0.25,
-          "clampMax": 8.0
+          "action": {
+            "action": "increment",
+            "variable": "hitch_adapter_scale",
+            "value": -0.25,
+            "clampMax": 8.0
+          }
         }
       ],
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "locked"
+          "variable": "locked",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
         },
         {
           "animationType": "visibility",
           "variable": "p_brake",
+          "offset": 0.0,
           "clampMin": 1.0,
           "clampMax": 1.0
         },
         {
           "animationType": "visibility",
           "variable": "headlight",
+          "offset": 0.0,
           "clampMin": 1.0,
           "clampMax": 1.0
         }
@@ -157,54 +170,74 @@
         "objectName": "connector_industrial",
         "animations": [
           {
-            "animationType": "inhibitor",
-            "variable": "hitch_orientation"
-          },
-          {
             "animationType": "scaling",
             "variable": "parent_hitch_scale",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.5,0.0,0.0],
-            "offset": 1.0
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "scaling",
             "variable": "parent_hitch_scale",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.5,0.0],
-            "offset": 1.0
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "scaling",
             "variable": "parent_hitch_scale",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,0.0,0.5],
-            "offset": 1.0
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "hitch_orientation",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.6,0.0,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,4.0,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,0.0,0.6],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "scaling",
             "variable": "hitch_adapter_scale",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,1.0,0.0],
-            "offset": 1.0
-          },
-          {
-            "animationType": "scaling",
-            "variable": "!test",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.65625,0.0,0.0]
-          },
-          {
-            "animationType": "scaling",
-            "variable": "!test",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,0.65625,0.0]
-          },
-          {
-            "animationType": "scaling",
-            "variable": "!test",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.65625]
+            "axis": [0.0,0.25,0.0],
+            "offset": 0.5,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ]
       }
@@ -217,6 +250,7 @@
           {
             "animationType": "visibility",
             "variable": "connection_1_0_connected",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -225,7 +259,10 @@
           {
             "animationType": "translation",
             "variable": "!>^<",
-            "axis": [0.0,0.75,0.0]
+            "axis": [0.0,0.75,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ],
         "minDistance": 0.0,
@@ -233,21 +270,28 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0,
         "maxDistance": 16.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       },
       {
         "name": "ivv:towhookoff2",
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "connection_1_0_connected"
+            "variable": "connection_1_0_connected",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ],
         "pitchAnimations": [
           {
             "animationType": "translation",
             "variable": "!>^<",
-            "axis": [0.0,0.75,0.0]
+            "axis": [0.0,0.75,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ],
         "minDistance": 0.0,
@@ -255,7 +299,8 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0,
         "maxDistance": 8.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       }
     ],
     "particles": [],

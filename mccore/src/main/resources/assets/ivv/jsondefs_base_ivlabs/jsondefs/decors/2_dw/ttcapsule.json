@@ -15,8 +15,10 @@
     },
     {
       "subName": "_decrepit",
+      "constants": [
+        "decrepit"
+      ],
       "name": "Decrepit Type 42 TT Capsule",
-      "constants": ["decrepit"],
       "extraMaterialLists": [
         []
       ]
@@ -29,13 +31,19 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "redstone_active"
+            "variable": "redstone_active",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "rotation",
             "variable": "activated",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,-40.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 40,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic",
@@ -49,13 +57,19 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "redstone_active"
+            "variable": "redstone_active",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "rotation",
             "variable": "activated",
             "centerPoint": [0.0,0.0,0.0],
             "axis": [0.0,40.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 40,
             "forwardsEasing": "easeoutcubic",
             "reverseEasing": "easeoutcubic",
@@ -65,6 +79,7 @@
         ]
       }
     ],
+    "lightObjects": [],
     "sounds": [
       {
         "name": "ivv:blueboxbell",
@@ -72,16 +87,21 @@
           {
             "animationType": "visibility",
             "variable": "80_2_0_cycle",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "inhibitor",
-            "variable": "!gamerule_doDaylightCycle"
+            "variable": "!gamerule_doDaylightCycle",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "visibility",
             "variable": "time",
+            "offset": 0.0,
             "clampMin": 17960.0,
             "clampMax": 18040.0
           }
@@ -91,7 +111,9 @@
             "animationType": "translation",
             "variable": "decrepit",
             "axis": [0.0,-0.0375,0.0],
-            "offset": 1.0
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ],
         "minDistance": 0.0,
@@ -99,10 +121,10 @@
         "middleDistance": 16.0,
         "middleDistanceVolume": 0.125,
         "maxDistance": 80.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       }
     ],
-    "lightObjects": [],
     "modelType": "obj"
   },
   "general": {
@@ -110,10 +132,11 @@
     "stackSize": 64,
     "materialLists": [
       [
-        "minecraft:quartz_block:0:1",
+        "minecraft:quartz_block:0:2",
         "minecraft:iron_door:0:1",
         "mts:ivv.core:0:1",
-        "mts:ivv.circuit:0:6"
+        "mts:mtsofficialpack.circuit:0:2",
+        "minecraft:sponge:0:3"
       ]
     ],
     "radarWidth": 0.0,

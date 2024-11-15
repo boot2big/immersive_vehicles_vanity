@@ -5,40 +5,6 @@
     "height": 0.25,
     "depth": 0.25
   },
-  "variableModifiers": [
-    {
-      "variable": "logic_size",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "logic_size",
-          "clampMin": 0,
-          "clampMax": 6
-        },
-        {
-          "animationType": "translation",
-          "variable": "clicked",
-          "axis": [0.0,1.0,0.0]
-        }
-      ]
-    },
-    {
-      "variable": "logic_size",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "logic_size",
-          "clampMin": 7,
-          "clampMax": 7
-        },
-        {
-          "animationType": "translation",
-          "variable": "clicked",
-          "axis": [0.0,0.0,7.0]
-        }
-      ]
-    }
-  ],
   "definitions": [
     {
       "subName": "_sealofrassilon",
@@ -68,25 +34,71 @@
       ]
     }
   ],
+  "variableModifiers": [
+    {
+      "variable": "logic_size",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "logic_size",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 6.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "clicked",
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "logic_size",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "logic_size",
+          "offset": 0.0,
+          "clampMin": 7.0,
+          "clampMax": 7.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "clicked",
+          "axis": [0.0,0.0,7.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    }
+  ],
   "rendering": {
     "animatedObjects": [
       {
         "objectName": "cube",
         "animations": [
-        {
-          "animationType": "scaling",
-          "variable": "logic_size",
-          "centerPoint": [0,0.5,-1],
-          "axis": [1.0,0.0,0.0],
-          "offset": 1.0
-        },
-        {
-          "animationType": "scaling",
-          "variable": "logic_size",
-          "centerPoint": [0,0.5,-1],
-          "axis": [0.0,1.0,0.0],
-          "offset": 1.0
-        }
+          {
+            "animationType": "scaling",
+            "variable": "logic_size",
+            "centerPoint": [0.0,0.5,-1.0],
+            "axis": [1.0,0.0,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "logic_size",
+            "centerPoint": [0.0,0.5,-1.0],
+            "axis": [0.0,1.0,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
         ]
       }
     ],
@@ -97,7 +109,9 @@
     "name": "Logo",
     "stackSize": 64,
     "materialLists": [
-      ["minecraft:paper:0:1"]
+      [
+        "minecraft:paper:0:1"
+      ]
     ],
     "radarWidth": 0.0,
     "radarRange": 0.0
