@@ -1,6 +1,6 @@
 {
   "panel": {
-    "texture": "ivv:textures/guis/ivlabspanel.png",
+    "texture": "ivv:textures/guis/ivlabspanel_standard.png",
     "textureWidth": 512,
     "textureHeight": 256,
     "backgroundWidth": 400,
@@ -9,198 +9,457 @@
     "litTextColor": "ECEDEC",
     "components": [
       {
-        "pos": [15.0,12.0,0.0],
+        "pos": [-20.0,-20.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [0.0,196.0,0.0],
-        "specialComponent": "car_light"
-      },
-      {
-        "pos": [15.0,44.0,0.0],
-        "width": 20,
-        "height": 20,
-        "textureStart": [20.0,176.0,0.0],
-        "specialComponent": "turn_signal"
-      },
-      {
-        "pos": [15.0,76.0,0.0],
-        "width": 20,
-        "height": 20,
-        "textureStart": [100.0,216.0,0.0],
-        "text": "CRUISE",
-        "statusVariable": "autopilot_active",
+        "textureStart": [180.0,216.0,0.0],
+        "text": "",
+        "statusVariable": "panel_debug",
         "visibilityVariables": [
-          ["autopilot_present"]
+          [
+            "horn",
+            "panel_debug"
+          ]
         ],
         "clickAction": {
-          "variable": "autopilot_active",
+          "variable": "panel_debug",
           "action": "toggle",
-          "value": 0.0
+          "value": 1.0
         }
       },
       {
-        "pos": [15.0,108.0,0.0],
+        "pos": [143.0,12.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [380.0,216.0,0.0],
-        "text": "TCS",
-        "statusVariable": "frame_traction_control",
-        "visibilityVariables": [
-          ["frame_has_tcs"]
-        ],
-        "clickAction": {
-          "variable": "frame_traction_control",
-          "action": "toggle",
-          "value": 0.0
-        }
+        "textureStart": [60.0,196.0,0.0],
+        "specialComponent": "engine_control"
       },
       {
-        "pos": [47.0,12.0,0.0],
+        "pos": [175.0,12.0,0.0],
         "width": 20,
         "height": 20,
         "textureStart": [80.0,196.0,0.0],
         "specialComponent": "engine_control"
       },
       {
-        "pos": [47.0,44.0,0.0],
+        "pos": [143.0,44.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
+        "textureStart": [80.0,196.0,0.0],
+        "specialComponent": "engine_control"
+      },
+      {
+        "pos": [175.0,44.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [80.0,196.0,0.0],
+        "specialComponent": "engine_control"
+      },
+      {
+        "pos": [143.0,76.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [120.0,176.0,0.0],
         "text": "HI/LOW",
         "statusVariable": "HI/LOW",
         "visibilityVariables": [
-          ["frame_has_rangeselector"]
+          [
+            "frame_has_rangeselector",
+            "panel_debug"
+          ]
         ],
         "clickAction": {
           "variable": "HI/LOW",
           "action": "toggle",
-          "value": 0.0
+          "value": 1.0
         }
       },
       {
-        "pos": [47.0,76.0,0.0],
+        "pos": [175.0,76.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
+        "textureStart": [120.0,216.0,0.0],
         "text": "4X4",
         "statusVariable": "4X4",
         "visibilityVariables": [
-          ["frame_has_4wd"]
+          [
+            "frame_has_4wd",
+            "panel_debug"
+          ]
         ],
         "clickAction": {
           "variable": "4X4",
           "action": "toggle",
-          "value": 0.0
+          "value": 1.0
         }
       },
       {
-        "pos": [47.0,108.0,0.0],
+        "pos": [143.0,108.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [360.0,216.0,0.0],
+        "text": "CRUISE",
+        "statusVariable": "autopilot",
+        "visibilityVariables": [
+          [
+            "autopilot_present",
+            "panel_debug"
+          ]
+        ],
+        "specialComponent": "autopilot"
+      },
+      {
+        "pos": [175.0,108.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [80.0,196.0,0.0],
+        "text": "TCS",
+        "statusVariable": "frame_traction_control",
+        "visibilityVariables": [
+          [
+            "frame_has_tcs",
+            "panel_debug"
+          ]
+        ],
+        "clickAction": {
+          "variable": "frame_traction_control",
+          "action": "toggle",
+          "value": 1.0
+        }
+      },
+      {
+        "pos": [207.0,12.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [440.0,216.0,0.0],
+        "specialComponent": "trailer"
+      },
+      {
+        "pos": [239.0,12.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [440.0,216.0,0.0],
+        "specialComponent": "trailer"
+      },
+      {
+        "pos": [271.0,12.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [440.0,216.0,0.0],
+        "specialComponent": "trailer"
+      },
+      {
+        "pos": [207.0,44.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [440.0,216.0,0.0],
+        "specialComponent": "trailer"
+      },
+      {
+        "pos": [239.0,44.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [440.0,216.0,0.0],
+        "specialComponent": "trailer"
+      },
+      {
+        "pos": [271.0,44.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [440.0,216.0,0.0],
+        "specialComponent": "trailer"
+      },
+      {
+        "pos": [15.0,12.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [20.0,216.0,0.0],
+        "specialComponent": "strobe_light"
+      },
+      {
+        "pos": [15.0,44.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [20.0,216.0,0.0],
+        "specialComponent": "landing_light"
+      },
+      {
+        "pos": [15.0,76.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [20.0,216.0,0.0],
+        "specialComponent": "taxi_light"
+      },
+      {
+        "pos": [15.0,108.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [20.0,216.0,0.0],
+        "specialComponent": "navigation_light"
+      },
+      {
+        "pos": [47.0,12.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [40.0,176.0,0.0],
+        "specialComponent": "turn_signal"
+      },
+      {
+        "pos": [47.0,44.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [0.0,196.0,0.0],
+        "specialComponent": "car_light"
+      },
+      {
+        "pos": [207.0,108.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [440.0,176.0,0.0],
+        "text": "A/C",
+        "statusVariable": "A/C",
+        "visibilityVariables": [
+          [
+            "frame_has_ac",
+            "panel_debug"
+          ],
+          [
+            "!engine_temp_ambient_1"
+          ]
+        ],
+        "clickAction": {
+          "variable": "A/C",
+          "action": "toggle",
+          "value": 1.0
+        }
+      },
+      {
+        "pos": [207.0,108.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [460.0,176.0,0.0],
+        "text": "A/C",
+        "statusVariable": "A/C",
+        "visibilityVariables": [
+          [
+            "frame_has_ac",
+            "panel_debug"
+          ],
+          [
+            "engine_temp_ambient_1"
+          ]
+        ],
+        "clickAction": {
+          "variable": "A/C",
+          "action": "toggle",
+          "value": 1.0
+        }
+      },
+      {
+        "pos": [207.0,76.0,0.0],
         "width": 20,
         "height": 20,
         "textureStart": [460.0,216.0,0.0],
         "text": "ROOF",
         "statusVariable": "CONVERTIBLE",
         "visibilityVariables": [
-          ["frame_is_convertable"]
+          [
+            "frame_is_convertable",
+            "panel_debug"
+          ]
         ],
         "clickAction": {
           "variable": "CONVERTIBLE",
           "action": "toggle",
-          "value": 0.0
+          "value": 1.0
         }
       },
       {
-        "pos": [79.0,108.0,0.0],
+        "pos": [271.0,108.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [40.0,216.0,0.0],
-        "text": "A/C",
-        "statusVariable": "A/C",
+        "textureStart": [200.0,216.0,0.0],
+        "text": "LOCK",
+        "statusVariable": "unused_locked",
         "visibilityVariables": [
-          ["frame_has_ac"]
+          [
+            "frame_has_powerlock",
+            "panel_debug"
+          ]
         ],
         "clickAction": {
-          "variable": "A/C",
+          "variable": "unused_locked",
           "action": "toggle",
-          "value": 0.0
+          "value": 1.0
         }
       },
       {
-        "pos": [111.0,12.0,0.0],
+        "pos": [87.0,12.0,0.0],
+        "width": 40,
+        "height": 20,
+        "textureStart": [340.0,196.0,0.0],
+        "specialComponent": "beacon_box"
+      },
+      {
+        "pos": [303.0,12.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
+        "textureStart": [260.0,216.0,0.0],
         "specialComponent": "custom_variable"
       },
       {
-        "pos": [111.0,44.0,0.0],
+        "pos": [303.0,44.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
-        "specialComponent": "custom_variable"
+        "textureStart": [260.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       },
       {
-        "pos": [111.0,76.0,0.0],
+        "pos": [303.0,76.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
-        "specialComponent": "custom_variable"
+        "textureStart": [260.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       },
       {
-        "pos": [111.0,108.0,0.0],
+        "pos": [303.0,108.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
-        "specialComponent": "custom_variable"
+        "textureStart": [260.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       },
       {
-        "pos": [143.0,12.0,0.0],
+        "pos": [335.0,12.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
-        "specialComponent": "custom_variable"
+        "textureStart": [240.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       },
       {
-        "pos": [143.0,44.0,0.0],
+        "pos": [335.0,44.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
-        "specialComponent": "custom_variable"
+        "textureStart": [240.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       },
       {
-        "pos": [143.0,76.0,0.0],
+        "pos": [335.0,76.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
-        "specialComponent": "custom_variable"
+        "textureStart": [240.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       },
       {
-        "pos": [143.0,108.0,0.0],
+        "pos": [335.0,108.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [180.0,216.0,0.0],
-        "specialComponent": "custom_variable"
+        "textureStart": [240.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       },
       {
-        "pos": [175.0,12.0,0.0],
+        "pos": [367.0,12.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [440.0,216.0,0.0],
-        "specialComponent": "trailer"
+        "textureStart": [280.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       },
       {
-        "pos": [175.0,44.0,0.0],
+        "pos": [367.0,44.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [440.0,216.0,0.0],
-        "specialComponent": "trailer"
+        "textureStart": [280.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       },
       {
-        "pos": [175.0,76.0,0.0],
+        "pos": [367.0,76.0,0.0],
         "width": 20,
         "height": 20,
-        "textureStart": [440.0,216.0,0.0],
-        "specialComponent": "trailer"
+        "textureStart": [280.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
+      },
+      {
+        "pos": [367.0,108.0,0.0],
+        "width": 20,
+        "height": 20,
+        "textureStart": [280.0,216.0,0.0],
+        "text": "test",
+        "statusVariable": "test",
+        "specialComponent": "custom_variable",
+        "clickAction": {
+          "variable": "test",
+          "action": "toggle",
+          "value": 1.0
+        }
       }
     ]
   }

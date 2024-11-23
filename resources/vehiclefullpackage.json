@@ -1,793 +1,278 @@
-{
-  "motorized": {
-    "hasSingleEngineControl": true,
-    "hasHeadlights": true,
-    "hasTurnSignals": true,
-    "hasAutopilot": true,
-    "emptyMass": 1000,
-    "fuelCapacity": 10000,
-    "defaultFuelQty": 10000,
-    "steeringForceIgnoresSpeed": true,
-    "steeringForceFactor": 1.0,
-    "axleRatio": 3.55,
-    "brakingFactor": 1.0,
-    "dragCoefficient": 0.4,
-    "crashSpeedMax": 13.857845,
-    "litVariable": "engine_magneto_1",
-    "panel": "ivv:testbed"
-  },
-  "parts": [
+
     {
-      "pos": [-1.05625,0.0625,0.0],
-      "rot": [0.0,180.0,0.0],
-      "isMirrored": true,
-      "minValue": 0.125,
-      "maxValue": 1.5,
-      "defaultPart": "ivv:smalltire",
-      "types": [
-        "ground_wheel"
-      ],
-      "applyAfter": "steeringrearright"
-    },
-    {
-      "pos": [1.05625,0.0625,0.0],
-      "minValue": 0.125,
-      "maxValue": 1.5,
-      "defaultPart": "ivv:smalltire",
-      "types": [
-        "ground_wheel"
-      ],
-      "applyAfter": "steeringrearleft"
-    },
-    {
-      "pos": [-1.05625,0.0625,2.5],
-      "rot": [0.0,180.0,0.0],
-      "turnsWithSteer": true,
-      "isMirrored": true,
-      "minValue": 0.125,
-      "maxValue": 1.5,
-      "defaultPart": "ivv:smalltire",
-      "types": [
-        "ground_wheel"
-      ],
-      "applyAfter": "steeringfrontright",
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "rudder",
-          "centerPoint": [-1.05,0.125,2.3125],
-          "axis": [0.0,0.0,0.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        }
-      ]
-    },
-    {
-      "pos": [1.05625,0.0625,2.5],
-      "turnsWithSteer": true,
-      "minValue": 0.125,
-      "maxValue": 1.5,
-      "defaultPart": "ivv:smalltire",
-      "types": [
-        "ground_wheel"
-      ],
-      "applyAfter": "steeringfrontleft",
-      "animations": [
-        {
-          "animationType": "rotation",
-          "variable": "rudder",
-          "centerPoint": [1.05,0.125,2.3125],
-          "axis": [0.0,0.0,0.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        }
-      ]
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "maxValue": 42069.0,
-      "defaultPart": "ivv:handbrake",
-      "types": [
-        "gun_handbrake"
-      ]
-    },
-    {
-      "pos": [0.0,0.8875,1.1875],
-      "rot": [0.0,0.0,0.0],
-      "isController": true,
-      "partScale": [1.0,0.9,1.9],
-      "defaultPart": "ivv:rockseat",
-      "types": [
-        "seat_invisible"
-      ],
-      "seatEffects": [
-        {
-          "name": "weakness",
-          "duration": 100,
-          "amplifier": 127
-        },
-        {
-          "name": "resistance",
-          "duration": 100,
-          "amplifier": 127
-        },
-        {
-          "name": "invisibility",
-          "duration": 100,
-          "amplifier": 127
-        }
-      ]
-    },
-    {
-      "pos": [0.225,0.2,2.3125],
-      "rot": [0.0,-90.0,0.0],
-      "maxValue": 10.0,
-      "intakeOffset": 1.0,
-      "defaultPart": "ivv:experimentalengine",
-      "types": [
-        "engine_car"
-      ],
-      "linkedParts": [3,4]
-    },
-    {
-      "pos": [0.0,0.5,3.0625],
-      "rot": [0.0,180.0,0.0],
+      "variable": "frame_dashboard",
       "maxValue": 1.0,
-      "defaultPart": "ivv:levelstats",
-      "types": [
-        "generic_ivv_superencabulator"
-      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "headlight",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "running_light",
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engines_on",
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "odometer",
+      "maxValue": 2.14748365E9,
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "STATS",
+          "variable": "!velocity",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "velocity",
+          "axis": [0.0,0.05,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "frame_has_ac",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "not_present",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "frame_has_eyes",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "not_present",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "throttle_modified",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.375,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle_modified",
+          "axis": [0.0,-0.375,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_isautomatic_1",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "!engine_isdualclutch_1",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_downshift_1",
+          "axis": [0.0,-0.375,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_clutch_upshift_1",
+          "axis": [0.0,-0.375,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "brake_modified",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "brake",
+          "axis": [0.0,0.375,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "brake_modified",
+          "axis": [0.0,-0.375,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "rudder_modified",
+      "minValue": -45.0,
+      "maxValue": 45.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "rudder",
+          "axis": [0.0,0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "rudder_modified",
+          "axis": [0.0,-0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "engine_gearshift_modified",
+      "minValue": -90.0,
+      "maxValue": 90.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_1",
+          "axis": [0.0,0.75,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_modified",
+          "axis": [0.0,-0.75,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "engine_gearshift_hhorizontal_modified",
+      "minValue": -90.0,
+      "maxValue": 90.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_hhorizontal_1",
+          "axis": [0.0,0.75,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_gearshift_hhorizontal_modified",
+          "axis": [0.0,-0.75,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_clutch_upshift_1",
           "offset": 0.0,
           "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "20_40_20_cycle",
-          "axis": [0.0,0.0625,0.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0,
-          "duration": 40,
-          "forwardsEasing": "easeinoutsine",
-          "reverseEasing": "easeinoutsine"
-        }
-      ]
-    },
-    {
-      "pos": [0.0,1.75,1.25],
-      "maxValue": 10.0,
-      "types": [
-        "interactable_crate"
-      ]
-    },
-    {
-      "pos": [0.0,1.75,0.25],
-      "maxValue": 10.0,
-      "types": [
-        "interactable_crate"
-      ]
-    }
-  ],
-  "collisionGroups": [
-    {
-      "collisionTypes": [
-        "attack",
-        "click",
-        "entity"
-      ],
-      "collisions": [
-        {
-          "pos": [1.0,0.15,1.825],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.15,0.325],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.15,-0.775],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.15,1.825],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.15,0.325],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.15,-0.775],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.5,0.4,2.95],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.25,0.4,2.95],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.0,0.4,2.95],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [0.75,0.65,2.95],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.65,2.2],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.65,1.7],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.75,0.35],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.5,0.1],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.75,-0.15],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.5,-0.4],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.75,-0.65],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.5,-0.75],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.65,2.7],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.5,0.4,2.95],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.25,0.4,2.95],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.0,0.4,2.95],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.75,0.65,2.95],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.65,2.2],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.65,1.7],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.75,0.35],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.5,0.1],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.75,-0.15],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.5,-0.4],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.75,-0.65],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.5,-0.75],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.65,2.7],
-          "width": 0.25,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.125,-0.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.0,0.125,-0.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.125,-0.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.5,0.125,0.0],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.5,0.125,0.0],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.125,0.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.0,0.125,0.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.125,0.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.5,0.125,1.0],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.5,0.125,1.0],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.125,1.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.0,0.125,1.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.125,1.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.5,0.125,2.0],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.5,0.125,2.0],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [1.0,0.125,2.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.0,0.125,2.5],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-1.0,0.125,2.5],
-          "width": 0.5,
-          "height": 0.25
-        }
-      ]
-    },
-    {
-      "collisionTypes": [
-        "attack",
-        "click",
-        "block",
-        "entity"
-      ],
-      "collisions": [
-        {
-          "pos": [-0.4375,1.55,-0.25],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.4375,1.55,-0.25],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.0,1.55,0.25],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.75,1.55,0.25],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.75,1.55,0.25],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.4375,1.55,0.75],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.4375,1.55,0.75],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.0,1.55,1.25],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [-0.75,1.55,1.25],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [0.75,1.55,1.25],
-          "width": 0.5,
-          "height": 0.25
-        },
-        {
-          "pos": [1.05,1.0,-0.1875],
-          "width": 0.125,
-          "height": 0.125
-        },
-        {
-          "pos": [-1.05,1.0,-0.1875],
-          "width": 0.125,
-          "height": 0.125
-        },
-        {
-          "pos": [1.05,1.0,2.3125],
-          "width": 0.125,
-          "height": 0.125
-        },
-        {
-          "pos": [-1.05,1.0,2.3125],
-          "width": 0.125,
-          "height": 0.125
-        }
-      ]
-    }
-  ],
-  "instruments": [
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 65,
-      "hudY": 32,
-      "hudScale": 0.5,
-      "defaultInstrument": "ivv:fueltemp"
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 135,
-      "hudY": 32,
-      "hudScale": 0.5,
-      "defaultInstrument": "ivv:screen"
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 275,
-      "hudY": 32,
-      "hudScale": 0.5,
-      "defaultInstrument": "ivv:mph"
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 205,
-      "hudY": 32,
-      "hudScale": 0.5,
-      "defaultInstrument": "ivv:testbed_gauge"
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 345,
-      "hudY": 32,
-      "hudScale": 0.5,
-      "defaultInstrument": "ivv:oilpower"
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 65,
-      "hudY": 104,
-      "hudScale": 0.5
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 135,
-      "hudY": 104,
-      "hudScale": 0.5
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 205,
-      "hudY": 104,
-      "hudScale": 0.5
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 275,
-      "hudY": 104,
-      "hudScale": 0.5
-    },
-    {
-      "pos": [0.0,0.0,0.0],
-      "rot": [27.0,0.0,0.0],
-      "hudX": 345,
-      "hudY": 104,
-      "hudScale": 0.5
-    },
-    {
-      "pos": [0.0,2.25,2.5],
-      "rot": [10.0,0.0,0.0],
-      "scale": 0.2,
-      "hudX": -47,
-      "hudY": 106,
-      "hudScale": 0.5,
-      "placeOnPanel": true,
-      "defaultInstrument": "ivv:testbed_gauge"
-    }
-  ],
-  "definitions": [
-    {
-      "subName": "",
-      "name": "Experimental Feature Test Bed",
-      "extraMaterialLists": [
-        []
-      ]
-    }
-  ],
-  "constantValues": {
-    "frame_ivv_coolnamehere": 1.0,
-    "frame_drivetrain_rfbias": 1.0,
-    "crateHeightLimit": 6.0
-  },
-  "variableModifiers": [
-    {
-      "variable": "heal_passive",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "20_2_0_cycle",
-          "axis": [0.0,0.0,1.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "damage_percent",
-          "axis": [-0.75,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "frame_skill_strength",
-          "axis": [2.0,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "frame_canheal",
-          "axis": [1.0,0.0,0.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        }
-      ]
-    },
-    {
-      "variable": "damage",
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "damage_percent",
-          "offset": 0.0,
-          "clampMin": -32767.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "!max_out",
-          "axis": [0.0,0.0,1.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        }
-      ]
-    },
-    {
-      "variable": "damage",
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "damage_percent",
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 32767.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "min_out",
-          "axis": [0.0,0.0,1.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        }
-      ]
-    },
-    {
-      "variable": "damage",
-      "animations": [
-        {
-          "animationType": "inhibitor",
-          "variable": "damage_totaled",
-          "offset": 0.0,
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "damage_percent",
-          "offset": 0.0,
-          "clampMin": -32767.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "heal_passive",
-          "axis": [0.0,-1.0,0.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        }
-      ]
-    },
-    {
-      "variable": "damage",
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "damage_percent",
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.9
-        },
-        {
-          "animationType": "visibility",
-          "variable": "inliquid",
-          "offset": 0.0,
-          "clampMin": 0.01,
           "clampMax": 1.0,
-          "duration": 100,
-          "forwardsDelay": 100,
-          "reverseDelay": 100
+          "forwardsDelay": 3
         },
         {
-          "animationType": "translation",
-          "variable": "0_2_20_cycle",
-          "axis": [0.0,1.04167E-4,0.0],
+          "animationType": "inhibitor",
+          "variable": "engine_clutch_downshift_1",
           "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
+          "clampMin": 1.0,
+          "clampMax": 1.0,
+          "forwardsDelay": 3
+        },
+        {
+          "animationType": "visibility",
+          "variable": "false",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     },
     {
-      "variable": "axleratio_modifier_speed",
+      "variable": "engine_gearshift_hvertical_modified",
+      "minValue": -90.0,
+      "maxValue": 90.0,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "engine_rpm_percent_safe_1",
-          "axis": [0.0,0.0,-1.0],
-          "offset": 0.5,
-          "clampMin": -0.5,
-          "clampMax": 0.5
-        },
-        {
-          "animationType": "translation",
-          "variable": "frame_skill_speed",
-          "axis": [1.0,0.0,0.0],
+          "variable": "engine_gearshift_hvertical_modified",
+          "axis": [0.0,-0.75,0.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
-        }
-      ]
-    },
-    {
-      "variable": "axleratio_modifier_strength",
-      "animations": [
+        },
         {
-          "animationType": "translation",
-          "variable": "engine_rpm_percent_safe_1",
-          "axis": [0.0,0.0,-3.0],
-          "offset": 2.0,
-          "clampMin": 1.0E-4,
-          "clampMax": 1.5
+          "animationType": "inhibitor",
+          "variable": "engine_clutch_upshift_1",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "engine_clutch_downshift_1",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "frame_skill_strength",
-          "axis": [1.0,0.0,0.0],
+          "variable": "engine_gearshift_hvertical_1",
+          "axis": [0.0,0.75,0.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
@@ -1504,27 +989,6 @@
           "clampMin": 0.0,
           "clampMax": 0.0,
           "absolute": true
-        }
-      ]
-    },
-    {
-      "variable": "odometer",
-      "maxValue": 2.14748365E9,
-      "animations": [
-        {
-          "animationType": "visibility",
-          "variable": "!velocity",
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "velocity",
-          "axis": [0.0,0.05,0.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
         }
       ]
     },
@@ -2817,588 +2281,4 @@
           "reverseDelay": 5
         }
       ]
-    },
-    {
-      "variable": "oversteer_test",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "frame_steering_oversteer",
-          "axis": [0.0,0.0,1.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "frame_skill_handling",
-          "axis": [-0.5,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "acceleration",
-          "axis": [5.0,0.0,0.0],
-          "offset": 0.5,
-          "clampMin": 0.001,
-          "clampMax": 16.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "ground_locked_1",
-          "axis": [0.0,1.0,0.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "ground_locked_2",
-          "axis": [0.0,1.0,0.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "slip",
-          "axis": [-0.003333333,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0,
-          "absolute": true
-        }
-      ]
-    },
-    {
-      "variable": "understeer_test",
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "frame_steering_understeer",
-          "axis": [0.0,0.0,1.0],
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "frame_skill_handling",
-          "axis": [-0.5,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "acceleration",
-          "axis": [5.0,0.0,0.0],
-          "offset": 0.5,
-          "clampMin": 0.001,
-          "clampMax": 16.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "slip",
-          "axis": [0.003333333,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0,
-          "absolute": true
-        },
-        {
-          "animationType": "translation",
-          "variable": "slip_understeer",
-          "axis": [-0.375,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0,
-          "absolute": true
-        }
-      ]
     }
-  ],
-  "rendering": {
-    "animatedObjects": [
-      {
-        "objectName": "fore3",
-        "animations": []
-      },
-      {
-        "objectName": "fore2",
-        "applyAfter": "fore3",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [1.18731,0.0,2.5],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -2.5,
-            "clampMax": 0.0625
-          },
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [-1.18731,0.0,2.5],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -0.0625,
-            "clampMax": 2.5
-          }
-        ]
-      },
-      {
-        "objectName": "mirrorleft",
-        "applyAfter": "fore2",
-        "animations": []
-      },
-      {
-        "objectName": "mirrorright",
-        "applyAfter": "fore2",
-        "animations": []
-      },
-      {
-        "objectName": "fore1",
-        "applyAfter": "fore2",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [1.18737,0.0,1.6875],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -2.0,
-            "clampMax": 0.0625
-          },
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [-1.18737,0.0,1.6875],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -0.0625,
-            "clampMax": 2.0
-          }
-        ]
-      },
-      {
-        "objectName": "body",
-        "applyAfter": "fore1",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [1.1875,0.0,1.125],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -2.5,
-            "clampMax": 0.0625
-          },
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [-1.1875,0.0,1.125],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -0.0625,
-            "clampMax": 2.5
-          }
-        ]
-      },
-      {
-        "objectName": "hind1",
-        "applyAfter": "body",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [1.18744,0.0,0.5625],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -2.5,
-            "clampMax": 0.0625
-          },
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [-1.18744,0.0,0.5625],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -0.0625,
-            "clampMax": 2.5
-          }
-        ]
-      },
-      {
-        "objectName": "hind2",
-        "applyAfter": "hind1",
-        "animations": [
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [1.18737,0.0,0.0],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -2.5,
-            "clampMax": 0.0625
-          },
-          {
-            "animationType": "rotation",
-            "variable": "frame_wriggle",
-            "centerPoint": [-1.18737,0.0,0.0],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": -0.0625,
-            "clampMax": 2.5
-          }
-        ]
-      },
-      {
-        "objectName": "turnsignalleft",
-        "applyAfter": "hind2",
-        "animations": []
-      },
-      {
-        "objectName": "turnsignalright",
-        "applyAfter": "hind2",
-        "animations": []
-      },
-      {
-        "objectName": "taillight",
-        "applyAfter": "hind2",
-        "animations": []
-      },
-      {
-        "objectName": "reverselight",
-        "applyAfter": "hind2",
-        "animations": []
-      },
-      {
-        "objectName": "exhaust",
-        "applyAfter": "hind2",
-        "animations": []
-      },
-      {
-        "objectName": "bumperhind",
-        "applyAfter": "hind2",
-        "animations": []
-      },
-      {
-        "objectName": "steeringrearleft",
-        "applyAfter": "hind2",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "rl_bodyroll",
-            "axis": [0.0,0.03125,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "rl_bodyroll",
-            "centerPoint": [0.001,0.125,0.0],
-            "axis": [0.0,0.0,2.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          }
-        ]
-      },
-      {
-        "objectName": "steeringrearright",
-        "applyAfter": "hind2",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "rr_bodyroll",
-            "axis": [0.0,-0.03125,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "rr_bodyroll",
-            "centerPoint": [-0.001,0.125,0.0],
-            "axis": [0.0,0.0,2.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          }
-        ]
-      },
-      {
-        "objectName": "axlerearright",
-        "applyAfter": "steeringrearright",
-        "animations": []
-      },
-      {
-        "objectName": "axlerearleft",
-        "applyAfter": "steeringrearleft",
-        "animations": []
-      },
-      {
-        "objectName": "steeringfrontleft",
-        "applyAfter": "fore2",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "fl_bodyroll",
-            "axis": [0.0,0.03125,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "fl_bodyroll",
-            "centerPoint": [0.001,0.125,2.3125],
-            "axis": [0.0,0.0,2.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "rudder",
-            "centerPoint": [1.05625,0.0,2.5],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          }
-        ]
-      },
-      {
-        "objectName": "axlefrontleft",
-        "applyAfter": "steeringfrontleft",
-        "animations": []
-      },
-      {
-        "objectName": "steeringfrontright",
-        "applyAfter": "fore2",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "fr_bodyroll",
-            "axis": [0.0,-0.03125,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "fr_bodyroll",
-            "centerPoint": [-0.001,0.125,2.3125],
-            "axis": [0.0,0.0,2.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "rotation",
-            "variable": "rudder",
-            "centerPoint": [-1.05625,0.0,2.5],
-            "axis": [0.0,-1.0,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          }
-        ]
-      },
-      {
-        "objectName": "axlefrontright",
-        "applyAfter": "steeringfrontright",
-        "animations": []
-      }
-    ],
-    "lightObjects": [
-      {
-        "objectName": "turnsignalright",
-        "emissive": true,
-        "isElectric": true,
-        "color": "D47719",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "right_turn_signal",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0,
-            "duration": 5,
-            "forwardsDelay": -3
-          },
-          {
-            "animationType": "translation",
-            "variable": "6_8_2_cycle",
-            "axis": [0.0,1.0,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0,
-            "duration": 5,
-            "forwardsDelay": -3
-          }
-        ]
-      },
-      {
-        "objectName": "brakelight",
-        "emissive": true,
-        "isElectric": true,
-        "color": "C4290E",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "brake",
-            "axis": [0.0,1.0,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0,
-            "duration": 5,
-            "forwardsDelay": -3
-          },
-          {
-            "animationType": "translation",
-            "variable": "headlight",
-            "axis": [0.0,0.5,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0,
-            "duration": 5,
-            "forwardsDelay": -3
-          }
-        ]
-      },
-      {
-        "objectName": "reverselight",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFF3CF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "engine_reversed_1",
-            "axis": [0.0,1.0,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0,
-            "duration": 5,
-            "forwardsDelay": -3
-          }
-        ]
-      },
-      {
-        "objectName": "turnsignalleft",
-        "emissive": true,
-        "isElectric": true,
-        "color": "D47719",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "left_turn_signal",
-            "axis": [0.0,1.0,0.0],
-            "offset": -1.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0,
-            "duration": 5,
-            "forwardsDelay": -3
-          },
-          {
-            "animationType": "translation",
-            "variable": "6_8_2_cycle",
-            "axis": [0.0,1.0,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0,
-            "duration": 5,
-            "forwardsDelay": -3
-          }
-        ]
-      },
-      {
-        "objectName": "headlights",
-        "emissive": true,
-        "isElectric": true,
-        "color": "FFF3CF",
-        "brightnessAnimations": [
-          {
-            "animationType": "translation",
-            "variable": "headlight",
-            "axis": [0.0,1.0,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0,
-            "duration": 5,
-            "forwardsDelay": -3
-          }
-        ],
-        "blendableComponents": [
-          {
-            "pos": [0.875,0.46094,2.94336],
-            "axis": [0.0,0.0,1.0],
-            "beamDiameter": 8.0,
-            "beamLength": 10.0
-          },
-          {
-            "pos": [-0.875,0.46094,2.94336],
-            "axis": [0.0,0.0,1.0],
-            "beamDiameter": 8.0,
-            "beamLength": 10.0
-          }
-        ]
-      }
-    ],
-    "customVariables": [
-      "frame_bodyroll",
-      "frame_has_abs",
-      "frame_haspilot_advanced",
-      "frame_has_tcs",
-      "STATS"
-    ],
-    "sounds": [
-      {
-        "name": "mtsofficialpack:placesound/AA_place0",
-        "activeAnimations": [
-          {
-            "animationType": "visibility",
-            "variable": "tick",
-            "offset": 0.0,
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ],
-        "forceSound": true,
-        "minDistance": 0.0,
-        "minDistanceVolume": 1.0,
-        "middleDistance": 5.0,
-        "middleDistanceVolume": 1.0,
-        "maxDistance": 6.0,
-        "maxDistanceVolume": 0.0,
-        "conicalAngle": 0.0
-      }
-    ],
-    "particles": [],
-    "modelType": "obj"
-  },
-  "general": {
-    "description": "§lWARNING:\nExperimental and work-in-progress, not advised for survival usage!\n§lINFORMATION:\nThis vehicle is meant for testing new features that may be implemented into the rest of IVLabs' productions, without having to rifle through various spare JSONs or fiddling about with developer mode.\nThis vehicle is neither canon to the loose spiderweb-string that is the IVLabs lore, nor is it an LM. (yet)",
-    "health": 100,
-    "materialLists": [
-      [
-        "minecraft:bedrock:0:1"
-      ]
-    ],
-    "repairMaterialLists": [
-      [
-        "minecraft:bedrock:0:1"
-      ]
-    ],
-    "radarWidth": 0.0,
-    "radarRange": 0.0
-  }
-}
