@@ -11,6 +11,7 @@
     "lockOnType": "default",
     "targetType": "all",
     "autoReload": true,
+    "isClipless": true,
     "handHeld": true,
     "isSemiAuto": true,
     "capacity": 3,
@@ -135,94 +136,7 @@
     }
   ],
   "rendering": {
-    "textObjects": [
-      {
-        "pos": [0.125,0.0,0.375],
-        "rot": [0.0,180.0,0.0],
-        "scale": 0.25,
-        "variableName": "gun_ammo_count",
-        "variableFactor": 1.0,
-        "variableFormat": "AMMO: %01.0f/3",
-        "fontName": "ivv:digifont",
-        "defaultText": "fill me up daddy owo",
-        "maxLength": 7,
-        "color": "CCCCCC",
-        "attachedTo": "hudAmmoModel",
-        "lightsUp": true,
-        "renderPosition": 2
-      },
-      {
-        "pos": [0.125,-0.0,0.375],
-        "rot": [0.0,180.0,0.0],
-        "scale": 0.25,
-        "variableName": "gun_ammo_count",
-        "variableFactor": 1.0,
-        "variableFormat": "RELOADING",
-        "fontName": "ivv:digifont",
-        "defaultText": "uwwaaaaa~",
-        "maxLength": 7,
-        "color": "CCCCCC",
-        "attachedTo": "hudReloadModel",
-        "lightsUp": true,
-        "renderPosition": 2
-      }
-    ],
     "animatedObjects": [
-      {
-        "objectName": "hudModel",
-        "animations": [
-          {
-            "animationType": "translation",
-            "variable": "gun_inhand_aiming",
-            "axis": [0.0625,0.0625,0.0],
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "part_onvehicle",
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
-          },
-          {
-            "animationType": "visibility",
-            "variable": "gun_controller_firstperson",
-            "offset": 0.0,
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          }
-        ]
-      },
-      {
-        "objectName": "hudReloadModel",
-        "applyAfter": "hudModel",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "gun_reload",
-            "offset": 0.0,
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 2
-          }
-        ]
-      },
-      {
-        "objectName": "hudAmmoModel",
-        "applyAfter": "hudModel",
-        "animations": [
-          {
-            "animationType": "visibility",
-            "variable": "gun_reload",
-            "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0,
-            "reverseDelay": 2
-          }
-        ]
-      },
       {
         "objectName": "gunModel",
         "animations": [

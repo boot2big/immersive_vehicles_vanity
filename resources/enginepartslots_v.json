@@ -1,0 +1,147 @@
+  "parts": [
+    {
+      "pos": [0.0,0.0,0.001],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "partScale": [1.0,1.0,1.0],
+      "defaultPart": "ivv:gearbox04auto",
+      "conditionalDefaultParts": {
+        "defaultparts_transmission_2speed_automatic": "ivv:gearbox02auto",
+        "defaultparts_transmission_2speed_manual": "ivv:gearbox02manual",
+        "defaultparts_transmission_3speed_automatic": "ivv:gearbox03auto",
+        "defaultparts_transmission_3speed_manual": "ivv:gearbox03manual",
+        "defaultparts_transmission_4speed_automatic": "ivv:gearbox04auto",
+        "defaultparts_transmission_4speed_manual": "ivv:gearbox04manual",
+        "defaultparts_transmission_5speed_automatic": "ivv:gearbox05auto",
+        "defaultparts_transmission_5speed_manual": "ivv:gearbox05manual",
+        "defaultparts_transmission_6speed_automatic": "ivv:gearbox06auto",
+        "defaultparts_transmission_6speed_manual": "ivv:gearbox06manual",
+        "defaultparts_transmission_7speed_automatic": "ivv:gearbox07auto",
+        "defaultparts_transmission_7speed_manual": "ivv:gearbox07manual",
+        "defaultparts_transmission_8speed_automatic": "ivv:gearbox08auto",
+        "defaultparts_transmission_8speed_manual": "ivv:gearbox08manual",
+        "defaultparts_transmission_12speed_automatic": "ivv:gearbox12auto",
+        "defaultparts_transmission_12speed_manual": "ivv:gearbox12manual",
+        "defaultparts_transmission_cvt_gas": "ivv:gearboxcvt",
+        "defaultparts_transmission_cvt_electric": "ivv:gearboxcvt_electric"
+      },
+      "types": [
+        "generic_transmission",
+        "transmission_car"
+      ],
+      "customTypes": [
+        "ivlabs",
+        "unus_transmissions_use_different_vms_sorry"
+      ],
+      "applyAfter": "cuboid",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "hidable_transmissions_pls_unu",
+          "offset": 0.0,
+          "clampMin": 318.0,
+          "clampMax": 318.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "unuisbest",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,0.34375,0.203125],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "defaultPart": "ivv:intake_fi_basic",
+      "conditionalDefaultParts": {
+        "defaultparts_engine_parts_intake_carb_standard": "ivv:intake_carb_standard",
+        "defaultparts_engine_parts_intake_fuelinjected": "ivv:intake_fi_basic",
+        "defaultparts_engine_parts_intake_fuelinjected_modern": "ivv:intake_fi_modern",
+        "defaultparts_engine_parts_intake_fuelinjected_diesel": "ivv:intake_fi_diesel"
+      },
+      "types": [
+        "generic_enginepart_intake_fuelinjection",
+        "generic_enginepart_intake_carburetor"
+      ],
+      "applyAfter": "cuboid"
+    },
+    {
+      "pos": [0.0,0.15625,0.75],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "defaultPart": "ivv:fan_modern",
+      "conditionalDefaultParts": {
+        "defaultparts_engine_parts_fan_old": "ivv:fan_old",
+        "defaultparts_engine_parts_fan_modern": "ivv:fan_modern"
+      },
+      "types": [
+        "generic_enginepart_fan",
+        "generic_enginepart_unu_fan"
+      ],
+      "applyAfter": "block_front",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "part_useDefaultAnimations_3",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "engine_rotation",
+          "centerPoint": [0.0,0.15625,0.0],
+          "axis": [0.0,0.0,-1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "pos": [-0.25,0.3125,0.375],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "partScale": [0.5,0.5,0.5],
+      "types": [
+        "generic_engine_upgrade_topend"
+      ],
+      "interactableVariables": [
+        [
+          "ison_bench"
+        ]
+      ],
+      "applyAfter": "block_front",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "ison_bench",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "pos": [0.40625,0.15625,0.25],
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "types": [
+        "generic_enginepart_turbo"
+      ],
+      "applyAfter": "cuboid"
+    },
+    {
+      "pos": [-0.40625,0.15625,0.25],
+      "isMirrored": true,
+      "allowParentRemoval": true,
+      "maxValue": 1.0,
+      "types": [
+        "generic_enginepart_turbo"
+      ],
+      "applyAfter": "cuboid"
+    }
+  ],

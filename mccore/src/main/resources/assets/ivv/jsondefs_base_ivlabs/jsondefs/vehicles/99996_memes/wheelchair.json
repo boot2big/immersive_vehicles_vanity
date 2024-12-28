@@ -12,16 +12,15 @@
     "steeringForceFactor": 1.0,
     "axleRatio": 1.0,
     "brakingFactor": 0.5,
-    "dragCoefficient": 0.625,
+    "dragCoefficient": 0.01,
     "litVariable": "engine_magneto_1",
-    "panel": "ivv:budget",
-    "hudTexture": "ivv:textures/guis/ivlabshud.png",
-    "panelTexture": "ivv:textures/guis/ivlabspanel_budget.png"
+    "hudTexture": "ivv:textures/guis/huds/ivlabshud.png"
   },
   "parts": [
     {
       "pos": [0.4625,0.0,0.0],
       "maxValue": 2.0,
+      "toneIndex": 1,
       "defaultPart": "unuparts:unuparts_part_unu_wheel_vintage_wire",
       "conditionalDefaultParts": {
         "wheel_standard": "unuparts:unuparts_part_unu_wheel_standard",
@@ -108,6 +107,7 @@
       "rot": [0.0,180.0,0.0],
       "isMirrored": true,
       "maxValue": 2.0,
+      "toneIndex": 1,
       "defaultPart": "unuparts:unuparts_part_unu_wheel_vintage_wire",
       "conditionalDefaultParts": {
         "wheel_standard": "unuparts:unuparts_part_unu_wheel_standard",
@@ -193,6 +193,7 @@
       "pos": [0.3125,-0.34375,0.5625],
       "turnsWithSteer": true,
       "maxValue": 2.0,
+      "toneIndex": 1,
       "partScale": [0.5,0.5,0.5],
       "defaultPart": "unuparts:unuparts_part_unu_wheel_scooter",
       "types": [
@@ -207,6 +208,7 @@
       "turnsWithSteer": true,
       "isMirrored": true,
       "maxValue": 2.0,
+      "toneIndex": 1,
       "partScale": [0.5,0.5,0.5],
       "defaultPart": "unuparts:unuparts_part_unu_wheel_scooter",
       "types": [
@@ -220,13 +222,14 @@
       "rot": [0.0,0.0,0.0],
       "isController": true,
       "isPermanent": true,
+      "toneIndex": 2,
       "defaultPart": "unuparts:unuparts_part_unu_seat_budget_saddle",
       "types": [
         "seat"
       ]
     },
     {
-      "pos": [0.0,0.0,-0.5],
+      "pos": [0.0,0.875,-0.625],
       "rot": [0.0,0.0,0.0],
       "isController": true,
       "isPermanent": true,
@@ -251,8 +254,11 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "!seat_occupied_1",
-          "axis": [0.0,0.4375,0.0]
+          "variable": "seat_occupied_2",
+          "axis": [0.0,-1.3125,-0.25],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
         }
       ]
     },
@@ -265,11 +271,44 @@
       "types": [
         "engine_magic"
       ],
-      "linkedParts": [1,2],
+      "linkedParts": [1,2,3,4],
       "animations": [
         {
           "animationType": "visibility",
-          "variable": "part_present_7"
+          "variable": "part_present_7",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "seat_occupied_2",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_1",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "throttle",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "0_15_5_cycle",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     }
@@ -301,23 +340,43 @@
     },
     {
       "collisionTypes": [
-        "click",
-        "attack",
-        "block",
-        "entity"
+        "block"
       ],
       "collisions": [
         {
-          "pos": [0.0,0.125,0.2],
+          "pos": [0.0,0.1875,0.2],
           "width": 0.5,
+          "height": 0.25
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "seat_occupied_1",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "block"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,1.0625,0.2],
+          "width": 0.125,
           "height": 0.125
         }
       ],
       "animations": [
         {
-          "animationType": "translation",
+          "animationType": "visibility",
           "variable": "seat_occupied_1",
-          "axis": [0.0,0.875,0.0]
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
         }
       ]
     }
@@ -371,6 +430,10 @@
   "definitions": [
     {
       "subName": "",
+      "partTones": [
+        "_silver",
+        "_saddle"
+      ],
       "name": "Wheelchair",
       "description": "We will chair!\nPush-to-drive",
       "extraMaterialLists": [
@@ -380,22 +443,89 @@
   ],
   "variableModifiers": [
     {
+      "variable": "engine_magneto_1",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_1",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_2",
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "magicmotor_sprint",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_2",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_1",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "magicmotor_custom_speed",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_1",
+          "axis": [0.0,0.0,0.66666667],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!seat_occupied_2",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
       "variable": "rudder_modified",
       "minValue": -90.0,
       "maxValue": 90.0,
       "animations": [
         {
           "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.0,0.0,10.0],
-          "offset": -2.0,
-          "clampMin": -2.0,
-          "clampMax": 1.0
+          "variable": "turn_indicator",
+          "axis": [0.0,0.0,-0.116666667],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
         },
         {
           "animationType": "translation",
-          "variable": "rudder",
-          "axis": [1.0,0.0,0.0]
+          "variable": "speed",
+          "axis": [10.0,0.0,0.0],
+          "offset": -2.0,
+          "clampMin": -2.0,
+          "clampMax": 1.0
         }
       ]
     },
@@ -406,31 +536,9 @@
           "animationType": "translation",
           "variable": "speed_factor",
           "axis": [-1.0,0.0,0.0],
-          "offset": 2.0
-        }
-      ]
-    },
-    {
-      "variable": "steeringForceFactor",
-      "maxValue": 2.0,
-      "animations": [
-        {
-          "animationType": "translation",
-          "variable": "speed",
-          "axis": [0.0,0.0,-2.0],
           "offset": 2.0,
-          "clampMin": 1.0,
-          "clampMax": 2.0,
-          "absolute": true
-        },
-        {
-          "animationType": "translation",
-          "variable": "input_rudder",
-          "axis": [0.022222222,0.0,0.0],
-          "offset": 0.125,
-          "clampMin": 0.125,
-          "clampMax": 1.0,
-          "absolute": true
+          "clampMin": 0.0,
+          "clampMax": 0.0
         }
       ]
     },
@@ -441,8 +549,18 @@
           "animationType": "translation",
           "variable": "slip",
           "axis": [0.0,0.0,0.046666667],
-          "offset": 0.5,
+          "offset": 0.125,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
           "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_1",
+          "axis": [0.0,0.375,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
         }
       ]
     },
@@ -450,9 +568,19 @@
       "variable": "p_brake",
       "animations": [
         {
+          "animationType": "inhibitor",
+          "variable": "speed",
+          "offset": 0.0,
+          "clampMin": 0.1,
+          "clampMax": 32767.0
+        },
+        {
           "animationType": "translation",
           "variable": "!engines_on",
-          "axis": [0.0,0.0,1.0]
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
         }
       ]
     }
@@ -472,7 +600,10 @@
             "animationType": "rotation",
             "variable": "rudder_modified",
             "centerPoint": [0.3125,-0.1875,0.5625],
-            "axis": [0.0,-1.0,0.0]
+            "axis": [0.0,-1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ]
       },
@@ -484,7 +615,10 @@
             "animationType": "rotation",
             "variable": "rudder_modified",
             "centerPoint": [-0.3125,-0.1875,0.5625],
-            "axis": [0.0,-1.0,0.0]
+            "axis": [0.0,-1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ]
       },
@@ -496,7 +630,10 @@
             "animationType": "rotation",
             "variable": "ground_rotation_1",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [1.0,0.0,0.0]
+            "axis": [1.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ]
       },
@@ -508,7 +645,10 @@
             "animationType": "rotation",
             "variable": "ground_rotation_2",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [-1.0,0.0,0.0]
+            "axis": [-1.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ]
       }
@@ -521,12 +661,14 @@
           {
             "animationType": "visibility",
             "variable": "seat_occupied_client_1",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           },
           {
             "animationType": "visibility",
             "variable": "speed",
+            "offset": 0.0,
             "clampMin": 0.125,
             "clampMax": 32767.0
           }
@@ -536,6 +678,8 @@
             "animationType": "translation",
             "variable": "speed",
             "axis": [0.0,0.05,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
             "clampMax": 1.0
           }
         ],

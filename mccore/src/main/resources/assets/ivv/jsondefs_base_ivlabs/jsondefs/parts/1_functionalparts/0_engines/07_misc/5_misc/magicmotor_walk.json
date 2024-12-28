@@ -1,0 +1,273 @@
+{
+  "generic": {
+    "type": "engine_magic",
+    "forwardsDamageMultiplier": 1.0,
+    "width": 0.25,
+    "height": 0.25,
+    "activeAnimations": [
+      {
+        "animationType": "visibility",
+        "variable": "engine_gear",
+        "offset": 0.0,
+        "clampMin": 1.0,
+        "clampMax": 127.0,
+        "absolute": true
+      }
+    ]
+  },
+  "engine": {
+    "type": "magic",
+    "disableAutomaticStarter": true,
+    "shiftSpeed": 20,
+    "revResistance": 1,
+    "maxRPM": 1000,
+    "maxSafeRPM": 1000,
+    "revlimitRPM": 1000,
+    "revlimitBounce": 1,
+    "idleRPM": -1,
+    "startRPM": -1,
+    "startRPM": -1,
+    "engineWinddownRate": 50,
+    "heatingCoefficient": 0.0025,
+    "coolingCoefficient": 0.25,
+    "engineWearFactor": 1.0,
+    "fuelConsumption": 0.1,
+    "gearRatios": [-1.0,0.0,1.0],
+    "fuelType": "nothing",
+    "isCrankingNotPitched": true
+  },
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
+      "name": "Invisimagic Motor",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "engine_gear_ratio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_running",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },/*
+    {
+      "variable": "engine_shift_down",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_magneto",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 127.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!engine_magneto",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "engine_shift_up",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "engine_magneto",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "engine_gear",
+          "offset": 0.0,
+          "clampMin": -127.0,
+          "clampMax": -1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!engine_magneto",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },*/
+    {
+      "variable": "speed_limit",
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!walking_speed",
+          "axis": [0.0,0.0,4.31780748],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_magicmotor_sprint",
+          "axis": [0.299920737,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_magicmotor_sneak",
+          "axis": [-0.700079263,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "vehicle_magicmotor_custom_speed",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_magicmotor_custom_speed",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "tsaotsah",
+          "offset": 0.0,
+          "clampMin": -318.0,
+          "clampMax": 318.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,-1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "engine_fuel_consumption",
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "vehicle_walkspeed_acceleration",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "vehicle_walkspeed_acceleration",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "walkoflife",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "speed_limit",
+          "axis": [10.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "engine_wear_factor",
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "100_100_0_cycle",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [0.0,0.0,-10.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.0,2.0,3.0],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.25,
+        "variableName": "speed_limit",
+        "variableFactor": 1.0,
+        "variableFormat": "SL: %01.3f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true
+      }
+    ],
+    "animatedObjects": [],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Legs",
+    "description": "Ideally provides MC walkspeed",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:nuggetIron:1"
+      ]
+    ],
+    "repairMaterialLists": [
+      [
+        "oredict:nuggetIron:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

@@ -3,7 +3,7 @@
     "type": "generic_enginepart_intake_fuelinjection",
     "mustBeRemovedByScrewdriver": true,
     "forwardsDamageMultiplier": 0.0,
-    "width": 0.5,
+    "width": 0.3125,
     "height": 0.25
   },
   "definitions": [
@@ -18,19 +18,196 @@
   ],
   "constantValues": {
     "tsaotsah": 1.0,
-    "part_assembled": 1.0,
     "part_engine_intake_fuelinjection": 1.0,
     "part_engine_intake_efficiency": 0.0,
     "part_engine_intake_power": 0.0
   },
+  "variableModifiers": [
+    {
+      "variable": "part_assembled",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!damage_totaled",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    }
+  ],
   "rendering": {
     "lightObjects": [],
-    "particles": [],
+    "sounds": [
+      {
+        "name": "mtsofficialpack:placesound/seat_place0",
+        "soundVariations": [
+          "mtsofficialpack:placesound/seat_place0",
+          "mtsofficialpack:placesound/seat_place1",
+          "mtsofficialpack:placesound/seat_place2"
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!vehicle_tick",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_added_vehicle",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.96875,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 12.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 24.0,
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
+      },
+      {
+        "name": "mtsofficialpack:placesound/barrel_remove0",
+        "soundVariations": [
+          "mtsofficialpack:placesound/barrel_remove0",
+          "mtsofficialpack:placesound/barrel_remove1"
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_removed_vehicle",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.96875,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 12.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 24.0,
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "ignoreCollision": true,
+        "spawningOrientation": "attached",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 18,
+        "transparency": 0.1875,
+        "fadeTransparencyTime": 10,
+        "scale": 0.5,
+        "toScale": 1.001,
+        "hitboxSize": 0.2,
+        "color": "555555",
+        "pos": [0.0,0.0625,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "0_6_6_cycle",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_cursor_hovered",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "reverseDelay": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "ignoreCollision": true,
+        "spawningOrientation": "attached",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 4,
+        "scale": 0.375,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/dialog_part_totaled.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert_offset_0_5.obj",
+        "pos": [0.0,0.1875,0.125],
+        "initialVelocity": [0.0,0.0,0.0],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "0_2_1_cycle",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_cursor_hovered",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
     "modelType": "obj"
   },
   "general": {
     "stackSize": 64,
-    "health": 100,
+    "health": 20,
     "materialLists": [
       [
         "oredict:ingotIron:6",

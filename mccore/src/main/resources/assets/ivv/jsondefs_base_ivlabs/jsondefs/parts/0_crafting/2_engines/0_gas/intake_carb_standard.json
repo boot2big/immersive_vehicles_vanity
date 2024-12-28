@@ -3,9 +3,43 @@
     "type": "generic_enginepart_intake_carburetor",
     "mustBeRemovedByScrewdriver": true,
     "forwardsDamageMultiplier": 0.0,
-    "width": 0.5,
+    "width": 0.3125,
     "height": 0.25
   },
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "click",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [-0.15625,0.03125,0.140625],
+          "width": 0.03125,
+          "height": 0.03125,
+          "action": {
+            "action": "increment",
+            "variable": "intake_tune_temp",
+            "value": -5.0,
+            "clampMin": -100.0,
+            "clampMax": 100.0
+          }
+        },
+        {
+          "pos": [-0.15625,0.03125,0.171875],
+          "width": 0.03125,
+          "height": 0.03125,
+          "action": {
+            "action": "increment",
+            "variable": "intake_tune_temp",
+            "value": 5.0,
+            "clampMin": -100.0,
+            "clampMax": 100.0
+          }
+        }
+      ]
+    }
+  ],
   "definitions": [
     {
       "subName": "",
@@ -18,14 +52,571 @@
   ],
   "constantValues": {
     "tsaotsah": 1.0,
-    "part_assembled": 1.0,
     "part_engine_intake_carburetor": 1.0,
-    "part_engine_intake_efficiency": -0.125,
-    "part_engine_intake_power": 0.0
+    "part_engine_intake_efficiency": 0.0,
+    "part_engine_intake_power": 0.0,
+    "intake_biome_temp_default": 25.0
   },
+  "variableModifiers": [
+    {
+      "variable": "throttle_modified",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "throttle_modified",
+          "axis": [0.0,-0.375,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "throttle",
+          "axis": [0.0,0.375,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "temp_ambient_smoothed",
+      "minValue": -32768.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "temp_ambient_smoothed",
+          "axis": [0.0,-0.125,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_temp_ambient",
+          "axis": [0.0,0.125,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "part_engine_intake_tune",
+      "minValue": -32768.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "intake_biome_temp_default",
+          "axis": [0.0,0.0,-1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "intake_tune_temp",
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "part_engine_intake_temperature_diff",
+      "minValue": -32768.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "parent_engine_temp",
+          "axis": [0.0,0.0,0.5],
+          "offset": 5.0,
+          "clampMin": 40.0,
+          "clampMax": 55.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tsaotsah",
+          "axis": [0.0,0.0,50],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "temp_ambient_smoothed",
+          "axis": [0.0,-1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_engine_intake_tune",
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }/*,
+        {
+          "animationType": "translation",
+          "variable": "engine_temp",
+          "axis": [0.02,0.0,0.0],
+          "offset": 0.5,
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        }*/
+      ]
+    },
+    {
+      "variable": "part_assembled",
+      "minValue": -1000.0,
+      "maxValue": 1000.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!tsaotsah",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "part_engine_intake_temperature_diff",
+          "offset": 0.0,
+          "clampMin": 20.0,
+          "clampMax": 32767.0,
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "20_10_0_cycle",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "throttle",
+          "offset": 0.0,
+          "clampMin": 0.375,
+          "clampMax": 0.625
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "80_20_0_cycle",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "part_engine_intake_temperature_diff",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 19.99,
+          "absolute": true
+        },
+        {
+          "animationType": "activator",
+          "variable": "parent_engine_powered",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "parent_engine_temp",
+          "offset": 0.0,
+          "clampMin": 70.0,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "part_engine_intake_temperature_diff",
+          "offset": 0.0,
+          "clampMin": 37.5,
+          "clampMax": 32767.0,
+          "absolute": true
+        },
+        {
+          "animationType": "activator",
+          "variable": "parent_ison_bench",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!damage_totaled",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "part_engine_intake_power",
+      "minValue": -0.75,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!parent_ison_bench",
+          "axis": [0.0,0.0,-1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_engine_intake_temperature_diff",
+          "axis": [0.02,0.0,6.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "part_engine_intake_rpm_modifier",
+      "minValue": -0.75,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!parent_ison_bench",
+          "axis": [0.0,0.0,-1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_engine_intake_temperature_diff",
+          "axis": [0.015,0.0,6.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "absolute": true
+        }
+      ]
+    },
+    {
+      "variable": "part_engine_intake_rpm_idle_modifier",
+      "minValue": -0.75,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!parent_ison_bench",
+          "axis": [0.0,0.0,-1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "part_engine_intake_temperature_diff",
+          "axis": [0.0125,0.0,6.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "absolute": true
+        }
+      ]
+    }
+  ],
   "rendering": {
+    "textObjects": [],
+    "animatedObjects": [
+      {
+        "objectName": "throttle",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "throttle_modified",
+            "centerPoint": [-0.125,0.03125,0.03125],
+            "axis": [-45.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "choke",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "part_engine_intake_temperature_diff",
+            "centerPoint": [-0.125,0.03125,0.09375],
+            "axis": [-1.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "tune",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "intake_tune_temp",
+            "centerPoint": [-0.125,0.03125,0.15625],
+            "axis": [1.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      }
+    ],
     "lightObjects": [],
-    "particles": [],
+    "sounds": [
+      {
+        "name": "mtsofficialpack:placesound/seat_place0",
+        "soundVariations": [
+          "mtsofficialpack:placesound/seat_place0",
+          "mtsofficialpack:placesound/seat_place1",
+          "mtsofficialpack:placesound/seat_place2"
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "!vehicle_tick",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_added_vehicle",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.96875,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 12.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 24.0,
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
+      },
+      {
+        "name": "mtsofficialpack:placesound/barrel_remove0",
+        "soundVariations": [
+          "mtsofficialpack:placesound/barrel_remove0",
+          "mtsofficialpack:placesound/barrel_remove1"
+        ],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_removed_vehicle",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "pitchAnimations": [
+          {
+            "animationType": "translation",
+            "variable": "random",
+            "axis": [0.0,0.125,0.0],
+            "offset": 0.96875,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ],
+        "minDistance": 0.0,
+        "minDistanceVolume": 1.0,
+        "middleDistance": 12.0,
+        "middleDistanceVolume": 0.25,
+        "maxDistance": 24.0,
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
+      }
+    ],
+    "particles": [
+      {
+        "type": "smoke",
+        "ignoreCollision": true,
+        "spawningOrientation": "attached",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 4,
+        "transparency": 0.5,
+        "scale": 0.03125,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/ui_icon_negative.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [-0.15625,0.03125,0.140625],
+        "initialVelocity": [0.0,0.0,0.0],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "0_2_1_cycle",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_cursor_hovered",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 10,
+            "skipForwardsMovement": true
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "ignoreCollision": true,
+        "spawningOrientation": "attached",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 4,
+        "transparency": 0.5,
+        "scale": 0.03125,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/ui_icon_positive.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [-0.15625,0.03125,0.171875],
+        "initialVelocity": [0.0,0.0,0.0],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "0_2_1_cycle",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_cursor_hovered",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 10,
+            "skipForwardsMovement": true
+          }
+        ]
+      },
+      {
+        "type": "smoke",
+        "ignoreCollision": true,
+        "spawningOrientation": "attached",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 18,
+        "transparency": 0.1875,
+        "fadeTransparencyTime": 10,
+        "scale": 0.5,
+        "toScale": 1.001,
+        "hitboxSize": 0.2,
+        "color": "555555",
+        "pos": [0.0,0.0625,0.0],
+        "initialVelocity": [0.0,0.0,0.0],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "0_6_6_cycle",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_cursor_hovered",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "reverseDelay": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "type": "generic",
+        "isBright": true,
+        "ignoreCollision": true,
+        "spawningOrientation": "attached",
+        "renderingOrientation": "player",
+        "quantity": 1,
+        "duration": 4,
+        "scale": 0.375,
+        "hitboxSize": 0.2,
+        "texture": "ivv:textures/particles/dialog_part_totaled.png",
+        "model": "ivv:textures/particles/3d/flat_backfaceinvert_offset_0_5.obj",
+        "pos": [0.0,0.1875,0.125],
+        "initialVelocity": [0.0,0.0,0.0],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [0.0,0.0,0.0],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "0_2_1_cycle",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "player_cursor_hovered",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "reverseDelay": 10,
+            "skipForwardsMovement": true
+          },
+          {
+            "animationType": "visibility",
+            "variable": "damage_totaled",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
     "modelType": "obj"
   },
   "general": {

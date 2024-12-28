@@ -5,6 +5,8 @@
       "incendiary",
       "armor_piercing"
     ],
+    "seekerRange": 1024,
+    "seekerMaxAngle": 90.0,
     "isHeat": true,
     "quantity": 1,
     "diameter": 60.0,
@@ -48,11 +50,17 @@
             "animationType": "rotation",
             "variable": "tick",
             "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,22.5]
+            "axis": [0.0,0.0,22.5],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "visibility",
-            "variable": "bullet_hit"
+            "variable": "bullet_hit",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ]
       }
@@ -64,11 +72,15 @@
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "bullet_hit"
+            "variable": "bullet_hit",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "visibility",
             "variable": "bullet_burntime",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 100.0
           }
@@ -78,7 +90,9 @@
             "animationType": "translation",
             "variable": "!true",
             "axis": [0.0,1.0,0.0],
-            "offset": 1.0
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ],
         "pitchAnimations": [
@@ -86,7 +100,9 @@
             "animationType": "translation",
             "variable": "!true",
             "axis": [0.0,1.0,0.0],
-            "offset": 1.0
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ],
         "looping": true,
@@ -95,7 +111,8 @@
         "middleDistance": 24.0,
         "middleDistanceVolume": 0.25,
         "maxDistance": 48.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       },
       {
         "name": "ivv:explode_nuclear",
@@ -103,6 +120,7 @@
           {
             "animationType": "visibility",
             "variable": "bullet_hit",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -111,7 +129,10 @@
           {
             "animationType": "translation",
             "variable": "!true",
-            "axis": [0.0,4.0,0.0]
+            "axis": [0.0,4.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ],
         "pitchAnimations": [
@@ -119,7 +140,9 @@
             "animationType": "translation",
             "variable": "random",
             "axis": [0.0,0.5,0.0],
-            "offset": 0.75
+            "offset": 0.75,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ],
         "minDistance": 0.0,
@@ -127,7 +150,8 @@
         "middleDistance": 96.0,
         "middleDistanceVolume": 0.5,
         "maxDistance": 256.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       }
     ],
     "particles": [
@@ -151,12 +175,16 @@
           {
             "animationType": "visibility",
             "variable": "bullet_burntime",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 100.0
           },
           {
             "animationType": "visibility",
-            "variable": "bullet_hit"
+            "variable": "bullet_hit",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ]
       },
@@ -175,16 +203,20 @@
         "hitboxSize": 0.2,
         "color": "565656",
         "pos": [0.0,0.0,-0.125],
-        "initialVelocity": [0.0,0.0,-2.0],
         "spreadRandomness": [1.0,1.0,-1.0],
+        "initialVelocity": [0.0,0.0,-2.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
-            "variable": "bullet_hit"
+            "variable": "bullet_hit",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "visibility",
             "variable": "bullet_burntime",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 100.0
           }
@@ -205,13 +237,13 @@
         "pos": [0.5,1.0,0.5],
         "rotationRandomness": [0.0,0.0,0.0],
         "spreadRandomness": [16.0,0.5,16.0],
-        "initialVelocity": [0.0,0.5,0.0],
-        "movementVelocity": [0.0,0.0125,0.0],
         "initialVelocity": [32767.0,32767.0,32767.0],
+        "movementVelocity": [0.0,0.0125,0.0],
         "activeAnimations": [
           {
             "animationType": "visibility",
             "variable": "bullet_hit",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -237,6 +269,7 @@
           {
             "animationType": "visibility",
             "variable": "bullet_hit",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -249,8 +282,8 @@
         "renderingOrientation": "fixed",
         "quantity": 1,
         "duration": 100,
-        "fadeTransparencyTime": 20,
         "transparency": 0.875,
+        "fadeTransparencyTime": 20,
         "scale": 2.0,
         "toScale": 24.0,
         "hitboxSize": 1.0,
@@ -271,6 +304,7 @@
           {
             "animationType": "visibility",
             "variable": "bullet_hit",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -283,8 +317,8 @@
         "renderingOrientation": "fixed",
         "quantity": 1,
         "duration": 30,
-        "fadeTransparencyTime": 6,
         "transparency": 0.75,
+        "fadeTransparencyTime": 6,
         "scale": 4.0,
         "toScale": 48.0,
         "hitboxSize": 1.0,
@@ -298,6 +332,7 @@
           {
             "animationType": "visibility",
             "variable": "bullet_hit",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -310,8 +345,8 @@
         "renderingOrientation": "player",
         "quantity": 1,
         "duration": 28,
-        "fadeTransparencyTime": 4,
         "transparency": 1.5,
+        "fadeTransparencyTime": 4,
         "scale": 16.0,
         "toScale": 64.0,
         "hitboxSize": 0.2,
@@ -331,6 +366,7 @@
           {
             "animationType": "visibility",
             "variable": "bullet_hit",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }

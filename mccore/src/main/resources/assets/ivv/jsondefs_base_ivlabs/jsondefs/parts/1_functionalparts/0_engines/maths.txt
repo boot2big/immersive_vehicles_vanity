@@ -1,0 +1,21 @@
+important crap, set exactly as listed
+
+fuel consumption = engine displacement * 0.119565217 (8.363636364) - old 0.108695652 (9.2)
+plug horsepower and torque values directly into json using constants builtatlastough_horsepower and builtatlastough_torque, will be modified into final values of engine_obdiii_horsepower and engine_obdiii_torque
+
+/*
+definition.fuelConsumption is used to define this engine's part slot size, then variablemodifiers.fuelConsumption is used for the engine's power, calculated by the constants you've set
+variablemodifiers.superchargerFuelConsumption then negates vmfc and has the engine consume fuel based off of the displacement. variablemodifiers.superchargerEfficiency stays set to 0 to prevent from interfering with prior math
+other constants exist as listed:
+- builtatlastough_fuel_efficiency, consumes less fuel at positive values and more at negative values
+- builtatlastough_power_efficiency, works similarly to fuel efficiency but with fc power, i would consider it cheaty though as it doesn't show in the engine's horsepower value
+- builtatlastough_backfire_type, -1 is disabled, 0 causes revlimit backfires when upgraded, 1 forces them to always occur at revlimit rpm, 2 causes throttle letoff pops
+- engine_obdiii_neutral_revlimit_type, 0 is disabled, 1 will set the neutral-gear revlimitRPM to maxSafeRPM*0.625, 2 will set the neutral-gear revlimitRPM to engine_obdiii_neutral_revlimit_rpm
+- engine_obdiii_neutral_revlimit_rpm, maximum revlimit rpm when transmission is in neutral
+*/
+
+customizable stuff, guidelines rather than rules
+
+revlimitBounce = 0.5 * revResistance, round down (6 = 3, 7 = 3, 8 = 4, 9 = 4, 10 = 5, 11 = 5..)
+part mass in kg = engine displacement * 32.608695652 + 200
+maxrpm = maxsaferpm * 1.0625
