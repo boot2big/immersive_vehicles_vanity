@@ -1,0 +1,1143 @@
+{
+  "generic": {
+    "type": "generic_hitch_mount",
+    "forwardsDamageMultiplier": 1.0,
+    "forceAllLinks": true,
+    "width": 0.125,
+    "height": 0.125
+  },
+  "parts": [
+    {
+      "pos": [0.0,-0.070312,-0.3125],
+      "allowParentRemoval": true,
+      "defaultPart": "ivv:hitchadapter",
+      "conditionalDefaultParts": {
+        "defaultparts_hitch": "ivv:hitchadapter",
+        "defaultparts_hitch_heavy": "ivv:hitchadapterheavy",
+        "defaultparts_hitch_industrial": "ivv:hitchadapterxl"
+      },
+      "types": [
+        "generic_hitch_attachment",
+        "generic_hitch_attachment_heavy",
+        "generic_hitch_attachment_industrial"
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,0.3125],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_translate_z",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_translate_y",
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }/*,
+        {
+          "animationType": "inhibitor",
+          "variable": "hitch_orientation",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "hitch_pitch",
+          "centerPoint": [0.0,0.03125,-0.0625],
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "hitch_pitch",
+          "centerPoint": [0.0,-0.101562,-0.265625],
+          "axis": [-1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "hitch_orientation",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "hitch_orientation",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "hitch_pitch",
+          "centerPoint": [0.0,0.05469,0.0625],
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "hitch_orientation",
+          "centerPoint": [0.0,-0.02344,0.21094],
+          "axis": [90.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "scaling",
+          "variable": "hitch_scale",
+          "centerPoint": [0.0,0.0625,0.0],
+          "axis": [0.5,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "scaling",
+          "variable": "hitch_scale",
+          "centerPoint": [0.0,0.0625,0.0],
+          "axis": [0.0,0.5,0.0],
+          "offset": 1.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "scaling",
+          "variable": "hitch_scale",
+          "centerPoint": [0.0,0.0625,0.0],
+          "axis": [0.0,0.0,0.5],
+          "offset": 1.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_orientation",
+          "axis": [0.0,0.070312,0.3125],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_orientation",
+          "axis": [0.0,-0.02344,0.21094],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }*/
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "entity",
+        "click",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0625,-0.023437,-0.0625],
+          "width": 0.0625,
+          "height": 0.0625,
+          "action": {
+            "action": "button",
+            "variable": "hitch_pitch_up",
+            "value": 1.0
+          }
+        },
+        {
+          "pos": [-0.0625,-0.023437,-0.0625],
+          "width": 0.0625,
+          "height": 0.0625,
+          "action": {
+            "action": "button",
+            "variable": "hitch_pitch_down",
+            "value": 1.0
+          }
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "entity",
+        "click",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,0.0625,0.00125],
+          "width": 0.0625,
+          "height": 0.0625,
+          "action": {
+            "action": "toggle",
+            "variable": "hitch_orientation",
+            "value": 0.0
+          }
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "locked",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "headlight",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "entity",
+        "click",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,0.0625,0.0],
+          "width": 0.0625,
+          "height": 0.0625,
+          "action": {
+            "action": "increment",
+            "variable": "hitch_scale",
+            "value": 0.25
+          }
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "locked",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "headlight",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "part_present_1",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "entity",
+        "click",
+        "attack"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,0.0625,0.125],
+          "width": 0.0625,
+          "height": 0.0625,
+          "action": {
+            "action": "toggle",
+            "variable": "hitch_alt",
+            "value": 0.0
+          }
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "locked",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "p_brake",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "headlight",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "hitch_orientation",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        }
+      ]
+    }
+  ],
+  "connectionGroups": [
+    {
+      "groupName": "HOOKUP",
+      "isHookup": true,
+      "connections": [
+        {
+          "type": "tow_bumper",
+          "pos": [0.0,-0.0625,0.0],
+          "distance": 2.0
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Hitch Mount",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "general_first_spawn",
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "general_first_spawn",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "tick",
+          "offset": 0.0,
+          "clampMin": 20.0,
+          "clampMax": 2147483647.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "hitch_translate_y",
+      "minValue": -4.0,
+      "maxValue": 4.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "terrain_distance_1",
+          "axis": [0.0,-1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "offset": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "true",
+          "axis": [0.0,0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "offset": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tick_sin",
+          "axis": [0.0,0.0,0.125],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "offset": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "hitch_translate_z",
+      "minValue": -4.0,
+      "maxValue": 4.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!horn",
+          "axis": [0.0,0.0,-0.3125],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "offset": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "hitch_math_stretch",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "weh",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "axle_driveshaft_y_mod",
+          "axis": [0.0,1.0,2.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "axle_driveshaft_z_mod",
+          "axis": [0.0,1.0,2.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "hitch_stretch",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!weh",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_math_stretch",
+          "axis": [1.0,0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "weh",
+          "axis": [0.0,-2.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "hitch_math_pitch",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hitch_translate_y",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_translate_z",
+          "axis": [-1.0,-1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "hitch_pitch",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!weh",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "hitch_math_pitch",
+          "centerPoint": [0.0,0.0,0.0],
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "invert": true
+        }
+      ]
+    },
+    /*{//current
+      "variable": "hitch_pitch",
+      "minValue": -4.0,
+      "maxValue": 4.0,
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "general_first_spawnt",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "frame_hitch_offset_present",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0driveshaft_rotation_x
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_pitch_exp",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "weh",
+          "axis": [0.0,0.0,0.0625],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },*/
+    /*{//old
+      "variable": "hitch_pitch",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "general_first_spawn",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "frame_hitch_offset_present",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "parent_vehicle_hitch_offset",
+          "axis": [0.0,0.0,-1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },*/
+    {
+      "variable": "hitch_pitch",
+      "minValue": -45.0,
+      "maxValue": 45.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "hitch_pitch_up",
+          "axis": [0.0,0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "duration": 20
+        },
+        {
+          "animationType": "translation",
+          "variable": "hitch_pitch_down",
+          "axis": [0.0,-0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "duration": 20
+        }
+      ]
+    },
+    {
+      "variable": "hitch_scale",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "hitch_scale",
+          "offset": 0.0,
+          "clampMin": 3.25,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "zero",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [
+      {
+        "objectName": "connector_preview",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "preview",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "mount",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.5,0.0,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.0,0.5],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "chain",
+        "applyAfter": "joint",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "bolt",
+        "applyAfter": "joint",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "joint",
+        "applyAfter": "mount",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0,0.0],
+            "axis": [0.0,180.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "pivot",
+        "applyAfter": "joint",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "hitch_pitch",
+            "centerPoint": [0.0,0.03125,-0.0625],
+            "axis": [1.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_stretch",
+            "centerPoint": [0.0,0.03125,-0.0625],
+            "axis": [0.0,0.0,1.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "connectormount",
+        "applyAfter": "joint",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "!true",
+            "axis": [0.0,0.0,0.3125],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "hitch_translate_z",
+            "axis": [0.0,0.0,1.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "hitch_translate_y",
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "test",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "hitch_pitch",
+            "centerPoint": [0.0,-0.101562,-0.265625],
+            "axis": [-1.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "#mount_alt",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "hitch_orientation",
+            "axis": [0.0,-0.06251,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [10.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,10.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.0,10.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.5,0.0,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.0,0.5],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "#joint_alt",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "hitch_orientation",
+            "axis": [0.0,-0.06251,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "hitch_pitch",
+            "centerPoint": [0.0,0.11719,0.0625],
+            "axis": [1.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [10.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,10.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_orientation",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.0,10.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.5,0.0,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.5,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "scaling",
+            "variable": "hitch_scale",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.0,0.5],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "generic_hitch_attachment_industrial_1",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "hitch_orientation",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "#pivot_alt",
+        "applyAfter": "#joint_alt",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "hitch_alt",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "particles": [
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.0625,
+        "hitboxSize": 0.0625,
+        "texture": "ivv:textures/particles/ui_icon_rotate_clockwise.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [0.0625,-0.023437,-0.0625],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      },
+      {
+        "type": "generic",
+        "spawnEveryTick": true,
+        "isBright": true,
+        "spawningOrientation": "entity",
+        "renderingOrientation": "fixed",
+        "quantity": 1,
+        "duration": 2,
+        "transparency": 0.5,
+        "scale": 0.0625,
+        "hitboxSize": 0.0625,
+        "texture": "ivv:textures/particles/ui_icon_rotate_counterclockwise.png",
+        "model": "ivv:textures/particles/3d/cube.obj",
+        "color": "FFFFFF",
+        "pos": [-0.0625,-0.023437,-0.0625],
+        "rot": [0.0,0.0,0.0],
+        "initialVelocity": [0.0,0.0,-0.01],
+        "movementVelocity": [0.0,0.0,0.0],
+        "terminalVelocity": [2.0E-126,2.0E-126,2.0E-126],
+        "activeAnimations": [
+          {
+            "animationType": "visibility",
+            "variable": "locked",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "p_brake",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "headlight",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "part_present_1",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ],
+        "axisAligned": true
+      }
+    ],
+    "modelType": "obj"
+  },
+  "general": {
+    "name": "Hitch",
+    "description": "Mounts hitch adapters for towing stuff",
+    "health": 100,
+    "materialLists": [
+      [
+        "mts:ivv.hitchnb:0:1",
+        "oredict:ingotIron:2",
+        "mts:ivv.hitchadapter:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

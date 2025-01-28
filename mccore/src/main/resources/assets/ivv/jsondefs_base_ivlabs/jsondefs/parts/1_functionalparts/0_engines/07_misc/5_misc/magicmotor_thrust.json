@@ -1,0 +1,109 @@
+{
+  "generic": {
+    "type": "engine_jet",
+    "forwardsDamageMultiplier": 4.0,
+    "width": 0.25,
+    "height": 0.375
+  },
+  "engine": {
+    "type": "magic",
+    "disableAutomaticStarter": true,
+    "shiftSpeed": 20,
+    "revResistance": 1,
+    "maxRPM": 10000,
+    "maxSafeRPM": 10000,
+    "revlimitRPM": 10000,
+    "revlimitBounce": 1,
+    "idleRPM": -1,
+    "startRPM": -1,
+    "startRPM": -1,
+    "engineWinddownRate": 50,
+    "heatingCoefficient": 0.0025,
+    "coolingCoefficient": 0.25,
+    "engineWearFactor": 1.0,
+    "fuelConsumption": 1.0,
+    "jetPowerFactor": 1.0,
+    "bypassRatio": 1.0,
+    "gearRatios": [-1.0,0.0,1.0],
+    "fuelType": "nothing"
+  },
+  "parts": [
+    {
+      "pos": [0.0,0.0,0.0],
+      "allowParentRemoval": true,
+      "maxValue": 10.0,
+      "partScale": [0.125,0.125,0.125],
+      "defaultPart": "ivv:enginejetblade",
+      "types": [
+        "propeller_crafting_engine_gas"
+      ],
+      "interactableVariables": [
+        [
+          "sorry_ms_jackson"
+        ]
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "modelName": "invisible",
+      "textureName": "invisible",
+      "name": "Invisimagic Flight Motor",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "gearRatio",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_running",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "engineWearFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "engine_hours",
+          "axis": [0.0,0.0,-10.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "animatedObjects": [],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "Ideally provides MC walkspeed",
+    "health": 100,
+    "materialLists": [
+      [
+        "oredict:nuggetIron:3"
+      ]
+    ],
+    "repairMaterialLists": [
+      [
+        "oredict:nuggetIron:1"
+      ]
+    ],
+    "radarWidth": 180.0,
+    "radarRange": 256.0
+  }
+}

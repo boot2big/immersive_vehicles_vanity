@@ -1,0 +1,1071 @@
+{
+  "motorized": {
+    "hasAutopilot": true,
+    "hasSingleEngineControl": true,
+    "hasHeadlights": true,
+    "hasTurnSignals": true,
+    "emptyMass": 10000,
+    "fuelCapacity": 10000,
+    "defaultFuelQty": 10000,
+    "steeringForceIgnoresSpeed": true,
+    "steeringForceFactor": 1.0,
+    "axleRatio": 1.0,
+    "brakingFactor": 1.0,
+    "dragCoefficient": 0.1,
+    "litVariable": "engine_magneto_1",
+    "panel": "mts:default_car"
+  },
+  "parts": [
+    {
+      "pos": [0.55625,0.0,0.0],
+      "maxValue": 1.5,
+      "isPermanent": true,
+      "defaultPart": "ivv:theinvisitire",
+      "types": [
+        "ground_wheel",
+        "ground_wheel_invisible"
+      ],
+      "applyAfter": "axle_rearleft"
+    },
+    {
+      "pos": [-0.55625,0.0,0.0],
+      "rot": [0.0,180.0,0.0],
+      "isMirrored": true,
+      "isPermanent": true,
+      "maxValue": 1.5,
+      "defaultPart": "ivv:theinvisitire",
+      "types": [
+        "ground_wheel",
+        "ground_wheel_invisible"
+      ],
+      "applyAfter": "axle_rearright"
+    },
+    {
+      "pos": [0.55625,0.0,2.0],
+      "turnsWithSteer": true,
+      "isPermanent": true,
+      "maxValue": 1.5,
+      "defaultPart": "ivv:theinvisitire",
+      "types": [
+        "ground_wheel",
+        "ground_wheel_invisible"
+      ],
+      "applyAfter": "axle_frontleft",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [1.05,0.125,2.3125],
+          "axis": [0.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "pos": [-0.55625,0.0,2.0],
+      "rot": [0.0,180.0,0.0],
+      "turnsWithSteer": true,
+      "isMirrored": true,
+      "maxValue": 1.5,
+      "defaultPart": "ivv:theinvisitire",
+      "types": [
+        "ground_wheel",
+        "ground_wheel_invisible"
+      ],
+      "applyAfter": "axle_frontright",
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [-1.05,0.125,2.3125],
+          "axis": [0.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,1.25,1.25],
+      "rot": [0.0,0.0,0.0],
+      "isController": true,
+      "defaultPart": "mts:invisible_seat",
+      "types": [
+        "seat"
+      ],
+      "applyAfter": "cuboid"
+    },
+    {
+      "pos": [0.0,0.0,2.5],
+      "rot": [0.0,0.0,0.0],
+      "maxValue": 10.0,
+      "intakeOffset": 1.0,
+      "defaultPart": "ivv:magicmotor_thrust",
+      "types": [
+        "engine_magic",
+        "engine_jet",
+        "engine_car"
+      ],
+      "linkedParts": [1,2,3,4],
+      "applyAfter": "cuboid"
+    },
+    {
+      "pos": [0.0,0.25,3.0],
+      "rot": [0.0,0.0,0.0],
+      "partScale": [1.5,1.5,1.5],
+      "maxValue": 10.0,
+      "intakeOffset": 1.0,
+      "defaultPart": "ivv:blockbreak_stone",
+      "types": [
+        "effector_invisible"
+      ],
+      "applyAfter": "cuboid",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "speed",
+          "axis": [0.0,0.0,0.1],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "offset": 0.0,
+          "clampMin": 1.0,
+          "clampMax": 32767.0
+        }
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "attack",
+        "click",
+        "entity"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,0.0625,0.5],
+          "width": 2.0,
+          "height": 0.125
+        }
+      ]
+    },
+    {
+      "collisionTypes": [
+        "attack",
+        "click",
+        "block",
+        "entity"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,0.5,0.25],
+          "width": 0.5,
+          "height": 0.25
+        }
+      ]
+    }
+  ],
+  "instruments": [
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 65,
+      "hudY": 32,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:fueltemp"
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 135,
+      "hudY": 32,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:screen"
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 275,
+      "hudY": 32,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:mph"
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 205,
+      "hudY": 32,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:testbed_gauge"
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 345,
+      "hudY": 32,
+      "hudScale": 0.5,
+      "defaultInstrument": "ivv:oilpower"
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 65,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 135,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 205,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 275,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 345,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,2.25,2.5],
+      "rot": [10.0,0.0,0.0],
+      "scale": 0.2,
+      "hudX": -47,
+      "hudY": 106,
+      "hudScale": 0.5,
+      "placeOnPanel": true
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "",
+      "name": "Experimental Chassis Test Bed",
+      "extraMaterialLists": [
+        []
+      ]
+    }
+  ],
+  "constantValues": {
+    "frame_ivv_coolnamehere": 1.0
+  },
+  "variableModifiers": [
+    {
+      "variable": "fuelConsumption_6",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,6.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "acceleration_math",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "acceleration",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "engine_reversed_1",
+          "axis": [-2.0,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_rearleft_distance",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_distance_1",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "height_1",
+          "axis": [0.0,-0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_rearleft_math",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!ground_onground_1",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_rearleft_distance",
+          "axis": [0.0,0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,5.0E-4,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration_math",
+          "axis": [0.0,-2.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "roll",
+          "axis": [0.0,-0.01,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "pitch",
+          "axis": [0.0,-0.01,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_onground_1",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "forwardsDelay": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "check_it_in_check_it_out",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_rearleft_final",
+          "axis": [0.0,-0.0625,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_rearleft_math",
+          "axis": [0.0,-0.0625,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "spring_rearleft_final",
+          "offset": 0.0,
+          "clampMin": 0.25,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_rearleft_math",
+          "axis": [0.0,-0.125,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_rearleft_final",
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "spring_rearleft_math",
+          "axis": [0.0,1.0,0.0],
+          "offset": 2.25,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_rearright_distance",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_distance_2",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "height_2",
+          "axis": [0.0,-0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_rearright_math",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!ground_onground_2",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_rearleft_distance",
+          "axis": [0.0,0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,-5.0E-4,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration_math",
+          "axis": [0.0,-2.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "roll",
+          "axis": [0.0,0.01,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "pitch",
+          "axis": [0.0,-0.01,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_onground_2",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "forwardsDelay": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "or_the_sun_will_never_shine",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_rearright_final",
+          "axis": [0.0,-0.0625,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_rearright_math",
+          "axis": [0.0,-0.0625,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "spring_rearright_final",
+          "offset": 0.0,
+          "clampMin": 0.25,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_rearright_math",
+          "axis": [0.0,-0.125,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_rearright_final",
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "spring_rearright_math",
+          "axis": [0.0,1.0,0.0],
+          "offset": 2.25,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_frontleft_distance",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_distance_3",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "height_3",
+          "axis": [0.0,-0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_frontleft_math",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!ground_onground_3",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_frontleft_distance",
+          "axis": [0.0,0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,5.0E-4,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration_math",
+          "axis": [0.0,2.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "roll",
+          "axis": [0.0,-0.01,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "pitch",
+          "axis": [0.0,0.01,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_onground_3",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "forwardsDelay": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "paranod_anyways_in_the_subways_of_your_mind",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_frontleft_final",
+          "axis": [0.0,-0.0625,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_frontleft_math",
+          "axis": [0.0,-0.0625,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "spring_frontleft_final",
+          "offset": 0.0,
+          "clampMin": 0.25,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_frontleft_math",
+          "axis": [0.0,-0.125,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_frontleft_final",
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "spring_frontleft_math",
+          "axis": [0.0,1.0,0.0],
+          "offset": 2.25,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_frontright_distance",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_distance_4",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "height_4",
+          "axis": [0.0,-0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_frontright_math",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!ground_onground_4",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "duration": 5
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_frontleft_distance",
+          "axis": [0.0,0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "turn_indicator",
+          "axis": [0.0,-5.0E-4,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "acceleration_math",
+          "axis": [0.0,2.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "roll",
+          "axis": [0.0,0.01,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "pitch",
+          "axis": [0.0,0.01,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "ground_onground_4",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "forwardsDelay": 1
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "its_a_good_excuse",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_frontright_final",
+          "axis": [0.0,-0.0625,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_frontright_math",
+          "axis": [0.0,-0.0625,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "spring_frontright_final",
+          "offset": 0.0,
+          "clampMin": 0.25,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "spring_frontright_math",
+          "axis": [0.0,-0.125,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "spring_frontright_final",
+      "minValue": -32767.0,
+      "maxValue": 32767.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "spring_frontright_math",
+          "axis": [0.0,1.0,0.0],
+          "offset": 2.25,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [1.0,0.75,0.0],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.375,
+        "variableName": "spring_rearleft_distance",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.5f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true
+      },
+      {
+        "pos": [1.0,0.5,0.0],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.375,
+        "variableName": "spring_rearleft_final",
+        "variableFactor": 1.0,
+        "variableFormat": "%01.5f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "cuboid",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "turn_indicatornt",
+            "centerPoint": [0.0,0.0625,0.0],
+            "axis": [0.0,0.0,0.01],
+            "offset": 0.0,
+            "clampMin": -30.0,
+            "clampMax": 30.0
+          }
+        ]
+      },
+      {
+        "objectName": "spring_rearleft",
+        "applyAfter": "cuboid",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "spring_rearleft_final",
+            "centerPoint": [1.0,0.0625,0.0],
+            "axis": [0.0,0.1,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "axle_rearleft",
+        "applyAfter": "cuboid",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "spring_rearleft_final",
+            "axis": [0.0,-0.05,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "spring_rearright",
+        "applyAfter": "cuboid",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "spring_rearright_final",
+            "centerPoint": [-1.0,0.0625,0.0],
+            "axis": [0.0,0.1,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "axle_rearright",
+        "applyAfter": "cuboid",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "spring_rearright_final",
+            "axis": [0.0,-0.05,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "spring_frontleft",
+        "applyAfter": "cuboid",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "spring_frontleft_final",
+            "centerPoint": [1.0,0.0625,2.5],
+            "axis": [0.0,0.1,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "axle_frontleft",
+        "applyAfter": "cuboid",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "spring_frontleft_final",
+            "axis": [0.0,-0.05,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "spring_frontright",
+        "applyAfter": "cuboid",
+        "animations": [
+          {
+            "animationType": "scaling",
+            "variable": "spring_frontright_final",
+            "centerPoint": [-1.0,0.0625,2.5],
+            "axis": [0.0,0.1,0.0],
+            "offset": 1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "axle_frontright",
+        "applyAfter": "cuboid",
+        "animations": [
+          {
+            "animationType": "translation",
+            "variable": "spring_frontright_final",
+            "axis": [0.0,-0.05,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "description": "§lWARNING:\nExperimental and work-in-progress, not advised for survival usage!\n§lINFORMATION:\nThis vehicle is meant for testing new features that may be implemented into the rest of IVLabs' productions, without having to rifle through various spare JSONs or fiddling about with developer mode.\nThis vehicle is neither canon to the loose spiderweb-string that is the IVLabs lore, nor is it an LM. (yet)",
+    "health": 100,
+    "materialLists": [
+      [
+        "minecraft:bedrock:0:1"
+      ]
+    ],
+    "repairMaterialLists": [
+      [
+        "minecraft:bedrock:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}

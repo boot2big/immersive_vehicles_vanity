@@ -448,24 +448,32 @@
           "pos": [0.0,0.65625,-1.46875],
           "width": 0.25,
           "height": 0.25,
-          "variableName": "door_Tailgate",
-          "variableType": "toggle"
+          "action": {
+            "action": "toggle",
+            "variable": "door_Tailgate",
+            "value": 0.0
+          }
         }
       ],
       "animations": [
         {
           "animationType": "visibility",
           "variable": "part_useDefaultHitboxes_2",
+          "offset": 0.0,
           "clampMin": 1.0,
           "clampMax": 1.0
         },
         {
           "animationType": "inhibitor",
-          "variable": "part_present_20"
+          "variable": "part_present_20",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
         },
         {
           "animationType": "visibility",
           "variable": "part_closed_20",
+          "offset": 0.0,
           "clampMin": 1.0,
           "clampMax": 1.0
         }
@@ -497,12 +505,18 @@
         {
           "animationType": "translation",
           "variable": "crates_maximum_height",
-          "axis": [0.0,0.0,1.0]
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
         },
         {
           "animationType": "translation",
           "variable": "part_crateHeightLimitAddition_3",
-          "axis": [0.0,1.0,0.0]
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
         }
       ]
     }
@@ -514,7 +528,10 @@
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "part_present_19"
+            "variable": "part_present_19",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           }
         ]
       },
@@ -524,6 +541,7 @@
           {
             "animationType": "visibility",
             "variable": "part_present_19",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -534,13 +552,19 @@
         "animations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_useDefaultAnimations_2"
+            "variable": "part_useDefaultAnimations_2",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "rotation",
             "variable": "door_Tailgate",
             "centerPoint": [0.0,0.1251,-1.4375],
             "axis": [-80.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 8,
             "forwardsDelay": 2
           },
@@ -549,6 +573,9 @@
             "variable": "door_Tailgate",
             "centerPoint": [0.0,0.1251,-1.4375],
             "axis": [-10.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "reverseDelay": 10
           }
@@ -561,6 +588,7 @@
           {
             "animationType": "visibility",
             "variable": "part_useDefaultModel_2",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -572,6 +600,7 @@
           {
             "animationType": "visibility",
             "variable": "part_useDefaultModel_3",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -589,6 +618,9 @@
             "animationType": "translation",
             "variable": "transmission_reversed",
             "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
           }
@@ -619,6 +651,8 @@
             "variable": "left_turn_signal",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
           },
@@ -626,6 +660,9 @@
             "animationType": "translation",
             "variable": "0_5_15_cycle",
             "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
           }
@@ -650,6 +687,8 @@
             "variable": "right_turn_signal",
             "axis": [0.0,1.0,0.0],
             "offset": -1.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
           },
@@ -657,6 +696,9 @@
             "animationType": "translation",
             "variable": "0_5_15_cycle",
             "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
           }
@@ -677,58 +719,43 @@
         "color": "FF0000",
         "brightnessAnimations": [
           {
+            "animationType": "inhibitor",
+            "variable": "EMERLTS",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "translation",
             "variable": "running_light",
             "axis": [0.0,0.5,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "EMERLTS",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "left_turn_signal_disabled"
-          },
-          {
-            "animationType": "translation",
-            "variable": "0_5_15_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 2,
-            "skipForwardsMovement": true
-          },
-          {
-            "animationType": "activator",
-            "variable": "brake",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 2
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "EMERLTS",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "left_turn_signal_disabled",
-            "clampMin": 1.0,
-            "clampMax": 1.0
           },
           {
             "animationType": "translation",
             "variable": "brake",
             "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
           },
           {
+            "animationType": "inhibitor",
+            "variable": "EMERLTS",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
             "animationType": "activator",
             "variable": "EMERLTS",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -736,6 +763,9 @@
             "animationType": "translation",
             "variable": "0_5_5_cycle",
             "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
           }
@@ -756,58 +786,43 @@
         "color": "FF0000",
         "brightnessAnimations": [
           {
+            "animationType": "inhibitor",
+            "variable": "EMERLTS",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
             "animationType": "translation",
             "variable": "running_light",
             "axis": [0.0,0.5,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "EMERLTS",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "right_turn_signal_disabled"
-          },
-          {
-            "animationType": "translation",
-            "variable": "0_5_15_cycle",
-            "axis": [0.0,1.0,0.0],
-            "duration": 2,
-            "skipForwardsMovement": true
-          },
-          {
-            "animationType": "activator",
-            "variable": "brake",
-            "clampMin": 1.0,
-            "clampMax": 1.0,
-            "reverseDelay": 2
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "EMERLTS",
-            "clampMin": 1.0,
-            "clampMax": 1.0
-          },
-          {
-            "animationType": "inhibitor",
-            "variable": "right_turn_signal_disabled",
-            "clampMin": 1.0,
-            "clampMax": 1.0
           },
           {
             "animationType": "translation",
             "variable": "brake",
             "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
           },
           {
+            "animationType": "inhibitor",
+            "variable": "EMERLTS",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
             "animationType": "activator",
             "variable": "EMERLTS",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           },
@@ -815,6 +830,9 @@
             "animationType": "translation",
             "variable": "5_5_0_cycle",
             "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "duration": 2,
             "skipForwardsMovement": true
           }
@@ -835,11 +853,15 @@
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_useDefaultSounds_2"
+            "variable": "part_useDefaultSounds_2",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "visibility",
             "variable": "door_Tailgate",
+            "offset": 0.0,
             "clampMin": 1.0,
             "clampMax": 1.0
           }
@@ -849,18 +871,25 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0,
         "maxDistance": 0.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       },
       {
         "name": "unuparts:unuparts_rotation_unu_doorcargo_3_close",
         "activeAnimations": [
           {
             "animationType": "inhibitor",
-            "variable": "part_useDefaultSounds_2"
+            "variable": "part_useDefaultSounds_2",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
           },
           {
             "animationType": "visibility",
             "variable": "door_Tailgate",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
             "reverseDelay": 10
           }
         ],
@@ -869,7 +898,8 @@
         "middleDistance": 0.0,
         "middleDistanceVolume": 0.0,
         "maxDistance": 0.0,
-        "maxDistanceVolume": 0.0
+        "maxDistanceVolume": 0.0,
+        "conicalAngle": 0.0
       }
     ],
     "particles": [],
