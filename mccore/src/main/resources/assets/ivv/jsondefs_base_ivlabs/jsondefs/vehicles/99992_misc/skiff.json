@@ -1,0 +1,862 @@
+{
+  "motorized": {
+    "hasOpenTop": true,
+    "hasAutopilot": true,
+    "hasRunningLights": true,
+    "hasHeadlights": true,
+    "emptyMass": 300,
+    "fuelCapacity": 6000,
+    "steeringForceIgnoresSpeed": true,
+    "hasThrustVectoring": true,
+    "steeringForceFactor": 0.5,
+    "tailDistance": 1.25,
+    "axleRatio": 3.55,
+    "brakingFactor": 0.25,
+    "dragCoefficient": 0.5,
+    "litVariable": "engine_magneto_1",
+    "panel": "ivv:budget",
+    "hudTexture": "ivv:textures/guis/ivlabshud.png",
+    "panelTexture": "ivv:textures/guis/ivlabspanel.png"
+  },
+  "parts": [
+    {
+      "pos": [0.5,0.125,-0.6],
+      "partScale": [0.5,0.5,0.5],
+      "extraCollisionBoxOffset": 0.625,
+      "isController": true,
+      "isPermanent": true,
+      "maxValue": 5.0,
+      "defaultPart": "ivv:theinvisitire",
+      "types": [
+        "ground_wheel_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "10_10_0_cycle",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "pos": [-0.5,0.125,-0.6],
+      "partScale": [0.5,0.5,0.5],
+      "extraCollisionBoxOffset": 0.625,
+      "isController": true,
+      "isPermanent": true,
+      "maxValue": 5.0,
+      "defaultPart": "ivv:theinvisitire",
+      "types": [
+        "ground_wheel_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "10_10_0_cycle",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "pos": [0.5,0.125,2.8],
+      "partScale": [0.5,0.5,0.5],
+      "isController": true,
+      "isPermanent": true,
+      "turnsWithSteer": true,
+      "maxValue": 5.0,
+      "defaultPart": "ivv:theinvisitire",
+      "types": [
+        "ground_wheel_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "10_10_0_cycle",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "pos": [-0.5,0.125,2.8],
+      "partScale": [0.5,0.5,0.5],
+      "isController": true,
+      "isPermanent": true,
+      "turnsWithSteer": true,
+      "maxValue": 5.0,
+      "defaultPart": "ivv:theinvisitire",
+      "types": [
+        "ground_wheel_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "10_10_0_cycle",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,0.5,-1.25],
+      "turnsWithSteer": true,
+      "maxValue": 5.0,
+      "intakeOffset": 1.0,
+      "types": [
+        "engine_boat",
+        "engine_rocket"
+      ],
+      "linkedParts": [],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [0.0,0.5,-1.25],
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [0.0,0.5,-1.25],
+          "axis": [0.0,0.0,-0.111111111],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,0.0,-1.25],
+      "rot": [0.0,0.0,0.0],
+      "turnsWithSteer": true,
+      "maxValue": 5.0,
+      "intakeOffset": 32767.0,
+      "types": [
+        "engine_jet"
+      ],
+      "defaultPart": "ivv:magicmotor_thrust",
+      "linkedParts": [],
+      "activeAnimations": [
+        {
+          "animationType": "visibility",
+          "variable": "speed",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 5.0
+        },
+        {
+          "animationType": "visibility",
+          "variable": "part_present_5",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ],
+      "animations": [
+        {
+          "animationType": "rotation",
+          "variable": "rudder",
+          "centerPoint": [0.0,0.5,-1.25],
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "pos": [0.0,0.25,-0.8],
+      "isController": true,
+      "isPermanent": true,
+      "canDisableGun": true,
+      "defaultPart": "ivv:rockseat",
+      "types": [
+        "seat_invisible"
+      ],
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "cheat_anim_gun_active",
+          "axis": [0.4375,0.0,0.125],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "duration": 10
+        },
+        {
+          "animationType": "rotation",
+          "variable": "cheat_anim_gun_active",
+          "centerPoint": [0.0,0.25,-0.8],
+          "axis": [0.0,-60.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "duration": 10
+        }
+      ]
+    },
+    {
+      "pos": [0.0,0.5,0.4375],
+      "maxValue": 32767.0,
+      "minYaw": -15.0,
+      "maxYaw": 15.0,
+      "minPitch": -1.0,
+      "maxPitch": 10.0,
+      "types": [
+        "gun_hand_punt"
+      ],
+      "linkedParts": [7],
+      "animations": [
+        {
+          "animationType": "inhibitor",
+          "variable": "gun_active_1",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_yaw_1",
+          "centerPoint": [0.0,0.5,0.4375],
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_yaw_1",
+          "centerPoint": [0.0,0.5,0.4375],
+          "axis": [0.2,0.0,0.0],
+          "offset": -1.0,
+          "clampMin": -1.0,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "rotation",
+          "variable": "gun_pitch_1",
+          "centerPoint": [0.0,0.5,0.4375],
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    }
+  ],
+  "collisionGroups": [
+    {
+      "collisionTypes": [
+        "attack",
+        "entity",
+        "click"
+      ],
+      "collisions": [
+        {
+          "pos": [0.0,-0.0625,-0.375],
+          "width": 1.0,
+          "height": 0.125
+        },
+        {
+          "pos": [0.0,-0.0625,0.625],
+          "width": 1.0,
+          "height": 0.125
+        },
+        {
+          "pos": [0.0,-0.0625,1.625],
+          "width": 1.0,
+          "height": 0.125
+        },
+        {
+          "pos": [0.0,-0.0625,2.625],
+          "width": 1.0,
+          "height": 0.125
+        }
+      ]
+    }
+  ],
+  "instruments": [
+    {
+      "pos": [0.13281,0.26076,0.84545],
+      "rot": [20.0,0.0,0.0],
+      "scale": 0.015,
+      "hudX": 143,
+      "hudY": 70,
+      "hudScale": 0.325,
+      "defaultInstrument": "ivv:tach"
+    },
+    {
+      "pos": [-0.13281,0.26076,0.84545],
+      "rot": [20.0,0.0,0.0],
+      "scale": 0.015,
+      "hudX": 237,
+      "hudY": 70,
+      "hudScale": 0.325,
+      "defaultInstrument": "ivv:mph"
+    },
+    {
+      "pos": [0.03125,0.2901,0.85619],
+      "rot": [20.0,0.0,0.0],
+      "scale": 0.006,
+      "hudX": 179,
+      "hudY": 59,
+      "hudScale": 0.15,
+      "defaultInstrument": "ivv:fuel"
+    },
+    {
+      "pos": [-0.03125,0.2901,0.85619],
+      "rot": [20.0,0.0,0.0],
+      "scale": 0.006,
+      "hudX": 201,
+      "hudY": 59,
+      "hudScale": 0.15,
+      "defaultInstrument": "ivv:temp"
+    },
+    {
+      "pos": [0.03125,0.23138,0.83479],
+      "rot": [20.0,0.0,0.0],
+      "scale": 0.006,
+      "hudX": 179,
+      "hudY": 81,
+      "hudScale": 0.15,
+      "defaultInstrument": "ivv:oil"
+    },
+    {
+      "pos": [-0.03125,0.23138,0.83479],
+      "rot": [20.0,0.0,0.0],
+      "scale": 0.006,
+      "hudX": 201,
+      "hudY": 81,
+      "hudScale": 0.15,
+      "defaultInstrument": "ivv:power"
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 65,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 135,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 205,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 275,
+      "hudY": 104,
+      "hudScale": 0.5
+    },
+    {
+      "pos": [0.0,0.0,0.0],
+      "rot": [27.0,0.0,0.0],
+      "hudX": 345,
+      "hudY": 104,
+      "hudScale": 0.5
+    }
+  ],
+  "definitions": [
+    {
+      "subName": "_oak",
+      "name": "Skiffle",
+      "description": "bblbllbrlbrllblbll",
+      "extraMaterialLists": [
+        [
+          "minecraft:boat:0:2"
+        ]
+      ]
+    }
+  ],
+  "variableModifiers": [
+    {
+      "variable": "fuelConsumption_6",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,0.25],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "engine_magneto_2",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!part_present_5",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "seat_occupied_1",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "cheat_anim_gun_active",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "part_present_5",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!gun_active_1",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "waterBallastFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!inliquid",
+          "axis": [0.0,0.2,0.0],
+          "offset": 1.15,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "reverseDelay": 10
+        },
+        {
+          "animationType": "translation",
+          "variable": "vertical_speed",
+          "axis": [0.0,-0.5,0.0],
+          "offset": 0.0,
+          "clampMin": -0.01,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "tick",
+          "axis": [0.0,-0.5,0.0],
+          "offset": 1.0,
+          "clampMin": -0.05,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!damage_totaled",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "isonground",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "ground_onground_1",
+          "axis": [0.0,0.0,0.25],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_onground_2",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_onground_3",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "ground_onground_4",
+          "axis": [0.0,0.25,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "steeringForceFactor",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "velocity",
+          "axis": [0.0,0.0,-0.2],
+          "offset": 1.0,
+          "clampMin": 0.05,
+          "clampMax": 1.0,
+          "absolute": true
+        },
+        {
+          "animationType": "translation",
+          "variable": "isonground",
+          "axis": [-1.0,0.0,0.0],
+          "offset": 1.0,
+          "clampMin": 0.0,
+          "clampMax": 1.0
+        }
+      ]
+    },
+    {
+      "variable": "dragCoefficient",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "slip_degrees",
+          "axis": [0.0,0.027777778,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "absolute": true
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "inliquid",
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "p_brake",
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "velocity",
+          "axis": [0.0,-80.0,0.0],
+          "offset": 400.0,
+          "clampMin": 0.001,
+          "clampMax": 400.0
+        }
+      ]
+    },
+    {
+      "variable": "brake",
+      "animations": [
+        {
+          "animationType": "visibility",
+          "variable": "inliquid",
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "isonground",
+          "axis": [0.0,0.2,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "row_test_tmp",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "rudder",
+          "axis": [0.0,1.0,0.0],
+          "offset": 0.0,
+          "clampMin": -1.0,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "false",
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "row_test",
+          "clampMin": -0.000000001,
+          "clampMax": 32767.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,359.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "activator",
+          "variable": "false",
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "inhibitor",
+          "variable": "row_test",
+          "clampMin": -32767.0,
+          "clampMax": 359.000000001
+        },
+        {
+          "animationType": "translation",
+          "variable": "true",
+          "axis": [0.0,0.0,360.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "row_test_x",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,60.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "tick",
+          "centerPoint": [0.0,0.5,0.0],
+          "axis": [0.0,0.5,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "inverted": false
+        }
+      ]
+    },
+    {
+      "variable": "row_test_y",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!true",
+          "axis": [0.0,0.0,60.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "rotation",
+          "variable": "tick",
+          "centerPoint": [1.0,0.0,0.0],
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0,
+          "inverted": false
+        }
+      ]
+    }
+  ],
+  "rendering": {
+    "textObjects": [
+      {
+        "pos": [0.0,1.5,2.5],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.5,
+        "variableName": "row_test_x",
+        "variableFactor": 1.0,
+        "variableFormat": "X %01.2f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true
+      },
+      {
+        "pos": [0.0,1.75,2.5],
+        "rot": [0.0,180.0,0.0],
+        "scale": 0.5,
+        "variableName": "row_test_y",
+        "variableFactor": 1.0,
+        "variableFormat": "Y %01.2f",
+        "fontName": "ivv:digifont",
+        "defaultText": "ERROR!",
+        "color": "FFFFFF",
+        "lightsUp": true
+      }
+    ],
+    "cameraObjects": [
+      {
+        "pos": [0.0,0.75,0.4375],
+        "rot": [0.0,0.0,0.0],
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_1",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_yaw_1",
+            "centerPoint": [0.0,0.5,0.4375],
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_yaw_1",
+            "centerPoint": [0.0,0.5,0.4375],
+            "axis": [0.2,0.0,0.0],
+            "offset": -1.0,
+            "clampMin": -1.0,
+            "clampMax": 1.0,
+            "absolute": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_pitch_1",
+            "centerPoint": [0.0,0.5,0.4375],
+            "axis": [1.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      }
+    ],
+    "animatedObjects": [
+      {
+        "objectName": "oar_mount_left",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_5",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "oar_left",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "row_test_y",
+            "centerPoint": [0.71875,0.53125,-0.3125],
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "rotation",
+            "variable": "row_test_x",
+            "centerPoint": [0.71875,0.53125,-0.3125],
+            "axis": [1.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "oar_mount_right",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_5",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      },
+      {
+        "objectName": "engine_mount",
+        "animations": [
+          {
+            "animationType": "visibility",
+            "variable": "part_present_6",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          }
+        ]
+      },
+      {
+        "objectName": "engine_rudder",
+        "applyAfter": "engine_mount",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "rudder",
+            "centerPoint": [0.0,0.5,-1.25],
+            "axis": [0.0,1.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          }
+        ]
+      }
+    ],
+    "lightObjects": [],
+    "sounds": [],
+    "particles": [],
+    "modelType": "obj"
+  },
+  "general": {
+    "health": 60,
+    "materialLists": [
+      []
+    ],
+    "repairMaterialLists": [
+      [
+        "oredict:ingotIron:2",
+        "minecraft:glass_pane:0:1"
+      ]
+    ],
+    "radarWidth": 0.0,
+    "radarRange": 0.0
+  }
+}
