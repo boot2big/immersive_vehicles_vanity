@@ -4,6 +4,14 @@ This is the repository intended to act as a resource for additional contributor-
 
 !! IMPORTANT !!
 
+Official Communications Invites
+
+DISCORD: https://discord.gg/7GRa62DCg4
+
+REVOLT: WIP
+
+IRC: WIP
+
 The official download pages for Immersive Vehicles Vanity are as follows:
 
 https://github.com/boot2big/immersive_vehicles_vanity
