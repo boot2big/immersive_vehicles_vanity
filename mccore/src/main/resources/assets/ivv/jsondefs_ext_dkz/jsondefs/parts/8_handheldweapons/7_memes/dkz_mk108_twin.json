@@ -14,6 +14,7 @@
         "clampMin": 0.0,
         "clampMax": 0.0,
         "duration": 6,
+		"forwardsDelay": 3,
         "forwardsEasing": "easeinback",
         "skipReverseMovement": true
       },
@@ -27,7 +28,7 @@
         "clampMax": 0.0,
         "duration": 10,
         "forwardsEasing": "easeoutback",
-        "forwardsDelay": 40,
+        "forwardsDelay": 70,
         "skipReverseMovement": true
       },
       {
@@ -63,7 +64,7 @@
     "handHeld": true,
     "isSemiAuto": true,
     "capacity": 100,
-    "reloadTime": 60,
+    "reloadTime": 80,
     "reloadDelay": 10,
     "muzzleVelocity": 920,
     "fireDelay": 2.0,
@@ -73,10 +74,14 @@
     "maxCaseLength": 90.0,
     "yawSpeed": 1.0,
     "pitchSpeed": 1.0,
+    "pitchRecoil": 2.0,
+    "pitchRecovery": 2.0,
+    "pitchRecoveryTime": 5,
+    "yawRecoil": 1.25,
     "lockRange": 750,
     "lockMaxAngle": 2.0,
     "handHeldNormalOffset": [-0.05,-0.05,0.5],
-    "handHeldAimedOffset": [0.3125,0.05,0.6],
+    "handHeldAimedOffset": [0.3125,-0.00,0.6],
     "muzzleGroups": [
       {
         "muzzles": [
@@ -106,111 +111,528 @@
       ]
     }
   ],
+  "variableModifiers": [
+    {
+      "variable": "pitchRecoil",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!never",
+          "axis": [0.0,0.0,2.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "gun_inhand_aiming",
+          "axis": [0.0,-1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "pitchRecovery",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!never",
+          "axis": [0.0,0.0,2.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "gun_inhand_aiming",
+          "axis": [0.0,-1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "yawRecoil",
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "!never",
+          "axis": [0.0,0.0,2.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "gun_inhand_aiming",
+          "axis": [0.0,-1.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    }
+  ],
   "rendering": {
     "animatedObjects": [
       {
-        "objectName": "barrel",
+        "objectName": "mg",
+        "animations": []
+      },
+      {
+        "objectName": "loadinghatchT",
         "animations": [
           {
-            "animationType": "translation",
-            "variable": "gun_cooldown",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,-0.226223],
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.312017,0.706468],
+            "axis": [75.0,0.0,0.0],
             "offset": 0.0,
             "clampMin": 0.0,
             "clampMax": 0.0,
             "duration": 3,
-            "forwardsEasing": "easeinelastic",
+			"skipReverseMovement": true
+          },
+		  {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,0.312017,0.706468],
+            "axis": [-75.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "duration": 3,
+			"forwardsDelay": 75,
+			"skipReverseMovement": true
+          }
+        ]
+      },
+	  {
+        "objectName": "loadinghatchB",
+        "animations": [
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,-0.134603,0.706468],
+            "axis": [75.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "duration": 3,
+			"forwardsDelay": 3,
+			"skipReverseMovement": true
+          },
+		  {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,-0.134603,0.706468],
+            "axis": [-75.0,0.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "duration": 3,
+			"forwardsDelay": 72,
+			"skipReverseMovement": true
+          }
+        ]
+      },
+	  {
+        "objectName": "drum",
+        "animations": [
+		  {
+            "animationType": "inhibitor",
+            "variable": "gun_controller_firstperson",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "translation",
+            "variable": "gun_reload",
+            "axis": [0.0,-2.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "duration": 10,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 12,
             "skipReverseMovement": true
           },
           {
             "animationType": "translation",
-            "variable": "gun_cooldown",
-            "centerPoint": [0.0,0.0,0.0],
-            "axis": [0.0,0.0,0.226223],
+            "variable": "gun_reload",
+            "axis": [0.0,2.0,0.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "duration": 10,
+            "forwardsEasing": "easeinoutcubic",
+            "reverseEasing": "easeinoutcubic",
+            "forwardsDelay": 35,
+            "skipReverseMovement": true
+          },
+          {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,-0.558529,0.694504],
+            "axis": [0.0,0.0,-30.0],
             "offset": 0.0,
             "clampMin": 0.0,
             "clampMax": 0.0,
             "duration": 3,
-            "forwardsEasing": "easeincubic",
-            "forwardsDelay": 4,
-            "skipReverseMovement": true
+			"forwardsDelay": 9,
+			"skipReverseMovement": true
+          },
+		  {
+            "animationType": "rotation",
+            "variable": "gun_reload",
+            "centerPoint": [0.0,-0.558529,0.694504],
+            "axis": [0.0,0.0,30.0],
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "duration": 3,
+			"forwardsDelay": 55,
+			"skipReverseMovement": true
+          },
+          {
+            "animationType": "activator",
+            "variable": "gun_controller_firstperson",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "inhibitor",
+            "variable": "!gun_controller_firstperson",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "forwardsDelay": 2
           }
         ]
       },
       {
-        "objectName": "&flameB_&flame",
+        "objectName": "feedtubes",
+        "applyAfter": "drum",
+        "animations": []
+      },
+      {
+        "objectName": "casingT1",
+        "applyAfter": "feedtubes",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 63
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "reverseDelay": 3
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "offset": 0.0,
+            "clampMin": 6.0,
+            "clampMax": 100.0
+          }
+		]
+      },
+      {
+        "objectName": "casingB1",
+        "applyAfter": "feedtubes",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 60
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "reverseDelay": 3
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "offset": 0.0,
+            "clampMin": 5.0,
+            "clampMax": 100.0
+          }
+		]
+      },
+      {
+        "objectName": "casingT2",
+        "applyAfter": "feedtubes",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 63
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "reverseDelay": 3
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "offset": 0.0,
+            "clampMin": 4.0,
+            "clampMax": 100.0
+          }
+		]
+      },
+      {
+        "objectName": "casingB2",
+        "applyAfter": "feedtubes",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 60
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "reverseDelay": 3
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "offset": 0.0,
+            "clampMin": 3.0,
+            "clampMax": 100.0
+          }
+		]
+      },
+      {
+        "objectName": "casingT3",
+        "applyAfter": "feedtubes",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 63
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "reverseDelay": 3
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "offset": 0.0,
+            "clampMin": 2.0,
+            "clampMax": 100.0
+          }
+		]
+      },
+      {
+        "objectName": "casingB3",
+        "applyAfter": "feedtubes",
+        "animations": [
+          {
+            "animationType": "inhibitor",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0,
+            "forwardsDelay": 60
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_reload",
+            "offset": 0.0,
+            "clampMin": 0.0,
+            "clampMax": 0.0,
+            "reverseDelay": 3
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_ammo_count",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 100.0
+          }
+		]
+      },
+      {
+        "objectName": "heiT1",
+        "applyAfter": "casingT1",
+        "animations": []
+      },
+      {
+        "objectName": "heiB1",
+        "applyAfter": "casingB1",
+        "animations": []
+      },
+      {
+        "objectName": "heiT2",
+        "applyAfter": "casingT2",
+        "animations": []
+      },
+      {
+        "objectName": "heiB2",
+        "applyAfter": "casingB2",
+        "animations": []
+      },
+      {
+        "objectName": "heiT3",
+        "applyAfter": "casingT3",
+        "animations": []
+      },
+      {
+        "objectName": "heiB3",
+        "applyAfter": "casingB3",
+        "animations": []
+      },
+      {
+        "objectName": "&flameB",
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "!gun_fired",
+            "variable": "gun_fired",
             "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
       {
-        "objectName": "&flameiB_&flamei",
+        "objectName": "&flameiB",
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "!gun_fired",
+            "variable": "gun_fired",
             "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "offset": 0.0,
+            "clampMin": 1.0,
+            "clampMax": 1.0
           }
         ]
       },
       {
-        "objectName": "&flameT_&flame",
+        "objectName": "&flameT",
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "!gun_fired",
+            "variable": "gun_fired",
             "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "offset": 0.0,
+            "clampMin": 2.0,
+            "clampMax": 2.0
           }
         ]
       },
       {
-        "objectName": "&flameiT_&flamei",
+        "objectName": "&flameiT",
         "animations": [
           {
             "animationType": "visibility",
-            "variable": "!gun_fired",
+            "variable": "gun_fired",
             "offset": 0.0,
-            "clampMin": 0.0,
-            "clampMax": 0.0
+            "clampMin": 1.0,
+            "clampMax": 1.0
+          },
+          {
+            "animationType": "visibility",
+            "variable": "gun_active_muzzlegroup",
+            "offset": 0.0,
+            "clampMin": 2.0,
+            "clampMax": 2.0
           }
         ]
       }
     ],
     "lightObjects": [
       {
-        "objectName": "&flameB_&flame",
+        "objectName": "&flameB",
         "emissive": true,
         "color": "FAB774",
         "brightnessAnimations": [],
         "blendableComponents": []
       },
       {
-        "objectName": "&flameiB_&flamei",
+        "objectName": "&flameiB",
         "emissive": true,
         "color": "FEFEFE",
         "brightnessAnimations": [],
         "blendableComponents": []
       },
       {
-        "objectName": "&flameT_&flame",
+        "objectName": "&flameT",
         "emissive": true,
         "color": "FAB774",
         "brightnessAnimations": [],
         "blendableComponents": []
       },
       {
-        "objectName": "&flameiT_&flamei",
+        "objectName": "&flameiT",
         "emissive": true,
         "color": "FEFEFE",
         "brightnessAnimations": [],
