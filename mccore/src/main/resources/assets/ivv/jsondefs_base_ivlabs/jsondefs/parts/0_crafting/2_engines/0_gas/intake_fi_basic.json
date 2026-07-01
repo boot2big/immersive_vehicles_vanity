@@ -19,8 +19,8 @@
   "constantValues": {
     "tsaotsah": 1.0,
     "part_engine_intake_fuelinjection": 1.0,
-    "part_engine_intake_efficiency": 0.0,
-    "part_engine_intake_power": 0.0
+    "intake_efficiency_preprocessed": 0.0,
+    "intake_power_preprocessed": 0.1
   },
   "variableModifiers": [
     {
@@ -29,11 +29,81 @@
       "animations": [
         {
           "animationType": "translation",
+          "variable": "electric_power",
+          "axis": [0.0,0.0,100.0],
+          "offset": -400.0,
+          "clampMin": -0.001,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
           "variable": "!damage_totaled",
+          "axis": [1.0,0.0,0.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        }
+      ]
+    },
+    {
+      "variable": "part_engine_intake_efficiency",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "intake_efficiency_preprocessed",
           "axis": [0.0,0.0,1.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "electric_power",
+          "axis": [0.1,0.0,0.0],
+          "offset": 0.1,
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "electric_power",
+          "axis": [0.0,0.1,0.0],
+          "offset": -0.8,
+          "clampMin": -0.5,
+          "clampMax": 0.001
+        }
+      ]
+    },
+    {
+      "variable": "part_engine_intake_power",
+      "minValue": -1.0,
+      "maxValue": 1.0,
+      "animations": [
+        {
+          "animationType": "translation",
+          "variable": "intake_power_preprocessed",
+          "axis": [0.0,0.0,1.0],
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "electric_power",
+          "axis": [0.1,0.0,0.0],
+          "offset": 0.1,
+          "clampMin": 0.5,
+          "clampMax": 1.0
+        },
+        {
+          "animationType": "translation",
+          "variable": "electric_power",
+          "axis": [0.0,0.1,0.0],
+          "offset": -0.8,
+          "clampMin": -0.5,
+          "clampMax": 0.001
         }
       ]
     }

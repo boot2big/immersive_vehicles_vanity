@@ -1,2 +1,2 @@
-rootProject.name = "Immersive Vehicles"
-include("mccore", "mcinterfaceforge1122", "mcinterfaceforge1165")
+rootProject.name = "Immersive Vehicles Vanity"
+include("mccore", "mcinterfaceforge1122", "mcinterfaceforge1165", "mcinterfaceforge1201")

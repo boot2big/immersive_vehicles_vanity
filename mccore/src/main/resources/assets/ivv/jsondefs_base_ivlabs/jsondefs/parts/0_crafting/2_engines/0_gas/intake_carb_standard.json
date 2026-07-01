@@ -59,36 +59,42 @@
   },
   "variableModifiers": [
     {
-      "variable": "throttle_modified",
+      "variable": "initialize_tick",
       "maxValue": 1.0,
       "animations": [
         {
-          "animationType": "translation",
-          "variable": "throttle_modified",
-          "axis": [0.0,-0.375,0.0],
+          "animationType": "visibility",
+          "variable": "initialize_tick",
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
         },
         {
           "animationType": "translation",
-          "variable": "throttle",
-          "axis": [0.0,0.375,0.0],
-          "offset": 0.0,
+          "variable": "tick",
+          "axis": [0.0,1.0,0.0],
+          "offset": -1.0,
           "clampMin": 0.0,
           "clampMax": 0.0
         }
       ]
     },
     {
-      "variable": "temp_ambient_smoothed",
+      "variable": "intake_tune_temp",
       "minValue": -32768.0,
       "maxValue": 32767.0,
       "animations": [
         {
+          "animationType": "visibility",
+          "variable": "initialize_tick",
+          "offset": 0.0,
+          "clampMin": 0.0,
+          "clampMax": 0.0
+        },
+        {
           "animationType": "translation",
-          "variable": "temp_ambient_smoothed",
-          "axis": [0.0,-0.125,0.0],
+          "variable": "intake_biome_temp_default",
+          "axis": [0.0,0.0,-1.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
@@ -96,7 +102,7 @@
         {
           "animationType": "translation",
           "variable": "parent_engine_temp_ambient",
-          "axis": [0.0,0.125,0.0],
+          "axis": [0.0,1.0,0.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
@@ -135,7 +141,7 @@
           "animationType": "translation",
           "variable": "parent_engine_temp",
           "axis": [0.0,0.0,0.5],
-          "offset": 5.0,
+          "offset": 0.0,
           "clampMin": 40.0,
           "clampMax": 55.0
         },
@@ -149,7 +155,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "temp_ambient_smoothed",
+          "variable": "parent_engine_temp_ambient",
           "axis": [0.0,-1.0,0.0],
           "offset": 0.0,
           "clampMin": 0.0,
@@ -175,8 +181,7 @@
     },
     {
       "variable": "part_assembled",
-      "minValue": -1000.0,
-      "maxValue": 1000.0,
+      "maxValue": 1.0,
       "animations": [
         {
           "animationType": "translation",
@@ -193,49 +198,6 @@
           "clampMin": 20.0,
           "clampMax": 32767.0,
           "absolute": true
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "20_10_0_cycle",
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "activator",
-          "variable": "throttle",
-          "offset": 0.0,
-          "clampMin": 0.375,
-          "clampMax": 0.625
-        },
-        {
-          "animationType": "inhibitor",
-          "variable": "80_20_0_cycle",
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 0.0
-        },
-        {
-          "animationType": "activator",
-          "variable": "part_engine_intake_temperature_diff",
-          "offset": 0.0,
-          "clampMin": 0.0,
-          "clampMax": 19.99,
-          "absolute": true
-        },
-        {
-          "animationType": "activator",
-          "variable": "parent_engine_powered",
-          "offset": 0.0,
-          "clampMin": 1.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "activator",
-          "variable": "parent_engine_temp",
-          "offset": 0.0,
-          "clampMin": 70.0,
-          "clampMax": 32767.0
         },
         {
           "animationType": "inhibitor",
@@ -285,7 +247,7 @@
           "absolute": true
         }
       ]
-    },
+    }/*,
     {
       "variable": "part_engine_intake_rpm_modifier",
       "minValue": -0.75,
@@ -333,7 +295,7 @@
           "absolute": true
         }
       ]
-    }
+    }*/
   ],
   "rendering": {
     "textObjects": [],
@@ -343,7 +305,7 @@
         "animations": [
           {
             "animationType": "rotation",
-            "variable": "throttle_modified",
+            "variable": "throttle",
             "centerPoint": [-0.125,0.03125,0.03125],
             "axis": [-45.0,0.0,0.0],
             "offset": 0.0,

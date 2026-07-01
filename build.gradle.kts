@@ -26,6 +26,7 @@ var modVersion: String = project.property("global_version").toString()
 var mcCore = project(":mccore")
 var mcInterfaceForge1122 = project(":mcinterfaceforge1122")
 var mcInterfaceForge1165 = project(":mcinterfaceforge1165")
+var mcInterfaceForge1201 = project(":mcinterfaceforge1201")
 
 tasks.register("buildCore") {
     doFirst {
@@ -72,10 +73,35 @@ tasks.register("buildForge1165") {
     }
 }
 
+/*tasks.register("buildForge1182") {
+    doFirst { preBuild() }
+    doLast {
+        moveToOut(mcInterfaceForge1182, "1.18.2")
+    }
+    dependsOn(mcInterfaceForge1182.tasks.build)
+}
+
+tasks.register("buildForge1192") {
+    doFirst { preBuild() }
+    doLast {
+        moveToOut(mcInterfaceForge1192, "1.19.2")
+    }
+    dependsOn(mcInterfaceForge1192.tasks.build)
+}*/
+
+tasks.register("buildForge1201") {
+    doFirst { preBuild() }
+    doLast {
+        moveToOut(mcInterfaceForge1201, "1.20.1")
+    }
+    dependsOn(mcInterfaceForge1201.tasks.build)
+}
+
 tasks.register("buildForgeAll") {
     // Start by generating the 1.12.2, then run Python script, then 1.16.5
     dependsOn(tasks.getByName("buildForge1122"))
     dependsOn(tasks.getByName("buildForge1165"))
+    dependsOn(tasks.getByName("buildForge1201"))
 }
 
 @OptIn(ExperimentalPathApi::class)
@@ -95,3 +121,10 @@ fun preBuild() {
             .replace(Regex("\"version\"=\"[^\"]*\""), "\"version\"=\"$modVersion\"")
             .replace(Regex("MODVER = \"[^\"]*\";"), "MODVER = \"$modVersion\";")) }
 }
+
+subprojects {
+    tasks.withType<Jar>().configureEach {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+}
+
