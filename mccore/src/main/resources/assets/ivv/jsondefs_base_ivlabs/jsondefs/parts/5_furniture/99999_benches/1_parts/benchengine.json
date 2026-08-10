@@ -2,7 +2,6 @@
   "generic": {
     "type": "generic_furniture_double",
     "canBeRemovedByHand": true,
-    "forwardsDamageMultiplier": 0.0,
     "canBePlacedOnGround": true,
     "width": 1.0,
     "height": 1.0
@@ -103,26 +102,19 @@
   "variableModifiers": [
     {
       "variable": "bench_engine_integrity",
+      "maxValue": 1,
       "animations": [
         {
           "animationType": "translation",
           "variable": "engine_hours_1",
           "axis": [0.0,0.0,-0.001],
           "offset": 1.0,
-          "clampMin": 6.2134E-5,
+          "clampMin": 0.25,
           "clampMax": 1.0
         },
         {
           "animationType": "translation",
-          "variable": "damage_percent_1",
-          "axis": [-1.0,0.0,0.0],
-          "offset": 1.0,
-          "clampMin": 0.0,
-          "clampMax": 1.0
-        },
-        {
-          "animationType": "translation",
-          "variable": "damage_totaled_1",
+          "variable": "engine_lockedup_1",
           "axis": [-1.0,0.0,0.0],
           "offset": 1.0,
           "clampMin": 0.0,
@@ -135,7 +127,7 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "engine_fuel_consumption_1",
+          "variable": "fuelConsumption_1",
           "axis": [0.0,0.0,8.363636364],
           "offset": 0.0,
           "clampMin": 0.0,
@@ -163,15 +155,15 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "engine_supercharger_fuel_consumption_1",
-          "axis": [0.0,0.0,114.903846154],
+          "variable": "superchargerFuelConsumption_1",
+          "axis": [0.0,0.0,119.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
         },
         {
           "animationType": "translation",
-          "variable": "engine_supercharger_efficiency_1",
+          "variable": "superchargerEfficiency_1",
           "axis": [1.0,0.0,0.0],
           "offset": 0.0,
           "clampMin": 0.0,
@@ -179,8 +171,8 @@
         },
         {
           "animationType": "translation",
-          "variable": "engine_fuel_consumption_1",
-          "axis": [0.0,459.615384615,0.0],
+          "variable": "fuelConsumption_1",
+          "axis": [0.0,366.15384615384615384615,0.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
@@ -191,7 +183,7 @@
           "axis": [-1.5E-4,0.0,0.0],
           "offset": 1.0,
           "clampMin": 0.125,
-          "clampMax": 0.0
+          "clampMax": 1.0
         },
         {
           "animationType": "inhibitor",
@@ -222,15 +214,15 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "engine_supercharger_fuel_consumption_1",
-          "axis": [0.0,0.0,135.576923077],
+          "variable": "superchargerFuelConsumption_1",
+          "axis": [0.0,0.0,141],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
         },
         {
           "animationType": "translation",
-          "variable": "engine_supercharger_efficiency_1",
+          "variable": "superchargerEfficiency_1",
           "axis": [1.0,0.0,0.0],
           "offset": 0.0,
           "clampMin": 0.0,
@@ -238,8 +230,8 @@
         },
         {
           "animationType": "translation",
-          "variable": "engine_fuel_consumption_1",
-          "axis": [0.0,542.307692308,0.0],
+          "variable": "fuelConsumption_1",
+          "axis": [0.0,433.84615384615384615385,0.0],
           "offset": 0.0,
           "clampMin": 0.0,
           "clampMax": 0.0
@@ -281,7 +273,7 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "engine_rpm_safe_1",
+          "variable": "maxSafeRPM_1",
           "axis": [0.0,0.0,1.0],
           "offset": 0.0,
           "clampMin": 0.0,
@@ -302,7 +294,7 @@
       "animations": [
         {
           "animationType": "translation",
-          "variable": "engine_fuel_consumption_1",
+          "variable": "fuelConsumption_1",
           "axis": [0.0,0.0,1.0],
           "offset": 0.0,
           "clampMin": 0.0,
@@ -310,7 +302,7 @@
         },
         {
           "animationType": "translation",
-          "variable": "engine_supercharger_fuel_consumption_1",
+          "variable": "superchargerFuelConsumption_1",
           "axis": [0.0,1.0,0.0],
           "offset": 0.0,
           "clampMin": 0.0,
@@ -409,7 +401,7 @@
         "pos": [-0.24375,1.45625,0.066468],
         "rot": [-3.0,0.0,0.0],
         "scale": 0.0625,
-        "variableName": "engine_fuel_consumption_1",
+        "variableName": "fuelConsumption_1",
         "variableFactor": 1.0,
         "variableFormat": "]FC: %01.1f",
         "fontName": "ivv:digifont",
